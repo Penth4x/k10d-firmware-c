@@ -1,0 +1,44 @@
+/* @k10d initialize_event_queue_entry_104c3956 @ 0x104c3956
+ * name: model (proposed by the local model from the decompile, confidence 0.60)
+ * unit: 230_menu_init_signal (unit names are model-proposed)
+ * purpose:
+ *   Initializes a queue entry structure at offset 0x78 of param_1 and dispatches a virtual
+ *   method.
+ * summary:
+ *   The function sets up a local structure with a tag 0xa00006 and pointers to the
+ *   arguments. It calls eventflag_clr_flg and eventflag_wai_flg on the sub-structure at
+ *   param_1+0x78 with a size of 0x400, likely initializing a buffer or queue. It then
+ *   invokes virtual method slot 1 of the class at DAT_1059e4d0 via
+ *   virtual_destructor_free_10428222, passing the local structure and a count of 2. The
+ *   specific camera subsystem is not identifiable from the provided callees.
+ * @end */
+#include "frv_intrinsics.h"
+#include "globals.h"
+#include "funcs.h"
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+uint32_t initialize_event_queue_entry_104c3956(int param_1,void *param_2,uint32_t param_3)
+
+{
+  uint32_t *puVar1;
+  uintptr_t sp;
+  int iStack_1c;
+  void *pvStack_18;
+  uint32_t uStack_14;
+  uint32_t uStack_10;
+  void *puStack_c;
+  
+  puStack_c = &DAT_1059e4d0/*ROM*/;
+  puVar1 = (uint32_t *)(param_1 + 0x78);
+  uStack_14 = 0xa00006;
+  iStack_1c = param_1;
+  pvStack_18 = param_2;
+  uStack_10 = param_3;
+  eventflag_clr_flg(puVar1,0x400);
+  reg_framework_send(*(int *)(param_1 + 0x10) + 8);
+  eventflag_wai_flg(puVar1,0x400,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
+  eventflag_clr_flg(puVar1,0x400);
+  virtual_destructor_free_10428222(&iStack_1c,2);
+  return 1;
+}

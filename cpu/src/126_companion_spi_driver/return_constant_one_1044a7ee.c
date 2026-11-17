@@ -1,0 +1,13 @@
+/* @k10d return_constant_one_1044a7ee @ 0x1044a7ee
+ * name: unnamed (no name assigned (model abstained or not yet seen))
+ * unit: 126_companion_spi_driver (unit names are model-proposed)
+ * @end */
+#include "frv_intrinsics.h"
+#include "globals.h"
+#include "funcs.h"
+
+uint32_t return_constant_one_1044a7ee(uint32_t param_x0)
+
+{
+  return 1;
+}

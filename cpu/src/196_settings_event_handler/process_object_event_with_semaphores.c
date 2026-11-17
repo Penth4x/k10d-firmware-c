@@ -1,0 +1,67 @@
+/* @k10d process_object_event_with_semaphores @ 0x10492c36
+ * name: model (proposed by the local model from the decompile, confidence 0.85)
+ * unit: 196_settings_event_handler (unit names are model-proposed)
+ * purpose:
+ *   Acquires semaphores, dispatches virtual calls on an object, and signals completion
+ *   based on state flags.
+ * summary:
+ *   The function locks two semaphores at offsets 0x2c and 0x34 of the first parameter. It
+ *   checks a flag at offset 0x21 and calls a helper (iterate_and_check_queue_items). If
+ *   successful, it retrieves an object pointer from param_2, invokes virtual slots 2 and 3,
+ *   and conditionally calls console_printf with specific constants. It updates a pointer at
+ *   offset 0x3c and finally signals the semaphores.
+ * @end */
+#include "frv_intrinsics.h"
+#include "globals.h"
+#include "funcs.h"
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void process_object_event_with_semaphores(int param_1,int *param_2,void *param_3,void *param_4)
+
+{
+  int iVar1;
+  int *piVar2;
+  bool bVar4;
+  uint32_t uVar3;
+  void *pvVar5;
+  uint64_t uVar6;
+  
+  twai_sem_obj((void *)(param_1 + 0x2c),_DAT_105a2bf0/*ROM*/);
+  twai_sem_obj((void *)(param_1 + 0x34),_DAT_105a2bf0/*ROM*/);
+  if ((*(char *)(param_1 + 0x21) != '\0') && (iVar1 = iterate_and_check_queue_items(param_1), iVar1 == 0)) {
+    piVar2 = (int *)(*(code *)0x10491edc/*ROM*/)(param_2);
+    iVar1 = (**(code **)(*piVar2 + 0x14))((int)piVar2 + (int)*(short *)(*piVar2 + 0x10));
+    if (iVar1 != 0) {
+      pvVar5 = (void *)0x2;
+      bVar4 = test_flag_bits_in_struct((int)param_2,2);
+      if (bVar4) {
+        if (*(int *)(param_1 + 0x3c) != 0) {
+          console_printf((void *)0x105b437c/*ROM*/,pvVar5,param_3,param_4);
+        }
+        uVar3 = (*(code *)0x10491edc/*ROM*/)(param_2);
+        *(uint32_t *)(param_1 + 0x3c) = uVar3;
+      }
+      else {
+        iVar1 = *(int *)(param_1 + 0x3c);
+        uVar6 = (*(code *)0x10491edc/*ROM*/)(param_2);
+        if (iVar1 != (int)((ulonglong)uVar6 >> 0x20)) {
+          console_printf((void *)0x105b439c/*ROM*/,(void *)uVar6,param_3,param_4);
+        }
+        bVar4 = test_flag_bits_in_struct((int)param_2,0x10);
+        if (bVar4) {
+          *(uint32_t *)(param_1 + 0x3c) = 0;
+        }
+      }
+      piVar2 = (int *)(*(code *)0x10491edc/*ROM*/)(param_2);
+      (**(code **)(*piVar2 + 0x1c))((int)piVar2 + (int)*(short *)(*piVar2 + 0x18),0x60001,param_2);
+    }
+  }
+  destroy_virtual_object(param_2,3);
+  if (*(char *)(param_1 + 0x20) == '\0') {
+    wait_for_flag_then_toggle_state(param_1);
+  }
+  sig_sem_obj((void *)(param_1 + 0x34));
+  sig_sem_obj((void *)(param_1 + 0x2c));
+  return;
+}

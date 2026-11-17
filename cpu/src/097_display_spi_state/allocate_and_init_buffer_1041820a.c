@@ -1,0 +1,32 @@
+/* @k10d allocate_and_init_buffer_1041820a @ 0x1041820a
+ * name: unnamed (no name assigned (model abstained or not yet seen))
+ * unit: 097_display_spi_state (unit names are model-proposed)
+ * @end */
+#include "frv_intrinsics.h"
+#include "globals.h"
+#include "funcs.h"
+
+uint32_t allocate_and_init_buffer_1041820a(int param_1,int param_2)
+
+{
+  void *pvVar1;
+  int iVar2;
+  uint32_t uVar3;
+  
+  uVar3 = 1;
+  if (*(int *)(param_2 + 0x48) == 0) {
+    call_kernel_with_short_id((uint32_t *)(param_1 + 0x1550));
+    pvVar1 = (void *)get_system_heap();
+    iVar2 = mempool_get_block(pvVar1,*(void **)(param_2 + 100),0);
+    check_kernel_call_success_10459d88((uint32_t *)(param_1 + 0x1550));
+    if (iVar2 == 0) {
+      uVar3 = 0;
+    }
+    else {
+      (**(code **)(*(int *)(param_2 + 0x8d4) + 0x3c))
+                (*(short *)(*(int *)(param_2 + 0x8d4) + 0x38) + param_2,iVar2);
+      uVar3 = 1;
+    }
+  }
+  return uVar3;
+}

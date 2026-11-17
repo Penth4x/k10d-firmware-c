@@ -1,0 +1,213 @@
+/* @k10d font_expand_plane @ 0x1040bada
+ * name: verified (structural evidence: emulator: converter model produces the Y atlas)
+ * unit: 096_sr_debug_menu (unit names are model-proposed)
+ * purpose:
+ *   Expands one packed-font plane into a glyph atlas plane via the resolution converter
+ *   (per-byte LUT at 0x400+0x100j, matrix at +0x38); part of the UI font build.
+ * summary:
+ *   VERIFIED: emulator: converter model produces the Y atlas
+ * @end */
+#include "frv_intrinsics.h"
+#include "globals.h"
+#include "funcs.h"
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void font_expand_plane(int param_1,void *param_2,int param_3,int param_4,uint32_t param_5)
+
+{
+  uint16_t uVar1;
+  void *pvVar2;
+  void *pvVar3;
+  void *pvVar4;
+  void *pvVar5;
+  void *pvVar6;
+  uint32_t *puVar7;
+  int iVar8;
+  uintptr_t sp;
+  uint16_t uStack_a8;
+  uint16_t uStack_a6;
+  uint16_t uStack_a4;
+  uint16_t uStack_a2;
+  uint16_t uStack_a0;
+  uint16_t uStack_9e;
+  uint16_t uStack_9c;
+  uint16_t uStack_9a;
+  uint16_t uStack_98;
+  uint16_t uStack_96;
+  uint16_t uStack_94;
+  uint16_t uStack_92;
+  uint16_t uStack_90;
+  uint16_t uStack_8e;
+  uint16_t uStack_8c;
+  uint16_t uStack_8a;
+  uint32_t uStack_88;
+  void *pvStack_84;
+  void *pvStack_80;
+  void *pvStack_7c;
+  void *pvStack_78;
+  void *pvStack_74;
+  void *pvStack_70;
+  void *pvStack_6c;
+  void *pvStack_68;
+  uint16_t uStack_64;
+  uint16_t uStack_62;
+  uint16_t uStack_60;
+  uint16_t uStack_5e;
+  uint16_t uStack_5c;
+  uint16_t uStack_5a;
+  uint16_t uStack_58;
+  uint16_t uStack_56;
+  uint16_t uStack_54;
+  uint16_t uStack_52;
+  uint16_t uStack_50;
+  uint16_t uStack_4e;
+  uint16_t uStack_4c;
+  uint16_t uStack_4a;
+  uint16_t uStack_48;
+  uint16_t uStack_46;
+  uint16_t uStack_44;
+  uint16_t uStack_42;
+  uint16_t *puStack_40;
+  uint8_t uStack_3c;
+  uint8_t uStack_3b;
+  uint8_t uStack_3a;
+  uint8_t uStack_39;
+  uint16_t uStack_38;
+  uint16_t uStack_36;
+  uint16_t uStack_34;
+  uint16_t uStack_32;
+  uint32_t uStack_30;
+  uint32_t uStack_2c;
+  uint32_t uStack_28;
+  uint32_t uStack_24;
+  int iStack_20;
+  uint32_t *puStack_1c;
+  uint32_t uStack_18;
+  uint32_t *puStack_14;
+  void *puStack_10;
+  uint32_t uStack_c;
+  
+  iVar8 = (int)(((uint)(param_3 >> 1) >> 0x1e) + param_3) >> 2;
+  pvVar6 = (void *)(iVar8 * param_4);
+  pvVar2 = (void *)get_system_heap();
+  pvVar2 = (void *)mempool_get_block(pvVar2,pvVar6,0);
+  pvVar3 = (void *)get_system_heap();
+  pvVar3 = (void *)mempool_get_block(pvVar3,pvVar6,0);
+  pvVar4 = (void *)get_system_heap();
+  pvVar4 = (void *)mempool_get_block(pvVar4,pvVar6,0);
+  pvVar5 = (void *)get_system_heap();
+  pvVar6 = (void *)mempool_get_block(pvVar5,pvVar6,0);
+  uStack_62 = 0;
+  uStack_5e = 0;
+  uStack_50 = 0;
+  uStack_4e = 0;
+  uStack_4c = 0;
+  uStack_4a = 0;
+  uVar1 = (uint16_t)iVar8;
+  uStack_46 = 1;
+  uStack_44 = 2;
+  uStack_42 = 3;
+  uStack_88 = 0xe;
+  uStack_58 = 0;
+  uStack_56 = 0;
+  uStack_54 = 0;
+  uStack_52 = 0;
+  uStack_48 = 0;
+  uStack_a8 = 0x100;
+  uStack_a6 = 0;
+  uStack_a4 = 0;
+  uStack_a2 = 0;
+  uStack_a0 = 0;
+  uStack_9e = 0x100;
+  uStack_9c = 0;
+  uStack_9a = 0;
+  uStack_98 = 0;
+  uStack_96 = 0;
+  uStack_94 = 0x100;
+  uStack_92 = 0;
+  uStack_90 = 0;
+  uStack_8e = 0;
+  uStack_8c = 0;
+  uStack_8a = 0x100;
+  uStack_3c = 1;
+  uStack_3b = 1;
+  uStack_3a = 1;
+  uStack_39 = 1;
+  uStack_36 = 1;
+  uStack_30 = 0x10599c94/*ROM*/;
+  uStack_34 = 2;
+  uStack_32 = 3;
+  uStack_2c = 0x10599d94/*ROM*/;
+  uStack_18 = 0xa00006;
+  uStack_28 = 0x10599e94/*ROM*/;
+  uStack_24 = 0x10599f94/*ROM*/;
+  uStack_38 = 0;
+  puStack_10 = &DAT_1059e4d0/*ROM*/;
+  puVar7 = (uint32_t *)(param_1 + 0x14);
+  uStack_c = 0;
+  pvStack_84 = param_2;
+  pvStack_80 = param_2;
+  pvStack_7c = param_2;
+  pvStack_78 = param_2;
+  pvStack_74 = pvVar2;
+  pvStack_70 = pvVar3;
+  pvStack_6c = pvVar4;
+  pvStack_68 = pvVar6;
+  uStack_64 = uVar1;
+  uStack_60 = uVar1;
+  uStack_5c = uVar1;
+  uStack_5a = (short)param_4;
+  puStack_40 = &uStack_a8;
+  iStack_20 = param_1;
+  puStack_1c = &uStack_88;
+  puStack_14 = &uStack_88;
+  eventflag_clr_flg(puVar7,1);
+  reg_framework_send(*(int *)(param_1 + 0xc) + 8);
+  eventflag_wai_flg(puVar7,1,&uStack_c,_DAT_105a2af0/*ROM*/);
+  eventflag_clr_flg(puVar7,1);
+  uStack_88 = 0x11;
+  pvStack_74 = (void *)param_5;
+  pvStack_70 = (void *)0x0;
+  pvStack_6c = (void *)0x0;
+  pvStack_68 = (void *)0x0;
+  uStack_58 = 0;
+  uStack_60 = (uint16_t)param_3;
+  uStack_48 = 0;
+  uStack_46 = 1;
+  uStack_52 = 0;
+  uStack_44 = 2;
+  uStack_54 = 0;
+  uStack_42 = 3;
+  uStack_56 = 0;
+  uStack_3c = 0;
+  uStack_3b = 0;
+  uStack_3a = 0;
+  uStack_18 = 0xa00006;
+  uStack_39 = 0;
+  pvStack_84 = pvVar2;
+  pvStack_80 = pvVar3;
+  pvStack_7c = pvVar4;
+  pvStack_78 = pvVar6;
+  uStack_64 = uVar1;
+  uStack_5c = uVar1;
+  uStack_5a = (short)param_4;
+  puStack_40 = &uStack_a8;
+  iStack_20 = param_1;
+  puStack_1c = &uStack_88;
+  puStack_14 = &uStack_88;
+  eventflag_clr_flg(puVar7,1);
+  reg_framework_send(*(int *)(param_1 + 0xc) + 8);
+  eventflag_wai_flg(puVar7,1,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
+  eventflag_clr_flg(puVar7,1);
+  pvVar5 = (void *)get_system_heap();
+  mempool_release_block(pvVar5,pvVar2);
+  pvVar2 = (void *)get_system_heap();
+  mempool_release_block(pvVar2,pvVar3);
+  pvVar2 = (void *)get_system_heap();
+  mempool_release_block(pvVar2,pvVar4);
+  pvVar2 = (void *)get_system_heap();
+  mempool_release_block(pvVar2,pvVar6);
+  virtual_destructor_free_10428222(&iStack_20,2);
+  return;
+}

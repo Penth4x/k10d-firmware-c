@@ -1,0 +1,42 @@
+/* @k10d dispatch_event_if_flag_clear_10391860 @ 0x10391860
+ * name: model (proposed by the local model from the decompile, confidence 0.85)
+ * unit: 040_settings_manager (unit names are model-proposed)
+ * purpose:
+ *   Checks a flag byte and, if clear, prepares a local struct and invokes a virtual method
+ *   on an object pointer.
+ * summary:
+ *   The function first checks if the byte at offset 0x2c4d in the object pointed to by
+ *   param_1 is zero. If so, it calls update_three_field_struct with parameters derived from
+ *   the object and the function arguments. It then dereferences a pointer at offset 0x2c48;
+ *   if non-null, it reads a short value from offset 0x20 of the pointed-to object, calls
+ *   swap_three_words_with_callbacks_10391b84 to populate a local stack buffer, and performs
+ *   a virtual function call (slot 4) on the object using the adjusted pointer and the local
+ *   buffer. Finally, it calls call_single_helper_104df450 with the object and a value from
+ *   offset 0x2c28.
+ * @end */
+#include "frv_intrinsics.h"
+#include "globals.h"
+#include "funcs.h"
+
+void dispatch_event_if_flag_clear_10391860(int param_1,uint32_t param_2,uint32_t param_3)
+
+{
+  short sVar1;
+  int *piVar2;
+  int iVar3;
+  uintptr_t sp;
+  uint8_t auStack_14 [12];
+  
+  if (*(char *)(param_1 + 0x2c4d) == '\0') {
+    update_three_field_struct((void *)(param_1 + 0x2c50),3,param_2,param_3);
+    piVar2 = *(int **)(param_1 + 0x2c48);
+    if (piVar2 != (int *)0x0) {
+      iVar3 = *piVar2;
+      sVar1 = *(short *)(iVar3 + 0x20);
+      swap_three_words_with_callbacks_10391b84(auStack_14,param_1 + 0x2c50);
+      (**(code **)(iVar3 + 0x24))((int)sVar1 + (int)piVar2,auStack_14);
+      call_single_helper_104df450(param_1,*(uint32_t *)(param_1 + 0x2c28));
+    }
+  }
+  return;
+}

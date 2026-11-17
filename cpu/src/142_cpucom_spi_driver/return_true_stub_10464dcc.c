@@ -1,0 +1,19 @@
+/* @k10d return_true_stub_10464dcc @ 0x10464dcc
+ * name: model (proposed by the local model from the decompile, confidence 0.95)
+ * unit: 142_cpucom_spi_driver (unit names are model-proposed)
+ * purpose:
+ *   Returns the constant value 1 with no side effects.
+ * summary:
+ *   The function body consists solely of `return 1;`. It is a virtual method shared by 11
+ *   vtable slots, likely serving as a default or inherited implementation within the
+ *   cpucom_spi_driver module. No callees are invoked and no memory is accessed.
+ * @end */
+#include "frv_intrinsics.h"
+#include "globals.h"
+#include "funcs.h"
+
+uint32_t return_true_stub_10464dcc(void)
+
+{
+  return 1;
+}

@@ -1,0 +1,21 @@
+/* @k10d call_helper_with_sram_address_10437df4 @ 0x10437df4
+ * name: model (proposed by the local model from the decompile, confidence 0.95)
+ * unit: 126_companion_spi_driver (unit names are model-proposed)
+ * purpose:
+ *   Calls a single helper function, passing the SDRAM address 0x8001ea60 as its argument.
+ * summary:
+ *   This function is a thin wrapper that invokes apply_four_param_values with the constant
+ *   0x8001ea60. The address 0x8001ea60 falls within the SDRAM region
+ *   (0x80000000..0x8fffffff), likely pointing to a data structure or buffer. No other
+ *   operations or side effects are visible in this function itself.
+ * @end */
+#include "frv_intrinsics.h"
+#include "globals.h"
+#include "funcs.h"
+
+void call_helper_with_sram_address_10437df4(void)
+
+{
+  apply_four_param_values(0x8001ea60/*SDRAM*/,(uint32_t *)__frv_reg_unset(5));
+  return;
+}

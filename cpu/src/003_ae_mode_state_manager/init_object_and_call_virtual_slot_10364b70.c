@@ -1,0 +1,26 @@
+/* @k10d init_object_and_call_virtual_slot_10364b70 @ 0x10364b70
+ * name: model (proposed by the local model from the decompile, confidence 0.85)
+ * unit: 003_ae_mode_state_manager (unit names are model-proposed)
+ * purpose:
+ *   Sets two fields in an object, invokes a virtual method via vtable, and calls a helper
+ *   function.
+ * summary:
+ *   The function writes 0 to offset 0x204 and 2 to offset 0x208 of the object pointed to by
+ *   param_1. It then performs a virtual call to slot 8 (offset 0x44) of the object's
+ *   vtable, passing the object as the this pointer. Finally, it calls
+ *   release_object_at_offset_0x70 with the object as an argument. The specific subsystem or
+ *   role is not determinable from the provided pseudocode and callees.
+ * @end */
+#include "frv_intrinsics.h"
+#include "globals.h"
+#include "funcs.h"
+
+void init_object_and_call_virtual_slot_10364b70(int *param_1)
+
+{
+  param_1[0x81] = 0;
+  param_1[0x82] = 2;
+  (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1);
+  release_object_at_offset_0x70(param_1);
+  return;
+}

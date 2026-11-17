@@ -1,0 +1,247 @@
+/* @k10d instantiate_and_link_object_tree_103de326 @ 0x103de326
+ * name: model (proposed by the local model from the decompile, confidence 0.95)
+ * unit: 080_settings_ui_manager (unit names are model-proposed)
+ * purpose:
+ *   Instantiates a fixed hierarchy of objects via a factory and links them using parent-
+ *   child and sibling helpers.
+ * summary:
+ *   The function calls app_obj_factory repeatedly with sequential IDs (0x1900001-0x190003f)
+ *   and varying size/offset parameters to create numerous objects. It then uses
+ *   invoke_virtual_then_call_helper_10494188 and graph_link_nextprev to establish
+ *   relationships between these objects, forming a tree structure. Finally, it registers
+ *   the created objects with a container (pvVar27) via iterate_and_remove_list_entry and
+ *   attaches the root to the parent object via set_object_field_at_offset_0x10.
+ * @end */
+#include "frv_intrinsics.h"
+#include "globals.h"
+#include "funcs.h"
+
+void instantiate_and_link_object_tree_103de326(uint32_t *param_1,uint32_t param_2,void *param_3,void *param_4)
+
+{
+  void *pvVar1;
+  void *pvVar2;
+  void *pvVar3;
+  void *pvVar4;
+  void *pvVar5;
+  void *pvVar6;
+  void *pvVar7;
+  void *pvVar8;
+  int iVar9;
+  int iVar10;
+  void *pvVar11;
+  void *pvVar12;
+  int iVar13;
+  int iVar14;
+  void *pvVar15;
+  void *pvVar16;
+  void *pvVar17;
+  void *pvVar18;
+  void *pvVar19;
+  void *pvVar20;
+  void *pvVar21;
+  void *pvVar22;
+  void *pvVar23;
+  void *pvVar24;
+  void *pvVar25;
+  void *pvVar26;
+  void *pvVar27;
+  void *pvVar28;
+  void *pvVar29;
+  
+  iterate_range_and_call_match((void *)param_1[1],(uint *)&DAT_1055037c/*ROM*/,param_3,param_4);
+  pvVar1 = (void *)app_obj_factory((void *)param_1[1],(void *)0x1900001,0,0);
+  pvVar2 = (void *)app_obj_factory((void *)param_1[1],(void *)0x1900002,0,(void *)0x44);
+  pvVar3 = (void *)app_obj_factory((void *)param_1[1],(void *)0x1900003,0,(void *)0x196);
+  pvVar4 = (void *)app_obj_factory((void *)param_1[1],(void *)0x1900004,0,(void *)0x44);
+  pvVar5 = (void *)app_obj_factory((void *)param_1[1],(void *)0x1900005,0,(void *)0x2c);
+  pvVar6 = (void *)app_obj_factory((void *)param_1[1],(void *)0x1900006,0,(void *)0x19c);
+  pvVar7 = (void *)app_obj_factory((void *)param_1[1],(void *)0x1900007,(void *)0x20,(void *)0x18);
+  pvVar8 = (void *)app_obj_factory((void *)param_1[1],(void *)0x1900008,(void *)0x20,(void *)0x198);
+  iVar9 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900009,(void *)0x1e8,(void *)0x198);
+  iVar10 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900009,(void *)0x1b8,(void *)0x198);
+  pvVar11 = (void *)app_obj_factory((void *)param_1[1],(void *)0x190000a,(void *)0x38,(void *)0x18);
+  pvVar12 = (void *)app_obj_factory((void *)param_1[1],(void *)0x190000b,(void *)0x20,(void *)0x48);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x190000c,(void *)0x20,(void *)0x48);
+  invoke_virtual_then_call_helper_10494188((int)pvVar12,iVar13);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x190000d,(void *)0x230,(void *)0x198);
+  iVar14 = (int)app_obj_factory((void *)param_1[1],(void *)0x190000e,(void *)0x80,(void *)0x198);
+  invoke_virtual_then_call_helper_10494188((int)pvVar12,iVar9);
+  invoke_virtual_then_call_helper_10494188((int)pvVar12,iVar13);
+  invoke_virtual_then_call_helper_10494188((int)pvVar12,iVar14);
+  pvVar15 = (void *)app_obj_factory((void *)param_1[1],(void *)0x190000f,(void *)0x20,(void *)0x78);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900010,(void *)0x20,(void *)0x78);
+  invoke_virtual_then_call_helper_10494188((int)pvVar15,iVar13);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900011,(void *)0x230,(void *)0x198);
+  iVar14 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900012,(void *)0x80,(void *)0x198);
+  invoke_virtual_then_call_helper_10494188((int)pvVar15,iVar9);
+  invoke_virtual_then_call_helper_10494188((int)pvVar15,iVar13);
+  invoke_virtual_then_call_helper_10494188((int)pvVar15,iVar14);
+  pvVar16 = (void *)app_obj_factory((void *)param_1[1],(void *)0x1900013,(void *)0x20,(void *)0xa8);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900014,(void *)0x20,(void *)0xa8);
+  invoke_virtual_then_call_helper_10494188((int)pvVar16,iVar13);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900015,(void *)0x230,(void *)0x198);
+  iVar14 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900016,(void *)0x80,(void *)0x198);
+  invoke_virtual_then_call_helper_10494188((int)pvVar16,iVar9);
+  invoke_virtual_then_call_helper_10494188((int)pvVar16,iVar13);
+  invoke_virtual_then_call_helper_10494188((int)pvVar16,iVar14);
+  pvVar17 = (void *)app_obj_factory((void *)param_1[1],(void *)0x1900017,(void *)0x20,(void *)0xd8);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900018,(void *)0x20,(void *)0xd8);
+  invoke_virtual_then_call_helper_10494188((int)pvVar17,iVar13);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900019,(void *)0x230,(void *)0x198);
+  iVar14 = (int)app_obj_factory((void *)param_1[1],(void *)0x190001a,(void *)0x80,(void *)0x198);
+  invoke_virtual_then_call_helper_10494188((int)pvVar17,iVar9);
+  invoke_virtual_then_call_helper_10494188((int)pvVar17,iVar13);
+  invoke_virtual_then_call_helper_10494188((int)pvVar17,iVar14);
+  pvVar18 = (void *)app_obj_factory((void *)param_1[1],(void *)0x190001b,(void *)0x20,(void *)0x108);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x190001c,(void *)0x20,(void *)0x108);
+  invoke_virtual_then_call_helper_10494188((int)pvVar18,iVar13);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x190001d,(void *)0x230,(void *)0x198);
+  iVar14 = (int)app_obj_factory((void *)param_1[1],(void *)0x190001e,(void *)0x80,(void *)0x198);
+  invoke_virtual_then_call_helper_10494188((int)pvVar18,iVar9);
+  invoke_virtual_then_call_helper_10494188((int)pvVar18,iVar13);
+  invoke_virtual_then_call_helper_10494188((int)pvVar18,iVar14);
+  pvVar19 = (void *)app_obj_factory((void *)param_1[1],(void *)0x190001f,(void *)0x20,(void *)0x138);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900020,(void *)0x20,(void *)0x138);
+  invoke_virtual_then_call_helper_10494188((int)pvVar19,iVar13);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900021,(void *)0x230,(void *)0x198);
+  iVar14 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900022,(void *)0x80,(void *)0x198);
+  invoke_virtual_then_call_helper_10494188((int)pvVar19,iVar9);
+  invoke_virtual_then_call_helper_10494188((int)pvVar19,iVar13);
+  invoke_virtual_then_call_helper_10494188((int)pvVar19,iVar14);
+  pvVar20 = (void *)app_obj_factory((void *)param_1[1],(void *)0x1900023,(void *)0x20,(void *)0x168);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900024,(void *)0x20,(void *)0x168);
+  invoke_virtual_then_call_helper_10494188((int)pvVar20,iVar13);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900025,(void *)0x230,(void *)0x198);
+  iVar14 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900026,(void *)0x80,(void *)0x198);
+  invoke_virtual_then_call_helper_10494188((int)pvVar20,iVar9);
+  invoke_virtual_then_call_helper_10494188((int)pvVar20,iVar13);
+  invoke_virtual_then_call_helper_10494188((int)pvVar20,iVar14);
+  pvVar21 = (void *)app_obj_factory((void *)param_1[1],(void *)0x1900027,(void *)0x140,(void *)0x48);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900028,(void *)0x140,(void *)0x48);
+  invoke_virtual_then_call_helper_10494188((int)pvVar21,iVar13);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900029,(void *)0x230,(void *)0x198);
+  iVar14 = (int)app_obj_factory((void *)param_1[1],(void *)0x190002a,(void *)0x80,(void *)0x198);
+  invoke_virtual_then_call_helper_10494188((int)pvVar21,iVar9);
+  invoke_virtual_then_call_helper_10494188((int)pvVar21,iVar13);
+  invoke_virtual_then_call_helper_10494188((int)pvVar21,iVar14);
+  pvVar22 = (void *)app_obj_factory((void *)param_1[1],(void *)0x190002b,(void *)0x140,(void *)0x78);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x190002c,(void *)0x140,(void *)0x78);
+  invoke_virtual_then_call_helper_10494188((int)pvVar22,iVar13);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x190002d,(void *)0x230,(void *)0x198);
+  iVar14 = (int)app_obj_factory((void *)param_1[1],(void *)0x190002e,(void *)0x80,(void *)0x198);
+  invoke_virtual_then_call_helper_10494188((int)pvVar22,iVar9);
+  invoke_virtual_then_call_helper_10494188((int)pvVar22,iVar13);
+  invoke_virtual_then_call_helper_10494188((int)pvVar22,iVar14);
+  pvVar23 = (void *)app_obj_factory((void *)param_1[1],(void *)0x190002f,(void *)0x140,(void *)0xa8);
+  iVar9 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900030,(void *)0x140,(void *)0xa8);
+  invoke_virtual_then_call_helper_10494188((int)pvVar23,iVar9);
+  iVar9 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900031,(void *)0x200,(void *)0x198);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900032,(void *)0x80,(void *)0x198);
+  invoke_virtual_then_call_helper_10494188((int)pvVar23,iVar10);
+  invoke_virtual_then_call_helper_10494188((int)pvVar23,iVar9);
+  invoke_virtual_then_call_helper_10494188((int)pvVar23,iVar13);
+  pvVar24 = (void *)app_obj_factory((void *)param_1[1],(void *)0x1900033,(void *)0x140,(void *)0xd8);
+  iVar9 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900034,(void *)0x140,(void *)0xd8);
+  invoke_virtual_then_call_helper_10494188((int)pvVar24,iVar9);
+  iVar9 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900035,(void *)0x200,(void *)0x198);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900036,(void *)0x80,(void *)0x198);
+  invoke_virtual_then_call_helper_10494188((int)pvVar24,iVar10);
+  invoke_virtual_then_call_helper_10494188((int)pvVar24,iVar9);
+  invoke_virtual_then_call_helper_10494188((int)pvVar24,iVar13);
+  pvVar25 = (void *)app_obj_factory((void *)param_1[1],(void *)0x1900037,(void *)0x140,(void *)0x108);
+  iVar9 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900038,(void *)0x140,(void *)0x108);
+  invoke_virtual_then_call_helper_10494188((int)pvVar25,iVar9);
+  iVar9 = (int)app_obj_factory((void *)param_1[1],(void *)0x1900039,(void *)0x200,(void *)0x198);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x190003a,(void *)0x80,(void *)0x198);
+  invoke_virtual_then_call_helper_10494188((int)pvVar25,iVar10);
+  invoke_virtual_then_call_helper_10494188((int)pvVar25,iVar9);
+  invoke_virtual_then_call_helper_10494188((int)pvVar25,iVar13);
+  pvVar26 = (void *)app_obj_factory((void *)param_1[1],(void *)0x190003b,(void *)0x140,(void *)0x138);
+  iVar9 = (int)app_obj_factory((void *)param_1[1],(void *)0x190003c,(void *)0x140,(void *)0x138);
+  invoke_virtual_then_call_helper_10494188((int)pvVar26,iVar9);
+  iVar9 = (int)app_obj_factory((void *)param_1[1],(void *)0x190003d,(void *)0x200,(void *)0x198);
+  iVar13 = (int)app_obj_factory((void *)param_1[1],(void *)0x190003e,(void *)0x80,(void *)0x198);
+  invoke_virtual_then_call_helper_10494188((int)pvVar26,iVar10);
+  invoke_virtual_then_call_helper_10494188((int)pvVar26,iVar9);
+  invoke_virtual_then_call_helper_10494188((int)pvVar26,iVar13);
+  pvVar28 = (void *)0x0;
+  pvVar29 = (void *)0x0;
+  pvVar27 = (void *)app_obj_factory((void *)param_1[1],(void *)0x190003f,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  iterate_and_remove_list_entry(pvVar27,pvVar1,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar2,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar3,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar4,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar5,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar6,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar7,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar8,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar11,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar12,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar15,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar16,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar17,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar18,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar19,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar20,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar21,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar22,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar23,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar24,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar25,pvVar28,pvVar29);
+  iterate_and_remove_list_entry(pvVar27,pvVar26,pvVar28,pvVar29);
+  graph_link_nextprev((int)pvVar12,(int)pvVar15,0xf,pvVar29);
+  graph_link_nextprev((int)pvVar12,(int)pvVar26,0x10,pvVar29);
+  graph_link_nextprev((int)pvVar12,(int)pvVar21,0xd,pvVar29);
+  graph_link_nextprev((int)pvVar12,(int)pvVar20,0xe,pvVar29);
+  graph_link_nextprev((int)pvVar15,(int)pvVar16,0xf,pvVar29);
+  graph_link_nextprev((int)pvVar15,(int)pvVar12,0x10,pvVar29);
+  graph_link_nextprev((int)pvVar15,(int)pvVar22,0xd,pvVar29);
+  graph_link_nextprev((int)pvVar15,(int)pvVar21,0xe,pvVar29);
+  graph_link_nextprev((int)pvVar16,(int)pvVar17,0xf,pvVar29);
+  graph_link_nextprev((int)pvVar16,(int)pvVar15,0x10,pvVar29);
+  graph_link_nextprev((int)pvVar16,(int)pvVar23,0xd,pvVar29);
+  graph_link_nextprev((int)pvVar16,(int)pvVar22,0xe,pvVar29);
+  graph_link_nextprev((int)pvVar17,(int)pvVar18,0xf,pvVar29);
+  graph_link_nextprev((int)pvVar17,(int)pvVar16,0x10,pvVar29);
+  graph_link_nextprev((int)pvVar17,(int)pvVar24,0xd,pvVar29);
+  graph_link_nextprev((int)pvVar17,(int)pvVar23,0xe,pvVar29);
+  graph_link_nextprev((int)pvVar18,(int)pvVar19,0xf,pvVar29);
+  graph_link_nextprev((int)pvVar18,(int)pvVar17,0x10,pvVar29);
+  graph_link_nextprev((int)pvVar18,(int)pvVar25,0xd,pvVar29);
+  graph_link_nextprev((int)pvVar18,(int)pvVar24,0xe,pvVar29);
+  graph_link_nextprev((int)pvVar19,(int)pvVar20,0xf,pvVar29);
+  graph_link_nextprev((int)pvVar19,(int)pvVar18,0x10,pvVar29);
+  graph_link_nextprev((int)pvVar19,(int)pvVar26,0xd,pvVar29);
+  graph_link_nextprev((int)pvVar19,(int)pvVar25,0xe,pvVar29);
+  graph_link_nextprev((int)pvVar20,(int)pvVar21,0xf,pvVar29);
+  graph_link_nextprev((int)pvVar20,(int)pvVar19,0x10,pvVar29);
+  graph_link_nextprev((int)pvVar20,(int)pvVar12,0xd,pvVar29);
+  graph_link_nextprev((int)pvVar20,(int)pvVar26,0xe,pvVar29);
+  graph_link_nextprev((int)pvVar21,(int)pvVar22,0xf,pvVar29);
+  graph_link_nextprev((int)pvVar21,(int)pvVar20,0x10,pvVar29);
+  graph_link_nextprev((int)pvVar21,(int)pvVar15,0xd,pvVar29);
+  graph_link_nextprev((int)pvVar21,(int)pvVar12,0xe,pvVar29);
+  graph_link_nextprev((int)pvVar22,(int)pvVar23,0xf,pvVar29);
+  graph_link_nextprev((int)pvVar22,(int)pvVar21,0x10,pvVar29);
+  graph_link_nextprev((int)pvVar22,(int)pvVar16,0xd,pvVar29);
+  graph_link_nextprev((int)pvVar22,(int)pvVar15,0xe,pvVar29);
+  graph_link_nextprev((int)pvVar23,(int)pvVar24,0xf,pvVar29);
+  graph_link_nextprev((int)pvVar23,(int)pvVar22,0x10,pvVar29);
+  graph_link_nextprev((int)pvVar23,(int)pvVar17,0xd,pvVar29);
+  graph_link_nextprev((int)pvVar23,(int)pvVar16,0xe,pvVar29);
+  graph_link_nextprev((int)pvVar24,(int)pvVar25,0xf,pvVar29);
+  graph_link_nextprev((int)pvVar24,(int)pvVar23,0x10,pvVar29);
+  graph_link_nextprev((int)pvVar24,(int)pvVar18,0xd,pvVar29);
+  graph_link_nextprev((int)pvVar24,(int)pvVar17,0xe,pvVar29);
+  graph_link_nextprev((int)pvVar25,(int)pvVar26,0xf,pvVar29);
+  graph_link_nextprev((int)pvVar25,(int)pvVar24,0x10,pvVar29);
+  graph_link_nextprev((int)pvVar25,(int)pvVar19,0xd,pvVar29);
+  graph_link_nextprev((int)pvVar25,(int)pvVar18,0xe,pvVar29);
+  graph_link_nextprev((int)pvVar26,(int)pvVar12,0xf,pvVar29);
+  graph_link_nextprev((int)pvVar26,(int)pvVar25,0x10,pvVar29);
+  graph_link_nextprev((int)pvVar26,(int)pvVar20,0xd,pvVar29);
+  graph_link_nextprev((int)pvVar26,(int)pvVar19,0xe,pvVar29);
+  set_object_field_at_offset_0x10((void *)*param_1,pvVar27);
+  return;
+}

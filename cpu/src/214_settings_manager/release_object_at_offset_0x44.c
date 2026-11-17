@@ -1,0 +1,30 @@
+/* @k10d release_object_at_offset_0x44 @ 0x104b33c4
+ * name: model (proposed by the local model from the decompile, confidence 0.85)
+ * unit: 214_settings_manager (unit names are model-proposed)
+ * purpose:
+ *   Releases the object pointer stored at offset 0x44 by calling a helper and a virtual
+ *   method.
+ * summary:
+ *   Checks if the pointer at param_1+0x44 is non-null. If so, calls eventflag_clr_flg with
+ *   that pointer and -1. Then, if the pointer is still non-null, invokes virtual slot 1 of
+ *   the object at that pointer with argument 3. This appears to be a cleanup or release
+ *   operation for a sub-object.
+ * @end */
+#include "frv_intrinsics.h"
+#include "globals.h"
+#include "funcs.h"
+
+void release_object_at_offset_0x44(int param_1)
+
+{
+  int iVar1;
+  
+  if (*(int *)(param_1 + 0x44) != 0) {
+    eventflag_clr_flg((void *)(*(int *)(param_1 + 0x44)),0xffffffff);
+    iVar1 = *(int *)(param_1 + 0x44);
+    if (iVar1 != 0) {
+      (**(code **)(*(int *)(iVar1 + 4) + 0xc))(*(short *)(*(int *)(iVar1 + 4) + 8) + iVar1,3);
+    }
+  }
+  return;
+}

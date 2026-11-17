@@ -1,0 +1,140 @@
+/* @k10d test_item_handler_3_strings_disp_init @ 0x1050eeb0
+ * name: earlier (carried from an earlier Ghidra session, not re-verified; the model, reading only this decompile, proposed init_struct_with_virtual_calls)
+ * unit: 271_test_mode_manager (unit names are model-proposed)
+ * purpose:
+ *   Initializes a struct by setting flags, invoking six virtual methods, and computing
+ *   conditional integer sums.
+ * summary:
+ *   The function initializes a struct at unaff_r8 by setting multiple byte flags
+ *   (0x28-0x30, 0x694-0x6a5) and calling six virtual methods via a vtable pointer at offset
+ *   0x8d4. It calculates integer values at offsets 0x70, 0x69c, and 0x6a0 based on
+ *   conditional sums of other struct fields. Finally, it stores four 16-bit values from
+ *   read_two_byte_table_entry_104284cc into a sub-object at offset 0x7f8.
+ * @end */
+#include "frv_intrinsics.h"
+#include "globals.h"
+#include "funcs.h"
+
+void test_item_handler_3_strings_disp_init(void)
+
+{
+  uint32_t uVar1;
+  char cVar3;
+  uint16_t uVar2;
+  int caller_r8;
+  uint8_t caller_r9;
+  int iVar4;
+  int iVar5;
+  int caller_r14;
+  
+                    /* TEST ITEM handler 3 (STRINGS DISP). V11 patch target. Calls
+                       test_mode_state_reset + exposure_cfg_loader(mode=4,(int *)__frv_reg_unset(5),__frv_reg_unset(6)). */
+  test_mode_state_reset((void *)(caller_r8 + 0x148));
+  uVar1 = test_mode_config_singleton();
+  exposure_cfg_loader(uVar1,(void *)(caller_r8 + 0x148),4);
+  *(uint8_t *)(caller_r8 + 0x654) = *(uint8_t *)(caller_r8 + 0x6b8);
+  *(uint8_t *)(caller_r8 + 0x28) = caller_r9;
+  *(uint8_t *)(caller_r8 + 0x29) = caller_r9;
+  *(uint8_t *)(caller_r8 + 0x2a) = caller_r9;
+  *(uint8_t *)(caller_r8 + 0x2b) = caller_r9;
+  *(uint8_t *)(caller_r8 + 0x2c) = caller_r9;
+  *(uint8_t *)(caller_r8 + 0x2d) = caller_r9;
+  *(uint8_t *)(caller_r8 + 0x2e) = caller_r9;
+  *(uint8_t *)(caller_r8 + 0x2f) = caller_r9;
+  *(uint8_t *)(caller_r8 + 0x30) = caller_r9;
+  *(uint8_t *)(caller_r8 + 0x694) = caller_r9;
+  cVar3 = settings_getter(caller_r8 + 0x2ac,0xc2);
+  *(bool *)(caller_r8 + 0x695) = cVar3 == '\0';
+  *(uint8_t *)(caller_r8 + 0x6a4) = 1;
+  *(uint8_t *)(caller_r8 + 0x6a5) = caller_r9;
+  (**(code **)(*(int *)(caller_r8 + 0x8d4) + 0x174))
+            (*(short *)(*(int *)(caller_r8 + 0x8d4) + 0x170) + caller_r8);
+  (**(code **)(*(int *)(caller_r8 + 0x8d4) + 0x164))
+            (*(short *)(*(int *)(caller_r8 + 0x8d4) + 0x160) + caller_r8);
+  (**(code **)(*(int *)(caller_r8 + 0x8d4) + 0x16c))
+            (*(short *)(*(int *)(caller_r8 + 0x8d4) + 0x168) + caller_r8);
+  (**(code **)(*(int *)(caller_r8 + 0x8d4) + 0x17c))
+            (*(short *)(*(int *)(caller_r8 + 0x8d4) + 0x178) + caller_r8);
+  (**(code **)(*(int *)(caller_r8 + 0x8d4) + 0x184))
+            (*(short *)(*(int *)(caller_r8 + 0x8d4) + 0x180) + caller_r8);
+  (**(code **)(*(int *)(caller_r8 + 0x8d4) + 0x194))
+            (*(short *)(*(int *)(caller_r8 + 0x8d4) + 400) + caller_r8);
+  if ((*(char *)(caller_r8 + 0x2a) == '\0') && (*(char *)(caller_r8 + 0x2b) == '\x01')) {
+    *(int *)(caller_r8 + 0x70) =
+         *(int *)(caller_r8 + 0x858) + *(int *)(caller_r8 + 0x868) + *(int *)(caller_r8 + 0x860);
+  }
+  else if ((*(char *)(caller_r8 + 0x2a) == '\x01') && (*(char *)(caller_r8 + 0x2b) == '\x01')) {
+    iVar5 = *(int *)(caller_r8 + 0x858) + *(int *)(caller_r8 + 0x130) + *(int *)(caller_r8 + 0x860);
+    *(int *)(caller_r8 + 0x70) = iVar5;
+    *(int *)(caller_r8 + 0x70) = iVar5 + *(int *)(caller_r8 + 0x868);
+  }
+  else {
+    *(int *)(caller_r8 + 0x70) =
+         *(int *)(caller_r8 + 0x858) + *(int *)(caller_r8 + 0x130) + *(int *)(caller_r8 + 0x860);
+  }
+  iVar5 = *(int *)(caller_r8 + 0x70) + 0xc0;
+  *(int *)(caller_r8 + 0x70) = iVar5;
+  *(int *)(caller_r8 + 0x70) = iVar5 + *(int *)(caller_r8 + 0x86c);
+  if (((*(char *)(caller_r8 + 0x2a) == '\x01') && (*(char *)(caller_r8 + 0x2b) == '\x01')) &&
+     (iVar5 = compare_two_short_pairs_10511af8(caller_r8), iVar5 == 1)) {
+    *(uint8_t *)(caller_r8 + 0x2e) = 1;
+    *(uint *)(caller_r8 + 0x78) =
+         (uint)*(ushort *)(caller_r8 + 0x126) * (uint)*(ushort *)(caller_r8 + 0x124) * 2 + 0x40;
+  }
+  if (*(char *)(caller_r8 + 0x695) == '\0') {
+    *(int *)(caller_r8 + 0x69c) =
+         *(int *)(caller_r8 + 0x130) + *(int *)(caller_r8 + 0x874) + *(int *)(caller_r8 + 0x85c);
+  }
+  else {
+    *(int *)(caller_r8 + 0x69c) =
+         *(int *)(caller_r8 + 0x130) + *(int *)(caller_r8 + 0x870) + *(int *)(caller_r8 + 0x85c);
+  }
+  if (*(char *)(caller_r8 + 0x694) == '\0') {
+    *(int *)(caller_r8 + 0x6a0) =
+         *(int *)(caller_r8 + 0x85c) + *(int *)(caller_r8 + 0x104) +
+         *(int *)(caller_r8 + 0x864) + *(int *)(caller_r8 + 0x878);
+  }
+  else {
+    *(int *)(caller_r8 + 0x6a0) =
+         *(int *)(caller_r8 + 0x86c) + *(int *)(caller_r8 + 0x104) +
+         *(int *)(caller_r8 + 0x864) + *(int *)(caller_r8 + 0x87c);
+  }
+  *(uint32_t *)(caller_r8 + 0x698) = 0;
+  if (*(char *)(caller_r8 + 0x2c) != '\0') {
+    *(uint *)(caller_r8 + 0x69c) = *(int *)(caller_r8 + 0x69c) * (uint)*(ushort *)(caller_r8 + 0x67a);
+  }
+  if (*(char *)(caller_r8 + 0x2a) != '\0') {
+    *(int *)(caller_r8 + 0x698) = *(int *)(caller_r8 + 0x698) + *(int *)(caller_r8 + 0x69c);
+  }
+  if (*(char *)(caller_r8 + 0x2b) != '\0') {
+    *(int *)(caller_r8 + 0x698) = *(int *)(caller_r8 + 0x698) + *(int *)(caller_r8 + 0x6a0);
+  }
+  *(int *)(caller_r14 + -4) = caller_r8 + 0x148;
+  iVar5 = *(int *)(caller_r8 + 0x25c);
+  iVar5 = (**(code **)(iVar5 + 0x1c))(caller_r8 + 0x25c + (int)*(short *)(iVar5 + 0x18),9);
+  if (iVar5 != 0) {
+    *(uint32_t *)(caller_r8 + 0x698) = 0;
+    *(uint32_t *)(caller_r8 + 0x69c) = 0;
+    *(uint32_t *)(caller_r8 + 0x6a0) = 0;
+  }
+  if (*(char *)(caller_r8 + 0x6b8) == '\0') {
+    (**(code **)(*(int *)(caller_r8 + 0x8d4) + 0x8c))
+              (*(short *)(*(int *)(caller_r8 + 0x8d4) + 0x88) + caller_r8);
+  }
+  iVar5 = *(int *)(caller_r14 + -4);
+  *(uint8_t *)(iVar5 + 0x4e6) = *(uint8_t *)(caller_r8 + 0x29);
+  iVar4 = *(int *)(caller_r8 + 0x7f8);
+  iVar5 = iVar5 + 0x164;
+  uVar2 = read_two_byte_table_entry_104284cc(iVar5,0,0);
+  *(uint16_t *)(iVar4 + 0x120) = uVar2;
+  iVar4 = *(int *)(caller_r8 + 0x7f8);
+  uVar2 = read_two_byte_table_entry_104284cc(iVar5,0,2);
+  *(uint16_t *)(iVar4 + 0x122) = uVar2;
+  iVar4 = *(int *)(caller_r8 + 0x7f8);
+  uVar2 = read_two_byte_table_entry_104284cc(iVar5,0,3);
+  *(uint16_t *)(iVar4 + 0x124) = uVar2;
+  iVar4 = *(int *)(caller_r8 + 0x7f8);
+  uVar2 = read_two_byte_table_entry_104284cc(iVar5,0,1);
+  *(uint16_t *)(iVar4 + 0x126) = uVar2;
+  return;
+}

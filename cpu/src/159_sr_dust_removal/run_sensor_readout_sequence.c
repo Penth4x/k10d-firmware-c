@@ -1,0 +1,148 @@
+/* @k10d run_sensor_readout_sequence @ 0x1046f9e4
+ * name: model (proposed by the local model from the decompile, confidence 0.65)
+ * unit: 159_sr_dust_removal (unit names are model-proposed)
+ * purpose:
+ *   Executes a multi-step sensor readout or exposure sequence with progress updates and
+ *   timeout handling.
+ * summary:
+ *   The function initializes a state object, creates a helper class instance, and enters a
+ *   loop that iterates up to param_2 times. In each iteration, it calls a series of
+ *   hardware control functions (release_context_two_fields, release_three_sub_objects,
+ *   etc.) and waits for status flags to clear, using check_kernel_call_success_10459fea for
+ *   delays. It sends progress or status messages via sr_dma_command if param_3 is non-zero.
+ *   The sequence concludes by resetting the state and deleting the helper object.
+ * @end */
+#include "frv_intrinsics.h"
+#include "globals.h"
+#include "funcs.h"
+
+/* WARNING: Instruction at (ram,0x1046fc76) overlaps instruction at (ram,0x1046fc74)
+    */
+
+void run_sensor_readout_sequence(int param_1,uint8_t *param_2,int param_3,uint8_t *param_4)
+
+{
+  char cVar1;
+  bool bVar2;
+  int iVar3;
+  uint32_t uVar4;
+  char *pcVar5;
+  void *pvVar6;
+  void *pvVar7;
+  uintptr_t sp;
+  uint8_t *puVar8;
+  uint8_t auStack_84 [8];
+  uint8_t auStack_60 [80];
+  uint8_t auStack_10 [8];
+  
+  puVar8 = auStack_84;
+  iVar3 = get_or_create_singleton_object_104bb22a();
+  uVar4 = *(uint32_t *)(iVar3 + 4);
+  *(uint8_t *)(param_1 + 0x10) = 0;
+  forward_event_to_subobject(param_1,1);
+  release_context_two_fields(*(void **)(param_1 + 0x38));
+  release_three_sub_objects(*(uint32_t *)(param_1 + 0x38));
+  configure_object_subsystem(param_1,0);
+  cls_105a6eac_new((uint32_t *)__frv_reg_unset(4));
+  if (*(char *)(param_1 + 0x10) == '\0') {
+    do {
+      copy_four_bytes_from_struct_field_1045e59a(*(int *)(param_1 + 0x30),auStack_10);
+      iVar3 = test_field_bit_or_nonzero(auStack_10,4);
+      if (iVar3 != 0) break;
+      check_kernel_call_success_10459fea();
+    } while (*(char *)(param_1 + 0x10) == '\0');
+  }
+  if (param_3 != 0) {
+    param_4 = (uint8_t *)0x105a95d8/*ROM*/;
+    *(uint16_t *)(puVar8 + 2) = 7;
+    *(uint16_t *)(puVar8 + 6) = 0xff;
+    sr_dma_command(param_1,2,5,0x105a95d8/*ROM*/,*(uint16_t *)(puVar8 + 2),*(uint16_t *)(puVar8 + 6));
+  }
+  bVar2 = 0 < (int)param_2;
+  pvVar6 = (void *)0x0;
+  if ((!bVar2) || (0 < (int)param_2)) {
+    do {
+      pvVar7 = pvVar6;
+      pvVar6 = (void *)((int)pvVar7 + 1);
+      if (*(char *)(param_1 + 0x10) != '\0') break;
+      if (param_3 != 0) {
+        if (bVar2) {
+          pcVar5 = (char *)0x105a95ec/*ROM*/;
+          param_4 = param_2;
+        }
+        else {
+          pcVar5 = (char *)0x105a95e8/*ROM*/;
+        }
+        format_string_to_buffer_10545140(auStack_60,pcVar5,pvVar6,param_4);
+        param_4 = auStack_60;
+        *(uint16_t *)(puVar8 + 2) = 7;
+        *(uint16_t *)(puVar8 + 6) = 0xff;
+        sr_dma_command(param_1,4,7,param_4,*(uint16_t *)(puVar8 + 2),*(uint16_t *)(puVar8 + 6));
+      }
+      release_three_sub_objects(*(uint32_t *)(param_1 + 0x38));
+      if (bVar2) {
+        dispatch_mode_transition_104b7cd0(uVar4,param_1 + 4,0);
+      }
+      iVar3 = check_transaction_context_flag(*(int *)(param_1 + 0x38));
+      if (iVar3 != 0) {
+        cVar1 = *(char *)(param_1 + 0x10);
+        while (cVar1 == '\0') {
+          check_kernel_call_success_10459fea();
+          iVar3 = check_transaction_context_flag(*(int *)(param_1 + 0x38));
+          if (iVar3 == 0) break;
+          cVar1 = *(char *)(param_1 + 0x10);
+        }
+      }
+      release_struct_fields_10466d06(*(void **)(param_1 + 0x38));
+      iVar3 = check_transaction_context_valid(*(int *)(param_1 + 0x38));
+      if (iVar3 != 0) {
+        cVar1 = *(char *)(param_1 + 0x10);
+        while (cVar1 == '\0') {
+          check_kernel_call_success_10459fea();
+          iVar3 = check_transaction_context_valid(*(int *)(param_1 + 0x38));
+          if (iVar3 == 0) break;
+          cVar1 = *(char *)(param_1 + 0x10);
+        }
+      }
+      release_context_two_fields(*(void **)(param_1 + 0x38));
+      iVar3 = check_transaction_context_flag(*(int *)(param_1 + 0x38));
+      if (iVar3 != 0) {
+        cVar1 = *(char *)(param_1 + 0x10);
+        while (cVar1 == '\0') {
+          check_kernel_call_success_10459fea();
+          iVar3 = check_transaction_context_flag(*(int *)(param_1 + 0x38));
+          if (iVar3 == 0) break;
+          cVar1 = *(char *)(param_1 + 0x10);
+        }
+      }
+      release_struct_fields_10466d06(*(void **)(param_1 + 0x38));
+      iVar3 = check_transaction_context_valid(*(int *)(param_1 + 0x38));
+      if (iVar3 != 0) {
+        cVar1 = *(char *)(param_1 + 0x10);
+        while (cVar1 == '\0') {
+          check_kernel_call_success_10459fea();
+          iVar3 = check_transaction_context_valid(*(int *)(param_1 + 0x38));
+          if (iVar3 == 0) break;
+          cVar1 = *(char *)(param_1 + 0x10);
+        }
+      }
+      release_context_two_fields(*(void **)(param_1 + 0x38));
+      release_struct_fields_10466d8a(*(void **)(param_1 + 0x38));
+      check_kernel_call_success_10459fea();
+    } while (((int)param_2 < 1) || (pvVar6 = (void *)((int)pvVar7 + 1), (int)pvVar6 < (int)param_2))
+    ;
+  }
+  configure_object_subsystem(param_1,1);
+  release_struct_fields_10466d8a(*(void **)(param_1 + 0x38));
+  release_context_two_fields(*(void **)(param_1 + 0x38));
+  forward_event_to_subobject(param_1,0);
+  if (param_3 != 0) {
+    *(uint16_t *)(puVar8 + 2) = 2;
+    *(uint16_t *)(puVar8 + 6) = 0xff;
+    sr_dma_command(param_1,6,8,0x105a95f8/*ROM*/,*(uint16_t *)(puVar8 + 2),*(uint16_t *)(puVar8 + 6));
+  }
+  *(uint8_t *)(param_1 + 0x10) = 0;
+  forward_event_to_subobject(param_1,0);
+  cls_105a6eac_delete(auStack_10,2);
+  return;
+}
