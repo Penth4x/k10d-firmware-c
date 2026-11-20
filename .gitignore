@@ -7,3 +7,4 @@
 *.eep
 FWDC*
 cpu/out/
+__pycache__/
