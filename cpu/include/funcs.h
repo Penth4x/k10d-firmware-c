@@ -13127,7 +13127,7 @@ int alloc_and_init_lens_fw_buffer(int param_1,int param_2,int param_3,code *para
 void forward_six_args_to_helper_10546f8a(int param_1,int param_2,void *param_3,uint32_t param_4,uint32_t param_5,
                  void *param_6);
 void call_lens_update_helper_10546fa8(int param_1,int param_2,int param_3,void *param_4);
-int get_lens_fw_update_status(int param_1,int param_2,int param_3,code *param_4,code *param_5,int param_6);
+int get_lens_fw_update_status(void);
 void iterate_lens_fw_blocks(int param_1,int param_2,int param_3,code *param_4,int param_5,uint32_t param_6,
                  uint32_t param_7);
 void lens_fw_update_teardown(void);

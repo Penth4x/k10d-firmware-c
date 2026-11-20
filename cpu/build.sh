@@ -20,6 +20,10 @@ one(){ f="$1"; b=$(basename "$f" .c)
   asm="$OBJ/$b.asm"; obj="$OBJ/$b.obj"
   [ -s "$obj" ] && [ "$obj" -nt "$f" ] && return
   (cd "$SOFTUNE" && wine BIN/fcc911s.exe -S $COPT -cpu $CPU $INC -o "$(echo "Z:${asm//\//\\}")" "$(echo "Z:${f//\//\\}")") >/dev/null 2>&1 || { echo "CC FAIL $b"; return; }
+  # Strip fcc's gratuitous (never-used) R14 frame pointer ONLY where the original Pentax compiler
+  # also omitted it (decided per-function from the source's @k10d origVA vs the reference binary;
+  # see scripts/strip_frameptr.py). Set NO_FPSTRIP=1 to disable.
+  [ -n "$NO_FPSTRIP" ] || python3 "$HERE/../scripts/strip_frameptr.py" "$asm" --src "$f" >/dev/null 2>&1
   (cd "$SOFTUNE" && wine BIN/FASM911S.EXE -cpu $CPU -o "$(echo "Z:${obj//\//\\}")" "$(echo "Z:${asm//\//\\}")") >/dev/null 2>&1 || echo "ASM FAIL $b"; }
 export -f one w
 echo "[1] compile+assemble C (J=$J)"
