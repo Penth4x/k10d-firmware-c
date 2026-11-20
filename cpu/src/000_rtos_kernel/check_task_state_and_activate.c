@@ -22,7 +22,7 @@ uint32_t check_task_state_and_activate(int param_1)
       uVar2 = E_NOEXS;
     }
     else if (*(char *)(iVar1 + 0x6a001c06) == '\x10') {
-      cre_tsk_insert_setup();
+      cre_tsk_insert_setup(param_1, 0);
       uVar2 = 0;
     }
     else {

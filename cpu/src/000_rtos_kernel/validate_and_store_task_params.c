@@ -83,7 +83,7 @@ uint32_t validate_and_store_task_params(uint param_1,ushort *param_2)
             uVar2 = 0;
           }
           else {
-            cre_tsk_insert_setup();
+            cre_tsk_insert_setup(param_1, uStack_c);
             uVar2 = 0;
           }
         }

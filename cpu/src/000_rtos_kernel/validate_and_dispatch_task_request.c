@@ -48,7 +48,7 @@ uint32_t validate_and_dispatch_task_request(int param_1,ushort *param_2)
             uVar2 = 0;
           }
           else {
-            cre_tsk_insert_setup();
+            cre_tsk_insert_setup(param_1, uStack_c);
             uVar2 = 0;
           }
         }

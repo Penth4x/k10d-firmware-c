@@ -14,15 +14,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t cre_tsk_insert_setup(void)
+uint32_t cre_tsk_insert_setup(int r4_in, uint32_t r5_in)
 
 {
-  int r4_in;
-  uint32_t extraout_r4;
-  uint32_t r5_in;
-  
   cre_tsk((short)r4_in);
   ready_list_insert((short)r4_in);
   setup_task_stack(r4_in,r5_in);
-  return extraout_r4;
+  return r4_in;
 }

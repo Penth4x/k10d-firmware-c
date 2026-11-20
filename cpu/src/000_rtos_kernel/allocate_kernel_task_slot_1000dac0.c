@@ -55,7 +55,7 @@ int allocate_kernel_task_slot_1000dac0(ushort *param_1)
           *(uint8_t *)(caller_r9 * 0x44 + 0x6a001c06) = 0x10;
         }
         else {
-          cre_tsk_insert_setup();
+          cre_tsk_insert_setup(caller_r9, uStack_c);
         }
       }
     }

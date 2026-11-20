@@ -149,7 +149,7 @@ LAB_1000cee4:
       }
 LAB_1000cf4e:
       puVar9[0x16] = uVar6;
-      uVar4 = cre_tsk_insert_setup();
+      uVar4 = cre_tsk_insert_setup(_DAT_6a003758, 0);
       uVar16 = CONCAT44(uVar4,extraout_r5_07);
     }
     else {

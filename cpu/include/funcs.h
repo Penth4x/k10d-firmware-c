@@ -102,7 +102,7 @@ void init_timeout_queue_node(int param_1,uint16_t *param_2,void *param_3);
 void initialize_queue_node(short param_1,uint16_t *param_2);
 void write_task_control_block_entry(short param_1,uint16_t *param_2);
 void initialize_task_control_block(short param_1,uint16_t *param_2,uint32_t param_3);
-uint32_t cre_tsk_insert_setup(void);
+uint32_t cre_tsk_insert_setup(int, uint32_t);
 uint32_t act_tsk_syscall_dispatcher(void);
 void insert_into_timeout_queue_1000fc34(int *param_1,uint param_2);
 void insert_into_timeout_queue_1000fc60(short param_1,short param_2);
