@@ -14,6 +14,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 void app_main_task1(void)
 
@@ -26,6 +27,6 @@ void app_main_task1(void)
   (((vtbl_entry*)(*piVar1))[3].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[3].adj,0);
   piVar1 = (int *)init_singleton_getter();
   (((vtbl_entry*)(*piVar1))[5].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[5].adj);
-  rtos_sched_start_gate();
+  __trap_rtos_sched_start_gate();
   return;
 }

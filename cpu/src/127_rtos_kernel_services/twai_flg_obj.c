@@ -12,6 +12,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 bool twai_flg_obj(uint32_t *param_1,uint32_t param_2,void *param_3,int param_4)
 
@@ -30,10 +31,10 @@ bool twai_flg_obj(uint32_t *param_1,uint32_t param_2,void *param_3,int param_4)
   }
   uStack_8 = 0;
   if (param_3 == 0) {
-    iVar1 = kernel_wai_flg_svc((int)(short)*param_1,param_2,0,&uStack_8,param_4);
+    iVar1 = __trap_kernel_wai_flg_svc((int)(short)*param_1,param_2,0,&uStack_8,param_4);
   }
   else {
-    iVar1 = kernel_wai_flg_svc((int)(short)*param_1,param_2,0,param_3,param_4);
+    iVar1 = __trap_kernel_wai_flg_svc((int)(short)*param_1,param_2,0,param_3,param_4);
   }
   return iVar1 == 0;
 }

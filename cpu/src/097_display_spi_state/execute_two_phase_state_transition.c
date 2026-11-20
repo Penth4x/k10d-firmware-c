@@ -15,6 +15,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 void execute_two_phase_state_transition(cls_1059d1d8 *param_1)
 
@@ -88,9 +89,9 @@ void execute_two_phase_state_transition(cls_1059d1d8 *param_1)
   (((vtbl_entry*)(iVar7))[12].fn)(param_1->field_0x2c + (int)((vtbl_entry*)(iVar7))[12].adj);
   sStack_a = 0;
   sVar4 = call_kernel_with_zero_arg();
-  get_entry_status_word((int)sVar4,&sStack_a);
+  __trap_get_entry_status_word((int)sVar4,&sStack_a);
   sVar4 = call_kernel_with_zero_arg();
-  set_timer_channel_value((int)sVar4,6);
+  __trap_set_timer_channel_value((int)sVar4,6);
   (((vtbl_entry*)(param_1->field_0x0))[26].fn)
             ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[26].adj,0);
   iVar7 = (int)((uint)(*(int *)(param_1->field_0x54 + 0x48) << 3) / 10) >> 5;
@@ -153,7 +154,7 @@ void execute_two_phase_state_transition(cls_1059d1d8 *param_1)
   iVar7 = *(int *)(param_1->field_0x2c + 4);
   (((vtbl_entry*)(iVar7))[9].fn)(param_1->field_0x2c + (int)((vtbl_entry*)(iVar7))[9].adj,1);
   sVar4 = call_kernel_with_zero_arg();
-  set_timer_channel_value((int)sVar4,(int)sStack_a);
+  __trap_set_timer_channel_value((int)sVar4,(int)sStack_a);
   (((vtbl_entry*)(param_1->field_0x0))[26].fn)
             ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[26].adj,0);
   empty_stub_function_103b76f0();

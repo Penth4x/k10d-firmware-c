@@ -14,12 +14,13 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 void ui_task_body_common(int param_1)
 
 {
   (((vtbl_entry*)(*(int *)(param_1 + 0x10)))[2].fn)
             (((vtbl_entry*)(*(int *)(param_1 + 0x10)))[2].adj + param_1);
-  rtos_sched_start_gate();
+  __trap_rtos_sched_start_gate();
   return;
 }

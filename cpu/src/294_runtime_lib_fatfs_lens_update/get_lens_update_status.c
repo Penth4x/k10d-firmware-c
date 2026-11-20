@@ -13,12 +13,13 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 uint32_t get_lens_update_status(void)
 
 {
   uint32_t uVar1;
   
-  uVar1 = act_tsk_syscall_dispatcher();
+  uVar1 = __trap_act_tsk_syscall_dispatcher();
   return uVar1;
 }

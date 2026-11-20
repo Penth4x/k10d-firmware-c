@@ -11,12 +11,13 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 bool set_flg_obj(uint32_t *param_1)
 
 {
   int iVar1;
   
-  iVar1 = set_event_flag_bits((int)(short)*param_1, __frv_reg_unset(5));
+  iVar1 = __trap_set_event_flag_bits((int)(short)*param_1, __frv_reg_unset(5));
   return iVar1 == 0;
 }

@@ -11,12 +11,13 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 bool check_kernel_call_success_10459fea(void)
 
 {
   int iVar1;
   
-  iVar1 = allocate_kernel_object_1000e4e0(__frv_reg_unset(4));
+  iVar1 = __trap_allocate_kernel_object_1000e4e0(__frv_reg_unset(4));
   return iVar1 == 0;
 }

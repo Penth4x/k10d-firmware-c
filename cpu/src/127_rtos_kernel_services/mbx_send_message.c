@@ -12,6 +12,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 int mbx_send_message(uint32_t *param_1,void *param_2,uint32_t param_3)
 
@@ -29,7 +30,7 @@ int mbx_send_message(uint32_t *param_1,void *param_2,uint32_t param_3)
     *(char *)((int)puVar1 + 0xb) = (char)((uint)param_2 >> 0x18);
     *(uint16_t *)(puVar1 + 1) = ((uint16_t)((uint64_t)(param_3) >> 16));
     *puVar1 = 0;
-    iVar2 = insert_into_timeout_queue_10010c18((int)(short)*param_1,puVar1);
+    iVar2 = __trap_insert_into_timeout_queue_10010c18((int)(short)*param_1,puVar1);
     iVar3 = 1;
     if (iVar2 != 0) {
       iVar3 = 0;

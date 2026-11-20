@@ -2,7 +2,7 @@
  * name: model (proposed by the local model from the decompile, confidence 0.85)
  * unit: 127_rtos_kernel_services (unit names are model-proposed)
  * purpose:
- *   Creates a µITRON message box with the given capacity and stores the resulting kernel
+ *   Creates a ÂµITRON message box with the given capacity and stores the resulting kernel
  *   object ID in the caller's pointer.
  * summary:
  *   Validates that param_2 (capacity) is at least 1, then builds a stack-allocated
@@ -16,6 +16,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 int create_message_box_104594ea(int *param_1,int param_2)
 
@@ -37,7 +38,7 @@ int create_message_box_104594ea(int *param_1,int param_2)
     pcStack_10 = call_virtual_slot_two_1045962a;
     piStack_14 = param_1;
     iStack_c = param_2;
-    iVar1 = find_free_tcb_slot_1000d6e4(&uStack_18);
+    iVar1 = __trap_find_free_tcb_slot_1000d6e4(&uStack_18);
     *param_1 = 0;
     if (iVar1 < 1) {
       if (iVar1 == 0) {

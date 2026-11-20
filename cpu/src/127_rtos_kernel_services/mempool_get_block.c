@@ -12,6 +12,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 uint32_t mempool_get_block(void *param_1,void *param_2,int param_3)
 
@@ -31,7 +32,7 @@ uint32_t mempool_get_block(void *param_1,void *param_2,int param_3)
     }
     else {
       uStack_8 = 0;
-      iVar2 = kernel_alloc_pool_block((int)(short)*(uint32_t *)(pcVar1 + 0xc),param_2,&uStack_8);
+      iVar2 = __trap_kernel_alloc_pool_block((int)(short)*(uint32_t *)(pcVar1 + 0xc),param_2,&uStack_8);
       if (iVar2 != 0) {
         uStack_8 = 0;
       }

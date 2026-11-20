@@ -14,6 +14,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 bool query_two_word_result(uint32_t param_1,uint16_t *param_2)
 
@@ -25,7 +26,7 @@ bool query_two_word_result(uint32_t param_1,uint16_t *param_2)
   
   uStack_c = 0;
   uStack_8 = 0;
-  iVar1 = call_kernel_service_with_param(&uStack_c);
+  iVar1 = __trap_call_kernel_service_with_param(&uStack_c);
   *param_2 = (short)uStack_c;
   *(uint32_t *)(param_2 + 2) = uStack_8;
   return iVar1 == 0;

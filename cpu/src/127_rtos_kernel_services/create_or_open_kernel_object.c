@@ -13,6 +13,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 int create_or_open_kernel_object(int *param_1,int param_2,int param_3,uint16_t param_4)
 
@@ -41,14 +42,14 @@ int create_or_open_kernel_object(int *param_1,int param_2,int param_3,uint16_t p
   *param_1 = param_2;
   uStack_6 = param_4;
   if (param_2 == 0) {
-    iVar1 = find_free_queue_slot_1000d978(&uStack_8);
+    iVar1 = __trap_find_free_queue_slot_1000d978(&uStack_8);
     if (0 < iVar1) {
       *param_1 = iVar1;
       return iVar1;
     }
   }
   else {
-    iVar1 = validate_task_request((int)(short)param_2,&uStack_8);
+    iVar1 = __trap_validate_task_request((int)(short)param_2,&uStack_8);
   }
   iVar2 = 0;
   if (iVar1 != 0) {

@@ -13,12 +13,13 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 bool check_kernel_call_success_10459d88(uint32_t *param_1)
 
 {
   int iVar1;
   
-  iVar1 = terminate_task_by_id_100114c0((int)(short)*param_1);
+  iVar1 = __trap_terminate_task_by_id_100114c0((int)(short)*param_1);
   return iVar1 == 0;
 }

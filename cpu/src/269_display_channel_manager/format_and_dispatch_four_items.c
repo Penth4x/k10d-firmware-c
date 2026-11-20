@@ -5,6 +5,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 void format_and_dispatch_four_items(int param_1,void *param_2,void *param_3)
 
@@ -27,7 +28,7 @@ void format_and_dispatch_four_items(int param_1,void *param_2,void *param_3)
   if (((*(char *)((int)param_2 + 0x16) != '\0') &&
       (uStack_c = 0, *(int *)((int)param_2 + 0x18) != 0)) &&
      (*(char *)(*(int *)((int)param_2 + 0x18) + 0x40) != '\0')) {
-    call_kernel_service_with_param(auStack_14);
+    __trap_call_kernel_service_with_param(auStack_14);
     iVar7 = 0;
     *(int *)(param_1 + 800) = iStack_10 - *(int *)(param_1 + 800);
     append_bytes_to_ring_buffer(*(int *)((int)param_2 + 0x18),0x105d526c/*ROM*/,0);

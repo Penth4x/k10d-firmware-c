@@ -11,12 +11,13 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 bool sig_sem_obj(uint32_t *param_1)
 
 {
   int iVar1;
   
-  iVar1 = kernel_sig_sem((int)(short)*param_1);
+  iVar1 = __trap_kernel_sig_sem((int)(short)*param_1);
   return iVar1 == 0;
 }

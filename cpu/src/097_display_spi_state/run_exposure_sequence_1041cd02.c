@@ -16,6 +16,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 void run_exposure_sequence_1041cd02(cls_1059d1d8 *param_1)
 
@@ -66,9 +67,9 @@ void run_exposure_sequence_1041cd02(cls_1059d1d8 *param_1)
   (((vtbl_entry*)(iVar1))[12].fn)(param_1->field_0x2c + (int)((vtbl_entry*)(iVar1))[12].adj);
   sStack_a = 0;
   sVar3 = call_kernel_with_zero_arg();
-  get_entry_status_word((int)sVar3,&sStack_a);
+  __trap_get_entry_status_word((int)sVar3,&sStack_a);
   sVar3 = call_kernel_with_zero_arg();
-  set_timer_channel_value((int)sVar3,6);
+  __trap_set_timer_channel_value((int)sVar3,6);
   (((vtbl_entry*)(param_1->field_0x0))[26].fn)
             ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[26].adj,0);
   check_kernel_call_success_10459fea();
@@ -179,7 +180,7 @@ void run_exposure_sequence_1041cd02(cls_1059d1d8 *param_1)
     append_newline_to_buffer(param_1->field_0xf4,0);
   }
   sVar3 = call_kernel_with_zero_arg();
-  set_timer_channel_value((int)sVar3,(int)sStack_a);
+  __trap_set_timer_channel_value((int)sVar3,(int)sStack_a);
   set_irq_mask_by_channel(param_1->field_0x24,-0x7fffffe6,0);
   iVar1 = *(int *)param_1->field_0x50;
   (((vtbl_entry*)(iVar1))[2].fn)((int)param_1->field_0x50 + (int)((vtbl_entry*)(iVar1))[2].adj,0xd00010,0);

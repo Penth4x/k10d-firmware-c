@@ -15,6 +15,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 bool create_kernel_object(int *param_1)
 
@@ -29,7 +30,7 @@ bool create_kernel_object(int *param_1)
   pcStack_8 = call_virtual_slot_2_on_nested_object;
   *param_1 = 0;
   piStack_c = param_1;
-  iVar1 = find_free_queue_slot_1000d66c((void *)&uStack_10);
+  iVar1 = __trap_find_free_queue_slot_1000d66c((void *)&uStack_10);
   if (0 < iVar1) {
     *param_1 = iVar1;
   }

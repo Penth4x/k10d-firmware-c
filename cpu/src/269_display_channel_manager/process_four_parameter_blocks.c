@@ -17,6 +17,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 /* WARNING: Instruction at (ram,0x105085cc) overlaps instruction at (ram,0x105085ca)
     */
@@ -51,7 +52,7 @@ uint32_t process_four_parameter_blocks(int param_1,int *param_2)
         }
         else {
           if (*(char *)((int)param_2 + 0x16) != '\0') {
-            call_kernel_service_with_param(auStack_14);
+            __trap_call_kernel_service_with_param(auStack_14);
             *(uint32_t *)(param_1 + 800) = uStack_10;
             *(uint32_t *)(param_1 + 0x324) = *(uint32_t *)(iVar5 + 0x1c);
           }

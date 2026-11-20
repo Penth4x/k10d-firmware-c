@@ -11,6 +11,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 bool mbx_receive_message_104598e8(uint32_t *param_1, uint32_t *param_2, uint32_t param_x2)
 
@@ -21,7 +22,7 @@ bool mbx_receive_message_104598e8(uint32_t *param_1, uint32_t *param_2, uint32_t
   
   iStack_c = 0;
   *param_2 = 0;
-  iVar1 = realos_rcv_mbx((int)(short)*param_1,&iStack_c, __frv_reg_unset(6));
+  iVar1 = __trap_realos_rcv_mbx((int)(short)*param_1,&iStack_c, __frv_reg_unset(6));
   if ((iVar1 == 0) && (iStack_c != 0)) {
     *param_2 = CONCAT13(*(uint8_t *)(iStack_c + 0xb),
                         CONCAT12(*(uint8_t *)(iStack_c + 10),

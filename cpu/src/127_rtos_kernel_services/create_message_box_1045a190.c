@@ -6,8 +6,8 @@
  *   result in the caller's handle field.
  * summary:
  *   Populates a local parameter block with the size, priority, and a callback pointer
- *   (ui_task_body_common) before calling allocate_kernel_task_slot_1000dac0 (create) or
- *   validate_and_store_task_params (create with ID). The return value is normalized to 0
+ *   (ui_task_body_common) before calling __trap_allocate_kernel_task_slot_1000dac0(create) or
+ *   __trap_validate_and_store_task_params(create with ID). The return value is normalized to 0
  *   (success) or negative error codes (-1, -2, -3) and written back to param_1[0]. The
  *   magic value 0x5aa55aa5 is written to param_4, likely as a sentinel or header for the
  *   message box structure.
@@ -15,6 +15,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 int create_message_box_1045a190(int *param_1,int param_2,int param_3,uint32_t *param_4,int param_5)
 
@@ -40,7 +41,7 @@ int create_message_box_1045a190(int *param_1,int param_2,int param_3,uint32_t *p
   piStack_18 = param_1;
   puStack_8 = param_4;
   if (param_2 == 0) {
-    iVar1 = allocate_kernel_task_slot_1000dac0(&local_1c);
+    iVar1 = __trap_allocate_kernel_task_slot_1000dac0(&local_1c);
     if (0 < iVar1) {
       *param_1 = iVar1;
       return iVar1;
@@ -48,7 +49,7 @@ int create_message_box_1045a190(int *param_1,int param_2,int param_3,uint32_t *p
   }
   else {
     *param_1 = param_2;
-    iVar1 = validate_and_store_task_params((int)(short)param_2,&local_1c);
+    iVar1 = __trap_validate_and_store_task_params((int)(short)param_2,&local_1c);
   }
   if (iVar1 == 0) {
     iVar1 = 0;

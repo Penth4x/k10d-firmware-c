@@ -13,10 +13,11 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 void call_kernel_with_short_id(uint32_t *param_1)
 
 {
-  allocate_kernel_object_10010fe0((int)(short)*param_1,0xffffffff);
+  __trap_allocate_kernel_object_10010fe0((int)(short)*param_1,0xffffffff);
   return;
 }

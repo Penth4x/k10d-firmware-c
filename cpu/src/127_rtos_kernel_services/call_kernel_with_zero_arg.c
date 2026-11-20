@@ -8,12 +8,13 @@
  *   The function sets a stack variable to 0, calls write_constant_to_param with the
  *   variable's address, and returns the value stored in that variable. Given the module
  *   context (rtos_wrappers_and_heap) and neighboring functions like twai_sem_obj and
- *   sig_sem_obj, this is likely a thin wrapper for a specific REALOS/µITRON kernel
+ *   sig_sem_obj, this is likely a thin wrapper for a specific REALOS/ÂµITRON kernel
  *   primitive that takes a single pointer argument and returns a status or object ID.
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 int call_kernel_with_zero_arg(void)
 
@@ -22,6 +23,6 @@ int call_kernel_with_zero_arg(void)
   short sStack_6;
   
   sStack_6 = 0;
-  write_constant_to_param(&sStack_6);
+  __trap_write_constant_to_param(&sStack_6);
   return (int)sStack_6;
 }

@@ -15,6 +15,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 int retry_flash_program_on_error(uint32_t param_1,uint32_t param_2,uint32_t param_3)
 
@@ -23,7 +24,7 @@ int retry_flash_program_on_error(uint32_t param_1,uint32_t param_2,uint32_t para
   
   iVar1 = compare_short_arrays(param_1,param_2,0x8001ef80/*SDRAM*/,param_3);
   if (iVar1 == 3) {
-    call_kernel_service_at_0x1000d3ce();
+    __trap_call_kernel_service_at_0x1000d3ce();
     (*(code *)&SUB_80000610)();
     iVar1 = (*(code *)&SUB_8000046e)(param_2);
     if ((iVar1 == 0) && (iVar1 = (*(code *)&SUB_8000048e)(param_2,0x8001ef80/*SDRAM*/,param_3), iVar1 == 0))
@@ -31,7 +32,7 @@ int retry_flash_program_on_error(uint32_t param_1,uint32_t param_2,uint32_t para
       iVar1 = compare_short_arrays(param_1,param_2,0x8001ef80/*SDRAM*/,param_3);
     }
     (*(code *)&SUB_80000646)();
-    call_kernel_service_at_0x1000d3e8();
+    __trap_call_kernel_service_at_0x1000d3e8();
   }
   return iVar1;
 }

@@ -7,7 +7,7 @@
  * summary:
  *   Scans the 7-entry heap descriptor (0x14 bytes each) in param_1 for an entry whose
  *   [start,end) range contains param_2. On match, reads the kernel pool id at offset +0xc
- *   of that entry and passes it to heap_pool_free_block (the kernel free routine,
+ *   of that entry and passes it to __trap_heap_pool_free_block(the kernel free routine,
  *   counterpart to the alloc at 0x10010138 used by mempool_get_block). Returns 1 if the
  *   block was found and freed, 0 otherwise. This is the release counterpart to
  *   mempool_get_block in the rtos_wrappers_and_heap module.
@@ -15,6 +15,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 /* WARNING: Instruction at (ram,0x10459bd6) overlaps instruction at (ram,0x10459bd4)
     */
@@ -36,7 +37,7 @@ uint32_t mempool_release_block(void *param_1,void *param_2)
       return 0;
     }
   }
-  iVar1 = heap_pool_free_block((int)(short)*(uint32_t *)((int)param_1 + iVar3 * 0x14 + 0xc),(int *)__frv_reg_unset(5));
+  iVar1 = __trap_heap_pool_free_block((int)(short)*(uint32_t *)((int)param_1 + iVar3 * 0x14 + 0xc),(int *)param_2);
   if (iVar1 == 0) {
     return 1;
   }

@@ -8,11 +8,12 @@
  *   Calls rtos_sched_start_gate, then iterates through a table at PTR_DAT_10011cb8 up to
  *   the count in DAT_10011d18, calling a virtual-like function pointer for each entry.
  *   Finally, it enters an infinite loop, consistent with a task termination handler in a
- *   µITRON/REALOS kernel context.
+ *   ÂµITRON/REALOS kernel context.
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 void task_exit_stub(void)
 
@@ -26,7 +27,7 @@ void task_exit_stub(void)
   uintptr_t sp;
   uint32_t caller_retaddr;
   
-  rtos_sched_start_gate();
+  __trap_rtos_sched_start_gate();
   *(uint32_t *)((int)sp + -4) = caller_retaddr;
   *(uint32_t *)((int)sp + -8) = caller_r11;
   *(uint32_t *)((int)sp + -0xc) = caller_r10;

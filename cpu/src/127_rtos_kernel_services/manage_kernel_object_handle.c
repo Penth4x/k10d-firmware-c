@@ -16,6 +16,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 bool manage_kernel_object_handle(int *param_1,int param_2)
 
@@ -34,16 +35,16 @@ bool manage_kernel_object_handle(int *param_1,int param_2)
     sVar1 = (short)*param_1;
     if (param_2 < 1) {
       if (param_2 == 0) {
-        iVar2 = activate_timeout_queue_entry((int)sVar1);
+        iVar2 = __trap_activate_timeout_queue_entry((int)sVar1);
       }
     }
     else {
       if (param_2 == param_1[1]) {
-        iVar2 = activate_timeout_queue_entry((int)sVar1);
+        iVar2 = __trap_activate_timeout_queue_entry((int)sVar1);
         return iVar2 == 0;
       }
-      cancel_timeout_queue_entry((int)sVar1);
-      iVar2 = remove_node_from_timeout_queue_1000e46c((int)(short)*param_1);
+      __trap_cancel_timeout_queue_entry((int)sVar1);
+      iVar2 = __trap_remove_node_from_timeout_queue_1000e46c((int)(short)*param_1);
       if (iVar2 == 0) {
         *param_1 = 0;
         local_18 = 0;
@@ -51,11 +52,11 @@ bool manage_kernel_object_handle(int *param_1,int param_2)
         pcStack_10 = call_virtual_slot_two_1045962a;
         piStack_14 = param_1;
         iStack_c = param_2;
-        iVar2 = find_free_tcb_slot_1000d6e4(&local_18);
+        iVar2 = __trap_find_free_tcb_slot_1000d6e4(&local_18);
         if (0 < iVar2) {
           *param_1 = iVar2;
           param_1[1] = param_2;
-          iVar2 = activate_timeout_queue_entry((int)(short)iVar2);
+          iVar2 = __trap_activate_timeout_queue_entry((int)(short)iVar2);
           return iVar2 == 0;
         }
       }

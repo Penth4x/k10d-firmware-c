@@ -14,6 +14,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 uint32_t mbx_receive_message_1045994c(uint32_t *param_1,uint32_t *param_2)
 
@@ -25,7 +26,7 @@ uint32_t mbx_receive_message_1045994c(uint32_t *param_1,uint32_t *param_2)
   
   iStack_c = 0;
   *param_2 = 0;
-  iVar1 = dequeue_timeout_queue_entry((int)(short)*param_1,&iStack_c);
+  iVar1 = __trap_dequeue_timeout_queue_entry((int)(short)*param_1,&iStack_c);
   if (iVar1 == 0) {
     if (iStack_c != 0) {
       *param_2 = CONCAT13(*(uint8_t *)(iStack_c + 0xb),

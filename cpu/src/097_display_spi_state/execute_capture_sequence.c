@@ -11,6 +11,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 /* WARNING: Instruction at (ram,0x1041c72e) overlaps instruction at (ram,0x1041c72c)
     */
@@ -146,9 +147,9 @@ uint32_t execute_capture_sequence(cls_1059d1d8 *param_1)
     empty_noop_stub_103b76f2();
     sStack_a = 0;
     sVar7 = call_kernel_with_zero_arg();
-    get_entry_status_word((int)sVar7,&sStack_a);
+    __trap_get_entry_status_word((int)sVar7,&sStack_a);
     sVar7 = call_kernel_with_zero_arg();
-    set_timer_channel_value((int)sVar7,6);
+    __trap_set_timer_channel_value((int)sVar7,6);
     param_1->field_0x58 = param_1->field_0x54;
     puVar2 = (void*)(&param_1->field_0x68);
     initialize_capture_state_flags(param_1,puVar2);
@@ -233,7 +234,7 @@ uint32_t execute_capture_sequence(cls_1059d1d8 *param_1)
     (*(code *)0x10506c32/*ROM*/)(param_1->field_0x3c);
     release_object_at_offset_four_105017ac(param_1->field_0x38);
     sVar7 = call_kernel_with_zero_arg();
-    set_timer_channel_value((int)sVar7,(int)sStack_a);
+    __trap_set_timer_channel_value((int)sVar7,(int)sStack_a);
     (((vtbl_entry*)(param_1->field_0x0))[26].fn)
               ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[26].adj,0);
     set_flag_at_offset_0xc4_1041da56(param_1);

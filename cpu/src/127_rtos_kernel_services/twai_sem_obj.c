@@ -11,6 +11,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 bool twai_sem_obj(uint32_t *param_1,int param_2)
 
@@ -18,10 +19,10 @@ bool twai_sem_obj(uint32_t *param_1,int param_2)
   int iVar1;
   
   if (param_2 < 0) {
-    iVar1 = kernel_twai_sem((int)(short)*param_1,0xffffffff);
+    iVar1 = __trap_kernel_twai_sem((int)(short)*param_1,0xffffffff);
   }
   else {
-    iVar1 = kernel_twai_sem((int)(short)*param_1, __frv_reg_unset(5));
+    iVar1 = __trap_kernel_twai_sem((int)(short)*param_1, __frv_reg_unset(5));
   }
   return iVar1 == 0;
 }

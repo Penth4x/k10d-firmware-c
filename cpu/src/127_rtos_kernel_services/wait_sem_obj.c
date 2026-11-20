@@ -14,6 +14,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 uint32_t wait_sem_obj(int *param_1)
 
@@ -24,6 +25,6 @@ uint32_t wait_sem_obj(int *param_1)
   
   uStack_8 = 0;
   iStack_c = *param_1 << 0x10;
-  get_timeout_queue_entry((int)(short)*param_1,&iStack_c);
+  __trap_get_timeout_queue_entry((int)(short)*param_1,&iStack_c);
   return uStack_8;
 }
