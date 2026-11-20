@@ -14,7 +14,6 @@
 int cls_105a0a84_new(cls_105a0a84 *param_1,uint32_t *param_2)
 
 {
-  uint32_t uVar1;
   int iVar2;
   
   if ((param_1 != (cls_105a0a84 *)0x0) ||
@@ -24,9 +23,12 @@ int cls_105a0a84_new(cls_105a0a84 *param_1,uint32_t *param_2)
     ((uint32_t *)&((((cls_1059e2e0 *)param_1)->field_0x8)))[0] = 0x105a0ab4/*ROM*/;
     ((cls_1059e2e0 *)param_1)->field3_0x10 = *param_2;
     ((cls_1059e2e0 *)param_1)->field4_0x14 = param_2[1];
-    uVar1 = param_2[2];
-    ((cls_1059e2e0 *)param_1)->field5_0x18 = (short)((uint)uVar1 >> 0x10);
-    ((cls_1059e2e0 *)param_1)->field6_0x1a = (short)uVar1;
+    /* field5_0x18 holds a full 32-bit object pointer (read back below via *(int*)&field5_0x18
+       and used for a vtable call). The decompiler split the single word store into two 16-bit
+       halves (field5_0x18 high, field6_0x1a low); fcc's short field types then truncate it, so
+       the pointer is written as a byte and corrupted. Store the whole word as the original does
+       (stock writes a 32-bit W4 here). */
+    *(uint32_t *)&((cls_1059e2e0 *)param_1)->field5_0x18 = param_2[2];
     *(uint32_t *)&((cls_1059e2e0 *)param_1)->field_0x1c = param_2[3];
     *(uint32_t *)&((cls_1059e2e0 *)param_1)->field_0x20 = param_2[4];
     *(uint32_t *)&((cls_1059e2e0 *)param_1)->field_0x24 = param_2[5];
