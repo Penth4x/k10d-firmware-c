@@ -23,23 +23,17 @@
 uint32_t mempool_release_block(void *param_1,void *param_2)
 
 {
-  int iVar1;
-  char *pcVar2;
-  int iVar3;
-  
-  iVar3 = 0;
-  iVar1 = 0;
-  while (((pcVar2 = (char *)((int)param_1 + iVar1), *pcVar2 == '\0' ||
-          (param_2 < *(void **)(pcVar2 + 4))) || (*(void **)(pcVar2 + 8) < param_2))) {
-    iVar1 = iVar1 + 0x14;
-    iVar3 = iVar3 + 1;
-    if (0x8b < iVar1) {
-      return 0;
+  /* Single loop index with a freshly-computed entry pointer: the loop variables stay
+     caller-saved (no STM1 of R8-R11), matching the original's small frame. Equivalent to
+     the decompiled while-scan: find the first non-empty entry whose [start,end] contains
+     param_2, free it, and return 1 on success. */
+  int off;
+
+  for (off = 0; off <= 0x8b; off += 0x14) {
+    char *e = (char *)param_1 + off;
+    if ((*e != '\0' && *(void **)(e + 4) <= param_2) && (param_2 <= *(void **)(e + 8))) {
+      return __trap_heap_pool_free_block((int)(short)*(uint32_t *)(e + 0xc),(int *)param_2) == 0;
     }
-  }
-  iVar1 = __trap_heap_pool_free_block((int)(short)*(uint32_t *)((int)param_1 + iVar3 * 0x14 + 0xc),(int *)param_2);
-  if (iVar1 == 0) {
-    return 1;
   }
   return 0;
 }
