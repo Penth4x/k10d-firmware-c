@@ -7,8 +7,8 @@
  * summary:
  *   The function first checks a condition via forward_field_at_offset_0x10. If true, it
  *   enters a loop that calls configure_and_dispatch_event to update a local state structure
- *   (auStack_1c8) and compares the resulting shorts (sStack_10/uStack_e) against previous
- *   values (sStack_c/sStack_a). It increments a counter at param_1+0x3c and invokes a
+ *   (auStack_1c8) and compares the resulting shorts (sStack_10/_cfg_e.uStack_e) against previous
+ *   values (_cfg_e.sStack_c/_cfg_e.sStack_a). It increments a counter at param_1+0x3c and invokes a
  *   virtual method (slot 2) on an object retrieved from param_1+0x70. The loop continues as
  *   long as the state values change, a local flag (iStack_1d0) is 1, and a byte at
  *   param_1+0x44 is 0. It uses cls_105b572c_new/delete for object lifecycle management
@@ -21,6 +21,11 @@
 void poll_state_until_stable(int param_1,ushort *param_2)
 
 {
+  struct {
+    uint16_t uStack_e;
+    short sStack_c;
+    short sStack_a;
+  } _cfg_e;
   int iVar1;
   int *piVar2;
   int iVar3;
@@ -30,13 +35,9 @@ void poll_state_until_stable(int param_1,ushort *param_2)
   int iStack_1d0;
   cls_105b572c cStack_1c8;
   short sStack_10;
-  uint16_t uStack_e;
-  short sStack_c;
-  short sStack_a;
-  
   puVar4 = (uint32_t *)auStack_1e4;
   sStack_10 = 0;
-  uStack_e = 0;
+  _cfg_e.uStack_e = 0;
   iVar1 = forward_field_at_offset_0x10(*(int *)(param_1 + 0x50));
   if (iVar1 != 0) {
     forward_field_at_offset_0x10(*(int *)(param_1 + 0x50));
@@ -44,7 +45,7 @@ void poll_state_until_stable(int param_1,ushort *param_2)
     iVar1 = 4;
     do {
       iVar3 = iVar1 + -1;
-      *(uint8_t *)((int)&uStack_e + iVar1 + 1) =
+      *(uint8_t *)((int)&_cfg_e.uStack_e + iVar1 + 1) =
            *(uint8_t *)((int)&cStack_1c8.field_0x1b4 + iVar1 + 3);
       iVar1 = iVar3;
     } while (iVar3 != 0);
@@ -62,7 +63,7 @@ void poll_state_until_stable(int param_1,ushort *param_2)
                 ((int)piVar2 + (int)((vtbl_entry*)(iVar1))[2].adj,0x1000d,param_1 + 0x34);
       forward_field_at_offset_0x10(*(int *)(param_1 + 0x50));
       cls_105b572c_delete(&cStack_1c8,2);
-    } while ((((sStack_c != sStack_10) || (sStack_a != uStack_e)) && (iStack_1d0 == 1)) &&
+    } while ((((_cfg_e.sStack_c != sStack_10) || (_cfg_e.sStack_a != _cfg_e.uStack_e)) && (iStack_1d0 == 1)) &&
             (*(char *)(param_1 + 0x44) == '\0'));
   }
   return;

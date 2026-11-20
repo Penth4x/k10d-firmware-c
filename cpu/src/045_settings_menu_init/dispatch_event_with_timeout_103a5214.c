@@ -21,30 +21,31 @@
 void dispatch_event_with_timeout_103a5214(int *param_1)
 
 {
+  struct {
+    uint8_t uStack_1c;
+    uint8_t uStack_1b;
+    int iStack_18;
+    uint8_t uStack_14;
+    int iStack_10;
+    int iStack_c;
+  } _cfg_1c;
   int iVar1;
   uintptr_t sp;
-  uint8_t uStack_1c;
-  uint8_t uStack_1b;
-  int iStack_18;
-  uint8_t uStack_14;
-  int iStack_10;
-  int iStack_c;
-  
   if (*(char *)(param_1 + 0x14) == '\x01') {
-    iStack_10 = param_1[0x15] + 0x1a;
-    iStack_c = param_1[0x16] + 8;
+    _cfg_1c.iStack_10 = param_1[0x15] + 0x1a;
+    _cfg_1c.iStack_c = param_1[0x16] + 8;
   }
   else {
-    iStack_10 = 0;
-    iStack_c = 0;
+    _cfg_1c.iStack_10 = 0;
+    _cfg_1c.iStack_c = 0;
   }
-  uStack_1c = 1;
-  uStack_1b = 9;
-  iStack_18 = param_1[0xf];
-  uStack_14 = *(char *)(param_1 + 0x14) == '\x01';
+  _cfg_1c.uStack_1c = 1;
+  _cfg_1c.uStack_1b = 9;
+  _cfg_1c.iStack_18 = param_1[0xf];
+  _cfg_1c.uStack_14 = *(char *)(param_1 + 0x14) == '\x01';
   iVar1 = *(int *)param_1[0xb];
   (((vtbl_entry*)(iVar1))[2].fn)(param_1[0xb] + (int)((vtbl_entry*)(iVar1))[2].adj,0x1120069,2);
-  iVar1 = configure_pipeline_with_settings(param_1[0xe],&uStack_1c);
+  iVar1 = configure_pipeline_with_settings(param_1[0xe],&_cfg_1c.uStack_1c);
   if (iVar1 == 0) {
     *(uint8_t *)((int)param_1 + 0x65) = 1;
     register_seven_menu_items(param_1);

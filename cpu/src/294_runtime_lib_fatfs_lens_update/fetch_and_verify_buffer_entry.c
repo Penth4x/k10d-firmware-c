@@ -19,6 +19,13 @@
 int fetch_and_verify_buffer_entry(void *param_1,uint param_2,uint param_3,uint *param_4)
 
 {
+  struct {
+    uint uStack_34;
+    int iStack_30;
+    int iStack_2c;
+    uint * puStack_28;
+    uint uStack_24;
+  } _cfg_34;
   void *pvVar1;
   int iVar2;
   uint uVar3;
@@ -26,27 +33,21 @@ int fetch_and_verify_buffer_entry(void *param_1,uint param_2,uint param_3,uint *
   uintptr_t sp;
   uint32_t *puVar5;
   uint8_t auStack_38 [4];
-  uint uStack_34;
-  int iStack_30;
-  int iStack_2c;
-  uint *puStack_28;
-  uint uStack_24;
-  
   puVar5 = (uint32_t *)auStack_38;
-  uStack_24 = 1;
+  _cfg_34.uStack_24 = 1;
   pvVar1 = (void *)alloc_pool2_block((void *)0x2a0);
   if (pvVar1 == 0) {
     iVar2 = -0xc;
   }
   else {
     while( true ) {
-      uVar4 = uStack_24;
+      uVar4 = _cfg_34.uStack_24;
       uVar3 = *param_4;
-      puStack_28 = &uStack_34;
+      _cfg_34.puStack_28 = &_cfg_34.uStack_34;
       *puVar5 = (uintptr_t)(pvVar1);
-      iVar2 = process_32_byte_record_stream_10539d34(param_1,uVar3,uVar4,(int *)&uStack_34,(void *)*puVar5);
+      iVar2 = process_32_byte_record_stream_10539d34(param_1,uVar3,uVar4,(int *)&_cfg_34.uStack_34,(void *)*puVar5);
       if (iVar2 != 0) break;
-      iVar2 = iStack_2c + -1;
+      iVar2 = _cfg_34.iStack_2c + -1;
       uVar4 = ((int)(uint)*(ushort *)((int)pvVar1 + iVar2 * 0x20 + 0x14) >> 8 |
               (*(ushort *)((int)pvVar1 + iVar2 * 0x20 + 0x14) & 0xff) << 8) << 0x10 |
               (*(ushort *)((int)pvVar1 + iVar2 * 0x20 + 0x1a) & 0xff) << 8 |
@@ -59,15 +60,15 @@ int fetch_and_verify_buffer_entry(void *param_1,uint param_2,uint param_3,uint *
              (ushort)((*param_4 & 0xffff) << 8) | (ushort)((*param_4 & 0xffff) >> 8);
         *(ushort *)((int)pvVar1 + iVar2 * 0x20 + 0x14) =
              (ushort)((*param_4 >> 0x10) << 8) | (ushort)(byte)(*param_4 >> 0x18);
-        iVar2 = write_data_block_to_buffer(param_1,(int *)puStack_28,pvVar1);
+        iVar2 = write_data_block_to_buffer(param_1,(int *)_cfg_34.puStack_28,pvVar1);
         if (iVar2 != 0) goto LAB_1054274c;
-        *param_4 = uStack_34;
-        uStack_24 = iStack_30 + iStack_2c;
+        *param_4 = _cfg_34.uStack_34;
+        _cfg_34.uStack_24 = _cfg_34.iStack_30 + _cfg_34.iStack_2c;
       }
       else {
         if (((uVar4 != param_2) && ((*(byte *)((int)pvVar1 + iVar2 * 0x20 + 0xb) & 0x10) != 0)) &&
            (iVar2 = send_two_word_command_pair(param_1,uVar4,*param_4), iVar2 != 0)) goto LAB_1054274c;
-        uStack_24 = iStack_30 + iStack_2c;
+        _cfg_34.uStack_24 = _cfg_34.iStack_30 + _cfg_34.iStack_2c;
       }
     }
     if (iVar2 == -2) {

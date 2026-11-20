@@ -21,6 +21,26 @@
 int compare_two_structs_by_mode(int param_1,int param_2,void *param_3,void *param_4)
 
 {
+  struct {
+    uint32_t uStack_58;
+    uint32_t uStack_54;
+    uint32_t uStack_50;
+    uint32_t uStack_4c;
+    uint16_t uStack_48;
+    uint16_t uStack_46;
+    uint16_t uStack_44;
+    uint16_t uStack_42;
+    uint16_t uStack_40;
+    uint32_t uStack_3c;
+    uint32_t uStack_38;
+    uint32_t uStack_34;
+    uint32_t uStack_30;
+    uint16_t uStack_2c;
+    uint16_t uStack_2a;
+    uint16_t uStack_28;
+    uint16_t uStack_26;
+    uint16_t uStack_24;
+  } _cfg_58;
   int iVar1;
   uint32_t uVar2;
   uint16_t extraout_r4;
@@ -28,24 +48,6 @@ int compare_two_structs_by_mode(int param_1,int param_2,void *param_3,void *para
   uintptr_t sp;
   bool bVar4;
   uint32_t auStack_60 [2];
-  uint32_t uStack_58;
-  uint32_t uStack_54;
-  uint32_t uStack_50;
-  uint32_t uStack_4c;
-  uint16_t uStack_48;
-  uint16_t uStack_46;
-  uint16_t uStack_44;
-  uint16_t uStack_42;
-  uint16_t uStack_40;
-  uint32_t uStack_3c;
-  uint32_t uStack_38;
-  uint32_t uStack_34;
-  uint32_t uStack_30;
-  uint16_t uStack_2c;
-  uint16_t uStack_2a;
-  uint16_t uStack_28;
-  uint16_t uStack_26;
-  uint16_t uStack_24;
   uint32_t auStack_20 [4];
   uint32_t auStack_10 [2];
   
@@ -85,45 +87,45 @@ LAB_104c5bbe:
     return 0;
   }
   iVar1 = 0;
-  uStack_48 = 0;
-  uStack_46 = 0;
-  uStack_44 = 0;
-  uStack_42 = 0;
-  uStack_40 = 0;
-  uStack_54 = *(uint32_t *)((int)param_3 + 0x20);
-  uStack_50 = *(uint32_t *)((int)param_3 + 0x24);
-  uStack_4c = *(uint32_t *)((int)param_3 + 0x28);
-  uStack_58 = *(uint32_t *)((int)param_3 + 0x1c);
+  _cfg_58.uStack_48 = 0;
+  _cfg_58.uStack_46 = 0;
+  _cfg_58.uStack_44 = 0;
+  _cfg_58.uStack_42 = 0;
+  _cfg_58.uStack_40 = 0;
+  _cfg_58.uStack_54 = *(uint32_t *)((int)param_3 + 0x20);
+  _cfg_58.uStack_50 = *(uint32_t *)((int)param_3 + 0x24);
+  _cfg_58.uStack_4c = *(uint32_t *)((int)param_3 + 0x28);
+  _cfg_58.uStack_58 = *(uint32_t *)((int)param_3 + 0x1c);
   puVar3 = (uint32_t *)((int)param_3 + 0x2c);
   uVar2 = return_first_word_1045c514(puVar3);
-  uStack_44 = (short)uVar2;
+  _cfg_58.uStack_44 = (short)uVar2;
   uVar2 = return_first_word_1045c514(puVar3);
-  uStack_48 = (short)uVar2;
+  _cfg_58.uStack_48 = (short)uVar2;
   uVar2 = read_struct_field_at_offset_4(puVar3);
-  uStack_42 = 0;
-  uStack_40 = 0;
-  uStack_2c = 0;
-  uStack_2a = 0;
-  uStack_28 = 0;
-  uStack_26 = 0;
-  uStack_24 = 0;
-  uStack_38 = *(uint32_t *)((int)param_4 + 0x20);
-  uStack_34 = *(uint32_t *)((int)param_4 + 0x24);
-  uStack_30 = *(uint32_t *)((int)param_4 + 0x28);
-  uStack_3c = *(uint32_t *)((int)param_4 + 0x1c);
+  _cfg_58.uStack_42 = 0;
+  _cfg_58.uStack_40 = 0;
+  _cfg_58.uStack_2c = 0;
+  _cfg_58.uStack_2a = 0;
+  _cfg_58.uStack_28 = 0;
+  _cfg_58.uStack_26 = 0;
+  _cfg_58.uStack_24 = 0;
+  _cfg_58.uStack_38 = *(uint32_t *)((int)param_4 + 0x20);
+  _cfg_58.uStack_34 = *(uint32_t *)((int)param_4 + 0x24);
+  _cfg_58.uStack_30 = *(uint32_t *)((int)param_4 + 0x28);
+  _cfg_58.uStack_3c = *(uint32_t *)((int)param_4 + 0x1c);
   puVar3 = (uint32_t *)((int)param_4 + 0x2c);
-  uStack_46 = (short)uVar2;
+  _cfg_58.uStack_46 = (short)uVar2;
   uVar2 = return_first_word_1045c514(puVar3);
-  uStack_28 = (short)uVar2;
+  _cfg_58.uStack_28 = (short)uVar2;
   uVar2 = return_first_word_1045c514(puVar3);
-  uStack_2c = (short)uVar2;
+  _cfg_58.uStack_2c = (short)uVar2;
   uVar2 = read_struct_field_at_offset_4(puVar3);
   extraout_r4 = (uint16_t)uVar2;
-  uStack_24 = 0;
-  uStack_26 = 0;
-  uStack_2a = extraout_r4;
+  _cfg_58.uStack_24 = 0;
+  _cfg_58.uStack_26 = 0;
+  _cfg_58.uStack_2a = extraout_r4;
   if (param_2 == 0) {
-    iVar1 = register_two_pointers_with_flags(*(uint32_t *)(param_1 + 0x4c),&uStack_58,&uStack_3c);
+    iVar1 = register_two_pointers_with_flags(*(uint32_t *)(param_1 + 0x4c),&_cfg_58.uStack_58,&_cfg_58.uStack_3c);
   }
   else {
     if (param_2 == 1) {
@@ -139,7 +141,7 @@ LAB_104c5bbe:
       }
       iVar1 = 0;
     }
-    iVar1 = set_mode_flag_and_notify(*(uint32_t *)(param_1 + 0x4c),&uStack_58,&uStack_3c,iVar1);
+    iVar1 = set_mode_flag_and_notify(*(uint32_t *)(param_1 + 0x4c),&_cfg_58.uStack_58,&_cfg_58.uStack_3c,iVar1);
   }
   bVar4 = iVar1 == 0;
 LAB_104c5d38:

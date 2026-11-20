@@ -19,16 +19,17 @@ uint32_t
 forward_event_with_payload(int param_1,void *param_2,uint16_t param_3,uint16_t param_4,uint16_t param_5)
 
 {
+  struct {
+    void * pvStack_14;
+    uint16_t uStack_10;
+    uint16_t uStack_e;
+    uint16_t uStack_c;
+  } _cfg_14;
   uintptr_t sp;
-  void *pvStack_14;
-  uint16_t uStack_10;
-  uint16_t uStack_e;
-  uint16_t uStack_c;
-  
-  uStack_c = param_5;
-  pvStack_14 = param_2;
-  uStack_10 = param_3;
-  uStack_e = param_4;
-  initialize_object_subsystem_104c37c4(param_1,&pvStack_14,1);
+  _cfg_14.uStack_c = param_5;
+  _cfg_14.pvStack_14 = param_2;
+  _cfg_14.uStack_10 = param_3;
+  _cfg_14.uStack_e = param_4;
+  initialize_object_subsystem_104c37c4(param_1,&_cfg_14.pvStack_14,1);
   return 1;
 }

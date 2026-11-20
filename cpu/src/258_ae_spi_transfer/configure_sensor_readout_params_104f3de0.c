@@ -18,6 +18,16 @@
 void configure_sensor_readout_params_104f3de0(int param_1,void *param_2,uint32_t *param_3)
 
 {
+  struct {
+    uint16_t uStack_18;
+    uint16_t uStack_16;
+    uint16_t uStack_14;
+    uint16_t uStack_12;
+    uint16_t uStack_10;
+    uint16_t uStack_e;
+    uint16_t uStack_c;
+    uint16_t uStack_a;
+  } _cfg_18;
   short sVar1;
   int iVar2;
   uint uVar3;
@@ -26,15 +36,6 @@ void configure_sensor_readout_params_104f3de0(int param_1,void *param_2,uint32_t
   uint uVar6;
   uint32_t uVar7;
   uintptr_t sp;
-  uint16_t uStack_18;
-  uint16_t uStack_16;
-  uint16_t uStack_14;
-  uint16_t uStack_12;
-  uint16_t uStack_10;
-  uint16_t uStack_e;
-  uint16_t uStack_c;
-  uint16_t uStack_a;
-  
   set_pointer_and_clear_flag((int *)(param_1 + 0x18),param_2);
   pvVar4 = (void *)get_or_init_singleton_object_1051d40e();
   update_camera_state_flags(pvVar4,3,1);
@@ -149,15 +150,15 @@ LAB_104f4070:
 LAB_104f40b0:
   set_bit15_of_dat_40100d00(*(uint32_t *)(param_1 + 0x10),0);
   write_mmio_control_word(*(uint32_t *)(param_1 + 0x10),1,1);
-  uStack_18 = 0;
-  uStack_16 = 0;
-  uStack_14 = 0;
-  uStack_12 = 0;
-  uStack_10 = 0;
-  uStack_e = 0;
-  uStack_c = 0;
-  uStack_a = 0;
-  write_masked_shorts_to_mmio_block(*(uint32_t *)(param_1 + 0x10),&uStack_18,&uStack_18);
+  _cfg_18.uStack_18 = 0;
+  _cfg_18.uStack_16 = 0;
+  _cfg_18.uStack_14 = 0;
+  _cfg_18.uStack_12 = 0;
+  _cfg_18.uStack_10 = 0;
+  _cfg_18.uStack_e = 0;
+  _cfg_18.uStack_c = 0;
+  _cfg_18.uStack_a = 0;
+  write_masked_shorts_to_mmio_block(*(uint32_t *)(param_1 + 0x10),&_cfg_18.uStack_18,&_cfg_18.uStack_18);
   if (((*(char *)(param_3 + 0xe) != '\0') && (param_3[0x10] != 0)) && (param_3[0x11] != 0)) {
     set_bit15_of_dat_40100d00(*(uint32_t *)(param_1 + 0x10), __frv_reg_unset(5));
     write_mmio_control_word(*(uint32_t *)(param_1 + 0x10),*(uint16_t *)((int)param_3 + 0x3a),

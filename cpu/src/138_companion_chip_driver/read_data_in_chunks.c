@@ -21,6 +21,12 @@
 int read_data_in_chunks(int *param_1,void *param_2,uint *param_3,int param_4)
 
 {
+  struct {
+    uint8_t uStack_c;
+    uint8_t uStack_b;
+    uint8_t uStack_a;
+    uint8_t uStack_9;
+  } _cfg_c;
   int iVar1;
   int iVar2;
   uint uVar3;
@@ -38,11 +44,6 @@ int read_data_in_chunks(int *param_1,void *param_2,uint *param_3,int param_4)
   int iStack_2c;
   int iStack_24;
   int iStack_20;
-  uint8_t uStack_c;
-  uint8_t uStack_b;
-  uint8_t uStack_a;
-  uint8_t uStack_9;
-  
   iStack_20 = 0;
   bVar7 = set_pointer_and_clear_flag(param_1 + 7,param_2);
   if (bVar7) {
@@ -59,16 +60,16 @@ int read_data_in_chunks(int *param_1,void *param_2,uint *param_3,int param_4)
       do {
         bVar7 = param_4 == 0;
         iVar5 = iStack_2c * (0x40 >> (uint)bVar7) + (uVar4 & 0xffff);
-        uStack_b = (uint8_t)iVar5;
-        uStack_c = (uint8_t)((uint)iVar5 >> 8);
+        _cfg_c.uStack_b = (uint8_t)iVar5;
+        _cfg_c.uStack_c = (uint8_t)((uint)iVar5 >> 8);
         uVar12 = uStack_30;
         if (0x3f < uStack_30) {
           uStack_30 = uStack_30 - 0x40 & 0xffff;
           uVar12 = 0x40;
         }
-        uStack_a = (uint8_t)((uint)((int)uVar12 >> (uint)bVar7) >> 8);
-        uStack_9 = (uint8_t)((int)uVar12 >> (uint)bVar7);
-        (((vtbl_entry*)(*param_1))[10].fn)((int)((vtbl_entry*)(*param_1))[10].adj + (int)param_1,&uStack_c,4);
+        _cfg_c.uStack_a = (uint8_t)((uint)((int)uVar12 >> (uint)bVar7) >> 8);
+        _cfg_c.uStack_9 = (uint8_t)((int)uVar12 >> (uint)bVar7);
+        (((vtbl_entry*)(*param_1))[10].fn)((int)((vtbl_entry*)(*param_1))[10].adj + (int)param_1,&_cfg_c.uStack_c,4);
         iVar5 = 2;
         if (param_4 == 0) {
           iVar9 = 2;

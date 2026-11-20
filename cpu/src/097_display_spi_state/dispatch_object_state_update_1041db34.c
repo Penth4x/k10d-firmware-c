@@ -19,38 +19,39 @@
 void dispatch_object_state_update_1041db34(cls_1059d1d8 *param_1)
 
 {
+  struct {
+    uint8_t uStack_14;
+    uint8_t uStack_13;
+    uint8_t uStack_12;
+    uint8_t uStack_11;
+    uint8_t uStack_10;
+    uint16_t uStack_e;
+    uint32_t uStack_c;
+  } _cfg_14;
   char cVar3;
   int iVar1;
   uint uVar2;
   void *pvVar4;
   uintptr_t sp;
-  uint8_t uStack_14;
-  uint8_t uStack_13;
-  uint8_t uStack_12;
-  uint8_t uStack_11;
-  uint8_t uStack_10;
-  uint16_t uStack_e;
-  uint32_t uStack_c;
-  
   cVar3 = read_sysparam_byte((uint8_t *)param_1->field_0x48);
   if (cVar3 != '\0') {
-    uStack_c = 0x1059cf38/*ROM*/;
-    uStack_14 = 0;
-    uStack_13 = 0;
-    uStack_12 = 0;
-    uStack_11 = 0;
-    uStack_10 = 0;
-    uStack_e = 0;
+    _cfg_14.uStack_c = 0x1059cf38/*ROM*/;
+    _cfg_14.uStack_14 = 0;
+    _cfg_14.uStack_13 = 0;
+    _cfg_14.uStack_12 = 0;
+    _cfg_14.uStack_11 = 0;
+    _cfg_14.uStack_10 = 0;
+    _cfg_14.uStack_e = 0;
     iVar1 = get_sysparam_store_byte((uint8_t *)(param_1->field_0x48),(uint32_t)(6));
-    uStack_14 = iVar1 == 0;
-    uStack_13 = get_sysparam_store_byte((uint8_t *)(param_1->field_0x48),(uint32_t)(7));
-    uStack_12 = 1;
-    uStack_11 = get_sysparam_store_byte((uint8_t *)(param_1->field_0x48),(uint32_t)(0xb));
-    uStack_10 = get_sysparam_store_byte((uint8_t *)(param_1->field_0x48),(uint32_t)(9));
-    uStack_e = *(uint16_t *)(param_1->field_0x48 + 0x20);
+    _cfg_14.uStack_14 = iVar1 == 0;
+    _cfg_14.uStack_13 = get_sysparam_store_byte((uint8_t *)(param_1->field_0x48),(uint32_t)(7));
+    _cfg_14.uStack_12 = 1;
+    _cfg_14.uStack_11 = get_sysparam_store_byte((uint8_t *)(param_1->field_0x48),(uint32_t)(0xb));
+    _cfg_14.uStack_10 = get_sysparam_store_byte((uint8_t *)(param_1->field_0x48),(uint32_t)(9));
+    _cfg_14.uStack_e = *(uint16_t *)(param_1->field_0x48 + 0x20);
     iVar1 = *(int *)(param_1->field_0x2c + 4);
-    (((vtbl_entry*)(iVar1))[30].fn)(param_1->field_0x2c + (int)((vtbl_entry*)(iVar1))[30].adj,&uStack_14);
-    uStack_c = 0x1059cf38/*ROM*/;
+    (((vtbl_entry*)(iVar1))[30].fn)(param_1->field_0x2c + (int)((vtbl_entry*)(iVar1))[30].adj,&_cfg_14.uStack_14);
+    _cfg_14.uStack_c = 0x1059cf38/*ROM*/;
   }
   iVar1 = *(int *)(param_1->field_0x2c + 4);
   (((vtbl_entry*)(iVar1))[14].fn)(param_1->field_0x2c + (int)((vtbl_entry*)(iVar1))[14].adj);

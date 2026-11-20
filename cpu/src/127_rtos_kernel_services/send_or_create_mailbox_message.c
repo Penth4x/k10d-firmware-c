@@ -19,25 +19,26 @@
 int send_or_create_mailbox_message(int *param_1,int param_2,uint16_t param_3,uint16_t param_4)
 
 {
+  struct {
+    uint16_t uStack_c;
+    uint16_t uStack_a;
+    uint32_t uStack_8;
+  } _cfg_c;
   int iVar1;
   int iVar2;
   uintptr_t sp;
-  uint16_t uStack_c;
-  uint16_t uStack_a;
-  uint32_t uStack_8;
-  
-  uStack_8 = 0;
-  *(uint32_t *)&uStack_c = CONCAT22(param_3,param_4);
+  _cfg_c.uStack_8 = 0;
+  *(uint32_t *)&_cfg_c.uStack_c = CONCAT22(param_3,param_4);
   *param_1 = param_2;
   if (param_2 == 0) {
-    iVar1 = __trap_allocate_free_task_slot(&uStack_c);
+    iVar1 = __trap_allocate_free_task_slot(&_cfg_c.uStack_c);
     if (0 < iVar1) {
       *param_1 = iVar1;
       return iVar1;
     }
   }
   else {
-    iVar1 = __trap_validate_and_store_task_param((int)(short)param_2,&uStack_c);
+    iVar1 = __trap_validate_and_store_task_param((int)(short)param_2,&_cfg_c.uStack_c);
   }
   iVar2 = 0;
   if (iVar1 != 0) {

@@ -16,6 +16,24 @@
 uint32_t match_service_token(void *param_1,void *param_2,uint8_t *param_3)
 
 {
+  struct {
+    uint8_t uStack_18;
+    uint8_t uStack_17;
+    uint8_t uStack_16;
+    uint8_t uStack_15;
+    uint8_t uStack_14;
+    uint8_t uStack_13;
+    uint8_t uStack_12;
+    uint8_t uStack_11;
+    uint8_t uStack_10;
+    uint8_t uStack_f;
+    uint8_t uStack_e;
+    uint8_t uStack_d;
+    uint8_t uStack_c;
+    uint8_t uStack_b;
+    uint8_t uStack_a;
+    uint8_t uStack_9;
+  } _cfg_18;
   uint8_t uVar1;
   void *pvVar2;
   void *pvVar3;
@@ -26,23 +44,6 @@ uint32_t match_service_token(void *param_1,void *param_2,uint8_t *param_3)
   uintptr_t sp;
   uint8_t auStack_4b [15];
   uint8_t auStack_3c [36];
-  uint8_t uStack_18;
-  uint8_t uStack_17;
-  uint8_t uStack_16;
-  uint8_t uStack_15;
-  uint8_t uStack_14;
-  uint8_t uStack_13;
-  uint8_t uStack_12;
-  uint8_t uStack_11;
-  uint8_t uStack_10;
-  uint8_t uStack_f;
-  uint8_t uStack_e;
-  uint8_t uStack_d;
-  uint8_t uStack_c;
-  uint8_t uStack_b;
-  uint8_t uStack_a;
-  uint8_t uStack_9;
-  
   auStack_3c[0] = 0x29;
   iVar6 = 0x11;
   do {
@@ -56,22 +57,22 @@ uint32_t match_service_token(void *param_1,void *param_2,uint8_t *param_3)
     auStack_3c[iVar6 + 0x11] = *(uint8_t *)(iVar6 + 0x105b3060/*ROM*/);
     iVar6 = iVar7;
   } while (iVar7 != 0);
-  uStack_18 = 0x65;
-  uStack_15 = 0x7a;
-  uStack_13 = 0x6a;
-  uStack_f = 0x6f;
-  uStack_e = 0x60;
-  uStack_d = 0x7b;
-  uStack_11 = 0x7c;
-  uStack_c = 100;
-  uStack_b = 0x7c;
-  uStack_17 = 0x6c;
-  uStack_16 = 0x67;
-  uStack_14 = 0x76;
-  uStack_12 = 0x79;
-  uStack_10 = 0x76;
-  uStack_a = 0x79;
-  uStack_9 = 0x29;
+  _cfg_18.uStack_18 = 0x65;
+  _cfg_18.uStack_15 = 0x7a;
+  _cfg_18.uStack_13 = 0x6a;
+  _cfg_18.uStack_f = 0x6f;
+  _cfg_18.uStack_e = 0x60;
+  _cfg_18.uStack_d = 0x7b;
+  _cfg_18.uStack_11 = 0x7c;
+  _cfg_18.uStack_c = 100;
+  _cfg_18.uStack_b = 0x7c;
+  _cfg_18.uStack_17 = 0x6c;
+  _cfg_18.uStack_16 = 0x67;
+  _cfg_18.uStack_14 = 0x76;
+  _cfg_18.uStack_12 = 0x79;
+  _cfg_18.uStack_10 = 0x76;
+  _cfg_18.uStack_a = 0x79;
+  _cfg_18.uStack_9 = 0x29;
   pvVar2 = (void *)heap_alloc_2(0x10);
   (*(code *)0x10486a2c/*ROM*/)(param_1,auStack_4b,pvVar2,0x10);
   pvVar3 = (void *)heap_alloc_2(0x11);
@@ -79,7 +80,7 @@ uint32_t match_service_token(void *param_1,void *param_2,uint8_t *param_3)
   pvVar4 = (void *)heap_alloc_2(0x12);
   (*(code *)0x10486a2c/*ROM*/)(param_1,auStack_3c + 0x12,pvVar4,0x12);
   pvVar5 = (void *)heap_alloc_2(0x10);
-  (*(code *)0x10486a2c/*ROM*/)(param_1,&uStack_18,pvVar5,0x10);
+  (*(code *)0x10486a2c/*ROM*/)(param_1,&_cfg_18.uStack_18,pvVar5,0x10);
   iVar6 = compare_null_terminated_strings(param_2,(void *)0x105b3084/*ROM*/);
   if (iVar6 == 0) {
     *param_3 = 1;

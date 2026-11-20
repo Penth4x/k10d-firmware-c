@@ -23,6 +23,32 @@
 void dispatch_image_processor_command(cls_105d49dc *param_1,int *param_2)
 
 {
+  struct {
+    uint32_t uStack_5c;
+    uint32_t uStack_58;
+    uint32_t uStack_54;
+    uint32_t uStack_50;
+    uint32_t uStack_4c;
+    uint16_t uStack_48;
+    uint16_t uStack_46;
+    uint32_t uStack_44;
+    uint32_t uStack_40;
+    uint32_t uStack_3c;
+    uint32_t uStack_38;
+    uint32_t uStack_34;
+    uint32_t uStack_30;
+    uint32_t uStack_2c;
+    uint32_t uStack_28;
+    uint16_t uStack_24;
+    uint16_t uStack_22;
+    uint32_t uStack_20;
+    uint32_t uStack_1c;
+    uint32_t uStack_18;
+    uint32_t uStack_14;
+    int iStack_10;
+    uint16_t uStack_c;
+    uint16_t uStack_a;
+  } _cfg_5c;
   uint32_t uVar1;
   uint32_t uVar2;
   uint32_t uVar3;
@@ -33,32 +59,7 @@ void dispatch_image_processor_command(cls_105d49dc *param_1,int *param_2)
   uint32_t uVar8;
   uint32_t *puVar9;
   uintptr_t sp;
-  uint32_t uStack_5c;
-  uint32_t uStack_58;
-  uint32_t uStack_54;
-  uint32_t uStack_50;
-  uint32_t uStack_4c;
-  uint16_t uStack_48;
-  uint16_t uStack_46;
-  uint32_t uStack_44;
-  uint32_t uStack_40;
-  uint32_t uStack_3c;
-  uint32_t uStack_38;
-  uint32_t uStack_34;
-  uint32_t uStack_30;
-  uint32_t uStack_2c;
-  uint32_t uStack_28;
-  uint16_t uStack_24;
-  uint16_t uStack_22;
-  uint32_t uStack_20;
-  uint32_t uStack_1c;
-  uint32_t uStack_18;
-  uint32_t uStack_14;
-  int iStack_10;
-  uint16_t uStack_c;
-  uint16_t uStack_a;
-  
-  uStack_14 = 0;
+  _cfg_5c.uStack_14 = 0;
   if (param_2 != (int *)0x0) {
     iVar6 = param_2[2];
     if (iVar6 == 0xc00003) {
@@ -99,24 +100,24 @@ void dispatch_image_processor_command(cls_105d49dc *param_1,int *param_2)
     }
     else if (iVar6 == 0xc00002) {
       puVar7 = (uint32_t *)param_2[1];
-      uStack_40 = 0;
-      uStack_44 = puVar7[6];
-      uStack_4c = puVar7[4];
-      uStack_54 = puVar7[2];
-      uStack_50 = puVar7[3];
-      uStack_58 = puVar7[1];
-      uStack_3c = puVar7[8];
-      uStack_5c = *puVar7;
-      uStack_48 = *(uint16_t *)(puVar7 + 5);
-      uStack_46 = *(uint16_t *)((int)puVar7 + 0x16);
+      _cfg_5c.uStack_40 = 0;
+      _cfg_5c.uStack_44 = puVar7[6];
+      _cfg_5c.uStack_4c = puVar7[4];
+      _cfg_5c.uStack_54 = puVar7[2];
+      _cfg_5c.uStack_50 = puVar7[3];
+      _cfg_5c.uStack_58 = puVar7[1];
+      _cfg_5c.uStack_3c = puVar7[8];
+      _cfg_5c.uStack_5c = *puVar7;
+      _cfg_5c.uStack_48 = *(uint16_t *)(puVar7 + 5);
+      _cfg_5c.uStack_46 = *(uint16_t *)((int)puVar7 + 0x16);
       iVar6 = (*(code *)0x104fff0a/*ROM*/)
                         (param_1,*(uint16_t *)(puVar7 + 5),*(uint16_t *)((int)puVar7 + 0x16),
                          puVar7[8]);
       if (iVar6 == 0) {
         puVar9 = &param_1->field_0x3c;
         eventflag_clr_flg(puVar9,1);
-        init_object_and_dispatch_mode(param_1->field_0x30,(int)&param_1->field_0x4,&uStack_5c);
-        eventflag_wai_flg(puVar9,1,&uStack_14,_DAT_105a2af0/*ROM*/);
+        init_object_and_dispatch_mode(param_1->field_0x30,(int)&param_1->field_0x4,&_cfg_5c.uStack_5c);
+        eventflag_wai_flg(puVar9,1,&_cfg_5c.uStack_14,_DAT_105a2af0/*ROM*/);
         eventflag_clr_flg(puVar9,1);
         iVar6 = (*(code *)0x104fff62/*ROM*/)(param_1,param_1->field_0x28);
       }
@@ -127,37 +128,37 @@ void dispatch_image_processor_command(cls_105d49dc *param_1,int *param_2)
     }
     else if (iVar6 == 0xc00004) {
       puVar9 = (uint32_t *)param_2[1];
-      uStack_1c = 0;
-      uStack_20 = puVar9[6];
-      uStack_28 = puVar9[4];
-      uStack_30 = puVar9[2];
-      uStack_2c = puVar9[3];
-      uStack_34 = puVar9[1];
-      uStack_18 = puVar9[8];
-      uStack_38 = *puVar9;
-      uStack_24 = *(uint16_t *)(puVar9 + 5);
-      uStack_22 = *(uint16_t *)((int)puVar9 + 0x16);
+      _cfg_5c.uStack_1c = 0;
+      _cfg_5c.uStack_20 = puVar9[6];
+      _cfg_5c.uStack_28 = puVar9[4];
+      _cfg_5c.uStack_30 = puVar9[2];
+      _cfg_5c.uStack_2c = puVar9[3];
+      _cfg_5c.uStack_34 = puVar9[1];
+      _cfg_5c.uStack_18 = puVar9[8];
+      _cfg_5c.uStack_38 = *puVar9;
+      _cfg_5c.uStack_24 = *(uint16_t *)(puVar9 + 5);
+      _cfg_5c.uStack_22 = *(uint16_t *)((int)puVar9 + 0x16);
       puVar7 = &param_1->field_0x3c;
       eventflag_clr_flg(puVar7,1);
-      configure_sensor_readout_sequence(param_1->field_0x30,&param_1->field_0x4,&uStack_38);
-      eventflag_wai_flg(puVar7,1,&uStack_14,_DAT_105a2af0/*ROM*/);
+      configure_sensor_readout_sequence(param_1->field_0x30,&param_1->field_0x4,&_cfg_5c.uStack_38);
+      eventflag_wai_flg(puVar7,1,&_cfg_5c.uStack_14,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar7,1);
       uVar1 = clamp_index_to_fifteen_104fff62((uint32_t)(param_1),(int)(param_1->field_0x28));
       puVar9[7] = uVar1;
-      uStack_c = 0;
-      iStack_10 = 3;
-      uStack_a = uStack_c;
-      (*(code *)0x1050166a/*ROM*/)(param_1->field_0x30,&uStack_c,&uStack_a,&iStack_10);
-      *(uint16_t *)(puVar9 + 5) = uStack_c;
-      *(uint16_t *)((int)puVar9 + 0x16) = uStack_a;
-      if (iStack_10 == 1) {
+      _cfg_5c.uStack_c = 0;
+      _cfg_5c.iStack_10 = 3;
+      _cfg_5c.uStack_a = _cfg_5c.uStack_c;
+      (*(code *)0x1050166a/*ROM*/)(param_1->field_0x30,&_cfg_5c.uStack_c,&_cfg_5c.uStack_a,&_cfg_5c.iStack_10);
+      *(uint16_t *)(puVar9 + 5) = _cfg_5c.uStack_c;
+      *(uint16_t *)((int)puVar9 + 0x16) = _cfg_5c.uStack_a;
+      if (_cfg_5c.iStack_10 == 1) {
         puVar9[6] = 1;
       }
       else {
-        if (iStack_10 == 2) {
+        if (_cfg_5c.iStack_10 == 2) {
           uVar1 = 2;
         }
-        else if (iStack_10 == 0) {
+        else if (_cfg_5c.iStack_10 == 0) {
           uVar1 = 0;
         }
         else {

@@ -11,6 +11,14 @@
 int read_sensor_data_via_cpucom(int *param_1,void *param_2,int *param_3)
 
 {
+  struct {
+    uint8_t uStack_e;
+    uint8_t uStack_d;
+    uint8_t uStack_c;
+    uint8_t uStack_b;
+    uint8_t uStack_a;
+    uint8_t uStack_9;
+  } _cfg_e;
   int iVar1;
   int iVar2;
   bool bVar4;
@@ -26,13 +34,6 @@ int read_sensor_data_via_cpucom(int *param_1,void *param_2,int *param_3)
   uint uStack_3c;
   int iStack_38;
   int iStack_30;
-  uint8_t uStack_e;
-  uint8_t uStack_d;
-  uint8_t uStack_c;
-  uint8_t uStack_b;
-  uint8_t uStack_a;
-  uint8_t uStack_9;
-  
   iStack_30 = 0;
   bVar4 = set_pointer_and_clear_flag(param_1 + 7,param_2);
   if (bVar4) {
@@ -46,18 +47,18 @@ int read_sensor_data_via_cpucom(int *param_1,void *param_2,int *param_3)
     if (iVar1 != 0) {
       iStack_38 = 0;
       do {
-        uStack_e = (uint8_t)((uint)iStack_40 >> 0x18);
-        uStack_d = (uint8_t)((uint)iStack_40 >> 0x10);
-        uStack_c = (uint8_t)((uint)iStack_40 >> 8);
-        uStack_b = (uint8_t)iStack_40;
+        _cfg_e.uStack_e = (uint8_t)((uint)iStack_40 >> 0x18);
+        _cfg_e.uStack_d = (uint8_t)((uint)iStack_40 >> 0x10);
+        _cfg_e.uStack_c = (uint8_t)((uint)iStack_40 >> 8);
+        _cfg_e.uStack_b = (uint8_t)iStack_40;
         uVar9 = uStack_3c;
         if (0x3f < uStack_3c) {
           uStack_3c = uStack_3c - 0x40 & 0xffff;
           uVar9 = 0x40;
         }
-        uStack_a = (uint8_t)(uVar9 >> 8);
-        uStack_9 = (uint8_t)uVar9;
-        (((vtbl_entry*)(*param_1))[10].fn)((int)((vtbl_entry*)(*param_1))[10].adj + (int)param_1,&uStack_e,6);
+        _cfg_e.uStack_a = (uint8_t)(uVar9 >> 8);
+        _cfg_e.uStack_9 = (uint8_t)uVar9;
+        (((vtbl_entry*)(*param_1))[10].fn)((int)((vtbl_entry*)(*param_1))[10].adj + (int)param_1,&_cfg_e.uStack_e,6);
         cpucom_msg_set_cmd((void*)(param_1[6]),DAT_105a72fc/*ROM*/);
         cpucom_resp_set_insize((void *)param_1[6],(uint)DAT_105a72fd/*ROM*/);
         pvVar6 = (void *)param_1[6];

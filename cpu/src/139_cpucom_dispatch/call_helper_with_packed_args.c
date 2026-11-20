@@ -17,21 +17,22 @@
 int call_helper_with_packed_args(int *param_1,uint32_t param_2,uint32_t param_3,uint32_t param_4)
 
 {
+  struct {
+    uint8_t uStack_e;
+    uint8_t uStack_d;
+    uint8_t uStack_c;
+    uint8_t uStack_b;
+    uint8_t uStack_a;
+    uint8_t uStack_9;
+  } _cfg_e;
   int iVar1;
   uintptr_t sp;
-  uint8_t uStack_e;
-  uint8_t uStack_d;
-  uint8_t uStack_c;
-  uint8_t uStack_b;
-  uint8_t uStack_a;
-  uint8_t uStack_9;
-  
-  uStack_e = (uint8_t)((uint)param_2 >> 8);
-  uStack_d = (uint8_t)param_2;
-  uStack_9 = (uint8_t)param_4;
-  uStack_c = (uint8_t)((uint)param_3 >> 8);
-  uStack_a = (uint8_t)((uint)param_4 >> 8);
-  uStack_b = uStack_d;
-  iVar1 = issue_indexed_command_and_wait(param_1,param_1 + 1,0x2b,&uStack_e,0);
+  _cfg_e.uStack_e = (uint8_t)((uint)param_2 >> 8);
+  _cfg_e.uStack_d = (uint8_t)param_2;
+  _cfg_e.uStack_9 = (uint8_t)param_4;
+  _cfg_e.uStack_c = (uint8_t)((uint)param_3 >> 8);
+  _cfg_e.uStack_a = (uint8_t)((uint)param_4 >> 8);
+  _cfg_e.uStack_b = _cfg_e.uStack_d;
+  iVar1 = issue_indexed_command_and_wait(param_1,param_1 + 1,0x2b,&_cfg_e.uStack_e,0);
   return iVar1;
 }

@@ -11,6 +11,12 @@
 void configure_image_pipeline_buffers(int param_1,uint32_t *param_2,int param_3)
 
 {
+  struct {
+    uint8_t uStack_11;
+    uint32_t uStack_10;
+    ushort uStack_c;
+    ushort uStack_a;
+  } _cfg_11;
   uint16_t uVar1;
   uint16_t uVar2;
   ushort uVar3;
@@ -177,11 +183,6 @@ void configure_image_pipeline_buffers(int param_1,uint32_t *param_2,int param_3)
   uint8_t uStack_1c;
   uint8_t uStack_1b;
   uint32_t uStack_18;
-  uint8_t uStack_11;
-  uint32_t uStack_10;
-  ushort uStack_c;
-  ushort uStack_a;
-  
   puVar23 = (uint32_t *)local_260;
   if (*(ushort *)(param_2 + 4) < 0x401) {
     allocate_and_configure_image_buffers(param_1,param_2,param_3);
@@ -317,23 +318,23 @@ LAB_104f5298:
   uStack_e8 = 0;
   uStack_e4 = 0;
   uStack_e2 = 0x80;
-  uStack_10 = 0;
-  uStack_c = 0;
-  uStack_a = 0;
+  _cfg_11.uStack_10 = 0;
+  _cfg_11.uStack_c = 0;
+  _cfg_11.uStack_a = 0;
   uStack_106 = uStack_108;
   uStack_e0 = uStack_e2;
-  select_two_parameter_values_by_index(&uStack_11,0,&uStack_c,&uStack_a);
-  uVar6 = (uint)uStack_c;
-  uVar5 = (uint)uStack_a;
-  uVar3 = uStack_c >> 8;
+  select_two_parameter_values_by_index(&_cfg_11.uStack_11,0,&_cfg_11.uStack_c,&_cfg_11.uStack_a);
+  uVar6 = (uint)_cfg_11.uStack_c;
+  uVar5 = (uint)_cfg_11.uStack_a;
+  uVar3 = _cfg_11.uStack_c >> 8;
   iVar20 = (uint)uVar3 * 0x20;
-  uVar4 = uStack_a >> 8;
+  uVar4 = _cfg_11.uStack_a >> 8;
   iVar9 = (uint)uVar4 * 0x20;
   pvVar13 = (void *)get_system_heap();
-  pvVar13 = (void *)mempool_get_block(pvVar13,(void *)((uStack_c + 0x20) * (uint)uStack_a * 2 + 0x80
+  pvVar13 = (void *)mempool_get_block(pvVar13,(void *)((_cfg_11.uStack_c + 0x20) * (uint)_cfg_11.uStack_a * 2 + 0x80
                                                       ),0);
   pvVar10 = (void *)get_system_heap();
-  pvVar10 = (void *)mempool_get_block(pvVar10,(void *)((uStack_c + 0x20) * (uint)uStack_a * 2 + 0x80
+  pvVar10 = (void *)mempool_get_block(pvVar10,(void *)((_cfg_11.uStack_c + 0x20) * (uint)_cfg_11.uStack_a * 2 + 0x80
                                                       ),0);
   pvVar11 = (void *)get_system_heap();
   pvVar11 = (void *)mempool_get_block(pvVar11,(void *)(iVar20 * iVar9),0);
@@ -342,13 +343,13 @@ LAB_104f5298:
   if (pvVar13 != 0) {
     if (((pvVar10 != 0) && (pvVar11 != 0)) && (pvVar12 != 0)) {
       iVar21 = (int)pvVar13 + 0x20;
-      iVar8 = (uStack_c + 0x20) * (uint)uStack_a;
+      iVar8 = (_cfg_11.uStack_c + 0x20) * (uint)_cfg_11.uStack_a;
       iVar7 = iVar21 + iVar8;
       iVar22 = iVar8 / 2 + iVar7;
       uStack_140 = 1;
-      uStack_130 = uStack_c;
-      uStack_12e = uStack_a;
-      uStack_12c = (ushort)(uStack_c + 0x20);
+      uStack_130 = _cfg_11.uStack_c;
+      uStack_12e = _cfg_11.uStack_a;
+      uStack_12c = (ushort)(_cfg_11.uStack_c + 0x20);
       uStack_12a = 0;
       uStack_128 = 0;
       uStack_d4 = 0;
@@ -367,15 +368,15 @@ LAB_104f5298:
       uStack_d0 = uStack_d2;
       eventflag_clr_flg(puVar15,1);
       reg_framework_send(*(int *)(param_1 + 0x34) + 8);
-      eventflag_wai_flg(puVar15,1,&uStack_10,_DAT_105a2af0/*ROM*/);
+      eventflag_wai_flg(puVar15,1,&_cfg_11.uStack_10,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar15,1);
       uStack_cc = 0;
       uStack_a8 = 0;
       pvStack_a4 = (void *)0x0;
       uStack_a0 = 0;
-      sStack_c4 = uStack_c + 0x20;
-      uStack_c2 = uStack_c;
-      uStack_c0 = uStack_a;
+      sStack_c4 = _cfg_11.uStack_c + 0x20;
+      uStack_c2 = _cfg_11.uStack_c;
+      uStack_c0 = _cfg_11.uStack_a;
       uStack_b2 = 0;
       uStack_b0 = 0;
       uStack_88 = (uint16_t)iVar20;
@@ -418,7 +419,7 @@ LAB_104f5298:
       uStack_98 = uStack_9e;
       eventflag_clr_flg(puVar15,1);
       build_sensor_readout_params((int)(*(uint32_t *)(param_1 + 0x28)),(int)(1),(void *)(iVar8),(int *)(&uStack_cc));
-      eventflag_wai_flg(puVar15,1,&uStack_10,_DAT_105a2af0/*ROM*/);
+      eventflag_wai_flg(puVar15,1,&_cfg_11.uStack_10,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar15,1);
       configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),1);
       local_16e = 0x1c;
@@ -520,10 +521,10 @@ LAB_104f5298:
       uStack_5e = 0;
       uStack_76 = 0;
       uStack_74 = 0;
-      uStack_7a = uStack_c;
-      sStack_7c = uStack_c + 0x20;
+      uStack_7a = _cfg_11.uStack_c;
+      sStack_7c = _cfg_11.uStack_c + 0x20;
       uStack_72 = (uint16_t)((uVar6 + (uint)uVar3 * -0x100 >> 6) << 5);
-      uStack_78 = uStack_a;
+      uStack_78 = _cfg_11.uStack_a;
       uStack_70 = (uint16_t)((uVar5 + (uint)uVar4 * -0x100 >> 2) << 1);
       uStack_62 = 1;
       uStack_5c = 1;
@@ -535,7 +536,7 @@ LAB_104f5298:
       uStack_58 = uStack_5a;
       eventflag_clr_flg(puVar15,1);
       build_sensor_readout_params((int)(*(uint32_t *)(param_1 + 0x28)),(int)(1),(void *)(iVar8),(int *)(&uStack_90));
-      eventflag_wai_flg(puVar15,1,&uStack_10,_DAT_105a2af0/*ROM*/);
+      eventflag_wai_flg(puVar15,1,&_cfg_11.uStack_10,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar15,1);
       configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),1);
       if (param_3 == 0) {
@@ -562,10 +563,10 @@ LAB_104f5298:
       uStack_26 = 0x80;
       uStack_24 = 0x80;
       uStack_22 = 0x80;
-      uStack_4e = uStack_a;
+      uStack_4e = _cfg_11.uStack_a;
       uStack_38 = 0;
-      uStack_50 = uStack_c;
-      sStack_4c = uStack_c + 0x20;
+      uStack_50 = _cfg_11.uStack_c;
+      sStack_4c = _cfg_11.uStack_c + 0x20;
       uStack_20 = 0;
       uStack_1e = 0;
       uStack_1c = 0;
@@ -579,27 +580,27 @@ LAB_104f5298:
       eventflag_clr_flg(puVar15,1);
       iVar9 = param_1 + 4;
       imgp_c_program_and_start_104fe976((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(iVar9),(int *)(&uStack_54));
-      eventflag_wai_flg(puVar15,1,&uStack_10,_DAT_105a2af0/*ROM*/);
+      eventflag_wai_flg(puVar15,1,&_cfg_11.uStack_10,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar15,1);
       imgp_c_start_and_ack(*(uint32_t *)(param_1 + 0x24));
       uStack_15c = 1;
-      uStack_14c = uStack_c;
-      uStack_14a = uStack_a;
-      uStack_148 = uStack_c + 0x20;
+      uStack_14c = _cfg_11.uStack_c;
+      uStack_14a = _cfg_11.uStack_a;
+      uStack_148 = _cfg_11.uStack_c + 0x20;
       uStack_146 = 0;
       uStack_144 = 0;
       uStack_140 = 1;
-      pvVar14 = (void *)((int)pvVar10 + (uint)uStack_c * (uint)uStack_a);
-      iVar20 = (int)((uint)uStack_c * (uint)uStack_a) / 2 + (int)pvVar14;
-      uStack_130 = uStack_c;
-      uStack_12e = uStack_a;
-      uStack_12c = uStack_c;
+      pvVar14 = (void *)((int)pvVar10 + (uint)_cfg_11.uStack_c * (uint)_cfg_11.uStack_a);
+      iVar20 = (int)((uint)_cfg_11.uStack_c * (uint)_cfg_11.uStack_a) / 2 + (int)pvVar14;
+      uStack_130 = _cfg_11.uStack_c;
+      uStack_12e = _cfg_11.uStack_a;
+      uStack_12c = _cfg_11.uStack_c;
       uStack_12a = 0;
       uStack_128 = 0;
       uStack_108 = 0xf0;
       uStack_106 = 0xf0;
-      uStack_104 = (uint16_t)((int)(uint)uStack_c >> 1);
-      uStack_102 = (uint16_t)((int)(uint)uStack_a >> 1);
+      uStack_104 = (uint16_t)((int)(uint)_cfg_11.uStack_c >> 1);
+      uStack_102 = (uint16_t)((int)(uint)_cfg_11.uStack_a >> 1);
       uStack_100 = 1;
       uStack_11c = 0x1130001;
       uStack_118 = 0;
@@ -616,12 +617,12 @@ LAB_104f5298:
       uStack_ff = uStack_100;
       eventflag_clr_flg(puVar15,1);
       reg_framework_send(*(int *)(param_1 + 0x30) + 8);
-      eventflag_wai_flg(puVar15,1,&uStack_10,_DAT_105a2af0/*ROM*/);
+      eventflag_wai_flg(puVar15,1,&_cfg_11.uStack_10,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar15,1);
       uStack_15c = 1;
-      uStack_14c = uStack_c;
-      uStack_14a = uStack_a;
-      uStack_148 = uStack_c;
+      uStack_14c = _cfg_11.uStack_c;
+      uStack_14a = _cfg_11.uStack_a;
+      uStack_148 = _cfg_11.uStack_c;
       uStack_146 = 0;
       uStack_144 = 0;
       uStack_11c = 0x900001;
@@ -635,7 +636,7 @@ LAB_104f5298:
       puStack_d8 = param_2;
       eventflag_clr_flg(puVar15,1);
       reg_framework_send(*(int *)(param_1 + 0x34) + 8);
-      eventflag_wai_flg(puVar15,1,&uStack_10,_DAT_105a2af0/*ROM*/);
+      eventflag_wai_flg(puVar15,1,&_cfg_11.uStack_10,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar15,1);
       pvVar14 = (void *)get_system_heap();
       mempool_release_block(pvVar14,pvVar13);

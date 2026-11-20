@@ -14,6 +14,19 @@
 int dispatch_command_by_id_1042c170(int param_1,uint32_t param_2,int param_3)
 
 {
+  struct {
+    byte bStack_8e;
+    byte bStack_8d;
+    byte bStack_8c;
+    byte bStack_8b;
+    byte bStack_8a;
+    byte bStack_89;
+  } _cfg_8e;
+  struct {
+    byte bStack_b;
+    byte bStack_a;
+    byte bStack_9;
+  } _cfg_b;
   uint8_t uVar1;
   byte bVar2;
   byte bVar3;
@@ -44,12 +57,6 @@ int dispatch_command_by_id_1042c170(int param_1,uint32_t param_2,int param_3)
   byte abStack_b0 [32];
   byte bStack_90;
   byte bStack_8f;
-  byte bStack_8e;
-  byte bStack_8d;
-  byte bStack_8c;
-  byte bStack_8b;
-  byte bStack_8a;
-  byte bStack_89;
   int aiStack_88 [3];
   int aiStack_7c [3];
   uint8_t auStack_70 [36];
@@ -61,10 +68,6 @@ int dispatch_command_by_id_1042c170(int param_1,uint32_t param_2,int param_3)
   uint8_t auStack_24 [8];
   uint8_t auStack_1c [8];
   uint8_t auStack_14 [9];
-  byte bStack_b;
-  byte bStack_a;
-  byte bStack_9;
-  
   puVar16 = auStack_138;
   uVar1 = *(uint8_t *)(param_3 + 0x859);
   set_struct_field_at_offset_4(param_3,0);
@@ -104,13 +107,13 @@ LAB_1042c27a:
   case 2:
     set_struct_field_at_offset_4(param_3,1);
     uVar11 = read_struct_field_at_index_1046c7ca(param_3,0);
-    bStack_b = 0;
-    iVar6 = call_helper_with_stack_arg_1046354a(*(int **)(param_1 + 0x20),uVar11 & 0xff,(int)&bStack_b);
+    _cfg_b.bStack_b = 0;
+    iVar6 = call_helper_with_stack_arg_1046354a(*(int **)(param_1 + 0x20),uVar11 & 0xff,(int)&_cfg_b.bStack_b);
     iStack_100 = 0;
     if (iVar6 == 0) {
       iStack_100 = 0x82;
     }
-    uVar11 = (uint)bStack_b;
+    uVar11 = (uint)_cfg_b.bStack_b;
     goto LAB_1042c2de;
   case 3:
     set_struct_field_at_offset_4(param_3,0);
@@ -513,13 +516,13 @@ LAB_1042ccc6:
     set_struct_field_at_offset_4(param_3,1);
     uVar11 = read_struct_field_at_index_1046c7ca(param_3,0);
     if (5 < uVar11) goto LAB_1042ce6c;
-    bStack_a = 0;
-    iVar6 = call_helper_with_offset_args_10463468(*(int **)(param_1 + 0x20),uVar11 & 0xff,(int)&bStack_a);
+    _cfg_b.bStack_a = 0;
+    iVar6 = call_helper_with_offset_args_10463468(*(int **)(param_1 + 0x20),uVar11 & 0xff,(int)&_cfg_b.bStack_a);
     iStack_100 = 0;
     if (iVar6 == 0) {
       iStack_100 = 0x82;
     }
-    uVar11 = (uint)bStack_a;
+    uVar11 = (uint)_cfg_b.bStack_a;
     goto LAB_1042c2de;
   case 0x2c:
     set_struct_field_at_offset_4(param_3,0);
@@ -692,39 +695,39 @@ LAB_1042ccc6:
     set_struct_field_at_offset_4(param_3,2);
     uVar11 = read_struct_field_at_index_1046c7ca(param_3,0);
     if (7 < uVar11) goto LAB_1042ce6c;
-    iVar6 = call_helper_with_stack_byte(*(int **)(param_1 + 0x20),(char)uVar11,(int)&bStack_8e);
+    iVar6 = call_helper_with_stack_byte(*(int **)(param_1 + 0x20),(char)uVar11,(int)&_cfg_8e.bStack_8e);
     iStack_100 = 0;
     if (iVar6 == 0) {
       iStack_100 = 0x82;
     }
     puVar16[3] = 0;
-    uVar11 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)bStack_8d,(uint)bStack_8e,0,puVar16[3]);
+    uVar11 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)_cfg_8e.bStack_8d,(uint)_cfg_8e.bStack_8e,0,puVar16[3]);
     write_word_to_struct_array(param_3,uVar11,0);
     puVar16[3] = 0;
-    uVar11 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)bStack_8b,(uint)bStack_8c,0,puVar16[3]);
+    uVar11 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)_cfg_8e.bStack_8b,(uint)_cfg_8e.bStack_8c,0,puVar16[3]);
     iVar6 = 1;
     goto LAB_1042d71c;
   case 0x35:
     set_struct_field_at_offset_4(param_3,1);
     piVar5 = *(int **)(param_1 + 0x20);
     uVar11 = read_struct_field_at_index_1046c7ca(param_3,0);
-    iVar6 = call_helper_with_offset_args_10463484(piVar5,uVar11 & 0xff,(int)&bStack_8a);
+    iVar6 = call_helper_with_offset_args_10463484(piVar5,uVar11 & 0xff,(int)&_cfg_8e.bStack_8a);
     iStack_100 = 0;
     if (iVar6 == 0) {
       iStack_100 = 0x82;
     }
     puVar16[3] = 0;
-    uVar11 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)bStack_89,(uint)bStack_8a,0,puVar16[3]);
+    uVar11 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)_cfg_8e.bStack_89,(uint)_cfg_8e.bStack_8a,0,puVar16[3]);
     goto LAB_1042c2de;
   case 0x36:
     set_struct_field_at_offset_4(param_3,1);
-    bStack_9 = 0;
-    iVar6 = call_helper_with_fixed_args_10463364(*(int **)(param_1 + 0x20),(int)&bStack_9);
+    _cfg_b.bStack_9 = 0;
+    iVar6 = call_helper_with_fixed_args_10463364(*(int **)(param_1 + 0x20),(int)&_cfg_b.bStack_9);
     iStack_100 = 0;
     if (iVar6 == 0) {
       iStack_100 = 0x82;
     }
-    uVar11 = (uint)bStack_9;
+    uVar11 = (uint)_cfg_b.bStack_9;
 LAB_1042c2de:
     iVar6 = 0;
 LAB_1042d71c:

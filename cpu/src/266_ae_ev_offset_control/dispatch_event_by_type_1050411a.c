@@ -23,6 +23,23 @@
 void dispatch_event_by_type_1050411a(cls_105d4ed8 *param_1,int *param_2)
 
 {
+  struct {
+    int iStack_30;
+    int iStack_2c;
+    int iStack_28;
+    int iStack_24;
+    uint16_t uStack_20;
+    uint16_t uStack_1e;
+    uint16_t uStack_1c;
+    uint16_t uStack_1a;
+    uint16_t uStack_18;
+  } _cfg_30;
+  struct {
+    uint8_t uStack_11;
+    uint32_t uStack_10;
+    uint16_t uStack_c;
+    ushort uStack_a;
+  } _cfg_11;
   char cVar1;
   uint uVar2;
   int iVar3;
@@ -36,20 +53,6 @@ void dispatch_event_by_type_1050411a(cls_105d4ed8 *param_1,int *param_2)
   uintptr_t sp;
   int *piVar11;
   uint8_t auStack_58 [3];
-  int iStack_30;
-  int iStack_2c;
-  int iStack_28;
-  int iStack_24;
-  uint16_t uStack_20;
-  uint16_t uStack_1e;
-  uint16_t uStack_1c;
-  uint16_t uStack_1a;
-  uint16_t uStack_18;
-  uint8_t uStack_11;
-  uint32_t uStack_10;
-  uint16_t uStack_c;
-  ushort uStack_a;
-  
   piVar11 = (int *)auStack_58;
   if (param_2 != (int *)0x0) {
     if (param_2[2] == 0x700003) {
@@ -71,35 +74,35 @@ void dispatch_event_by_type_1050411a(cls_105d4ed8 *param_1,int *param_2)
       if (*(char *)((int)puVar6 + 0x11) != '\0') {
         *(uint16_t *)((int)piVar11 + 2) = 0x80;
         send_three_mmio_blocks_10504ad2((int)param_1,(int)piVar7,4,0x80,*(uint16_t *)((int)piVar11 + 2));
-        iStack_2c = 0;
-        iStack_28 = 0;
-        iStack_24 = 0;
-        uStack_1e = 0;
-        uStack_1a = 0;
-        uStack_18 = 0;
-        iStack_30 = *piVar7;
-        uStack_20 = *(uint16_t *)(piVar7 + 4);
-        uStack_1c = *(uint16_t *)(piVar7 + 5);
-        uStack_c = 0;
-        uStack_a = 0;
+        _cfg_30.iStack_2c = 0;
+        _cfg_30.iStack_28 = 0;
+        _cfg_30.iStack_24 = 0;
+        _cfg_30.uStack_1e = 0;
+        _cfg_30.uStack_1a = 0;
+        _cfg_30.uStack_18 = 0;
+        _cfg_30.iStack_30 = *piVar7;
+        _cfg_30.uStack_20 = *(uint16_t *)(piVar7 + 4);
+        _cfg_30.uStack_1c = *(uint16_t *)(piVar7 + 5);
+        _cfg_11.uStack_c = 0;
+        _cfg_11.uStack_a = 0;
         piVar5 = piVar8;
         if (*(char *)(puVar6 + 4) != '\0') {
           piVar5 = piVar9;
         }
-        *piVar11 = (int)&uStack_c;
-        compute_centered_range_bounds(&uStack_11,(int)piVar5,(int)piVar7,(short *)&uStack_a,(short *)*piVar11);
-        uStack_1e = uStack_c;
-        uVar2 = (uint)uStack_a;
-        iStack_2c = piVar7[1] + uVar2 * *(ushort *)(piVar7 + 5);
-        iStack_28 = piVar7[2] + (int)(uVar2 * *(ushort *)(piVar7 + 5)) / 2;
-        iStack_24 = piVar7[3] + (int)(uVar2 * *(ushort *)(piVar7 + 5)) / 2;
+        *piVar11 = (int)&_cfg_11.uStack_c;
+        compute_centered_range_bounds(&_cfg_11.uStack_11,(int)piVar5,(int)piVar7,(short *)&_cfg_11.uStack_a,(short *)*piVar11);
+        _cfg_30.uStack_1e = _cfg_11.uStack_c;
+        uVar2 = (uint)_cfg_11.uStack_a;
+        _cfg_30.iStack_2c = piVar7[1] + uVar2 * *(ushort *)(piVar7 + 5);
+        _cfg_30.iStack_28 = piVar7[2] + (int)(uVar2 * *(ushort *)(piVar7 + 5)) / 2;
+        _cfg_30.iStack_24 = piVar7[3] + (int)(uVar2 * *(ushort *)(piVar7 + 5)) / 2;
         piVar5 = piVar8;
         if (*(char *)(puVar6 + 4) != '\0') {
           piVar5 = piVar9;
         }
         *(uint8_t *)((int)piVar11 + 3) = 1;
-        build_and_send_two_param_blocks_105044a6((int)param_1,piVar5,&iStack_30,0,*(uint8_t *)((int)piVar11 + 3));
-        send_three_parameter_blocks((int)param_1,&iStack_30,(int)&iStack_30);
+        build_and_send_two_param_blocks_105044a6((int)param_1,piVar5,&_cfg_30.iStack_30,0,*(uint8_t *)((int)piVar11 + 3));
+        send_three_parameter_blocks((int)param_1,&_cfg_30.iStack_30,(int)&_cfg_30.iStack_30);
       }
       iVar3 = *(int *)*param_2;
       (((vtbl_entry*)(iVar3))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar3))[2].adj,0x700005,param_2[3]);
@@ -137,7 +140,7 @@ void dispatch_event_by_type_1050411a(cls_105d4ed8 *param_1,int *param_2)
       puVar6 = &param_1->field_0x2c;
       eventflag_clr_flg(puVar6,1);
       build_sensor_readout_params((int)(param_1->field_0x24),(int)(0),(void *)(&param_1->field_0x4),(int *)(iVar3));
-      eventflag_wai_flg(puVar6,1,&uStack_10,_DAT_105a2af0/*ROM*/);
+      eventflag_wai_flg(puVar6,1,&_cfg_11.uStack_10,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar6,1);
       configure_timer_channel_state(param_1->field_0x24,0);
       iVar3 = *(int *)*param_2;

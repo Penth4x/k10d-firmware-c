@@ -19,6 +19,17 @@
 void filter_3x3_pixels_by_threshold(uint32_t param_1,int param_2,int param_3,int param_4,short param_5)
 
 {
+  struct {
+    byte bStack_11;
+    byte bStack_10;
+    byte bStack_f;
+    byte bStack_e;
+    byte bStack_d;
+    byte bStack_c;
+    byte bStack_b;
+    byte bStack_a;
+    byte bStack_9;
+  } _cfg_11;
   bool bVar1;
   short sVar2;
   byte *pbVar3;
@@ -28,16 +39,6 @@ void filter_3x3_pixels_by_threshold(uint32_t param_1,int param_2,int param_3,int
   uintptr_t sp;
   int iStack_2c;
   int iStack_28;
-  byte bStack_11;
-  byte bStack_10;
-  byte bStack_f;
-  byte bStack_e;
-  byte bStack_d;
-  byte bStack_c;
-  byte bStack_b;
-  byte bStack_a;
-  byte bStack_9;
-  
   iStack_28 = 2;
   if (2 < param_4 + -1) {
     iStack_2c = param_3 << 1;
@@ -47,9 +48,9 @@ void filter_3x3_pixels_by_threshold(uint32_t param_1,int param_2,int param_3,int
         pbVar4 = pbVar3 + -param_3;
         iVar5 = param_3 + -3;
         do {
-          bStack_11 = pbVar4[-1];
+          _cfg_11.bStack_11 = pbVar4[-1];
           sVar2 = (ushort)*pbVar3 * 8 -
-                  ((ushort)pbVar4[1] + (ushort)bStack_11 +
+                  ((ushort)pbVar4[1] + (ushort)_cfg_11.bStack_11 +
                    (ushort)pbVar3[param_3] + (ushort)pbVar3[1] +
                   (ushort)pbVar3[-1] + (ushort)*pbVar4 +
                   (ushort)pbVar3[param_3 + 1] + (ushort)pbVar3[param_3 + -1]);
@@ -57,16 +58,16 @@ void filter_3x3_pixels_by_threshold(uint32_t param_1,int param_2,int param_3,int
             sVar2 = -sVar2;
           }
           if (sVar2 < param_5) {
-            bStack_10 = *pbVar4;
-            bStack_f = pbVar4[1];
-            bStack_e = pbVar3[-1];
-            bStack_d = *pbVar3;
-            bStack_c = pbVar3[1];
-            bStack_b = pbVar3[param_3 + -1];
-            bStack_a = pbVar3[param_3];
-            bStack_9 = pbVar3[param_3 + 1];
-            insertion_sort_bytes(param_1,&bStack_11,9);
-            *pbVar3 = bStack_d;
+            _cfg_11.bStack_10 = *pbVar4;
+            _cfg_11.bStack_f = pbVar4[1];
+            _cfg_11.bStack_e = pbVar3[-1];
+            _cfg_11.bStack_d = *pbVar3;
+            _cfg_11.bStack_c = pbVar3[1];
+            _cfg_11.bStack_b = pbVar3[param_3 + -1];
+            _cfg_11.bStack_a = pbVar3[param_3];
+            _cfg_11.bStack_9 = pbVar3[param_3 + 1];
+            insertion_sort_bytes(param_1,&_cfg_11.bStack_11,9);
+            *pbVar3 = _cfg_11.bStack_d;
           }
           pbVar3 = pbVar3 + 1;
           iVar6 = iVar5 + -1;

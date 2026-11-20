@@ -21,6 +21,16 @@
 void compute_sensor_readout_params(int param_1,ushort *param_2,int param_3,int param_4,ushort *param_5)
 
 {
+  struct {
+    ushort uStack_94;
+    ushort uStack_92;
+    ushort uStack_90;
+    ushort uStack_8e;
+    uint16_t uStack_8c;
+    uint16_t uStack_8a;
+    uint16_t uStack_88;
+    uint16_t uStack_86;
+  } _cfg_94;
   ushort uVar1;
   int iVar2;
   int iVar3;
@@ -29,14 +39,6 @@ void compute_sensor_readout_params(int param_1,ushort *param_2,int param_3,int p
   uintptr_t sp;
   int *piVar6;
   uint8_t auStack_c0 [8];
-  ushort uStack_94;
-  ushort uStack_92;
-  ushort uStack_90;
-  ushort uStack_8e;
-  uint16_t uStack_8c;
-  uint16_t uStack_8a;
-  uint16_t uStack_88;
-  uint16_t uStack_86;
   int aiStack_84 [6];
   uint16_t uStack_6c;
   uint16_t uStack_6a;
@@ -105,53 +107,53 @@ void compute_sensor_readout_params(int param_1,ushort *param_2,int param_3,int p
   iVar3 = get_or_init_sram_buffer_1052c5b8();
   iVar2 = *(int *)(param_3 + 0x58);
   uVar4 = *(uint *)(iVar2 + 0x40);
-  uStack_94 = 0x2000;
-  uStack_92 = 0x2000;
-  uStack_90 = 0x2000;
-  uStack_8e = 0x2000;
-  uStack_8c = 0x2000;
-  uStack_8a = 0x2000;
-  uStack_88 = 0x2000;
+  _cfg_94.uStack_94 = 0x2000;
+  _cfg_94.uStack_92 = 0x2000;
+  _cfg_94.uStack_90 = 0x2000;
+  _cfg_94.uStack_8e = 0x2000;
+  _cfg_94.uStack_8c = 0x2000;
+  _cfg_94.uStack_8a = 0x2000;
+  _cfg_94.uStack_88 = 0x2000;
   if (iVar2 == 0) {
-    uStack_86 = 0x2000;
+    _cfg_94.uStack_86 = 0x2000;
   }
   else {
-    uStack_94 = (ushort)(((uint)(*(int *)(iVar2 + 0x30) << 0xd) / *(uint *)(iVar2 + 0x34) & 0xffff)
+    _cfg_94.uStack_94 = (ushort)(((uint)(*(int *)(iVar2 + 0x30) << 0xd) / *(uint *)(iVar2 + 0x34) & 0xffff)
                          * uVar4 >> 0xd);
-    uStack_92 = (ushort)(((*(uint *)(iVar2 + 0x34) << 0xd) / *(uint *)(iVar2 + 0x34) & 0xffff) *
+    _cfg_94.uStack_92 = (ushort)(((*(uint *)(iVar2 + 0x34) << 0xd) / *(uint *)(iVar2 + 0x34) & 0xffff) *
                          uVar4 >> 0xd);
-    uStack_90 = (ushort)(((uint)(*(int *)(iVar2 + 0x38) << 0xd) / *(uint *)(iVar2 + 0x34) & 0xffff)
+    _cfg_94.uStack_90 = (ushort)(((uint)(*(int *)(iVar2 + 0x38) << 0xd) / *(uint *)(iVar2 + 0x34) & 0xffff)
                          * uVar4 >> 0xd);
-    uStack_8e = (ushort)(((uint)(*(int *)(iVar2 + 0x3c) << 0xd) / *(uint *)(iVar2 + 0x34) & 0xffff)
+    _cfg_94.uStack_8e = (ushort)(((uint)(*(int *)(iVar2 + 0x3c) << 0xd) / *(uint *)(iVar2 + 0x34) & 0xffff)
                          * uVar4 >> 0xd);
-    uStack_8c = (uint16_t)((uint)(*(int *)(iVar2 + 0x18) << 0xd) / *(uint *)(iVar2 + 0x1c));
-    uStack_8a = (uint16_t)((*(uint *)(iVar2 + 0x1c) << 0xd) / *(uint *)(iVar2 + 0x1c));
-    uStack_88 = (uint16_t)((uint)(*(int *)(iVar2 + 0x20) << 0xd) / *(uint *)(iVar2 + 0x1c));
-    uStack_86 = (uint16_t)((uint)(*(int *)(iVar2 + 0x24) << 0xd) / *(uint *)(iVar2 + 0x1c));
+    _cfg_94.uStack_8c = (uint16_t)((uint)(*(int *)(iVar2 + 0x18) << 0xd) / *(uint *)(iVar2 + 0x1c));
+    _cfg_94.uStack_8a = (uint16_t)((*(uint *)(iVar2 + 0x1c) << 0xd) / *(uint *)(iVar2 + 0x1c));
+    _cfg_94.uStack_88 = (uint16_t)((uint)(*(int *)(iVar2 + 0x20) << 0xd) / *(uint *)(iVar2 + 0x1c));
+    _cfg_94.uStack_86 = (uint16_t)((uint)(*(int *)(iVar2 + 0x24) << 0xd) / *(uint *)(iVar2 + 0x1c));
   }
   *piVar6 = param_3;
   piVar6[1] = param_4;
-  populate_struct_from_sources(param_1,(int)aiStack_84,&uStack_94,param_2,*piVar6,piVar6[1]);
+  populate_struct_from_sources(param_1,(int)aiStack_84,&_cfg_94.uStack_94,param_2,*piVar6,piVar6[1]);
   if (*(int *)(param_3 + 0x1c) == 0) {
     puVar5 = *(ushort **)(iVar3 + 0x3c);
-    uStack_6c = (uint16_t)((uint)uStack_94 * (uint)*puVar5 >> 0xd);
-    uStack_6a = (uint16_t)((uint)uStack_92 * (uint)puVar5[1] >> 0xd);
-    uStack_68 = (uint16_t)((uint)uStack_90 * (uint)puVar5[2] >> 0xd);
-    uStack_66 = (uint16_t)((uint)uStack_8e * (uint)puVar5[3] >> 0xd);
+    uStack_6c = (uint16_t)((uint)_cfg_94.uStack_94 * (uint)*puVar5 >> 0xd);
+    uStack_6a = (uint16_t)((uint)_cfg_94.uStack_92 * (uint)puVar5[1] >> 0xd);
+    uStack_68 = (uint16_t)((uint)_cfg_94.uStack_90 * (uint)puVar5[2] >> 0xd);
+    uStack_66 = (uint16_t)((uint)_cfg_94.uStack_8e * (uint)puVar5[3] >> 0xd);
     compute_awb_gain_and_status(param_1 + 4,aiStack_84,param_5);
   }
   else if (*(int *)(param_3 + 0x1c) == 9) {
-    param_5[4] = (ushort)((uint)uStack_94 * (uint)*param_5 >> 0xd);
-    param_5[5] = (ushort)((uint)uStack_92 * (uint)param_5[1] >> 0xd);
-    param_5[6] = (ushort)((uint)uStack_90 * (uint)param_5[2] >> 0xd);
-    param_5[7] = (ushort)((uint)uStack_8e * (uint)param_5[3] >> 0xd);
+    param_5[4] = (ushort)((uint)_cfg_94.uStack_94 * (uint)*param_5 >> 0xd);
+    param_5[5] = (ushort)((uint)_cfg_94.uStack_92 * (uint)param_5[1] >> 0xd);
+    param_5[6] = (ushort)((uint)_cfg_94.uStack_90 * (uint)param_5[2] >> 0xd);
+    param_5[7] = (ushort)((uint)_cfg_94.uStack_8e * (uint)param_5[3] >> 0xd);
     param_5[8] = 0;
   }
   else {
-    param_5[4] = uStack_94 >> 5;
-    param_5[5] = uStack_92 >> 5;
-    param_5[6] = uStack_90 >> 5;
-    param_5[7] = uStack_8e >> 5;
+    param_5[4] = _cfg_94.uStack_94 >> 5;
+    param_5[5] = _cfg_94.uStack_92 >> 5;
+    param_5[6] = _cfg_94.uStack_90 >> 5;
+    param_5[7] = _cfg_94.uStack_8e >> 5;
     param_5[8] = 0xffff;
   }
   if (*(char *)(param_3 + 0x60) != '\0') {
@@ -162,6 +164,6 @@ void compute_sensor_readout_params(int param_1,ushort *param_2,int param_3,int p
     param_5[7] = uVar1;
   }
   *piVar6 = (int)param_5;
-  copy_two_point_arrays_to_struct(param_1,&uStack_94,&uStack_8c,(short)uVar4,*piVar6);
+  copy_two_point_arrays_to_struct(param_1,&_cfg_94.uStack_94,&_cfg_94.uStack_8c,(short)uVar4,*piVar6);
   return;
 }

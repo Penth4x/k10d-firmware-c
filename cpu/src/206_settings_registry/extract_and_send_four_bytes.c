@@ -17,18 +17,19 @@
 void extract_and_send_four_bytes(int param_1,int param_2)
 
 {
+  struct {
+    char cStack_c;
+    char cStack_b;
+    char cStack_a;
+    char cStack_9;
+  } _cfg_c;
   uintptr_t sp;
-  char cStack_c;
-  char cStack_b;
-  char cStack_a;
-  char cStack_9;
-  
-  cStack_c = (char)*(uint32_t *)(*(int *)(param_1 + 8) + 0xc);
-  cStack_b = (char)*(uint32_t *)(*(int *)(param_1 + 8) + 4) -
-             (cStack_c + (char)*(uint32_t *)(*(int *)(param_1 + 8) + 0x14));
-  cStack_a = (char)*(uint32_t *)(*(int *)(param_1 + 8) + 8);
-  cStack_9 = (char)**(uint32_t **)(param_1 + 8) -
-             (cStack_a + (char)(*(uint32_t **)(param_1 + 8))[4]);
-  copy_bytes_to_struct_field(param_2,&cStack_c,4);
+  _cfg_c.cStack_c = (char)*(uint32_t *)(*(int *)(param_1 + 8) + 0xc);
+  _cfg_c.cStack_b = (char)*(uint32_t *)(*(int *)(param_1 + 8) + 4) -
+             (_cfg_c.cStack_c + (char)*(uint32_t *)(*(int *)(param_1 + 8) + 0x14));
+  _cfg_c.cStack_a = (char)*(uint32_t *)(*(int *)(param_1 + 8) + 8);
+  _cfg_c.cStack_9 = (char)**(uint32_t **)(param_1 + 8) -
+             (_cfg_c.cStack_a + (char)(*(uint32_t **)(param_1 + 8))[4]);
+  copy_bytes_to_struct_field(param_2,&_cfg_c.cStack_c,4);
   return;
 }

@@ -19,18 +19,19 @@
 uint32_t register_two_pointers_with_flags(int param_1,void *param_2,void *param_3)
 
 {
+  struct {
+    void * pvStack_18;
+    void * pvStack_14;
+    uint16_t uStack_10;
+    uint16_t uStack_e;
+    uint16_t uStack_c;
+  } _cfg_18;
   uintptr_t sp;
-  void *pvStack_18;
-  void *pvStack_14;
-  uint16_t uStack_10;
-  uint16_t uStack_e;
-  uint16_t uStack_c;
-  
-  uStack_10 = 0;
-  uStack_e = 0x80;
-  uStack_c = 0x80;
-  pvStack_18 = param_2;
-  pvStack_14 = param_3;
-  initialize_event_queue_entry_104c36c4(param_1,&pvStack_18,1);
+  _cfg_18.uStack_10 = 0;
+  _cfg_18.uStack_e = 0x80;
+  _cfg_18.uStack_c = 0x80;
+  _cfg_18.pvStack_18 = param_2;
+  _cfg_18.pvStack_14 = param_3;
+  initialize_event_queue_entry_104c36c4(param_1,&_cfg_18.pvStack_18,1);
   return 1;
 }

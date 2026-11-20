@@ -18,6 +18,14 @@
 uint32_t check_three_byte_pair_conditions(int param_1)
 
 {
+  struct {
+    char cStack_14;
+    char cStack_13;
+    char cStack_12;
+    char cStack_11;
+    char cStack_10;
+    char cStack_f;
+  } _cfg_14;
   bool bVar1;
   bool bVar2;
   bool bVar3;
@@ -25,12 +33,6 @@ uint32_t check_three_byte_pair_conditions(int param_1)
   uint32_t uVar5;
   int iVar6;
   uintptr_t sp;
-  char cStack_14;
-  char cStack_13;
-  char cStack_12;
-  char cStack_11;
-  char cStack_10;
-  char cStack_f;
   uint8_t auStack_e [6];
   
   uVar5 = 0;
@@ -40,19 +42,19 @@ uint32_t check_three_byte_pair_conditions(int param_1)
   ;
   iVar6 = **(int **)(param_1 + 8);
   iVar6 = (((vtbl_entry*)(iVar6))[4].fn)
-                    ((int)*(int **)(param_1 + 8) + (int)((vtbl_entry*)(iVar6))[4].adj,uVar4,&cStack_14,
+                    ((int)*(int **)(param_1 + 8) + (int)((vtbl_entry*)(iVar6))[4].adj,uVar4,&_cfg_14.cStack_14,
                      0xc);
   if (iVar6 != 0) {
     bVar1 = true;
     bVar2 = true;
     bVar3 = true;
-    if ((cStack_14 != -1) || (cStack_13 != -0x28)) {
+    if ((_cfg_14.cStack_14 != -1) || (_cfg_14.cStack_13 != -0x28)) {
       bVar1 = false;
     }
-    if ((cStack_12 != -1) || (cStack_11 != -0x1f)) {
+    if ((_cfg_14.cStack_12 != -1) || (_cfg_14.cStack_11 != -0x1f)) {
       bVar2 = false;
     }
-    if ((cStack_10 == '\0') && (cStack_f == '\0')) {
+    if ((_cfg_14.cStack_10 == '\0') && (_cfg_14.cStack_f == '\0')) {
       bVar3 = false;
     }
     iVar6 = compare_byte_arrays(auStack_e,(void *)0x105b5abe/*ROM*/,6);

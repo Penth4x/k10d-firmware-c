@@ -23,6 +23,14 @@
 int send_buffer_in_chunks(int *param_1,void *param_2,int *param_3)
 
 {
+  struct {
+    uint8_t uStack_e;
+    uint8_t uStack_d;
+    uint8_t uStack_c;
+    uint8_t uStack_b;
+    uint8_t uStack_a;
+    uint8_t uStack_9;
+  } _cfg_e;
   int iVar1;
   int iVar2;
   bool bVar4;
@@ -36,13 +44,6 @@ int send_buffer_in_chunks(int *param_1,void *param_2,int *param_3)
   int iStack_38;
   uint uStack_34;
   int iStack_30;
-  uint8_t uStack_e;
-  uint8_t uStack_d;
-  uint8_t uStack_c;
-  uint8_t uStack_b;
-  uint8_t uStack_a;
-  uint8_t uStack_9;
-  
   bVar4 = set_pointer_and_clear_flag(param_1 + 7,param_2);
   if (bVar4) {
     iVar6 = 0;
@@ -56,10 +57,10 @@ int send_buffer_in_chunks(int *param_1,void *param_2,int *param_3)
     if (iVar1 != 0) {
       iStack_30 = 0;
       do {
-        uStack_e = (uint8_t)((uint)iStack_38 >> 0x18);
-        uStack_d = (uint8_t)((uint)iStack_38 >> 0x10);
-        uStack_c = (uint8_t)((uint)iStack_38 >> 8);
-        uStack_b = (uint8_t)iStack_38;
+        _cfg_e.uStack_e = (uint8_t)((uint)iStack_38 >> 0x18);
+        _cfg_e.uStack_d = (uint8_t)((uint)iStack_38 >> 0x10);
+        _cfg_e.uStack_c = (uint8_t)((uint)iStack_38 >> 8);
+        _cfg_e.uStack_b = (uint8_t)iStack_38;
         if (uStack_34 < 0x40) {
           uStack_3c = uStack_34;
         }
@@ -67,9 +68,9 @@ int send_buffer_in_chunks(int *param_1,void *param_2,int *param_3)
           uStack_3c = 0x40;
           uStack_34 = uStack_34 - 0x40 & 0xffff;
         }
-        uStack_a = (uint8_t)(uStack_3c >> 8);
-        uStack_9 = (uint8_t)uStack_3c;
-        (((vtbl_entry*)(*param_1))[10].fn)((int)((vtbl_entry*)(*param_1))[10].adj + (int)param_1,&uStack_e,6);
+        _cfg_e.uStack_a = (uint8_t)(uStack_3c >> 8);
+        _cfg_e.uStack_9 = (uint8_t)uStack_3c;
+        (((vtbl_entry*)(*param_1))[10].fn)((int)((vtbl_entry*)(*param_1))[10].adj + (int)param_1,&_cfg_e.uStack_e,6);
         if (uStack_3c != 0) {
           cVar7 = '\x06';
           iStack_44 = uStack_3c - 3;

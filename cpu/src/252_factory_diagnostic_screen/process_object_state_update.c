@@ -18,16 +18,17 @@
 int process_object_state_update(void *param_1)
 
 {
+  struct {
+    uint8_t uStack_16;
+    uint8_t uStack_15;
+    uint8_t uStack_14;
+    int iStack_10;
+    int iStack_c;
+  } _cfg_16;
   int iVar1;
   uint32_t uVar2;
   uint uVar3;
   uintptr_t sp;
-  uint8_t uStack_16;
-  uint8_t uStack_15;
-  uint8_t uStack_14;
-  int iStack_10;
-  int iStack_c;
-  
   iVar1 = allocate_buffer_from_pool(*(uint32_t *)((int)param_1 + 0x74));
   if (iVar1 == 0) {
     iVar1 = 0;
@@ -45,30 +46,30 @@ int process_object_state_update(void *param_1)
       uVar3 = allocate_queue_slot((int)param_1);
       uVar2 = (uintptr_t)(insert_node_into_array((int)(param_1),(int)(0xffffffff),(int)(uVar3)));
       *(uint32_t *)((int)param_1 + 0x44) = uVar2;
-      copy_null_terminated_string((void *)(&uStack_16),(void *)(pvRam80010bb8));
-      uStack_15 = 0x3a;
-      uStack_14 = 0;
+      copy_null_terminated_string((void *)(&_cfg_16.uStack_16),(void *)(pvRam80010bb8));
+      _cfg_16.uStack_15 = 0x3a;
+      _cfg_16.uStack_14 = 0;
       iVar1 = *(int *)((int)param_1 + 0x44);
       if (iVar1 != 0) {
         (((vtbl_entry*)(*(int *)(iVar1 + 0x18)))[8].fn)
-                  (((vtbl_entry*)(*(int *)(iVar1 + 0x18)))[8].adj + iVar1,&uStack_16);
+                  (((vtbl_entry*)(*(int *)(iVar1 + 0x18)))[8].adj + iVar1,&_cfg_16.uStack_16);
         invoke_virtual_slot_14_104e6148(param_1,*(void **)((int)param_1 + 0x44));
       }
-      iStack_10 = 1;
+      _cfg_16.iStack_10 = 1;
       increment_field_at_offset_0x10((int)param_1);
-      iStack_c = 0;
-      process_two_event_objects((int)param_1,&iStack_10,&iStack_c);
+      _cfg_16.iStack_c = 0;
+      process_two_event_objects((int)param_1,&_cfg_16.iStack_10,&_cfg_16.iStack_c);
       iVar1 = process_file_path_entry((int)param_1);
       if (iVar1 == 0) {
         iVar1 = 0;
       }
       else {
-        iStack_10 = iStack_10 + 1;
-        iVar1 = process_buffered_items(param_1,&iStack_10,&iStack_c);
+        _cfg_16.iStack_10 = _cfg_16.iStack_10 + 1;
+        iVar1 = process_buffered_items(param_1,&_cfg_16.iStack_10,&_cfg_16.iStack_c);
       }
-      *(int *)((int)param_1 + 4) = iStack_c;
-      *(int *)((int)param_1 + 8) = iStack_10;
-      *(int *)((int)param_1 + 0xc) = iStack_c + iStack_10;
+      *(int *)((int)param_1 + 4) = _cfg_16.iStack_c;
+      *(int *)((int)param_1 + 8) = _cfg_16.iStack_10;
+      *(int *)((int)param_1 + 0xc) = _cfg_16.iStack_c + _cfg_16.iStack_10;
       *(int *)((int)param_1 + 0x1c) = *(int *)((int)param_1 + 0x10) + *(int *)((int)param_1 + 0x14);
     }
   }

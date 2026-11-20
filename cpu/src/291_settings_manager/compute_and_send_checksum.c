@@ -9,6 +9,12 @@
 void compute_and_send_checksum(int param_1,int param_2)
 
 {
+  struct {
+    uint8_t uStack_c;
+    uint8_t uStack_b;
+    uint8_t uStack_a;
+    uint8_t uStack_9;
+  } _cfg_c;
   int iVar1;
   uint uVar2;
   byte bVar4;
@@ -23,11 +29,6 @@ void compute_and_send_checksum(int param_1,int param_2)
   int *piVar3;
   void *pvVar13;
   uintptr_t sp;
-  uint8_t uStack_c;
-  uint8_t uStack_b;
-  uint8_t uStack_a;
-  uint8_t uStack_9;
-  
   pvVar13 = (void *)(*(int *)(param_1 + 0x14) + 0x4a8);
   iVar1 = read_first_word_1045c66c(pvVar13);
   uVar2 = read_first_word_1045c66c(pvVar13);
@@ -43,12 +44,12 @@ void compute_and_send_checksum(int param_1,int param_2)
   uVar2 = ((uint)bVar9 << 0x18 | (uint)bVar10 << 0x10 | (uint)bVar11 << 8 | (uint)bVar12) ^
           ((uint)bVar6 << 0x18 | (uint)bVar7 << 0x10 | (uint)bVar8 << 8) ^ 0xffffffff ^
           ((iVar1 >> 8) << 0x18 | (uVar2 & 0xff) << 0x10 | (uint)bVar4 << 8 | (uint)bVar5);
-  uStack_c = (uint8_t)(uVar2 >> 0x18);
-  uStack_b = (uint8_t)(uVar2 >> 0x10);
-  uStack_a = (uint8_t)(uVar2 >> 8);
-  uStack_9 = (uint8_t)uVar2;
+  _cfg_c.uStack_c = (uint8_t)(uVar2 >> 0x18);
+  _cfg_c.uStack_b = (uint8_t)(uVar2 >> 0x10);
+  _cfg_c.uStack_a = (uint8_t)(uVar2 >> 8);
+  _cfg_c.uStack_9 = (uint8_t)uVar2;
   piVar3 = (int *)(*(int *)(param_1 + 0x14) + 0x10c);
   iVar1 = *piVar3;
-  (((vtbl_entry*)(iVar1))[8].fn)((int)piVar3 + (int)((vtbl_entry*)(iVar1))[8].adj,&uStack_c);
+  (((vtbl_entry*)(iVar1))[8].fn)((int)piVar3 + (int)((vtbl_entry*)(iVar1))[8].adj,&_cfg_c.uStack_c);
   return;
 }

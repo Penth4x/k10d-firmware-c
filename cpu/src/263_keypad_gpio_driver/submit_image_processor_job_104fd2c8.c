@@ -23,74 +23,75 @@
 void submit_image_processor_job_104fd2c8(int param_1,int *param_2)
 
 {
+  struct {
+    uint32_t uStack_38;
+    int iStack_34;
+    int iStack_30;
+    uint16_t uStack_2c;
+    uint16_t uStack_2a;
+    uint16_t uStack_28;
+    uint16_t uStack_26;
+    uint16_t uStack_24;
+    uint16_t uStack_22;
+    uint16_t uStack_20;
+    uint16_t uStack_1e;
+    uint16_t uStack_1c;
+    uint16_t uStack_1a;
+    uint16_t uStack_18;
+    int iStack_14;
+    int iStack_10;
+    uint32_t uStack_c;
+  } _cfg_38;
   int iVar1;
   uint32_t uVar2;
   uint32_t *puVar3;
   uint32_t *puVar4;
   uintptr_t sp;
-  uint32_t uStack_38;
-  int iStack_34;
-  int iStack_30;
-  uint16_t uStack_2c;
-  uint16_t uStack_2a;
-  uint16_t uStack_28;
-  uint16_t uStack_26;
-  uint16_t uStack_24;
-  uint16_t uStack_22;
-  uint16_t uStack_20;
-  uint16_t uStack_1e;
-  uint16_t uStack_1c;
-  uint16_t uStack_1a;
-  uint16_t uStack_18;
-  int iStack_14;
-  int iStack_10;
-  uint32_t uStack_c;
-  
-  uStack_38 = 6;
+  _cfg_38.uStack_38 = 6;
   switch(*param_2) {
   case 0:
-    uStack_38 = 0;
+    _cfg_38.uStack_38 = 0;
     break;
   case 1:
-    uStack_38 = 1;
+    _cfg_38.uStack_38 = 1;
     break;
   case 2:
-    uStack_38 = 2;
+    _cfg_38.uStack_38 = 2;
     break;
   case 3:
-    uStack_38 = 3;
+    _cfg_38.uStack_38 = 3;
     break;
   case 4:
-    uStack_38 = 4;
+    _cfg_38.uStack_38 = 4;
     break;
   case 5:
-    uStack_38 = 5;
+    _cfg_38.uStack_38 = 5;
     break;
   case 6:
-    uStack_38 = 6;
+    _cfg_38.uStack_38 = 6;
     break;
   case 7:
-    uStack_38 = 7;
+    _cfg_38.uStack_38 = 7;
   }
-  iStack_34 = param_2[1];
-  iStack_30 = param_2[2];
-  uStack_2c = *(uint16_t *)(param_2 + 3);
-  uStack_2a = *(uint16_t *)((int)param_2 + 0xe);
-  uStack_28 = *(uint16_t *)(param_2 + 4);
-  uStack_26 = *(uint16_t *)((int)param_2 + 0x12);
-  uStack_24 = *(uint16_t *)(param_2 + 5);
-  uStack_22 = *(uint16_t *)((int)param_2 + 0x16);
-  uStack_20 = *(uint16_t *)(param_2 + 6);
-  uStack_1e = *(uint16_t *)((int)param_2 + 0x1a);
-  uStack_1c = *(uint16_t *)(param_2 + 7);
-  uStack_1a = *(uint16_t *)((int)param_2 + 0x1e);
-  uStack_18 = *(uint16_t *)(param_2 + 8);
-  iStack_14 = param_2[9];
-  iStack_10 = param_2[10];
+  _cfg_38.iStack_34 = param_2[1];
+  _cfg_38.iStack_30 = param_2[2];
+  _cfg_38.uStack_2c = *(uint16_t *)(param_2 + 3);
+  _cfg_38.uStack_2a = *(uint16_t *)((int)param_2 + 0xe);
+  _cfg_38.uStack_28 = *(uint16_t *)(param_2 + 4);
+  _cfg_38.uStack_26 = *(uint16_t *)((int)param_2 + 0x12);
+  _cfg_38.uStack_24 = *(uint16_t *)(param_2 + 5);
+  _cfg_38.uStack_22 = *(uint16_t *)((int)param_2 + 0x16);
+  _cfg_38.uStack_20 = *(uint16_t *)(param_2 + 6);
+  _cfg_38.uStack_1e = *(uint16_t *)((int)param_2 + 0x1a);
+  _cfg_38.uStack_1c = *(uint16_t *)(param_2 + 7);
+  _cfg_38.uStack_1a = *(uint16_t *)((int)param_2 + 0x1e);
+  _cfg_38.uStack_18 = *(uint16_t *)(param_2 + 8);
+  _cfg_38.iStack_14 = param_2[9];
+  _cfg_38.iStack_10 = param_2[10];
   puVar4 = (uint32_t *)(param_1 + 0x2c);
   eventflag_clr_flg(puVar4,1);
-  imgp_a_program_and_start_104fe526((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(param_1 + 4),(uint32_t *)(&uStack_38));
-  eventflag_wai_flg(puVar4,1,&uStack_c,_DAT_105a2af0/*ROM*/);
+  imgp_a_program_and_start_104fe526((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(param_1 + 4),(uint32_t *)(&_cfg_38.uStack_38));
+  eventflag_wai_flg(puVar4,1,&_cfg_38.uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar4,1);
   if ((*param_2 == 2) || (*param_2 == 3)) {
     uVar2 = get_field_at_offset_c_104fe502(*(int *)(param_1 + 0x24));

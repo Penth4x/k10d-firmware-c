@@ -18,28 +18,29 @@
 void dispatch_event_with_status(int param_1,uint8_t param_2)
 
 {
+  struct {
+    uint8_t uStack_1c;
+    uint8_t uStack_1b;
+    uint32_t uStack_18;
+    uint8_t uStack_14;
+    uint32_t uStack_10;
+    uint32_t uStack_c;
+  } _cfg_1c;
   uint32_t *puVar1;
   int iVar2;
   void *pvVar3;
   uintptr_t sp;
-  uint8_t uStack_1c;
-  uint8_t uStack_1b;
-  uint32_t uStack_18;
-  uint8_t uStack_14;
-  uint32_t uStack_10;
-  uint32_t uStack_c;
-  
-  uStack_14 = 0;
-  uStack_10 = 0;
-  uStack_c = 0;
-  uStack_1c = 0;
-  uStack_18 = *(uint32_t *)(param_1 + 0x3c);
+  _cfg_1c.uStack_14 = 0;
+  _cfg_1c.uStack_10 = 0;
+  _cfg_1c.uStack_c = 0;
+  _cfg_1c.uStack_1c = 0;
+  _cfg_1c.uStack_18 = *(uint32_t *)(param_1 + 0x3c);
   pvVar3 = (void *)(param_1 + 8);
-  uStack_1b = param_2;
+  _cfg_1c.uStack_1b = param_2;
   puVar1 = (uint32_t *)menu_item_register((int)pvVar3);
   request_ui_sync_code_4(pvVar3);
   dispatch_object_state_update_10491fb2((int)pvVar3,1);
-  iVar2 = configure_pipeline_with_settings(*(uint32_t *)(param_1 + 0x38),&uStack_1c);
+  iVar2 = configure_pipeline_with_settings(*(uint32_t *)(param_1 + 0x38),&_cfg_1c.uStack_1c);
   if (iVar2 == 0) {
     dispatch_object_state_update_10491fb2((int)pvVar3,0);
     (((vtbl_entry*)(puVar1[3]))[1].fn)((int)*(short *)(puVar1[3] + 8) + (int)puVar1,0);

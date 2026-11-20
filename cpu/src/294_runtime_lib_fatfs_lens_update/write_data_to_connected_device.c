@@ -21,6 +21,16 @@ int write_data_to_connected_device(uint32_t param_1)
 
 {
   struct {
+    uint uStack_8c;
+    uint uStack_88;
+    int iStack_84;
+    int iStack_80;
+    int iStack_7c;
+    ushort uStack_76;
+    short sStack_72;
+    short sStack_6e;
+  } _cfg_8c;
+  struct {
     int * piStack_38;
     uint uStack_34;
     uint uStack_30;
@@ -51,14 +61,6 @@ int write_data_to_connected_device(uint32_t param_1)
   void *pvStack_98;
   uint uStack_94;
   uint uStack_90;
-  uint uStack_8c;
-  uint uStack_88;
-  int iStack_84;
-  int iStack_80;
-  int iStack_7c;
-  ushort uStack_76;
-  short sStack_72;
-  short sStack_6e;
   int iStack_60;
   uint uStack_5c;
   uint uStack_58;
@@ -102,7 +104,7 @@ int write_data_to_connected_device(uint32_t param_1)
     _cfg_38.uStack_30 = _cfg_38.piStack_38[6];
     uVar3 = compute_modulo_10544c28(uStack_3c,uVar8);
     *piVar9 = (int)&_cfg_38.uStack_30;
-    iVar2 = (*(code *)0x10543452/*ROM*/)(pvVar7,uVar3,iVar2,&uStack_8c);
+    iVar2 = (*(code *)0x10543452/*ROM*/)(pvVar7,uVar3,iVar2,&_cfg_8c.uStack_8c);
     uStack_58 = _cfg_38.piStack_38[5];
     if (uStack_58 == 0) {
       _cfg_38.piStack_38[5] = _cfg_38.uStack_30;
@@ -127,9 +129,9 @@ int write_data_to_connected_device(uint32_t param_1)
       }
     }
     _cfg_38.piStack_38[2] = 0;
-    _cfg_38.piStack_38[6] = uStack_8c;
-    _cfg_38.piStack_38[8] = uStack_8c;
-    uStack_3c = _cfg_38.piStack_38[4] + uStack_88;
+    _cfg_38.piStack_38[6] = _cfg_8c.uStack_8c;
+    _cfg_38.piStack_38[8] = _cfg_8c.uStack_8c;
+    uStack_3c = _cfg_38.piStack_38[4] + _cfg_8c.uStack_88;
     _cfg_38.piStack_38[4] = uStack_3c;
     if (iVar2 != 0) {
       return iVar2;
@@ -163,9 +165,9 @@ int write_data_to_connected_device(uint32_t param_1)
       _cfg_38.uStack_30 = 0;
       *piVar9 = (int)&_cfg_38.uStack_30;
       piVar9[1] = 0;
-      iVar2 = send_data_chunk_with_retry(pvVar7,uVar3,(int *)&pvStack_98,(int *)&uStack_8c,(int *)*piVar9,
+      iVar2 = send_data_chunk_with_retry(pvVar7,uVar3,(int *)&pvStack_98,(int *)&_cfg_8c.uStack_8c,(int *)*piVar9,
                            *(byte *)((int)piVar9 + 7));
-      uStack_94 = uStack_94 - uStack_88;
+      uStack_94 = uStack_94 - _cfg_8c.uStack_88;
       _cfg_38.piStack_38[5] = _cfg_38.uStack_30;
       if ((_cfg_38.uStack_30 != 0) && (iVar2 == -0x1c)) {
         iVar2 = 0;
@@ -173,8 +175,8 @@ int write_data_to_connected_device(uint32_t param_1)
     }
     else {
       _cfg_38.uStack_34 = _cfg_38.piStack_38[8];
-      uStack_8c = 0;
-      uStack_88 = 0;
+      _cfg_8c.uStack_8c = 0;
+      _cfg_8c.uStack_88 = 0;
       _cfg_38.uStack_2c = _cfg_38.uStack_34;
       if (((uStack_40 < uVar8) || (uStack_44 != 0)) || ((uVar3 == 1 && (uStack_40 != uStack_3c)))) {
         if ((((_cfg_38.piStack_38[2] == 0) && (uStack_40 != uStack_3c)) &&
@@ -235,8 +237,8 @@ int write_data_to_connected_device(uint32_t param_1)
         if (uVar3 != 0) {
           _cfg_38.uStack_2c = _cfg_38.uStack_34;
         }
-        uStack_8c = _cfg_38.uStack_34;
-        uStack_88 = _cfg_38.uStack_20;
+        _cfg_8c.uStack_8c = _cfg_38.uStack_34;
+        _cfg_8c.uStack_88 = _cfg_38.uStack_20;
       }
       if ((uVar3 != 0) && (iVar2 = (*(code *)0x1053db52/*ROM*/)(pvVar7,&_cfg_38.uStack_14), iVar2 == 0)) {
         if (_cfg_38.uStack_14 == 0) {
@@ -247,19 +249,19 @@ int write_data_to_connected_device(uint32_t param_1)
             iStack_48 = uStack_94 - _cfg_38.uStack_14 * uVar8;
             uStack_94 = uStack_94 - iStack_48;
           }
-          if (uStack_3c < uStack_40 + uStack_88 + uStack_94) {
+          if (uStack_3c < uStack_40 + _cfg_8c.uStack_88 + uStack_94) {
             *piVar9 = (int)&_cfg_38.uStack_30;
             piVar9[1] = 0;
-            iVar2 = send_data_chunk_with_retry(pvVar7,uVar3,(int *)&pvStack_98,(int *)&uStack_8c,(int *)*piVar9,
+            iVar2 = send_data_chunk_with_retry(pvVar7,uVar3,(int *)&pvStack_98,(int *)&_cfg_8c.uStack_8c,(int *)*piVar9,
                                  *(byte *)((int)piVar9 + 7));
             if (iVar2 < 0) {
               if (_cfg_38.uStack_30 != 0) {
                 dispatch_lens_fw_update_step_1053d138(pvVar7,_cfg_38.uStack_30,*(uint32_t *)((int)pvVar7 + 0x54),0);
               }
-              uStack_8c = _cfg_38.uStack_2c;
+              _cfg_8c.uStack_8c = _cfg_38.uStack_2c;
             }
             else {
-              uStack_94 = uStack_94 - uStack_88;
+              uStack_94 = uStack_94 - _cfg_8c.uStack_88;
               iVar2 = dispatch_lens_fw_update_step_1053d138(pvVar7,_cfg_38.uStack_2c,*(uint32_t *)((int)pvVar7 + 0x54),_cfg_38.uStack_30);
             }
           }
@@ -269,7 +271,7 @@ int write_data_to_connected_device(uint32_t param_1)
             uVar8 = _cfg_38.uStack_34;
             if (iVar2 == 0) {
               if (uVar3 == 1) {
-                iVar2 = (*(code *)0x105429e0/*ROM*/)(pvVar7,_cfg_38.uStack_34,&pvStack_98,&uStack_88);
+                iVar2 = (*(code *)0x105429e0/*ROM*/)(pvVar7,_cfg_38.uStack_34,&pvStack_98,&_cfg_8c.uStack_88);
                 if ((iVar2 < 0) && (iVar2 == -5)) {
                   iVar2 = lens_fw_get_block_ptr(pvVar7,_cfg_38.uStack_34,&_cfg_38.iStack_10);
                   if (iVar2 != 0) {
@@ -286,22 +288,22 @@ int write_data_to_connected_device(uint32_t param_1)
                     _cfg_38.piStack_38[6] = _cfg_38.uStack_c;
                   }
                   _cfg_38.uStack_34 = _cfg_38.uStack_c;
-                  uStack_88 = uStack_94;
+                  _cfg_8c.uStack_88 = uStack_94;
                 }
-                uStack_8c = _cfg_38.uStack_34;
+                _cfg_8c.uStack_8c = _cfg_38.uStack_34;
               }
               else {
                 *piVar9 = (int)&pvStack_98;
-                piVar9[1] = (int)&uStack_8c;
+                piVar9[1] = (int)&_cfg_8c.uStack_8c;
                 piVar9[2] = (int)&_cfg_38.uStack_30;
                 iVar2 = transfer_data_blocks_with_retry(pvVar7,uVar3,uVar4,uVar8,(int *)*piVar9,(int *)piVar9[1],
                                      (int *)piVar9[2]);
               }
               if (iVar2 != 0) {
-                uStack_8c = _cfg_38.uStack_2c;
-                uStack_88 = 0;
+                _cfg_8c.uStack_8c = _cfg_38.uStack_2c;
+                _cfg_8c.uStack_88 = 0;
               }
-              uStack_94 = uStack_94 - uStack_88;
+              uStack_94 = uStack_94 - _cfg_8c.uStack_88;
             }
           }
         }
@@ -314,16 +316,16 @@ LAB_10542112:
   if (iVar1 != 0) {
     _cfg_38.piStack_38[2] = 0;
     _cfg_38.piStack_38[7] = _cfg_38.piStack_38[7] + *in_stack_00000018;
-    _cfg_38.piStack_38[8] = uStack_8c;
+    _cfg_38.piStack_38[8] = _cfg_8c.uStack_8c;
     uStack_54 = _cfg_38.piStack_38[7];
     if (uStack_3c < uStack_54) {
       _cfg_38.piStack_38[4] = uStack_54;
-      _cfg_38.piStack_38[6] = uStack_8c;
+      _cfg_38.piStack_38[6] = _cfg_8c.uStack_8c;
     }
-    call_single_helper_1047f97e((uint32_t)(&iStack_84));
+    call_single_helper_1047f97e((uint32_t)(&_cfg_8c.iStack_84));
     *(ushort *)((int)_cfg_38.piStack_38 + 0xe) =
-         (ushort)(iStack_84 / 2) | (ushort)(iStack_80 << 5) | (ushort)(iStack_7c << 0xb);
-    *(ushort *)(_cfg_38.piStack_38 + 3) = (sStack_72 + 1) * 0x20 | uStack_76 | (sStack_6e + -0x50) * 0x200;
+         (ushort)(_cfg_8c.iStack_84 / 2) | (ushort)(_cfg_8c.iStack_80 << 5) | (ushort)(_cfg_8c.iStack_7c << 0xb);
+    *(ushort *)(_cfg_38.piStack_38 + 3) = (_cfg_8c.sStack_72 + 1) * 0x20 | _cfg_8c.uStack_76 | (_cfg_8c.sStack_6e + -0x50) * 0x200;
   }
   return iVar2;
 }

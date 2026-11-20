@@ -23,6 +23,27 @@
 int process_ae_metering_update(int param_1,void *param_2,int param_3,int param_4,int param_5)
 
 {
+  struct {
+    uint32_t uStack_58;
+    uint32_t uStack_54;
+    uint32_t uStack_50;
+    uint32_t uStack_4c;
+    uint16_t uStack_48;
+    uint16_t uStack_46;
+    uint16_t uStack_44;
+    uint16_t uStack_42;
+    uint16_t uStack_40;
+    uint32_t uStack_3c;
+    uint32_t uStack_38;
+    uint32_t uStack_34;
+    uint32_t uStack_30;
+    uint16_t uStack_2c;
+    uint16_t uStack_2a;
+    uint16_t uStack_28;
+    uint16_t uStack_26;
+    uint16_t uStack_24;
+    uint uStack_20;
+  } _cfg_58;
   int iVar1;
   uint32_t *puVar2;
   uint32_t extraout_r4;
@@ -47,25 +68,6 @@ int process_ae_metering_update(int param_1,void *param_2,int param_3,int param_4
   uint64_t uVar13;
   uint8_t auStack_d4 [40];
   uint uStack_9c;
-  uint32_t uStack_58;
-  uint32_t uStack_54;
-  uint32_t uStack_50;
-  uint32_t uStack_4c;
-  uint16_t uStack_48;
-  uint16_t uStack_46;
-  uint16_t uStack_44;
-  uint16_t uStack_42;
-  uint16_t uStack_40;
-  uint32_t uStack_3c;
-  uint32_t uStack_38;
-  uint32_t uStack_34;
-  uint32_t uStack_30;
-  uint16_t uStack_2c;
-  uint16_t uStack_2a;
-  uint16_t uStack_28;
-  uint16_t uStack_26;
-  uint16_t uStack_24;
-  uint uStack_20;
   uint auStack_1c [5];
   
   puVar10 = auStack_d4;
@@ -109,45 +111,45 @@ int process_ae_metering_update(int param_1,void *param_2,int param_3,int param_4
     uVar13 = multiply_fixed_point_values_105445a2(extraout_r4_01,extraout_r5_01,extraout_r4_02,extraout_r5_02);
     uVar8 = normalize_fixed_point_value_105448ac((uint)((ulonglong)uVar12 >> 0x20),(uint)uVar12);
     uVar3 = normalize_fixed_point_value_105448ac((uint)((ulonglong)uVar13 >> 0x20),(uint)uVar13);
-    uStack_48 = 0;
-    uStack_46 = 0;
-    uStack_44 = 0;
-    uStack_42 = 0;
-    uStack_40 = 0;
-    uStack_54 = *(uint32_t *)(param_3 + 0x20);
-    uStack_50 = *(uint32_t *)(param_3 + 0x24);
-    uStack_4c = *(uint32_t *)(param_3 + 0x28);
-    uStack_58 = *(uint32_t *)(param_3 + 0x1c);
+    _cfg_58.uStack_48 = 0;
+    _cfg_58.uStack_46 = 0;
+    _cfg_58.uStack_44 = 0;
+    _cfg_58.uStack_42 = 0;
+    _cfg_58.uStack_40 = 0;
+    _cfg_58.uStack_54 = *(uint32_t *)(param_3 + 0x20);
+    _cfg_58.uStack_50 = *(uint32_t *)(param_3 + 0x24);
+    _cfg_58.uStack_4c = *(uint32_t *)(param_3 + 0x28);
+    _cfg_58.uStack_58 = *(uint32_t *)(param_3 + 0x1c);
     uVar4 = return_first_word_1045c514(puVar2);
-    uStack_44 = (short)uVar4;
+    _cfg_58.uStack_44 = (short)uVar4;
     uVar4 = return_first_word_1045c514(puVar2);
-    uStack_48 = (short)uVar4;
+    _cfg_58.uStack_48 = (short)uVar4;
     uVar4 = read_struct_field_at_offset_4(puVar2);
-    uStack_42 = 0;
-    uStack_40 = 0;
-    uStack_2c = 0;
-    uStack_2a = 0;
-    uStack_28 = 0;
-    uStack_26 = 0;
-    uStack_24 = 0;
-    uStack_38 = *(uint32_t *)(param_4 + 0x20);
-    uStack_34 = *(uint32_t *)(param_4 + 0x24);
-    uStack_30 = *(uint32_t *)(param_4 + 0x28);
-    uStack_3c = *(uint32_t *)(param_4 + 0x1c);
+    _cfg_58.uStack_42 = 0;
+    _cfg_58.uStack_40 = 0;
+    _cfg_58.uStack_2c = 0;
+    _cfg_58.uStack_2a = 0;
+    _cfg_58.uStack_28 = 0;
+    _cfg_58.uStack_26 = 0;
+    _cfg_58.uStack_24 = 0;
+    _cfg_58.uStack_38 = *(uint32_t *)(param_4 + 0x20);
+    _cfg_58.uStack_34 = *(uint32_t *)(param_4 + 0x24);
+    _cfg_58.uStack_30 = *(uint32_t *)(param_4 + 0x28);
+    _cfg_58.uStack_3c = *(uint32_t *)(param_4 + 0x1c);
     puVar9 = (uint32_t *)(param_4 + 0x2c);
-    uStack_46 = (short)uVar4;
+    _cfg_58.uStack_46 = (short)uVar4;
     uVar4 = return_first_word_1045c514(puVar9);
-    uStack_28 = (short)uVar4;
+    _cfg_58.uStack_28 = (short)uVar4;
     uVar4 = return_first_word_1045c514(puVar9);
-    uStack_2c = (short)uVar4;
+    _cfg_58.uStack_2c = (short)uVar4;
     uVar4 = read_struct_field_at_offset_4(puVar9);
-    uStack_26 = 0;
-    uStack_24 = 0;
-    uStack_2a = (short)uVar4;
+    _cfg_58.uStack_26 = 0;
+    _cfg_58.uStack_24 = 0;
+    _cfg_58.uStack_2a = (short)uVar4;
     uVar5 = return_first_word_1045c514(puVar9);
     uVar6 = read_struct_field_at_offset_4(puVar9);
     uVar7 = return_first_word_1045c514(puVar2);
-    uStack_20 = (uVar7 & 0xffff) / 2;
+    _cfg_58.uStack_20 = (uVar7 & 0xffff) / 2;
     uVar7 = read_struct_field_at_offset_4(puVar2);
     auStack_1c[1] = 0;
     auStack_1c[2] = 0;
@@ -156,7 +158,7 @@ int process_ae_metering_update(int param_1,void *param_2,int param_3,int param_4
     auStack_1c[0] = (uVar7 & 0xffff) / 2;
     uVar4 = *(uint32_t *)(param_1 + 0x4c);
     *(short *)(puVar10 + 2) = (short)(((uVar3 & 0xfffe) << 8) / (uVar6 & 0xffff));
-    *(uint **)(puVar10 + 4) = &uStack_20;
+    *(uint **)(puVar10 + 4) = &_cfg_58.uStack_20;
     *(uint **)(puVar10 + 8) = auStack_1c;
     *(uint **)(puVar10 + 0xc) = auStack_1c + 1;
     *(uint **)(puVar10 + 0x10) = auStack_1c + 2;
@@ -165,7 +167,7 @@ int process_ae_metering_update(int param_1,void *param_2,int param_3,int param_4
     *(ushort *)(puVar10 + 0x1e) = (ushort)DAT_105b94e0/*ROM*/;
     *(ushort *)(puVar10 + 0x22) = (ushort)DAT_105b94e1/*ROM*/;
     *(ushort *)(puVar10 + 0x26) = (ushort)DAT_105b94e2/*ROM*/;
-    iVar1 = compute_six_fixed_point_values(uVar4,&uStack_58,&uStack_3c,
+    iVar1 = compute_six_fixed_point_values(uVar4,&_cfg_58.uStack_58,&_cfg_58.uStack_3c,
                          (short)(((uVar8 & 0xfffe) << 8) / (uVar5 & 0xffff)),
                          *(uint16_t *)(puVar10 + 2),*(int **)(puVar10 + 4),*(int **)(puVar10 + 8),
                          *(int **)(puVar10 + 0xc),*(int **)(puVar10 + 0x10),

@@ -21,6 +21,14 @@
 void process_sensor_readout_request_104cc5aa(int param_1)
 
 {
+  struct {
+    ushort uStack_14;
+    ushort uStack_12;
+    ushort uStack_10;
+    ushort uStack_e;
+    ushort uStack_c;
+    ushort uStack_a;
+  } _cfg_14;
   int iVar1;
   void *pvVar2;
   uint uVar3;
@@ -38,13 +46,6 @@ void process_sensor_readout_request_104cc5aa(int param_1)
   uint32_t auStack_78 [2];
   uint8_t auStack_70 [44];
   int iStack_44;
-  ushort uStack_14;
-  ushort uStack_12;
-  ushort uStack_10;
-  ushort uStack_e;
-  ushort uStack_c;
-  ushort uStack_a;
-  
   puVar9 = auStack_4d4;
   *(uint32_t *)(param_1 + 0x210) = 0xc0013;
   *(uint8_t *)(param_1 + 0x219) = 0;
@@ -54,15 +55,15 @@ void process_sensor_readout_request_104cc5aa(int param_1)
     return;
   }
   pvVar2 = (void *)heap_alloc((void *)1);
-  uStack_14 = 0;
-  uStack_12 = 0;
-  uStack_10 = 0;
-  uStack_e = 0;
-  uStack_c = 0;
-  uStack_a = 0;
-  select_two_parameter_values_by_index(pvVar2,0,&uStack_14,&uStack_12);
-  select_two_parameter_values_by_index(pvVar2,1,&uStack_10,&uStack_e);
-  select_two_parameter_values_by_index(pvVar2,2,&uStack_c,&uStack_a);
+  _cfg_14.uStack_14 = 0;
+  _cfg_14.uStack_12 = 0;
+  _cfg_14.uStack_10 = 0;
+  _cfg_14.uStack_e = 0;
+  _cfg_14.uStack_c = 0;
+  _cfg_14.uStack_a = 0;
+  select_two_parameter_values_by_index(pvVar2,0,&_cfg_14.uStack_14,&_cfg_14.uStack_12);
+  select_two_parameter_values_by_index(pvVar2,1,&_cfg_14.uStack_10,&_cfg_14.uStack_e);
+  select_two_parameter_values_by_index(pvVar2,2,&_cfg_14.uStack_c,&_cfg_14.uStack_a);
   if (pvVar2 != 0) {
     heap_free((int)pvVar2);
   }
@@ -70,8 +71,8 @@ void process_sensor_readout_request_104cc5aa(int param_1)
   uVar3 = uVar3 & 0xffff;
   uVar4 = read_struct_field_at_offset_4((void *)(*(int *)(param_1 + 0xbc) + 0x2c));
   uVar4 = uVar4 & 0xffff;
-  if ((((uVar3 != uStack_14) || (uVar4 != uStack_12)) &&
-      ((uVar3 != uStack_10 || (uVar4 != uStack_e)))) && ((uVar3 != uStack_c || (uVar4 != uStack_a)))
+  if ((((uVar3 != _cfg_14.uStack_14) || (uVar4 != _cfg_14.uStack_12)) &&
+      ((uVar3 != _cfg_14.uStack_10 || (uVar4 != _cfg_14.uStack_e)))) && ((uVar3 != _cfg_14.uStack_c || (uVar4 != _cfg_14.uStack_a)))
      ) {
     *(uint32_t *)(param_1 + 0x214) = 0;
     return;

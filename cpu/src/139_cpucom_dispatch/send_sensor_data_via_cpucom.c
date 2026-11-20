@@ -13,6 +13,12 @@
 int send_sensor_data_via_cpucom(int *param_1,void *param_2,uint *param_3,int param_4)
 
 {
+  struct {
+    uint8_t uStack_c;
+    uint8_t uStack_b;
+    uint8_t uStack_a;
+    uint8_t uStack_9;
+  } _cfg_c;
   int iVar1;
   uint uVar2;
   uint uVar3;
@@ -27,11 +33,6 @@ int send_sensor_data_via_cpucom(int *param_1,void *param_2,uint *param_3,int par
   uint uStack_30;
   int iStack_2c;
   int iStack_24;
-  uint8_t uStack_c;
-  uint8_t uStack_b;
-  uint8_t uStack_a;
-  uint8_t uStack_9;
-  
   bVar5 = set_pointer_and_clear_flag(param_1 + 7,param_2);
   if (bVar5) {
     iVar7 = 0;
@@ -48,8 +49,8 @@ int send_sensor_data_via_cpucom(int *param_1,void *param_2,uint *param_3,int par
       do {
         bVar5 = param_4 == 0;
         iVar7 = iStack_2c * (0x40 >> (uint)bVar5) + (uVar3 & 0xffff);
-        uStack_c = (uint8_t)((uint)iVar7 >> 8);
-        uStack_b = (uint8_t)iVar7;
+        _cfg_c.uStack_c = (uint8_t)((uint)iVar7 >> 8);
+        _cfg_c.uStack_b = (uint8_t)iVar7;
         if (uStack_30 < 0x40) {
           uStack_34 = uStack_30;
         }
@@ -57,9 +58,9 @@ int send_sensor_data_via_cpucom(int *param_1,void *param_2,uint *param_3,int par
           uStack_34 = 0x40;
           uStack_30 = uStack_30 - 0x40 & 0xffff;
         }
-        uStack_a = (uint8_t)((uint)((int)uStack_34 >> (uint)bVar5) >> 8);
-        uStack_9 = (uint8_t)((int)uStack_34 >> (uint)bVar5);
-        (((vtbl_entry*)(*param_1))[10].fn)((int)((vtbl_entry*)(*param_1))[10].adj + (int)param_1,&uStack_c,4);
+        _cfg_c.uStack_a = (uint8_t)((uint)((int)uStack_34 >> (uint)bVar5) >> 8);
+        _cfg_c.uStack_9 = (uint8_t)((int)uStack_34 >> (uint)bVar5);
+        (((vtbl_entry*)(*param_1))[10].fn)((int)((vtbl_entry*)(*param_1))[10].adj + (int)param_1,&_cfg_c.uStack_c,4);
         if (uStack_34 != 0) {
           cVar8 = '\x04';
           iStack_3c = uStack_34 - 3;

@@ -19,6 +19,12 @@
 void process_mode_setting_updates(int param_1,int param_2)
 
 {
+  struct {
+    byte bStack_c;
+    byte bStack_b;
+    byte bStack_a;
+    byte bStack_9;
+  } _cfg_c;
   byte bVar1;
   byte bVar2;
   byte bVar3;
@@ -33,11 +39,6 @@ void process_mode_setting_updates(int param_1,int param_2)
   int *piVar11;
   uint8_t local_54 [12];
   cls_105a6d8c acStack_28 [7];
-  byte bStack_c;
-  byte bStack_b;
-  byte bStack_a;
-  byte bStack_9;
-  
   piVar11 = (int *)local_54;
   if (param_2 == 0) {
     cls_105a6d8c_new(acStack_28);
@@ -61,59 +62,59 @@ void process_mode_setting_updates(int param_1,int param_2)
       puVar10[2] = (char)iVar6;
       puVar10[3] = (char)iVar7;
       *puVar10 = 1;
-      bStack_c = 0;
-      iVar6 = read_byte_from_table_104bb17c(*(uint32_t *)(param_1 + 0x28),uVar4 & 0xff,&bStack_c);
-      if ((iVar6 != 0) && (bStack_c != uVar5)) {
+      _cfg_c.bStack_c = 0;
+      iVar6 = read_byte_from_table_104bb17c(*(uint32_t *)(param_1 + 0x28),uVar4 & 0xff,&_cfg_c.bStack_c);
+      if ((iVar6 != 0) && (_cfg_c.bStack_c != uVar5)) {
         puVar10[4] = 1;
       }
     }
     cls_105a6d8c_delete(acStack_28,2);
   }
   else {
-    bStack_b = 0;
-    bStack_a = 0;
-    bStack_9 = 0;
+    _cfg_c.bStack_b = 0;
+    _cfg_c.bStack_a = 0;
+    _cfg_c.bStack_9 = 0;
     uVar9 = get_or_init_heap_block();
     if ((*(char *)(param_1 + 0x51) != '\0') && (*(char *)(param_1 + 0x55) != '\0')) {
       bVar1 = *(byte *)(param_1 + 0x52);
       if (bVar1 == 0xff) {
-        bStack_b = 0;
-        bStack_a = 0;
-        bStack_9 = 0;
+        _cfg_c.bStack_b = 0;
+        _cfg_c.bStack_a = 0;
+        _cfg_c.bStack_9 = 0;
       }
       else {
         bVar2 = *(byte *)(param_1 + 0x53);
         bVar3 = *(byte *)(param_1 + 0x54);
-        *piVar11 = (int)&bStack_b;
-        piVar11[1] = (int)&bStack_9;
-        piVar11[2] = (int)&bStack_a;
+        *piVar11 = (int)&_cfg_c.bStack_b;
+        piVar11[1] = (int)&_cfg_c.bStack_9;
+        piVar11[2] = (int)&_cfg_c.bStack_a;
         lookup_three_byte_table_entry_1045a78c(uVar9,(uint)bVar1,(uint)bVar3,(uint)bVar2,(uint8_t *)*piVar11,
                      (uint8_t *)piVar11[1],(uint8_t *)piVar11[2]);
       }
-      setting_set(*(int *)(param_1 + 0xc),4,(uint)bStack_b);
-      setting_set(*(int *)(param_1 + 0xc),7,(uint)bStack_a);
-      setting_set(*(int *)(param_1 + 0xc),10,(uint)bStack_9);
+      setting_set(*(int *)(param_1 + 0xc),4,(uint)_cfg_c.bStack_b);
+      setting_set(*(int *)(param_1 + 0xc),7,(uint)_cfg_c.bStack_a);
+      setting_set(*(int *)(param_1 + 0xc),10,(uint)_cfg_c.bStack_9);
       *(uint8_t *)(param_1 + 0x55) = 0;
     }
     if ((*(char *)(param_1 + 0x56) != '\0') && (*(char *)(param_1 + 0x5a) != '\0')) {
       if (*(char *)(param_1 + 0x57) == -1) {
-        bStack_b = 0;
-        bStack_a = 0;
-        bStack_9 = 0;
+        _cfg_c.bStack_b = 0;
+        _cfg_c.bStack_a = 0;
+        _cfg_c.bStack_9 = 0;
       }
       else {
         bVar1 = *(byte *)(param_1 + 0x57);
         bVar2 = *(byte *)(param_1 + 0x58);
         bVar3 = *(byte *)(param_1 + 0x59);
-        *piVar11 = (int)&bStack_b;
-        piVar11[1] = (int)&bStack_9;
-        piVar11[2] = (int)&bStack_a;
+        *piVar11 = (int)&_cfg_c.bStack_b;
+        piVar11[1] = (int)&_cfg_c.bStack_9;
+        piVar11[2] = (int)&_cfg_c.bStack_a;
         lookup_three_byte_table_entry_1045a78c(uVar9,(uint)bVar1,(uint)bVar3,(uint)bVar2,(uint8_t *)*piVar11,
                      (uint8_t *)piVar11[1],(uint8_t *)piVar11[2]);
       }
-      setting_set(*(int *)(param_1 + 0xc),300,(uint)bStack_b);
-      setting_set(*(int *)(param_1 + 0xc),0x12f,(uint)bStack_a);
-      setting_set(*(int *)(param_1 + 0xc),0x132,(uint)bStack_9);
+      setting_set(*(int *)(param_1 + 0xc),300,(uint)_cfg_c.bStack_b);
+      setting_set(*(int *)(param_1 + 0xc),0x12f,(uint)_cfg_c.bStack_a);
+      setting_set(*(int *)(param_1 + 0xc),0x132,(uint)_cfg_c.bStack_9);
       *(uint8_t *)(param_1 + 0x5a) = 0;
     }
   }

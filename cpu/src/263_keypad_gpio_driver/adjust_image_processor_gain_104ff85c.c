@@ -21,6 +21,24 @@
 void adjust_image_processor_gain_104ff85c(int param_1,uint32_t *param_2)
 
 {
+  struct {
+    uint32_t uStack_3c;
+    uint32_t uStack_38;
+    uint32_t uStack_34;
+    uint32_t uStack_30;
+    uint16_t uStack_2c;
+    uint16_t uStack_2a;
+    uint16_t uStack_28;
+    uint32_t uStack_24;
+    uint8_t uStack_20;
+    uint8_t uStack_1f;
+    uint uStack_1c;
+    uint8_t uStack_18;
+    uint8_t uStack_17;
+    uint32_t uStack_14;
+    uint8_t uStack_10;
+    uint32_t uStack_c;
+  } _cfg_3c;
   ushort uVar1;
   int iVar2;
   uint uVar3;
@@ -42,59 +60,42 @@ void adjust_image_processor_gain_104ff85c(int param_1,uint32_t *param_2)
   uint8_t uStack_47;
   uint32_t uStack_44;
   uint8_t uStack_40;
-  uint32_t uStack_3c;
-  uint32_t uStack_38;
-  uint32_t uStack_34;
-  uint32_t uStack_30;
-  uint16_t uStack_2c;
-  uint16_t uStack_2a;
-  uint16_t uStack_28;
-  uint32_t uStack_24;
-  uint8_t uStack_20;
-  uint8_t uStack_1f;
-  uint uStack_1c;
-  uint8_t uStack_18;
-  uint8_t uStack_17;
-  uint32_t uStack_14;
-  uint8_t uStack_10;
-  uint32_t uStack_c;
-  
-  uStack_c = 0;
+  _cfg_3c.uStack_c = 0;
   uVar1 = 0;
   uVar5 = 0x251c;
   while( true ) {
-    uStack_20 = 0;
-    uStack_1f = 0;
-    uStack_10 = 0;
-    uStack_38 = param_2[1];
-    uStack_34 = param_2[2];
-    uStack_30 = param_2[3];
-    uStack_28 = *(uint16_t *)(param_2 + 5);
+    _cfg_3c.uStack_20 = 0;
+    _cfg_3c.uStack_1f = 0;
+    _cfg_3c.uStack_10 = 0;
+    _cfg_3c.uStack_38 = param_2[1];
+    _cfg_3c.uStack_34 = param_2[2];
+    _cfg_3c.uStack_30 = param_2[3];
+    _cfg_3c.uStack_28 = *(uint16_t *)(param_2 + 5);
     if (param_2[9] == 2) {
-      uStack_14 = 2;
+      _cfg_3c.uStack_14 = 2;
     }
     else if (param_2[9] == 1) {
-      uStack_14 = 1;
+      _cfg_3c.uStack_14 = 1;
     }
     else {
-      uStack_14 = 1;
+      _cfg_3c.uStack_14 = 1;
     }
-    uStack_2c = *(uint16_t *)(param_2 + 4);
-    uStack_2a = *(uint16_t *)((int)param_2 + 0x12);
-    uStack_24 = param_2[6];
-    uStack_3c = *param_2;
-    uStack_18 = 1;
+    _cfg_3c.uStack_2c = *(uint16_t *)(param_2 + 4);
+    _cfg_3c.uStack_2a = *(uint16_t *)((int)param_2 + 0x12);
+    _cfg_3c.uStack_24 = param_2[6];
+    _cfg_3c.uStack_3c = *param_2;
+    _cfg_3c.uStack_18 = 1;
     if (*(ushort *)(param_2 + 4) < 0x280) {
-      uStack_17 = 0;
+      _cfg_3c.uStack_17 = 0;
     }
     else {
-      uStack_17 = 2;
+      _cfg_3c.uStack_17 = 2;
     }
     puVar4 = (uint32_t *)(param_1 + 0x3c);
-    uStack_1c = uVar5;
+    _cfg_3c.uStack_1c = uVar5;
     eventflag_clr_flg(puVar4,1);
-    configure_object_with_mode_flags(*(int *)(param_1 + 0x30),param_1 + 4,&uStack_3c);
-    eventflag_wai_flg(puVar4,1,&uStack_c,_DAT_105a2af0/*ROM*/);
+    configure_object_with_mode_flags(*(int *)(param_1 + 0x30),param_1 + 4,&_cfg_3c.uStack_3c);
+    eventflag_wai_flg(puVar4,1,&_cfg_3c.uStack_c,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar4,1);
     reset_object_fields_and_call_vtable(*(uint32_t *)(param_1 + 0x30));
     uVar3 = *(uint *)(param_1 + 0x24);
@@ -151,7 +152,7 @@ LAB_104ffac8:
   uStack_4c = uVar5;
   eventflag_clr_flg(puVar4,1);
   configure_object_with_mode_flags(*(int *)(param_1 + 0x30),param_1 + 4,&uStack_6c);
-  eventflag_wai_flg(puVar4,1,&uStack_c,_DAT_105a2af0/*ROM*/);
+  eventflag_wai_flg(puVar4,1,&_cfg_3c.uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar4,1);
   reset_object_fields_and_call_vtable(*(uint32_t *)(param_1 + 0x30));
   return;

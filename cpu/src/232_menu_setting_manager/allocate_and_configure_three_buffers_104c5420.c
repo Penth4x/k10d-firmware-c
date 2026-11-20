@@ -9,6 +9,17 @@
 int allocate_and_configure_three_buffers_104c5420(int param_1,int param_2,void *param_3)
 
 {
+  struct {
+    uint32_t uStack_24;
+    uint32_t uStack_20;
+    uint32_t uStack_1c;
+    uint32_t uStack_18;
+    uint16_t uStack_14;
+    uint16_t uStack_12;
+    uint16_t uStack_10;
+    uint16_t uStack_e;
+    uint16_t uStack_c;
+  } _cfg_24;
   uint32_t uVar1;
   cls_105b934c *pcVar2;
   cls_105b9458 *pcVar3;
@@ -48,16 +59,6 @@ int allocate_and_configure_three_buffers_104c5420(int param_1,int param_2,void *
   uint16_t uStack_2c;
   uint16_t uStack_2a;
   uint16_t uStack_28;
-  uint32_t uStack_24;
-  uint32_t uStack_20;
-  uint32_t uStack_1c;
-  uint32_t uStack_18;
-  uint16_t uStack_14;
-  uint16_t uStack_12;
-  uint16_t uStack_10;
-  uint16_t uStack_e;
-  uint16_t uStack_c;
-  
   puVar17 = (uint *)auStack_308;
   uVar12 = (*(code *)0x104c285c/*ROM*/)(param_2 + 0x34,*(uint32_t *)(param_2 + 0x18));
   uVar13 = (*(code *)0x104c286c/*ROM*/)(param_2 + 0x34,*(uint32_t *)(param_2 + 0x18));
@@ -139,27 +140,27 @@ int allocate_and_configure_three_buffers_104c5420(int param_1,int param_2,void *
         uVar16 = read_struct_field_at_offset_4(auStack_230);
         uStack_2a = 0;
         uStack_28 = 0;
-        uStack_14 = 0;
-        uStack_12 = 0;
-        uStack_10 = 0;
-        uStack_e = 0;
-        uStack_c = 0;
-        uStack_20 = *(uint32_t *)((int)param_3 + 0x20);
-        uStack_1c = *(uint32_t *)((int)param_3 + 0x24);
-        uStack_18 = *(uint32_t *)((int)param_3 + 0x28);
-        uStack_24 = *(uint32_t *)((int)param_3 + 0x1c);
+        _cfg_24.uStack_14 = 0;
+        _cfg_24.uStack_12 = 0;
+        _cfg_24.uStack_10 = 0;
+        _cfg_24.uStack_e = 0;
+        _cfg_24.uStack_c = 0;
+        _cfg_24.uStack_20 = *(uint32_t *)((int)param_3 + 0x20);
+        _cfg_24.uStack_1c = *(uint32_t *)((int)param_3 + 0x24);
+        _cfg_24.uStack_18 = *(uint32_t *)((int)param_3 + 0x28);
+        _cfg_24.uStack_24 = *(uint32_t *)((int)param_3 + 0x1c);
         puVar15 = (uint32_t *)((int)param_3 + 0x2c);
         uStack_2e = (short)uVar16;
         uVar16 = return_first_word_1045c514(puVar15);
-        uStack_10 = (short)uVar16;
+        _cfg_24.uStack_10 = (short)uVar16;
         uVar16 = return_first_word_1045c514(puVar15);
-        uStack_14 = (short)uVar16;
+        _cfg_24.uStack_14 = (short)uVar16;
         uVar16 = read_struct_field_at_offset_4(puVar15);
-        uStack_e = 0;
-        uStack_c = 0;
-        uStack_12 = (short)uVar16;
+        _cfg_24.uStack_e = 0;
+        _cfg_24.uStack_c = 0;
+        _cfg_24.uStack_12 = (short)uVar16;
         if (iStack_2c0 != 0) {
-          iStack_2c0 = build_and_send_two_param_blocks_104c319c(*(uint32_t *)(param_1 + 0x4c),auStack_40,&uStack_24);
+          iStack_2c0 = build_and_send_two_param_blocks_104c319c(*(uint32_t *)(param_1 + 0x4c),auStack_40,&_cfg_24.uStack_24);
         }
         free_heap_if_flagged_1045c402(auStack_48,2);
         cls_105b9458_delete(pcVar3,2);

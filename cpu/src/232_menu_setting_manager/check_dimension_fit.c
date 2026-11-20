@@ -19,36 +19,37 @@
 uint32_t check_dimension_fit(uint32_t param_1,int param_2)
 
 {
+  struct {
+    uint16_t uStack_14;
+    uint16_t uStack_12;
+    uint16_t uStack_10;
+    uint16_t uStack_e;
+    ushort uStack_c;
+    ushort uStack_a;
+  } _cfg_14;
   void *pvVar1;
   uint uVar2;
   uint uVar3;
   uint32_t uVar4;
   uintptr_t sp;
-  uint16_t uStack_14;
-  uint16_t uStack_12;
-  uint16_t uStack_10;
-  uint16_t uStack_e;
-  ushort uStack_c;
-  ushort uStack_a;
-  
   uVar4 = 0;
   if (*(int *)(param_2 + 0x18) == 2) {
     pvVar1 = (void *)heap_alloc((void *)1);
-    uStack_14 = 0;
-    uStack_12 = 0;
-    uStack_10 = 0;
-    uStack_e = 0;
-    uStack_c = 0;
-    uStack_a = 0;
-    select_two_parameter_values_by_index(pvVar1,0,&uStack_14,&uStack_12);
-    select_two_parameter_values_by_index(pvVar1,1,&uStack_10,&uStack_e);
-    select_two_parameter_values_by_index(pvVar1,2,&uStack_c,&uStack_a);
+    _cfg_14.uStack_14 = 0;
+    _cfg_14.uStack_12 = 0;
+    _cfg_14.uStack_10 = 0;
+    _cfg_14.uStack_e = 0;
+    _cfg_14.uStack_c = 0;
+    _cfg_14.uStack_a = 0;
+    select_two_parameter_values_by_index(pvVar1,0,&_cfg_14.uStack_14,&_cfg_14.uStack_12);
+    select_two_parameter_values_by_index(pvVar1,1,&_cfg_14.uStack_10,&_cfg_14.uStack_e);
+    select_two_parameter_values_by_index(pvVar1,2,&_cfg_14.uStack_c,&_cfg_14.uStack_a);
     if (pvVar1 != 0) {
       heap_free((int)pvVar1);
     }
     uVar2 = return_first_word_1045c514((uint32_t *)(param_2 + 0x2c));
     uVar3 = read_struct_field_at_offset_4((uint32_t *)(param_2 + 0x2c));
-    if (((uint)uStack_c <= (uVar2 & 0xffff)) && ((uint)uStack_a <= (uVar3 & 0xffff))) {
+    if (((uint)_cfg_14.uStack_c <= (uVar2 & 0xffff)) && ((uint)_cfg_14.uStack_a <= (uVar3 & 0xffff))) {
       uVar4 = 1;
     }
   }

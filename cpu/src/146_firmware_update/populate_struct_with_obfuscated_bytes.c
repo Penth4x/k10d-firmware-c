@@ -19,15 +19,16 @@
 void populate_struct_with_obfuscated_bytes(void *param_1,uint32_t param_2,uint32_t param_3,void *param_4)
 
 {
+  struct {
+    uint8_t uStack_c;
+    uint8_t uStack_b;
+    uint8_t uStack_a;
+  } _cfg_c;
   int iVar1;
   void *pvVar2;
   uint32_t uVar3;
   int iVar4;
   uintptr_t sp;
-  uint8_t uStack_c;
-  uint8_t uStack_b;
-  uint8_t uStack_a;
-  
   iVar1 = get_or_create_camera_object();
   *(uint32_t *)((int)param_1 + 0x248) = *(uint32_t *)(iVar1 + 0xc);
   pvVar2 = (void *)get_or_init_sram_buffer_104277bc();
@@ -40,7 +41,7 @@ void populate_struct_with_obfuscated_bytes(void *param_1,uint32_t param_2,uint32
   *(uint32_t *)((int)param_1 + 0x24c) = *(uint32_t *)(iVar1 + 4);
   *(uint32_t *)((int)param_1 + 0x25c) = 0;
   pvVar2 = (void *)get_kernel_object_id((int)param_1 + 0x204);
-  format_string_to_buffer_10545140(&uStack_c,&DAT_105a8068/*ROM*/,pvVar2,param_4);
+  format_string_to_buffer_10545140(&_cfg_c.uStack_c,&DAT_105a8068/*ROM*/,pvVar2,param_4);
   iVar4 = 3;
   iVar1 = 0;
   do {
@@ -59,14 +60,14 @@ void populate_struct_with_obfuscated_bytes(void *param_1,uint32_t param_2,uint32
     *(byte *)((int)param_1 + iVar1 + 0x287) = (&DAT_105a7ffb/*ROM*/)[iVar1] ^ 0xb4;
     iVar1 = iVar1 + 4;
   } while (-1 < iVar4);
-  *(uint8_t *)((int)param_1 + 0x26a) = uStack_c;
-  *(uint8_t *)((int)param_1 + 0x27a) = uStack_c;
-  *(uint8_t *)((int)param_1 + 0x28a) = uStack_c;
-  *(uint8_t *)((int)param_1 + 0x26b) = uStack_b;
-  *(uint8_t *)((int)param_1 + 0x27b) = uStack_b;
-  *(uint8_t *)((int)param_1 + 0x28b) = uStack_b;
-  *(uint8_t *)((int)param_1 + 0x26c) = uStack_a;
-  *(uint8_t *)((int)param_1 + 0x27c) = uStack_a;
-  *(uint8_t *)((int)param_1 + 0x28c) = uStack_a;
+  *(uint8_t *)((int)param_1 + 0x26a) = _cfg_c.uStack_c;
+  *(uint8_t *)((int)param_1 + 0x27a) = _cfg_c.uStack_c;
+  *(uint8_t *)((int)param_1 + 0x28a) = _cfg_c.uStack_c;
+  *(uint8_t *)((int)param_1 + 0x26b) = _cfg_c.uStack_b;
+  *(uint8_t *)((int)param_1 + 0x27b) = _cfg_c.uStack_b;
+  *(uint8_t *)((int)param_1 + 0x28b) = _cfg_c.uStack_b;
+  *(uint8_t *)((int)param_1 + 0x26c) = _cfg_c.uStack_a;
+  *(uint8_t *)((int)param_1 + 0x27c) = _cfg_c.uStack_a;
+  *(uint8_t *)((int)param_1 + 0x28c) = _cfg_c.uStack_a;
   return;
 }

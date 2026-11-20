@@ -13,6 +13,12 @@
 bool build_exif_string_from_list(int param_1,char *param_2)
 
 {
+  struct {
+    char cStack_60;
+    char cStack_5f;
+    char cStack_5e;
+    uint8_t uStack_5d;
+  } _cfg_60;
   char cVar1;
   char *pcVar2;
   int iVar3;
@@ -21,10 +27,6 @@ bool build_exif_string_from_list(int param_1,char *param_2)
   uint8_t auStack_b4 [16];
   int iStack_84;
   char acStack_68 [8];
-  char cStack_60;
-  char cStack_5f;
-  char cStack_5e;
-  uint8_t uStack_5d;
   char *pcStack_18;
   char *pcStack_14;
   uint16_t auStack_10 [4];
@@ -123,7 +125,7 @@ bool build_exif_string_from_list(int param_1,char *param_2)
   collect_and_forward_object_state(*(uint32_t *)(iVar3 + 4),auStack_10);
   puVar4[3] = 0;
   puVar4[7] = 0x3a;
-  format_ordered_numeric_fields(param_1,&cStack_60,auStack_10,0,puVar4[3],puVar4[7]);
+  format_ordered_numeric_fields(param_1,&_cfg_60.cStack_60,auStack_10,0,puVar4[3],puVar4[7]);
   pcVar2 = acStack_68;
   cVar1 = acStack_68[0];
   while (cVar1 != '\0') {
@@ -168,11 +170,11 @@ bool build_exif_string_from_list(int param_1,char *param_2)
     }
     *pcStack_14 = '\0';
     copy_null_terminated_string((void *)(acStack_68),(void *)(pvRam8000ff88));
-    uStack_5d = 0;
-    cStack_60 = (char)(iStack_84 / 100) + '0';
-    cStack_5f = (char)((iStack_84 % 100) / 10) + '0';
+    _cfg_60.uStack_5d = 0;
+    _cfg_60.cStack_60 = (char)(iStack_84 / 100) + '0';
+    _cfg_60.cStack_5f = (char)((iStack_84 % 100) / 10) + '0';
     pcVar2 = acStack_68;
-    cStack_5e = (char)iStack_84 + (char)(iStack_84 / 10) * -10 + '0';
+    _cfg_60.cStack_5e = (char)iStack_84 + (char)(iStack_84 / 10) * -10 + '0';
     cVar1 = acStack_68[0];
     while (cVar1 != '\0') {
       cVar1 = *pcVar2;
@@ -213,11 +215,11 @@ bool build_exif_string_from_list(int param_1,char *param_2)
     }
     *pcStack_14 = '\0';
     copy_null_terminated_string((void *)(acStack_68),(void *)(pvRam8000ff90));
-    cStack_60 = '0';
-    cStack_5f = (char)(((uint)*(ushort *)(iVar3 + 4) % 100) / 10) + '0';
-    cStack_5e = (char)*(ushort *)(iVar3 + 4) + (char)(*(ushort *)(iVar3 + 4) / 10) * -10 + '0';
+    _cfg_60.cStack_60 = '0';
+    _cfg_60.cStack_5f = (char)(((uint)*(ushort *)(iVar3 + 4) % 100) / 10) + '0';
+    _cfg_60.cStack_5e = (char)*(ushort *)(iVar3 + 4) + (char)(*(ushort *)(iVar3 + 4) / 10) * -10 + '0';
     pcVar2 = acStack_68;
-    uStack_5d = 0;
+    _cfg_60.uStack_5d = 0;
     cVar1 = acStack_68[0];
     while (cVar1 != '\0') {
       cVar1 = *pcVar2;

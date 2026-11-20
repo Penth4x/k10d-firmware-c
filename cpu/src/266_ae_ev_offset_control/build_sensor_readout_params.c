@@ -20,6 +20,55 @@
 void build_sensor_readout_params(int param_1,int param_2,void *param_3,int *param_4)
 
 {
+  struct {
+    uint32_t uStack_80;
+    uint8_t uStack_7c;
+    uint16_t uStack_7a;
+    uint16_t uStack_78;
+    uint16_t uStack_76;
+    uint16_t uStack_74;
+    int iStack_70;
+    uint32_t uStack_6c;
+    uint32_t uStack_68;
+    uint32_t uStack_64;
+    int iStack_60;
+    uint32_t uStack_5c;
+    uint32_t uStack_58;
+    uint32_t uStack_54;
+    uint16_t uStack_50;
+    uint16_t uStack_4e;
+    uint16_t uStack_4c;
+    uint16_t uStack_4a;
+    uint16_t uStack_48;
+    uint16_t uStack_46;
+    uint8_t uStack_44;
+    uint8_t uStack_43;
+    uint8_t uStack_42;
+    uint8_t uStack_41;
+    uint16_t uStack_40;
+    uint16_t uStack_3e;
+    uint16_t uStack_3c;
+    uint16_t uStack_3a;
+    int iStack_38;
+    uint32_t uStack_34;
+    uint32_t uStack_30;
+    uint32_t uStack_2c;
+    short sStack_28;
+    uint16_t uStack_26;
+    uint16_t uStack_24;
+    uint16_t uStack_22;
+    uint16_t uStack_20;
+    uint16_t uStack_1e;
+    uint16_t uStack_1c;
+    uint16_t uStack_1a;
+    uint16_t uStack_18;
+    uint16_t uStack_16;
+    uint16_t uStack_14;
+    uint16_t uStack_12;
+    uint16_t uStack_10;
+    uint16_t uStack_e;
+    uint32_t uStack_c;
+  } _cfg_80;
   bool bVar1;
   ushort uVar2;
   uint uVar3;
@@ -30,54 +79,6 @@ void build_sensor_readout_params(int param_1,int param_2,void *param_3,int *para
   uint uVar7;
   uint uStack_90;
   uint uStack_8c;
-  uint32_t uStack_80;
-  uint8_t uStack_7c;
-  uint16_t uStack_7a;
-  uint16_t uStack_78;
-  uint16_t uStack_76;
-  uint16_t uStack_74;
-  int iStack_70;
-  uint32_t uStack_6c;
-  uint32_t uStack_68;
-  uint32_t uStack_64;
-  int iStack_60;
-  uint32_t uStack_5c;
-  uint32_t uStack_58;
-  uint32_t uStack_54;
-  uint16_t uStack_50;
-  uint16_t uStack_4e;
-  uint16_t uStack_4c;
-  uint16_t uStack_4a;
-  uint16_t uStack_48;
-  uint16_t uStack_46;
-  uint8_t uStack_44;
-  uint8_t uStack_43;
-  uint8_t uStack_42;
-  uint8_t uStack_41;
-  uint16_t uStack_40;
-  uint16_t uStack_3e;
-  uint16_t uStack_3c;
-  uint16_t uStack_3a;
-  int iStack_38;
-  uint32_t uStack_34;
-  uint32_t uStack_30;
-  uint32_t uStack_2c;
-  short sStack_28;
-  uint16_t uStack_26;
-  uint16_t uStack_24;
-  uint16_t uStack_22;
-  uint16_t uStack_20;
-  uint16_t uStack_1e;
-  uint16_t uStack_1c;
-  uint16_t uStack_1a;
-  uint16_t uStack_18;
-  uint16_t uStack_16;
-  uint16_t uStack_14;
-  uint16_t uStack_12;
-  uint16_t uStack_10;
-  uint16_t uStack_e;
-  uint32_t uStack_c;
-  
   if (param_2 == 0) {
     set_pointer_and_clear_flag((int *)(param_1 + 0x20),param_3);
     pvVar5 = (void *)get_or_init_singleton_object_1051d40e();
@@ -94,36 +95,36 @@ void build_sensor_readout_params(int param_1,int param_2,void *param_3,int *para
   iVar4 = *param_4;
   bVar1 = false;
   if (iVar4 == 0) {
-    uStack_80 = 2;
+    _cfg_80.uStack_80 = 2;
   }
   else if (iVar4 == 1) {
-    uStack_80 = 0;
+    _cfg_80.uStack_80 = 0;
   }
   else if (iVar4 == 2) {
-    uStack_80 = 1;
+    _cfg_80.uStack_80 = 1;
   }
   else if (iVar4 == 3) {
-    uStack_80 = 7;
+    _cfg_80.uStack_80 = 7;
     bVar1 = true;
   }
   else {
-    uStack_80 = 2;
+    _cfg_80.uStack_80 = 2;
   }
-  uStack_7c = 0;
-  uStack_7a = *(uint16_t *)(param_4 + 2);
-  uStack_78 = 0;
-  uStack_76 = *(uint16_t *)(param_4 + 5);
-  uStack_74 = 0;
-  uStack_6c = 0;
-  iStack_70 = (uint)*(ushort *)(param_4 + 2) * (uint)*(ushort *)(param_4 + 7) + param_4[1] +
+  _cfg_80.uStack_7c = 0;
+  _cfg_80.uStack_7a = *(uint16_t *)(param_4 + 2);
+  _cfg_80.uStack_78 = 0;
+  _cfg_80.uStack_76 = *(uint16_t *)(param_4 + 5);
+  _cfg_80.uStack_74 = 0;
+  _cfg_80.uStack_6c = 0;
+  _cfg_80.iStack_70 = (uint)*(ushort *)(param_4 + 2) * (uint)*(ushort *)(param_4 + 7) + param_4[1] +
               (uint)*(ushort *)((int)param_4 + 0x1a);
-  uStack_68 = 0;
-  uStack_64 = 0;
-  uStack_5c = 0;
-  uStack_58 = 0;
-  iStack_60 = (uint)*(ushort *)(param_4 + 5) * (uint)*(ushort *)(param_4 + 8) + param_4[4] +
+  _cfg_80.uStack_68 = 0;
+  _cfg_80.uStack_64 = 0;
+  _cfg_80.uStack_5c = 0;
+  _cfg_80.uStack_58 = 0;
+  _cfg_80.iStack_60 = (uint)*(ushort *)(param_4 + 5) * (uint)*(ushort *)(param_4 + 8) + param_4[4] +
               (uint)*(ushort *)((int)param_4 + 0x1e);
-  uStack_54 = 0;
+  _cfg_80.uStack_54 = 0;
   if (bVar1) {
     uStack_90 = 0x100;
     uStack_8c = 0x100;
@@ -166,10 +167,10 @@ void build_sensor_readout_params(int param_1,int param_2,void *param_3,int *para
       uStack_90 = 0xfff;
     }
   }
-  uStack_50 = (uint16_t)uStack_90;
-  uStack_4e = (uint16_t)uStack_8c;
-  uStack_4c = *(uint16_t *)((int)param_4 + 0x16);
-  uStack_4a = *(uint16_t *)(param_4 + 6);
+  _cfg_80.uStack_50 = (uint16_t)uStack_90;
+  _cfg_80.uStack_4e = (uint16_t)uStack_8c;
+  _cfg_80.uStack_4c = *(uint16_t *)((int)param_4 + 0x16);
+  _cfg_80.uStack_4a = *(uint16_t *)(param_4 + 6);
   uVar6 = ((uint)*(ushort *)((int)param_4 + 10) << 8) / (uint)*(ushort *)((int)param_4 + 0x16);
   uVar7 = ((uint)*(ushort *)(param_4 + 3) << 8) / (uint)*(ushort *)(param_4 + 6);
   if (bVar1) {
@@ -193,53 +194,53 @@ void build_sensor_readout_params(int param_1,int param_2,void *param_3,int *para
     uVar7 = uVar6;
     uVar3 = uVar6;
   }
-  uStack_48 = (uint16_t)uVar3;
-  uStack_46 = (uint16_t)uVar7;
+  _cfg_80.uStack_48 = (uint16_t)uVar3;
+  _cfg_80.uStack_46 = (uint16_t)uVar7;
   if (*(char *)((int)param_4 + 0x2e) == '\0') {
-    *(uint16_t *)(param_4 + 0xc) = uStack_50;
-    *(uint16_t *)((int)param_4 + 0x32) = uStack_4e;
+    *(uint16_t *)(param_4 + 0xc) = _cfg_80.uStack_50;
+    *(uint16_t *)((int)param_4 + 0x32) = _cfg_80.uStack_4e;
   }
   else {
-    uStack_50 = *(uint16_t *)(param_4 + 0xc);
-    uStack_4e = *(uint16_t *)((int)param_4 + 0x32);
+    _cfg_80.uStack_50 = *(uint16_t *)(param_4 + 0xc);
+    _cfg_80.uStack_4e = *(uint16_t *)((int)param_4 + 0x32);
   }
   if (*(char *)(param_4 + 0xd) == '\0') {
-    *(uint16_t *)((int)param_4 + 0x36) = uStack_48;
-    *(uint16_t *)(param_4 + 0xe) = uStack_46;
+    *(uint16_t *)((int)param_4 + 0x36) = _cfg_80.uStack_48;
+    *(uint16_t *)(param_4 + 0xe) = _cfg_80.uStack_46;
   }
   else {
-    uStack_48 = *(uint16_t *)((int)param_4 + 0x36);
-    uStack_46 = *(uint16_t *)(param_4 + 0xe);
+    _cfg_80.uStack_48 = *(uint16_t *)((int)param_4 + 0x36);
+    _cfg_80.uStack_46 = *(uint16_t *)(param_4 + 0xe);
   }
-  uStack_44 = *(uint8_t *)((int)param_4 + 0x25);
-  uStack_43 = 0;
-  uStack_42 = 0;
-  uStack_41 = 0;
-  uStack_40 = 0;
-  uStack_3e = 0;
-  uStack_3c = 0;
-  uStack_3a = 0;
-  iStack_38 = param_4[10];
-  uStack_34 = 0;
-  uStack_30 = 0;
-  uStack_2c = 0;
+  _cfg_80.uStack_44 = *(uint8_t *)((int)param_4 + 0x25);
+  _cfg_80.uStack_43 = 0;
+  _cfg_80.uStack_42 = 0;
+  _cfg_80.uStack_41 = 0;
+  _cfg_80.uStack_40 = 0;
+  _cfg_80.uStack_3e = 0;
+  _cfg_80.uStack_3c = 0;
+  _cfg_80.uStack_3a = 0;
+  _cfg_80.iStack_38 = param_4[10];
+  _cfg_80.uStack_34 = 0;
+  _cfg_80.uStack_30 = 0;
+  _cfg_80.uStack_2c = 0;
   uVar2 = *(short *)(param_4 + 5) * *(short *)(param_4 + 8) + (short)param_4[4] +
           *(short *)((int)param_4 + 0x1e);
-  sStack_28 = uVar2 - (uVar2 & 0xfff0);
-  uStack_26 = *(uint16_t *)((int)param_4 + 0x22);
-  uStack_24 = 0;
-  uStack_22 = 0;
-  uStack_20 = 0;
-  uStack_1e = 0;
-  uStack_1c = 0;
-  uStack_1a = 0;
-  uStack_18 = 0;
-  uStack_16 = 0;
-  uStack_14 = 0;
-  uStack_12 = 0;
-  uStack_10 = 0;
-  uStack_e = 0;
-  uStack_c = 0;
-  configure_sensor_readout_params_10505030(param_1,param_2,param_3,&uStack_80);
+  _cfg_80.sStack_28 = uVar2 - (uVar2 & 0xfff0);
+  _cfg_80.uStack_26 = *(uint16_t *)((int)param_4 + 0x22);
+  _cfg_80.uStack_24 = 0;
+  _cfg_80.uStack_22 = 0;
+  _cfg_80.uStack_20 = 0;
+  _cfg_80.uStack_1e = 0;
+  _cfg_80.uStack_1c = 0;
+  _cfg_80.uStack_1a = 0;
+  _cfg_80.uStack_18 = 0;
+  _cfg_80.uStack_16 = 0;
+  _cfg_80.uStack_14 = 0;
+  _cfg_80.uStack_12 = 0;
+  _cfg_80.uStack_10 = 0;
+  _cfg_80.uStack_e = 0;
+  _cfg_80.uStack_c = 0;
+  configure_sensor_readout_params_10505030(param_1,param_2,param_3,&_cfg_80.uStack_80);
   return;
 }

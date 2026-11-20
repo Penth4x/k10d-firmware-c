@@ -9,7 +9,7 @@
  *   zero and others to one. It stores param_2 and param_3 into the struct, then calls
  *   initialize_object_with_size_0x1000 with param_1 and the struct. It writes the value 1
  *   to *param_5 and calls write_two_words_to_memory with param_4 and two zero values. It
- *   returns true if a local variable iStack_10 is zero.
+ *   returns true if a local variable _cfg_2c.iStack_10 is zero.
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"
@@ -19,30 +19,31 @@ bool init_struct_and_call_two_helpers(int param_1,uint32_t param_2,uint32_t para
                  uint32_t *param_5)
 
 {
+  struct {
+    uint32_t uStack_2c;
+    uint32_t uStack_28;
+    uint32_t uStack_24;
+    uint32_t uStack_20;
+    uint32_t uStack_1c;
+    uint16_t uStack_18;
+    uint16_t uStack_16;
+    uint32_t uStack_14;
+    int iStack_10;
+    uint32_t uStack_c;
+  } _cfg_2c;
   uintptr_t sp;
-  uint32_t uStack_2c;
-  uint32_t uStack_28;
-  uint32_t uStack_24;
-  uint32_t uStack_20;
-  uint32_t uStack_1c;
-  uint16_t uStack_18;
-  uint16_t uStack_16;
-  uint32_t uStack_14;
-  int iStack_10;
-  uint32_t uStack_c;
-  
-  uStack_28 = 0;
-  uStack_24 = 0;
-  uStack_20 = 0;
-  uStack_18 = 0;
-  uStack_16 = 0;
-  uStack_14 = 1;
-  iStack_10 = 0;
-  uStack_c = 1;
-  uStack_2c = param_2;
-  uStack_1c = param_3;
-  initialize_object_with_size_0x1000(param_1,&uStack_2c,1);
-  *param_5 = uStack_14;
-  write_two_words_to_memory(param_4,uStack_18,uStack_16);
-  return iStack_10 == 0;
+  _cfg_2c.uStack_28 = 0;
+  _cfg_2c.uStack_24 = 0;
+  _cfg_2c.uStack_20 = 0;
+  _cfg_2c.uStack_18 = 0;
+  _cfg_2c.uStack_16 = 0;
+  _cfg_2c.uStack_14 = 1;
+  _cfg_2c.iStack_10 = 0;
+  _cfg_2c.uStack_c = 1;
+  _cfg_2c.uStack_2c = param_2;
+  _cfg_2c.uStack_1c = param_3;
+  initialize_object_with_size_0x1000(param_1,&_cfg_2c.uStack_2c,1);
+  *param_5 = _cfg_2c.uStack_14;
+  write_two_words_to_memory(param_4,_cfg_2c.uStack_18,_cfg_2c.uStack_16);
+  return _cfg_2c.iStack_10 == 0;
 }

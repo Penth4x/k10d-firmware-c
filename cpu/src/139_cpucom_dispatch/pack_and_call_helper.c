@@ -18,16 +18,17 @@ void pack_and_call_helper(int *param_1,uint8_t param_2,uint8_t param_3,uint8_t p
                  uint8_t param_5)
 
 {
+  struct {
+    uint8_t uStack_c;
+    uint8_t uStack_b;
+    uint8_t uStack_a;
+    uint8_t uStack_9;
+  } _cfg_c;
   uintptr_t sp;
-  uint8_t uStack_c;
-  uint8_t uStack_b;
-  uint8_t uStack_a;
-  uint8_t uStack_9;
-  
-  uStack_9 = param_5;
-  uStack_c = param_2;
-  uStack_b = param_3;
-  uStack_a = param_4;
-  issue_indexed_command_and_wait(param_1,param_1 + 1,0x2d,&uStack_c,0);
+  _cfg_c.uStack_9 = param_5;
+  _cfg_c.uStack_c = param_2;
+  _cfg_c.uStack_b = param_3;
+  _cfg_c.uStack_a = param_4;
+  issue_indexed_command_and_wait(param_1,param_1 + 1,0x2d,&_cfg_c.uStack_c,0);
   return;
 }

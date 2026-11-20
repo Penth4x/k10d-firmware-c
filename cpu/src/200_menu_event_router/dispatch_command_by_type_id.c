@@ -12,6 +12,38 @@
 uint32_t dispatch_command_by_type_id(cls_105b5524 *param_1,uint32_t param_2,int param_3)
 
 {
+  struct {
+    uint8_t uStack_74;
+    uint8_t uStack_73;
+    uint8_t uStack_72;
+    uint8_t uStack_71;
+    uint8_t uStack_70;
+    uint8_t uStack_6f;
+    uint8_t uStack_6e;
+    uint8_t uStack_6d;
+    uint8_t uStack_6c;
+    byte bStack_6b;
+    byte bStack_6a;
+    byte bStack_69;
+    uint8_t uStack_68;
+    byte bStack_67;
+    byte bStack_66;
+    byte bStack_65;
+    byte bStack_64;
+    byte bStack_63;
+    byte bStack_62;
+    byte bStack_61;
+  } _cfg_74;
+  struct {
+    uint8_t uStack_b2;
+    byte bStack_b1;
+    byte bStack_b0;
+    byte bStack_af;
+    uint8_t uStack_ae;
+    byte bStack_ad;
+    byte bStack_ac;
+    byte bStack_ab;
+  } _cfg_b2;
   uint8_t uVar1;
   byte bVar2;
   byte bVar3;
@@ -62,14 +94,6 @@ uint32_t dispatch_command_by_type_id(cls_105b5524 *param_1,uint32_t param_2,int 
   uint8_t uStack_b5;
   uint8_t uStack_b4;
   uint8_t uStack_b3;
-  uint8_t uStack_b2;
-  byte bStack_b1;
-  byte bStack_b0;
-  byte bStack_af;
-  uint8_t uStack_ae;
-  byte bStack_ad;
-  byte bStack_ac;
-  byte bStack_ab;
   uint8_t auStack_aa [4];
   uint8_t auStack_a6 [4];
   uint8_t auStack_a2 [16];
@@ -79,26 +103,6 @@ uint32_t dispatch_command_by_type_id(cls_105b5524 *param_1,uint32_t param_2,int 
   byte abStack_8c [4];
   byte abStack_88 [4];
   byte abStack_84 [16];
-  uint8_t uStack_74;
-  uint8_t uStack_73;
-  uint8_t uStack_72;
-  uint8_t uStack_71;
-  uint8_t uStack_70;
-  uint8_t uStack_6f;
-  uint8_t uStack_6e;
-  uint8_t uStack_6d;
-  uint8_t uStack_6c;
-  byte bStack_6b;
-  byte bStack_6a;
-  byte bStack_69;
-  uint8_t uStack_68;
-  byte bStack_67;
-  byte bStack_66;
-  byte bStack_65;
-  byte bStack_64;
-  byte bStack_63;
-  byte bStack_62;
-  byte bStack_61;
   uint8_t auStack_5e [70];
   uint8_t auStack_18 [16];
   
@@ -353,16 +357,16 @@ uint32_t dispatch_command_by_type_id(cls_105b5524 *param_1,uint32_t param_2,int 
     uStack_b4 = (uint8_t)((uint)uVar11 >> 8);
     uVar11 = read_struct_field_at_index_1046c7ca(param_3,9);
     uStack_b3 = (char)uVar11;
-    iVar7 = call_helper_with_offset_and_length((int *)(param_1->field_0x8),(void *)(auStack_d2),(int)&uStack_b2);
+    iVar7 = call_helper_with_offset_and_length((int *)(param_1->field_0x8),(void *)(auStack_d2),(int)&_cfg_b2.uStack_b2);
     uStack_f8 = 0;
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
     }
-    puVar18[3] = uStack_b2;
-    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)bStack_af,(int)((uint)bStack_b0),(int)((uint)bStack_b1),(byte)(puVar18[3]));
+    puVar18[3] = _cfg_b2.uStack_b2;
+    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)_cfg_b2.bStack_af,(int)((uint)_cfg_b2.bStack_b0),(int)((uint)_cfg_b2.bStack_b1),(byte)(puVar18[3]));
     write_word_to_struct_array(param_3,uVar14,0);
-    puVar18[3] = uStack_ae;
-    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)bStack_ab,(int)((uint)bStack_ac),(int)((uint)bStack_ad),(byte)(puVar18[3]));
+    puVar18[3] = _cfg_b2.uStack_ae;
+    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)_cfg_b2.bStack_ab,(int)((uint)_cfg_b2.bStack_ac),(int)((uint)_cfg_b2.bStack_ad),(byte)(puVar18[3]));
     iStack_104 = 1;
     goto LAB_104980cc;
   case 0xd:
@@ -477,57 +481,57 @@ uint32_t dispatch_command_by_type_id(cls_105b5524 *param_1,uint32_t param_2,int 
   case 0xe:
     set_struct_field_at_offset_4(param_3,2);
     uVar11 = read_struct_field_at_index_1046c7ca(param_3,0);
-    uStack_74 = (char)uVar11;
+    _cfg_74.uStack_74 = (char)uVar11;
     uVar11 = read_struct_field_at_index_1046c7ca(param_3,1);
-    uStack_73 = (char)uVar11;
+    _cfg_74.uStack_73 = (char)uVar11;
     uVar11 = read_struct_field_at_index_1046c7ca(param_3,2);
-    uStack_72 = (uint8_t)((uint)uVar11 >> 8);
+    _cfg_74.uStack_72 = (uint8_t)((uint)uVar11 >> 8);
     uVar11 = read_struct_field_at_index_1046c7ca(param_3,2);
-    uStack_71 = (char)uVar11;
+    _cfg_74.uStack_71 = (char)uVar11;
     uVar11 = read_struct_field_at_index_1046c7ca(param_3,3);
-    uStack_70 = (uint8_t)((uint)uVar11 >> 8);
+    _cfg_74.uStack_70 = (uint8_t)((uint)uVar11 >> 8);
     uVar11 = read_struct_field_at_index_1046c7ca(param_3,3);
-    uStack_6f = (char)uVar11;
+    _cfg_74.uStack_6f = (char)uVar11;
     uVar11 = read_struct_field_at_index_1046c7ca(param_3,4);
-    uStack_6e = (uint8_t)((uint)uVar11 >> 8);
+    _cfg_74.uStack_6e = (uint8_t)((uint)uVar11 >> 8);
     uVar11 = read_struct_field_at_index_1046c7ca(param_3,4);
-    uStack_6d = (char)uVar11;
-    iVar7 = call_helper_with_offset_args_104635d6((int *)(param_1->field_0x8),(void *)(&uStack_74),(int)&uStack_6c);
+    _cfg_74.uStack_6d = (char)uVar11;
+    iVar7 = call_helper_with_offset_args_104635d6((int *)(param_1->field_0x8),(void *)(&_cfg_74.uStack_74),(int)&_cfg_74.uStack_6c);
     uStack_f8 = 0;
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
     }
-    puVar18[3] = uStack_6c;
-    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)bStack_69,(int)((uint)bStack_6a),(int)((uint)bStack_6b),(byte)(puVar18[3]));
+    puVar18[3] = _cfg_74.uStack_6c;
+    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)_cfg_74.bStack_69,(int)((uint)_cfg_74.bStack_6a),(int)((uint)_cfg_74.bStack_6b),(byte)(puVar18[3]));
     write_word_to_struct_array(param_3,uVar14,0);
-    puVar18[3] = uStack_68;
-    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)bStack_65,(int)((uint)bStack_66),(int)((uint)bStack_67),(byte)(puVar18[3]));
+    puVar18[3] = _cfg_74.uStack_68;
+    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)_cfg_74.bStack_65,(int)((uint)_cfg_74.bStack_66),(int)((uint)_cfg_74.bStack_67),(byte)(puVar18[3]));
     iStack_104 = 1;
     goto LAB_104980cc;
   case 0xf:
     set_struct_field_at_offset_4(param_3,1);
     piVar16 = (int *)((uintptr_t)(param_1->field_0x8));
     uVar14 = read_struct_field_at_index_1046c7ca(param_3,0);
-    iVar7 = call_helper_with_stack_param_104635ec(piVar16,uVar14 & 0xff,(int)&bStack_64);
+    iVar7 = call_helper_with_stack_param_104635ec(piVar16,uVar14 & 0xff,(int)&_cfg_74.bStack_64);
     uStack_f8 = 0;
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
     }
     puVar18[3] = 0;
-    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)bStack_63,(int)((uint)bStack_64),(int)(0),(byte)(puVar18[3]));
+    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)_cfg_74.bStack_63,(int)((uint)_cfg_74.bStack_64),(int)(0),(byte)(puVar18[3]));
     iStack_104 = 0;
     goto LAB_104980cc;
   case 0x10:
     set_struct_field_at_offset_4(param_3,1);
     piVar16 = (int *)((uintptr_t)(param_1->field_0x8));
     uVar14 = read_struct_field_at_index_1046c7ca(param_3,0);
-    iVar7 = call_helper_with_offset_args_10463608(piVar16,uVar14 & 0xff,(int)&bStack_62);
+    iVar7 = call_helper_with_offset_args_10463608(piVar16,uVar14 & 0xff,(int)&_cfg_74.bStack_62);
     uStack_f8 = 0;
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
     }
     puVar18[3] = 0;
-    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)bStack_61,(int)((uint)bStack_62),(int)(0),(byte)(puVar18[3]));
+    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)_cfg_74.bStack_61,(int)((uint)_cfg_74.bStack_62),(int)(0),(byte)(puVar18[3]));
     iStack_104 = 0;
 LAB_104980cc:
     write_word_to_struct_array(param_3,uVar14,iStack_104);

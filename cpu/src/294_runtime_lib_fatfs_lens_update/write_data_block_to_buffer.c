@@ -20,6 +20,11 @@ int write_data_block_to_buffer(void *param_1,int *param_2,void *param_3)
 
 {
   struct {
+    void * pvStack_54;
+    uint uStack_50;
+    uint uStack_4c;
+  } _cfg_54;
+  struct {
     int iStack_24;
     int iStack_20;
     uint uStack_1c;
@@ -31,9 +36,6 @@ int write_data_block_to_buffer(void *param_1,int *param_2,void *param_3)
   uint8_t *puVar4;
   uint32_t *puVar5;
   uint8_t auStack_5c [8];
-  void *pvStack_54;
-  uint uStack_50;
-  uint uStack_4c;
   int aiStack_48 [3];
   uint uStack_3c;
   uint uStack_38;
@@ -47,38 +49,38 @@ int write_data_block_to_buffer(void *param_1,int *param_2,void *param_3)
     iVar1 = -0x16;
   }
   else {
-    uStack_50 = param_2[2] * 0x20;
-    uStack_4c = (param_2[1] + -1) * 0x20;
+    _cfg_54.uStack_50 = param_2[2] * 0x20;
+    _cfg_54.uStack_4c = (param_2[1] + -1) * 0x20;
     aiStack_48[2] = *param_2;
-    pvStack_54 = param_3;
+    _cfg_54.pvStack_54 = param_3;
     if (aiStack_48[2] == 0) {
       if ((*(uint *)((int)param_1 + 0x48) & 3) == 0) {
         iVar1 = -0x16;
       }
       else {
-        iVar1 = validate_lens_fw_block(param_1,(int *)&pvStack_54);
+        iVar1 = validate_lens_fw_block(param_1,(int *)&_cfg_54.pvStack_54);
       }
     }
     else {
       uVar3 = *(uint *)((int)param_1 + 0x10);
       puVar5 = (uint32_t *)auStack_5c;
-      if ((uStack_4c + uStack_50 <= uVar3) ||
-         (iVar1 = transfer_buffer_to_device(param_1,aiStack_48[2],(int *)&pvStack_54),
+      if ((_cfg_54.uStack_4c + _cfg_54.uStack_50 <= uVar3) ||
+         (iVar1 = transfer_buffer_to_device(param_1,aiStack_48[2],(int *)&_cfg_54.pvStack_54),
          puVar5 = (uint32_t *)puVar4, iVar1 == 0)) {
-        if (uStack_4c < uVar3) {
+        if (_cfg_54.uStack_4c < uVar3) {
           iVar2 = *param_2;
           iVar1 = lens_fw_get_block_ptr(param_1,iVar2,&_cfg_24.iStack_24);
           if (iVar1 != 0) {
             return iVar1;
           }
-          uStack_34 = uStack_4c;
-          uStack_38 = uVar3 - uStack_4c;
-          uStack_3c = uStack_50;
+          uStack_34 = _cfg_54.uStack_4c;
+          uStack_38 = uVar3 - _cfg_54.uStack_4c;
+          uStack_3c = _cfg_54.uStack_50;
           uStack_2c = uStack_38;
-          if (uStack_50 < uStack_38) {
-            uStack_2c = uStack_50;
+          if (_cfg_54.uStack_50 < uStack_38) {
+            uStack_2c = _cfg_54.uStack_50;
           }
-          memcpy_bytes((void *)(_cfg_24.iStack_24 + 8 + uStack_4c),pvStack_54,uStack_2c);
+          memcpy_bytes((void *)(_cfg_24.iStack_24 + 8 + _cfg_54.uStack_4c),_cfg_54.pvStack_54,uStack_2c);
           aiStack_48[1] = 1;
           aiStack_48[0] = iVar2;
           iVar1 = compute_indexed_lookup_value((int)param_1,_cfg_24.iStack_24 + 8,aiStack_48,&uStack_28);

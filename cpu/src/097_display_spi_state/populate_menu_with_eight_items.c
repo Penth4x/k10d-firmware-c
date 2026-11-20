@@ -21,35 +21,36 @@
 void populate_menu_with_eight_items(int param_1,uint32_t param_2,uint32_t param_3,void *param_4)
 
 {
+  struct {
+    byte bStack_10;
+    byte bStack_f;
+    byte bStack_e;
+    byte bStack_d;
+    byte bStack_c;
+    byte bStack_b;
+    byte bStack_a;
+    byte bStack_9;
+  } _cfg_10;
   void *pvVar1;
   int iVar2;
   uintptr_t sp;
-  byte bStack_10;
-  byte bStack_f;
-  byte bStack_e;
-  byte bStack_d;
-  byte bStack_c;
-  byte bStack_b;
-  byte bStack_a;
-  byte bStack_9;
-  
-  bStack_10 = 0;
-  bStack_f = 0;
-  bStack_e = 0;
-  bStack_d = 0;
-  bStack_c = 0;
-  bStack_b = 0;
-  bStack_a = 0;
-  bStack_9 = 0;
-  extract_eight_byte_record(*(uint32_t *)(param_1 + 0x28),&bStack_10);
-  format_string_to_buffer_10545140((byte *)(param_1 + 0x51d),(char *)0x1059a79c/*ROM*/,(void *)(uint)bStack_10,param_4);
-  format_string_to_buffer_10545140((byte *)(param_1 + 0x545),(char *)0x1059a7b8/*ROM*/,(void *)(uint)bStack_f,param_4);
-  format_string_to_buffer_10545140((byte *)(param_1 + 0x56d),(char *)0x1059a7d0/*ROM*/,(void *)(uint)bStack_e,param_4);
-  format_string_to_buffer_10545140((byte *)(param_1 + 0x595),(char *)0x1059a7ec/*ROM*/,(void *)(uint)bStack_d,param_4);
-  format_string_to_buffer_10545140((byte *)(param_1 + 0x5bd),(char *)0x1059a7f8/*ROM*/,(void *)(uint)bStack_c,param_4);
-  format_string_to_buffer_10545140((byte *)(param_1 + 0x5e5),(char *)0x1059a804/*ROM*/,(void *)(uint)bStack_b,param_4);
-  format_string_to_buffer_10545140((byte *)(param_1 + 0x60d),(char *)0x1059a820/*ROM*/,(void *)(uint)bStack_a,param_4);
-  format_string_to_buffer_10545140((byte *)(param_1 + 0x635),(char *)0x1059a838/*ROM*/,(void *)(uint)bStack_9,param_4);
+  _cfg_10.bStack_10 = 0;
+  _cfg_10.bStack_f = 0;
+  _cfg_10.bStack_e = 0;
+  _cfg_10.bStack_d = 0;
+  _cfg_10.bStack_c = 0;
+  _cfg_10.bStack_b = 0;
+  _cfg_10.bStack_a = 0;
+  _cfg_10.bStack_9 = 0;
+  extract_eight_byte_record(*(uint32_t *)(param_1 + 0x28),&_cfg_10.bStack_10);
+  format_string_to_buffer_10545140((byte *)(param_1 + 0x51d),(char *)0x1059a79c/*ROM*/,(void *)(uint)_cfg_10.bStack_10,param_4);
+  format_string_to_buffer_10545140((byte *)(param_1 + 0x545),(char *)0x1059a7b8/*ROM*/,(void *)(uint)_cfg_10.bStack_f,param_4);
+  format_string_to_buffer_10545140((byte *)(param_1 + 0x56d),(char *)0x1059a7d0/*ROM*/,(void *)(uint)_cfg_10.bStack_e,param_4);
+  format_string_to_buffer_10545140((byte *)(param_1 + 0x595),(char *)0x1059a7ec/*ROM*/,(void *)(uint)_cfg_10.bStack_d,param_4);
+  format_string_to_buffer_10545140((byte *)(param_1 + 0x5bd),(char *)0x1059a7f8/*ROM*/,(void *)(uint)_cfg_10.bStack_c,param_4);
+  format_string_to_buffer_10545140((byte *)(param_1 + 0x5e5),(char *)0x1059a804/*ROM*/,(void *)(uint)_cfg_10.bStack_b,param_4);
+  format_string_to_buffer_10545140((byte *)(param_1 + 0x60d),(char *)0x1059a820/*ROM*/,(void *)(uint)_cfg_10.bStack_a,param_4);
+  format_string_to_buffer_10545140((byte *)(param_1 + 0x635),(char *)0x1059a838/*ROM*/,(void *)(uint)_cfg_10.bStack_9,param_4);
   iVar2 = param_1 + 8;
   pvVar1 = (void *)menu_item_register(iVar2);
   glyph_draw(pvVar1,(byte *)(param_1 + 0x51d));

@@ -21,6 +21,14 @@
 void compute_orientation_adjustment(int param_1)
 
 {
+  struct {
+    short sStack_14;
+    short sStack_12;
+    short sStack_10;
+    short sStack_e;
+    short sStack_c;
+    short sStack_a;
+  } _cfg_14;
   short sVar1;
   uint32_t uVar2;
   uint uVar3;
@@ -29,13 +37,6 @@ void compute_orientation_adjustment(int param_1)
   int *piVar6;
   int iVar7;
   uintptr_t sp;
-  short sStack_14;
-  short sStack_12;
-  short sStack_10;
-  short sStack_e;
-  short sStack_c;
-  short sStack_a;
-  
   uVar2 = return_first_word_1045c514((uint32_t *)(*(int *)(param_1 + 0xe4) + 0x2c));
   *(short *)(param_1 + 0xf0) = (short)uVar2;
   iVar7 = 0;
@@ -54,34 +55,34 @@ void compute_orientation_adjustment(int param_1)
     iVar7 = 2;
   }
   pvVar5 = (void *)heap_alloc((void *)1);
-  sStack_14 = 0;
-  sStack_12 = 0;
-  sStack_10 = 0;
-  sStack_e = 0;
-  sStack_c = 0;
-  sStack_a = 0;
-  select_two_parameter_values_by_index(pvVar5,0,&sStack_14,&sStack_12);
-  select_two_parameter_values_by_index(pvVar5,1,&sStack_10,&sStack_e);
-  select_two_parameter_values_by_index(pvVar5,2,&sStack_c,&sStack_a);
+  _cfg_14.sStack_14 = 0;
+  _cfg_14.sStack_12 = 0;
+  _cfg_14.sStack_10 = 0;
+  _cfg_14.sStack_e = 0;
+  _cfg_14.sStack_c = 0;
+  _cfg_14.sStack_a = 0;
+  select_two_parameter_values_by_index(pvVar5,0,&_cfg_14.sStack_14,&_cfg_14.sStack_12);
+  select_two_parameter_values_by_index(pvVar5,1,&_cfg_14.sStack_10,&_cfg_14.sStack_e);
+  select_two_parameter_values_by_index(pvVar5,2,&_cfg_14.sStack_c,&_cfg_14.sStack_a);
   if (pvVar5 != 0) {
     heap_free((int)pvVar5);
   }
   sVar1 = *(short *)(param_1 + 0xf0);
-  if (((sVar1 != sStack_14) || (*(short *)(param_1 + 0xf2) != sStack_12)) &&
-     ((sVar1 != sStack_12 || (*(short *)(param_1 + 0xf2) != sStack_14)))) {
-    if ((sVar1 == sStack_10) && (*(short *)(param_1 + 0xf2) == sStack_e)) {
+  if (((sVar1 != _cfg_14.sStack_14) || (*(short *)(param_1 + 0xf2) != _cfg_14.sStack_12)) &&
+     ((sVar1 != _cfg_14.sStack_12 || (*(short *)(param_1 + 0xf2) != _cfg_14.sStack_14)))) {
+    if ((sVar1 == _cfg_14.sStack_10) && (*(short *)(param_1 + 0xf2) == _cfg_14.sStack_e)) {
       iVar4 = 1;
       goto LAB_104c9cd0;
     }
-    if ((sVar1 == sStack_e) && (*(short *)(param_1 + 0xf2) == sStack_10)) {
+    if ((sVar1 == _cfg_14.sStack_e) && (*(short *)(param_1 + 0xf2) == _cfg_14.sStack_10)) {
       iVar4 = 1;
       goto LAB_104c9cd0;
     }
-    if ((sVar1 == sStack_c) && (*(short *)(param_1 + 0xf2) == sStack_a)) {
+    if ((sVar1 == _cfg_14.sStack_c) && (*(short *)(param_1 + 0xf2) == _cfg_14.sStack_a)) {
       iVar4 = 2;
       goto LAB_104c9cd0;
     }
-    if ((sVar1 == sStack_a) && (iVar4 = 2, *(short *)(param_1 + 0xf2) == sStack_c))
+    if ((sVar1 == _cfg_14.sStack_a) && (iVar4 = 2, *(short *)(param_1 + 0xf2) == _cfg_14.sStack_c))
     goto LAB_104c9cd0;
   }
   iVar4 = 0;

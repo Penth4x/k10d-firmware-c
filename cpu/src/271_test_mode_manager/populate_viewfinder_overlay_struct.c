@@ -23,6 +23,12 @@
 void populate_viewfinder_overlay_struct(int param_1,int param_2)
 
 {
+  struct {
+    short sStack_10;
+    short sStack_e;
+    short sStack_c;
+    short sStack_a;
+  } _cfg_10;
   uint16_t uVar1;
   uint32_t uVar2;
   uint32_t uVar3;
@@ -32,11 +38,6 @@ void populate_viewfinder_overlay_struct(int param_1,int param_2)
   uintptr_t sp;
   int *piVar7;
   uint8_t auStack_34 [8];
-  short sStack_10;
-  short sStack_e;
-  short sStack_c;
-  short sStack_a;
-  
   piVar7 = (int *)auStack_34;
   if (param_2 == 0) {
     iVar5 = 0x84;
@@ -81,24 +82,24 @@ void populate_viewfinder_overlay_struct(int param_1,int param_2)
     *(uint16_t *)(*(int *)(param_1 + 0x82c) + 0x5c) = 0;
     *(uint16_t *)(*(int *)(param_1 + 0x82c) + 0x5e) = 0;
   }
-  sStack_10 = *(short *)(param_1 + 0x11c);
-  sStack_e = *(short *)(param_1 + 0x11e);
-  sStack_c = *(short *)(param_1 + 0x120);
-  sStack_a = *(short *)(param_1 + 0x122);
+  _cfg_10.sStack_10 = *(short *)(param_1 + 0x11c);
+  _cfg_10.sStack_e = *(short *)(param_1 + 0x11e);
+  _cfg_10.sStack_c = *(short *)(param_1 + 0x120);
+  _cfg_10.sStack_a = *(short *)(param_1 + 0x122);
   if (*(char *)(param_1 + 0x29) != '\0') {
-    sStack_10 = 0;
-    sStack_e = 0;
-    sStack_c = 0;
-    sStack_a = 0;
+    _cfg_10.sStack_10 = 0;
+    _cfg_10.sStack_e = 0;
+    _cfg_10.sStack_c = 0;
+    _cfg_10.sStack_a = 0;
   }
   uVar2 = get_or_init_sram_buffer_1052c5b8();
   uVar4 = get_SVD((int *)(param_1 + 0x164));
-  *piVar7 = (int)&sStack_a;
+  *piVar7 = (int)&_cfg_10.sStack_a;
   *(uint8_t *)((int)piVar7 + 7) = uVar4;
-  (*(code *)0x1052c5ea/*ROM*/)(uVar2,&sStack_10,&sStack_e,&sStack_c);
-  *(ushort *)(*(int *)(param_1 + 0x82c) + 0x58) = sStack_10 - 1U ^ 0xffff;
-  *(ushort *)(*(int *)(param_1 + 0x82c) + 0x5a) = sStack_e - 1U ^ 0xffff;
-  *(ushort *)(*(int *)(param_1 + 0x82c) + 0x5c) = sStack_c - 1U ^ 0xffff;
-  *(ushort *)(*(int *)(param_1 + 0x82c) + 0x5e) = sStack_a - 1U ^ 0xffff;
+  (*(code *)0x1052c5ea/*ROM*/)(uVar2,&_cfg_10.sStack_10,&_cfg_10.sStack_e,&_cfg_10.sStack_c);
+  *(ushort *)(*(int *)(param_1 + 0x82c) + 0x58) = _cfg_10.sStack_10 - 1U ^ 0xffff;
+  *(ushort *)(*(int *)(param_1 + 0x82c) + 0x5a) = _cfg_10.sStack_e - 1U ^ 0xffff;
+  *(ushort *)(*(int *)(param_1 + 0x82c) + 0x5c) = _cfg_10.sStack_c - 1U ^ 0xffff;
+  *(ushort *)(*(int *)(param_1 + 0x82c) + 0x5e) = _cfg_10.sStack_a - 1U ^ 0xffff;
   return;
 }

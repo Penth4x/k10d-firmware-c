@@ -21,6 +21,19 @@
 uint32_t initialize_camera_mode_context_10446ad4(void *param_1,int param_2)
 
 {
+  struct {
+    uint32_t uStack_2c;
+    uint32_t uStack_28;
+    uint16_t uStack_24;
+    uint16_t uStack_22;
+    uint8_t uStack_20;
+    uint8_t uStack_1f;
+    void * pvStack_1c;
+    uint32_t uStack_18;
+    uint32_t uStack_14;
+    uint32_t uStack_10;
+    uint32_t uStack_c;
+  } _cfg_2c;
   int iVar1;
   uint32_t uVar2;
   void *pvVar3;
@@ -31,18 +44,6 @@ uint32_t initialize_camera_mode_context_10446ad4(void *param_1,int param_2)
   int iVar8;
   uintptr_t sp;
   uint32_t uStack_38;
-  uint32_t uStack_2c;
-  uint32_t uStack_28;
-  uint16_t uStack_24;
-  uint16_t uStack_22;
-  uint8_t uStack_20;
-  uint8_t uStack_1f;
-  void *pvStack_1c;
-  uint32_t uStack_18;
-  uint32_t uStack_14;
-  uint32_t uStack_10;
-  uint32_t uStack_c;
-  
   pvVar3 = (void *)get_or_init_sram_buffer_104277bc();
   iVar1 = param_2 * 0x14;
   pvVar3 = (void *)read_table_entry_field(pvVar3,*(int *)(iVar1 + 0x105a188c/*ROM*/));
@@ -61,25 +62,25 @@ uint32_t initialize_camera_mode_context_10446ad4(void *param_1,int param_2)
   uStack_38 = call_helper_with_fixed_args_1044a9a0((void*)(*(uint32_t *)((int)param_1 + iVar8 + 0xc)));
   clear_flag3_with_notify(pvVar3);
   set_flag2_with_notify(pvVar3);
-  initialize_36_byte_struct(&uStack_2c);
-  uStack_24 = 1;
-  uStack_22 = 1;
-  uStack_2c = 0xc15c;
-  uStack_28 = 66000;
-  uStack_14 = *(uint32_t *)((int)param_1 + 0x14);
-  uStack_10 = *(uint32_t *)((int)param_1 + 0x18);
-  uStack_1f = 1;
-  uStack_20 = 1;
-  uStack_c = *(uint32_t *)((int)param_1 + iVar8 + 0xc);
+  initialize_36_byte_struct(&_cfg_2c.uStack_2c);
+  _cfg_2c.uStack_24 = 1;
+  _cfg_2c.uStack_22 = 1;
+  _cfg_2c.uStack_2c = 0xc15c;
+  _cfg_2c.uStack_28 = 66000;
+  _cfg_2c.uStack_14 = *(uint32_t *)((int)param_1 + 0x14);
+  _cfg_2c.uStack_10 = *(uint32_t *)((int)param_1 + 0x18);
+  _cfg_2c.uStack_1f = 1;
+  _cfg_2c.uStack_20 = 1;
+  _cfg_2c.uStack_c = *(uint32_t *)((int)param_1 + iVar8 + 0xc);
   iVar6 = *(int *)(*(int *)((int)param_1 + iVar8 + 4) + 4);
-  pvStack_1c = pvVar3;
-  uStack_18 = uVar5;
+  _cfg_2c.pvStack_1c = pvVar3;
+  _cfg_2c.uStack_18 = uVar5;
   iVar6 = (((vtbl_entry*)(iVar6))[2].fn)
-                    (*(int *)((int)param_1 + iVar8 + 4) + (int)((vtbl_entry*)(iVar6))[2].adj,&uStack_2c);
+                    (*(int *)((int)param_1 + iVar8 + 4) + (int)((vtbl_entry*)(iVar6))[2].adj,&_cfg_2c.uStack_2c);
   if (iVar6 != 0) {
     store_value_if_valid((void*)(*(uint32_t *)((int)param_1 + iVar8 + 4)),*(uint32_t *)(iVar1 + 0x105a1890/*ROM*/));
     uStack_38 = dispatch_mode_command_10446d8a(param_1,param_2);
   }
-  free_if_flag_set_1044a988(&uStack_2c,2);
+  free_if_flag_set_1044a988(&_cfg_2c.uStack_2c,2);
   return uStack_38;
 }

@@ -22,6 +22,12 @@
 void compute_wb_gain_from_meter(int param_1,ushort *param_2,int param_3,int param_4,ushort *param_5)
 
 {
+  struct {
+    ushort uStack_9c;
+    uint16_t uStack_9a;
+    uint16_t uStack_98;
+    uint16_t uStack_96;
+  } _cfg_9c;
   ushort uVar1;
   ushort uVar2;
   ushort uVar3;
@@ -41,10 +47,6 @@ void compute_wb_gain_from_meter(int param_1,ushort *param_2,int param_3,int para
   uint uVar16;
   uint uVar17;
   uint8_t auStack_c8 [8];
-  ushort uStack_9c;
-  uint16_t uStack_9a;
-  uint16_t uStack_98;
-  uint16_t uStack_96;
   ushort auStack_94 [5];
   ushort uStack_8a;
   ushort uStack_88;
@@ -126,13 +128,13 @@ void compute_wb_gain_from_meter(int param_1,ushort *param_2,int param_3,int para
   uVar3 = param_5[0xf];
   uVar4 = param_5[0x10];
   uVar14 = ((uint)*(ushort *)(iVar11 + 0x4c) << 0xd) / (uint)*(ushort *)(iVar11 + 0x10);
-  uStack_9c = (ushort)uVar14;
+  _cfg_9c.uStack_9c = (ushort)uVar14;
   uVar15 = ((uint)*(ushort *)(iVar11 + 0x4e) << 0xd) / (uint)*(ushort *)(iVar11 + 0x12);
-  uStack_9a = (uint16_t)uVar15;
+  _cfg_9c.uStack_9a = (uint16_t)uVar15;
   uVar16 = ((uint)*(ushort *)(iVar11 + 0x50) << 0xd) / (uint)*(ushort *)(iVar11 + 0x14);
-  uStack_98 = (uint16_t)uVar16;
+  _cfg_9c.uStack_98 = (uint16_t)uVar16;
   uVar17 = ((uint)*(ushort *)(iVar11 + 0x52) << 0xd) / (uint)*(ushort *)(iVar11 + 0x16);
-  uStack_96 = (uint16_t)uVar17;
+  _cfg_9c.uStack_96 = (uint16_t)uVar17;
   auStack_94[0] = 0x2000;
   auStack_94[1] = 0x2000;
   auStack_94[2] = 0x2000;
@@ -216,6 +218,6 @@ LAB_104eecf4:
 LAB_104eebe0:
   *piVar13 = (int)param_5;
 LAB_104eec56:
-  compute_ratio_of_three_arrays(param_1,auStack_94,&uStack_9c,puVar12,*piVar13);
+  compute_ratio_of_three_arrays(param_1,auStack_94,&_cfg_9c.uStack_9c,puVar12,*piVar13);
   return;
 }

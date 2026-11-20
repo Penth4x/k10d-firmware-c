@@ -20,6 +20,14 @@
 void update_state_dependent_params(int param_1,int param_2,int param_3,int param_4)
 
 {
+  struct {
+    int iStack_2c;
+    uint16_t uStack_28;
+    uint16_t uStack_26;
+    short sStack_24;
+    uint16_t uStack_22;
+    uint32_t uStack_20;
+  } _cfg_2c;
   bool bVar1;
   uint uVar2;
   uint uVar3;
@@ -37,12 +45,6 @@ void update_state_dependent_params(int param_1,int param_2,int param_3,int param
   int *piVar15;
   uintptr_t sp;
   bool bVar16;
-  int iStack_2c;
-  uint16_t uStack_28;
-  uint16_t uStack_26;
-  short sStack_24;
-  uint16_t uStack_22;
-  uint32_t uStack_20;
   uint32_t auStack_1c [5];
   
   uVar13 = *(uint *)(param_2 + 0x14) & 0xffff;
@@ -141,7 +143,7 @@ LAB_104ecbe0:
     *(int *)(*(int *)(*(int *)(param_1 + 0xd4) + iVar9) + 0x10) = param_4;
     *(int *)(*(int *)(*(int *)(param_1 + 0x84) + iVar9) + 0x10) = param_4;
     if (*(char *)(param_2 + 0x60) == '\0') {
-      iStack_2c = param_4 + 0x2c;
+      _cfg_2c.iStack_2c = param_4 + 0x2c;
       iVar12 = param_4 + 0x102c;
       *(uint32_t *)(param_4 + 0x202c) =
            *(uint32_t *)
@@ -155,7 +157,7 @@ LAB_104ecbe0:
       (*(code *)0x1053072c/*ROM*/)
                 (*(uint32_t *)(*(int *)(param_1 + 0xac) + iVar9),*(uint *)(param_2 + 8) & 0xffff,
                  iVar14);
-      xor_encrypt_buffer_block((uint *)(param_1 + 0xf4),(int)(iVar14),(int)(iStack_2c),(void *)(*(uint32_t *)(param_2 + 0x5c)));
+      xor_encrypt_buffer_block((uint *)(param_1 + 0xf4),(int)(iVar14),(int)(_cfg_2c.iStack_2c),(void *)(*(uint32_t *)(param_2 + 0x5c)));
       (*(code *)0x1053072c/*ROM*/)
                 (*(uint32_t *)
                   (*(int *)(param_1 + 0xd4) + (uint)*(byte *)(uVar13 + 0x105c2aa0/*ROM*/) * 4),
@@ -178,17 +180,17 @@ LAB_104ecbe0:
       iVar12 = param_1 + 0x1100;
     }
     xor_encrypt_buffer_block((uint *)(param_1 + 0xf4),(int)(param_1 + 0x2100),(int)(iVar12),(void *)(*(uint32_t *)(param_2 + 0x5c)));
-    uStack_26 = 0x20;
-    uStack_28 = (short)*(uint32_t *)(param_1 + 0xfc);
-    sStack_24 = (short)*(uint32_t *)(param_1 + 0xf8);
-    uStack_22 = 0x400;
-    uStack_20 = 0x15e6b7;
+    _cfg_2c.uStack_26 = 0x20;
+    _cfg_2c.uStack_28 = (short)*(uint32_t *)(param_1 + 0xfc);
+    _cfg_2c.sStack_24 = (short)*(uint32_t *)(param_1 + 0xf8);
+    _cfg_2c.uStack_22 = 0x400;
+    _cfg_2c.uStack_20 = 0x15e6b7;
     auStack_1c[0] = *(uint32_t *)(param_1 + 0xf4);
-    *(short *)(param_4 + 0x2034) = sStack_24 + 0x10;
+    *(short *)(param_4 + 0x2034) = _cfg_2c.sStack_24 + 0x10;
     iVar9 = 0x10;
     do {
       iVar12 = iVar9 + -4;
-      *(uint32_t *)((int)auStack_1c + iVar9) = *(uint32_t *)((int)&iStack_2c + iVar9);
+      *(uint32_t *)((int)auStack_1c + iVar9) = *(uint32_t *)((int)&_cfg_2c.iStack_2c + iVar9);
       iVar9 = iVar12;
     } while (iVar12 != 0);
     iVar9 = 0x10;
