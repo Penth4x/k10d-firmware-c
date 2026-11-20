@@ -36,7 +36,7 @@ uint16_t * alloc_and_copy_struct(uint16_t *param_1,uint16_t *param_2)
   *(uint8_t *)(puStack_c + 2) = *(uint8_t *)(param_2 + 2);
   pvVar1 = (void *)((int)puStack_c + 5);
   initialize_lens_update_object(pvVar1,6);
-  get_lens_fw_update_status();
+  get_lens_fw_update_status((int)puStack_c + 0xc, 6, 0x1dc, (code *)cls_105b9400_new);
   iStack_10 = 1;
   do {
     *(uint8_t *)(iVar2 + (int)pvVar1) = *(uint8_t *)((int)param_2 + iVar2 + 5);

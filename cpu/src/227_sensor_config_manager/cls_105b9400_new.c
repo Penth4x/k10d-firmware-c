@@ -45,7 +45,7 @@ cls_105b9400 * cls_105b9400_new(cls_105b9400 *param_1)
     param_1->field_0x28 = 0;
     param_1->field_0x2c = 0;
     param_1->field_0x30 = 0;
-    get_lens_fw_update_status();
+    get_lens_fw_update_status((int)param_1 + 0x38, 4, 0x38, (code *)init_56_byte_struct_104c2344);
     puVar5[3] = 0;
     puVar5[7] = 0;
     puVar5[0xb] = 0;

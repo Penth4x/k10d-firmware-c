@@ -29,7 +29,7 @@ void initialize_object_pointers(void)
   prepend_to_singly_linked_list((uint32_t *)(0x800043cc/*SDRAM*/));
   cls_105b9458_new((cls_105b9458 *)0x80015d04/*SDRAM*/);
   prepend_to_singly_linked_list((uint32_t *)(0x800043dc/*SDRAM*/));
-  get_lens_fw_update_status();
+  get_lens_fw_update_status((int)0x80015f18, 0x10, 0x214, (code *)cls_105b9458_new);
   prepend_to_singly_linked_list((uint32_t *)(0x800043ec/*SDRAM*/));
   alloc_and_zero_two_words_1045c3bc((uint32_t *)(0x80018058/*SDRAM*/));
   prepend_to_singly_linked_list((uint32_t *)(0x800043fc/*SDRAM*/));

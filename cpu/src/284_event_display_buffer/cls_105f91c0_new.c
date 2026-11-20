@@ -19,8 +19,8 @@ cls_105f91c0 * cls_105f91c0_new(cls_105f91c0 *param_1)
     param_1->field_0x208 = (uint32_t)&DAT_105f91c0/*ROM*/;
     param_1->field_0x0 = 0;
     param_1->field_0x4 = 0;
-    get_lens_fw_update_status();
-    get_lens_fw_update_status();
+    get_lens_fw_update_status((int)param_1 + 8, 0x10, 0x10, (code *)alloc_and_zero_16_bytes_10528678);
+    get_lens_fw_update_status((int)param_1 + 0x108, 0x10, 0x10, (code *)alloc_and_zero_16_bytes_105286ba);
   }
   return param_1;
 }

@@ -53,7 +53,7 @@ uint32_t * initialize_seven_subobject_container(uint32_t *param_1)
     cls_105f9250_new((cls_105f9250 *)(puStack_5c + 0x256));
     cls_105f9250_new((cls_105f9250 *)(puStack_5c + 0x2eb));
     cls_105f9250_new((cls_105f9250 *)(puStack_5c + 0x380));
-    get_lens_fw_update_status();
+    get_lens_fw_update_status((int)puStack_5c + 0x1054, 0x10, 0x20c, (code *)cls_105f91c0_new);
     *(uint8_t *)(puStack_5c + 0xc45) = 0;
     puStack_5c[0xc46] = 0;
     iVar9 = 0;

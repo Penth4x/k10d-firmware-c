@@ -19,13 +19,12 @@ int alloc_3072_byte_buffer(int param_1)
 
 {
   if ((param_1 != 0) || (param_1 = heap_alloc((void *)0xc00), param_1 != 0)) {
-    /* The original reaches alloc_and_init_lens_fw_buffer via get_lens_fw_update_status (an
-       incoming-register passthrough forwarding r4-r7). The buffer is initialised as 0x100
-       elements of 0xc bytes, each zeroed by alloc_and_zero_struct_104278ce. get_lens is (void)
-       for its ~21 bare callers, so call the init target directly with the real arguments here
-       rather than relying on dead register setup. (0x100*0xc == 0xc00 == the heap_alloc size.) */
-    alloc_and_init_lens_fw_buffer(param_1, 0x100, 0xc,
-                                  (code *)alloc_and_zero_struct_104278ce, (code *)0, 0);
+    /* The original reaches alloc_and_init_lens_fw_buffer through the get_lens_fw_update_status
+       forwarder (r4=buffer, r5=0x100 count, r6=0xc elem, r7=init_fn). The buffer is initialised
+       as 0x100 elements of 0xc bytes, each zeroed by alloc_and_zero_struct_104278ce. Call it via
+       the forwarder (not the callee directly) so the frame sequence matches stock. (0x100*0xc ==
+       0xc00 == the heap_alloc size.) */
+    get_lens_fw_update_status(param_1, 0x100, 0xc, (code *)alloc_and_zero_struct_104278ce);
   }
   return param_1;
 }

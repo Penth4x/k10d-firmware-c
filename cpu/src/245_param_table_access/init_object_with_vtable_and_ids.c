@@ -26,8 +26,8 @@ uint32_t * init_object_with_vtable_and_ids(uint32_t *param_1)
      (param_1 = (uint32_t *)heap_alloc((void *)0x79c), param_1 != (uint32_t *)0x0)) {
     initialize_lens_update_object(param_1,0x88);
     initialize_lens_update_object(param_1 + 0x22,0x22);
-    get_lens_fw_update_status();
-    get_lens_fw_update_status();
+    get_lens_fw_update_status((int)param_1 + 0xac, 0x22, 0x1c, (code *)allocate_and_init_28_byte_struct);
+    get_lens_fw_update_status((int)param_1 + 0x464, 0x22, 0x18, (code *)alloc_and_init_24_byte_struct);
     param_1[0x1e5] = 0;
     *(uint8_t *)(param_1 + 0x1e6) = 0;
     *param_1 = 0x51000000;

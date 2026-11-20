@@ -22,7 +22,7 @@ uint32_t * cls_105d51fc_new(uint32_t *param_1)
     *param_1 = 0x105d51fc/*ROM*/;
     param_1[1] = 0x105d5234/*ROM*/;
     param_1[6] = 0x105d524c/*ROM*/;
-    get_lens_fw_update_status();
+    get_lens_fw_update_status((int)param_1 + 0x24, 2, 0x34, (code *)alloc_and_zero_struct_10508a50);
     param_1[0x23] = 0;
     param_1[0x24] = 0;
     cls_105aadf4_new(param_1 + 0x25);

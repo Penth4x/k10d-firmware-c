@@ -31,7 +31,7 @@ uint32_t allocate_and_link_buffer_chain(int param_1)
   int iVar7;
   int iStack_10;
   
-  iVar1 = get_lens_fw_update_status();
+  iVar1 = get_lens_fw_update_status(0, 7, 0x320, (code *)cls_105c1150_new);
   if (iVar1 == 0) {
     uVar2 = 0;
   }

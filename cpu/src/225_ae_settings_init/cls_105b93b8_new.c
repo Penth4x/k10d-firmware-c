@@ -76,11 +76,11 @@ uint32_t * cls_105b93b8_new(uint32_t *param_1)
     param_1[0x234] = 0xffffffff;
     alloc_and_zero_struct_1051ec28(param_1 + 0x235);
     cls_105b9400_new(param_1 + 0x502);
-    get_lens_fw_update_status();
-    get_lens_fw_update_status();
-    get_lens_fw_update_status();
-    get_lens_fw_update_status();
-    get_lens_fw_update_status();
+    get_lens_fw_update_status((int)param_1 + 0x15e4, 1, 0xb34, (code *)alloc_and_zero_struct_1051ec28);
+    get_lens_fw_update_status((int)param_1 + 0x2118, 1, 0xb34, (code *)alloc_and_zero_struct_1051ec28);
+    get_lens_fw_update_status((int)param_1 + 0x2c4c, 0x10, 0xb34, (code *)alloc_and_zero_struct_1051ec28);
+    get_lens_fw_update_status((int)param_1 + 0xdf8c, 0x10, 0xc, (code *)alloc_and_zero_twelve_bytes_1051ef2e);
+    get_lens_fw_update_status((int)param_1 + 0xe04c, 1, 0xb34, (code *)alloc_and_zero_struct_1051ec28);
     *(uint16_t *)(param_1 + 0x3ae0) = 0;
     *(uint16_t *)((int)param_1 + 0xeb82) = 0;
     *(uint16_t *)(param_1 + 0x3ae1) = 0;
@@ -106,7 +106,7 @@ uint32_t * cls_105b93b8_new(uint32_t *param_1)
     *(uint16_t *)(param_1 + 0x3ae9) = 0;
     *(uint16_t *)((int)param_1 + 0xeba6) = 0;
     param_1[0x3aea] = 0;
-    get_lens_fw_update_status();
+    get_lens_fw_update_status((int)param_1 + 0xebac, 6, 0x2fc, (code *)init_0x2fc_struct_with_two_objects);
     param_1[0x3f65] = 0;
     *(uint8_t *)(param_1 + 0x3f66) = 0;
     *(uint8_t *)((int)param_1 + 0xfd99) = 0;

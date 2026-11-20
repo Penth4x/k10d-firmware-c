@@ -31,9 +31,9 @@ uint32_t * cls_105a8b34_new(uint32_t *param_1)
     *(uint8_t *)(param_1 + 0x1d) = 1;
     cls_105a8a1c_new(param_1 + 0x1e);
     param_1[0x2e] = 0;
-    get_lens_fw_update_status();
-    get_lens_fw_update_status();
-    get_lens_fw_update_status();
+    get_lens_fw_update_status((int)param_1 + 0xbc, 2, 0x10, (code *)cls_105a705c_new);
+    get_lens_fw_update_status((int)param_1 + 0xdc, 2, 0x1c, (code *)cls_105a6d8c_new);
+    get_lens_fw_update_status((int)param_1 + 0x114, 2, 0x4c, (code *)cls_105a6cfc_new);
     cls_105a2be0_new(param_1 + 0x6b);
     cls_105a2af8_new(param_1 + 0x6d);
     iVar1 = 0;

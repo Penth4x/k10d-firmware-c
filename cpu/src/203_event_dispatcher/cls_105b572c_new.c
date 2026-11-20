@@ -22,7 +22,7 @@ cls_105b572c * cls_105b572c_new(cls_105b572c *param_1)
     param_1->field_0x8 = 0;
     param_1->field_0xc = 0;
     param_1->field_0x10 = 0;
-    get_lens_fw_update_status();
+    get_lens_fw_update_status((int)param_1 + 0x14, 4, 0x38, (code *)init_56_byte_struct_1049a55e);
     alloc_and_init_0xbc_object(&param_1->field_0xf4);
     param_1->field_0x1b0 = 0;
     initialize_struct_fields_1049a69c(param_1);

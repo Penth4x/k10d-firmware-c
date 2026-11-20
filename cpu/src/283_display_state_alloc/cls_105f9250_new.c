@@ -26,8 +26,8 @@ cls_105f9250 * cls_105f9250_new(cls_105f9250 *param_1)
       pcVar3->field_0x208 = (uintptr_t)(&DAT_105f91c0/*ROM*/);
       pcVar3->field_0x0 = 0;
       pcVar3->field_0x4 = 0;
-      get_lens_fw_update_status();
-      get_lens_fw_update_status();
+      get_lens_fw_update_status((int)pcVar3 + 8, 0x10, 0x10, (code *)alloc_and_zero_16_bytes_10527af6);
+      get_lens_fw_update_status((int)pcVar3 + 0x108, 0x10, 0x10, (code *)alloc_zeroed_16_byte_block);
     }
     param_1->field_0x208 = (uintptr_t)(&DAT_105f9250/*ROM*/);
     param_1->field_0x20c = 0;

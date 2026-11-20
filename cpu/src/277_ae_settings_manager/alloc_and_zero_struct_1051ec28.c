@@ -29,7 +29,7 @@ uint16_t * alloc_and_zero_struct_1051ec28(uint16_t *param_1)
     *(uint8_t *)(param_1 + 2) = 0;
     pvVar3 = (void *)((int)param_1 + 5);
     initialize_lens_update_object(pvVar3,6);
-    get_lens_fw_update_status();
+    get_lens_fw_update_status((int)param_1 + 0xc, 6, 0x1dc, (code *)cls_105b9400_new);
     iVar1 = 0;
     iVar2 = 1;
     do {

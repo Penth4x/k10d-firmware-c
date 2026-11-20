@@ -37,7 +37,7 @@ uint32_t * cls_105b9400_new_2(uint32_t *param_1,uint32_t *param_2)
     *(uint8_t *)(param_1 + 10) = *(uint8_t *)(param_2 + 10);
     param_1[0xb] = param_2[0xb];
     *(uint8_t *)(param_1 + 0xc) = *(uint8_t *)(param_2 + 0xc);
-    get_lens_fw_update_status();
+    get_lens_fw_update_status((int)param_1 + 0x38, 4, 0x38, (code *)init_56_byte_struct_104c2344);
     *(uint16_t *)(param_1 + 0x73) = *(uint16_t *)(param_2 + 0x73);
     iVar2 = 3;
     *(uint8_t *)((int)param_1 + 0x1ce) = *(uint8_t *)((int)param_2 + 0x1ce);

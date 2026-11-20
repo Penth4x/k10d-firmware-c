@@ -14,7 +14,7 @@ int allocate_and_init_seven_entry_array(void *param_1)
   int iVar3;
   
   if ((param_1 != 0) || (param_1 = (void *)heap_alloc((void *)0x161d4), param_1 != 0)) {
-    get_lens_fw_update_status();
+    get_lens_fw_update_status((int)param_1, 0x28, 0x8d8, (code *)cls_1059e4d0_new);
     *(uint32_t *)((int)param_1 + 0x161c0) = 0;
     *(uint32_t *)((int)param_1 + 0x161c4) = 0;
     *(uint32_t *)((int)param_1 + 0x161c8) = 0;

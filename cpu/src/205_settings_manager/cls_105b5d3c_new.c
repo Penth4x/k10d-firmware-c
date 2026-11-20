@@ -20,7 +20,7 @@ cls_105b6358 * cls_105b5d3c_new(cls_105b5d3c *param_1)
     ((cls_105b6358 *)param_1)->field_0x1c = 0x105b5d3c/*ROM*/;
     ((cls_105b6358 *)param_1)->field_0x20 = 0;
     cls_105b68e8_new((cls_105b68e8 *)&((cls_105b6358 *)param_1)->field_0x24);
-    get_lens_fw_update_status();
+    get_lens_fw_update_status((int)param_1 + 0x38, 3, 0xc, (code *)alloc_and_zero_twelve_bytes_104a1464);
   }
   return (cls_105b6358 *)param_1;
 }

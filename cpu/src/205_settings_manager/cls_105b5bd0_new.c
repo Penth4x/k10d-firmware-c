@@ -22,7 +22,7 @@ cls_105b5bd0 * cls_105b5bd0_new(cls_105b5bd0 *param_1)
     param_1->field_0x24 = 0;
     cls_105b68e8_new((cls_105b68e8 *)&param_1->field_0x28);
     param_1->field_0x3c = 0;
-    get_lens_fw_update_status();
+    get_lens_fw_update_status((int)param_1 + 0x40, 2, 0xc, (code *)alloc_and_zero_twelve_bytes_1049f548);
     initialize_lens_update_object(&param_1->field_0x58,0xc);
   }
   return param_1;

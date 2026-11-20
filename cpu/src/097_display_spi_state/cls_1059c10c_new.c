@@ -116,7 +116,7 @@ uint32_t * cls_1059c10c_new(uint32_t *param_1)
     *(uint16_t *)(param_1 + 0x560) = 0x200;
     *(uint8_t *)((int)param_1 + 0x1582) = 0;
     param_1[0x561] = 0;
-    get_lens_fw_update_status();
+    get_lens_fw_update_status((int)param_1 + 0x1588, 9, 8, (code *)alloc_and_zero_small_struct_1041a71a);
     param_1[0x574] = 100;
     iVar3 = 2;
     iVar2 = 0;

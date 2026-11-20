@@ -34,7 +34,7 @@ cls_105b41d0 * construct_event_handler_list(cls_105b41d0 *param_1)
   cls_105b41d0_new(pcStack_14);
   pcStack_14->field_0x8 = (uintptr_t)(&DAT_105b4188/*ROM*/);
   cls_105a5c2c_new((cls_105a5c2c *)(pcStack_14 + 1),0);
-  iVar1 = get_lens_fw_update_status();
+  iVar1 = get_lens_fw_update_status(0, 0x2e, 0xc, (code *)cls_105b41d0_new);
   iVar4 = 0;
   iStack_c = 0x16;
   iVar3 = 0;

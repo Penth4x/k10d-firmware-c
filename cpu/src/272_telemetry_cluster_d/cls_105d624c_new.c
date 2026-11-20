@@ -48,13 +48,13 @@ uint32_t * cls_105d624c_new(uint32_t *param_1)
     param_1[0x1b] = 0;
     *(uint8_t *)(param_1 + 0x1c) = 1;
     param_1[0x1d] = 0;
-    get_lens_fw_update_status();
+    get_lens_fw_update_status((int)param_1 + 0x78, 0xa, 0xc, (code *)alloc_and_zero_small_struct_10516a66);
     param_1[0x3c] = 0;
     param_1[0x3d] = 0;
-    get_lens_fw_update_status();
+    get_lens_fw_update_status((int)param_1 + 0xf8, 0xa, 0xc, (code *)alloc_and_zero_small_struct_10516a66);
     param_1[0x5c] = 0;
     param_1[0x5d] = 0;
-    get_lens_fw_update_status();
+    get_lens_fw_update_status((int)param_1 + 0x178, 0xa, 0xc, (code *)alloc_and_zero_small_struct_10516a66);
     param_1[0x7c] = 0;
     param_1[0x7d] = 0;
     param_1[0xa6] = 0;
