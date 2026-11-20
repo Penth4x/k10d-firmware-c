@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t initialize_subsystem_with_four_channels(void *param_1,uint32_t param_2,void *param_3,void *param_4)
+uint32_t initialize_subsystem_with_four_channels(cls_105b979c *param_1,uint32_t param_2,void *param_3,void *param_4)
 
 {
   int *piVar1;
@@ -36,33 +36,32 @@ uint32_t initialize_subsystem_with_four_channels(void *param_1,uint32_t param_2,
   else {
     cls_105b4254_new(piVar1);
   }
-  *(int **)((int)param_1 + 0x38) = piVar1;
-  (**(code **)(*piVar1 + 0x3c))((int)*(short *)(*piVar1 + 0x38) + (int)piVar1,0);
-  iVar8 = **(int **)((int)param_1 + 0x38);
-  (**(code **)(iVar8 + 0x44))((int)*(int **)((int)param_1 + 0x38) + (int)*(short *)(iVar8 + 0x40),0)
-  ;
+  param_1->field_0x38 = (uintptr_t)(piVar1);
+  (((vtbl_entry*)(*piVar1))[7].fn)((int)((vtbl_entry*)(*piVar1))[7].adj + (int)piVar1,0);
+  iVar8 = *(int *)param_1->field_0x38;
+  (((vtbl_entry*)(iVar8))[8].fn)((int)param_1->field_0x38 + (int)((vtbl_entry*)(iVar8))[8].adj,0);
   pvVar2 = (void *)get_or_init_static_buffer_10495746();
-  *(void **)((int)param_1 + 0x3c) = pvVar2;
+  param_1->field_0x3c = (uintptr_t)(pvVar2);
   iterate_range_and_call_match(pvVar2,(uint *)0x105b9838/*ROM*/,param_3,param_4);
-  pvVar2 = (void *)app_obj_factory(*(uint32_t *)((int)param_1 + 0x3c),(void *)0x4000000,0,0);
-  pvVar3 = (void *)app_obj_factory(*(uint32_t *)((int)param_1 + 0x3c),(void *)0x4000001,(void *)0x20,(void *)0xc0);
+  pvVar2 = (void *)app_obj_factory((int *)(param_1->field_0x3c),(void *)0x4000000,(void *)(0),(void *)(0));
+  pvVar3 = (void *)app_obj_factory((int *)(param_1->field_0x3c),(void *)0x4000001,(void *)0x20,(void *)0xc0);
   set_struct_fields_and_flag(pvVar3,0x240,1);
-  pvVar4 = (void *)app_obj_factory(*(uint32_t *)((int)param_1 + 0x3c),(void *)0x4000002,(void *)0x20,(void *)0xf0);
+  pvVar4 = (void *)app_obj_factory((int *)(param_1->field_0x3c),(void *)0x4000002,(void *)0x20,(void *)0xf0);
   set_struct_fields_and_flag(pvVar4,0x240,1);
   puVar7 = &DAT_00000078;
-  pvVar5 = (void *)app_obj_factory(*(uint32_t *)((int)param_1 + 0x3c),(void *)0x4000003,(void *)0x20,(void *)__frv_reg_unset(7));
+  pvVar5 = (void *)app_obj_factory((int *)(param_1->field_0x3c),(void *)0x4000003,(void *)0x20,(void *)__frv_reg_unset(7));
   call_helper_and_set_flag_104b7726(pvVar5,0x240,1);
   pvVar6 = (void *)0x1;
   call_helper_and_set_flag_104b7744(pvVar5,0x90, __frv_reg_unset(6));
   iterate_and_remove_list_entry(pvVar2,pvVar3,pvVar6,puVar7);
   iterate_and_remove_list_entry(pvVar2,pvVar4,pvVar6,puVar7);
   iterate_and_remove_list_entry(pvVar2,pvVar5,pvVar6,puVar7);
-  (**(code **)(*(int *)((int)pvVar3 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar3 + 0xc)))[1].fn)
             ((int)pvVar3 + (int)*(short *)(*(int *)((int)pvVar3 + 0xc) + 8),0);
-  (**(code **)(*(int *)((int)pvVar4 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar4 + 0xc)))[1].fn)
             ((int)pvVar4 + (int)*(short *)(*(int *)((int)pvVar4 + 0xc) + 8),0);
-  (**(code **)(*(int *)((int)pvVar5 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar5 + 0xc)))[1].fn)
             ((int)pvVar5 + (int)*(short *)(*(int *)((int)pvVar5 + 0xc) + 8),0);
-  set_object_field_at_offset_0x10(*(void **)((int)param_1 + 0x38),pvVar2);
+  set_object_field_at_offset_0x10((void *)(param_1->field_0x38),(void *)(pvVar2));
   return 1;
 }

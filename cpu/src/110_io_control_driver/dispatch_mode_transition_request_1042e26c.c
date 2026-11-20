@@ -29,7 +29,7 @@ uint32_t dispatch_mode_transition_request_1042e26c(int param_1,uint32_t param_2,
   
   cVar1 = *(char *)(param_3 + 0x859);
   set_struct_field_at_offset_4(param_3,0);
-  iVar3 = read_virtual_property_field((void *)(*(uint32_t *)(param_1 + 0x34)),1);
+  iVar3 = read_virtual_property_field((int *)(*(uint32_t *)(param_1 + 0x34)),(int)(1));
   bVar2 = false;
   if ((iVar3 == 2) || (iVar3 == 3)) {
     bVar2 = true;
@@ -52,8 +52,8 @@ uint32_t dispatch_mode_transition_request_1042e26c(int param_1,uint32_t param_2,
       *(uint32_t *)(param_1 + 0x14) = 1;
       *(uint32_t *)(param_1 + 0x18) = 3;
       iVar3 = **(int **)(param_1 + 0x10);
-      (**(code **)(iVar3 + 0x74))
-                ((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar3 + 0x70),param_1 + 8,0);
+      (((vtbl_entry*)(iVar3))[14].fn)
+                ((int)*(int **)(param_1 + 0x10) + (int)((vtbl_entry*)(iVar3))[14].adj,param_1 + 8,0);
       twai_flg_obj((uint32_t *)(param_1 + 0x2c),1,(void *)0x0,_DAT_105a2af0/*ROM*/);
       uVar4 = 0;
     }

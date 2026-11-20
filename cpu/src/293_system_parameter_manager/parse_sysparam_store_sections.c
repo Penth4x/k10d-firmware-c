@@ -42,23 +42,22 @@ void parse_sysparam_store_sections(int param_1)
   uint8_t auStack_aac [128];
   uint8_t auStack_a2c [128];
   uint8_t auStack_9ac [2432];
-  uint8_t auStack_2c [16];
-  int iStack_1c;
+  cls_105ab468 cStack_2c;
   uint32_t uStack_c;
   
   iVar6 = get_or_create_camera_object();
   piVar4 = *(int **)(iVar6 + 0xc);
   uStack_c = 0;
-  uStack_bb0 = (uint32_t)(uintptr_t)auStack_2c;
-  cls_105ab468_new((void *)uStack_bb0);
-  iVar6 = call_with_offset_lock_1048101c(piVar4,s_S_TC__SYSPARAM_TXT_10621139 + 3,(void *)uStack_bb0);
+  uStack_bb0 = (uint32_t)(&cStack_2c);
+  cls_105ab468_new((void*)(uStack_bb0));
+  iVar6 = call_with_offset_lock_1048101c(piVar4,s_S_TC__SYSPARAM_TXT_10621139 + 3,(void*)(uStack_bb0));
   if (iVar6 != 0) {
-    iStack_bb8 = iStack_1c;
-    if (0x400 < iStack_1c) {
+    iStack_bb8 = cStack_2c.field_0x10;
+    if (0x400 < cStack_2c.field_0x10) {
       iStack_bb8 = 0x400;
     }
-    iVar6 = (**(code **)(*piVar4 + 0x2c))
-                      ((int)*(short *)(*piVar4 + 0x28) + (int)piVar4,s_C__SYSPARAM_TXT_1062114c,1,
+    iVar6 = (((vtbl_entry*)(*piVar4))[5].fn)
+                      ((int)((vtbl_entry*)(*piVar4))[5].adj + (int)piVar4,s_C__SYSPARAM_TXT_1062114c,1,
                        &uStack_c);
     if (iVar6 != 0) {
       pcVar7 = (char *)heap_alloc_2(iStack_bb8);
@@ -69,8 +68,8 @@ void parse_sysparam_store_sections(int param_1)
           acStack_bac[iVar6 + -1] = s_C__SYSPARAM_TXT_1062114c[iVar6 + 0xf];
           iVar6 = iVar11;
         } while (iVar11 != 0);
-        iVar6 = (**(code **)(*piVar4 + 0x3c))
-                          ((int)*(short *)(*piVar4 + 0x38) + (int)piVar4,uStack_c,pcVar7,iStack_bb8)
+        iVar6 = (((vtbl_entry*)(*piVar4))[7].fn)
+                          ((int)((vtbl_entry*)(*piVar4))[7].adj + (int)piVar4,uStack_c,pcVar7,iStack_bb8)
         ;
         if (iVar6 != 0) {
           bVar2 = false;
@@ -383,8 +382,8 @@ LAB_105359d0:
       }
       heap_free_2((int)pcVar7);
     }
-    (**(code **)(*piVar4 + 0x34))((int)*(short *)(*piVar4 + 0x30) + (int)piVar4,uStack_c);
+    (((vtbl_entry*)(*piVar4))[6].fn)((int)((vtbl_entry*)(*piVar4))[6].adj + (int)piVar4,uStack_c);
   }
-  cls_105ab468_delete((void *)uStack_bb0,2);
+  cls_105ab468_delete((void*)(uStack_bb0),2);
   return;
 }

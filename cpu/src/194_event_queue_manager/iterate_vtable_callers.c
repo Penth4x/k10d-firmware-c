@@ -27,7 +27,7 @@ bool iterate_vtable_callers(int param_1,uint32_t param_2,uint32_t param_3)
   if (piVar1 != *(int **)(param_1 + 0x10)) {
     do {
       iVar3 = *(int *)(*piVar1 + 8);
-      iVar3 = (**(code **)(iVar3 + 0x2c))(*piVar1 + (int)*(short *)(iVar3 + 0x28),param_2,param_3);
+      iVar3 = (((vtbl_entry*)(iVar3))[5].fn)(*piVar1 + (int)((vtbl_entry*)(iVar3))[5].adj,param_2,param_3);
       bVar2 = iVar3 != 0 || bVar2 != false;
       piVar1 = piVar1 + 1;
     } while (piVar1 != *(int **)(param_1 + 0x10));

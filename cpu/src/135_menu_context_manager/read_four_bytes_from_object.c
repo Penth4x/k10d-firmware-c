@@ -6,12 +6,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint read_four_bytes_from_object(int param_1)
+uint read_four_bytes_from_object(cls_105a6e64 *param_1)
 
 {
   uint uVar1;
   
-  uVar1 = pack_bytes_into_uint32((void *)param_1,(uint)*(byte *)(param_1 + 7),(uint)*(byte *)(param_1 + 6),
-                       (uint)*(byte *)(param_1 + 5),*(byte *)(param_1 + 4));
+  uVar1 = pack_bytes_into_uint32(param_1,(uint)(byte)param_1->field_0x7,(uint)(byte)param_1->field_0x6,
+                       (uint)(byte)param_1->field_0x5,param_1->field_0x4);
   return uVar1;
 }

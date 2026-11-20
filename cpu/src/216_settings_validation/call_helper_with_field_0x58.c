@@ -13,9 +13,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_field_0x58(int param_1)
+/* WARNING: Struct "cls_105b8354": ignoring overlapping field "field_0x8" */
+
+void call_helper_with_field_0x58(cls_105b8354 *param_1)
 
 {
-  clear_byte_at_offset_0x40(*(uint32_t *)(param_1 + 0x58));
+  clear_byte_at_offset_0x40(param_1->field_0x58);
   return;
 }

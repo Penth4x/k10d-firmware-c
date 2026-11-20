@@ -18,6 +18,6 @@ uint extract_bits_5_to_12_from_virtual_call(int *param_1)
 {
   int iVar1;
   
-  iVar1 = (**(code **)(*param_1 + 0x5c))((int)*(short *)(*param_1 + 0x58) + (int)param_1,4,0xe0);
+  iVar1 = (((vtbl_entry*)(*param_1))[11].fn)((int)((vtbl_entry*)(*param_1))[11].adj + (int)param_1,4,0xe0);
   return iVar1 >> 5 & 0xff;
 }

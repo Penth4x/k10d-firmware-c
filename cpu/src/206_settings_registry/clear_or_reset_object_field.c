@@ -17,7 +17,7 @@
 void clear_or_reset_object_field(int param_1)
 
 {
-  if (*(void **)(param_1 + 0xc) == (void *)0x0) {
+  if (*(void **)(param_1 + 0xc) == 0) {
     *(uint32_t *)(param_1 + 8) = 0;
   }
   else {

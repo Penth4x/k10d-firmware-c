@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t populate_object_with_two_values(void *param_1)
+uint32_t populate_object_with_two_values(cls_105d6da0 *param_1)
 
 {
   int iVar1;
@@ -23,8 +23,8 @@ uint32_t populate_object_with_two_values(void *param_1)
   
   iVar1 = sr_driver_singleton();
   uVar2 = read_offset_eight_field(*(void **)(iVar1 + 4));
-  *(uint32_t *)((int)param_1 + 4) = uVar2;
+  param_1->field_0x4 = uVar2;
   uVar2 = get_sram_address_0x8001dedc();
-  *(uint32_t *)((int)param_1 + 8) = uVar2;
+  param_1->field_0x8 = uVar2;
   return 1;
 }

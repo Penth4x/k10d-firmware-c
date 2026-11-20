@@ -6,15 +6,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-void store_event_and_update_setting(int param_1,int param_2)
+void store_event_and_update_setting(cls_10599b9c *param_1,int param_2)
 
 {
   byte bVar1;
   
-  *(int *)(param_1 + 0x18) = param_2;
+  param_1->field_0x18 = param_2;
   bVar1 = bRam10599b8c;
   if ((param_2 == 0x1bb0010) || (bVar1 = bRam10599b8d, param_2 == 0x1bb000f)) {
-    setting_set(*(int *)(param_1 + 8),0x9e,(uint)bVar1);
+    setting_set(param_1->field_0x8,0x9e,(uint)bVar1);
   }
   else if (param_2 == 0x1bb000a) {
     send_two_virtual_commands((int *)__frv_reg_unset(4));

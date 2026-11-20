@@ -1,4 +1,4 @@
-/* @k10d caseD_d @ 0x10010000
+/* @k10d caseD_d_10010000 @ 0x10010000
  * name: earlier (carried from an earlier Ghidra session, not re-verified; the model, reading only this decompile, proposed test_bit_in_table)
  * unit: 000_rtos_kernel (unit names are model-proposed)
  * purpose:
@@ -13,7 +13,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool switchD_1000ff64__caseD_d(short param_1)
+bool caseD_d_10010000(short param_1)
 
 {
   return (*(ushort *)(DAT_10011cfc/*ROM*/ + param_1 * 0x18 + -0x10) & 1) != 0;

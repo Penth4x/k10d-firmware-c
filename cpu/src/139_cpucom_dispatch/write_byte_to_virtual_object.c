@@ -20,15 +20,15 @@ void write_byte_to_virtual_object(int *param_1,int param_2,uint param_3)
 
 {
   if (param_2 == 0xf) {
-    (**(code **)(*param_1 + 0x4c))
-              ((int)*(short *)(*param_1 + 0x48) + (int)param_1,0,(int)param_3 >> 8 & 0xff,0xff);
-    (**(code **)(*param_1 + 0x4c))
-              ((int)*(short *)(*param_1 + 0x48) + (int)param_1,1,param_3 & 0xff,0xff);
+    (((vtbl_entry*)(*param_1))[9].fn)
+              ((int)((vtbl_entry*)(*param_1))[9].adj + (int)param_1,0,(int)param_3 >> 8 & 0xff,0xff);
+    (((vtbl_entry*)(*param_1))[9].fn)
+              ((int)((vtbl_entry*)(*param_1))[9].adj + (int)param_1,1,param_3 & 0xff,0xff);
   }
   else {
     param_2 = param_2 * 8;
-    (**(code **)(*param_1 + 0x4c))
-              ((int)*(short *)(*param_1 + 0x48) + (int)param_1,
+    (((vtbl_entry*)(*param_1))[9].fn)
+              ((int)((vtbl_entry*)(*param_1))[9].adj + (int)param_1,
                *(uint *)(&DAT_105a76ec/*ROM*/ + param_2) & 0xff,
                param_3 << ((&DAT_105a76f1/*ROM*/)[param_2] & 0xf) & 0xff,(&DAT_105a76f0/*ROM*/)[param_2]);
   }

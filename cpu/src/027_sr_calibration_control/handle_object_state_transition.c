@@ -49,7 +49,7 @@ void handle_object_state_transition(int *param_1,int param_2)
       retry_operation_five_times_1036f156((int)param_1,2,param_1 + 0x2a,0x80015d04/*SDRAM*/,*puVar4,puVar4[1]);
     }
     dispatch_event_with_state_check_1036f384(param_1,0);
-    (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1);
+    (((vtbl_entry*)(*param_1))[8].fn)((int)((vtbl_entry*)(*param_1))[8].adj + (int)param_1);
     request_ui_sync_code_4((void *)param_1[0xb]);
     clear_two_flags_and_init_subobj(param_1);
     return;

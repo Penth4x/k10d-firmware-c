@@ -13,7 +13,7 @@ uint32_t get_or_init_global_object_103964f8(void)
 {
   if (_DAT_8001a6c4/*SDRAM*/ == 0) {
     _DAT_8001a6c4/*SDRAM*/ = 1;
-    cls_10562eec_new((void *)0x8001a640/*SDRAM*/);
+    cls_10562eec_new((cls_10562eec *)0x8001a640/*SDRAM*/);
     prepend_to_singly_linked_list((void *)0x8000464c/*SDRAM*/);
   }
   return 0x8001a640/*SDRAM*/;

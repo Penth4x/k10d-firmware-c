@@ -6,9 +6,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t set_flag_on_object_at_offset_0x70_104dee68(int param_1)
+/* WARNING: Struct "cls_105bb314": ignoring overlapping field "field_0x8" */
+
+uint32_t set_flag_on_object_at_offset_0x70_104dee68(cls_105bb314 *param_1)
 
 {
-  set_flg_obj(*(uint32_t **)(param_1 + 0x70));
+  set_flg_obj((void *)param_1->field_0x70);
   return 1;
 }

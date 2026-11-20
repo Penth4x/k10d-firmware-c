@@ -56,13 +56,13 @@ void populate_struct_from_global_block(void *param_1)
   register_and_select_menu_items_10389b7a(iVar5,uVar1);
   uVar1 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,0xb);
   uVar2 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,0xc);
-  format_and_render_menu_item_10389774(iVar5,uVar1,(void *)uVar2);
+  format_and_render_menu_item_10389774((int)(iVar5),(uint)(uVar1),(uint ***)(uVar2));
   uVar1 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,0x1f);
   uVar2 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,0x20);
-  format_and_register_menu_item_103898da(iVar5,uVar1,(void *)uVar2,(void *)__frv_reg_unset(7));
+  format_and_register_menu_item_103898da((int)(iVar5),(uint)(uVar1),(void *)(uVar2),(void *)__frv_reg_unset(7));
   uVar1 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,0xd);
   uVar2 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,0xe);
-  format_and_log_buffer_state(iVar5,uVar1,(void *)uVar2);
+  format_and_log_buffer_state((int)(iVar5),(uint)(uVar1),(void *)(uVar2));
   uVar1 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,0x12);
   register_and_select_menu_items_10389c46(iVar5,uVar1);
   uVar1 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,0x25);
@@ -83,10 +83,10 @@ void populate_struct_from_global_block(void *param_1)
   register_menu_item_with_status_1038a260(iVar5,uVar1,uVar2,uVar3);
   uVar1 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,7);
   uVar2 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,10);
-  register_and_activate_menu_items_1038a3d0(iVar5,uVar1,(void *)uVar2,(void *)__frv_reg_unset(7));
+  register_and_activate_menu_items_1038a3d0((int)(iVar5),(uint32_t)(uVar1),(void *)(uVar2),(void *)__frv_reg_unset(7));
   uVar1 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,9);
   uVar2 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,8);
-  format_two_menu_items(iVar5,(void *)uVar1,(void *)uVar2,(void *)__frv_reg_unset(7));
+  format_two_menu_items((int)(iVar5),(void *)(uVar1),(void *)(uVar2),(void *)__frv_reg_unset(7));
   uVar1 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,0x25);
   uVar2 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,0x26);
   uVar3 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,0x27);
@@ -96,7 +96,7 @@ void populate_struct_from_global_block(void *param_1)
   uVar3 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,0x28);
   dispatch_exposure_mode_command(iVar5,uVar1,uVar2,uVar3);
   uVar1 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,0x13);
-  format_and_register_menu_item_1038ac7e(iVar5,(void *)uVar1,__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  format_and_register_menu_item_1038ac7e((int)(iVar5),(void *)(uVar1),(uint32_t)(__frv_reg_unset(6)),(void *)__frv_reg_unset(7));
   uVar1 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,6);
   register_menu_item_with_label_1038ace0(iVar5,uVar1,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
   uVar1 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,1);

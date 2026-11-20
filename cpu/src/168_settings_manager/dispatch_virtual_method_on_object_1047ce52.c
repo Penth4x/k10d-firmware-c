@@ -24,8 +24,8 @@ uint32_t dispatch_virtual_method_on_object_1047ce52(int param_1,uint32_t param_2
   uVar1 = map_mode_index_to_flag_1047cfd6(param_1);
   write_word_to_struct_array(param_3,uVar1,0);
   iVar2 = **(int **)(param_1 + 0x28);
-  uVar1 = (**(code **)(iVar2 + 0x5c))
-                    ((int)*(int **)(param_1 + 0x28) + (int)*(short *)(iVar2 + 0x58),param_2,param_3)
+  uVar1 = (((vtbl_entry*)(iVar2))[11].fn)
+                    ((int)*(int **)(param_1 + 0x28) + (int)((vtbl_entry*)(iVar2))[11].adj,param_2,param_3)
   ;
   return uVar1;
 }

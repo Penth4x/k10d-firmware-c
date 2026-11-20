@@ -14,10 +14,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void shift_and_call_helper(void *param_1,int param_2)
+void shift_and_call_helper(cls_105a0828 *param_1,int param_2)
 
 {
-  update_flag_bits_in_object(param_1,(ushort)(param_2 << ((byte)*(uint32_t *)((int)param_1 + 0x120) & 0xf)) &
-                       *(ushort *)((int)param_1 + 0x124),*(ushort *)((int)param_1 + 0x124));
+  update_flag_bits_in_object(param_1,(ushort)(param_2 << ((byte)param_1->field_0x120 & 0xf)) &
+                       param_1->field_0x124,param_1->field_0x124);
   return;
 }

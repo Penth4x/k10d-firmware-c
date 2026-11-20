@@ -16,17 +16,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_virtual_slots_with_flags(int param_1,uint32_t *param_2,uint32_t *param_3)
+void call_virtual_slots_with_flags(cls_1059d1d8 *param_1,uint32_t *param_2,uint32_t *param_3)
 
 {
   uint32_t uVar1;
   int iVar2;
   
-  iVar2 = *(int *)(*(int *)(param_1 + 0x2c) + 4);
-  uVar1 = (**(code **)(iVar2 + 0x114))(*(int *)(param_1 + 0x2c) + (int)*(short *)(iVar2 + 0x110),1);
+  iVar2 = *(int *)(param_1->field_0x2c + 4);
+  uVar1 = (((vtbl_entry*)(iVar2))[34].fn)(param_1->field_0x2c + (int)((vtbl_entry*)(iVar2))[34].adj,1);
   *param_2 = uVar1;
-  iVar2 = *(int *)(*(int *)(param_1 + 0x2c) + 4);
-  uVar1 = (**(code **)(iVar2 + 0x114))(*(int *)(param_1 + 0x2c) + (int)*(short *)(iVar2 + 0x110),0);
+  iVar2 = *(int *)(param_1->field_0x2c + 4);
+  uVar1 = (((vtbl_entry*)(iVar2))[34].fn)(param_1->field_0x2c + (int)((vtbl_entry*)(iVar2))[34].adj,0);
   *param_3 = uVar1;
   return;
 }

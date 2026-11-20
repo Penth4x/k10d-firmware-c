@@ -46,14 +46,14 @@ void send_two_param_updates(int param_1,int *param_2,uint16_t param_3,uint16_t p
   puVar1 = (uint32_t *)(param_1 + 0x38);
   uStack_e = param_3;
   eventflag_clr_flg(puVar1,1);
-  imgp_b_program_and_start_104fe680(*(uint32_t *)(param_1 + 0x24),(void *)(param_1 + 4),&uStack_1c);
+  imgp_b_program_and_start_104fe680((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(param_1 + 4),(uint32_t *)(&uStack_1c));
   eventflag_wai_flg(puVar1,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,1);
   imgp_a_stop_and_reset(*(uint32_t *)(param_1 + 0x24));
   uStack_1c = compute_scaled_sum_from_struct(param_2);
   uStack_e = param_4;
   eventflag_clr_flg(puVar1,1);
-  imgp_b_program_and_start_104fe680(*(uint32_t *)(param_1 + 0x24),(void *)(param_1 + 4),&uStack_1c);
+  imgp_b_program_and_start_104fe680((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(param_1 + 4),(uint32_t *)(&uStack_1c));
   eventflag_wai_flg(puVar1,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,1);
   imgp_a_stop_and_reset(*(uint32_t *)(param_1 + 0x24));

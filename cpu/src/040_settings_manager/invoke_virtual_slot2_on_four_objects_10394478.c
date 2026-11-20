@@ -17,9 +17,9 @@
 void invoke_virtual_slot2_on_four_objects_10394478(void)
 
 {
-  reset_object_fields_and_call_base((void *)0x80019c58/*SDRAM*/);
-  reset_object_fields_and_call_base((void *)0x80019e6c/*SDRAM*/);
-  reset_object_fields_and_call_base((void *)0x8001a080/*SDRAM*/);
-  reset_object_fields_and_call_base((void *)0x8001a294/*SDRAM*/);
+  reset_object_fields_and_call_base((cls_105b9458 *)0x80019c58/*SDRAM*/);
+  reset_object_fields_and_call_base((cls_105b9458 *)0x80019e6c/*SDRAM*/);
+  reset_object_fields_and_call_base((cls_105b9458 *)0x8001a080/*SDRAM*/);
+  reset_object_fields_and_call_base((cls_105b9458 *)0x8001a294/*SDRAM*/);
   return;
 }

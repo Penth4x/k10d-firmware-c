@@ -22,7 +22,7 @@ uint32_t copy_and_notify_state_change(int param_1,int param_2)
   } while (iVar4 != 0);
   piVar1 = *(int **)(*(int *)(param_1 + 0x70) + 8);
   iVar4 = *piVar1;
-  (**(code **)(iVar4 + 0x14))((int)piVar1 + (int)*(short *)(iVar4 + 0x10),0x10009,puVar3);
+  (((vtbl_entry*)(iVar4))[2].fn)((int)piVar1 + (int)((vtbl_entry*)(iVar4))[2].adj,0x10009,puVar3);
   if (*(char *)(param_1 + 0x44) == '\0') {
     uVar2 = 0;
   }

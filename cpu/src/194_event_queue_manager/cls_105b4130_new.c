@@ -11,7 +11,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_105b4130_new(uint32_t *param_1)
+cls_105b4104 * cls_105b4130_new(cls_105b4130 *param_1)
 
 {
   uint32_t *puVar1;
@@ -22,13 +22,13 @@ uint32_t * cls_105b4130_new(uint32_t *param_1)
   uintptr_t sp;
   uint8_t local_18 [16];
   
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x1c), param_1 != (uint32_t *)0x0)) {
-    cls_105b4104_new(param_1);
-    param_1[6] = (uint32_t)&DAT_105b4130/*ROM*/;
+  if ((param_1 != (cls_105b4130 *)0x0) ||
+     (param_1 = (cls_105b4130 *)heap_alloc((void *)0x1c), param_1 != (cls_105b4130 *)0x0)) {
+    cls_105b4104_new((cls_105b4104 *)param_1);
+    ((cls_105b4104 *)param_1)->field_0x18 = (uintptr_t)(&DAT_105b4130/*ROM*/);
     puVar1 = (uint32_t *)get_or_init_sram_block_1052b6fc();
     init_object_with_two_ids_1052b824(local_18,puVar1);
-    puVar1 = param_1 + 4;
+    puVar1 = &((cls_105b4104 *)param_1)->field_0x10;
     iVar3 = 8;
     do {
       iVar5 = iVar3 + -4;
@@ -40,17 +40,17 @@ uint32_t * cls_105b4130_new(uint32_t *param_1)
     iVar3 = return_first_word_1045c514(puVar1);
     iVar5 = read_struct_field_at_offset_4(puVar1);
     uVar4 = mempool_get_block(pvVar2,(void *)(iVar3 * iVar5 * 2),0);
-    *param_1 = uVar4;
+    ((cls_105b4104 *)param_1)->field_0x0 = uVar4;
     pvVar2 = (void *)get_system_heap();
     iVar3 = return_first_word_1045c514(puVar1);
     iVar5 = read_struct_field_at_offset_4(puVar1);
     uVar4 = mempool_get_block(pvVar2,(void *)(iVar3 * iVar5 * 2),0);
-    param_1[1] = uVar4;
+    ((cls_105b4104 *)param_1)->field_0x4 = uVar4;
     pvVar2 = (void *)get_system_heap();
     iVar3 = return_first_word_1045c514(puVar1);
     iVar5 = read_struct_field_at_offset_4(puVar1);
     uVar4 = mempool_get_block(pvVar2,(void *)(iVar3 * iVar5 * 2),0);
-    param_1[2] = uVar4;
+    ((cls_105b4104 *)param_1)->field_0x8 = uVar4;
   }
-  return param_1;
+  return (cls_105b4104 *)param_1;
 }

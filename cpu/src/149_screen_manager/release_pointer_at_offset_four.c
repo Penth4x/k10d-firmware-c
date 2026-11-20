@@ -14,11 +14,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_pointer_at_offset_four(void *param_1)
+void release_pointer_at_offset_four(cls_105a8c94 *param_1)
 
 {
-  if (*(int *)((int)param_1 + 4) != 0) {
-    kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 4) + 8));
+  if (param_1->field_0x4 != 0) {
+    kernel_diag_taskstack((int *)(param_1->field_0x4 + 8));
   }
   return;
 }

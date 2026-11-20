@@ -12,7 +12,7 @@ void invoke_virtual_method_on_object_10419b48(int param_1,uint16_t param_2)
   int iVar1;
   
   iVar1 = **(int **)(param_1 + 0x4c);
-  (**(code **)(iVar1 + 100))((int)*(int **)(param_1 + 0x4c) + (int)*(short *)(iVar1 + 0x60),param_2)
+  (((vtbl_entry*)(iVar1))[12].fn)((int)*(int **)(param_1 + 0x4c) + (int)((vtbl_entry*)(iVar1))[12].adj,param_2)
   ;
   return;
 }

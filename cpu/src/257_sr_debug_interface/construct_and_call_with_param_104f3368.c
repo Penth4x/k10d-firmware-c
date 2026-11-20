@@ -19,11 +19,11 @@ void construct_and_call_with_param_104f3368(int param_1,void *param_2)
 
 {
   uintptr_t sp;
-  uint8_t auStack_1c [20];
+  cls_105a6abc acStack_1c [5];
   
-  cls_105a6abc_new((void *)auStack_1c);
-  copy_buffer_with_lock_1045e22a(*(int *)(param_1 + 8),auStack_1c);
-  (*(code *)0x1045f2da/*ROM*/)(auStack_1c,param_2);
-  cls_105a6abc_delete((void *)auStack_1c,2);
+  cls_105a6abc_new(acStack_1c);
+  copy_buffer_with_lock_1045e22a(*(int *)(param_1 + 8),acStack_1c);
+  (*(code *)0x1045f2da/*ROM*/)(acStack_1c,param_2);
+  cls_105a6abc_delete(acStack_1c,2);
   return;
 }

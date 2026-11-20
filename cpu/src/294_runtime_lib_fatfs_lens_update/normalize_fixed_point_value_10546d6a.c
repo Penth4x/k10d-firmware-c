@@ -49,13 +49,13 @@ int normalize_fixed_point_value_10546d6a(uint *param_1)
     else {
       uVar6 = multiply_fixed_point_values_105445a2(*param_1,param_1[1],uStack_20,uStack_1c);
     }
-    uStack_20 = (uStack_20 & ~(0xffffULL << 0)) | ((((uint64_t)((ushort)((ulonglong)uVar6 >> 0x30))) & 0xffffULL) << 0);
+    uStack_20 = (uStack_20 & ~(((uint64_t)0xffff) << 0)) | ((((uint64_t)((ushort)((ulonglong)uVar6 >> 0x30))) & ((uint64_t)0xffff)) << 0);
     if (((uint16_t)((uint64_t)(uStack_20) >> 0)) < 0x4024) {
       while( true ) {
         if (0x3fef < ((uint16_t)((uint64_t)(uStack_20) >> 0))) break;
         multiply_two_floats((uint)((ulonglong)uVar6 >> 0x20),(uint)uVar6,0x40240000,0);
         uVar6 = CONCAT44(extraout_r4_01,extraout_r5_01);
-        uStack_20 = (uStack_20 & ~(0xffffULL << 0)) | ((((uint64_t)((ushort)((uint)extraout_r4_01 >> 0x10))) & 0xffffULL) << 0);
+        uStack_20 = (uStack_20 & ~(((uint64_t)0xffff) << 0)) | ((((uint64_t)((ushort)((uint)extraout_r4_01 >> 0x10))) & ((uint64_t)0xffff)) << 0);
         iVar2 = iVar2 + -1;
       }
     }
@@ -64,7 +64,7 @@ int normalize_fixed_point_value_10546d6a(uint *param_1)
         uStack_20 = (uint)((ulonglong)uVar6 >> 0x20);
         uStack_1c = (uint)uVar6;
         uVar6 = multiply_fixed_point_values_105445a2(uStack_20,uStack_1c,0x40240000,0);
-        uStack_20 = (uStack_20 & ~(0xffffULL << 0)) | ((((uint64_t)((ushort)((ulonglong)uVar6 >> 0x30))) & 0xffffULL) << 0);
+        uStack_20 = (uStack_20 & ~(((uint64_t)0xffff) << 0)) | ((((uint64_t)((ushort)((ulonglong)uVar6 >> 0x30))) & ((uint64_t)0xffff)) << 0);
         iVar2 = iVar2 + 1;
       } while (0x4023 < ((uint16_t)((uint64_t)(uStack_20) >> 0)));
     }

@@ -11,19 +11,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_10563dd8_new(uint32_t *param_1)
+cls_10563dd8 * cls_10563dd8_new(cls_10563dd8 *param_1)
 
 {
   uint32_t uVar1;
   
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x24), param_1 != (uint32_t *)0x0)) {
-    cls_105b4254_new(param_1);
-    *param_1 = (uint32_t)&DAT_10563dd8/*ROM*/;
-    param_1[1] = (uint32_t)&DAT_10563e48/*ROM*/;
-    param_1[2] = (uint32_t)&DAT_10563e70/*ROM*/;
+  if ((param_1 != (cls_10563dd8 *)0x0) ||
+     (param_1 = (cls_10563dd8 *)heap_alloc((void *)0x24), param_1 != (cls_10563dd8 *)0x0)) {
+    cls_105b4254_new((void *)param_1);
+    param_1->field_0x0 = (uint32_t)&DAT_10563dd8/*ROM*/;
+    param_1->field_0x4 = (uint32_t)&DAT_10563e48/*ROM*/;
+    param_1->field_0x8 = (uint32_t)&DAT_10563e70/*ROM*/;
     uVar1 = get_or_init_static_buffer_10495746();
-    param_1[8] = uVar1;
+    param_1->field_0x20 = uVar1;
   }
   return param_1;
 }

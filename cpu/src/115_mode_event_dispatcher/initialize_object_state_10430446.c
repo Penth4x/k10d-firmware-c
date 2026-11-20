@@ -36,11 +36,11 @@ void initialize_object_state_10430446(void *param_1)
     iVar1 = 0;
   }
   else {
-    cls_105a8a1c_new((void *)iVar1);
+    cls_105a8a1c_new((cls_105a8a1c *)(iVar1));
   }
   *(int *)((int)param_1 + 0x98) = iVar1;
   forward_three_args_to_helper_10459edc((void *)((int)param_1 + 0x90),1,1);
-  create_kernel_object((void *)((int)param_1 + 0x24));
+  create_kernel_object((int *)((int)param_1 + 0x24));
   iVar1 = initialize_singleton_object_1045d6a0();
   pvVar2 = *(void **)(iVar1 + 0x1c);
   allocate_free_slot_in_table_1045e7f2(pvVar2,9,(int)param_1 + 4);

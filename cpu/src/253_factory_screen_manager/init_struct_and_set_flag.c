@@ -15,7 +15,7 @@
 void init_struct_and_set_flag(int param_1,uint16_t param_2)
 
 {
-  invoke_virtual_slot_5_104949f6((int *)(param_1 + 0x20),param_2);
+  invoke_virtual_slot_5_104949f6((cls_105b989c *)(param_1 + 0x20),param_2);
   *(uint8_t *)(param_1 + 9) = 1;
   return;
 }

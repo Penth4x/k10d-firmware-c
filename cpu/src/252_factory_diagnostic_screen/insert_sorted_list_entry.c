@@ -45,20 +45,20 @@ void insert_sorted_list_entry(void *param_1,uint param_2,int param_3,int *param_
               *(uint8_t *)((int)piVar7 + 0x16) = 0;
             }
             if (0 < iVar6) {
-              func_0x104e5efe(param_1,uVar5 + 1,uVar5 + 2,iVar6);
+              move_array_elements_and_update_refs((int)(param_1),(uint)(uVar5 + 1),(uint)(uVar5 + 2),(int)(iVar6));
               *(int **)(*(int *)((int)param_1 + 0x40) + (uVar5 + 1) * 4) = piVar7;
               *piVar7 = uVar5 + 0x65;
             }
             break;
           }
           if (uVar1 < *(ushort *)(piVar7 + 5)) {
-            func_0x104e5efe(param_1,uVar5 + 1,uVar5 + 2,iVar6);
+            move_array_elements_and_update_refs((int)(param_1),(uint)(uVar5 + 1),(uint)(uVar5 + 2),(int)(iVar6));
             *(int **)(*(int *)((int)param_1 + 0x40) + (uVar5 + 1) * 4) = piVar7;
             *piVar7 = uVar5 + 0x65;
             break;
           }
           if (uVar3 == uVar5) {
-            func_0x104e5efe(param_1,uVar5,uVar5 + 1,iVar6 + 1);
+            move_array_elements_and_update_refs((int)(param_1),(uint)(uVar5),(uint)(uVar5 + 1),(int)(iVar6 + 1));
             *(int **)(*(int *)((int)param_1 + 0x40) + uVar5 * 4) = piVar7;
             *piVar7 = uVar5 + 100;
             break;

@@ -112,8 +112,8 @@ bool build_exif_string_from_list(int param_1,char *param_2)
   }
   *pcStack_14 = '\0';
   pcStack_18 = param_2;
-  copy_null_terminated_string(acStack_68,(char *)pvRam8000ff84);
-  copy_string_to_buffer(acStack_68,(char *)pvRam8000ffa8);
+  copy_null_terminated_string((void *)(acStack_68),(void *)(pvRam8000ff84));
+  copy_string_to_buffer((char *)(acStack_68),(void *)(pvRam8000ffa8));
   puVar4[3] = 0;
   puVar4[7] = 0;
   puVar4[0xb] = 0;
@@ -167,7 +167,7 @@ bool build_exif_string_from_list(int param_1,char *param_2)
       cVar1 = *pcVar2;
     }
     *pcStack_14 = '\0';
-    copy_null_terminated_string(acStack_68,(char *)pvRam8000ff88);
+    copy_null_terminated_string((void *)(acStack_68),(void *)(pvRam8000ff88));
     uStack_5d = 0;
     cStack_60 = (char)(iStack_84 / 100) + '0';
     cStack_5f = (char)((iStack_84 % 100) / 10) + '0';
@@ -212,7 +212,7 @@ bool build_exif_string_from_list(int param_1,char *param_2)
       cVar1 = *pcVar2;
     }
     *pcStack_14 = '\0';
-    copy_null_terminated_string(acStack_68,(char *)pvRam8000ff90);
+    copy_null_terminated_string((void *)(acStack_68),(void *)(pvRam8000ff90));
     cStack_60 = '0';
     cStack_5f = (char)(((uint)*(ushort *)(iVar3 + 4) % 100) / 10) + '0';
     cStack_5e = (char)*(ushort *)(iVar3 + 4) + (char)(*(ushort *)(iVar3 + 4) / 10) * -10 + '0';

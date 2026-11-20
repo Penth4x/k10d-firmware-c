@@ -6,7 +6,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_helper_and_return_one_10442de6(void *param_1)
+/* WARNING: Struct "cls_105a0df8": ignoring multiple overlapping fields */
+
+uint32_t call_helper_and_return_one_10442de6(cls_105a0df8 *param_1)
 
 {
   clear_two_word_fields_10442df2(param_1);

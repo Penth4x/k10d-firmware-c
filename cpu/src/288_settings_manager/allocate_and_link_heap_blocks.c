@@ -28,18 +28,18 @@ void allocate_and_link_heap_blocks(void *param_1)
   uintptr_t sp;
   uint8_t uStack_9;
   
-  uVar1 = construct_large_camera_object(0);
+  uVar1 = (uintptr_t)(construct_large_camera_object(0));
   *(uint32_t *)((int)param_1 + 500) = uVar1;
   pvVar2 = (void *)get_system_heap();
-  pvVar3 = (void *)return_constant_0x33(&uStack_9);
+  pvVar3 = (void *)return_constant_0x33((uint32_t)(&uStack_9));
   uVar1 = mempool_get_block(pvVar2,pvVar3,0);
   *(uint32_t *)((int)param_1 + 0x1f8) = uVar1;
   pvVar2 = (void *)get_system_heap();
-  pvVar3 = (void *)return_constant_0x5468(&uStack_9);
+  pvVar3 = (void *)return_constant_0x5468((uint32_t)(&uStack_9));
   uVar1 = mempool_get_block(pvVar2,pvVar3,0);
   *(uint32_t *)((int)param_1 + 0x1fc) = uVar1;
   pvVar2 = (void *)get_system_heap();
-  pvVar3 = (void *)call_subroutine_and_return_0x2026(&uStack_9);
+  pvVar3 = (void *)call_subroutine_and_return_0x2026((uint32_t)(&uStack_9));
   uVar1 = mempool_get_block(pvVar2,pvVar3,0);
   *(uint32_t *)((int)param_1 + 0x200) = uVar1;
   puVar4 = (uint16_t *)heap_alloc((void *)0x2050);
@@ -82,15 +82,15 @@ void allocate_and_link_heap_blocks(void *param_1)
   *(uint16_t **)((int)param_1 + 0x250) = puVar4;
   iVar6 = *(int *)((int)param_1 + 500);
   if (iVar6 != 0) {
-    uVar1 = return_constant_0x33(&uStack_9);
+    uVar1 = return_constant_0x33((uint32_t)(&uStack_9));
     *(uint32_t *)(iVar6 + 0x4ec) = uVar1;
     *(uint32_t *)(*(int *)((int)param_1 + 500) + 0x4e8) = *(uint32_t *)((int)param_1 + 0x1f8);
     iVar6 = *(int *)((int)param_1 + 500);
-    uVar1 = return_constant_0x5468(&uStack_9);
+    uVar1 = return_constant_0x5468((uint32_t)(&uStack_9));
     *(uint32_t *)(iVar6 + 0x4fc) = uVar1;
     *(uint32_t *)(*(int *)((int)param_1 + 500) + 0x4f8) = *(uint32_t *)((int)param_1 + 0x1fc);
     iVar6 = *(int *)((int)param_1 + 500);
-    uVar1 = call_subroutine_and_return_0x2026(&uStack_9);
+    uVar1 = call_subroutine_and_return_0x2026((uint32_t)(&uStack_9));
     *(uint32_t *)(iVar6 + 0x4f4) = uVar1;
     *(uint32_t *)(*(int *)((int)param_1 + 500) + 0x4f0) = *(uint32_t *)((int)param_1 + 0x200);
     *(uint32_t *)(*(int *)((int)param_1 + 500) + 0x4c4) = *(uint32_t *)((int)param_1 + 0x250);

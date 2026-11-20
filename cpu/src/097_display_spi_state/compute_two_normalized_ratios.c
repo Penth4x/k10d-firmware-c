@@ -9,7 +9,7 @@
 /* WARNING: Instruction at (ram,0x1041d5b0) overlaps instruction at (ram,0x1041d5ae)
     */
 
-void compute_two_normalized_ratios(int param_1,int param_2,uint param_3)
+void compute_two_normalized_ratios(cls_1059d1d8 *param_1,int param_2,uint param_3)
 
 {
   uint uVar1;
@@ -68,24 +68,22 @@ void compute_two_normalized_ratios(int param_1,int param_2,uint param_3)
   uint16_t uStack_a;
   
   if ((param_3 & 0x10) != 0) {
-    iVar4 = **(int **)(param_1 + 0x30);
-    iVar4 = (**(code **)(iVar4 + 0x204))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar4 + 0x200));
-    iVar5 = **(int **)(param_1 + 0x30);
-    iVar5 = (**(code **)(iVar5 + 0x20c))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar5 + 0x208));
+    iVar4 = *(int *)param_1->field_0x30;
+    iVar4 = (((vtbl_entry*)(iVar4))[64].fn)((int)param_1->field_0x30 + (int)((vtbl_entry*)(iVar4))[64].adj);
+    iVar5 = *(int *)param_1->field_0x30;
+    iVar5 = (((vtbl_entry*)(iVar5))[65].fn)((int)param_1->field_0x30 + (int)((vtbl_entry*)(iVar5))[65].adj);
     uVar1 = iVar4 * iVar5;
     if (param_2 == -0x7ffffff5) {
-      *(uint8_t *)(param_1 + 0xa8) = 1;
+      param_1->field_0xa8 = 1;
     }
     else if (param_2 == -0x7ffffff4) {
-      *(uint8_t *)(param_1 + 0xa9) = 1;
+      param_1->field_0xa9 = 1;
     }
-    if (*(char *)(param_1 + 0xaa) == '\0') {
-      if ((*(char *)(param_1 + 0xa8) != '\0') && (*(char *)(param_1 + 0xa9) != '\0')) {
-        *(uint8_t *)(param_1 + 0xaa) = 1;
-        *(uint8_t *)(param_1 + 0xa8) = 0;
-        *(uint8_t *)(param_1 + 0xa9) = 0;
+    if (param_1->field_0xaa == '\0') {
+      if ((param_1->field_0xa8 != '\0') && (param_1->field_0xa9 != '\0')) {
+        param_1->field_0xaa = 1;
+        param_1->field_0xa8 = 0;
+        param_1->field_0xa9 = 0;
         iStack_a8 = 0;
         iStack_a4 = 0;
         uStack_a0 = 0;
@@ -110,8 +108,8 @@ void compute_two_normalized_ratios(int param_1,int param_2,uint param_3)
         uStack_5e = 0;
         uStack_5c = 0;
         uStack_5a = 0;
-        read_structured_fields_via_getters(*(uint32_t *)(param_1 + 0x28),*(uint32_t *)(param_1 + 0xec),&iStack_a8);
-        read_structured_fields_via_getters(*(uint32_t *)(param_1 + 0x28),*(uint32_t *)(param_1 + 0xf0),&iStack_80);
+        read_structured_fields_via_getters(param_1->field_0x28,*(uint32_t *)&param_1->field_0xec,&iStack_a8);
+        read_structured_fields_via_getters(param_1->field_0x28,param_1->field_0xf0,&iStack_80);
         uVar2 = (uVar1 - iStack_98) - iStack_94;
         if (uVar2 == 0) {
           uVar2 = uVar1;
@@ -120,23 +118,23 @@ void compute_two_normalized_ratios(int param_1,int param_2,uint param_3)
         if (uVar3 == 0) {
           uVar3 = uVar1;
         }
-        *(short *)(param_1 + 0xac) = (short)((uint)(iStack_a8 + iStack_a4) / uVar2);
-        *(short *)(param_1 + 0xae) = (short)((uint)(iStack_80 + iStack_7c) / uVar3);
-        if (*(char *)(*(int *)(param_1 + 0xf4) + 0x40) != '\0') {
-          append_bytes_to_ring_buffer(*(int *)(param_1 + 0xf4),0x1059d3dc/*ROM*/,0);
-          copy_stream_bytes_into_struct(*(uint32_t *)(param_1 + 0xf4),(void *)(*(uint16_t *)(param_1 + 0xac)),1,0);
-          append_newline_to_buffer(*(int *)(param_1 + 0xf4),0);
-          append_bytes_to_ring_buffer(*(int *)(param_1 + 0xf4),0x1059d3e4/*ROM*/,0);
-          copy_stream_bytes_into_struct(*(uint32_t *)(param_1 + 0xf4),(void *)(*(uint16_t *)(param_1 + 0xae)),1,0);
-          append_newline_to_buffer(*(int *)(param_1 + 0xf4),0);
+        param_1->field_0xac = (short)((uint)(iStack_a8 + iStack_a4) / uVar2);
+        param_1->field_0xae = (short)((uint)(iStack_80 + iStack_7c) / uVar3);
+        if (*(char *)(param_1->field_0xf4 + 0x40) != '\0') {
+          append_bytes_to_ring_buffer(param_1->field_0xf4,0x1059d3dc/*ROM*/,0);
+          copy_stream_bytes_into_struct(param_1->field_0xf4,(void*)(param_1->field_0xac),1,0);
+          append_newline_to_buffer(param_1->field_0xf4,0);
+          append_bytes_to_ring_buffer(param_1->field_0xf4,0x1059d3e4/*ROM*/,0);
+          copy_stream_bytes_into_struct(param_1->field_0xf4,(void*)(param_1->field_0xae),1,0);
+          append_newline_to_buffer(param_1->field_0xf4,0);
         }
       }
     }
-    else if (((*(char *)(param_1 + 0xa8) != '\0') && (*(char *)(param_1 + 0xa9) != '\0')) &&
-            (*(char *)(param_1 + 0xaa) != '\0')) {
-      *(uint8_t *)(param_1 + 0xab) = 1;
-      *(uint8_t *)(param_1 + 0xa8) = 0;
-      *(uint8_t *)(param_1 + 0xa9) = 0;
+    else if (((param_1->field_0xa8 != '\0') && (param_1->field_0xa9 != '\0')) &&
+            (param_1->field_0xaa != '\0')) {
+      param_1->field_0xab = 1;
+      param_1->field_0xa8 = 0;
+      param_1->field_0xa9 = 0;
       uStack_58 = 0;
       uStack_54 = 0;
       iStack_50 = 0;
@@ -161,8 +159,8 @@ void compute_two_normalized_ratios(int param_1,int param_2,uint param_3)
       uStack_e = 0;
       uStack_c = 0;
       uStack_a = 0;
-      read_structured_fields_via_getters(*(uint32_t *)(param_1 + 0x28),*(uint32_t *)(param_1 + 0xec),&uStack_58);
-      read_structured_fields_via_getters(*(uint32_t *)(param_1 + 0x28),*(uint32_t *)(param_1 + 0xf0),&uStack_30);
+      read_structured_fields_via_getters(param_1->field_0x28,*(uint32_t *)&param_1->field_0xec,&uStack_58);
+      read_structured_fields_via_getters(param_1->field_0x28,param_1->field_0xf0,&uStack_30);
       uVar2 = (uVar1 - iStack_3c) - iStack_40;
       if (uVar2 == 0) {
         uVar2 = uVar1;
@@ -171,20 +169,20 @@ void compute_two_normalized_ratios(int param_1,int param_2,uint param_3)
       if (uVar3 == 0) {
         uVar3 = uVar1;
       }
-      *(short *)(param_1 + 0xb2) = (short)((uint)(iStack_4c + iStack_50) / uVar2);
-      *(short *)(param_1 + 0xb0) = (short)((uint)(iStack_24 + iStack_28) / uVar3);
-      if (*(char *)(*(int *)(param_1 + 0xf4) + 0x40) != '\0') {
-        append_bytes_to_ring_buffer(*(int *)(param_1 + 0xf4),0x1059d3f0/*ROM*/,0);
-        copy_stream_bytes_into_struct(*(uint32_t *)(param_1 + 0xf4),(void *)(*(uint16_t *)(param_1 + 0xb2)),1,0);
-        append_newline_to_buffer(*(int *)(param_1 + 0xf4),0);
-        append_bytes_to_ring_buffer(*(int *)(param_1 + 0xf4),0x1059d3f8/*ROM*/,0);
-        copy_stream_bytes_into_struct(*(uint32_t *)(param_1 + 0xf4),(void *)(*(uint16_t *)(param_1 + 0xb0)),1,0);
-        append_newline_to_buffer(*(int *)(param_1 + 0xf4),0);
+      param_1->field_0xb2 = (short)((uint)(iStack_4c + iStack_50) / uVar2);
+      param_1->field_0xb0 = (short)((uint)(iStack_24 + iStack_28) / uVar3);
+      if (*(char *)(param_1->field_0xf4 + 0x40) != '\0') {
+        append_bytes_to_ring_buffer(param_1->field_0xf4,0x1059d3f0/*ROM*/,0);
+        copy_stream_bytes_into_struct(param_1->field_0xf4,(void*)(param_1->field_0xb2),1,0);
+        append_newline_to_buffer(param_1->field_0xf4,0);
+        append_bytes_to_ring_buffer(param_1->field_0xf4,0x1059d3f8/*ROM*/,0);
+        copy_stream_bytes_into_struct(param_1->field_0xf4,(void*)(param_1->field_0xb0),1,0);
+        append_newline_to_buffer(param_1->field_0xf4,0);
       }
     }
-    if ((*(char *)(param_1 + 0xaa) != '\0') && (*(char *)(param_1 + 0xab) != '\0')) {
-      *(uint8_t *)(param_1 + 0xaa) = 0;
-      *(uint8_t *)(param_1 + 0xab) = 0;
+    if ((param_1->field_0xaa != '\0') && (param_1->field_0xab != '\0')) {
+      param_1->field_0xaa = 0;
+      param_1->field_0xab = 0;
     }
   }
   return;

@@ -10,7 +10,7 @@ void increment_field_and_invoke_virtual(int param_1,int param_2)
 
 {
   *(int *)(param_1 + 0x10) = *(int *)(param_1 + 0x10) + param_2;
-  (**(code **)(*(int *)(param_1 + 0x18) + 0x1c))
-            (*(short *)(*(int *)(param_1 + 0x18) + 0x18) + param_1);
+  (((vtbl_entry*)(*(int *)(param_1 + 0x18)))[3].fn)
+            (((vtbl_entry*)(*(int *)(param_1 + 0x18)))[3].adj + param_1);
   return;
 }

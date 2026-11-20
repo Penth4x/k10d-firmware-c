@@ -39,7 +39,7 @@ void compute_and_write_scaled_offset(ushort *param_1)
   uStack_11 = *(uint8_t *)((int)param_1 + 0x19);
   (*(code *)0x1048cc66/*ROM*/)(*(uint32_t *)(param_1 + 0x14),param_1 + 2,*param_1,param_1[1]);
   iVar6 = *(int *)(*(int *)(param_1 + 0x14) + 0x20);
-  (**(code **)(iVar6 + 0x14))(*(int *)(param_1 + 0x14) + (int)*(short *)(iVar6 + 0x10));
+  (((vtbl_entry*)(iVar6))[2].fn)(*(int *)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar6))[2].adj);
   uVar3 = (uint)param_1[0x12];
   if (uVar3 == 0) {
     uVar4 = *(uint32_t *)(param_1 + 0x16);

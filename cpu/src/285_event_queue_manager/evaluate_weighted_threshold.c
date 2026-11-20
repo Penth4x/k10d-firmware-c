@@ -33,7 +33,7 @@ uint32_t evaluate_weighted_threshold(int param_1,void *param_2,int param_3)
   do {
     iVar2 = param_1 + 0x1054 + uVar5 * 0x20c;
     iVar7 = *(int *)(iVar2 + 0x208);
-    uVar3 = (**(code **)(iVar7 + 0x1c))(iVar2 + *(short *)(iVar7 + 0x18));
+    uVar3 = (((vtbl_entry*)(iVar7))[3].fn)(iVar2 + ((vtbl_entry*)(iVar7))[3].adj);
     local_48[uVar5] = uVar3 & 0xffff;
     uVar6 = (uVar3 & 0xffff) + uVar6;
     uVar5 = uVar5 + 1 & 0xff;

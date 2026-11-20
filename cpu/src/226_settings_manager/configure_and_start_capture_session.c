@@ -84,7 +84,7 @@ uint32_t configure_and_start_capture_session(int param_1,int param_2,uint32_t *p
               *(uint32_t *)(param_1 + 0x80) = *(uint32_t *)(param_1 + 0x8c4);
               *(uint32_t *)(param_1 + 0x84) = *(uint32_t *)(param_1 + 0x8c8);
               *(uint32_t *)(param_1 + 0x224) = 0;
-              iVar1 = invoke_virtual_method_on_object_104bfa34(param_1,param_1,(int)piVar5);
+              iVar1 = invoke_virtual_method_on_object_104bfa34((int)(param_1),(uint32_t)(param_1),(uint32_t)(piVar5));
               uVar6 = 0;
               if (iVar1 != 0) {
                 return 1;

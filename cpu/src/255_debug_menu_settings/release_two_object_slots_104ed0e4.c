@@ -15,28 +15,32 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_two_object_slots_104ed0e4(int param_1)
+void release_two_object_slots_104ed0e4(cls_105c2b94 *param_1)
 
 {
   int iVar1;
   
-  if (*(int *)(param_1 + 4) != 0) {
-    iVar1 = **(int **)(param_1 + 4);
-    (**(code **)(iVar1 + 0x24))((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar1 + 0x20));
+  if (param_1->field_0x4 != 0) {
+    iVar1 = *(int *)param_1->field_0x4;
+    (((vtbl_entry*)(iVar1))[4].fn)
+              ((void *)((int)param_1->field_0x4 + (int)((vtbl_entry*)(iVar1))[4].adj));
   }
-  if (*(int *)(param_1 + 4) != 0) {
-    iVar1 = **(int **)(param_1 + 4);
-    (**(code **)(iVar1 + 0xc))((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar1 + 8),3);
+  if (param_1->field_0x4 != 0) {
+    iVar1 = *(int *)param_1->field_0x4;
+    (((vtbl_entry*)(iVar1))[1].fn)
+              ((void *)((int)param_1->field_0x4 + (int)*(short *)(iVar1 + 8)),3);
   }
-  *(uint32_t *)(param_1 + 4) = 0;
-  if (*(int *)(param_1 + 8) != 0) {
-    iVar1 = **(int **)(param_1 + 8);
-    (**(code **)(iVar1 + 0x24))((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar1 + 0x20));
+  param_1->field_0x4 = (uintptr_t)((void *)0x0);
+  if (param_1->field_0x8 != 0) {
+    iVar1 = *(int *)param_1->field_0x8;
+    (((vtbl_entry*)(iVar1))[4].fn)
+              ((void *)((int)param_1->field_0x8 + (int)((vtbl_entry*)(iVar1))[4].adj));
   }
-  if (*(int *)(param_1 + 8) != 0) {
-    iVar1 = **(int **)(param_1 + 8);
-    (**(code **)(iVar1 + 0xc))((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar1 + 8),3);
+  if (param_1->field_0x8 != 0) {
+    iVar1 = *(int *)param_1->field_0x8;
+    (((vtbl_entry*)(iVar1))[1].fn)
+              ((void *)((int)param_1->field_0x8 + (int)*(short *)(iVar1 + 8)),3);
   }
-  *(uint32_t *)(param_1 + 8) = 0;
+  param_1->field_0x8 = (uintptr_t)((void *)0x0);
   return;
 }

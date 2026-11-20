@@ -92,7 +92,7 @@ int process_sensor_readout_request_104e6a1e(uint32_t param_1,uint param_2)
                      (iVar1 = allocate_and_link_event_node_105382e4((int)pvVar4,uVar5,(int *)&piStack_80,piStack_1c),
                      iVar1 == 0)) {
                     uStack_18 = param_2 & 0x200;
-                    if ((uStack_18 == 0) || (iVar1 = func_0x104e6e08(pvVar4,piStack_1c), iVar1 == 0)
+                    if ((uStack_18 == 0) || (iVar1 = init_struct_and_dispatch((int)(pvVar4),(void *)(piStack_1c)), iVar1 == 0)
                        ) {
                       uStack_78 = 1;
                       uStack_7a = (uint16_t)param_2;

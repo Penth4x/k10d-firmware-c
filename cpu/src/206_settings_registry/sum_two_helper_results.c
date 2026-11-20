@@ -15,13 +15,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-int sum_two_helper_results(void *param_1)
+int sum_two_helper_results(cls_105b6aa0 *param_1)
 
 {
   int iVar1;
   int iVar2;
   
   iVar1 = read_two_bytes_from_heap_offset(__frv_reg_unset(4));
-  iVar2 = sum_two_values_plus_six(*(void **)((int)param_1 + 4));
+  iVar2 = sum_two_values_plus_six((char*)(param_1) ->field_0x4);
   return iVar1 + iVar2;
 }

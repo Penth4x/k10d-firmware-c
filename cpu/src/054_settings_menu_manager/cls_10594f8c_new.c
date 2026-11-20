@@ -27,7 +27,7 @@ int cls_10594f8c_new(uint32_t *param_1)
     param_1[6] = 0;
     param_1[7] = 0;
     param_1[8] = 0;
-    zero_init_six_bytes((void *)(param_1 + 9));
+    zero_init_six_bytes(param_1 + 9);
     param_1[0xb] = 0;
     *(uint8_t *)(param_1 + 0xc) = 0;
     *(uint8_t *)((int)param_1 + 0x31) = 0;
@@ -37,8 +37,8 @@ int cls_10594f8c_new(uint32_t *param_1)
     *(uint8_t *)((int)param_1 + 0x35) = 0;
     *(uint8_t *)((int)param_1 + 0x36) = 0;
     *(uint8_t *)((int)param_1 + 0x37) = 0;
-    (**(code **)(param_1[4] + 0x14))((int)*(short *)(param_1[4] + 0x10) + (int)param_1);
-    (**(code **)(param_1[4] + 0x1c))((int)*(short *)(param_1[4] + 0x18) + (int)param_1);
+    (((vtbl_entry*)(param_1[4]))[2].fn)((int)((vtbl_entry*)(param_1[4]))[2].adj + (int)param_1);
+    (((vtbl_entry*)(param_1[4]))[3].fn)((int)((vtbl_entry*)(param_1[4]))[3].adj + (int)param_1);
     instantiate_and_link_object_graph_103be3a4(param_1,extraout_r5,r6_in,r7_in);
   }
   return (int)param_1;

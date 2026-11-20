@@ -34,15 +34,15 @@ int iterate_and_process_entries(char *param_1,uint16_t *param_2,int *param_3,int
   uVar5 = 0;
   if (*(int *)(param_2 + 2) != 0) {
     do {
-      iVar1 = (**(code **)(*param_4 + 0x4c))
-                        ((int)*(short *)(*param_4 + 0x48) + (int)param_4,*param_2);
-      piVar2 = (int *)(**(code **)(*param_4 + 0x3c))
-                                ((int)*(short *)(*param_4 + 0x38) + (int)param_4,*param_2);
+      iVar1 = (((vtbl_entry*)(*param_4))[9].fn)
+                        ((int)((vtbl_entry*)(*param_4))[9].adj + (int)param_4,*param_2);
+      piVar2 = (int *)(((vtbl_entry*)(*param_4))[7].fn)
+                                ((int)((vtbl_entry*)(*param_4))[7].adj + (int)param_4,*param_2);
       iVar3 = read_table_entry_by_index(param_2,uVar5);
       if (((iVar1 != 0) && (piVar2 != (int *)0xffffffff)) && (iVar3 != 0)) {
         *piVar6 = iVar1;
         pvVar4 = (void *)iterate_and_process_object_list(param_1,piVar2,iVar3,param_3,(int *)*piVar6);
-        if (pvVar4 == (void *)0x0) {
+        if (pvVar4 == 0) {
           iStack_14 = 0;
         }
         else {

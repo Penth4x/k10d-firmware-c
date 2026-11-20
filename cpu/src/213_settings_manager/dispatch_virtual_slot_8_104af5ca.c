@@ -25,7 +25,7 @@ int dispatch_virtual_slot_8_104af5ca(int *param_1,uint32_t param_2,uint32_t para
   if (iVar1 == 0) {
     call_subroutine_on_field_16_104ea70a((void *)param_1[1]);
     iVar2 = *(int *)(*param_1 + 4);
-    iVar2 = (**(code **)(iVar2 + 0x44))(*param_1 + (int)*(short *)(iVar2 + 0x40),param_2,param_3);
+    iVar2 = (((vtbl_entry*)(iVar2))[8].fn)(*param_1 + (int)((vtbl_entry*)(iVar2))[8].adj,param_2,param_3);
     if (iVar2 == 0) {
       iVar1 = 9;
     }

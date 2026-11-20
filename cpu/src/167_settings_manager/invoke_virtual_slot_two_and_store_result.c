@@ -24,8 +24,8 @@ uint32_t invoke_virtual_slot_two_and_store_result(int param_1,uint32_t param_2,u
   piVar1 = (int *)call_helper_with_offset_pointer_104752e2(*(int *)(param_1 + 8));
   uVar2 = 0;
   if (piVar1 != (int *)0x0) {
-    uVar2 = (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1);
-    copy_8_byte_block_if_valid(param_3,(void *)uVar2);
+    uVar2 = (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1);
+    copy_8_byte_block_if_valid(param_3,(void*)(uVar2));
     uVar2 = update_state_on_mismatch(*(uint32_t *)(param_1 + 0xc),param_3);
   }
   return uVar2;

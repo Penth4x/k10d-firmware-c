@@ -17,6 +17,6 @@
 void call_helper_with_offset_0x18_1050949e(int param_1,uint32_t param_2)
 
 {
-  set_object_flag_bits_0x110(*(uint32_t *)(param_1 + 0x18),0,param_2);
+  set_object_flag_bits_0x110((int *)(*(uint32_t *)(param_1 + 0x18)),(int)(0),(int)(param_2));
   return;
 }

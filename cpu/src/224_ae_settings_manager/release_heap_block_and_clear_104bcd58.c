@@ -6,16 +6,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_heap_block_and_clear_104bcd58(uint32_t *param_1)
+void release_heap_block_and_clear_104bcd58(cls_105b934c *param_1)
 
 {
   void *pvVar1;
   
-  if (param_1[1] != 0) {
+  if (param_1->field_0x4 != 0) {
     pvVar1 = (void *)get_system_heap();
-    mempool_release_block(pvVar1,(void *)param_1[1]);
+    mempool_release_block(pvVar1,(char*)(param_1) ->field_0x4);
   }
-  *param_1 = 0;
-  param_1[1] = 0;
+  param_1->field_0x0 = 0;
+  param_1->field_0x4 = 0;
   return;
 }

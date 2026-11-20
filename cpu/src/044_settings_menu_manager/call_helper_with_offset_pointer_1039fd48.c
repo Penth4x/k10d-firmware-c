@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_offset_pointer_1039fd48(int param_1)
+void call_helper_with_offset_pointer_1039fd48(cls_105992d4 *param_1)
 
 {
-  request_ui_sync_code_4((void *)(param_1 + 8));
+  request_ui_sync_code_4(&param_1->field_0x8);
   return;
 }

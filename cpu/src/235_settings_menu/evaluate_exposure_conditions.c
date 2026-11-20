@@ -63,7 +63,7 @@ uint32_t evaluate_exposure_conditions(int param_1)
     }
   }
   else {
-    iVar6 = init_buffer_with_pool_alloc((void *)(*(uint32_t *)(param_1 + 0x124)),*(uint32_t *)(param_1 + 0x108));
+    iVar6 = init_buffer_with_pool_alloc((int *)(*(uint32_t *)(param_1 + 0x124)),(int)(*(uint32_t *)(param_1 + 0x108)));
     if (iVar6 == 0) {
       if (*(int *)(param_1 + 0x108) == 0) {
         uVar1 = 0;
@@ -95,7 +95,7 @@ uint32_t evaluate_exposure_conditions(int param_1)
       *piVar10 = 1;
       iVar6 = process_two_point_pair(param_1,puVar5,auStack_10,iVar6,*piVar10);
       if (iVar6 == 0) goto code_r0x104c9b64;
-      iVar6 = init_buffer_with_pool_alloc((void *)(*(uint32_t *)(param_1 + 0x120)),*(uint32_t *)(param_1 + 0x100));
+      iVar6 = init_buffer_with_pool_alloc((int *)(*(uint32_t *)(param_1 + 0x120)),(int)(*(uint32_t *)(param_1 + 0x100)));
       if (iVar6 == 0) {
         if (*(int *)(param_1 + 0x100) == 0) {
           uVar1 = 0;
@@ -132,7 +132,7 @@ uint32_t evaluate_exposure_conditions(int param_1)
             *(short *)(param_1 + 0x1da) = (short)((int)(uint)*(ushort *)(param_1 + 0x1d2) >> 2);
             *(short *)(param_1 + 0x1dc) = (short)((int)(uint)*(ushort *)(param_1 + 0x1d4) >> 2);
             *(short *)(param_1 + 0x1de) = (short)((int)(uint)*(ushort *)(param_1 + 0x1d6) >> 2);
-            iVar6 = init_buffer_with_pool_alloc((void *)(*(uint32_t *)(param_1 + 0x11c)),*(uint32_t *)(param_1 + 0xf8));
+            iVar6 = init_buffer_with_pool_alloc((int *)(*(uint32_t *)(param_1 + 0x11c)),(int)(*(uint32_t *)(param_1 + 0xf8)));
             if (iVar6 == 0) {
               if (*(int *)(param_1 + 0xf8) == 0) {
                 uVar1 = 0;

@@ -26,12 +26,12 @@ void handle_state_two_event(uint32_t param_1,int *param_2,uint32_t param_3)
   
   iVar1 = (*(code *)0x104d6dbc/*ROM*/)(param_3);
   if (iVar1 == 2) {
-    append_string_to_buffer(param_2,(void *)0x105baf60/*ROM*/);
+    append_string_to_buffer((int *)(param_2),(char *)(0x105baf60/*ROM*/));
     add_offset_to_pointer_104d6882(param_3);
     iVar1 = (*(code *)0x104d8b20/*ROM*/)();
     uVar2 = call_subroutine_with_field_9c(iVar1);
-    build_and_apply_param_string(param_2,(void *)uVar2,1,(void *)r7_in);
-    append_string_to_buffer(param_2,(void *)0x105baf6c/*ROM*/);
+    build_and_apply_param_string((int *)(param_2),(void *)(uVar2),(int)(1),(void *)(r7_in));
+    append_string_to_buffer((int *)(param_2),(char *)(0x105baf6c/*ROM*/));
   }
   return;
 }

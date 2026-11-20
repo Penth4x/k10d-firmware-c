@@ -20,6 +20,6 @@ void call_three_init_routines_104af1dc(uint32_t *param_1)
 {
   get_or_init_sram_buffer_104ae40c();
   (*(code *)0x104ae780/*ROM*/)();
-  initialize_object_and_call_virtual_slot_2(*param_1);
+  initialize_object_and_call_virtual_slot_2((uint32_t *)(*param_1));
   return;
 }

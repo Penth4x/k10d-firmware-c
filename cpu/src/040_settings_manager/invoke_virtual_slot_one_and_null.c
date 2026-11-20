@@ -21,7 +21,7 @@ void invoke_virtual_slot_one_and_null(int *param_1)
   
   piVar1 = (int *)*param_1;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+    (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
   }
   *param_1 = 0;
   return;

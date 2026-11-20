@@ -17,10 +17,10 @@ write_two_buffer_blocks(int param_1,uint32_t param_2,uint32_t param_3,void *para
   int iVar4;
   
   iVar4 = *(int *)(param_1 + 0x70);
-  iVar2 = (**(code **)(param_1 + 0x58))(*(uint32_t *)(param_1 + 0x60),param_2,1,iVar4 + 4);
+  iVar2 = (((vtbl_entry*)(param_1))[11].fn)(*(uint32_t *)(param_1 + 0x60),param_2,1,iVar4 + 4);
   if (iVar2 == 0) {
     memcpy_bytes((void *)(iVar4 + 4 + param_6),param_4,param_5);
-    iVar2 = (**(code **)(param_1 + 0x5c))(*(uint32_t *)(param_1 + 0x60),param_3,1,iVar4 + 4);
+    iVar2 = (((vtbl_entry*)(param_1))[11].fn)(*(uint32_t *)(param_1 + 0x60),param_3,1,iVar4 + 4);
     uVar3 = 0;
     if (iVar2 != 0) {
       if (iVar2 == -1000) {

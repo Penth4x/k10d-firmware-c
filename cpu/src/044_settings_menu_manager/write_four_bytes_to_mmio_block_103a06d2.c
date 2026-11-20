@@ -16,16 +16,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t write_four_bytes_to_mmio_block_103a06d2(int param_1)
+uint32_t write_four_bytes_to_mmio_block_103a06d2(cls_10564530 *param_1)
 
 {
-  void *pvVar1;
+  uint8_t *puVar1;
   
-  pvVar1 = (void *)(param_1 + 8);
-  call_helper_on_fetched_object(pvVar1,0x10);
-  call_helper_on_fetched_object(pvVar1,0xf);
-  call_helper_on_fetched_object(pvVar1,0xe);
-  call_helper_on_fetched_object(pvVar1,0xd);
-  clear_struct_field_at_offset_8(param_1);
+  puVar1 = &param_1->field5_0x8;
+  call_helper_on_fetched_object(puVar1,0x10);
+  call_helper_on_fetched_object(puVar1,0xf);
+  call_helper_on_fetched_object(puVar1,0xe);
+  call_helper_on_fetched_object(puVar1,0xd);
+  clear_struct_field_at_offset_8((cls_10564e90 *)param_1);
   return 0;
 }

@@ -39,12 +39,12 @@ void log_buffer_allocation_result(int param_1,uint param_2,void *param_3)
   *piVar5 = (int)&ppvStack_c;
   pvVar2 = param_3;
   compute_division_quotient_remainder(&uStack_11,param_2,(uint)param_3,(uint *)ppvVar4,(uint *)*piVar5);
-  if (param_3 == (void *)0x0) {
+  if (param_3 == 0) {
     pcVar3 = (char *)0x10559f8c/*ROM*/;
   }
   else {
     pvVar2 = pvStack_10;
-    if ((pvStack_10 == (void *)0x0) && (ppvStack_c == (void **)0x0)) {
+    if ((pvStack_10 == 0) && (ppvStack_c == (void **)0x0)) {
       pcVar3 = (char *)0x10559f94/*ROM*/;
     }
     else if (pvStack_10 < (void *)0xa) {
@@ -66,7 +66,7 @@ void log_buffer_allocation_result(int param_1,uint param_2,void *param_3)
   copy_string_with_limit((char *)0x80019823/*SDRAM*/,(void *)0x10559fb8/*ROM*/,4 - iVar1);
   pvVar2 = (void *)menu_item_register(param_1);
   glyph_draw(pvVar2,(byte *)0x80019823/*SDRAM*/);
-  (**(code **)(*(int *)((int)pvVar2 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar2 + 0xc)))[1].fn)
             ((int)pvVar2 + (int)*(short *)(*(int *)((int)pvVar2 + 0xc) + 8),1);
   free_heap_if_flagged_10409d0a(&uStack_11,2);
   return;

@@ -33,7 +33,7 @@ uint32_t process_object_state_transition_10448bfc(void *param_1)
           if (*(char *)((int)param_1 + 0xf8) != '\0') {
             if (*(int *)((int)param_1 + 0x3c4) == 0) {
               *(uint8_t *)((int)param_1 + 0xf8) = 0;
-              set_object_flag_bit2_1044ad88(*(void **)((int)param_1 + 0x110),0);
+              set_object_flag_bit2_1044ad88((uint32_t *)(*(uint32_t *)((int)param_1 + 0x110)),(int)(0));
               update_object_field_with_guard(param_1,*(uint *)((int)param_1 + 0xec) >> 1);
             }
             else if (*(int *)((int)param_1 + 0x3c4) == 1) {

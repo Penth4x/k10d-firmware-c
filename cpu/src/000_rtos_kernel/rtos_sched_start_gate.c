@@ -53,7 +53,7 @@ void rtos_sched_start_gate(void)
   if (0 < DAT_10011d18/*ROM*/) {
     iVar2 = 0;
     do {
-      (**(code **)(PTR_DAT_10011cb8 + iVar2 + 8))(1,0,0,*(uint32_t *)(PTR_DAT_10011cb8 + 4));
+      (((vtbl_entry*)((char*)PTR_DAT_10011cb8 + iVar2))[1].fn)(1,0,0,*(uint32_t *)((char*)PTR_DAT_10011cb8 + 4));
       iVar1 = iVar1 + 1;
       iVar2 = iVar2 + 0xc;
     } while (iVar1 < DAT_10011d18/*ROM*/);

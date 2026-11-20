@@ -13,43 +13,43 @@
 #include "globals.h"
 #include "funcs.h"
 
-void loop_until_flag_clear(int param_1)
+void loop_until_flag_clear(cls_1059be70 *param_1)
 
 {
   uint32_t uVar1;
   
   do {
-    *(uint32_t *)(param_1 + 0x10) = 1;
+    param_1->field_0x10 = 1;
     check_kernel_call_success_10459fea();
-    set_flag3_with_notify(*(void **)(param_1 + 0x60));
+    set_flag3_with_notify((char*)(param_1) ->field_0x60);
     check_kernel_call_success_10459fea();
-    set_flag_with_notify(*(void **)(param_1 + 0x3c));
-    send_two_word_pair_over_ch2(param_1,0,0,1);
-    write_two_byte_pair_to_ch2(param_1,0x1400,1);
-    *(char *)(param_1 + 0xbc) = (char)((int)(uint)*(byte *)(param_1 + 0x1e) >> 6);
+    set_flag_with_notify((char*)(param_1) ->field_0x3c);
+    send_two_word_pair_over_ch2((int)(param_1),(uint32_t)(0),(uint32_t)(0),(int)(1));
+    write_two_byte_pair_to_ch2((int)(param_1),(uint32_t)(0x1400),(int)(1));
+    param_1->field_0xbc = (char)((int)(uint)(byte)param_1->field_0x1e >> 6);
     empty_stub_function_103b76f0();
-    *(bool *)(param_1 + 0xbd) = *(char *)(param_1 + 0xbc) == '\x02';
-    if (*(char *)(param_1 + 0xbd) == '\0') {
-      send_two_byte_pairs_over_ch2(param_1,0x44,0x800,0x800);
+    param_1->field_0xbd = param_1->field_0xbc == '\x02';
+    if (param_1->field_0xbd == '\0') {
+      send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(0x44),(int)(0x800),(int)(0x800));
       uVar1 = 0x44;
     }
     else {
-      send_two_byte_pairs_over_ch2(param_1,0x4b,1,1);
+      send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(0x4b),(int)(1),(int)(1));
       uVar1 = 0x4b;
     }
-    send_two_byte_pairs_over_ch2(param_1,uVar1,0,0);
-    send_two_byte_pairs_over_ch2(param_1,0,0x8700,0x8700);
-    send_two_byte_pairs_over_ch2(param_1,0,0,0);
-    send_two_byte_pairs_over_ch2(param_1,0x800,0x7f,0x7f);
-    send_two_byte_pairs_over_ch2(param_1,0x800,0,0);
-    init_sensor_readout_params(param_1);
-    if (*(char *)(param_1 + 0xce) != '\0') {
-      (**(code **)(*(int *)(param_1 + 4) + 0x7c))
-                (*(short *)(*(int *)(param_1 + 4) + 0x78) + param_1,0);
+    send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(uVar1),(int)(0),(int)(0));
+    send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(0),(int)(0x8700),(int)(0x8700));
+    send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(0),(int)(0),(int)(0));
+    send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(0x800),(int)(0x7f),(int)(0x7f));
+    send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(0x800),(int)(0),(int)(0));
+    init_sensor_readout_params((int)(param_1));
+    if (param_1->field_0xce != '\0') {
+      (((vtbl_entry*)(param_1->field_0x4))[15].fn)
+                (&param_1->field_0x0 + ((vtbl_entry*)(param_1->field_0x4))[15].adj,0);
       check_kernel_call_success_10459fea();
-      (**(code **)(*(int *)(param_1 + 4) + 0x7c))
-                (*(short *)(*(int *)(param_1 + 4) + 0x78) + param_1,1);
+      (((vtbl_entry*)(param_1->field_0x4))[15].fn)
+                (&param_1->field_0x0 + ((vtbl_entry*)(param_1->field_0x4))[15].adj,1);
     }
-  } while (*(char *)(param_1 + 0xce) != '\0');
+  } while (param_1->field_0xce != '\0');
   return;
 }

@@ -15,11 +15,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void issue_sequential_config_commands(ushort *param_1)
+void issue_sequential_config_commands(cls_105d71e4 *param_1)
 
 {
-  ushort uVar1;
-  ushort uVar2;
+  short sVar1;
+  uint16_t uVar2;
   byte bVar3;
   uint uVar4;
   ushort uVar5;
@@ -31,48 +31,49 @@ void issue_sequential_config_commands(ushort *param_1)
   uint8_t auStackY_24 [2];
   
   puVar9 = auStackY_24;
-  if (*(int *)(param_1 + 2) != 0) {
-    dispatch_virtual_call_via_vtable((int)param_1,(uint)*param_1,(uint)param_1[1],0x120,0x78,0);
-    uVar6 = *param_1;
-    uVar5 = param_1[1];
+  if (param_1->field_0x4 != 0) {
+    dispatch_virtual_call_via_vtable((int)param_1,(uint)(ushort)param_1->field_0x0,(uint)(ushort)param_1->field_0x2,
+                 0x120,0x78,0);
+    sVar1 = param_1->field_0x0;
+    uVar6 = param_1->field_0x2;
     *(uint16_t *)(puVar9 + 2) = 0x78;
     *(uint16_t *)(puVar9 + 6) = 0xe;
-    dispatch_virtual_call_via_vtable((int)param_1,(uint)(ushort)(uVar6 + 0x48),(uint)uVar5,0x48,
+    dispatch_virtual_call_via_vtable((int)param_1,(uint)(ushort)(sVar1 + 0x48),(uint)uVar6,0x48,
                  *(uint16_t *)(puVar9 + 2),*(uint16_t *)(puVar9 + 6));
-    uVar6 = *param_1;
-    uVar5 = param_1[1];
+    sVar1 = param_1->field_0x0;
+    uVar6 = param_1->field_0x2;
     *(uint16_t *)(puVar9 + 2) = 0x78;
     *(uint16_t *)(puVar9 + 6) = 0xe;
-    dispatch_virtual_call_via_vtable((int)param_1,(uint)(ushort)(uVar6 + 0xd8),(uint)uVar5,0x48,
+    dispatch_virtual_call_via_vtable((int)param_1,(uint)(ushort)(sVar1 + 0xd8),(uint)uVar6,0x48,
                  *(uint16_t *)(puVar9 + 2),*(uint16_t *)(puVar9 + 6));
-    uVar6 = *param_1;
-    uVar5 = param_1[1];
+    uVar6 = param_1->field_0x0;
+    uVar5 = param_1->field_0x2;
     *(uint16_t *)(puVar9 + 2) = 2;
     *(uint16_t *)(puVar9 + 6) = 8;
     dispatch_virtual_call_via_vtable((int)param_1,(uint)uVar6,(uint)uVar5,0x120,*(uint16_t *)(puVar9 + 2),
                  *(uint16_t *)(puVar9 + 6));
-    uVar5 = param_1[1];
-    uVar6 = *param_1;
+    sVar1 = param_1->field_0x2;
+    uVar6 = param_1->field_0x0;
     *(uint16_t *)(puVar9 + 2) = 2;
     *(uint16_t *)(puVar9 + 6) = 8;
-    dispatch_virtual_call_via_vtable((int)param_1,(uint)uVar6,(uint)(ushort)(uVar5 + 0x76),0x120,
+    dispatch_virtual_call_via_vtable((int)param_1,(uint)uVar6,(uint)(ushort)(sVar1 + 0x76),0x120,
                  *(uint16_t *)(puVar9 + 2),*(uint16_t *)(puVar9 + 6));
-    uVar6 = *param_1;
-    uVar5 = param_1[1];
+    uVar6 = param_1->field_0x0;
+    uVar5 = param_1->field_0x2;
     *(uint16_t *)(puVar9 + 2) = 0x78;
     *(uint16_t *)(puVar9 + 6) = 8;
     dispatch_virtual_call_via_vtable((int)param_1,(uint)uVar6,(uint)uVar5,2,*(uint16_t *)(puVar9 + 2),
                  *(uint16_t *)(puVar9 + 6));
-    uVar6 = *param_1;
-    uVar5 = param_1[1];
+    sVar1 = param_1->field_0x0;
+    uVar6 = param_1->field_0x2;
     *(uint16_t *)(puVar9 + 2) = 0x78;
     *(uint16_t *)(puVar9 + 6) = 8;
-    dispatch_virtual_call_via_vtable((int)param_1,(uint)(ushort)(uVar6 + 0x11e),(uint)uVar5,2,
+    dispatch_virtual_call_via_vtable((int)param_1,(uint)(ushort)(sVar1 + 0x11e),(uint)uVar6,2,
                  *(uint16_t *)(puVar9 + 2),*(uint16_t *)(puVar9 + 6));
-    uVar4 = (uint)*(ushort *)((int)*(uint32_t **)(param_1 + 0x12) + 6);
-    pbVar7 = (byte *)**(uint32_t **)(param_1 + 0x12);
+    uVar4 = (uint)*(ushort *)((int)*(uint32_t **)&param_1->field_0x24 + 6);
+    pbVar7 = (byte *)**(uint32_t **)&param_1->field_0x24;
     iVar8 = 0;
-    uVar6 = *param_1 + 4;
+    uVar6 = param_1->field_0x0 + 4;
     if (uVar4 != 0) {
       do {
         bVar3 = *pbVar7;
@@ -81,11 +82,11 @@ void issue_sequential_config_commands(ushort *param_1)
         if ((bVar3 & 1) != 0) {
           uVar5 = uVar5 + 1;
         }
-        uVar1 = param_1[1];
-        uVar2 = param_1[0x16];
+        sVar1 = param_1->field_0x2;
+        uVar2 = param_1->field_0x2c;
         *(ushort *)(puVar9 + 2) = uVar5;
-        *(ushort *)(puVar9 + 6) = uVar2;
-        dispatch_virtual_call_via_vtable((int)param_1,(uint)uVar6,(uint)(ushort)((uVar1 - uVar5) + 0x74),2,
+        *(uint16_t *)(puVar9 + 6) = uVar2;
+        dispatch_virtual_call_via_vtable((int)param_1,(uint)uVar6,(uint)(ushort)((sVar1 - uVar5) + 0x74),2,
                      *(uint16_t *)(puVar9 + 2),*(uint16_t *)(puVar9 + 6));
         uVar6 = uVar6 + 1;
         iVar8 = iVar8 + 1;

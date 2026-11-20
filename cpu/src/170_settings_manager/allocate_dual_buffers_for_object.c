@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t allocate_dual_buffers_for_object(void *param_1,int param_2,int param_3)
+uint32_t allocate_dual_buffers_for_object(cls_105aae94 *param_1,int param_2,int param_3)
 
 {
   int iVar1;
@@ -25,17 +25,17 @@ uint32_t allocate_dual_buffers_for_object(void *param_1,int param_2,int param_3)
   uint32_t uVar4;
   
   uVar4 = 0;
-  iVar1 = allocate_pool_block_if_null((int *)__frv_reg_unset(4),__frv_reg_unset(5),(void *)__frv_reg_unset(6));
+  iVar1 = allocate_pool_block_if_null((cls_105aaebc *)param_1,param_2,(void *)param_3);
   if (iVar1 != 0) {
     pvVar2 = (void *)get_system_heap();
     uVar3 = mempool_get_block(pvVar2,(void *)(param_3 << 2),param_2);
-    *(uint32_t *)((int)param_1 + 0x10) = uVar3;
+    param_1->field_0x10 = uVar3;
     pvVar2 = (void *)get_system_heap();
     iVar1 = mempool_get_block(pvVar2,(void *)(param_3 << 2),param_2);
-    *(int *)((int)param_1 + 0x14) = iVar1;
-    if ((*(int *)((int)param_1 + 0x10) == 0) || (iVar1 == 0)) {
-      (**(code **)(*(int *)((int)param_1 + 0xc) + 0x1c))
-                ((int)*(short *)(*(int *)((int)param_1 + 0xc) + 0x18) + (int)param_1);
+    param_1->field_0x14 = iVar1;
+    if ((param_1->field_0x10 == 0) || (iVar1 == 0)) {
+      (((vtbl_entry*)(param_1->field_0xc))[3].fn)
+                ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0xc))[3].adj);
     }
     else {
       uVar4 = 1;

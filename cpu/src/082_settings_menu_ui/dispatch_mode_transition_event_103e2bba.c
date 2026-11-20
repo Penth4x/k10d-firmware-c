@@ -18,7 +18,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_mode_transition_event_103e2bba(int *param_1,int param_2)
+uint32_t dispatch_mode_transition_event_103e2bba(cls_10596dc4 *param_1,int param_2)
 
 {
   uint uVar1;
@@ -29,16 +29,16 @@ uint32_t dispatch_mode_transition_event_103e2bba(int *param_1,int param_2)
   uintptr_t sp;
   uint32_t auStack_34 [11];
   
-  iVar3 = menu_item_register(*param_1);
+  iVar3 = menu_item_register((int)param_1->field_0x0);
   uVar5 = 0x181000f;
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
-  iVar3 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
+  iVar3 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
   if (param_2 == 0x181002c) {
-    *(uint8_t *)((int)param_1 + 0x26) = 0;
-    param_1[8] = 0;
+    param_1->field_0x26 = 0;
+    *(uint32_t *)&param_1->field_0x20 = 0;
     iVar3 = get_setting_by_index((int)param_1,0x10);
-    *(char *)(param_1 + 9) = (char)iVar3;
+    param_1->field_0x24 = (char)iVar3;
     if (iVar3 < 5) {
       uVar5 = 0x181002a;
     }
@@ -56,7 +56,7 @@ uint32_t dispatch_mode_transition_event_103e2bba(int *param_1,int param_2)
     auStack_34[6] = 0x1810020;
     auStack_34[7] = 0x1810022;
     auStack_34[8] = 0x1810024;
-    if (*(char *)((int)param_1 + 0x26) == '\0') {
+    if (param_1->field_0x26 == '\0') {
       uVar4 = get_setting_by_index((int)param_1,0x10);
       uVar2 = 0xff;
       uVar1 = 0;
@@ -77,7 +77,7 @@ uint32_t dispatch_mode_transition_event_103e2bba(int *param_1,int param_2)
       uVar5 = auStack_34[uVar2];
     }
     else if (param_2 == 0x181002a) {
-      if (param_1[8] == 0x1810024) {
+      if (*(int *)&param_1->field_0x20 == 0x1810024) {
         uVar5 = 0x1810012;
       }
       else {
@@ -85,7 +85,7 @@ uint32_t dispatch_mode_transition_event_103e2bba(int *param_1,int param_2)
       }
     }
     else if (param_2 == 0x181002b) {
-      if (param_1[8] == 0x1810012) {
+      if (*(int *)&param_1->field_0x20 == 0x1810012) {
         uVar5 = 0x1810024;
       }
       else {
@@ -93,7 +93,7 @@ uint32_t dispatch_mode_transition_event_103e2bba(int *param_1,int param_2)
       }
     }
   }
-  else if ((param_2 == 0x181002d) && (*(char *)((int)param_1 + 0x26) == '\0')) {
+  else if ((param_2 == 0x181002d) && (param_1->field_0x26 == '\0')) {
     auStack_34[9] = 0x1810030;
     auStack_34[10] = 0x181002f;
     uVar1 = get_setting_by_index((int)param_1,0x11);

@@ -21,7 +21,7 @@ void invoke_virtual_then_call_helper_104e0c0e(void *param_1)
   int iVar1;
   
   iVar1 = **(int **)((int)param_1 + 0x2c);
-  (**(code **)(iVar1 + 0x14))((int)*(int **)((int)param_1 + 0x2c) + (int)*(short *)(iVar1 + 0x10));
+  (((vtbl_entry*)(iVar1))[2].fn)((int)*(int **)((int)param_1 + 0x2c) + (int)((vtbl_entry*)(iVar1))[2].adj);
   invoke_virtual_slot_two_on_two_objects_104e0fd8(*(uint32_t *)((int)param_1 + 0x18));
   return;
 }

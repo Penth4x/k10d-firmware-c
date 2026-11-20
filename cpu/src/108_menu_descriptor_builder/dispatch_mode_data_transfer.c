@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_mode_data_transfer(int param_1,uint32_t param_2,int param_3)
+uint32_t dispatch_mode_data_transfer(cls_1059e728 *param_1,uint32_t param_2,int param_3)
 
 {
   uint8_t uVar1;
@@ -26,17 +26,17 @@ uint32_t dispatch_mode_data_transfer(int param_1,uint32_t param_2,int param_3)
   uint uVar5;
   uint32_t uVar6;
   uintptr_t sp;
-  uint8_t auStack_c4 [20];
-  uint8_t auStack_b0 [20];
-  uint8_t auStack_9c [20];
-  uint8_t auStack_88 [20];
-  uint8_t auStack_74 [36];
-  uint8_t auStack_50 [36];
-  uint8_t auStack_2c [36];
+  cls_105a6abc acStack_c4 [5];
+  cls_105a6d44 acStack_b0 [5];
+  cls_105a6dd4 acStack_9c [5];
+  cls_105a6e1c acStack_88 [5];
+  cls_105a6bdc acStack_74 [9];
+  cls_105a6c24 acStack_50 [9];
+  cls_105a6b94 acStack_2c [9];
   
   uVar1 = *(uint8_t *)(param_3 + 0x859);
   set_struct_field_at_offset_4(param_3,0);
-  iVar3 = read_virtual_property_field((void *)(*(uint32_t *)(param_1 + 0x10)),1);
+  iVar3 = read_virtual_property_field((int *)(param_1->field_0x10),(int)(1));
   bVar2 = false;
   if ((iVar3 == 2) || (iVar3 == 3)) {
     bVar2 = true;
@@ -45,112 +45,112 @@ uint32_t dispatch_mode_data_transfer(int param_1,uint32_t param_2,int param_3)
     switch(uVar1) {
     case 0:
       set_struct_field_at_offset_4(param_3,0x10);
-      cls_105a6abc_new((uint32_t *)__frv_reg_unset(4));
-      copy_buffer_with_lock_1045e22a(*(int *)(param_1 + 8),auStack_c4);
+      cls_105a6abc_new(acStack_c4);
+      copy_buffer_with_lock_1045e22a(param_1->field_0x8,acStack_c4);
       uVar5 = 0;
       iVar3 = 3;
       do {
-        bVar4 = read_byte_and_mask_1045f2ec(auStack_c4,uVar5 & 0xff,0xff);
+        bVar4 = read_byte_and_mask_1045f2ec(acStack_c4,uVar5 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5);
-        bVar4 = read_byte_and_mask_1045f2ec(auStack_c4,uVar5 + 1 & 0xff,0xff);
+        bVar4 = read_byte_and_mask_1045f2ec(acStack_c4,uVar5 + 1 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 1);
-        bVar4 = read_byte_and_mask_1045f2ec(auStack_c4,uVar5 + 2 & 0xff,0xff);
+        bVar4 = read_byte_and_mask_1045f2ec(acStack_c4,uVar5 + 2 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 2);
-        bVar4 = read_byte_and_mask_1045f2ec(auStack_c4,uVar5 + 3 & 0xff,0xff);
+        bVar4 = read_byte_and_mask_1045f2ec(acStack_c4,uVar5 + 3 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 3);
         iVar3 = iVar3 + -1;
         uVar5 = uVar5 + 4;
       } while (-1 < iVar3);
-      cls_105a6abc_delete((void *)auStack_c4,2);
+      cls_105a6abc_delete(acStack_c4,2);
       uVar6 = 0;
       break;
     case 1:
       set_struct_field_at_offset_4(param_3,0x10);
-      cls_105a6d44_new((uint32_t *)__frv_reg_unset(4));
-      copy_fourteen_bytes_to_buffer(*(int *)(param_1 + 8),auStack_b0);
+      cls_105a6d44_new(acStack_b0);
+      copy_fourteen_bytes_to_buffer(param_1->field_0x8,acStack_b0);
       uVar5 = 0;
       iVar3 = 3;
       do {
-        bVar4 = read_and_mask_byte_1045fe48(auStack_b0,uVar5 & 0xff,0xff);
+        bVar4 = read_and_mask_byte_1045fe48(acStack_b0,uVar5 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5);
-        bVar4 = read_and_mask_byte_1045fe48(auStack_b0,uVar5 + 1 & 0xff,0xff);
+        bVar4 = read_and_mask_byte_1045fe48(acStack_b0,uVar5 + 1 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 1);
-        bVar4 = read_and_mask_byte_1045fe48(auStack_b0,uVar5 + 2 & 0xff,0xff);
+        bVar4 = read_and_mask_byte_1045fe48(acStack_b0,uVar5 + 2 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 2);
-        bVar4 = read_and_mask_byte_1045fe48(auStack_b0,uVar5 + 3 & 0xff,0xff);
+        bVar4 = read_and_mask_byte_1045fe48(acStack_b0,uVar5 + 3 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 3);
         iVar3 = iVar3 + -1;
         uVar5 = uVar5 + 4;
       } while (-1 < iVar3);
-      cls_105a6d44_delete((void *)auStack_b0,2);
+      cls_105a6d44_delete(acStack_b0,2);
       uVar6 = 0;
       break;
     case 2:
       set_struct_field_at_offset_4(param_3,0x10);
-      cls_105a6dd4_new((uint32_t *)__frv_reg_unset(4));
-      copy_buffer_with_lock_1045e4d4(*(int *)(param_1 + 8),auStack_9c);
+      cls_105a6dd4_new(acStack_9c);
+      copy_buffer_with_lock_1045e4d4(param_1->field_0x8,acStack_9c);
       uVar5 = 0;
       iVar3 = 3;
       do {
-        bVar4 = read_masked_byte_at_offset_104600b4(auStack_9c,uVar5 & 0xff,0xff);
+        bVar4 = read_masked_byte_at_offset_104600b4(acStack_9c,uVar5 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5);
-        bVar4 = read_masked_byte_at_offset_104600b4(auStack_9c,uVar5 + 1 & 0xff,0xff);
+        bVar4 = read_masked_byte_at_offset_104600b4(acStack_9c,uVar5 + 1 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 1);
-        bVar4 = read_masked_byte_at_offset_104600b4(auStack_9c,uVar5 + 2 & 0xff,0xff);
+        bVar4 = read_masked_byte_at_offset_104600b4(acStack_9c,uVar5 + 2 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 2);
-        bVar4 = read_masked_byte_at_offset_104600b4(auStack_9c,uVar5 + 3 & 0xff,0xff);
+        bVar4 = read_masked_byte_at_offset_104600b4(acStack_9c,uVar5 + 3 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 3);
         iVar3 = iVar3 + -1;
         uVar5 = uVar5 + 4;
       } while (-1 < iVar3);
-      cls_105a6dd4_delete((void *)auStack_9c,2);
+      cls_105a6dd4_delete(acStack_9c,2);
       uVar6 = 0;
       break;
     case 3:
       set_struct_field_at_offset_4(param_3,0x10);
-      cls_105a6e1c_new((uint32_t *)__frv_reg_unset(4));
-      copy_fourteen_bytes_from_struct(*(int *)(param_1 + 8),auStack_88);
+      cls_105a6e1c_new(acStack_88);
+      copy_fourteen_bytes_from_struct(param_1->field_0x8,acStack_88);
       uVar5 = 0;
       iVar3 = 3;
       do {
-        bVar4 = read_masked_byte_at_offset_1046019a(auStack_88,uVar5 & 0xff,0xff);
+        bVar4 = read_masked_byte_at_offset_1046019a(acStack_88,uVar5 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5);
-        bVar4 = read_masked_byte_at_offset_1046019a(auStack_88,uVar5 + 1 & 0xff,0xff);
+        bVar4 = read_masked_byte_at_offset_1046019a(acStack_88,uVar5 + 1 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 1);
-        bVar4 = read_masked_byte_at_offset_1046019a(auStack_88,uVar5 + 2 & 0xff,0xff);
+        bVar4 = read_masked_byte_at_offset_1046019a(acStack_88,uVar5 + 2 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 2);
-        bVar4 = read_masked_byte_at_offset_1046019a(auStack_88,uVar5 + 3 & 0xff,0xff);
+        bVar4 = read_masked_byte_at_offset_1046019a(acStack_88,uVar5 + 3 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 3);
         iVar3 = iVar3 + -1;
         uVar5 = uVar5 + 4;
       } while (-1 < iVar3);
-      cls_105a6e1c_delete((void *)auStack_88,2);
+      cls_105a6e1c_delete(acStack_88,2);
       uVar6 = 0;
       break;
     case 4:
       set_struct_field_at_offset_4(param_3,0x20);
-      cls_105a6bdc_new((uint32_t *)__frv_reg_unset(4));
-      copy_32_bytes_from_struct_field_1045e322(*(int *)(param_1 + 8),auStack_74);
+      cls_105a6bdc_new(acStack_74);
+      copy_32_bytes_from_struct_field_1045e322(param_1->field_0x8,acStack_74);
       uVar5 = 0;
       iVar3 = 7;
       do {
-        bVar4 = read_byte_and_mask_1045f872(auStack_74,uVar5 & 0xff,0xff);
+        bVar4 = read_byte_and_mask_1045f872(acStack_74,uVar5 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5);
-        bVar4 = read_byte_and_mask_1045f872(auStack_74,uVar5 + 1 & 0xff,0xff);
+        bVar4 = read_byte_and_mask_1045f872(acStack_74,uVar5 + 1 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 1);
-        bVar4 = read_byte_and_mask_1045f872(auStack_74,uVar5 + 2 & 0xff,0xff);
+        bVar4 = read_byte_and_mask_1045f872(acStack_74,uVar5 + 2 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 2);
-        bVar4 = read_byte_and_mask_1045f872(auStack_74,uVar5 + 3 & 0xff,0xff);
+        bVar4 = read_byte_and_mask_1045f872(acStack_74,uVar5 + 3 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 3);
         iVar3 = iVar3 + -1;
         uVar5 = uVar5 + 4;
       } while (-1 < iVar3);
-      cls_105a6bdc_delete((void *)auStack_74,2);
+      cls_105a6bdc_delete(acStack_74,2);
       uVar6 = 0;
       break;
     case 5:
       set_struct_field_at_offset_4(param_3,0);
-      iVar3 = call_helper_with_offset_and_nine(*(int **)(param_1 + 0xc));
+      iVar3 = call_helper_with_offset_and_nine((int *)param_1->field_0xc);
       if (iVar3 == 0) {
         uVar6 = 0x82;
       }
@@ -160,44 +160,44 @@ uint32_t dispatch_mode_data_transfer(int param_1,uint32_t param_2,int param_3)
       break;
     case 6:
       set_struct_field_at_offset_4(param_3,0x20);
-      cls_105a6c24_new((uint32_t *)__frv_reg_unset(4));
-      copy_32_bytes_from_struct_field_1045e360(*(int *)(param_1 + 8),auStack_50);
+      cls_105a6c24_new(acStack_50);
+      copy_32_bytes_from_struct_field_1045e360(param_1->field_0x8,acStack_50);
       uVar5 = 0;
       iVar3 = 7;
       do {
-        bVar4 = read_byte_and_mask_1045f994(auStack_50,uVar5 & 0xff,0xff);
+        bVar4 = read_byte_and_mask_1045f994(acStack_50,uVar5 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5);
-        bVar4 = read_byte_and_mask_1045f994(auStack_50,uVar5 + 1 & 0xff,0xff);
+        bVar4 = read_byte_and_mask_1045f994(acStack_50,uVar5 + 1 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 1);
-        bVar4 = read_byte_and_mask_1045f994(auStack_50,uVar5 + 2 & 0xff,0xff);
+        bVar4 = read_byte_and_mask_1045f994(acStack_50,uVar5 + 2 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 2);
-        bVar4 = read_byte_and_mask_1045f994(auStack_50,uVar5 + 3 & 0xff,0xff);
+        bVar4 = read_byte_and_mask_1045f994(acStack_50,uVar5 + 3 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 3);
         iVar3 = iVar3 + -1;
         uVar5 = uVar5 + 4;
       } while (-1 < iVar3);
-      cls_105a6c24_delete((void *)auStack_50,2);
+      cls_105a6c24_delete(acStack_50,2);
       uVar6 = 0;
       break;
     case 7:
       set_struct_field_at_offset_4(param_3,0x20);
-      cls_105a6b94_new((uint32_t *)__frv_reg_unset(4));
-      copy_32_bytes_from_struct_field_1045e2e4(*(int *)(param_1 + 8),auStack_2c);
+      cls_105a6b94_new(acStack_2c);
+      copy_32_bytes_from_struct_field_1045e2e4(param_1->field_0x8,acStack_2c);
       uVar5 = 0;
       iVar3 = 7;
       do {
-        bVar4 = read_byte_and_mask_1045f750(auStack_2c,uVar5 & 0xff,0xff);
+        bVar4 = read_byte_and_mask_1045f750(acStack_2c,uVar5 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5);
-        bVar4 = read_byte_and_mask_1045f750(auStack_2c,uVar5 + 1 & 0xff,0xff);
+        bVar4 = read_byte_and_mask_1045f750(acStack_2c,uVar5 + 1 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 1);
-        bVar4 = read_byte_and_mask_1045f750(auStack_2c,uVar5 + 2 & 0xff,0xff);
+        bVar4 = read_byte_and_mask_1045f750(acStack_2c,uVar5 + 2 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 2);
-        bVar4 = read_byte_and_mask_1045f750(auStack_2c,uVar5 + 3 & 0xff,0xff);
+        bVar4 = read_byte_and_mask_1045f750(acStack_2c,uVar5 + 3 & 0xff,0xff);
         write_word_to_struct_array(param_3,(uint)bVar4,uVar5 + 3);
         iVar3 = iVar3 + -1;
         uVar5 = uVar5 + 4;
       } while (-1 < iVar3);
-      cls_105a6b94_delete((void *)auStack_2c,2);
+      cls_105a6b94_delete(acStack_2c,2);
       uVar6 = 0;
       break;
     default:

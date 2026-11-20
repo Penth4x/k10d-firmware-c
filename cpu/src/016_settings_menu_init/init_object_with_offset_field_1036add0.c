@@ -20,7 +20,7 @@ void init_object_with_offset_field_1036add0(void *param_1)
 
 {
   call_helper_on_struct_field_1036c46c();
-  compute_and_send_two_channel_values_10387d3a((int)param_1 + 0x14);
-  call_helper_on_struct_field_1036c41a(param_1,(void *)((int)param_1 + 0x14),1);
+  compute_and_send_two_channel_values_10387d3a((cls_105595a8 *)((int)param_1 + 0x14));
+  call_helper_on_struct_field_1036c41a(param_1,(cls_105595a8 *)((int)param_1 + 0x14),1);
   return;
 }

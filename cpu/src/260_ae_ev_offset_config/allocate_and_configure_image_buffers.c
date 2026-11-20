@@ -193,11 +193,11 @@ void allocate_and_configure_image_buffers(int param_1,void *param_2,int param_3)
   iVar5 = (uint)(uVar3 >> 7) * 0x20;
   pvVar14 = (void *)get_system_heap();
   pvVar14 = (void *)mempool_get_block(pvVar14,(void *)(iVar4 * iVar5),0);
-  if (pvVar14 != (void *)0x0) {
+  if (pvVar14 != 0) {
     pvVar15 = (void *)get_system_heap();
     uVar1 = (uint)uVar3 * (uint)uVar2;
     pvVar15 = (void *)mempool_get_block(pvVar15,(void *)(uVar1 * 2),0);
-    if (pvVar15 != (void *)0x0) {
+    if (pvVar15 != 0) {
       uVar6 = *(uint32_t *)((int)param_2 + 4);
       uVar7 = *(uint32_t *)((int)param_2 + 8);
       uVar8 = *(uint32_t *)((int)param_2 + 0xc);
@@ -235,7 +235,7 @@ void allocate_and_configure_image_buffers(int param_1,void *param_2,int param_3)
       uStack_50 = uStack_56;
       eventflag_clr_flg(puVar9,1);
       iVar4 = param_1 + 4;
-      build_sensor_readout_params(*(uint32_t *)(param_1 + 0x28),1,(void *)iVar4,&uStack_84);
+      build_sensor_readout_params((int)(*(uint32_t *)(param_1 + 0x28)),(int)(1),(void *)(iVar4),(int *)(&uStack_84));
       eventflag_wai_flg(puVar9,1,&uStack_c,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar9,1);
       configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),1);
@@ -250,36 +250,28 @@ void allocate_and_configure_image_buffers(int param_1,void *param_2,int param_3)
       uStack_106 = 0x1c;
       *(uint16_t *)((int)puVar18 + 2) = uVar13;
       *(uint16_t **)((int)puVar18 + 4) = &uStack_116;
-      init_event_struct_and_dispatch_104f827a(param_1,pvVar14,pvVar14,uVar12,*(uint16_t *)((int)puVar18 + 2),
-                   *(uint32_t *)((int)puVar18 + 4));
+      init_event_struct_and_dispatch_104f827a(param_1,pvVar14,pvVar14,uVar12,*(uint16_t *)((int)puVar18 + 2), *(uint32_t *)((int)puVar18 + 4));
       *(uint16_t *)((int)puVar18 + 2) = uVar13;
       *(uint16_t **)((int)puVar18 + 4) = &uStack_116;
-      init_event_struct_and_dispatch_104f827a(param_1,pvVar14,pvVar14,uVar12,*(uint16_t *)((int)puVar18 + 2),
-                   *(uint32_t *)((int)puVar18 + 4));
+      init_event_struct_and_dispatch_104f827a(param_1,pvVar14,pvVar14,uVar12,*(uint16_t *)((int)puVar18 + 2), *(uint32_t *)((int)puVar18 + 4));
       *(uint16_t *)((int)puVar18 + 2) = uVar13;
       *(uint16_t **)((int)puVar18 + 4) = &uStack_116;
-      init_event_struct_and_dispatch_104f827a(param_1,pvVar14,pvVar14,uVar12,*(uint16_t *)((int)puVar18 + 2),
-                   *(uint32_t *)((int)puVar18 + 4));
+      init_event_struct_and_dispatch_104f827a(param_1,pvVar14,pvVar14,uVar12,*(uint16_t *)((int)puVar18 + 2), *(uint32_t *)((int)puVar18 + 4));
       *(uint16_t *)((int)puVar18 + 2) = uVar13;
       *(uint16_t **)((int)puVar18 + 4) = &uStack_116;
-      init_event_struct_and_dispatch_104f827a(param_1,pvVar14,pvVar14,uVar12,*(uint16_t *)((int)puVar18 + 2),
-                   *(uint32_t *)((int)puVar18 + 4));
+      init_event_struct_and_dispatch_104f827a(param_1,pvVar14,pvVar14,uVar12,*(uint16_t *)((int)puVar18 + 2), *(uint32_t *)((int)puVar18 + 4));
       *(uint16_t *)((int)puVar18 + 2) = uVar13;
       *(uint16_t **)((int)puVar18 + 4) = &uStack_116;
-      init_event_struct_and_dispatch_104f827a(param_1,pvVar14,pvVar14,uVar12,*(uint16_t *)((int)puVar18 + 2),
-                   *(uint32_t *)((int)puVar18 + 4));
+      init_event_struct_and_dispatch_104f827a(param_1,pvVar14,pvVar14,uVar12,*(uint16_t *)((int)puVar18 + 2), *(uint32_t *)((int)puVar18 + 4));
       *(uint16_t *)((int)puVar18 + 2) = uVar13;
       *(uint16_t **)((int)puVar18 + 4) = &uStack_116;
-      init_event_struct_and_dispatch_104f827a(param_1,pvVar14,pvVar14,uVar12,*(uint16_t *)((int)puVar18 + 2),
-                   *(uint32_t *)((int)puVar18 + 4));
+      init_event_struct_and_dispatch_104f827a(param_1,pvVar14,pvVar14,uVar12,*(uint16_t *)((int)puVar18 + 2), *(uint32_t *)((int)puVar18 + 4));
       *(uint16_t *)((int)puVar18 + 2) = uVar13;
       *(uint16_t **)((int)puVar18 + 4) = &uStack_116;
-      init_event_struct_and_dispatch_104f827a(param_1,pvVar14,pvVar14,uVar12,*(uint16_t *)((int)puVar18 + 2),
-                   *(uint32_t *)((int)puVar18 + 4));
+      init_event_struct_and_dispatch_104f827a(param_1,pvVar14,pvVar14,uVar12,*(uint16_t *)((int)puVar18 + 2), *(uint32_t *)((int)puVar18 + 4));
       *(uint16_t *)((int)puVar18 + 2) = uVar13;
       *(uint16_t **)((int)puVar18 + 4) = &uStack_116;
-      init_event_struct_and_dispatch_104f827a(param_1,pvVar14,pvVar14,uVar12,*(uint16_t *)((int)puVar18 + 2),
-                   *(uint32_t *)((int)puVar18 + 4));
+      init_event_struct_and_dispatch_104f827a(param_1,pvVar14,pvVar14,uVar12,*(uint16_t *)((int)puVar18 + 2), *(uint32_t *)((int)puVar18 + 4));
       uStack_48 = 0;
       uStack_24 = 0;
       uStack_2e = 0;
@@ -306,7 +298,7 @@ void allocate_and_configure_image_buffers(int param_1,void *param_2,int param_3)
       uStack_1b = uStack_24;
       uStack_14 = uStack_1a;
       eventflag_clr_flg(puVar9,1);
-      build_sensor_readout_params(*(uint32_t *)(param_1 + 0x28),1,(void *)iVar4,&uStack_48);
+      build_sensor_readout_params((int)(*(uint32_t *)(param_1 + 0x28)),(int)(1),(void *)(iVar4),(int *)(&uStack_48));
       eventflag_wai_flg(puVar9,1,&uStack_c,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar9,1);
       configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),1);
@@ -328,9 +320,7 @@ void allocate_and_configure_image_buffers(int param_1,void *param_2,int param_3)
       *(ushort *)((int)puVar18 + 6) = uVar3;
       *(uint16_t *)((int)puVar18 + 10) = uVar10;
       *(uint16_t *)((int)puVar18 + 0xe) = uVar11;
-      init_and_start_image_pipeline(param_1,uVar6,pvVar15,uVar6,*(uint16_t *)((int)puVar18 + 2),
-                   *(uint16_t *)((int)puVar18 + 6),*(uint16_t *)((int)puVar18 + 10),
-                   *(uint16_t *)((int)puVar18 + 0xe));
+      init_and_start_image_pipeline(param_1,uVar6,pvVar15,uVar6,*(uint16_t *)((int)puVar18 + 2), *(uint16_t *)((int)puVar18 + 6),*(uint16_t *)((int)puVar18 + 10), *(uint16_t *)((int)puVar18 + 0xe));
       uStack_ee = 0;
       uStack_ec = 0;
       uStack_d2 = 0;
@@ -370,8 +360,7 @@ void allocate_and_configure_image_buffers(int param_1,void *param_2,int param_3)
       puVar18[2] = uVar8;
       *(ushort *)((int)puVar18 + 0xe) = uVar2;
       *(ushort *)((int)puVar18 + 0x12) = uVar3;
-      send_three_payload_blocks(param_1,pvVar15,pvVar16,(void *)iVar17,*puVar18,puVar18[1],puVar18[2],
-                   *(ushort *)((int)puVar18 + 0xe),*(uint16_t *)((int)puVar18 + 0x12));
+      send_three_payload_blocks((int)(param_1),(void *)(pvVar15),(void *)(pvVar16),(void *)(iVar17),(uint32_t)(*puVar18),(uint32_t)(puVar18[1]),(uint32_t)(puVar18[2]), (ushort)(*(ushort *)((int)puVar18 + 0xe)),(uint16_t)(*(uint16_t *)((int)puVar18 + 0x12)));
       pvVar16 = (void *)get_system_heap();
       mempool_release_block(pvVar16,pvVar15);
     }

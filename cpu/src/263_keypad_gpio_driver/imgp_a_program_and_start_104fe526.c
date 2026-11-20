@@ -24,6 +24,6 @@ void imgp_a_program_and_start_104fe526(int param_1,void *param_2,uint32_t *param
   pvVar1 = (void *)get_or_init_singleton_object_1051d40e();
   uVar2 = read_bounded_array_element_1051d696(pvVar1,7);
   update_camera_state_flags(pvVar1,7,uVar2 | 1);
-  imgp_a_program_and_start(param_1,param_3);
+  imgp_a_program_and_start_104fe398(param_1,param_3);
   return;
 }

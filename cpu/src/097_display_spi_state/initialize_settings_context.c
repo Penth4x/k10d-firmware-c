@@ -28,7 +28,7 @@ void initialize_settings_context(int param_1)
   pvVar2 = (void *)get_or_init_singleton_object_1051d40e();
   uVar3 = read_bounded_array_element_1051d696(pvVar2,0x18);
   update_camera_state_flags(pvVar1,0x18,uVar3 | 8);
-  eventflag_clr_flg((void *)(param_1 + 0x1540),0x10);
+  eventflag_clr_flg((uint32_t *)(param_1 + 0x1540),(uint)(0x10));
   *(uint32_t *)(param_1 + 0x14f8) = *(uint32_t *)(param_1 + 0x84);
   *(uint8_t *)(param_1 + 0x14fc) = 0;
   *(uint8_t *)(param_1 + 0x14f4) = 1;

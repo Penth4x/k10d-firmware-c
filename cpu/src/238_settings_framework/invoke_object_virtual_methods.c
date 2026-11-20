@@ -20,13 +20,13 @@ int invoke_object_virtual_methods(int *param_1)
   int iVar1;
   
   if (param_1[1] == 0) {
-    iVar1 = (**(code **)(*param_1 + 0x14))((int)*(short *)(*param_1 + 0x10) + (int)param_1,0);
+    iVar1 = (((vtbl_entry*)(*param_1))[2].fn)((int)((vtbl_entry*)(*param_1))[2].adj + (int)param_1,0);
     if ((iVar1 == 0) ||
-       (iVar1 = (**(code **)(*param_1 + 0x1c))((int)*(short *)(*param_1 + 0x18) + (int)param_1,0),
+       (iVar1 = (((vtbl_entry*)(*param_1))[3].fn)((int)((vtbl_entry*)(*param_1))[3].adj + (int)param_1,0),
        iVar1 == 0)) {
       return 0;
     }
-    (**(code **)(*param_1 + 0x2c))((int)*(short *)(*param_1 + 0x28) + (int)param_1);
+    (((vtbl_entry*)(*param_1))[5].fn)((int)((vtbl_entry*)(*param_1))[5].adj + (int)param_1);
   }
   return param_1[1];
 }

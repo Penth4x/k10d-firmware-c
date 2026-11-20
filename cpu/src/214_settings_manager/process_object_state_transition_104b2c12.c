@@ -25,12 +25,12 @@ uint32_t process_object_state_transition_104b2c12(int param_1)
   piVar1 = *(int **)(param_1 + 8);
   uVar3 = 0;
   if (((piVar1 != (int *)0x0) && (*(int *)(param_1 + 0x18) == 4)) &&
-     (iVar2 = (**(code **)(*piVar1 + 0x4c))((int)*(short *)(*piVar1 + 0x48) + (int)piVar1),
+     (iVar2 = (((vtbl_entry*)(*piVar1))[9].fn)((int)((vtbl_entry*)(*piVar1))[9].adj + (int)piVar1),
      iVar2 == 2)) {
     *(uint32_t *)(param_1 + 0x18) = 0;
     iVar2 = **(int **)(param_1 + 4);
-    (**(code **)(iVar2 + 0x34))
-              ((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar2 + 0x30),
+    (((vtbl_entry*)(iVar2))[6].fn)
+              ((int)*(int **)(param_1 + 4) + (int)((vtbl_entry*)(iVar2))[6].adj,
                *(uint32_t *)(*(int *)(param_1 + 0xc) + 8));
     uVar3 = 1;
   }

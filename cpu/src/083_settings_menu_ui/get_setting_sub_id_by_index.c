@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t get_setting_sub_id_by_index(int param_1,int param_2)
+uint32_t get_setting_sub_id_by_index(cls_10597054 *param_1,int param_2)
 
 {
   uint32_t uVar1;
@@ -32,7 +32,7 @@ uint32_t get_setting_sub_id_by_index(int param_1,int param_2)
     auStack_1c[2] = 0x1ac0014;
     auStack_1c[3] = 0x1ac0018;
     auStack_1c[4] = 0x1ac001c;
-    uVar3 = setting_get(*(int *)(param_1 + 8),0xc4);
+    uVar3 = setting_get(param_1->field_0x8,0xc4);
     iVar2 = 0xff;
     if (bRam1059704c == uVar3) {
       iVar2 = 0;

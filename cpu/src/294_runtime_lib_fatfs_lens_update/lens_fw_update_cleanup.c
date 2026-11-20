@@ -14,13 +14,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void lens_fw_update_cleanup(int param_1)
+void lens_fw_update_cleanup(cls_10621d20 *param_1)
 
 {
-  trigger_sr_cal_transfer_104867c0(param_1);
-  call_helper_with_second_field_104867ae(param_1);
-  if (*(int *)(param_1 + 0x54) != 0) {
-    heap_free_2(*(int *)(param_1 + 0x54));
+  trigger_sr_cal_transfer_104867c0((int)param_1);
+  call_helper_with_second_field_104867ae((int)param_1);
+  if (param_1->field_0x54 != 0) {
+    heap_free_2(param_1->field_0x54);
   }
   return;
 }

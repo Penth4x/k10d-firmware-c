@@ -19,7 +19,8 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_event_via_vtable_chain(int *param_1,uint32_t param_2,uint32_t param_3,int param_4,uint32_t param_5)
+void dispatch_event_via_vtable_chain(cls_1061e380 *param_1,uint32_t param_2,uint32_t param_3,int param_4,
+                 uint32_t param_5)
 
 {
   short sVar1;
@@ -31,18 +32,21 @@ void dispatch_event_via_vtable_chain(int *param_1,uint32_t param_2,uint32_t para
   uint8_t auStack_1c [4];
   
   puVar5 = (uint32_t *)auStack_1c;
-  iVar3 = (**(code **)(*param_1 + 0x2c))((int)*(short *)(*param_1 + 0x28) + (int)param_1);
+  iVar3 = (((vtbl_entry*)(param_1->field_0x0))[5].fn)
+                    ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[5].adj);
   if (iVar3 == 0) {
-    iVar3 = (**(code **)(*param_1 + 0x34))((int)*(short *)(*param_1 + 0x30) + (int)param_1,param_2);
+    iVar3 = (((vtbl_entry*)(param_1->field_0x0))[6].fn)
+                      ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[6].adj,param_2
+                      );
     if (iVar3 == 0) {
-      iVar3 = return_zero_stub_105339f8((uint32_t)param_1,param_2);
+      iVar3 = return_zero_stub_105339f8((uint32_t)(param_1),param_2);
       if (iVar3 == 0) {
-        piVar4 = (int *)param_1[1];
+        piVar4 = (int *)param_1->field_0x4;
         iVar3 = *piVar4;
         sVar1 = *(short *)(iVar3 + 0x18);
         pcVar2 = *(code **)(iVar3 + 0x1c);
         *puVar5 = param_5;
-        (*pcVar2)((int)piVar4 + (int)sVar1,param_2,param_3,param_4);
+        (*pcVar2)((void *)((int)piVar4 + (int)sVar1),param_2,param_3,param_4);
       }
       else {
         *puVar5 = param_5;

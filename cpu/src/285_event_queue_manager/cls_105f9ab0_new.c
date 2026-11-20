@@ -11,7 +11,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_105f9ab0_new(uint32_t *param_1)
+void cls_105f9ab0_new(cls_105f9ab0 *param_1)
 
 {
   int iVar1;
@@ -19,18 +19,18 @@ void cls_105f9ab0_new(uint32_t *param_1)
   int iVar3;
   int iVar4;
   
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x418), param_1 != (uint32_t *)0x0)) {
-    param_1[0x105] = (uint32_t)&DAT_105f9ab0/*ROM*/;
-    *param_1 = 0;
-    param_1[0x5b] = 0;
-    param_1[0x89] = 0;
-    param_1[0x104] = 0;
+  if ((param_1 != (cls_105f9ab0 *)0x0) ||
+     (param_1 = (cls_105f9ab0 *)heap_alloc((void *)0x418), param_1 != (cls_105f9ab0 *)0x0)) {
+    param_1->field_0x414 = (uintptr_t)(&DAT_105f9ab0/*ROM*/);
+    param_1->field_0x0 = 0;
+    param_1->field_0x16c = 0;
+    param_1->field_0x224 = 0;
+    param_1->field_0x410 = 0;
     iVar3 = 0;
     iVar1 = 0;
     iVar4 = 0;
     do {
-      puVar2 = (uint32_t *)((int)param_1 + iVar1 + 4);
+      puVar2 = (uint32_t *)(&param_1->field_0x4 + iVar1);
       *(uint8_t *)(puVar2 + 1) = 0;
       *puVar2 = 0xffff;
       *(uint8_t *)((int)puVar2 + iVar3 + 0x14) = 0;
@@ -46,23 +46,23 @@ void cls_105f9ab0_new(uint32_t *param_1)
     iVar3 = 2;
     iVar1 = 0;
     do {
-      puVar2 = (uint32_t *)((int)param_1 + iVar1 + 0x170);
+      puVar2 = (uint32_t *)(&param_1->field_0x170 + iVar1);
       *puVar2 = 0xffff;
       puVar2[1] = 0;
       puVar2[2] = 0;
-      puVar2 = (uint32_t *)((int)param_1 + iVar1 + 0x17c);
+      puVar2 = (uint32_t *)(&param_1->field_0x17c + iVar1);
       *puVar2 = 0xffff;
       puVar2[1] = 0;
       puVar2[2] = 0;
-      puVar2 = (uint32_t *)((int)param_1 + iVar1 + 0x188);
+      puVar2 = (uint32_t *)(&param_1->field_0x188 + iVar1);
       *puVar2 = 0xffff;
       puVar2[1] = 0;
       puVar2[2] = 0;
-      puVar2 = (uint32_t *)((int)param_1 + iVar1 + 0x194);
+      puVar2 = (uint32_t *)(&param_1->field_0x194 + iVar1);
       *puVar2 = 0xffff;
       puVar2[1] = 0;
       puVar2[2] = 0;
-      puVar2 = (uint32_t *)((int)param_1 + iVar1 + 0x1a0);
+      puVar2 = (uint32_t *)(&param_1->field_0x1a0 + iVar1);
       *puVar2 = 0xffff;
       puVar2[1] = 0;
       puVar2[2] = 0;
@@ -72,33 +72,26 @@ void cls_105f9ab0_new(uint32_t *param_1)
     iVar3 = 2;
     iVar1 = 0;
     do {
-      puVar2 = (uint32_t *)((int)param_1 + iVar1 + 0x228);
-      *puVar2 = 0xffff;
-      puVar2[1] = 0;
-      puVar2 = (uint32_t *)((int)param_1 + iVar1 + 0x230);
-      *puVar2 = 0xffff;
-      puVar2[1] = 0;
-      puVar2 = (uint32_t *)((int)param_1 + iVar1 + 0x238);
-      *puVar2 = 0xffff;
-      puVar2[1] = 0;
-      puVar2 = (uint32_t *)((int)param_1 + iVar1 + 0x240);
-      *puVar2 = 0xffff;
-      puVar2[1] = 0;
-      puVar2 = (uint32_t *)((int)param_1 + iVar1 + 0x248);
-      *puVar2 = 0xffff;
-      puVar2[1] = 0;
+      *(uint32_t *)(&param_1->field_0x228 + iVar1) = 0xffff;
+      *(uint32_t *)((int)(&param_1->field_0x228 + iVar1) + 4) = 0;
+      *(uint32_t *)(&param_1->field_0x230 + iVar1) = 0xffff;
+      *(uint32_t *)((int)(&param_1->field_0x230 + iVar1) + 4) = 0;
+      *(uint32_t *)(&param_1->field_0x238 + iVar1) = 0xffff;
+      *(uint32_t *)((int)(&param_1->field_0x238 + iVar1) + 4) = 0;
+      *(uint32_t *)(&param_1->field_0x240 + iVar1) = 0xffff;
+      *(uint32_t *)((int)(&param_1->field_0x240 + iVar1) + 4) = 0;
+      *(uint32_t *)(&param_1->field_0x248 + iVar1) = 0xffff;
+      *(uint32_t *)((int)(&param_1->field_0x248 + iVar1) + 4) = 0;
       iVar3 = iVar3 + -1;
       iVar1 = iVar1 + 0x28;
     } while (-1 < iVar3);
     iVar3 = 0x16;
     iVar1 = 0;
     do {
-      puVar2 = (uint32_t *)((int)param_1 + iVar1 + 0x2a0);
-      *puVar2 = 0xffff;
-      puVar2[1] = 0;
-      puVar2 = (uint32_t *)((int)param_1 + iVar1 + 0x2a8);
-      *puVar2 = 0xffff;
-      puVar2[1] = 0;
+      *(uint32_t *)(&param_1->field_0x2a0 + iVar1) = 0xffff;
+      *(uint32_t *)((int)(&param_1->field_0x2a0 + iVar1) + 4) = 0;
+      *(uint32_t *)(&param_1->field_0x2a8 + iVar1) = 0xffff;
+      *(uint32_t *)((int)(&param_1->field_0x2a8 + iVar1) + 4) = 0;
       iVar3 = iVar3 + -1;
       iVar1 = iVar1 + 0x10;
     } while (-1 < iVar3);

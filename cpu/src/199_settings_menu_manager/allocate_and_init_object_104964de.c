@@ -20,23 +20,23 @@ int allocate_and_init_object_104964de(void *param_1,int param_2,uint32_t param_3
                 char param_6)
 
 {
-  uint16_t *puVar1;
-  uint32_t *uVar2;
+  cls_105b3f00 *pcVar1;
+  uint32_t uVar2;
   uintptr_t sp;
   uint32_t auStack_10 [2];
   
-  puVar1 = (uint16_t *)heap_alloc((void *)0x30);
-  if (puVar1 == (uint16_t *)0x0) {
-    puVar1 = (uint16_t *)0x0;
+  pcVar1 = (cls_105b3f00 *)heap_alloc((void *)0x30);
+  if (pcVar1 == (cls_105b3f00 *)0x0) {
+    pcVar1 = (cls_105b3f00 *)0x0;
   }
   else {
-    cls_105b3f00_new(puVar1);
+    cls_105b3f00_new(pcVar1);
   }
-  uVar2 = alloc_two_word_pair_1045bc2e(auStack_10,param_3,param_4);
-  copy_two_shorts_from_source(puVar1,uVar2);
+  uVar2 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_10,param_3,param_4));
+  copy_two_shorts_from_source((uint16_t *)(pcVar1),(uint32_t *)(uVar2));
   free_heap_block_if_flagged_1045bc54(auStack_10,2);
   if (param_2 != 0) {
-    store_three_field_record((int)puVar1,(uint16_t *)param_2,param_5,param_6 == '\0');
+    store_three_field_record((int)pcVar1,(uint16_t *)param_2,param_5,param_6 == '\0');
   }
-  return (int)puVar1;
+  return (int)pcVar1;
 }

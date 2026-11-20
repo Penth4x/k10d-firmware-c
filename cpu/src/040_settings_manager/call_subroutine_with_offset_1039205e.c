@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_subroutine_with_offset_1039205e(int param_1)
+void call_subroutine_with_offset_1039205e(cls_10562758 *param_1)
 
 {
-  forward_param_to_helper_1039c4f2((void *)(param_1 + 0xc));
+  forward_param_to_helper_1039c4f2((void *)(&param_1->field_0xc));
   return;
 }

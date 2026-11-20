@@ -14,14 +14,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_virtual_slot_3_or_call_helper(int param_1,int param_2)
+void dispatch_virtual_slot_3_or_call_helper(cls_105d6524 *param_1,int param_2)
 
 {
   int iVar1;
   
   if (param_2 < 0xc000) {
-    iVar1 = **(int **)(param_1 + 4);
-    (**(code **)(iVar1 + 0x24))((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar1 + 0x20));
+    iVar1 = *(int *)param_1->field_0x4;
+    (((vtbl_entry*)(iVar1))[4].fn)
+              ((void *)((int)param_1->field_0x4 + (int)((vtbl_entry*)(iVar1))[4].adj));
   }
   else {
     dispatch_event_to_object_10517672(__frv_reg_unset(4), __frv_reg_unset(5));

@@ -14,10 +14,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_two_helpers_and_return_zero(uint32_t param_1)
+uint32_t call_two_helpers_and_return_zero(cls_105649cc *param_1)
 
 {
   call_helper_on_fetched_pointer();
-  clear_struct_field_at_offset_8(param_1);
+  clear_struct_field_at_offset_8((cls_10564e90 *)param_1);
   return 0;
 }

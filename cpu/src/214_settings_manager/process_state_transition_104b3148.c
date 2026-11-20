@@ -25,14 +25,14 @@ uint32_t process_state_transition_104b3148(int param_1)
   if (*(int *)(param_1 + 0x18) == 2) {
     *(uint32_t *)(param_1 + 0x18) = 4;
     iVar2 = **(int **)(param_1 + 8);
-    iVar2 = (**(code **)(iVar2 + 0x44))
-                      ((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar2 + 0x40),1,
+    iVar2 = (((vtbl_entry*)(iVar2))[8].fn)
+                      ((int)*(int **)(param_1 + 8) + (int)((vtbl_entry*)(iVar2))[8].adj,1,
                        *(uint32_t *)(param_1 + 0xc));
     if ((iVar2 == 2) || (iVar2 == 4)) {
       *(uint32_t *)(param_1 + 0x18) = 0;
       iVar3 = **(int **)(param_1 + 4);
-      (**(code **)(iVar3 + 0x54))
-                ((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar3 + 0x50),iVar2 == 4,
+      (((vtbl_entry*)(iVar3))[10].fn)
+                ((int)*(int **)(param_1 + 4) + (int)((vtbl_entry*)(iVar3))[10].adj,iVar2 == 4,
                  *(uint32_t *)(*(int *)(param_1 + 0xc) + 8));
     }
     uVar1 = 1;

@@ -14,10 +14,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_slot4_resource(int param_1)
+void release_slot4_resource(cls_105b7418 *param_1)
 
 {
-  release_object_slot_references(*(uint32_t *)(param_1 + 4));
-  *(uint32_t *)(param_1 + 4) = 0;
+  release_object_slot_references(param_1->field_0x4);
+  param_1->field_0x4 = 0;
   return;
 }

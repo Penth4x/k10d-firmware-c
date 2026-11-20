@@ -16,22 +16,22 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t invoke_object_method_if_enabled(int param_1)
+uint32_t invoke_object_method_if_enabled(cls_105c20d0 *param_1)
 
 {
   int *piVar1;
   int iVar2;
   uint32_t uVar3;
   
-  iVar2 = release_object_member_and_flag(*(uint32_t *)(param_1 + 8));
+  iVar2 = release_object_member_and_flag(param_1->field_0x8);
   if (iVar2 == 0) {
     uVar3 = 0;
   }
   else {
-    *(uint32_t *)(param_1 + 0xc) = 0;
-    piVar1 = *(int **)(param_1 + 4);
+    param_1->field_0xc = 0;
+    piVar1 = (int *)param_1->field_0x4;
     if ((piVar1 != (int *)0x0) &&
-       (iVar2 = (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1,0),
+       (iVar2 = (((vtbl_entry*)(*piVar1))[3].fn)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1,0),
        iVar2 == 0)) {
       return 0;
     }

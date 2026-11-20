@@ -26,20 +26,20 @@ void cpucom_ctx_notify_listeners(int *param_1,int param_2,uint32_t param_3)
   do {
     piVar2 = *(int **)((int)param_1 + iVar4 + 0x50);
     if ((piVar2 != (int *)0x0) &&
-       (iVar3 = (**(code **)(*piVar2 + 0x14))((int)*(short *)(*piVar2 + 0x10) + (int)piVar2),
+       (iVar3 = (((vtbl_entry*)(*piVar2))[2].fn)((int)((vtbl_entry*)(*piVar2))[2].adj + (int)piVar2),
        iVar3 != 0)) {
       piVar2 = *(int **)((int)param_1 + iVar4 + 0x50);
       iVar3 = *piVar2;
-      (**(code **)(iVar3 + 0x1c))((int)piVar2 + (int)*(short *)(iVar3 + 0x18),0xc0001,param_3);
+      (((vtbl_entry*)(iVar3))[3].fn)((int)piVar2 + (int)((vtbl_entry*)(iVar3))[3].adj,0xc0001,param_3);
       bVar1 = true;
     }
     piVar2 = *(int **)((int)param_1 + iVar4 + 0x54);
     if ((piVar2 != (int *)0x0) &&
-       (iVar3 = (**(code **)(*piVar2 + 0x14))((int)*(short *)(*piVar2 + 0x10) + (int)piVar2),
+       (iVar3 = (((vtbl_entry*)(*piVar2))[2].fn)((int)((vtbl_entry*)(*piVar2))[2].adj + (int)piVar2),
        iVar3 != 0)) {
       piVar2 = *(int **)((int)param_1 + iVar4 + 0x54);
       iVar3 = *piVar2;
-      (**(code **)(iVar3 + 0x1c))((int)piVar2 + (int)*(short *)(iVar3 + 0x18),0xc0001,param_3);
+      (((vtbl_entry*)(iVar3))[3].fn)((int)piVar2 + (int)((vtbl_entry*)(iVar3))[3].adj,0xc0001,param_3);
       bVar1 = true;
     }
     iVar4 = iVar4 + 8;

@@ -15,61 +15,62 @@
 #include "globals.h"
 #include "funcs.h"
 
-void update_three_object_fields(int param_1,int param_2)
+void update_three_object_fields(cls_105c136c *param_1,int param_2)
 
 {
   short sVar1;
-  int iVar2;
+  int *piVar2;
   uint32_t uVar3;
   uint32_t *puVar4;
   int *piVar5;
   int iVar6;
   int iVar7;
+  int iVar8;
   uintptr_t sp;
   int aiStack_2c [3];
   uint8_t auStack_20 [4];
   uint32_t auStack_1c [5];
   
-  iVar2 = *(int *)(param_1 + 0x1c);
-  sVar1 = *(short *)(iVar2 + 0x10);
+  piVar2 = (int *)(param_1->field_0x1c);
+  sVar1 = *(short *)(piVar2 + 4);
   puVar4 = auStack_1c + 1;
-  uVar3 = (uint32_t)alloc_two_word_pair_1045bc2e(puVar4,8,8);
+  uVar3 = (uint32_t)(alloc_two_word_pair_1045bc2e(puVar4,8,8));
   (*(code *)0x1045bce8/*ROM*/)(auStack_20,param_2,uVar3);
-  iVar7 = 8;
+  iVar8 = 8;
   do {
-    iVar6 = iVar7 + -4;
-    *(uint32_t *)((int)aiStack_2c + iVar7) = *(uint32_t *)((int)aiStack_2c + iVar7 + 8);
-    iVar7 = iVar6;
+    iVar6 = iVar8 + -4;
+    *(uint32_t *)((int)aiStack_2c + iVar8) = *(uint32_t *)((int)aiStack_2c + iVar8 + 8);
+    iVar8 = iVar6;
   } while (iVar6 != 0);
   piVar5 = aiStack_2c + 1;
-  (**(code **)(iVar2 + 0x14))(param_1 + 0x10 + (int)sVar1,piVar5);
+  (*(code *)piVar2[5])((int)&param_1->field_0x10 + (int)sVar1,piVar5);
   free_heap_block_if_flagged_1045bc54(piVar5,2);
   free_heap_block_if_flagged_1045bc54(auStack_20,2);
   free_heap_block_if_flagged_1045bc54(puVar4,2);
-  iVar2 = *(int *)(param_1 + 0x3c);
-  aiStack_2c[0] = param_1 + 0x30 + (int)*(short *)(iVar2 + 0x10);
-  uVar3 = (uint32_t)alloc_two_word_pair_1045bc2e(piVar5,4,4);
+  iVar6 = param_1->field_0x3c;
+  aiStack_2c[0] = (int)&param_1->field_0x30 + (int)*(short *)(iVar6 + 0x10);
+  uVar3 = (uint32_t)(alloc_two_word_pair_1045bc2e(piVar5,4,4));
   (*(code *)0x1045bce8/*ROM*/)(auStack_20,param_2,uVar3);
-  iVar7 = 8;
+  iVar8 = 8;
   do {
-    iVar6 = iVar7 + -4;
-    *(uint32_t *)((int)auStack_1c + iVar7) = *(uint32_t *)((int)aiStack_2c + iVar7 + 8);
-    iVar7 = iVar6;
-  } while (iVar6 != 0);
-  (**(code **)(iVar2 + 0x14))(aiStack_2c[0],puVar4);
+    iVar7 = iVar8 + -4;
+    *(uint32_t *)((int)auStack_1c + iVar8) = *(uint32_t *)((int)aiStack_2c + iVar8 + 8);
+    iVar8 = iVar7;
+  } while (iVar7 != 0);
+  (((vtbl_entry*)(iVar6))[2].fn)(aiStack_2c[0],puVar4);
   free_heap_block_if_flagged_1045bc54(puVar4,2);
   free_heap_block_if_flagged_1045bc54(auStack_20,2);
   free_heap_block_if_flagged_1045bc54(piVar5,2);
-  iVar2 = *(int *)(param_1 + 0x2c);
-  sVar1 = *(short *)(iVar2 + 0x10);
-  iVar7 = 8;
+  iVar6 = param_1->field_0x2c;
+  sVar1 = *(short *)(iVar6 + 0x10);
+  iVar8 = 8;
   do {
-    iVar6 = iVar7 + -4;
-    *(uint32_t *)((int)auStack_1c + iVar7) = *(uint32_t *)(iVar6 + param_2);
-    iVar7 = iVar6;
-  } while (iVar6 != 0);
-  (**(code **)(iVar2 + 0x14))(param_1 + 0x20 + (int)sVar1,puVar4);
+    iVar7 = iVar8 + -4;
+    *(uint32_t *)((int)auStack_1c + iVar8) = *(uint32_t *)(iVar7 + param_2);
+    iVar8 = iVar7;
+  } while (iVar7 != 0);
+  (((vtbl_entry*)(iVar6))[2].fn)(&param_1->field_0x20 + sVar1,puVar4);
   free_heap_block_if_flagged_1045bc54(puVar4,2);
-  *(uint8_t *)(param_1 + 9) = 1;
+  param_1->field_0x9 = 1;
   return;
 }

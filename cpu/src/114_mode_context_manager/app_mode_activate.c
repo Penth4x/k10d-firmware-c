@@ -23,7 +23,7 @@ int app_mode_activate(int param_1,int param_2)
   iVar1 = read_struct_field_by_index_1042fe92(param_1,param_2);
   iVar2 = 0;
   if ((iVar1 != 0) && (iVar2 = *(int *)(iVar1 + 0x14), iVar2 == 0)) {
-    iVar2 = app_screen_factory_by_mode(*(uint32_t *)(param_1 + 0xcc),param_2,1);
+    iVar2 = (uintptr_t)(app_screen_factory_by_mode(*(uint32_t *)(param_1 + 0xcc),param_2,1));
     *(int *)(iVar1 + 0x14) = iVar2;
   }
   return iVar2;

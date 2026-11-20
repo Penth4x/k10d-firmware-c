@@ -22,7 +22,7 @@ void build_lens_update_packet_1053a8a4(int param_1,void *param_2)
   void *pvVar2;
   
   pvVar2 = (void *)((int)param_2 + (*(int *)(param_1 + 8) + -1) * 0x20);
-  format_lens_fw_info_line(param_1 + 0x28,param_1 + 0x24,pvVar2);
+  format_lens_fw_info_line((char *)(param_1 + 0x28),(int)(param_1 + 0x24),(uint8_t *)(pvVar2));
   *(uint8_t *)((int)pvVar2 + 0xb) = *(uint8_t *)(param_1 + 0x1f);
   *(uint8_t *)((int)pvVar2 + 0xc) = 0;
   if ((*(uint *)(param_1 + 0x20) & 1) != 0) {

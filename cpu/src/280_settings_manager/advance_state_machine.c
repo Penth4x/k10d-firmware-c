@@ -15,12 +15,12 @@ int advance_state_machine(int *param_1,int param_2)
   if (param_1[1] == 3) {
     if (*param_1 == param_2) {
       param_1[1] = 4;
-      iVar1 = (**(code **)(param_1[3] + 0x6c))((int)*(short *)(param_1[3] + 0x68) + (int)param_1);
+      iVar1 = (((vtbl_entry*)(param_1[3]))[13].fn)((int)((vtbl_entry*)(param_1[3]))[13].adj + (int)param_1);
     }
   }
   else if ((param_1[1] == 2) &&
-          (iVar1 = (**(code **)(param_1[3] + 0x54))
-                             ((int)*(short *)(param_1[3] + 0x50) + (int)param_1,param_2,0),
+          (iVar1 = (((vtbl_entry*)(param_1[3]))[10].fn)
+                             ((int)((vtbl_entry*)(param_1[3]))[10].adj + (int)param_1,param_2,0),
           iVar1 != 0)) {
     param_1[1] = 4;
   }

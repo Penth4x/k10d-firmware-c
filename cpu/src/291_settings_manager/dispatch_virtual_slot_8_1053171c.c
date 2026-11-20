@@ -6,12 +6,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_virtual_slot_8_1053171c(int param_1)
+void dispatch_virtual_slot_8_1053171c(cls_1061e14c *param_1)
 
 {
   int iVar1;
   
-  iVar1 = **(int **)(param_1 + 4);
-  (**(code **)(iVar1 + 0x44))((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar1 + 0x40));
+  iVar1 = *(int *)param_1->field_0x4;
+  (((vtbl_entry*)(iVar1))[8].fn)(param_1->field_0x4 + (int)((vtbl_entry*)(iVar1))[8].adj);
   return;
 }

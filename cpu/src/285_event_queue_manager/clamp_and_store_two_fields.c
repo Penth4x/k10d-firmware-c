@@ -23,7 +23,7 @@ void clamp_and_store_two_fields(void *param_1,int param_2,uint32_t param_3)
   int iVar2;
   
   uVar1 = get_sysparam_store_instance();
-  iVar2 = get_sysparam_store_byte((void *)uVar1,0x1c);
+  iVar2 = get_sysparam_store_byte((uint8_t *)(uVar1),(uint32_t)(0x1c));
   if ((iVar2 == 0) && (300 < param_2)) {
     param_2 = 300;
   }

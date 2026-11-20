@@ -27,7 +27,7 @@ void cls_1059a3b4_delete(uint32_t *param_1,uint param_2)
     param_1[0xdf] = 0;
     cls_105a2a8c_delete(param_1 + 0x10,0);
     *param_1 = 0x105643d0/*ROM*/;
-    cls_105b4254_delete(param_1 + 2,2);
+    cls_105b4254_delete((cls_105b4254 *)(param_1 + 2),2);
     reset_vtable_and_free_if_flagged_104968f2(param_1,0);
     if ((param_2 & 1) != 0) {
       heap_free((int)param_1);

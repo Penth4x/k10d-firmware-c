@@ -11,7 +11,7 @@ void alloc_and_store_pointer(uint32_t *param_1,void *param_2)
 {
   if ((param_1 != (uint32_t *)0x0) ||
      (param_1 = (uint32_t *)heap_alloc((void *)4), param_1 != (uint32_t *)0x0)) {
-    *param_1 = (uint32_t)param_2;
+    *param_1 = (uintptr_t)(param_2);
   }
   return;
 }

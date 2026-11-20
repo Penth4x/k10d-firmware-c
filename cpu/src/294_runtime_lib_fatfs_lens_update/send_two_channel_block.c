@@ -24,7 +24,7 @@ uint32_t send_two_channel_block(int param_1,int param_2,int param_3,int param_4)
   
   iVar1 = *(int *)(param_1 + 0x70);
   while( true ) {
-    iVar2 = (**(code **)(param_1 + 0x58))(*(uint32_t *)(param_1 + 0x60),param_2,1,iVar1 + 4);
+    iVar2 = (((vtbl_entry*)(param_1))[11].fn)(*(uint32_t *)(param_1 + 0x60),param_2,1,iVar1 + 4);
     if (iVar2 != 0) {
       if (iVar2 == -1000) {
         *(ushort *)(*(int *)(param_1 + 100) + 0xe) = *(ushort *)(*(int *)(param_1 + 100) + 0xe) | 1;
@@ -32,7 +32,7 @@ uint32_t send_two_channel_block(int param_1,int param_2,int param_3,int param_4)
       }
       return 0xfffffffb;
     }
-    iVar2 = (**(code **)(param_1 + 0x5c))(*(uint32_t *)(param_1 + 0x60),param_3,1,iVar1 + 4);
+    iVar2 = (((vtbl_entry*)(param_1))[11].fn)(*(uint32_t *)(param_1 + 0x60),param_3,1,iVar1 + 4);
     if (iVar2 != 0) break;
     param_2 = param_2 + 1;
     param_4 = param_4 + -1;

@@ -15,16 +15,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_object_resources_1050b5fa(int param_1)
+void release_object_resources_1050b5fa(cls_105d5584 *param_1)
 
 {
   void *pvVar1;
   
-  free_heap_if_flag_set_10513bb2(*(void **)(param_1 + 0x70),3);
-  free_heap_if_flag_set_10513bb2(*(void **)(param_1 + 0x74),3);
-  free_heap_if_flag_set_10513bb2(*(void **)(param_1 + 0x78),3);
-  free_heap_if_flag_set_10513bb2(*(void **)(param_1 + 0x7c),3);
+  free_heap_if_flag_set_10513bb2((void *)(param_1->field_0x70),(uint)(3));
+  free_heap_if_flag_set_10513bb2((void *)(param_1->field_0x74),(uint)(3));
+  free_heap_if_flag_set_10513bb2((void *)(param_1->field_0x78),(uint)(3));
+  free_heap_if_flag_set_10513bb2((void *)(param_1->field_0x7c),(uint)(3));
   pvVar1 = (void *)get_system_heap();
-  mempool_release_block(pvVar1,*(void **)(param_1 + 0x5c));
+  mempool_release_block(pvVar1,(char*)(param_1) ->field_0x5c);
   return;
 }

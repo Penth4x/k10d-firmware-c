@@ -18,7 +18,7 @@
 void reset_vtable_and_free_if_flagged_103c71c8(void *param_1,uint param_2)
 
 {
-  if ((param_1 != (void *)0x0) &&
+  if ((param_1 != 0) &&
      (*(void **)((int)param_1 + 0x10) = &DAT_105956e0/*ROM*/, (param_2 & 1) != 0)) {
     heap_free((int)param_1);
   }

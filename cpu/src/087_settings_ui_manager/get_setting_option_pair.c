@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t get_setting_option_pair(int param_1,int param_2)
+uint32_t get_setting_option_pair(cls_10597bf0 *param_1,int param_2)
 
 {
   uint32_t uVar1;
@@ -29,7 +29,7 @@ uint32_t get_setting_option_pair(int param_1,int param_2)
   if (param_2 == 0x1b40014) {
     auStack_10[0] = 0x1b4000a;
     auStack_10[1] = 0x1b4000f;
-    uVar3 = setting_get(*(int *)(param_1 + 8),0xba);
+    uVar3 = setting_get(param_1->field_0x8,0xba);
     iVar2 = 0xff;
     if (bRam10597bec == uVar3) {
       iVar2 = 0;

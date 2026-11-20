@@ -19,9 +19,9 @@
 uint32_t init_sram_block_and_store_param(void *param_1)
 
 {
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,0x100);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(0x100));
   init_object_with_three_fields_104c475e(_DAT_8000439c/*SDRAM*/,(int)param_1);
   eventflag_wai_flg((uint32_t *)0x80018088/*SDRAM*/,0x100,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,0x100);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(0x100));
   return *(uint32_t *)((int)param_1 + 8);
 }

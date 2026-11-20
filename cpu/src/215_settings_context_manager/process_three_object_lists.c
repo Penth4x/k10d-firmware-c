@@ -33,8 +33,8 @@ LAB_104b4078:
         do {
           piVar1 = *(int **)((uVar3 + 1) * 4 + *(int *)(param_1 + 0x14));
           iVar4 = *piVar1;
-          (**(code **)(iVar4 + 0x2c))
-                    ((int)piVar1 + (int)*(short *)(iVar4 + 0x28),
+          (((vtbl_entry*)(iVar4))[5].fn)
+                    ((int)piVar1 + (int)((vtbl_entry*)(iVar4))[5].adj,
                      *(uint32_t *)(uVar3 * 4 + *(int *)(param_1 + 0x14)));
           uVar3 = uVar3 + 1 & 0xff;
         } while ((int)uVar3 < (int)(param_1[1] - 1));
@@ -50,8 +50,8 @@ LAB_104b4078:
         do {
           piVar1 = *(int **)((uVar3 + 1) * 4 + *(int *)(param_1 + 0x18));
           iVar4 = *piVar1;
-          (**(code **)(iVar4 + 0x2c))
-                    ((int)piVar1 + (int)*(short *)(iVar4 + 0x28),
+          (((vtbl_entry*)(iVar4))[5].fn)
+                    ((int)piVar1 + (int)((vtbl_entry*)(iVar4))[5].adj,
                      *(uint32_t *)(uVar3 * 4 + *(int *)(param_1 + 0x18)));
           uVar3 = uVar3 + 1 & 0xff;
         } while ((int)uVar3 < (int)(param_1[2] - 1));
@@ -69,8 +69,8 @@ LAB_104b4078:
       do {
         piVar1 = *(int **)((uVar3 + 1) * 4 + *(int *)(param_1 + 0x10));
         iVar4 = *piVar1;
-        (**(code **)(iVar4 + 0x2c))
-                  ((int)piVar1 + (int)*(short *)(iVar4 + 0x28),
+        (((vtbl_entry*)(iVar4))[5].fn)
+                  ((int)piVar1 + (int)((vtbl_entry*)(iVar4))[5].adj,
                    *(uint32_t *)(uVar3 * 4 + *(int *)(param_1 + 0x10)));
         uVar3 = uVar3 + 1 & 0xff;
       } while ((int)uVar3 < (int)(*param_1 - 1));

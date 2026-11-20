@@ -22,21 +22,21 @@ void dispatch_object_virtual_command(int param_1,int param_2)
   
   if (param_2 == 0) {
     iVar1 = *(int *)(*(int *)(param_1 + 0x20) + 4);
-    (**(code **)(iVar1 + 0x3c))(*(int *)(param_1 + 0x20) + (int)*(short *)(iVar1 + 0x38));
+    (((vtbl_entry*)(iVar1))[7].fn)(*(int *)(param_1 + 0x20) + (int)((vtbl_entry*)(iVar1))[7].adj);
   }
   else if (param_2 == 1) {
     iVar1 = *(int *)(*(int *)(param_1 + 0x20) + 4);
-    (**(code **)(iVar1 + 0x44))(*(int *)(param_1 + 0x20) + (int)*(short *)(iVar1 + 0x40));
+    (((vtbl_entry*)(iVar1))[8].fn)(*(int *)(param_1 + 0x20) + (int)((vtbl_entry*)(iVar1))[8].adj);
   }
   else if (param_2 == 3) {
     iVar1 = *(int *)(*(int *)(param_1 + 0x20) + 4);
-    (**(code **)(iVar1 + 0x54))(*(int *)(param_1 + 0x20) + (int)*(short *)(iVar1 + 0x50));
+    (((vtbl_entry*)(iVar1))[10].fn)(*(int *)(param_1 + 0x20) + (int)((vtbl_entry*)(iVar1))[10].adj);
   }
   else {
     iVar1 = *(int *)(*(int *)(param_1 + 0x20) + 4);
-    (**(code **)(iVar1 + 0x4c))(*(int *)(param_1 + 0x20) + (int)*(short *)(iVar1 + 0x48));
+    (((vtbl_entry*)(iVar1))[9].fn)(*(int *)(param_1 + 0x20) + (int)((vtbl_entry*)(iVar1))[9].adj);
   }
   iVar1 = *(int *)(*(int *)(param_1 + 0x20) + 4);
-  (**(code **)(iVar1 + 0x6c))(*(int *)(param_1 + 0x20) + (int)*(short *)(iVar1 + 0x68),1);
+  (((vtbl_entry*)(iVar1))[13].fn)(*(int *)(param_1 + 0x20) + (int)((vtbl_entry*)(iVar1))[13].adj,1);
   return;
 }

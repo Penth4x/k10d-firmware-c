@@ -36,8 +36,8 @@ int configure_sensor_readout_params_104b814e(int param_1,uint32_t param_2,void *
   bVar7 = set_pointer_and_clear_flag((int *)(param_1 + 0x2c),(void *)(param_1 + 4));
   if (bVar7) {
     if (param_4 == 0) {
-      dispatch_virtual_property_set((void *)(*(uint32_t *)(param_1 + 0x14)),0,0);
-      dispatch_virtual_property_set((void *)(*(uint32_t *)(param_1 + 0x14)),1,0);
+      dispatch_virtual_property_set((int *)(*(uint32_t *)(param_1 + 0x14)),(int)(0),(uint)(0));
+      dispatch_virtual_property_set((int *)(*(uint32_t *)(param_1 + 0x14)),(int)(1),(uint)(0));
       uVar1 = (*(code *)0x104bb202/*ROM*/)(param_3);
       uVar2 = (*(code *)0x104bb20c/*ROM*/)(param_3);
       uVar3 = (*(code *)0x104bb212/*ROM*/)(param_3);
@@ -53,10 +53,8 @@ int configure_sensor_readout_params_104b814e(int param_1,uint32_t param_2,void *
       uVar4 = (*(code *)0x104bb218/*ROM*/)(param_3);
       uVar5 = (*(code *)0x104bb21e/*ROM*/)(param_3);
       uVar6 = (*(code *)0x104bb224/*ROM*/)(param_3);
-      dispatch_virtual_property_set((void *)(*(uint32_t *)(param_1 + 0x14)),0,uVar1);
-      dispatch_virtual_property_set((void *)(*(uint32_t *)(param_1 + 0x14)),1,
-                   uVar2 & 3 | (uVar3 & 1) << 2 | (uVar4 & 3) << 3 | (uVar5 & 1) << 5 |
-                   (uVar6 & 3) << 6);
+      dispatch_virtual_property_set((int *)(*(uint32_t *)(param_1 + 0x14)),(int)(0),(uint)(uVar1));
+      dispatch_virtual_property_set((int *)(*(uint32_t *)(param_1 + 0x14)),(int)(1), (uint)(uVar2 & 3 | (uVar3 & 1) << 2 | (uVar4 & 3) << 3 | (uVar5 & 1) << 5 | (uVar6 & 3) << 6));
       uVar1 = (*(code *)0x104bb202/*ROM*/)(param_4);
       uVar2 = (*(code *)0x104bb20c/*ROM*/)(param_4);
       uVar3 = (*(code *)0x104bb212/*ROM*/)(param_4);
@@ -65,11 +63,11 @@ int configure_sensor_readout_params_104b814e(int param_1,uint32_t param_2,void *
       uVar2 = uVar2 & 3 | (uVar3 & 1) << 2 | (uVar4 & 3) << 3 | (uVar5 & 1) << 5;
       uVar3 = (*(code *)0x104bb224/*ROM*/)(param_4);
     }
-    dispatch_virtual_property_set((void *)(*(uint32_t *)(param_1 + 0x14)),2,uVar1);
-    dispatch_virtual_property_set((void *)(*(uint32_t *)(param_1 + 0x14)),3,uVar2 | (uVar3 & 3) << 6);
-    dispatch_virtual_property_set((void *)(*(uint32_t *)(param_1 + 0x14)),4,param_2);
+    dispatch_virtual_property_set((int *)(*(uint32_t *)(param_1 + 0x14)),(int)(2),(uint)(uVar1));
+    dispatch_virtual_property_set((int *)(*(uint32_t *)(param_1 + 0x14)),(int)(3),(uint)(uVar2 | (uVar3 & 3) << 6));
+    dispatch_virtual_property_set((int *)(*(uint32_t *)(param_1 + 0x14)),(int)(4),(uint)(param_2));
     eventflag_clr_flg((uint32_t *)(param_1 + 0x24),1);
-    iStack_30 = send_cpucom_command_block((void *)(*(uint32_t *)(param_1 + 0x14)),(void *)(param_1 + 4));
+    iStack_30 = send_cpucom_command_block((int *)(*(uint32_t *)(param_1 + 0x14)),(void *)(param_1 + 4));
     if (iStack_30 != 0) {
       twai_flg_obj((uint32_t *)(param_1 + 0x24),1,(void *)0x0,_DAT_105a2af0/*ROM*/);
     }

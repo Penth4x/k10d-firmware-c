@@ -22,7 +22,7 @@ uint32_t dispatch_command_by_type_1042e402(int param_1,uint32_t param_2,int para
   
   uVar1 = *(uint8_t *)(param_3 + 0x859);
   set_struct_field_at_offset_4(param_3,0);
-  iVar3 = read_virtual_property_field(*(uint32_t *)(param_1 + 0x10),1);
+  iVar3 = read_virtual_property_field((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(1));
   bVar2 = false;
   if ((iVar3 == 2) || (iVar3 == 3)) {
     bVar2 = true;
@@ -82,7 +82,7 @@ uint32_t dispatch_command_by_type_1042e402(int param_1,uint32_t param_2,int para
       uStack_a = 0;
       uVar7 = *(uint32_t *)(param_1 + 0xc);
       iVar3 = read_struct_field_at_index_1046c7ca(param_3,0);
-      iVar3 = query_two_byte_value(uVar7,iVar3 != 0,&uStack_a);
+      iVar3 = query_two_byte_value((int *)(uVar7),(int)(iVar3 != 0),(ushort *)(&uStack_a));
       uVar7 = 0;
       if (iVar3 == 0) {
         uVar7 = 0x82;

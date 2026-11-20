@@ -50,17 +50,17 @@ void query_four_virtual_properties(void *param_1)
   uStack_10 = 0;
   uStack_c = 0;
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_34 = (**(code **)(iVar1 + 0x224))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x220));
+  uStack_34 = (((vtbl_entry*)(iVar1))[68].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[68].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_32 = (**(code **)(iVar1 + 0x22c))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x228));
+  uStack_32 = (((vtbl_entry*)(iVar1))[69].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[69].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_30 = (**(code **)(iVar1 + 0x234))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x230));
+  uStack_30 = (((vtbl_entry*)(iVar1))[70].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[70].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_2e = (**(code **)(iVar1 + 0x23c))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x238));
+  uStack_2e = (((vtbl_entry*)(iVar1))[71].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[71].adj);
   uStack_2c = 0;
   uStack_28 = 0;
   uStack_24 = 0;

@@ -21,6 +21,6 @@ void invoke_virtual_method_on_nested_object_1047131a(int param_1,uint16_t param_
   int iVar1;
   
   iVar1 = *(int *)(*(int *)(param_1 + 0x60) + 4);
-  (**(code **)(iVar1 + 0x34))(*(int *)(param_1 + 0x60) + (int)*(short *)(iVar1 + 0x30),param_2);
+  (((vtbl_entry*)(iVar1))[6].fn)(*(int *)(param_1 + 0x60) + (int)((vtbl_entry*)(iVar1))[6].adj,param_2);
   return;
 }

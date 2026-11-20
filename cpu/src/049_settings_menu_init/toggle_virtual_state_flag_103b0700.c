@@ -24,7 +24,7 @@ void toggle_virtual_state_flag_103b0700(void *param_1)
   
   iVar1 = get_setting_by_mode_flag_104f147e(*(uint32_t *)((int)param_1 + 0x28),0);
   iVar2 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
   if ((*(char *)((int)param_1 + 0x48) != '\x1c') || (iVar1 != 1)) {
     switch(iVar1) {
     case 0:
@@ -41,6 +41,6 @@ void toggle_virtual_state_flag_103b0700(void *param_1)
     }
   }
   iVar1 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   return;
 }

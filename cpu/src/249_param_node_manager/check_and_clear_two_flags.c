@@ -21,14 +21,14 @@ void check_and_clear_two_flags(int param_1)
   int iVar1;
   
   iVar1 = **(int **)(param_1 + 0x78);
-  iVar1 = (**(code **)(iVar1 + 0x14))
-                    ((int)*(int **)(param_1 + 0x78) + (int)*(short *)(iVar1 + 0x10));
+  iVar1 = (((vtbl_entry*)(iVar1))[2].fn)
+                    ((int)*(int **)(param_1 + 0x78) + (int)((vtbl_entry*)(iVar1))[2].adj);
   if (iVar1 == 1) {
     poll_event_queue_for_mask(param_1,*(uint32_t *)(param_1 + 0x60),1000);
   }
   iVar1 = **(int **)(param_1 + 0x74);
-  iVar1 = (**(code **)(iVar1 + 0x44))
-                    ((int)*(int **)(param_1 + 0x74) + (int)*(short *)(iVar1 + 0x40));
+  iVar1 = (((vtbl_entry*)(iVar1))[8].fn)
+                    ((int)*(int **)(param_1 + 0x74) + (int)((vtbl_entry*)(iVar1))[8].adj);
   if (iVar1 == 1) {
     poll_event_queue_for_mask(param_1,*(uint32_t *)(param_1 + 0x50),1000);
   }

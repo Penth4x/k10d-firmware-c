@@ -14,7 +14,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_three_helpers_on_object_1036ec8a(void *param_1)
+void call_three_helpers_on_object_1036ec8a(cls_10557f3c *param_1)
 
 {
   set_flag_and_call_two_helpers_1037030c((int)param_1);

@@ -8,7 +8,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void dispatch_event_by_type_and_code_103730b0(void *param_1,int *param_2)
+void dispatch_event_by_type_and_code_103730b0(cls_105584bc *param_1,int *param_2)
 
 {
   int iVar1;
@@ -34,7 +34,7 @@ void dispatch_event_by_type_and_code_103730b0(void *param_1,int *param_2)
       else if (uVar2 != 10) {
         if (uVar2 == 0xc) {
           invoke_callback_at_8000439c();
-          *(uint8_t *)((int)param_1 + 0x14) = 1;
+          param_1->field_0x14 = 1;
           iVar1 = 0x15;
           goto LAB_1037316a;
         }
@@ -67,7 +67,7 @@ void dispatch_event_by_type_and_code_103730b0(void *param_1,int *param_2)
       iVar1 = 0x28;
     }
 LAB_1037316a:
-    *(uint8_t *)(iVar1 + (int)param_1) = 1;
+    *(uint8_t *)((int)&param_1->field_0x0 + iVar1) = 1;
   }
   return;
 }

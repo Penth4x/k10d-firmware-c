@@ -16,7 +16,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_event_if_type_14(void *param_1,int param_2)
+/* WARNING: Struct "cls_105a7df8": ignoring multiple overlapping fields */
+
+uint32_t dispatch_event_if_type_14(cls_105a7df8 *param_1,int param_2)
 
 {
   if (param_2 == 0xe) {

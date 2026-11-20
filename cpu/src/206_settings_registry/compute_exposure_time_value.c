@@ -25,8 +25,8 @@ void compute_exposure_time_value(int param_1,int param_2)
   piVar8 = (int *)auStack_34;
   uVar6 = 0;
   iVar7 = **(int **)(param_1 + 0x10);
-  cVar5 = (**(code **)(iVar7 + 0x14))
-                    ((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar7 + 0x10),0);
+  cVar5 = (((vtbl_entry*)(iVar7))[2].fn)
+                    ((int)*(int **)(param_1 + 0x10) + (int)((vtbl_entry*)(iVar7))[2].adj,0);
   if ((cVar5 == '\t') || (cVar5 == '\f')) {
     uVar6 = *(int *)(*(int *)(param_1 + 0x58) + 0x508) * 100;
     if (0xa7c4 < uVar6) {
@@ -41,12 +41,12 @@ void compute_exposure_time_value(int param_1,int param_2)
     uStack_a = 0;
     uVar1 = *(uint32_t *)(param_1 + 0x50);
     iVar7 = **(int **)(param_1 + 0x14);
-    uVar2 = (**(code **)(iVar7 + 0x14))
-                      ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar7 + 0x10),0);
+    uVar2 = (((vtbl_entry*)(iVar7))[2].fn)
+                      ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar7))[2].adj,0);
     uVar3 = query_object_slot_three_104a6a48(param_1);
     iVar7 = **(int **)(param_1 + 0x14);
-    uVar4 = (**(code **)(iVar7 + 0x14))
-                      ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar7 + 0x10),5);
+    uVar4 = (((vtbl_entry*)(iVar7))[2].fn)
+                      ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar7))[2].adj,5);
     iVar7 = *(int *)(param_1 + 0x1c);
     *piVar8 = (int)&uStack_c;
     piVar8[1] = (int)&uStack_a;

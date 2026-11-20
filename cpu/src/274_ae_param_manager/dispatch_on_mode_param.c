@@ -14,13 +14,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_on_mode_param(int param_1,void *param_2,int param_3,int param_4,int param_5)
+uint32_t dispatch_on_mode_param(cls_105d66dc *param_1,void *param_2,int param_3,int param_4,int param_5)
 
 {
   uint32_t uVar1;
   
   if (param_3 == 0) {
-    uVar1 = dispatch_by_two_flags(param_1,param_2,param_4,param_5);
+    uVar1 = dispatch_by_two_flags((int)param_1,param_2,param_4,param_5);
   }
   else if (param_3 == 1) {
     uVar1 = dispatch_message_by_type_1051b110(__frv_reg_unset(4),(ushort *)__frv_reg_unset(5));

@@ -27,6 +27,6 @@ void imgp_a_stop_and_reset(int param_1)
   pvVar1 = (void *)get_or_init_singleton_object_1051d40e();
   uVar2 = read_bounded_array_element_1051d696(pvVar1,7);
   update_camera_state_flags(pvVar1,7,uVar2 & 0xfffffffe);
-  delete_signal_semaphore((void *)(param_1 + 0x1c));
+  delete_signal_semaphore((int *)(param_1 + 0x1c));
   return;
 }

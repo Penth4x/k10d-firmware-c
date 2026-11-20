@@ -58,18 +58,17 @@ uint read_lens_firmware_and_show_info(uint32_t *param_1)
   uint8_t uStack_8f;
   uint8_t uStack_8e;
   uint8_t uStack_8d;
-  uint8_t auStack_8c [16];
-  int iStack_7c;
-  uint8_t auStack_6c [8];
-  uint32_t auStack_64 [19];
-  uint8_t auStack_18 [12];
+  cls_105ab468 cStack_8c;
+  cls_105a6eac cStack_6c;
+  cls_105a6cfc acStack_64 [19];
+  cls_105a70ec cStack_18;
   uint32_t uStack_c;
   
   puVar14 = (uint *)auStackY_138;
   build_and_dispatch_draw_params((int)param_1,4,7,s_Si6NOW_LOADING_10621d65 + 3,7,0xff,'\0');
   iVar4 = get_or_create_camera_object();
   piVar11 = *(int **)(iVar4 + 0xc);
-  cls_105ab468_new(auStack_8c);
+  cls_105ab468_new(&cStack_8c);
   uStack_9c = 0x6a;
   uStack_9b = 0x13;
   uStack_9a = 0x75;
@@ -88,22 +87,23 @@ uint read_lens_firmware_and_show_info(uint32_t *param_1)
   uStack_8d = 0x29;
   pvVar5 = (void *)heap_alloc_2(0x10);
   (*(code *)0x10486a2c/*ROM*/)(param_1,&uStack_9c,pvVar5,0x10);
-  uStack_11c = call_with_offset_lock_1048101c(piVar11,pvVar5,auStack_8c);
+  uStack_11c = call_with_offset_lock_1048101c(piVar11,pvVar5,&cStack_8c);
   *(uint16_t *)((int)puVar14 + 2) = 7;
   *(uint16_t *)((int)puVar14 + 6) = 0xff;
   *(uint8_t *)((int)puVar14 + 0xb) = 0;
   build_and_dispatch_draw_params((int)param_1,4,0x12,(byte *)0x10621d84,*(uint16_t *)((int)puVar14 + 2),*(uint16_t *)((int)puVar14 + 6),*(char *)((int)puVar14 + 0xb));
-  if ((uStack_11c != 0) && (uStack_11c = (uint)(iStack_7c == 0x1c40), iStack_7c == 0x1c40)) {
+  if ((uStack_11c != 0) &&
+     (uStack_11c = (uint)(cStack_8c.field_0x10 == 0x1c40), cStack_8c.field_0x10 == 0x1c40)) {
     uStack_c = 0;
-    uStack_11c = (**(code **)(*piVar11 + 0x2c))
-                           ((int)*(short *)(*piVar11 + 0x28) + (int)piVar11,pvVar5,1,&uStack_c);
+    uStack_11c = (((vtbl_entry*)(*piVar11))[5].fn)
+                           ((int)((vtbl_entry*)(*piVar11))[5].adj + (int)piVar11,pvVar5,1,&uStack_c);
     if (uStack_11c != 0) {
       uVar6 = heap_alloc_2(0x1c40);
       param_1[0x15] = uVar6;
-      uStack_11c = (**(code **)(*piVar11 + 0x3c))
-                             ((int)*(short *)(*piVar11 + 0x38) + (int)piVar11,uStack_c,uVar6,0x1c40)
+      uStack_11c = (((vtbl_entry*)(*piVar11))[7].fn)
+                             ((int)((vtbl_entry*)(*piVar11))[7].adj + (int)piVar11,uStack_c,uVar6,0x1c40)
       ;
-      (**(code **)(*piVar11 + 0x34))((int)*(short *)(*piVar11 + 0x30) + (int)piVar11,uStack_c);
+      (((vtbl_entry*)(*piVar11))[6].fn)((int)((vtbl_entry*)(*piVar11))[6].adj + (int)piVar11,uStack_c);
     }
   }
   heap_free_2((int)pvVar5);
@@ -126,11 +126,11 @@ uint read_lens_firmware_and_show_info(uint32_t *param_1)
     build_and_dispatch_draw_params((int)param_1,4,0x14,(byte *)0x10621d8c,*(uint16_t *)((int)puVar14 + 2),*(uint16_t *)((int)puVar14 + 6),*(char *)((int)puVar14 + 0xb));
     iVar4 = initialize_singleton_object_1045d6a0();
     iVar12 = *(int *)(iVar4 + 0x1c);
-    cls_105a6eac_new(auStack_6c);
+    cls_105a6eac_new(&cStack_6c);
     iVar4 = 0;
     do {
-      copy_four_bytes_from_struct_field_1045e59a(iVar12,auStack_6c);
-      iVar7 = test_field_bit_or_nonzero(auStack_6c,4);
+      copy_four_bytes_from_struct_field_1045e59a(iVar12,&cStack_6c);
+      iVar7 = test_field_bit_or_nonzero(&cStack_6c,4);
       if (iVar7 != 0) {
         uStack_11c = 1;
         break;
@@ -140,26 +140,26 @@ uint read_lens_firmware_and_show_info(uint32_t *param_1)
     } while (iVar4 < 0x20);
     if (uStack_11c != 0) {
       uStack_11c = 0;
-      cls_105a6cfc_new(auStack_64);
-      copy_0x45_byte_block(iVar12,auStack_64);
-      iVar4 = extract_field_from_struct_1045fc62(auStack_64,1);
+      cls_105a6cfc_new(acStack_64);
+      copy_0x45_byte_block(iVar12,acStack_64);
+      iVar4 = extract_field_from_struct_1045fc62(acStack_64,1);
       if (iVar4 == 8) {
         eventflag_clr_flg(param_1 + 0x1c,1);
         iVar4 = forward_three_args_to_helper_1045e82c(iVar12,param_1 + 0x13,0x18);
         if (iVar4 != 0) {
           twai_flg_obj(param_1 + 0x1c,1,(void *)0x0,_DAT_105a2af0/*ROM*/);
-          cls_105a70ec_new(auStack_18);
-          copy_six_bytes_from_struct(iVar12,auStack_18);
+          cls_105a70ec_new(&cStack_18);
+          copy_six_bytes_from_struct(iVar12,&cStack_18);
           *(uint16_t *)((int)param_1 + 0x5a) = 0;
-          uVar6 = read_pair_from_buffer(auStack_18,3);
+          uVar6 = read_pair_from_buffer(&cStack_18,3);
           *(short *)(param_1 + 0x17) = (short)uVar6;
-          uVar6 = read_pair_from_buffer(auStack_18,0);
+          uVar6 = read_pair_from_buffer(&cStack_18,0);
           *(char *)((int)param_1 + 0x5e) = (char)((uint)uVar6 >> 8);
-          uVar6 = read_pair_from_buffer(auStack_18,0);
+          uVar6 = read_pair_from_buffer(&cStack_18,0);
           *(char *)((int)param_1 + 0x5f) = (char)uVar6;
-          uVar6 = read_pair_from_buffer(auStack_18,1);
+          uVar6 = read_pair_from_buffer(&cStack_18,1);
           *(char *)(param_1 + 0x18) = (char)((uint)uVar6 >> 8);
-          uVar6 = read_pair_from_buffer(auStack_18,1);
+          uVar6 = read_pair_from_buffer(&cStack_18,1);
           *(char *)((int)param_1 + 0x61) = (char)uVar6;
           puVar13 = (uint16_t *)param_1[0x15];
           *(uint16_t *)(param_1 + 0x19) = *puVar13;
@@ -169,12 +169,12 @@ uint read_lens_firmware_and_show_info(uint32_t *param_1)
           *(uint8_t *)((int)param_1 + 0x6a) = *(uint8_t *)(puVar13 + 9);
           *(uint8_t *)((int)param_1 + 0x6b) = *(uint8_t *)((int)puVar13 + 0x13);
           uStack_11c = 1;
-          cls_105a70ec_delete(auStack_18,2);
+          cls_105a70ec_delete(&cStack_18,2);
         }
       }
-      cls_105a6cfc_delete(auStack_64,2);
+      cls_105a6cfc_delete(acStack_64,2);
     }
-    cls_105a6eac_delete(auStack_6c,2);
+    cls_105a6eac_delete(&cStack_6c,2);
   }
   *(uint16_t *)((int)puVar14 + 2) = 7;
   *(uint16_t *)((int)puVar14 + 6) = 0xff;
@@ -276,6 +276,6 @@ uint read_lens_firmware_and_show_info(uint32_t *param_1)
   build_and_dispatch_draw_params((int)param_1,uVar6,uVar8,pcVar9,*(uint16_t *)((int)puVar14 + 2),
                *(uint16_t *)((int)puVar14 + 6),*(char *)((int)puVar14 + 0xb));
   clear_lens_update_flag(param_1);
-  cls_105ab468_delete(auStack_8c,2);
+  cls_105ab468_delete(&cStack_8c,2);
   return uStack_11c;
 }

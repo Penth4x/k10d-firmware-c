@@ -23,7 +23,7 @@ void release_object_at_offset_0x70(void *param_1)
   call_helper_on_struct_field_1036c46c();
   piVar1 = *(int **)((int)param_1 + 0x70);
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0x6c))((int)*(short *)(*piVar1 + 0x68) + (int)piVar1);
+    (((vtbl_entry*)(*piVar1))[13].fn)((int)((vtbl_entry*)(*piVar1))[13].adj + (int)piVar1);
     call_helper_on_struct_field_1036c41a(param_1,*(void **)((int)param_1 + 0x70),1);
   }
   return;

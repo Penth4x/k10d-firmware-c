@@ -39,7 +39,7 @@ uint32_t poll_until_flag_clear_10394370(int param_1)
       }
       check_kernel_call_success_10459fea();
       if (bVar1) {
-        reset_and_select_channel_1039a462(param_1 + 4,5);
+        reset_and_select_channel_1039a462((void *)(param_1 + 4),(uint32_t)(5));
         set_and_apply_object_flag(param_1,1);
         bVar1 = false;
       }
@@ -48,7 +48,7 @@ uint32_t poll_until_flag_clear_10394370(int param_1)
     } while (iVar2 != 0);
   }
   if (!bVar1) {
-    reset_and_select_channel_1039a462(param_1 + 4,0xffffffff);
+    reset_and_select_channel_1039a462((void *)(param_1 + 4),(uint32_t)(0xffffffff));
     set_and_apply_object_flag(param_1,0);
   }
   return uVar3;

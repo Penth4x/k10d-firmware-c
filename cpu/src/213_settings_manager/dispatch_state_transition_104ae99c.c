@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_state_transition_104ae99c(void *param_1,uint32_t param_2,uint32_t param_3,int *param_4)
+uint32_t dispatch_state_transition_104ae99c(cls_105b7770 *param_1,uint32_t param_2,uint32_t param_3,int *param_4)
 
 {
   uint uVar1;

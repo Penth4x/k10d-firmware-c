@@ -20,42 +20,45 @@
 #include "globals.h"
 #include "funcs.h"
 
-void initialize_object_with_virtual_call_103b3c76(int *param_1)
+void initialize_object_with_virtual_call_103b3c76(cls_10566478 *param_1)
 
 {
   uint16_t uVar1;
   uint8_t uVar3;
   uint32_t uVar2;
-  int *piVar4;
+  uint8_t *puVar4;
   
-  if (*(char *)(param_1 + 1) == '\0') {
-    (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1,0);
+  if (param_1->field_0x4 == '\0') {
+    (((vtbl_entry*)(param_1->field_0x0))[8].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[8].adj,0);
   }
-  param_1[0x1a] = 0;
-  piVar4 = param_1 + 2;
-  *(uint8_t *)((int)param_1 + 0x67) = 0;
-  call_helper_on_fetched_object(piVar4,0x10);
-  call_helper_on_fetched_object(piVar4,0xf);
-  call_helper_on_fetched_object(piVar4,0xd);
-  call_helper_on_fetched_object(piVar4,0xe);
-  forward_two_params_via_helper(piVar4,6,1);
-  *(uint8_t *)((int)param_1 + 0x66) = 0;
-  uVar3 = query_object_property_via_temp_104f15c4(param_1[10]);
-  *(uint8_t *)(param_1 + 0x11) = uVar3;
-  uVar2 = get_setting_0xb2(param_1[10]);
-  *(char *)((int)param_1 + 0x45) = (char)uVar2;
+  *(uint32_t *)&param_1->field_0x68 = 0;
+  puVar4 = &param_1->field5_0x8;
+  param_1->field_0x67 = '\0';
+  call_helper_on_fetched_object(puVar4,0x10);
+  call_helper_on_fetched_object(puVar4,0xf);
+  call_helper_on_fetched_object(puVar4,0xd);
+  call_helper_on_fetched_object(puVar4,0xe);
+  forward_two_params_via_helper(puVar4,6,1);
+  param_1->field_0x66 = 0;
+  uVar3 = query_object_property_via_temp_104f15c4(param_1->field_0x28);
+  param_1->field_0x44 = uVar3;
+  uVar2 = get_setting_0xb2(param_1->field_0x28);
+  param_1->field_0x45 = (byte)uVar2;
   compute_and_send_two_offsets_103b45f4(param_1);
   uVar1 = 3;
-  if (*(char *)((int)param_1 + 0x45) != '\0') {
+  if (param_1->field_0x45 != 0) {
     uVar1 = 2;
   }
-  *(uint16_t *)((int)param_1 + 0x46) = uVar1;
-  *(uint16_t *)(param_1 + 0x12) = *(uint16_t *)(param_1 + 0x19);
-  *(uint16_t *)((int)param_1 + 0x4a) = *(uint16_t *)(param_1 + 0x13);
+  *(uint16_t *)&param_1->field_0x46 = uVar1;
+  param_1->field_0x48 = param_1->field_0x64;
+  param_1->field_0x49 = param_1->field_0x65;
+  param_1->field_0x4a = param_1->field_0x4c;
+  param_1->field_0x4b = param_1->field_0x4d;
   dispatch_object_event_103b456c(param_1);
   dispatch_mode_state_update_103b4092(param_1);
-  dispatch_event_to_object_10492252(piVar4,param_1);
-  request_ui_sync_and_set_flag(piVar4);
-  request_ui_sync_with_flag_10491f5c(piVar4,1);
+  dispatch_event_to_object_10492252((cls_105b4254 *)puVar4,param_1);
+  request_ui_sync_and_set_flag((cls_105b4254 *)puVar4);
+  request_ui_sync_with_flag_10491f5c(puVar4,1);
   return;
 }

@@ -17,14 +17,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_virtual_slot_two_by_flag(int *param_1,uint32_t param_2,int param_3)
+uint32_t dispatch_virtual_slot_two_by_flag(cls_105aaa50 *param_1,uint32_t param_2,int param_3)
 
 {
   char cVar1;
   int iVar2;
   uint32_t uVar3;
   
-  iVar2 = (**(code **)(*param_1 + 0x14))((int)*(short *)(*param_1 + 0x10) + (int)param_1);
+  iVar2 = (((vtbl_entry*)(param_1->field_0x0))[2].fn)
+                    ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[2].adj);
   uVar3 = 0x82;
   if (iVar2 != 0) {
     cVar1 = *(char *)(param_3 + 0x859);
@@ -40,7 +41,7 @@ uint32_t dispatch_virtual_slot_two_by_flag(int *param_1,uint32_t param_2,int par
     else {
       uVar3 = 0x81;
     }
-    empty_virtual_slot_1047d008((int)param_1,param_3);
+    empty_virtual_slot_1047d008((uint32_t)(param_1),param_3);
   }
   return uVar3;
 }

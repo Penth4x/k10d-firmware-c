@@ -19,7 +19,7 @@ bool invoke_virtual_method_slot_5(int param_1,uint32_t *param_2)
   int iVar1;
   
   iVar1 = **(int **)(param_1 + 4);
-  iVar1 = (**(code **)(iVar1 + 0x34))
-                    ((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar1 + 0x30),*param_2);
+  iVar1 = (((vtbl_entry*)(iVar1))[6].fn)
+                    ((int)*(int **)(param_1 + 4) + (int)((vtbl_entry*)(iVar1))[6].adj,*param_2);
   return iVar1 != 0;
 }

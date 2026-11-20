@@ -19,8 +19,8 @@ uint32_t * cls_105c1344_new(uint32_t *param_1)
     cls_1059e100_new(param_1);
     *param_1 = 0x105c1344/*ROM*/;
     param_1[10] = 0;
-    cls_105a2be0_new(param_1 + 0xb);
-    cls_105a2be0_new(param_1 + 0xd);
+    cls_105a2be0_new((void *)(param_1 + 0xb));
+    cls_105a2be0_new((void *)(param_1 + 0xd));
     *(uint8_t *)(param_1 + 0xf) = 0;
     *(uint8_t *)((int)param_1 + 0x3d) = 0;
     param_1[1] = 0;

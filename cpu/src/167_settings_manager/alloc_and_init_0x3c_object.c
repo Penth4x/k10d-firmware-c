@@ -22,8 +22,8 @@
 int alloc_and_init_0x3c_object(void *param_1)
 
 {
-  if ((param_1 != (void *)0x0) || (param_1 = (void *)heap_alloc((void *)0x3c), param_1 != (void *)0x0)) {
-    copy_null_terminated_string(param_1, (void *)pvRam8000ff30);
+  if ((param_1 != 0) || (param_1 = (void *)heap_alloc((void *)0x3c), param_1 != 0)) {
+    copy_null_terminated_string((void *)(param_1),(void *)(pvRam8000ff30));
     *(uint8_t *)((int)param_1 + 0x1e) = 0;
   }
   return (int)param_1;

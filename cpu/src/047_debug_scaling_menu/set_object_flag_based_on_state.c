@@ -23,7 +23,7 @@ void set_object_flag_based_on_state(void *param_1)
   uint32_t uVar3;
   
   iVar2 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
   uVar3 = get_setting_by_mode_flag_104f07f4(*(int *)((int)param_1 + 0x28));
   switch(uVar3) {
   default:
@@ -66,7 +66,7 @@ void set_object_flag_based_on_state(void *param_1)
   if (!bVar1) {
 LAB_103ac684:
     iVar2 = menu_item_register((int)param_1 + 8);
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   }
   return;
 }

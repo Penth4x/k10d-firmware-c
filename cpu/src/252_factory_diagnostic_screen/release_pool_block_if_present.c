@@ -17,7 +17,7 @@
 void release_pool_block_if_present(int param_1,void *param_2)
 
 {
-  if (param_2 != (void *)0x0) {
+  if (param_2 != 0) {
     mempool_release_block(*(void **)(param_1 + 0x48),param_2);
   }
   return;

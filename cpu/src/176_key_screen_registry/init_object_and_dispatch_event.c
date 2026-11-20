@@ -35,7 +35,7 @@ void init_object_and_dispatch_event(int param_1,uint32_t param_2,uint32_t param_
   }
   piVar1 = *(int **)(param_1 + 0x18);
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,0x50000,puVar3);
+    (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1,0x50000,puVar3);
   }
   return;
 }

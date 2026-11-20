@@ -16,19 +16,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_field_and_dispatch_event(uint32_t *param_1,uint16_t param_2)
+void set_field_and_dispatch_event(cls_1059656c *param_1,uint16_t param_2)
 
 {
   uint32_t uVar1;
   int iVar2;
   
-  *(uint16_t *)(param_1 + 3) = param_2;
+  param_1->field_0xc = param_2;
   uVar1 = get_setting_by_index((int)param_1,0xb);
   invoke_virtual_slot_one_on_objects(param_1,uVar1);
   iVar2 = get_setting_by_index((int)param_1,0xb);
   if (iVar2 == 0) {
-    *(uint8_t *)(param_1 + 9) = 0xff;
+    param_1->field_0x24 = 0xff;
   }
-  check_mode_transition_validity(param_1,0);
+  check_mode_transition_validity(&param_1->field_0x0,0);
   return;
 }

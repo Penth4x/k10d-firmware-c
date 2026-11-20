@@ -21,7 +21,7 @@ void cls_105aaa50_delete(uint32_t *param_1,uint param_2)
     destroy_and_maybe_free_object(param_1 + 0x13,2);
     free_heap_if_flag_set_1047e5d2(param_1 + 0x11,2);
     free_heap_if_flagged_10482f3c(param_1 + 0xb,2);
-    cls_105a2b50_delete(param_1 + 2,0);
+    cls_105a2b50_delete((void *)(param_1 + 2),0);
     cls_105aacd8_delete(param_1 + 1,0);
     reset_vtable_and_free_if_flagged_10428202(param_1,0);
     if ((param_2 & 1) != 0) {

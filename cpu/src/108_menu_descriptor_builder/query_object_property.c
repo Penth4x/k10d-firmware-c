@@ -24,7 +24,7 @@ uint32_t query_object_property(int param_1,int param_2,uint *param_3)
   uVar1 = 0x83;
   if (param_2 < 0x1e) {
     piVar2 = (int *)module_array_getter(*(void **)(param_1 + 8),param_2);
-    iVar3 = (**(code **)(*piVar2 + 0x1c))((int)piVar2 + (int)*(short *)(*piVar2 + 0x18));
+    iVar3 = (((vtbl_entry*)(*piVar2))[3].fn)((int)piVar2 + (int)((vtbl_entry*)(*piVar2))[3].adj);
     *param_3 = (uint)(iVar3 != 0);
     uVar1 = 0;
   }

@@ -12,7 +12,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t hw_irq_source_demux(void *param_1,uint32_t param_2)
+uint32_t hw_irq_source_demux(cls_105d4190 *param_1,uint32_t param_2)
 
 {
   uint32_t uVar1;

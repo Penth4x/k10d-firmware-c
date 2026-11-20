@@ -6,16 +6,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_two_virtual_methods_104a2d92(int param_1)
+void invoke_two_virtual_methods_104a2d92(cls_105b63b0 *param_1)
 
 {
   int iVar1;
   
-  iVar1 = *(int *)(*(int *)(param_1 + 0x3c) + 0x1c);
-  (**(code **)(iVar1 + 0x24))(*(int *)(param_1 + 0x3c) + (int)*(short *)(iVar1 + 0x20));
-  iVar1 = *(int *)(param_1 + 0x3c);
+  iVar1 = *(int *)(param_1->field_0x3c + 0x1c);
+  (((vtbl_entry*)(iVar1))[4].fn)(param_1->field_0x3c + (int)((vtbl_entry*)(iVar1))[4].adj);
+  iVar1 = param_1->field_0x3c;
   if (iVar1 != 0) {
-    (**(code **)(*(int *)(iVar1 + 0x1c) + 0xc))(*(short *)(*(int *)(iVar1 + 0x1c) + 8) + iVar1,3);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0x1c)))[1].fn)(*(short *)(*(int *)(iVar1 + 0x1c) + 8) + iVar1,3);
   }
   return;
 }

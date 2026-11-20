@@ -17,7 +17,7 @@
 void invoke_slot2_on_two_offsets(void *param_1)
 
 {
-  reset_object_fields_and_call_base((void *)((int)param_1 + 0x3c));
-  reset_object_fields_and_call_base((void *)((int)param_1 + 0x250));
+  reset_object_fields_and_call_base((cls_105b9458 *)((int)param_1 + 0x3c));
+  reset_object_fields_and_call_base((cls_105b9458 *)((int)param_1 + 0x250));
   return;
 }

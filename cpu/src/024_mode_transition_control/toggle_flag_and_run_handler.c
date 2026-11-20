@@ -15,22 +15,22 @@
 #include "globals.h"
 #include "funcs.h"
 
-void toggle_flag_and_run_handler(void *param_1)
+void toggle_flag_and_run_handler(cls_10557ecc *param_1)
 
 {
   char cVar2;
   uint32_t uVar1;
   
-  cVar2 = read_byte_at_offset_0x1d(*(int *)((int)param_1 + 0x14));
+  cVar2 = read_byte_at_offset_0x1d(*(int *)&param_1->field_0x14);
   if (cVar2 != '\0') {
-    dispatch_object_state_update_10491fb2(*(int *)((int)param_1 + 0x14),1);
+    dispatch_object_state_update_10491fb2(*(int *)&param_1->field_0x14,1);
   }
   uVar1 = map_mode_state_pair(param_1);
-  register_and_select_menu_item_1038d2ac((int)param_1 + 0x18,uVar1);
+  register_and_select_menu_item_1038d2ac((int)(&param_1->field_0x18),(int)(uVar1));
   read_two_shorts_from_buffer((int)param_1);
-  cVar2 = read_byte_at_offset_0x1d(*(int *)((int)param_1 + 0x14));
+  cVar2 = read_byte_at_offset_0x1d(*(int *)&param_1->field_0x14);
   if (cVar2 != '\0') {
-    dispatch_object_state_update_10491fb2(*(int *)((int)param_1 + 0x14),0);
+    dispatch_object_state_update_10491fb2(*(int *)&param_1->field_0x14,0);
   }
   return;
 }

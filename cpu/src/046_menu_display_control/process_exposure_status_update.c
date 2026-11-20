@@ -63,29 +63,29 @@ void process_exposure_status_update(int *param_1)
     iVar3 = iStack_14;
     if (iVar5 == 0) {
       iVar3 = *(int *)(param_1[0x14] + 0xc);
-      (**(code **)(iVar3 + 0xc))(param_1[0x14] + (int)*(short *)(iVar3 + 8),0);
+      (((vtbl_entry*)(iVar3))[1].fn)(param_1[0x14] + (int)*(short *)(iVar3 + 8),0);
       iVar3 = *(int *)(param_1[0x13] + 0xc);
-      (**(code **)(iVar3 + 0xc))(param_1[0x13] + (int)*(short *)(iVar3 + 8),0);
-      (**(code **)(*param_1 + 0x74))((int)*(short *)(*param_1 + 0x70) + (int)param_1,0x1120004,0);
+      (((vtbl_entry*)(iVar3))[1].fn)(param_1[0x13] + (int)*(short *)(iVar3 + 8),0);
+      (((vtbl_entry*)(*param_1))[14].fn)((int)((vtbl_entry*)(*param_1))[14].adj + (int)param_1,0x1120004,0);
     }
     else {
       *(short *)(param_1 + 0x44) = (short)(((uint)(iStack_20 >> 7) >> 0x18) + iStack_20 >> 8);
       *(short *)((int)param_1 + 0x112) = (short)(((uint)(iStack_1c >> 7) >> 0x18) + iStack_1c >> 8);
       iVar5 = *(int *)(param_1[0x27] + 0xc);
-      (**(code **)(iVar5 + 0xc))
+      (((vtbl_entry*)(iVar5))[1].fn)
                 (param_1[0x27] + (int)*(short *)(iVar5 + 8),
                  (int)(uint)*(ushort *)(param_1 + 0x45) <= iStack_18);
       iVar5 = *(int *)(param_1[0x25] + 0xc);
-      (**(code **)(iVar5 + 0xc))
+      (((vtbl_entry*)(iVar5))[1].fn)
                 (param_1[0x25] + (int)*(short *)(iVar5 + 8),
                  (int)(uint)*(ushort *)(param_1 + 0x45) <= iVar3);
       iVar3 = *(int *)(param_1[0x28] + 0xc);
-      (**(code **)(iVar3 + 0xc))
+      (((vtbl_entry*)(iVar3))[1].fn)
                 (param_1[0x28] + (int)*(short *)(iVar3 + 8),
                  (int)((uint)*(ushort *)(param_1 + 0x45) + iVar1) <=
                  (int)((*(ushort *)(param_1 + 0x46) - 2) * 0x100));
       iVar3 = *(int *)(param_1[0x26] + 0xc);
-      (**(code **)(iVar3 + 0xc))
+      (((vtbl_entry*)(iVar3))[1].fn)
                 (param_1[0x26] + (int)*(short *)(iVar3 + 8),
                  (int)((uint)*(ushort *)(param_1 + 0x45) + iVar2) <=
                  (int)((*(ushort *)((int)param_1 + 0x11a) - 2) * 0x100));
@@ -97,24 +97,24 @@ void process_exposure_status_update(int *param_1)
       pvVar8 = (void *)(((uint)*(ushort *)
                                 (&DAT_10564ff4/*ROM*/ + (uint)*(ushort *)((int)param_1 + 0x116) * 2) % 100)
                        / 10);
-      if (pvVar8 == (void *)0x0) {
-        pcVar6 = (char *)&DAT_105650d8/*ROM*/;
+      if (pvVar8 == 0) {
+        pcVar6 = &DAT_105650d8/*ROM*/;
       }
       else {
-        pcVar6 = (char *)&DAT_105650dc/*ROM*/;
+        pcVar6 = &DAT_105650dc/*ROM*/;
       }
       format_string_to_buffer_10545140((uint8_t *)0x8001bcbc/*SDRAM*/,pcVar6,pvVar7,pvVar8);
       iVar3 = count_string_bytes((char *)0x8001bcbc/*SDRAM*/);
-      copy_string_with_limit((char *)0x8001bcbc/*SDRAM*/,(char *)&DAT_105650e4/*ROM*/,5 - iVar3);
+      copy_string_with_limit((char *)0x8001bcbc/*SDRAM*/,&DAT_105650e4/*ROM*/,5 - iVar3);
       glyph_draw((void *)param_1[0x2b],(byte *)0x8001bcbc/*SDRAM*/);
       param_1[0x3c] = *(int *)(param_1[0xf] + 4);
       param_1[0x3d] = *(int *)(param_1[0xf] + 8);
       param_1[0x3e] = *(int *)(param_1[0xf] + 0xc);
       call_helper_and_set_flag_10494b88((uint32_t *)param_1[0x14]);
       iVar3 = *(int *)(param_1[0x14] + 0xc);
-      (**(code **)(iVar3 + 0xc))(param_1[0x14] + (int)*(short *)(iVar3 + 8),1);
+      (((vtbl_entry*)(iVar3))[1].fn)(param_1[0x14] + (int)*(short *)(iVar3 + 8),1);
       iVar3 = *(int *)(param_1[0x13] + 0xc);
-      (**(code **)(iVar3 + 0xc))(param_1[0x13] + (int)*(short *)(iVar3 + 8),1);
+      (((vtbl_entry*)(iVar3))[1].fn)(param_1[0x13] + (int)*(short *)(iVar3 + 8),1);
       configure_three_object_regions(param_1);
     }
   }

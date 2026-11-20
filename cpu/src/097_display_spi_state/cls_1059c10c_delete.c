@@ -13,46 +13,47 @@
 
 /* WARNING: Instruction at (ram,0x10412da6) overlaps instruction at (ram,0x10412da4)
     */
+/* WARNING: Struct "cls_1059e128": ignoring overlapping field "field_0x8" */
 
-void cls_1059c10c_delete(uint32_t *param_1,uint param_2)
+void cls_1059c10c_delete(cls_1059c10c *param_1,uint param_2)
 
 {
-  if (param_1 != (uint32_t *)0x0) {
-    *param_1 = 0x1059c10c/*ROM*/;
-    param_1[1] = 0x1059c1cc/*ROM*/;
-    param_1[6] = 0x1059c1ec/*ROM*/;
-    param_1[0xb] = 0x1059c21c/*ROM*/;
-    param_1[0xc] = 0x1059c234/*ROM*/;
-    param_1[0xd] = 0x1059c254/*ROM*/;
-    param_1[0x10] = 0x1059c294/*ROM*/;
-    param_1[0x11] = 0x1059c2ac/*ROM*/;
+  if (param_1 != (cls_1059c10c *)0x0) {
+    param_1->field_0x0 = (uintptr_t)((void *)0x1059c10c/*ROM*/);
+    param_1->field_0x4 = (uintptr_t)((void *)0x1059c1cc/*ROM*/);
+    param_1->field_0x18 = (uintptr_t)((void *)0x1059c1ec/*ROM*/);
+    param_1->field_0x2c = (uintptr_t)((void *)0x1059c21c/*ROM*/);
+    param_1->field_0x30 = (uintptr_t)((void *)0x1059c234/*ROM*/);
+    param_1->field_0x34 = (uintptr_t)((void *)0x1059c254/*ROM*/);
+    param_1->field_0x40 = 0x1059c294/*ROM*/;
+    param_1->field_0x44 = 0x1059c2ac/*ROM*/;
     lens_fw_update_teardown();
-    cls_105a2be0_delete(param_1 + 0x556,2);
-    cls_105a2be0_delete(param_1 + 0x554,2);
-    cls_105a2af8_delete(param_1 + 0x552,2);
-    cls_105a2af8_delete(param_1 + 0x550,2);
-    cls_105a2af8_delete(param_1 + 0x54e,2);
-    cls_105d54e0_delete(param_1 + 0x52f,2);
-    free_heap_if_flag_set_10513bb2((void *)((int)param_1 + 0x137a),2);
-    free_heap_if_flag_set_10513bb2(param_1 + 0x48e,2);
-    free_heap_if_flag_set_10513bb2((void *)((int)param_1 + 0x10f6),2);
-    free_heap_if_flag_set_10513bb2(param_1 + 0x3ed,2);
-    free_heap_if_flag_set_10513bb2((void *)((int)param_1 + 0xe72),2);
-    free_heap_if_flag_set_10513bb2(param_1 + 0x34c,2);
-    free_heap_if_flag_set_10513bb2((void *)((int)param_1 + 0xbee),2);
-    free_heap_if_flag_set_10513bb2(param_1 + 0x2ab,2);
-    free_heap_if_flag_set_10513bb2((void *)((int)param_1 + 0x96a),2);
-    free_heap_if_flag_set_10513bb2(param_1 + 0x20a,2);
-    free_heap_if_flag_set_10513bb2((void *)((int)param_1 + 0x6e6),2);
-    free_heap_if_flag_set_10513bb2(param_1 + 0x169,2);
-    free_heap_if_flag_set_10513bb2((void *)((int)param_1 + 0x462),2);
-    free_heap_if_flag_set_10513bb2(param_1 + 200,2);
-    free_heap_if_flag_set_10513bb2((void *)((int)param_1 + 0x1de),2);
-    free_heap_if_flag_set_10513bb2(param_1 + 0x27,2);
-    cls_105c2050_delete(param_1 + 0x18,2);
-    cls_1059e408_delete(param_1 + 0x11,0);
-    reset_vtable_and_free_if_flagged_10428182(param_1 + 0x10,0);
-    cls_1059e128_delete(param_1,0);
+    cls_105a2be0_delete(&param_1[1].field_0x5a0,2);
+    cls_105a2be0_delete(&param_1[1].field_0x598,2);
+    cls_105a2af8_delete(&param_1[1].field_0x590,2);
+    cls_105a2af8_delete(&param_1[1].field_0x588,2);
+    cls_105a2af8_delete(&param_1[1].field_0x580,2);
+    cls_105d54e0_delete((cls_105d54e0 *)&param_1[1].field_0x504,2);
+    free_heap_if_flag_set_10513bb2(&param_1[1].field_0x3c2,2);
+    free_heap_if_flag_set_10513bb2(&param_1[1].field_0x280,2);
+    free_heap_if_flag_set_10513bb2(&param_1[1].field_0x13e,2);
+    free_heap_if_flag_set_10513bb2(&param_1->field_0xfb4,2);
+    free_heap_if_flag_set_10513bb2(&param_1->field_0xe72,2);
+    free_heap_if_flag_set_10513bb2(&param_1->field_0xd30,2);
+    free_heap_if_flag_set_10513bb2(&param_1->field_0xbee,2);
+    free_heap_if_flag_set_10513bb2(&param_1->field_0xaac,2);
+    free_heap_if_flag_set_10513bb2(&param_1->field_0x96a,2);
+    free_heap_if_flag_set_10513bb2(&param_1->field_0x828,2);
+    free_heap_if_flag_set_10513bb2(&param_1->field_0x6e6,2);
+    free_heap_if_flag_set_10513bb2(&param_1->field_0x5a4,2);
+    free_heap_if_flag_set_10513bb2(&param_1->field_0x462,2);
+    free_heap_if_flag_set_10513bb2(&param_1->field_0x320,2);
+    free_heap_if_flag_set_10513bb2(&param_1->field_0x1de,2);
+    free_heap_if_flag_set_10513bb2(&param_1->field_0x9c,2);
+    cls_105c2050_delete((cls_105c2050 *)&param_1->field_0x60,2);
+    cls_1059e408_delete((cls_1059e408 *)&param_1->field_0x44,0);
+    reset_vtable_and_free_if_flagged_10428182(&param_1->field_0x40,0);
+    cls_1059e128_delete((cls_1059e128 *)param_1,0);
     if ((param_2 & 1) != 0) {
       heap_free((int)param_1);
     }

@@ -18,7 +18,7 @@ void cls_105a7bf0_delete(uint32_t *param_1,uint param_2)
     *param_1 = 0x105a7bf0/*ROM*/;
     param_1[1] = 0x105a7c80/*ROM*/;
     cls_105a2af8_delete(param_1 + 0xd,2);
-    cls_1059e288_delete(param_1 + 7,2);
+    cls_1059e288_delete((void *)(param_1 + 7),2);
     reset_vtable_and_free_if_flagged_10428182(param_1 + 1,0);
     reset_vtable_and_free_if_flagged_10428264(param_1,0);
     if ((param_2 & 1) != 0) {

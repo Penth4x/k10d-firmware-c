@@ -15,18 +15,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-void initialize_ten_subobjects(int param_1)
+void initialize_ten_subobjects(cls_105c2b6c *param_1)
 
 {
-  (*(code *)0x104eb9ec/*ROM*/)(param_1 + 4);
-  (*(code *)0x104ebcb6/*ROM*/)(param_1 + 0x10);
-  (*(code *)0x104ebea8/*ROM*/)(param_1 + 0x1c);
-  (*(code *)0x104ebfb6/*ROM*/)(param_1 + 0x28);
-  (*(code *)0x104ec44a/*ROM*/)(param_1 + 0x34);
-  (*(code *)0x104ed414/*ROM*/)(param_1 + 0x40);
-  (*(code *)0x104ed51c/*ROM*/)(param_1 + 0x4c);
-  (*(code *)0x104ed604/*ROM*/)(param_1 + 0x58);
-  (*(code *)0x104ed854/*ROM*/)(param_1 + 100);
-  (*(code *)0x1050a888/*ROM*/)(param_1 + 0x70);
+  (*(code *)0x104eb9ec/*ROM*/)(&param_1->field_0x4);
+  (*(code *)0x104ebcb6/*ROM*/)(&param_1->field_0x10);
+  (*(code *)0x104ebea8/*ROM*/)(&param_1->field_0x1c);
+  (*(code *)0x104ebfb6/*ROM*/)(&param_1->field_0x28);
+  (*(code *)0x104ec44a/*ROM*/)(&param_1->field_0x34);
+  (*(code *)0x104ed414/*ROM*/)(&param_1->field_0x40);
+  (*(code *)0x104ed51c/*ROM*/)(&param_1->field_0x4c);
+  (*(code *)0x104ed604/*ROM*/)(&param_1->field_0x58);
+  (*(code *)0x104ed854/*ROM*/)(&param_1->field_0x64);
+  (*(code *)0x1050a888/*ROM*/)(&param_1->field_0x70);
   return;
 }

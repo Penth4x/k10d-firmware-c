@@ -39,7 +39,7 @@ uint32_t update_object_state_field(int param_1,int param_2,void *param_3,uint32_
       uVar1 = 1;
     }
     else {
-      iVar2 = (**(code **)(*piVar3 + 0x1c))((int)*(short *)(*piVar3 + 0x18) + (int)piVar3,param_4);
+      iVar2 = (((vtbl_entry*)(*piVar3))[3].fn)((int)((vtbl_entry*)(*piVar3))[3].adj + (int)piVar3,param_4);
       uVar1 = 1;
       if (iVar2 != 0) {
         uVar1 = 0;

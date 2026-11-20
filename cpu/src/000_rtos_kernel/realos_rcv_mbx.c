@@ -55,7 +55,7 @@ uint32_t realos_rcv_mbx(int param_1,uint32_t *param_2,int param_3)
           uVar3 = 0;
         }
         else {
-          *param_2 = puVar1;
+          *param_2 = (uintptr_t)(puVar1);
           iVar4 = DAT_10011d08/*ROM*/ + iVar2;
           if (puVar1 == *(uint32_t **)(iVar4 + -4)) {
             *(int *)(iVar4 + -4) = iVar4 + -8;

@@ -29,17 +29,17 @@ uint compute_value_from_object_state(int param_1,int param_2)
   uintptr_t sp;
   uint8_t *puVar7;
   uint8_t auStack_40 [4];
-  uint32_t auStack_24 [7];
+  cls_105a6d8c acStack_24 [7];
   
   puVar7 = auStack_40;
   uVar6 = 0;
   if (param_2 == 0) {
-    cls_105a6d8c_new(auStack_24);
-    copy_status_block_bytes(*(int *)(param_1 + 8),auStack_24);
-    iVar1 = check_field_bit_or_string(auStack_24,0x2a);
+    cls_105a6d8c_new(acStack_24);
+    copy_status_block_bytes(*(int *)(param_1 + 8),acStack_24);
+    iVar1 = check_field_bit_or_string(acStack_24,0x2a);
     if (iVar1 == 0) {
-      iVar1 = extract_field_from_struct_1045ff0e((int)auStack_24,0);
-      uVar6 = extract_field_from_struct_1045ff0e((int)auStack_24,0xb);
+      iVar1 = extract_field_from_struct_1045ff0e(acStack_24,0);
+      uVar6 = extract_field_from_struct_1045ff0e(acStack_24,0xb);
       uVar2 = get_or_init_heap_block();
       iVar3 = classify_state_by_two_checks(param_1);
       iVar4 = get_setting_0xb2(param_1);
@@ -47,7 +47,7 @@ uint compute_value_from_object_state(int param_1,int param_2)
       uVar5 = lookup_two_byte_table_entry_1045a74a(uVar2,uVar6 & 0xff,iVar3,iVar4,puVar7[3]);
       uVar6 = uVar5 & 0xff;
     }
-    cls_105a6d8c_delete(auStack_24,2);
+    cls_105a6d8c_delete(acStack_24,2);
   }
   else {
     iVar1 = classify_state_by_two_checks(param_1);

@@ -18,9 +18,9 @@
 void copy_struct_bytes_to_sram(void *param_1)
 
 {
-  set_setting_0x82((void *)0x800158d4/*SDRAM*/,*(uint8_t *)((int)param_1 + 0x5c));
-  set_setting_0x83((void *)0x800158d4/*SDRAM*/,*(uint8_t *)((int)param_1 + 0x5d));
-  set_setting_0x84((void *)0x800158d4/*SDRAM*/,*(uint8_t *)((int)param_1 + 0x5f));
+  set_setting_0x82((int *)(0x800158d4/*SDRAM*/),(uint32_t)(*(uint8_t *)((int)param_1 + 0x5c)));
+  set_setting_0x83((int *)(0x800158d4/*SDRAM*/),(uint32_t)(*(uint8_t *)((int)param_1 + 0x5d)));
+  set_setting_0x84((int *)(0x800158d4/*SDRAM*/),(uint32_t)(*(uint8_t *)((int)param_1 + 0x5f)));
   *(uint8_t *)((int)param_1 + 100) = *(uint8_t *)((int)param_1 + 0x5c);
   *(uint8_t *)((int)param_1 + 0x65) = *(uint8_t *)((int)param_1 + 0x5d);
   *(uint8_t *)((int)param_1 + 0x66) = *(uint8_t *)((int)param_1 + 0x5e);

@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_on_nested_object(int param_1)
+void call_helper_on_nested_object(cls_105b6424 *param_1)
 
 {
-  kernel_diag_taskstack((void *)(*(int *)(param_1 + 4) + 8));
+  kernel_diag_taskstack((void *)(param_1->field_0x4 + 8));
   return;
 }

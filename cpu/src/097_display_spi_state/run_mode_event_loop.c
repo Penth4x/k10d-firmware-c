@@ -16,10 +16,10 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void run_mode_event_loop(int param_1)
+void run_mode_event_loop(cls_1059c10c *param_1)
 
 {
-  uint32_t *puVar1;
+  uint8_t *puVar1;
   uint32_t uVar2;
   int iVar3;
   uint uVar4;
@@ -30,210 +30,211 @@ void run_mode_event_loop(int param_1)
   uint uStack_c;
   
   uStack_14 = 0;
-  set_mode_state_and_notify(*(uint32_t *)(param_1 + 0x50),1,0);
-  *(uint *)(param_1 + 0x1530) =
-       *(uint *)(param_1 + 0x1530) & (*(uint *)(param_1 + 0x1530) & 0xfffffffe ^ 0xffffffff);
-  puVar1 = (uint32_t *)(param_1 + 0x1538);
-  eventflag_clr_flg(puVar1,0xfffffffe);
-  eventflag_clr_flg(param_1 + 0x1540,0xffffffff);
-  iVar5 = **(int **)(param_1 + 0x4c);
-  (**(code **)(iVar5 + 0x44))
-            ((int)*(int **)(param_1 + 0x4c) + (int)*(short *)(iVar5 + 0x40),param_1 + 0x40);
-  process_mode_event_flags_10418c04(param_1);
-  *(uint8_t *)(param_1 + 0x90) = 1;
-  *(uint8_t *)(param_1 + 0x91) = 0;
-  *(uint8_t *)(param_1 + 0x150c) = 0;
-  *(uint8_t *)(param_1 + 0x150d) = 0;
-  *(uint32_t *)(param_1 + 0x1508) = 0;
-  *(uint8_t *)(param_1 + 0x150e) = 0;
-  *(uint32_t *)(param_1 + 0x152c) = 0;
-  *(uint8_t *)(param_1 + 0x92) = 0;
-  *(uint8_t *)(param_1 + 0x93) = 0;
-  *(uint8_t *)(param_1 + 0x1522) = 0;
-  *(uint8_t *)(param_1 + 0x94) = 0;
-  *(uint8_t *)(param_1 + 0x1534) = 0;
-  *(uint8_t *)(param_1 + 0x1535) = 0;
-  *(uint8_t *)(param_1 + 0x151c) = 0;
-  *(uint32_t *)(param_1 + 0x1584) = 0;
-  *(uint8_t *)(param_1 + 0x1520) = 1;
-  *(uint8_t *)(param_1 + 0x1510) = 1;
+  set_mode_state_and_notify(param_1->field_0x50,1,0);
+  *(uint *)&param_1[1].field_0x578 =
+       *(uint *)&param_1[1].field_0x578 &
+       (*(uint *)&param_1[1].field_0x578 & 0xfffffffe ^ 0xffffffff);
+  puVar1 = (void*)(&param_1[1].field_0x580);
+  eventflag_clr_flg((void*)(puVar1),0xfffffffe);
+  eventflag_clr_flg(&param_1[1].field_0x588,0xffffffff);
+  iVar5 = *(int *)param_1->field_0x4c;
+  (((vtbl_entry*)(iVar5))[8].fn)
+            ((int)param_1->field_0x4c + (int)((vtbl_entry*)(iVar5))[8].adj,&param_1->field_0x40);
+  process_mode_event_flags_10418c04((uint32_t)(param_1));
+  param_1->field_0x90 = 1;
+  param_1->field_0x91 = 0;
+  param_1[1].field_0x554 = 0;
+  param_1[1].field_0x555 = 0;
+  *(uint32_t *)&param_1[1].field_0x550 = 0;
+  param_1[1].field_0x556 = 0;
+  *(uint32_t *)&param_1[1].field_0x574 = 0;
+  param_1->field_0x92 = 0;
+  param_1->field_0x93 = 0;
+  param_1[1].field_0x56a = 0;
+  param_1->field_0x94 = 0;
+  param_1[1].field_0x57c = 0;
+  param_1[1].field_0x57d = 0;
+  param_1[1].field_0x564 = 0;
+  *(uint32_t *)&param_1[1].field_0x5cc = 0;
+  param_1[1].field_0x568 = 1;
+  param_1[1].field_0x558 = 1;
   uVar2 = test_mode_config_singleton();
   apply_setting_pair_to_target(uVar2,0,0);
-  iVar5 = check_state_mismatch(*(uint32_t *)(param_1 + 0x5c));
+  iVar5 = check_state_mismatch(*(uint32_t *)&param_1->field_0x5c);
   if (iVar5 == 0) {
     iVar5 = 0;
     do {
       check_kernel_call_success_10459fea();
       iVar5 = iVar5 + 1;
       if (100 < iVar5) break;
-      iVar3 = check_state_mismatch(*(uint32_t *)(param_1 + 0x5c));
+      iVar3 = check_state_mismatch(*(uint32_t *)&param_1->field_0x5c);
     } while (iVar3 == 0);
   }
-  iVar5 = check_mode_flag_or_byte(*(uint32_t *)(param_1 + 0x50));
+  iVar5 = check_mode_flag_or_byte(param_1->field_0x50);
   if (iVar5 == 0) {
-    init_mode_state_and_check(param_1);
+    init_mode_state_and_check((uint32_t)(param_1));
   }
-  check_and_set_flag_if_zero_10417ce6(param_1);
-  send_exposure_timer_command(param_1);
-  dispatch_mode_event_flags(param_1);
-  set_mode_state_flag(param_1,1,1);
+  check_and_set_flag_if_zero_10417ce6((uint32_t)(param_1));
+  send_exposure_timer_command((uint32_t)(param_1));
+  dispatch_mode_event_flags((uint32_t)(param_1));
+  set_mode_state_flag((uint32_t)(param_1),1,1);
   if (cRam8000fb95 != '\0') {
-    eventflag_wai_flg(puVar1,4,&uStack_14,_DAT_105a2af0/*ROM*/);
-    eventflag_clr_flg(puVar1,4);
+    eventflag_wai_flg((uint32_t *)puVar1,4,&uStack_14,_DAT_105a2af0/*ROM*/);
+    eventflag_clr_flg((void*)(puVar1),4);
     cRam8000fb95 = '\0';
-    iVar5 = **(int **)(param_1 + 0x4c);
-    iVar5 = (**(code **)(iVar5 + 0x6c))
-                      ((int)*(int **)(param_1 + 0x4c) + (int)*(short *)(iVar5 + 0x68));
+    iVar5 = *(int *)param_1->field_0x4c;
+    iVar5 = (((vtbl_entry*)(iVar5))[13].fn)((int)param_1->field_0x4c + (int)((vtbl_entry*)(iVar5))[13].adj);
     if (iVar5 == 0xf) {
-      settings_refresh_working_copy(*(void **)(param_1 + 0x7c));
-      iVar5 = call_subroutine_at_offset_0x14_10484dc4(*(int *)(param_1 + 0x7c));
+      settings_refresh_working_copy((char*)(param_1) ->field_0x7c);
+      iVar5 = call_subroutine_at_offset_0x14_10484dc4(param_1->field_0x7c);
       if (iVar5 < 0x3e9) {
         uVar4 = iVar5 + 1;
       }
       else {
         uVar4 = 1000;
       }
-      dispatch_two_mode_events(*(uint32_t *)(param_1 + 0x7c),uVar4 & 0xffff);
+      dispatch_two_mode_events(param_1->field_0x7c,uVar4 & 0xffff);
     }
     iVar5 = call_single_helper_104185ec();
-    if ((iVar5 != 0) && (iVar5 = check_virtual_slot_15_result(param_1), iVar5 != 0)) {
+    if ((iVar5 != 0) && (iVar5 = check_virtual_slot_15_result((uint32_t)(param_1)), iVar5 != 0)) {
       uStack_10 = 0;
       uStack_c = 0;
-      iVar5 = **(int **)(param_1 + 0x4c);
-      (**(code **)(iVar5 + 0x74))
-                ((int)*(int **)(param_1 + 0x4c) + (int)*(short *)(iVar5 + 0x70),&uStack_10,&uStack_c
-                );
+      iVar5 = *(int *)param_1->field_0x4c;
+      (((vtbl_entry*)(iVar5))[14].fn)
+                ((int)param_1->field_0x4c + (int)((vtbl_entry*)(iVar5))[14].adj,&uStack_10,&uStack_c);
       uStack_c = uStack_c / 10000;
       uStack_10 = uStack_10 / 10000 << 0x10 | uStack_c & 0xffff;
     }
   }
-  check_two_flags_and_write_values(param_1);
-  store_word_at_offset_0x1500(param_1,0);
-  store_word_at_offset_0x1504(param_1,0);
-  set_flg_obj(puVar1);
+  check_two_flags_and_write_values((uint32_t)(param_1));
+  store_word_at_offset_0x1500((uint32_t)(param_1),0);
+  store_word_at_offset_0x1504((uint32_t)(param_1),0);
+  set_flg_obj((uint32_t *)puVar1);
   while( true ) {
     do {
-      puVar1 = (uint32_t *)(param_1 + 0x1538);
-      eventflag_wai_flg(puVar1,0xfcf7ffff,&uStack_14,_DAT_105a2af0/*ROM*/);
-      eventflag_clr_flg(puVar1,uStack_14 & 0xfcf7ffff);
-      *(uint *)(param_1 + 0x152c) = uStack_14;
-      if (((uStack_14 & 0x20) != 0) && (iVar5 = check_and_handle_mode_transition(param_1), iVar5 == 0)) {
+      puVar1 = (void*)(&param_1[1].field_0x580);
+      eventflag_wai_flg((uint32_t *)puVar1,0xfcf7ffff,&uStack_14,_DAT_105a2af0/*ROM*/);
+      eventflag_clr_flg((void*)(puVar1),uStack_14 & 0xfcf7ffff);
+      *(uint *)&param_1[1].field_0x574 = uStack_14;
+      if (((uStack_14 & 0x20) != 0) && (iVar5 = check_and_handle_mode_transition((uint32_t)(param_1)), iVar5 == 0)) {
         check_kernel_call_success_10459fea();
-        set_flg_obj(puVar1);
+        set_flg_obj((uint32_t *)puVar1);
       }
-      if (((*(uint *)(param_1 + 0x152c) & 0x40) != 0) && (iVar5 = check_and_trigger_pending_action(param_1), iVar5 == 0)
-         ) {
+      if (((*(uint *)&param_1[1].field_0x574 & 0x40) != 0) &&
+         (iVar5 = check_and_trigger_pending_action((uint32_t)(param_1)), iVar5 == 0)) {
         check_kernel_call_success_10459fea();
-        set_flg_obj(puVar1);
+        set_flg_obj((uint32_t *)puVar1);
       }
-      if ((*(uint *)(param_1 + 0x152c) & 2) != 0) {
-        iVar5 = get_setting_by_mode_flag_104f147e(*(uint32_t *)(param_1 + 0x5c),0);
-        *(bool *)(param_1 + 0x1522) = iVar5 == 1;
-        if (*(char *)(param_1 + 0x91) == '\0') {
-          set_mode_state_flag(param_1,0,0);
+      if ((*(uint *)&param_1[1].field_0x574 & 2) != 0) {
+        iVar5 = get_setting_by_mode_flag_104f147e(*(uint32_t *)&param_1->field_0x5c,0);
+        param_1[1].field_0x56a = iVar5 == 1;
+        if (param_1->field_0x91 == '\0') {
+          set_mode_state_flag((uint32_t)(param_1),0,0);
         }
-        else if (*(int *)(param_1 + 0x1514) == 0) {
-          set_mode_state_flag(param_1,0,0);
+        else if (*(int *)&param_1[1].field_0x55c == 0) {
+          set_mode_state_flag((uint32_t)(param_1),0,0);
         }
         else {
-          dispatch_mode_event_request((void *)(param_1 + 0x60),0x130007);
-          *(uint8_t *)(param_1 + 0x1522) = 0;
+          dispatch_mode_event_request((cls_105c2050 *)&param_1->field_0x60,0x130007);
+          param_1[1].field_0x56a = 0;
         }
-        iVar5 = check_status_bit1(*(uint32_t *)(param_1 + 0x5c));
-        if ((iVar5 == 0) && (iVar5 = test_bit_in_object_field(*(uint32_t *)(param_1 + 0x5c)), iVar5 == 0)) {
-          *(uint8_t *)(param_1 + 0x91) = 0;
-          *(uint *)(param_1 + 0x1530) = *(uint *)(param_1 + 0x1530) & 0xffffbfff;
+        iVar5 = check_status_bit1(*(uint32_t *)&param_1->field_0x5c);
+        if ((iVar5 == 0) && (iVar5 = test_bit_in_object_field(*(uint32_t *)&param_1->field_0x5c), iVar5 == 0))
+        {
+          param_1->field_0x91 = 0;
+          *(uint *)&param_1[1].field_0x578 = *(uint *)&param_1[1].field_0x578 & 0xffffbfff;
         }
         else {
-          *(uint *)(param_1 + 0x1530) = *(uint *)(param_1 + 0x1530) | 0x10000;
+          *(uint *)&param_1[1].field_0x578 = *(uint *)&param_1[1].field_0x578 | 0x10000;
         }
-        if (*(char *)(param_1 + 0x91) != '\0') {
-          *(uint *)(param_1 + 0x1530) = *(uint *)(param_1 + 0x1530) | 0x4000;
+        if (param_1->field_0x91 != '\0') {
+          *(uint *)&param_1[1].field_0x578 = *(uint *)&param_1[1].field_0x578 | 0x4000;
         }
-        uVar4 = *(uint *)(param_1 + 0x1530);
-        *(uint *)(param_1 + 0x1530) = uVar4 & 0xfff7ffff;
-        *(uint *)(param_1 + 0x1530) = uVar4 & 0xffe7ffff;
-        if (*(char *)(param_1 + 0x150d) != '\0') {
-          *(uint8_t *)(param_1 + 0x150e) = 0;
+        uVar4 = *(uint *)&param_1[1].field_0x578;
+        *(uint *)&param_1[1].field_0x578 = uVar4 & 0xfff7ffff;
+        *(uint *)&param_1[1].field_0x578 = uVar4 & 0xffe7ffff;
+        if (param_1[1].field_0x555 != '\0') {
+          param_1[1].field_0x556 = 0;
         }
-        *(uint8_t *)(param_1 + 0x151c) = 0;
-        if (*(char *)(param_1 + 0x14f4) == '\0') {
-          check_mode_transition_preconditions(param_1,1);
-        }
-      }
-      if (((*(uint *)(param_1 + 0x152c) & 4) != 0) && (*(char *)(param_1 + 0x94) != '\0')) {
-        *(uint8_t *)(param_1 + 0x92) = 0;
-        *(uint8_t *)(param_1 + 0x1522) = 0;
-        *(uint8_t *)(param_1 + 0x94) = 0;
-        set_flg_obj(puVar1);
-        if (*(char *)(param_1 + 0x14f4) != '\0') {
-          init_event_queue_and_send_msg(param_1);
-        }
-        if (*(char *)(param_1 + 0x91) != '\0') {
-          *(uint *)(param_1 + 0x1530) = *(uint *)(param_1 + 0x1530) & 0xffffbfff;
+        param_1[1].field_0x564 = 0;
+        if (param_1[1].field_0x53c == '\0') {
+          check_mode_transition_preconditions((uint32_t)(param_1),1);
         }
       }
-      if ((*(uint *)(param_1 + 0x152c) & 8) != 0) {
-        *(uint8_t *)(param_1 + 0x1534) = 0;
-        store_word_at_offset_0x1504(param_1,2);
+      if (((*(uint *)&param_1[1].field_0x574 & 4) != 0) && (param_1->field_0x94 != '\0')) {
+        param_1->field_0x92 = 0;
+        param_1[1].field_0x56a = 0;
+        param_1->field_0x94 = 0;
+        set_flg_obj((uint32_t *)puVar1);
+        if (param_1[1].field_0x53c != '\0') {
+          init_event_queue_and_send_msg((uint32_t)(param_1));
+        }
+        if (param_1->field_0x91 != '\0') {
+          *(uint *)&param_1[1].field_0x578 = *(uint *)&param_1[1].field_0x578 & 0xffffbfff;
+        }
       }
-      if ((*(uint *)(param_1 + 0x152c) & 0x10) != 0) {
-        *(uint8_t *)(param_1 + 0x1534) = 0;
-        store_word_at_offset_0x1504(param_1,0);
+      if ((*(uint *)&param_1[1].field_0x574 & 8) != 0) {
+        param_1[1].field_0x57c = 0;
+        store_word_at_offset_0x1504((uint32_t)(param_1),2);
       }
-      if (((*(uint *)(param_1 + 0x152c) & 8) != 0) && ((*(uint *)(param_1 + 0x152c) & 0x10) != 0)) {
+      if ((*(uint *)&param_1[1].field_0x574 & 0x10) != 0) {
+        param_1[1].field_0x57c = 0;
+        store_word_at_offset_0x1504((uint32_t)(param_1),0);
+      }
+      if (((*(uint *)&param_1[1].field_0x574 & 8) != 0) &&
+         ((*(uint *)&param_1[1].field_0x574 & 0x10) != 0)) {
         uVar2 = 2;
-        if (*(char *)(param_1 + 0x1535) == '\0') {
+        if (param_1[1].field_0x57d == '\0') {
           uVar2 = 0;
         }
-        store_word_at_offset_0x1504(param_1,uVar2);
+        store_word_at_offset_0x1504((uint32_t)(param_1),uVar2);
       }
-      if ((*(uint *)(param_1 + 0x152c) & 0x10000) != 0) {
-        *(uint *)(param_1 + 0x1530) = *(uint *)(param_1 + 0x1530) | 4;
+      if ((*(uint *)&param_1[1].field_0x574 & 0x10000) != 0) {
+        *(uint *)&param_1[1].field_0x578 = *(uint *)&param_1[1].field_0x578 | 4;
       }
-      if ((*(uint *)(param_1 + 0x152c) & 0x8000) != 0) {
-        *(uint *)(param_1 + 0x1530) = *(uint *)(param_1 + 0x1530) | 8;
+      if ((*(uint *)&param_1[1].field_0x574 & 0x8000) != 0) {
+        *(uint *)&param_1[1].field_0x578 = *(uint *)&param_1[1].field_0x578 | 8;
       }
-      process_mode_event_flags(param_1);
-      if (*(char *)(param_1 + 0x1534) == '\0') {
-        iVar5 = *(int *)(param_1 + 0x1504);
+      process_mode_event_flags_1041745e((uint32_t)(param_1));
+      if (param_1[1].field_0x57c == '\0') {
+        iVar5 = *(int *)&param_1[1].field_0x54c;
         if (iVar5 == 0) {
-          process_mode_event_flags_10416f34(param_1);
+          process_mode_event_flags_10416f34((uint32_t)(param_1));
         }
         else if (iVar5 == 1) {
           (*(code *)0x104173f8/*ROM*/)(param_1);
         }
         else if (iVar5 == 2) {
-          check_mode_state_and_dispatch(param_1);
+          check_mode_state_and_dispatch((uint32_t)(param_1));
         }
         else if (iVar5 == 3) {
           (*(code *)0x1041745c/*ROM*/)(param_1);
         }
       }
-    } while ((*(uint *)(param_1 + 0x152c) & 1) == 0);
-    *(uint *)(param_1 + 0x1530) = *(uint *)(param_1 + 0x1530) | 1;
-    iVar5 = check_and_init_mode_state(param_1);
+    } while ((*(uint *)&param_1[1].field_0x574 & 1) == 0);
+    *(uint *)&param_1[1].field_0x578 = *(uint *)&param_1[1].field_0x578 | 1;
+    iVar5 = check_and_init_mode_state((uint32_t)(param_1));
     if (iVar5 != 0) break;
     check_kernel_call_success_10459fea();
-    set_flg_obj((uint32_t *)(param_1 + 0x1538));
+    set_flg_obj((uint32_t *)&param_1[1].field_0x580);
   }
-  *(uint8_t *)(param_1 + 0x1510) = 0;
+  param_1[1].field_0x558 = 0;
   uVar2 = test_mode_config_singleton();
   apply_setting_pair_to_target(uVar2,0,0);
-  set_flag_and_store_byte_1041b406(*(uint32_t *)(param_1 + 0x4c),0);
-  set_mode_state_flag(param_1,0,0);
-  puVar1 = (uint32_t *)(param_1 + 0x1540);
-  eventflag_clr_flg(puVar1,2);
-  invoke_virtual_slot_13_104ea3ca(param_1 + 0x60,0);
-  eventflag_wai_flg(puVar1,2,&uStack_14,_DAT_105a2af0/*ROM*/);
-  eventflag_clr_flg(puVar1,2);
-  if (*(int *)(param_1 + 0x1564) != 1) {
-    release_mode_event_resources(param_1,*(uint32_t *)(param_1 + 0x84));
-    *(uint32_t *)(param_1 + 0x84) = 0;
+  set_flag_and_store_byte_1041b406(param_1->field_0x4c,0);
+  set_mode_state_flag((uint32_t)(param_1),0,0);
+  puVar1 = (void*)(&param_1[1].field_0x588);
+  eventflag_clr_flg((void*)(puVar1),2);
+  invoke_virtual_slot_13_104ea3ca((cls_105c2050 *)&param_1->field_0x60);
+  eventflag_wai_flg((uint32_t *)puVar1,2,&uStack_14,_DAT_105a2af0/*ROM*/);
+  eventflag_clr_flg((void*)(puVar1),2);
+  if (*(int *)&param_1[1].field_0x5ac != 1) {
+    release_mode_event_resources((uint32_t)(param_1),(void*)(param_1->field_0x84));
+    param_1->field_0x84 = 0;
   }
-  *(uint8_t *)(param_1 + 0x150f) = 0;
-  eventflag_clr_flg(param_1 + 0x1538,1);
-  *(uint32_t *)(param_1 + 0x1530) = 0;
-  set_mode_state_and_notify(*(uint32_t *)(param_1 + 0x50),0,0);
+  param_1[1].field_0x557 = 0;
+  eventflag_clr_flg(&param_1[1].field_0x580,1);
+  *(uint32_t *)&param_1[1].field_0x578 = 0;
+  set_mode_state_and_notify(param_1->field_0x50,0,0);
   return;
 }

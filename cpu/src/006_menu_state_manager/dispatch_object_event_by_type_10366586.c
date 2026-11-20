@@ -8,7 +8,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void dispatch_object_event_by_type_10366586(void *param_1,int *param_2)
+void dispatch_object_event_by_type_10366586(cls_105577f8 *param_1,int *param_2)
 
 {
   int iVar1;
@@ -17,7 +17,7 @@ void dispatch_object_event_by_type_10366586(void *param_1,int *param_2)
   
   iVar1 = *param_2;
   if (iVar1 == 1) {
-    *(int *)((int)param_1 + 0x50) = param_2[1];
+    param_1->field_0x50 = param_2[1];
   }
   else if (iVar1 != 2) {
     if (iVar1 == 4) {
@@ -31,12 +31,12 @@ void dispatch_object_event_by_type_10366586(void *param_1,int *param_2)
         }
         else if (uVar2 != 10) {
           if (uVar2 == 0xc) {
-            if (*(int *)((int)param_1 + 0x1c) != 0) {
+            if (param_1->field_0x1c != 0) {
               return;
             }
             invoke_callback_at_8000439c();
-            *(uint8_t *)((int)param_1 + 0x14) = 1;
-            *(uint8_t *)((int)param_1 + 0x15) = 1;
+            param_1->field_0x14 = 1;
+            param_1->field_0x15 = 1;
             return;
           }
           if (uVar2 != 0x29) {
@@ -50,7 +50,7 @@ void dispatch_object_event_by_type_10366586(void *param_1,int *param_2)
       forward_param_to_global_offset(param_1,uVar3);
     }
     else if ((iVar1 != 5) && (iVar1 == 6)) {
-      *(uint8_t *)((int)param_1 + 0x494) = 1;
+      param_1->field_0x494 = 1;
     }
   }
   return;

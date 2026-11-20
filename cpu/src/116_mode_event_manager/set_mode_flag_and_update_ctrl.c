@@ -23,8 +23,8 @@ int set_mode_flag_and_update_ctrl(int param_1,int param_2,int param_3,uint32_t p
   uint uVar2;
   uintptr_t sp;
   int iStack_48;
-  uint8_t auStack_3c [20];
-  uint8_t auStack_28 [20];
+  cls_1059f170 cStack_3c;
+  cls_1059f170 cStack_28;
   uint32_t uStack_14;
   uint8_t uStack_10;
   uint32_t uStack_c;
@@ -68,16 +68,16 @@ int set_mode_flag_and_update_ctrl(int param_1,int param_2,int param_3,uint32_t p
   default:
     goto switchD_104311b2_default;
   }
-  cls_1059f170_new((void *)auStack_3c);
-  cls_1059f170_new((void *)auStack_28);
+  cls_1059f170_new(&cStack_3c);
+  cls_1059f170_new(&cStack_28);
   uStack_14 = 0;
   uStack_10 = 0;
   uStack_c = 0;
-  copy_five_values_between_objects(param_1,auStack_3c);
-  store_value_at_offset_eight_104330a6(auStack_3c,uVar2 | 1);
-  iStack_48 = clone_object_with_sem_guard(param_1,auStack_3c);
-  cls_1059f170_destructor(auStack_28,2);
-  cls_1059f170_destructor(auStack_3c,2);
+  copy_five_values_between_objects(param_1,&cStack_3c);
+  store_value_at_offset_eight_104330a6(&cStack_3c,uVar2 | 1);
+  iStack_48 = clone_object_with_sem_guard(param_1,&cStack_3c);
+  cls_1059f170_destructor(&cStack_28,2);
+  cls_1059f170_destructor(&cStack_3c,2);
 switchD_104311b2_default:
   if (iStack_48 == 0) {
     release_sem_and_clear_obj((uint32_t *)(param_1 + 0x44));

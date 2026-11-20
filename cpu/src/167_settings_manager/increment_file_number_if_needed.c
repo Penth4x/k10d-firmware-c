@@ -41,7 +41,7 @@ code_r0x10473a32:
     iVar2 = call_helper_with_field_at_offset_8_10476864(*(int *)(param_1 + 8));
     uVar3 = *(uint32_t *)(param_1 + 0xc);
     uVar4 = call_helper_with_offset_0x16(*(uint32_t *)(param_1 + 8),uVar1);
-    iVar2 = dispatch_on_flag_check(uVar3,(char *)(iVar2 + 7),uVar4,*(uint32_t *)(param_2 + 4));
+    iVar2 = dispatch_on_flag_check((uint32_t)(uVar3),(char *)(iVar2 + 7),(uint16_t *)(uVar4),(uint16_t *)(*(uint32_t *)(param_2 + 4)));
     if (iVar2 == 2) {
       if ((*(short *)(param_2 + 10) != 0) && (*(short *)(param_2 + 0xc) != 1)) {
         return uVar1;

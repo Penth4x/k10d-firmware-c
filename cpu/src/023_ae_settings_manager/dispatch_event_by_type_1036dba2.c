@@ -16,26 +16,27 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-int * dispatch_event_by_type_1036dba2(int *param_1,int *param_2)
+cls_10557ecc * dispatch_event_by_type_1036dba2(cls_10557ecc *param_1,int *param_2)
 
 {
   int iVar1;
   uint32_t uVar2;
-  int *piVar3;
+  cls_10557ecc *pcVar3;
   uint32_t uVar4;
   
-  if (*(char *)(param_1 + 0xad) != '\0') {
+  if (param_1->field_0x2b4 != '\0') {
     if (*param_2 != 4) {
       return param_1;
     }
     if (param_2[1] != 0x11) {
       return param_1;
     }
-    *(uint8_t *)(param_1 + 0xad) = 0;
+    param_1->field_0x2b4 = 0;
     set_object_field_from_flag(param_1);
-    (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1);
+    (((vtbl_entry*)(param_1->field_0x0))[8].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[8].adj);
     release_object_at_offset_0x14_1036dfd0(param_1);
-    iVar1 = check_setting_0x72_enabled((void *)0x800158d4/*SDRAM*/);
+    iVar1 = check_setting_0x72_enabled((int *)(0x800158d4/*SDRAM*/));
     dispatch_object_state_update_1036e02a(param_1,iVar1);
     return param_1;
   }
@@ -59,9 +60,9 @@ int * dispatch_event_by_type_1036dba2(int *param_1,int *param_2)
     if (iVar1 != 0x11) {
       if (iVar1 == 9) {
         uVar2 = get_or_create_singleton_object_1036c796();
-        piVar3 = (int *)read_array_element_bounded(uVar2,2);
-        normalize_mode_index_and_notify((int)piVar3);
-        return piVar3;
+        pcVar3 = (cls_10557ecc *)read_array_element_bounded(uVar2,2);
+        normalize_mode_index_and_notify((int)pcVar3);
+        return pcVar3;
       }
       if (iVar1 == 0x27) {
         uVar2 = get_or_create_singleton_object_1036c796();
@@ -108,6 +109,6 @@ int * dispatch_event_by_type_1036dba2(int *param_1,int *param_2)
   uVar2 = get_or_create_singleton_object_1036c796();
   uVar4 = 2;
 LAB_1036dcf0:
-  piVar3 = (int *)read_array_element_bounded(uVar2,uVar4);
-  return piVar3;
+  pcVar3 = (cls_10557ecc *)read_array_element_bounded(uVar2,uVar4);
+  return pcVar3;
 }

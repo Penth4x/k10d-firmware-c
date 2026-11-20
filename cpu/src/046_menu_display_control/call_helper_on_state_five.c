@@ -12,10 +12,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_on_state_five(void *param_1,int param_2)
+void call_helper_on_state_five(cls_10565040 *param_1,int param_2)
 
 {
-  if ((param_2 == 0x2050014) && (*(int *)((int)param_1 + 0x40) == 5)) {
+  if ((param_2 == 0x2050014) && (*(int *)&param_1->field_0x40 == 5)) {
     activate_object_state_once(param_1);
   }
   return;

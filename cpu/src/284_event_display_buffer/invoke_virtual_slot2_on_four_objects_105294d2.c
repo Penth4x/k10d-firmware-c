@@ -19,13 +19,13 @@ void invoke_virtual_slot2_on_four_objects_105294d2(int param_1)
   do {
     iVar2 = param_1 + 0x1054;
     iVar3 = *(int *)(iVar2 + iVar1 + 0x208);
-    (**(code **)(iVar3 + 0x14))(*(short *)(iVar3 + 0x10) + iVar1 + iVar2);
+    (((vtbl_entry*)(iVar3))[2].fn)(((vtbl_entry*)(iVar3))[2].adj + iVar1 + iVar2);
     iVar3 = *(int *)(iVar2 + iVar1 + 0x20c + 0x208);
-    (**(code **)(iVar3 + 0x14))((int)*(short *)(iVar3 + 0x10) + iVar1 + 0x20c + iVar2);
+    (((vtbl_entry*)(iVar3))[2].fn)((int)((vtbl_entry*)(iVar3))[2].adj + iVar1 + 0x20c + iVar2);
     iVar3 = *(int *)(iVar2 + iVar1 + 0x418 + 0x208);
-    (**(code **)(iVar3 + 0x14))((int)*(short *)(iVar3 + 0x10) + iVar1 + 0x418 + iVar2);
+    (((vtbl_entry*)(iVar3))[2].fn)((int)((vtbl_entry*)(iVar3))[2].adj + iVar1 + 0x418 + iVar2);
     iVar3 = *(int *)(iVar2 + iVar1 + 0x624 + 0x208);
-    (**(code **)(iVar3 + 0x14))(iVar2 + (int)*(short *)(iVar3 + 0x10) + iVar1 + 0x624);
+    (((vtbl_entry*)(iVar3))[2].fn)(iVar2 + (int)((vtbl_entry*)(iVar3))[2].adj + iVar1 + 0x624);
     iVar1 = iVar1 + 0x830;
     uStack_10 = uStack_10 + -1;
   } while (-1 < uStack_10);

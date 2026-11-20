@@ -1,4 +1,4 @@
-/* @k10d caseD_7 @ 0x1000ffa4
+/* @k10d caseD_7_1000ffa4 @ 0x1000ffa4
  * name: earlier (carried from an earlier Ghidra session, not re-verified; the model, reading only this decompile, proposed check_task_state_bit)
  * unit: 000_rtos_kernel (unit names are model-proposed)
  * purpose:

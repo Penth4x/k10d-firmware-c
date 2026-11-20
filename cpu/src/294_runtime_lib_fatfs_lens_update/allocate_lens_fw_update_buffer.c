@@ -14,9 +14,9 @@ uint32_t allocate_lens_fw_update_buffer(void)
   uint32_t uVar1;
   int iVar2;
   
-  if (_DAT_800149fc/*SDRAM*/ == (void *)0x0) {
+  if (_DAT_800149fc/*SDRAM*/ == 0) {
     _DAT_800149fc/*SDRAM*/ = (void *)alloc_pool2_block((void *)0x230);
-    if (_DAT_800149fc/*SDRAM*/ == (void *)0x0) {
+    if (_DAT_800149fc/*SDRAM*/ == 0) {
       uVar1 = 0xfffffff4;
     }
     else {

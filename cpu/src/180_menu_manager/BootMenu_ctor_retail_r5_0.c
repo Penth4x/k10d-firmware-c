@@ -17,29 +17,30 @@
 #include "globals.h"
 #include "funcs.h"
 
+/* WARNING: Struct "cls_105b2b70": ignoring overlapping field "field_0x8" */
 /* PATH-1: ctor chain with gate flag r5=0 (retail). Calls
    0x10487298/0x10489b4e/0x10486ff6(TESTMODE)/0x10486b7c(classic)/0x1048a800 */
 
-uint32_t BootMenu_ctor_retail_r5_0(int param_1)
+uint32_t BootMenu_ctor_retail_r5_0(cls_105b2d48 *param_1)
 
 {
-  int iVar1;
+  cls_105b2b70 *pcVar1;
   int iVar2;
   uint32_t uVar3;
   
-  iVar1 = heap_alloc((void *)0xac);
-  if (iVar1 == 0) {
-    iVar1 = 0;
+  pcVar1 = (cls_105b2b70 *)heap_alloc((void *)0xac);
+  if (pcVar1 == (cls_105b2b70 *)0x0) {
+    pcVar1 = (cls_105b2b70 *)0x0;
   }
   else {
-    cls_105b2b70_new((void *)iVar1);
+    cls_105b2b70_new(pcVar1);
   }
-  *(int *)(param_1 + 4) = iVar1;
+  param_1->field_0x4 = (uint32_t)((void *)pcVar1);
   iVar2 = get_sensor_singleton();
-  *(uint32_t *)(iVar1 + 0xa0) = *(uint32_t *)(iVar2 + 4);
-  iVar1 = **(int **)(param_1 + 4);
-  uVar3 = (**(code **)(iVar1 + 0x14))((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar1 + 0x10),0)
-  ;
+  pcVar1->field_0xa0 = *(uint32_t *)(iVar2 + 4);
+  iVar2 = *(int *)param_1->field_0x4;
+  uVar3 = (((vtbl_entry*)(iVar2))[2].fn)
+                    ((void *)((int)param_1->field_0x4 + (int)((vtbl_entry*)(iVar2))[2].adj),0);
   modset_parser_singleton();
   get_or_init_singleton_10489b4e();
   menu_ctor_TESTMODE();

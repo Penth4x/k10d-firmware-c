@@ -73,10 +73,10 @@ void populate_sequential_config_tables(int param_1)
   write_two_words_to_struct_10513bca(pvVar3,0x13,0x14,0);
   write_two_words_to_struct_10513bca(pvVar3,0x14,0x13,0);
   uVar1 = get_sysparam_store_instance();
-  iVar2 = get_sysparam_store_byte(uVar1,0x11);
+  iVar2 = get_sysparam_store_byte((uint8_t *)(uVar1),(uint32_t)(0x11));
   if (iVar2 == 0) {
     uVar1 = get_sysparam_store_instance();
-    iVar2 = get_sysparam_store_byte(uVar1,0x12);
+    iVar2 = get_sysparam_store_byte((uint8_t *)(uVar1),(uint32_t)(0x12));
     pvVar3 = (void *)(param_1 + 800);
     *(uint16_t *)(param_1 + 0x460) = 1;
     if (iVar2 == 0) {
@@ -229,7 +229,7 @@ void populate_sequential_config_tables(int param_1)
   write_two_words_to_struct_10513bca(pvVar3,0x19,0x14,0);
   write_two_words_to_struct_10513bca(pvVar3,0x1a,0x13,0);
   uVar1 = get_sysparam_store_instance();
-  iVar2 = get_sysparam_store_byte(uVar1,0x11);
+  iVar2 = get_sysparam_store_byte((uint8_t *)(uVar1),(uint32_t)(0x11));
   pvVar3 = (void *)(param_1 + 0x6e6);
   *(uint16_t *)(param_1 + 0x826) = 1;
   if (iVar2 == 0) {

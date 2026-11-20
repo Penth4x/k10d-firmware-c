@@ -16,17 +16,17 @@ bool invoke_object_method_chain(int param_1,uint32_t *param_2)
   
   uStack_c = 0;
   iVar1 = **(int **)(param_1 + 0x300);
-  iVar1 = (**(code **)(iVar1 + 0x2c))
-                    ((int)*(int **)(param_1 + 0x300) + (int)*(short *)(iVar1 + 0x28),param_2 + 2,0,
+  iVar1 = (((vtbl_entry*)(iVar1))[5].fn)
+                    ((int)*(int **)(param_1 + 0x300) + (int)((vtbl_entry*)(iVar1))[5].adj,param_2 + 2,0,
                      &uStack_c);
   if (iVar1 != 0) {
     iVar2 = **(int **)(param_1 + 0x300);
-    (**(code **)(iVar2 + 0x44))
-              ((int)*(int **)(param_1 + 0x300) + (int)*(short *)(iVar2 + 0x40),uStack_c,param_2[1],
+    (((vtbl_entry*)(iVar2))[8].fn)
+              ((int)*(int **)(param_1 + 0x300) + (int)((vtbl_entry*)(iVar2))[8].adj,uStack_c,param_2[1],
                *param_2);
     iVar2 = **(int **)(param_1 + 0x300);
-    (**(code **)(iVar2 + 0x34))
-              ((int)*(int **)(param_1 + 0x300) + (int)*(short *)(iVar2 + 0x30),uStack_c);
+    (((vtbl_entry*)(iVar2))[6].fn)
+              ((int)*(int **)(param_1 + 0x300) + (int)((vtbl_entry*)(iVar2))[6].adj,uStack_c);
   }
   return iVar1 != 0;
 }

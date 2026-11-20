@@ -11,8 +11,8 @@ uint32_t get_or_init_ram_object_103b95ee(void)
 {
   if (iRam8001bd90 == 0) {
     iRam8001bd90 = 1;
-    cls_10594e70_new((uint32_t *)0x8001bd54/*SDRAM*/);
-    prepend_to_singly_linked_list((void *)0x8000f59c/*SDRAM*/);
+    cls_10594e70_new((cls_10594e70 *)0x8001bd54/*SDRAM*/);
+    prepend_to_singly_linked_list((uint32_t *)(0x8000f59c/*SDRAM*/));
   }
   return 0x8001bd54/*SDRAM*/;
 }

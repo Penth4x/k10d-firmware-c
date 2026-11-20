@@ -21,11 +21,11 @@ uint32_t dispatch_class_state_two_or_three(int param_1)
   int iVar1;
   uint32_t uVar2;
   uintptr_t sp;
-  uint8_t auStack_14 [12];
+  cls_105a5d5c acStack_14 [3];
   
-  cls_105a5d5c_new((void *)auStack_14);
-  copy_seven_bytes(auStack_14,*(int *)(param_1 + 0xc));
-  iVar1 = extract_field_by_index_1045d346(auStack_14,0);
+  cls_105a5d5c_new(acStack_14);
+  copy_seven_bytes(acStack_14,*(int *)(param_1 + 0xc));
+  iVar1 = extract_field_by_index_1045d346(acStack_14,0);
   uVar2 = 0;
   if (iVar1 == 2) {
     uVar2 = query_class_property_value(param_1);
@@ -33,6 +33,6 @@ uint32_t dispatch_class_state_two_or_three(int param_1)
   else if (iVar1 == 3) {
     uVar2 = query_class_state_value_104aa7c2(param_1);
   }
-  cls_105a5d5c_delete((void *)auStack_14,2);
+  cls_105a5d5c_delete(acStack_14,2);
   return uVar2;
 }

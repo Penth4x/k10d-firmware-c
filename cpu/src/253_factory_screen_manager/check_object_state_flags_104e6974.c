@@ -14,19 +14,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t check_object_state_flags_104e6974(int param_1)
+uint32_t check_object_state_flags_104e6974(cls_105c1218 *param_1)
 
 {
   ushort *puVar1;
   uint32_t uVar2;
   
   uVar2 = 0;
-  puVar1 = *(ushort **)(param_1 + 0xc);
+  puVar1 = (ushort *)param_1->field_0xc;
   if (((*puVar1 & 0x800) == 0) && ((*puVar1 & 0x1000) == 0)) {
     if ((*puVar1 & 0x100) == 0) {
       if ((*puVar1 & 0x200) != 0) {
-        (**(code **)(*(int *)(param_1 + 4) + 0x44))
-                  (*(short *)(*(int *)(param_1 + 4) + 0x40) + param_1);
+        (((vtbl_entry*)(param_1->field_0x4))[8].fn)
+                  ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x4))[8].adj);
       }
     }
     else {
@@ -34,7 +34,7 @@ uint32_t check_object_state_flags_104e6974(int param_1)
     }
   }
   else {
-    **(ushort **)(param_1 + 0x10) = **(ushort **)(param_1 + 0x10) | 0x800;
+    *(ushort *)param_1->field_0x10 = *(ushort *)param_1->field_0x10 | 0x800;
   }
   return uVar2;
 }

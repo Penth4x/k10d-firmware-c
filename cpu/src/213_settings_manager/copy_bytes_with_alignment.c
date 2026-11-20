@@ -45,7 +45,7 @@ uint copy_bytes_with_alignment(uint32_t *param_1,uint32_t *param_2,uint param_3,
     }
   }
   if ((param_3 & 3) != 0) {
-    copy_bytes_aligned((void *)param_1,(void *)param_2,param_3 & 3,0);
+    copy_bytes_aligned(param_1,param_2,param_3 & 3,0);
   }
   return param_3;
 }

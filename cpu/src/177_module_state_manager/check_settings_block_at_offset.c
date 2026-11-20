@@ -11,6 +11,6 @@ uint32_t check_settings_block_at_offset(int param_1)
 {
   uint32_t uVar1;
   
-  uVar1 = settings_block_valid((void *)(param_1 + 0x14));
+  uVar1 = settings_block_valid((int *)(param_1 + 0x14));
   return uVar1;
 }

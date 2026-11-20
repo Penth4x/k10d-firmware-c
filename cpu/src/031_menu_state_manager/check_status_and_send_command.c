@@ -32,11 +32,9 @@ uint32_t check_status_and_send_command(void *param_1)
   iStack_c = 0;
   dispatch_event_and_return_offset(param_1,&iStack_c,0xffffffff);
   uVar2 = 1;
-  if ((((iStack_c != 0) && (*(short *)(iStack_c + 4) == _DAT_80015d3c/*SDRAM*/)) &&
-      (*(short *)(iStack_c + 6) == _DAT_80015d3e/*SDRAM*/)) &&
-     ((_DAT_80015d1c/*SDRAM*/ == 2 && (DAT_80015f14/*SDRAM*/ != '\0')))) {
+  if ((((iStack_c != 0) && (*(short *)(iStack_c + 4) == _DAT_80015d3c/*SDRAM*/)) && (*(short *)(iStack_c + 6) == _DAT_80015d3e/*SDRAM*/)) && ((_DAT_80015d1c/*SDRAM*/ == 2 && (DAT_80015f14/*SDRAM*/ != '\0')))) {
     copy_two_words_from_param2((int)auStack_1c,-0x7ffea2fc);
-    iVar1 = compare_two_int_pairs((void *)0x80018058/*SDRAM*/,(void *)auStack_1c);
+    iVar1 = compare_two_int_pairs((int *)(0x80018058/*SDRAM*/),(int *)(auStack_1c));
     free_heap_if_flagged_1045c402(auStack_1c,2);
     uVar2 = 0;
     if (iVar1 == 0) {

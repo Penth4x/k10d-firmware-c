@@ -29,22 +29,22 @@ void build_and_send_two_param_message(int param_1,int param_2)
   uint32_t *puVar7;
   uint8_t auStack_88 [8];
   byte abStack_64 [80];
-  int aiStack_14 [3];
+  cls_105a6f84 cStack_14;
   
   puVar7 = (uint32_t *)auStack_88;
-  cls_105a6f84_new(aiStack_14);
+  cls_105a6f84_new(&cStack_14);
   iVar1 = initialize_singleton_object_1045d6a0();
-  copy_eight_bytes_from_struct(*(int *)(iVar1 + 0x1c),aiStack_14);
+  copy_eight_bytes_from_struct(*(int *)(iVar1 + 0x1c),&cStack_14);
   if (param_2 == 0) {
-    pvVar2 = (void *)invoke_virtual_slot_6_10460914(aiStack_14);
-    pvVar3 = (void *)invoke_virtual_slot_6_10460932(aiStack_14);
+    pvVar2 = (void *)invoke_virtual_slot_6_10460914((int *)&cStack_14);
+    pvVar3 = (void *)invoke_virtual_slot_6_10460932((int *)&cStack_14);
     pcVar6 = (char *)0x105b9828/*ROM*/;
   }
   else {
-    pvVar2 = (void *)invoke_virtual_slot_6_10460914(aiStack_14);
-    pvVar3 = (void *)invoke_virtual_slot_6_10460932(aiStack_14);
-    uVar4 = call_virtual_slot_6_1046096e(aiStack_14);
-    uVar5 = invoke_virtual_slot_6_1046098c(aiStack_14);
+    pvVar2 = (void *)invoke_virtual_slot_6_10460914((int *)&cStack_14);
+    pvVar3 = (void *)invoke_virtual_slot_6_10460932((int *)&cStack_14);
+    uVar4 = call_virtual_slot_6_1046096e((int *)&cStack_14);
+    uVar5 = invoke_virtual_slot_6_1046098c((int *)&cStack_14);
     *puVar7 = uVar4;
     puVar7[1] = uVar5;
     pcVar6 = (char *)0x105b980c/*ROM*/;
@@ -52,8 +52,8 @@ void build_and_send_two_param_message(int param_1,int param_2)
   format_string_to_buffer_10545140(abStack_64,pcVar6,pvVar2,pvVar3);
   pvVar2 = (void *)menu_item_register(*(int *)(param_1 + 0x38));
   glyph_draw(pvVar2,abStack_64);
-  (**(code **)(*(int *)((int)pvVar2 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar2 + 0xc)))[1].fn)
             ((int)pvVar2 + (int)*(short *)(*(int *)((int)pvVar2 + 0xc) + 8),1);
-  cls_105a6f84_delete(aiStack_14,2);
+  cls_105a6f84_delete(&cStack_14,2);
   return;
 }

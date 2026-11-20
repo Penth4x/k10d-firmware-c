@@ -18,7 +18,7 @@ uint32_t * cls_105aae0c_new(uint32_t *param_1)
      (param_1 = (uint32_t *)heap_alloc((void *)0x1c), param_1 != (uint32_t *)0x0)) {
     cls_1059e4e0_new(param_1);
     *param_1 = 0x105aae0c/*ROM*/;
-    cls_105a5c2c_new(param_1 + 1,0);
+    cls_105a5c2c_new((void *)(param_1 + 1), 0);
   }
   return param_1;
 }

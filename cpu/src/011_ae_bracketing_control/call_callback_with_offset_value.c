@@ -15,12 +15,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_callback_with_offset_value(int param_1)
+void call_callback_with_offset_value(cls_10557a18 *param_1)
 
 {
   uint8_t uVar1;
   
-  uVar1 = read_byte_at_offset_five_1051e924(param_1 + 0x1c);
-  (*(code *)0x10382052/*ROM*/)(param_1 + 0x6c,uVar1);
+  uVar1 = read_byte_at_offset_five_1051e924((int)&param_1->field_0x1c);
+  (*(code *)0x10382052/*ROM*/)(&param_1->field_0x6c,uVar1);
   return;
 }

@@ -14,13 +14,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t allocate_buffer_if_null(int *param_1)
+uint32_t allocate_buffer_if_null(cls_105b7838 *param_1)
 
 {
   uint32_t uVar1;
   
-  if (*param_1 == 0) {
-    uVar1 = dispatch_by_type_field_104af7e6(param_1,0x80,0);
+  if (param_1->field_0x0 == 0) {
+    uVar1 = dispatch_by_type_field_104af7e6((void *)param_1,0x80,0);
   }
   else {
     uVar1 = 0;

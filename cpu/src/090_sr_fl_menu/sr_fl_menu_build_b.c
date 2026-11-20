@@ -39,8 +39,8 @@ void sr_fl_menu_build_b(void)
     uVar4 = 1;
   }
   uVar2 = menu_item_register(*caller_r8);
-  menu_list_build((void *)uVar2, (void *)(caller_r14 + -2), uVar4, 1);
+  menu_list_build((int *)(uVar2),(uint16_t *)(caller_r14 + -2),(uint8_t)(uVar4),(uint8_t)(1));
   iVar3 = menu_item_register(*caller_r8);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8), 1);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
   return;
 }

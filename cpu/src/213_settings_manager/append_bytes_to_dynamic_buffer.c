@@ -43,7 +43,7 @@ uint append_bytes_to_dynamic_buffer(int *param_1,uint32_t *param_2,uint param_3)
     }
     if ((uVar4 & 3) != 0) {
       uStack_c = *param_2;
-      copy_bytes_aligned((void *)puVar1,(void *)&uStack_c,uVar4 & 3,0);
+      copy_bytes_aligned(puVar1,&uStack_c,uVar4 & 3,0);
     }
     param_1[3] = param_1[3] + uVar4;
   }

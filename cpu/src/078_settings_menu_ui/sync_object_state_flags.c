@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void sync_object_state_flags(uint32_t *param_1,uint32_t param_2)
+void sync_object_state_flags(cls_1059656c *param_1,uint32_t param_2)
 
 {
   uint uVar1;
@@ -29,15 +29,15 @@ void sync_object_state_flags(uint32_t *param_1,uint32_t param_2)
     apply_setting_from_table(param_1,0x10,0);
   }
   iVar2 = get_setting_by_index((int)param_1,0xb);
-  if ((iVar2 != 0) && (*(char *)(param_1 + 9) == -1)) {
+  if ((iVar2 != 0) && (param_1->field_0x24 == -1)) {
     uVar3 = get_setting_by_index((int)param_1,5);
-    *(char *)(param_1 + 9) = (char)uVar3;
+    param_1->field_0x24 = (char)uVar3;
     apply_setting_from_table(param_1,5,0);
   }
   iVar2 = get_setting_by_index((int)param_1,0xb);
-  if ((iVar2 == 0) && (*(byte *)(param_1 + 9) != 0xff)) {
-    apply_setting_from_table(param_1,5,(uint)*(byte *)(param_1 + 9));
-    *(uint8_t *)(param_1 + 9) = 0xff;
+  if ((iVar2 == 0) && ((byte)param_1->field_0x24 != 0xff)) {
+    apply_setting_from_table(param_1,5,(uint)(byte)param_1->field_0x24);
+    param_1->field_0x24 = 0xff;
   }
   update_state_and_notify(param_1,param_2);
   return;

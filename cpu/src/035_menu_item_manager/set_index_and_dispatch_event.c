@@ -15,20 +15,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_index_and_dispatch_event(int param_1,int param_2)
+void set_index_and_dispatch_event(cls_10558e74 *param_1,int param_2)
 
 {
   void *pvVar1;
   
-  *(int *)(param_1 + 0x5c) = param_2;
-  pvVar1 = (void *)menu_item_register(param_1);
-  if (*(char *)(param_1 + 0x6c + param_2 * 9) == '\0') {
-    (**(code **)(*(int *)((int)pvVar1 + 0xc) + 0xc))
+  param_1->field_0x5c = param_2;
+  pvVar1 = (void *)menu_item_register((int)param_1);
+  if ((&param_1->field_0x6c)[param_2 * 9] == '\0') {
+    (((vtbl_entry*)(*(int *)((int)pvVar1 + 0xc)))[1].fn)
               ((int)*(short *)(*(int *)((int)pvVar1 + 0xc) + 8) + (int)pvVar1,0);
   }
   else {
-    glyph_draw(pvVar1,(byte *)(param_1 + 0x6c + param_2 * 9));
-    (**(code **)(*(int *)((int)pvVar1 + 0xc) + 0xc))
+    glyph_draw(pvVar1,&param_1->field_0x6c + param_2 * 9);
+    (((vtbl_entry*)(*(int *)((int)pvVar1 + 0xc)))[1].fn)
               ((int)*(short *)(*(int *)((int)pvVar1 + 0xc) + 8) + (int)pvVar1,1);
   }
   return;

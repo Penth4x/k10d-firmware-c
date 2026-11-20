@@ -15,20 +15,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-void toggle_control_flag_and_notify(void *param_1,int param_2)
+void toggle_control_flag_and_notify(cls_105a1a84 *param_1,int param_2)
 
 {
   ushort uVar1;
   
   if (param_2 == 0) {
-    uVar1 = *(ushort *)((int)param_1 + 0x100) & 0xff3f;
-    *(ushort *)((int)param_1 + 0x100) = uVar1;
-    clear_flag_in_struct_field(*(void **)((int)param_1 + 0x110),(uVar1 ^ 0xffff) & 0x1ff);
+    uVar1 = param_1->field_0x100 & 0xff3f;
+    param_1->field_0x100 = uVar1;
+    clear_flag_in_struct_field((char*)(param_1) ->field_0x110,(uVar1 ^ 0xffff) & 0x1ff);
   }
   else {
-    uVar1 = *(ushort *)((int)param_1 + 0x100) | 0xc0;
-    *(ushort *)((int)param_1 + 0x100) = uVar1;
-    set_flag_in_nested_struct(*(void **)((int)param_1 + 0x110),uVar1);
+    uVar1 = param_1->field_0x100 | 0xc0;
+    param_1->field_0x100 = uVar1;
+    set_flag_in_nested_struct((char*)(param_1) ->field_0x110,uVar1);
   }
   return;
 }

@@ -22,11 +22,11 @@ uint32_t invoke_virtual_method_on_nested_object_1049273c(void *param_1)
   
   iVar1 = *(int *)((int)param_1 + 0x10);
   if ((iVar1 != 0) &&
-     (iVar1 = (**(code **)(*(int *)(iVar1 + 0xc) + 0x4c))
-                        (*(short *)(*(int *)(iVar1 + 0xc) + 0x48) + iVar1), iVar1 != 0)) {
+     (iVar1 = (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[9].fn)
+                        (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[9].adj + iVar1), iVar1 != 0)) {
     iVar1 = *(int *)(*(int *)((int)param_1 + 0x10) + 0xc);
-    (**(code **)(iVar1 + 0x54))(*(int *)((int)param_1 + 0x10) + (int)*(short *)(iVar1 + 0x50));
-    dispatch_two_param_operations((void *)*(uint32_t *)((int)param_1 + 0x14),0);
+    (((vtbl_entry*)(iVar1))[10].fn)(*(int *)((int)param_1 + 0x10) + (int)((vtbl_entry*)(iVar1))[10].adj);
+    dispatch_two_param_operations((void*)(*(uint32_t *)((int)param_1 + 0x14)),0);
   }
   return 1;
 }

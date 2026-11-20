@@ -13,10 +13,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_virtual_slot_16(int param_1)
+void call_virtual_slot_16(cls_105d7b7c *param_1)
 
 {
-  (**(code **)(*(int *)(param_1 + 0xc) + 0xa4))
-            (*(short *)(*(int *)(param_1 + 0xc) + 0xa0) + param_1);
+  (((vtbl_entry*)(param_1->field_0xc))[20].fn)
+            ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0xc))[20].adj);
   return;
 }

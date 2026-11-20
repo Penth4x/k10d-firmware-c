@@ -25,13 +25,13 @@ void dispatch_virtual_method_on_object_10391578(int param_1,uint32_t param_2)
   uintptr_t sp;
   uint8_t auStack_14 [12];
   
-  update_three_field_struct((void *)(param_1 + 0x2c50),6,param_2,0);
+  update_three_field_struct((uint32_t *)(param_1 + 0x2c50),(uint32_t)(6),(uint32_t)(param_2),(uint32_t)(0));
   piVar2 = *(int **)(param_1 + 0x2c48);
   if (piVar2 != (int *)0x0) {
     iVar3 = *piVar2;
     sVar1 = *(short *)(iVar3 + 0x20);
     swap_three_words_with_callbacks_10391b84(auStack_14,param_1 + 0x2c50);
-    (**(code **)(iVar3 + 0x24))((int)sVar1 + (int)piVar2,auStack_14);
+    (((vtbl_entry*)(iVar3))[4].fn)((int)sVar1 + (int)piVar2,auStack_14);
   }
   call_single_helper_104df450(param_1,*(uint32_t *)(param_1 + 0x2c28));
   return;

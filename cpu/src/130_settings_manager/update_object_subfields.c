@@ -20,7 +20,7 @@ void update_object_subfields(int param_1,int param_2)
 
 {
   call_kernel_with_short_id((uint32_t *)(param_1 + 0x54));
-  copy_seven_bytes((void *)(param_1 + 0x48),param_2);
+  copy_seven_bytes((cls_105a5d5c *)(param_1 + 0x48),param_2);
   check_kernel_call_success_10459d88((uint32_t *)(param_1 + 0x54));
   return;
 }

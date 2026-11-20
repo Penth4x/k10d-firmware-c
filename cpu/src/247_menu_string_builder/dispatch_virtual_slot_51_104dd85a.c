@@ -23,11 +23,11 @@ void dispatch_virtual_slot_51_104dd85a(uint32_t param_1,int *param_2,uint32_t pa
   uint32_t uVar2;
   uint32_t r7_in;
   
-  append_string_to_buffer(param_2,(void *)0x105baf28/*ROM*/);
+  append_string_to_buffer((int *)(param_2),(char *)(0x105baf28/*ROM*/));
   add_offset_to_pointer_104d6882(param_3);
   iVar1 = (*(code *)0x104d8ad8/*ROM*/)();
   uVar2 = call_helper_with_field_0x14_104d5c88(iVar1);
-  build_and_apply_param_string(param_2,(void *)uVar2,1,(void *)r7_in);
-  append_string_to_buffer(param_2,(void *)0x105baf34/*ROM*/);
+  build_and_apply_param_string((int *)(param_2),(void *)(uVar2),(int)(1),(void *)(r7_in));
+  append_string_to_buffer((int *)(param_2),(char *)(0x105baf34/*ROM*/));
   return;
 }

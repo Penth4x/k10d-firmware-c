@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_with_four_helpers_104468e0(void *param_1)
+void init_object_with_four_helpers_104468e0(cls_105a18b4 *param_1)
 
 {
   initialize_subobject_with_config(param_1);

@@ -24,11 +24,11 @@ uint32_t call_handler_with_two_args(void *param_1,int param_2,uint32_t param_3,i
   uint8_t local_24 [8];
   
   piVar1 = (int *)local_24;
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,0x20000);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(0x20000));
   *piVar1 = param_4;
   piVar1[1] = param_5;
   init_object_with_four_params(_DAT_8000439c/*SDRAM*/,param_1,param_2,param_3,*piVar1,piVar1[1]);
   eventflag_wai_flg((uint32_t *)0x80018088/*SDRAM*/,0x20000,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,0x20000);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(0x20000));
   return *(uint32_t *)((int)param_1 + 8);
 }

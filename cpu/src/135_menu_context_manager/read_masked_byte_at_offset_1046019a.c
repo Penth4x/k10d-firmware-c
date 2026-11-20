@@ -13,8 +13,8 @@
 #include "globals.h"
 #include "funcs.h"
 
-byte read_masked_byte_at_offset_1046019a(void *param_1,int param_2,byte param_3)
+byte read_masked_byte_at_offset_1046019a(cls_105a6e1c *param_1,int param_2,byte param_3)
 
 {
-  return *(byte *)((int)param_1 + param_2 + 4) & param_3;
+  return *(byte *)((int)&param_1[1].field_0x0 + param_2) & param_3;
 }

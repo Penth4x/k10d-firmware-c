@@ -16,7 +16,7 @@ uint32_t * cls_1059e87c_new(uint32_t *param_1,uint8_t param_2,uint8_t param_3)
 {
   if ((param_1 != (uint32_t *)0x0) ||
      (param_1 = (uint32_t *)heap_alloc((void *)8), param_1 != (uint32_t *)0x0)) {
-    cls_1059e4b0_new(param_1);
+    cls_1059e4b0_new((void *)param_1);
     *param_1 = 0x1059e87c/*ROM*/;
     *(uint8_t *)(param_1 + 1) = 1;
     *(uint8_t *)((int)param_1 + 5) = param_2;

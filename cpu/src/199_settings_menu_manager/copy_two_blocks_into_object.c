@@ -16,20 +16,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-void copy_two_blocks_into_object(int param_1,void *param_2)
+void copy_two_blocks_into_object(cls_105b4dac *param_1,void *param_2)
 
 {
   int iVar1;
   int iVar2;
   uintptr_t sp;
-  void *pvStack_34;
+  int *piStack_34;
   uint8_t auStack_30 [4];
   uint32_t uStack_2c;
   uint8_t auStack_28 [4];
   uint32_t uStack_24;
   uint8_t auStack_20 [24];
   
-  pvStack_34 = (void *)(param_1 + 0x80);
+  piStack_34 = &param_1->field_0x80;
   (*(code *)0x1045c290/*ROM*/)(auStack_28);
   (*(code *)0x1045bce8/*ROM*/)(auStack_30,param_2,auStack_28);
   iVar2 = 8;
@@ -40,16 +40,16 @@ void copy_two_blocks_into_object(int param_1,void *param_2)
   } while (iVar1 != 0);
   free_heap_block_if_flagged_1045bc54(auStack_30,2);
   free_heap_block_if_flagged_1045bc54(auStack_28,2);
-  copy_eight_bytes_1045bf68(pvStack_34,param_2);
-  (*(code *)0x1045bc90/*ROM*/)(auStack_28,param_1 + 0xa4,auStack_20);
+  copy_eight_bytes_1045bf68(piStack_34,param_2);
+  (*(code *)0x1045bc90/*ROM*/)(auStack_28,&param_1->field_0xa4,auStack_20);
   iVar2 = 8;
   do {
     iVar1 = iVar2 + -4;
-    *(uint32_t *)(iVar1 + param_1 + 0xa4) = *(uint32_t *)((int)&uStack_2c + iVar2);
+    *(uint32_t *)(iVar1 + (int)&param_1->field_0xa4) = *(uint32_t *)((int)&uStack_2c + iVar2);
     iVar2 = iVar1;
   } while (iVar1 != 0);
   free_heap_block_if_flagged_1045bc54(auStack_28,2);
-  *(uint8_t *)(param_1 + 9) = 1;
+  param_1->field_0x9 = 1;
   free_heap_block_if_flagged_1045bc54(auStack_20,2);
   return;
 }

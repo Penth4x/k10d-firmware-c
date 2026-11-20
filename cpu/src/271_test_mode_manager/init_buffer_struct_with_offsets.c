@@ -17,7 +17,7 @@ void init_buffer_struct_with_offsets(int param_1,uint32_t *param_2)
   uint32_t uVar6;
   int iVar7;
   uintptr_t sp;
-  uint32_t uStack_c;
+  cls_1059e05c cStack_c;
   
   *(uint32_t *)(param_1 + 0xf4) = *param_2;
   *(uint32_t *)(param_1 + 0xf8) = param_2[1];
@@ -64,8 +64,8 @@ void init_buffer_struct_with_offsets(int param_1,uint32_t *param_2)
   *(uint *)(param_1 + 0x6c) =
        iVar7 + (uint)*(ushort *)(param_1 + 0x84c) * (uint)*(ushort *)(param_1 + 0x84e) * 2 +
        (uint)uVar1 * 0x60 + 0x300;
-  cls_1059e05c_new(&uStack_c);
-  iVar7 = lookup_table_value_minus_offset(&uStack_c,0,0);
+  cls_1059e05c_new(&cStack_c);
+  iVar7 = lookup_table_value_minus_offset(&cStack_c,0,0);
   *(int *)(param_1 + 0x130) = iVar7;
   iVar7 = iVar7 + *(int *)(param_1 + 0x858) + *(int *)(param_1 + 0x860);
   *(int *)(param_1 + 0x70) = iVar7;
@@ -77,25 +77,25 @@ void init_buffer_struct_with_offsets(int param_1,uint32_t *param_2)
   *(int *)(param_1 + 0x82c) = *(int *)(param_1 + 0x7e4) + 0x60;
   iVar7 = get_or_create_camera_object();
   iVar4 = **(int **)(iVar7 + 8);
-  uVar6 = (**(code **)(iVar4 + 0x34))((int)*(int **)(iVar7 + 8) + (int)*(short *)(iVar4 + 0x30),0);
+  uVar6 = (((vtbl_entry*)(iVar4))[6].fn)((int)*(int **)(iVar7 + 8) + (int)((vtbl_entry*)(iVar4))[6].adj,0);
   *(uint32_t *)(param_1 + 0x870) = uVar6;
   iVar7 = get_or_create_camera_object();
   iVar4 = **(int **)(iVar7 + 8);
-  uVar6 = (**(code **)(iVar4 + 0x34))((int)*(int **)(iVar7 + 8) + (int)*(short *)(iVar4 + 0x30),1);
+  uVar6 = (((vtbl_entry*)(iVar4))[6].fn)((int)*(int **)(iVar7 + 8) + (int)((vtbl_entry*)(iVar4))[6].adj,1);
   *(uint32_t *)(param_1 + 0x874) = uVar6;
   iVar7 = get_or_create_camera_object();
   iVar4 = **(int **)(iVar7 + 8);
-  uVar6 = (**(code **)(iVar4 + 0x34))((int)*(int **)(iVar7 + 8) + (int)*(short *)(iVar4 + 0x30),2);
+  uVar6 = (((vtbl_entry*)(iVar4))[6].fn)((int)*(int **)(iVar7 + 8) + (int)((vtbl_entry*)(iVar4))[6].adj,2);
   *(uint32_t *)(param_1 + 0x878) = uVar6;
   iVar7 = get_or_create_camera_object();
   iVar4 = **(int **)(iVar7 + 8);
-  uVar6 = (**(code **)(iVar4 + 0x34))((int)*(int **)(iVar7 + 8) + (int)*(short *)(iVar4 + 0x30),3);
+  uVar6 = (((vtbl_entry*)(iVar4))[6].fn)((int)*(int **)(iVar7 + 8) + (int)((vtbl_entry*)(iVar4))[6].adj,3);
   *(uint32_t *)(param_1 + 0x87c) = uVar6;
   uVar6 = get_sysparam_store_instance();
-  iVar7 = get_sysparam_store_byte((void *)uVar6,0);
+  iVar7 = get_sysparam_store_byte((void*)(uVar6),0);
   if (iVar7 != 0) {
-    allocate_four_buffer_blocks((void *)(param_1 + 0x880));
+    allocate_four_buffer_blocks((void*)(param_1 + 0x880));
   }
-  virtual_destructor_free_104266ce(&uStack_c,2);
+  virtual_destructor_free_104266ce((void*)(&cStack_c),2);
   return;
 }

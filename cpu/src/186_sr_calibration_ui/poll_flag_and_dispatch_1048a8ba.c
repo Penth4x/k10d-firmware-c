@@ -16,7 +16,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void poll_flag_and_dispatch_1048a8ba(uint32_t *param_1)
+void poll_flag_and_dispatch_1048a8ba(cls_105b3a84 *param_1)
 
 {
   uintptr_t sp;
@@ -25,10 +25,10 @@ void poll_flag_and_dispatch_1048a8ba(uint32_t *param_1)
   uStack_c = 0;
   do {
     do {
-      eventflag_wai_flg(param_1 + 0x18,1,&uStack_c,_DAT_105a2af0/*ROM*/);
-      eventflag_clr_flg(param_1 + 0x18,uStack_c);
+      eventflag_wai_flg(&((uint32_t *)&(param_1->field_0x60))[0],1,&uStack_c,_DAT_105a2af0/*ROM*/);
+      eventflag_clr_flg(&param_1->field_0x60,uStack_c);
     } while ((uStack_c & 1) == 0);
     wait_for_flag_at_offset_0x31_1048a904(param_1);
-    *(uint8_t *)(param_1 + 0x1a) = 1;
+    param_1->field_0x68 = 1;
   } while( true );
 }

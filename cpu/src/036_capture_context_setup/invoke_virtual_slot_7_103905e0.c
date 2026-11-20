@@ -14,18 +14,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t invoke_virtual_slot_7_103905e0(int param_1)
+uint32_t invoke_virtual_slot_7_103905e0(cls_1055a304 *param_1)
 
 {
   int *piVar1;
   uint32_t uVar2;
   
-  piVar1 = *(int **)(param_1 + 0x60);
+  piVar1 = (int *)param_1->field_0x60;
   if (piVar1 == (int *)0x0) {
     uVar2 = 0;
   }
   else {
-    uVar2 = (**(code **)(*piVar1 + 0x3c))((int)*(short *)(*piVar1 + 0x38) + (int)piVar1);
+    uVar2 = (((vtbl_entry*)(*piVar1))[7].fn)((int)((vtbl_entry*)(*piVar1))[7].adj + (int)piVar1);
   }
   return uVar2;
 }

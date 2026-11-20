@@ -6,14 +6,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t set_flag_on_two_event_ids_1050aa30(int param_1,int param_2)
+uint32_t set_flag_on_two_event_ids_1050aa30(cls_105d5470 *param_1,int param_2)
 
 {
   if (param_2 == 0x300001) {
-    set_flg_obj((uint32_t *)(param_1 + 0x28));
+    set_flg_obj((void *)&param_1->field_0x28);
   }
   if (param_2 == 0x300002) {
-    set_flg_obj((uint32_t *)(param_1 + 0x28));
+    set_flg_obj((void *)&param_1->field_0x28);
   }
   return 0;
 }

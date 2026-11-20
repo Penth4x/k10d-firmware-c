@@ -32,12 +32,12 @@ int dispatch_virtual_method_with_helper_1049b5da(int param_1,int param_2,int *pa
   
   puVar4 = (uint32_t *)auStack_24;
   process_virtual_object_event(param_1,(uint)*(ushort *)(_DAT_80048fe8/*SDRAM*/ + 0x10) + param_2,(int *)__frv_reg_unset(6));
-  uVar2 = (**(code **)(*param_3 + 0x34))((int)*(short *)(*param_3 + 0x30) + (int)param_3);
+  uVar2 = (((vtbl_entry*)(*param_3))[6].fn)((int)((vtbl_entry*)(*param_3))[6].adj + (int)param_3);
   uVar1 = *(ushort *)(_DAT_80048fe8/*SDRAM*/ + 0x12);
-  (**(code **)(*param_3 + 0x2c))((int)*(short *)(*param_3 + 0x28) + (int)param_3,param_2);
+  (((vtbl_entry*)(*param_3))[5].fn)((int)((vtbl_entry*)(*param_3))[5].adj + (int)param_3,param_2);
   *puVar4 = *(uint32_t *)(param_1 + 8);
   iVar3 = iterate_and_process_object_list((char *)(param_1 + 4),(int *)0x4,(uint)uVar1,param_3,(int *)*puVar4);
-  (**(code **)(*param_3 + 0x2c))((int)*(short *)(*param_3 + 0x28) + (int)param_3,uVar2);
+  (((vtbl_entry*)(*param_3))[5].fn)((int)((vtbl_entry*)(*param_3))[5].adj + (int)param_3,uVar2);
   invoke_virtual_slot_15_1049b6f4(param_1,param_3);
   return iVar3;
 }

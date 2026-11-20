@@ -17,6 +17,6 @@
 void invoke_virtual_slot_two_104bf5b6(int param_1)
 
 {
-  release_heap_block_and_clear_104bcd58((void *)(param_1 + 0x8ac));
+  release_heap_block_and_clear_104bcd58((cls_105b934c *)(param_1 + 0x8ac));
   return;
 }

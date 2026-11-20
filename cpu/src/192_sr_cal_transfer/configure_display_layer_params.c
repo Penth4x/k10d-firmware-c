@@ -49,17 +49,17 @@ void configure_display_layer_params(int param_1)
     settings_refresh_working_copy(*(void **)(param_1 + 0x18));
   }
   iVar1 = *(int *)(*(int *)(param_1 + 0xc) + 4);
-  (**(code **)(iVar1 + 0x1c))(*(int *)(param_1 + 0xc) + (int)*(short *)(iVar1 + 0x18),0);
+  (((vtbl_entry*)(iVar1))[3].fn)(*(int *)(param_1 + 0xc) + (int)((vtbl_entry*)(iVar1))[3].adj,0);
   pvVar4 = *(void **)(param_1 + 0xc);
   iVar1 = add_four_to_param(uVar2);
   copy_bytes_into_struct_offset(pvVar4,iVar1,0x5d);
   init_struct_with_copy_and_flag(*(uint32_t *)(param_1 + 0xc));
-  set_bit5_at_offset_0x2a(*(uint32_t *)(param_1 + 0xc),0);
+  set_bit5_at_offset_0x2a((void *)(*(uint32_t *)(param_1 + 0xc)),(int)(0));
   dispatch_on_flag_param(*(void **)(param_1 + 0xc),1);
-  call_helper_with_flag_one_104436aa(*(uint32_t *)(param_1 + 0xc));
+  call_helper_with_flag_one_104436aa((void *)(*(uint32_t *)(param_1 + 0xc)));
   uVar2 = *(uint32_t *)(param_1 + 0xc);
   iVar1 = setting_get(*(int *)(param_1 + 0x18),0x98);
-  clamp_and_write_byte_field(uVar2,(int)acStack_17[iVar1]);
+  clamp_and_write_byte_field((void *)(uVar2),(int)acStack_17[iVar1]);
   check_kernel_call_success_10459fea();
   return;
 }

@@ -16,12 +16,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool cpucom_sci_seek_cmd(void *param_1,uint param_2)
+/* WARNING: Struct "cls_105a04cc": ignoring multiple overlapping fields */
+
+bool cpucom_sci_seek_cmd(cls_105a04cc *param_1,uint param_2)
 
 {
   if (param_2 < 0x7c2) {
-    (**(code **)(*(int *)((int)param_1 + 4) + 0x2c))
-              ((int)*(short *)(*(int *)((int)param_1 + 4) + 0x28) + (int)param_1);
+    (((vtbl_entry*)(param_1->field_0x4))[5].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x4))[5].adj);
     wait_for_sci_transmit_complete(param_1,(short)param_2 * 0x21 + -1,0);
   }
   return param_2 < 0x7c2;

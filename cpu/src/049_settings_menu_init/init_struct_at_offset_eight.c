@@ -14,10 +14,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_struct_at_offset_eight(int param_1)
+uint32_t init_struct_at_offset_eight(cls_10565d08 *param_1)
 
 {
-  reset_flag_and_sync_ui(param_1 + 8);
-  dispatch_event_to_object_10492252((void *)(param_1 + 8),(void *)0x0);
+  reset_flag_and_sync_ui((cls_105b4254 *)&param_1->field5_0x8);
+  dispatch_event_to_object_10492252((cls_105b4254 *)&param_1->field5_0x8,(void *)0x0);
   return 0;
 }

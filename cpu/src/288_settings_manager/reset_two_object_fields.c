@@ -13,10 +13,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void reset_two_object_fields(void *param_1)
+void reset_two_object_fields(cls_105fa6fc *param_1)
 
 {
-  *(uint32_t *)((int)param_1 + 4) = 0;
-  *(uint32_t *)((int)param_1 + 0x14) = 0;
+  param_1->field_0x4 = 0;
+  param_1->field_0x14 = 0;
   return;
 }

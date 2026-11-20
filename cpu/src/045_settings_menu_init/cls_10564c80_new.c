@@ -11,25 +11,27 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_10564c80_new(uint32_t *param_1)
+cls_105643d0 * cls_10564c80_new(cls_10564c80 *param_1)
 
 {
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x68), param_1 != (uint32_t *)0x0)) {
-    cls_105643d0_new(param_1);
-    *param_1 = 0x10564c80/*ROM*/;
-    initialize_lens_update_object(param_1 + 0x10,0x10);
-    *(uint8_t *)(param_1 + 0x14) = 0;
-    param_1[0x15] = 0;
-    param_1[0x16] = 0;
-    *(uint16_t *)(param_1 + 0x17) = 0x140;
-    *(uint16_t *)((int)param_1 + 0x5e) = 0xf0;
-    *(uint16_t *)(param_1 + 0x18) = 0;
-    *(uint16_t *)((int)param_1 + 0x62) = 0;
-    *(uint8_t *)(param_1 + 0x19) = 1;
-    *(uint8_t *)((int)param_1 + 0x65) = 0;
-    *(uint8_t *)((int)param_1 + 0x66) = 0;
-    *(uint8_t *)((int)param_1 + 0x67) = 0;
+  if ((param_1 != (cls_10564c80 *)0x0) ||
+     (param_1 = (cls_10564c80 *)heap_alloc((void *)0x68), (cls_105643d0 *)param_1 != (cls_105643d0 *)0x0)) {
+    cls_105643d0_new((cls_105643d0 *)param_1);
+    ((cls_105643d0 *)param_1)->field_0x0 = (uintptr_t)((void *)0x10564c80/*ROM*/);
+    initialize_lens_update_object(&((cls_105643d0 *)param_1)->field40_0x40,0x10);
+    *(uint8_t *)&((cls_105643d0 *)param_1)->field56_0x50 = 0;
+    ((cls_105643d0 *)param_1)->field57_0x54 = 0;
+    ((cls_105643d0 *)param_1)->field58_0x56 = 0;
+    ((cls_105643d0 *)param_1)->field59_0x57 = '\0';
+    *(uint32_t *)&((cls_105643d0 *)param_1)->field_0x58 = 0;
+    ((cls_105643d0 *)param_1)->field64_0x5c = 0x140;
+    ((cls_105643d0 *)param_1)->field65_0x5e = 0xf0;
+    ((cls_105643d0 *)param_1)->field66_0x60 = 0;
+    ((cls_105643d0 *)param_1)->field67_0x62 = 0;
+    *(uint8_t *)&((cls_105643d0 *)param_1)->field68_0x64 = 1;
+    *(uint8_t *)((int)&((cls_105643d0 *)param_1)->field68_0x64 + 1) = 0;
+    *(uint8_t *)&((cls_105643d0 *)param_1)->field69_0x66 = 0;
+    *(uint8_t *)((int)&((cls_105643d0 *)param_1)->field69_0x66 + 1) = 0;
   }
-  return param_1;
+  return (cls_105643d0 *)param_1;
 }

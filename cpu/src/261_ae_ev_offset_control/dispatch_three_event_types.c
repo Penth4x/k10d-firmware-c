@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_three_event_types(uint32_t param_1,int *param_2)
+void dispatch_three_event_types(cls_105d4108 *param_1,int *param_2)
 
 {
   int iVar1;
@@ -28,23 +28,23 @@ void dispatch_three_event_types(uint32_t param_1,int *param_2)
     if (iVar1 == 0x10f0001) {
       pvVar2 = (void *)get_or_init_singleton_object_1051d40e();
       update_camera_state_flags(pvVar2,0x12,1);
-      copy_struct_and_dispatch(param_1,(void *)param_2[1]);
+      copy_struct_and_dispatch((int)(param_1),(int *)(param_2[1]));
       iVar1 = *(int *)*param_2;
-      (**(code **)(iVar1 + 0x14))(*param_2 + (int)*(short *)(iVar1 + 0x10),0x10f0001,param_2[3]);
+      (((vtbl_entry*)(iVar1))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar1))[2].adj,0x10f0001,param_2[3]);
     }
     else if (iVar1 == 0x10f0002) {
       pvVar2 = (void *)get_or_init_singleton_object_1051d40e();
       update_camera_state_flags(pvVar2,0x12,2);
-      copy_struct_and_dispatch_event(param_1,(void *)param_2[1]);
+      copy_struct_and_dispatch_event((int)(param_1),(int *)(param_2[1]));
       iVar1 = *(int *)*param_2;
-      (**(code **)(iVar1 + 0x14))(*param_2 + (int)*(short *)(iVar1 + 0x10),0x10f0002,param_2[3]);
+      (((vtbl_entry*)(iVar1))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar1))[2].adj,0x10f0002,param_2[3]);
     }
     else if (iVar1 == 0x10f0003) {
       pvVar2 = (void *)get_or_init_singleton_object_1051d40e();
       update_camera_state_flags(pvVar2,0x12,3);
-      build_and_send_param_block(param_1,(void *)param_2[1]);
+      build_and_send_param_block((int)(param_1),(uint32_t *)(param_2[1]));
       iVar1 = *(int *)*param_2;
-      (**(code **)(iVar1 + 0x14))(*param_2 + (int)*(short *)(iVar1 + 0x10),0x10f0003,param_2[3]);
+      (((vtbl_entry*)(iVar1))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar1))[2].adj,0x10f0003,param_2[3]);
     }
     pvVar2 = (void *)get_or_init_singleton_object_1051d40e();
     update_camera_state_flags(pvVar2,0x12,0);

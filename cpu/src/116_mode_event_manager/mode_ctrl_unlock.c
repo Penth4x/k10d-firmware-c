@@ -14,6 +14,6 @@
 void mode_ctrl_unlock(void *param_1)
 
 {
-  sig_sem_obj((int)param_1 + 0x74);
+  sig_sem_obj((void *)((int)param_1 + 0x74));
   return;
 }

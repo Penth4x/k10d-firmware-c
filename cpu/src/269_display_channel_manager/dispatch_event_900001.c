@@ -20,7 +20,7 @@
     */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void dispatch_event_900001(int param_1,int *param_2)
+void dispatch_event_900001(cls_105d5300 *param_1,int *param_2)
 
 {
   bool bVar1;
@@ -123,12 +123,12 @@ void dispatch_event_900001(int param_1,int *param_2)
         uStack_a2 = *(uint16_t *)(piVar6 + 6);
         uStack_a0 = *(uint16_t *)((int)piVar5 + 0x16);
         uStack_9e = *(uint16_t *)(piVar5 + 6);
-        puVar2 = (uint32_t *)(param_1 + 0x2c);
+        puVar2 = &param_1->field_0x2c;
         eventflag_clr_flg(puVar2,1);
-        imgp_c_program_and_start_104fe5ce(*(uint32_t *)(param_1 + 0x24),(void *)(param_1 + 4),&iStack_b4);
+        imgp_c_program_and_start_104fe5ce(param_1->field_0x24,&param_1->field_0x4,&iStack_b4);
         eventflag_wai_flg(puVar2,1,&uStack_c,_DAT_105a2af0/*ROM*/);
         eventflag_clr_flg(puVar2,1);
-        imgp_a_stop_and_reset(*(uint32_t *)(param_1 + 0x24));
+        imgp_a_stop_and_reset(param_1->field_0x24);
         bVar1 = false;
       }
       else {
@@ -157,12 +157,12 @@ void dispatch_event_900001(int param_1,int *param_2)
         uStack_7e = *(uint16_t *)((int)piVar5 + 0x16);
         uStack_7c = *(uint16_t *)(piVar5 + 6);
         uStack_7a = *(uint16_t *)(puVar7 + 2);
-        puVar2 = (uint32_t *)(param_1 + 0x2c);
+        puVar2 = &param_1->field_0x2c;
         eventflag_clr_flg(puVar2,1);
-        build_sensor_readout_params(*(uint32_t *)(param_1 + 0x28),1,(void *)(param_1 + 4),&uStack_9c);
+        build_sensor_readout_params(param_1->field_0x28,1,&param_1->field_0x4,&uStack_9c);
         eventflag_wai_flg(puVar2,1,&uStack_c,_DAT_105a2af0/*ROM*/);
         eventflag_clr_flg(puVar2,1);
-        configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),1);
+        configure_timer_channel_state(param_1->field_0x28,1);
         bVar1 = true;
       }
       if ((bVar1) || (*piVar6 != *piVar5)) {
@@ -218,20 +218,20 @@ void dispatch_event_900001(int param_1,int *param_2)
         if ((*piVar6 == 2) && ((*(ushort *)(piVar6 + 6) & 1) != 0)) {
           uStack_1b = 1;
         }
-        puVar2 = (uint32_t *)(param_1 + 0x2c);
+        puVar2 = &param_1->field_0x2c;
         eventflag_clr_flg(puVar2,1);
-        build_sensor_readout_params(*(uint32_t *)(param_1 + 0x28),1,(void *)(param_1 + 4),&uStack_48);
+        build_sensor_readout_params(param_1->field_0x28,1,&param_1->field_0x4,&uStack_48);
         eventflag_wai_flg(puVar2,1,&uStack_c,_DAT_105a2af0/*ROM*/);
         eventflag_clr_flg(puVar2,1);
-        configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),1);
+        configure_timer_channel_state(param_1->field_0x28,1);
         iStack_44 = piVar6[3];
         iStack_38 = piVar5[3];
         uStack_26 = *(uint16_t *)(puVar7 + 3);
         eventflag_clr_flg(puVar2,1);
-        build_sensor_readout_params(*(uint32_t *)(param_1 + 0x28),1,(void *)(param_1 + 4),&uStack_48);
+        build_sensor_readout_params(param_1->field_0x28,1,&param_1->field_0x4,&uStack_48);
         eventflag_wai_flg(puVar2,1,&uStack_c,_DAT_105a2af0/*ROM*/);
         eventflag_clr_flg(puVar2,1);
-        configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),1);
+        configure_timer_channel_state(param_1->field_0x28,1);
       }
       else {
         iStack_60 = piVar6[2];
@@ -259,22 +259,22 @@ void dispatch_event_900001(int param_1,int *param_2)
         else {
           uStack_4a = (uint16_t)((int)(uint)*(ushort *)(piVar5 + 6) >> 1);
         }
-        puVar7 = (uint32_t *)(param_1 + 0x2c);
+        puVar7 = &param_1->field_0x2c;
         eventflag_clr_flg(puVar7,1);
-        imgp_c_program_and_start_104fe5ce(*(uint32_t *)(param_1 + 0x24),(void *)(param_1 + 4),&iStack_60);
+        imgp_c_program_and_start_104fe5ce(param_1->field_0x24,&param_1->field_0x4,&iStack_60);
         eventflag_wai_flg(puVar7,1,&uStack_c,_DAT_105a2af0/*ROM*/);
         eventflag_clr_flg(puVar7,1);
-        imgp_a_stop_and_reset(*(uint32_t *)(param_1 + 0x24));
+        imgp_a_stop_and_reset(param_1->field_0x24);
         iStack_60 = piVar6[3];
         iStack_5c = piVar5[3];
         eventflag_clr_flg(puVar7,1);
-        imgp_c_program_and_start_104fe5ce(*(uint32_t *)(param_1 + 0x24),(void *)(param_1 + 4),&iStack_60);
+        imgp_c_program_and_start_104fe5ce(param_1->field_0x24,&param_1->field_0x4,&iStack_60);
         eventflag_wai_flg(puVar7,1,&uStack_c,_DAT_105a2af0/*ROM*/);
         eventflag_clr_flg(puVar7,1);
-        imgp_a_stop_and_reset(*(uint32_t *)(param_1 + 0x24));
+        imgp_a_stop_and_reset(param_1->field_0x24);
       }
       iVar8 = *(int *)*param_2;
-      (**(code **)(iVar8 + 0x14))(*param_2 + (int)*(short *)(iVar8 + 0x10),0x900001,param_2[3]);
+      (((vtbl_entry*)(iVar8))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar8))[2].adj,0x900001,param_2[3]);
     }
     pvVar3 = (void *)get_or_init_singleton_object_1051d40e();
     update_camera_state_flags(pvVar3,0x14,0);

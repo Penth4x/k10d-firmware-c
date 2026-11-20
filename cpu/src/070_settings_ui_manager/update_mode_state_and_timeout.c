@@ -19,41 +19,41 @@
 /* WARNING: Instruction at (ram,0x103d1bb0) overlaps instruction at (ram,0x103d1bae)
     */
 
-int update_mode_state_and_timeout(int param_1,int param_2)
+cls_10595f9c * update_mode_state_and_timeout(cls_10595f9c *param_1,int param_2)
 
 {
   int iVar1;
-  int iVar2;
+  cls_10595f9c *pcVar2;
   
-  *(int *)(param_1 + 0x14) = param_2;
-  iVar2 = param_1;
-  if ((*(int *)(param_1 + 0x18) == 0x18b000d) && ((param_2 == 0xd || (param_2 == 0xe)))) {
-    setting_set(*(int *)(param_1 + 8),0x90,(uint)bRam10595f99);
-    iVar2 = get_or_init_sram_object_103d0b28();
+  param_1->field_0x14 = param_2;
+  pcVar2 = param_1;
+  if ((param_1->field_0x18 == 0x18b000d) && ((param_2 == 0xd || (param_2 == 0xe)))) {
+    setting_set(param_1->field_0x8,0x90,(uint)bRam10595f99);
+    pcVar2 = (cls_10595f9c *)get_or_init_sram_object_103d0b28();
   }
-  if ((*(int *)(param_1 + 0x14) == 0xc) || (*(int *)(param_1 + 0x14) == 0x11)) {
-    iVar2 = get_or_init_singleton_object_103c8200();
+  if ((param_1->field_0x14 == 0xc) || (param_1->field_0x14 == 0x11)) {
+    pcVar2 = (cls_10595f9c *)get_or_init_singleton_object_103c8200();
   }
-  iVar1 = *(int *)(param_1 + 0x14);
+  iVar1 = param_1->field_0x14;
   if ((((iVar1 == 7) || (iVar1 == 0)) || (iVar1 == 1)) || (iVar1 == 3)) {
-    *(uint8_t *)(param_1 + 0x22) = 0x8c;
-    iVar2 = 0;
+    param_1->field_0x22 = 0x8c;
+    pcVar2 = (cls_10595f9c *)0x0;
   }
-  if ((*(int *)(param_1 + 0x14) == 0x19) || (*(int *)(param_1 + 0x14) == 9)) {
-    *(uint8_t *)(param_1 + 0x22) = 0x50;
-    iVar2 = 0;
+  if ((param_1->field_0x14 == 0x19) || (param_1->field_0x14 == 9)) {
+    param_1->field_0x22 = 0x50;
+    pcVar2 = (cls_10595f9c *)0x0;
   }
-  if (*(int *)(param_1 + 0x14) == 0x18) {
-    *(uint8_t *)(param_1 + 0x22) = 0xb4;
-    iVar2 = 0;
+  if (param_1->field_0x14 == 0x18) {
+    param_1->field_0x22 = 0xb4;
+    pcVar2 = (cls_10595f9c *)0x0;
   }
-  if (*(int *)(param_1 + 0x14) == 0x2c) {
-    *(uint8_t *)(param_1 + 0x22) = 0x8c;
-    iVar2 = 0;
+  if (param_1->field_0x14 == 0x2c) {
+    param_1->field_0x22 = 0x8c;
+    pcVar2 = (cls_10595f9c *)0x0;
   }
-  if (*(int *)(param_1 + 0x14) == 10) {
-    *(uint8_t *)(param_1 + 0x22) = 200;
-    iVar2 = 0;
+  if (param_1->field_0x14 == 10) {
+    param_1->field_0x22 = 200;
+    pcVar2 = (cls_10595f9c *)0x0;
   }
-  return iVar2;
+  return pcVar2;
 }

@@ -41,9 +41,9 @@ uint32_t dispatch_state_transition_103707fc(void *param_1)
     check_kernel_call_success_10459fea();
     set_field_and_call_helper_10370bbc((int)param_1);
     if (iVar1 == 1) {
-      lookup_and_copy_result(param_1,0x80015d38/*SDRAM*/);
-      lookup_and_copy_result(param_1,0x80015b24/*SDRAM*/);
-      lookup_and_copy_result(param_1,0x80015910/*SDRAM*/);
+      lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015d38/*SDRAM*/));
+      lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015b24/*SDRAM*/));
+      lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015910/*SDRAM*/));
       uVar2 = get_or_create_singleton_object_1036c796();
       uVar3 = 2;
     }

@@ -36,7 +36,7 @@ uint32_t find_and_activate_lens_fw_entry(void)
     uVar2 = 0;
     iVar3 = 0;
     do {
-      piVar4 = (int *)(_DAT_800149fc/*SDRAM*/ + iVar3);
+      piVar4 = (int *)((char*)_DAT_800149fc/*SDRAM*/ + iVar3);
       if ((*piVar4 == 1) && (piVar4[1] == iStack_c)) {
         reset_lens_update_context(piVar4);
         break;

@@ -14,9 +14,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void override_slot4_call_base(void)
+void override_slot4_call_base(cls_1059d1d8 *param_1)
 
 {
-  invoke_virtual_slot_3_three_times(__frv_reg_unset(4));
+  invoke_virtual_slot_3_three_times((cls_1059cbf0 *)param_1);
   return;
 }

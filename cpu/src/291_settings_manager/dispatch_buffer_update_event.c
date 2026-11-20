@@ -14,7 +14,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_buffer_update_event(int param_1,int param_2,int param_3)
+void dispatch_buffer_update_event(cls_1061e14c *param_1,int param_2,int param_3)
 
 {
   uint uVar1;
@@ -22,34 +22,30 @@ void dispatch_buffer_update_event(int param_1,int param_2,int param_3)
   int iVar3;
   
   if ((param_2 == 0) || (param_3 == 0)) {
-    *(uint32_t *)(param_1 + 0xc) = 0;
-    *(uint32_t *)(param_1 + 0x1c) = 0;
-    clear_two_fields_and_reset((void *)(*(uint32_t *)(param_1 + 0x18)),0);
+    param_1->field_0xc = 0;
+    param_1->field_0x1c = 0;
+    clear_two_fields_and_reset((uint32_t *)(param_1->field_0x18),(int)(0));
   }
   else {
-    uVar1 = *(uint *)(param_1 + 0xc);
+    uVar1 = param_1->field_0xc;
     if (uVar1 == 0) {
-      if (*(uint *)(param_1 + 8) < (uint)(*(int *)(param_3 + 4) - *(int *)(param_3 + 0xc))) {
-        *(int *)(param_1 + 0x1c) = param_3;
-        (*(code *)0x104ad2d4/*ROM*/)
-                  (*(uint32_t *)(param_1 + 0x18),*(uint32_t *)(param_1 + 0x10),
-                   *(uint32_t *)(param_1 + 8),0);
-        param_3 = *(int *)(param_1 + 0x18);
+      if ((uint)param_1->field_0x8 < (uint)(*(int *)(param_3 + 4) - *(int *)(param_3 + 0xc))) {
+        param_1->field_0x1c = param_3;
+        (*(code *)0x104ad2d4/*ROM*/)(param_1->field_0x18,param_1->field_0x10,param_1->field_0x8,0);
+        param_3 = param_1->field_0x18;
       }
     }
     else {
-      uVar2 = *(uint *)(param_1 + 0x14);
-      if (uVar1 <= *(uint *)(param_1 + 0x14)) {
+      uVar2 = param_1->field_0x14;
+      if (uVar1 <= (uint)param_1->field_0x14) {
         uVar2 = uVar1;
       }
-      *(int *)(param_1 + 0x1c) = param_3;
-      (*(code *)0x104ad2d4/*ROM*/)(*(uint32_t *)(param_1 + 0x18),*(uint32_t *)(param_1 + 0x10),uVar2,0)
-      ;
-      param_3 = *(int *)(param_1 + 0x18);
+      param_1->field_0x1c = param_3;
+      (*(code *)0x104ad2d4/*ROM*/)(param_1->field_0x18,param_1->field_0x10,uVar2,0);
+      param_3 = param_1->field_0x18;
     }
   }
-  iVar3 = **(int **)(param_1 + 4);
-  (**(code **)(iVar3 + 0x34))
-            ((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar3 + 0x30),param_2,param_3);
+  iVar3 = *(int *)param_1->field_0x4;
+  (((vtbl_entry*)(iVar3))[6].fn)(param_1->field_0x4 + (int)((vtbl_entry*)(iVar3))[6].adj,param_2,param_3);
   return;
 }

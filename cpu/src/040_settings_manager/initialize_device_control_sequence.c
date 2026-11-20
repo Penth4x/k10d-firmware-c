@@ -18,7 +18,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void initialize_device_control_sequence(void *param_1,uint32_t param_2,void *param_3,void *param_4)
+void initialize_device_control_sequence(cls_10563940 *param_1,uint32_t param_2,void *param_3,void *param_4)
 
 {
   void *pvVar1;
@@ -40,7 +40,7 @@ void initialize_device_control_sequence(void *param_1,uint32_t param_2,void *par
                ,piVar3[2],*(short *)((int)piVar3 + 0xe));
   *piVar3 = 0xc;
   iVar2 = allocate_and_init_2d_array((int)param_1,(int)pvVar1,(void *)0x50c0003,10,*piVar3);
-  *(int *)((int)param_1 + 0x24) = iVar2;
+  param_1->field_0x24 = iVar2;
   *piVar3 = 0xc;
   *(uint8_t *)((int)piVar3 + 7) = 1;
   piVar3[2] = 0;
@@ -49,7 +49,7 @@ void initialize_device_control_sequence(void *param_1,uint32_t param_2,void *par
                *(uint8_t *)((int)piVar3 + 7),piVar3[2],*(short *)((int)piVar3 + 0xe));
   *piVar3 = 0xc;
   iVar2 = allocate_and_init_2d_array((int)param_1,(int)pvVar1,(void *)0x50c0005,0xe,*piVar3);
-  *(int *)((int)param_1 + 0x28) = iVar2;
+  param_1->field_0x28 = iVar2;
   store_two_words_and_call_helper_1039ae84(param_1,0,0);
   *piVar3 = 0x11;
   allocate_and_init_2d_buffer_1039c664((int)param_1,(int)pvVar1,(void *)0x50c0006,1,*piVar3);

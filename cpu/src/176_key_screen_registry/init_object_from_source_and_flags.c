@@ -18,7 +18,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_from_source_and_flags(int param_1,int param_2)
+uint32_t init_object_from_source_and_flags(cls_105ab6a0 *param_1,int param_2)
 
 {
   ushort uVar1;
@@ -28,31 +28,31 @@ uint32_t init_object_from_source_and_flags(int param_1,int param_2)
   uint16_t uVar4;
   
   iVar2 = *(int *)(param_2 + 8);
-  *(int *)(param_1 + 0xc) = iVar2;
+  param_1->field_0xc = iVar2;
   uVar3 = (uint)*(ushort *)(param_2 + 0xe);
-  *(ushort *)(param_1 + 0x10) = *(ushort *)(param_2 + 0xe);
+  param_1->field_0x10 = *(ushort *)(param_2 + 0xe);
   uVar1 = *(ushort *)(param_2 + 0xc);
-  *(ushort *)(param_1 + 0x12) = uVar1;
-  *(uint *)(param_1 + 0x14) = uVar3;
+  param_1->field_0x12 = uVar1;
+  param_1->field_0x14 = uVar3;
   iVar2 = (iVar2 - uVar3) - uVar1 * uVar3;
-  *(int *)(param_1 + 0x18) = iVar2;
-  uVar5 = select_buffer_size_class(param_1,iVar2);
-  *(uint8_t *)(param_1 + 0x1d) = uVar5;
-  uVar5 = select_buffer_size_by_length(param_1,*(uint32_t *)(param_1 + 0x18));
-  *(uint8_t *)(param_1 + 0x1c) = uVar5;
-  uVar4 = select_size_by_threshold_104824b0(param_1,*(uint32_t *)(param_1 + 0x18));
-  *(uint16_t *)(param_1 + 0x28) = uVar4;
-  if (*(char *)(param_1 + 0x1d) == '\v') {
-    *(uint16_t *)(param_1 + 0x1e) = 0x20;
-    *(uint8_t *)(param_1 + 0x20) = 2;
+  param_1->field_0x18 = iVar2;
+  uVar5 = select_buffer_size_class((uint32_t)(param_1),(uint)(iVar2));
+  param_1->field_0x1d = uVar5;
+  uVar5 = select_buffer_size_by_length((uint32_t)(param_1),(uint)(param_1->field_0x18));
+  param_1->field_0x1c = uVar5;
+  uVar4 = select_size_by_threshold_104824b0((uint32_t)(param_1),(uint)(param_1->field_0x18));
+  param_1->field_0x28 = uVar4;
+  if (param_1->field_0x1d == '\v') {
+    param_1->field_0x1e = 0x20;
+    param_1->field_0x20 = 2;
     uVar4 = 0;
   }
   else {
-    *(uint16_t *)(param_1 + 0x1e) = 1;
-    *(uint8_t *)(param_1 + 0x20) = 2;
+    param_1->field_0x1e = 1;
+    param_1->field_0x20 = 2;
     uVar4 = 0x200;
   }
-  *(uint16_t *)(param_1 + 0x22) = uVar4;
-  compute_exposure_value_from_params(param_1);
+  param_1->field_0x22 = uVar4;
+  compute_exposure_value_from_params((int)(param_1));
   return 1;
 }

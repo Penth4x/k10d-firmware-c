@@ -22,8 +22,8 @@ uint32_t iterate_and_write_object_list(int param_1,int param_2)
   int iVar2;
   
   iVar1 = (*(code *)0x10476d2e/*ROM*/)(*(uint32_t *)(param_1 + 0xc));
-  (**(code **)(*(int *)(param_2 + 0xc) + 0x24))
-            (*(short *)(*(int *)(param_2 + 0xc) + 0x20) + param_2);
+  (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[4].fn)
+            (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[4].adj + param_2);
   iVar2 = iVar1;
   do {
     (*(code *)0x1047e50c/*ROM*/)(param_2,iVar2,1);

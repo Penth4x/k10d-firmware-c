@@ -30,7 +30,7 @@ uint32_t check_and_process_event_1036f41a(void *param_1)
        (*(short *)(*(int *)((int)param_1 + 0x28) + 6) == _DAT_80015d3e/*SDRAM*/)) && (_DAT_80015d1c/*SDRAM*/ == 2)) &&
      (DAT_80015f14/*SDRAM*/ != '\0')) {
     copy_two_words_from_param2((int)auStack_18,-0x7ffea2fc);
-    iVar2 = compare_two_int_pairs((void *)((int)param_1 + 0xa8),(void *)auStack_18);
+    iVar2 = compare_two_int_pairs((int *)((int)param_1 + 0xa8),(int *)(auStack_18));
     free_heap_if_flagged_1045c402(auStack_18,2);
     uVar1 = 0;
     if (iVar2 == 0) {

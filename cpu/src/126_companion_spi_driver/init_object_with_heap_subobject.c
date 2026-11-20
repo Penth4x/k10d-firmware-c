@@ -6,21 +6,22 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_with_heap_subobject(int param_1)
+void init_object_with_heap_subobject(cls_105a1c3c *param_1)
 
 {
-  int iVar1;
+  cls_105a1bec *pcVar1;
+  int iVar2;
   
-  iVar1 = heap_alloc((void *)0x10);
-  if (iVar1 == 0) {
-    iVar1 = 0;
+  pcVar1 = (cls_105a1bec *)heap_alloc((void *)0x10);
+  if (pcVar1 == (cls_105a1bec *)0x0) {
+    pcVar1 = (cls_105a1bec *)0x0;
   }
   else {
-    cls_105a1bec_new((void *)iVar1);
+    cls_105a1bec_new(pcVar1);
   }
-  *(int *)(param_1 + 4) = iVar1;
-  store_value_if_valid((void *)iVar1,0x88);
-  iVar1 = *(int *)(*(int *)(param_1 + 4) + 4);
-  (**(code **)(iVar1 + 0x14))(*(int *)(param_1 + 4) + (int)*(short *)(iVar1 + 0x10),0);
+  param_1->field_0x4 = (uintptr_t)((void *)pcVar1);
+  store_value_if_valid(pcVar1,0x88);
+  iVar2 = *(int *)(param_1->field_0x4 + 4);
+  (((vtbl_entry*)(iVar2))[2].fn)(param_1->field_0x4 + ((vtbl_entry*)(iVar2))[2].adj,0);
   return;
 }

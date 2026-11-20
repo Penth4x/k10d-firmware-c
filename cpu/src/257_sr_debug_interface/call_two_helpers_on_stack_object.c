@@ -17,11 +17,11 @@ void call_two_helpers_on_stack_object(int param_1,void *param_2)
 
 {
   uintptr_t sp;
-  uint8_t auStack_18 [16];
+  cls_105a705c acStack_18 [4];
   
-  cls_105a705c_new((void *)auStack_18);
-  copy_nine_bytes_to_buffer(*(int *)(param_1 + 8),auStack_18);
-  (*(code *)0x10460cf2/*ROM*/)(auStack_18,param_2);
-  cls_105a705c_delete((void *)auStack_18,2);
+  cls_105a705c_new(acStack_18);
+  copy_nine_bytes_to_buffer(*(int *)(param_1 + 8),acStack_18);
+  (*(code *)0x10460cf2/*ROM*/)(acStack_18,param_2);
+  cls_105a705c_delete(acStack_18,2);
   return;
 }

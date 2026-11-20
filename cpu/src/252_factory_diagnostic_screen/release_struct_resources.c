@@ -19,7 +19,7 @@ void release_struct_resources(int param_1)
   ppcVar2 = &pcStack_10;
   ppcVar3 = &pcStack_10;
   if (*(int *)(param_1 + 0x28) != 0) {
-    pcStack_10 = (code *)release_heap_block_if_valid;
+    pcStack_10 = release_heap_block_if_valid;
     uStack_c = 0;
     (*(code *)0x1054705e/*ROM*/)(*(int *)(param_1 + 0x28),0xffffffff,8,call_helper_if_flag_set_104e438c);
     *(uint32_t *)(param_1 + 0x28) = 0;
@@ -27,12 +27,12 @@ void release_struct_resources(int param_1)
   }
   iVar1 = *(int *)(param_1 + 0x30);
   if (iVar1 != 0) {
-    *ppcVar3 = (code *)free_heap_block;
+    *ppcVar3 = free_heap_block;
     ppcVar3[1] = (code *)0x0;
     (*(code *)0x1054705e/*ROM*/)(iVar1,0xffffffff,0x2c,init_object_with_vtable_and_flags);
     *(uint32_t *)(param_1 + 0x30) = 0;
   }
-  if (*(void **)(param_1 + 0x34) != (void *)0x0) {
+  if (*(void **)(param_1 + 0x34) != 0) {
     mempool_release_block(*(void **)(param_1 + 0x48),*(void **)(param_1 + 0x34));
     *(uint32_t *)(param_1 + 0x34) = 0;
   }

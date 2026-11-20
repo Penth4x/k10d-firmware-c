@@ -31,8 +31,8 @@ void dispatch_menu_item_by_range(int *param_1)
     iVar2 = menu_item_register(*param_1);
     iVar4 = *(int *)(iVar2 + 0xc);
     sVar1 = *(short *)(iVar4 + 0x10);
-    uVar3 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_18,0x210,0x138);
-    (**(code **)(iVar4 + 0x14))(iVar2 + sVar1,uVar3);
+    uVar3 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_18,0x210,0x138));
+    (((vtbl_entry*)(iVar4))[2].fn)(iVar2 + sVar1,uVar3);
     free_heap_block_if_flagged_1045bc54(auStack_18,2);
     register_four_menu_items_103d6daa(param_1);
   }
@@ -40,8 +40,8 @@ void dispatch_menu_item_by_range(int *param_1)
     iVar2 = menu_item_register(*param_1);
     iVar4 = *(int *)(iVar2 + 0xc);
     sVar1 = *(short *)(iVar4 + 0x10);
-    uVar3 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_10,0x1d0,0x138);
-    (**(code **)(iVar4 + 0x14))(iVar2 + sVar1,uVar3);
+    uVar3 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_10,0x1d0,0x138));
+    (((vtbl_entry*)(iVar4))[2].fn)(iVar2 + sVar1,uVar3);
     free_heap_block_if_flagged_1045bc54(auStack_10,2);
     register_four_menu_items_103d6e46(param_1);
   }

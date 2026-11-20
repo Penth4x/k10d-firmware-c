@@ -18,8 +18,8 @@ uint32_t modset_parser_singleton(void)
 {
   if (_DAT_80048b10/*SDRAM*/ == 0) {
     _DAT_80048b10/*SDRAM*/ = 1;
-    cls_105b2fd8_new((uint32_t *)0x80048a88/*SDRAM*/);
-    prepend_to_singly_linked_list(0x80010338/*SDRAM*/);
+    modset_parser_new((uint32_t *)0x80048a88/*SDRAM*/);
+    prepend_to_singly_linked_list((uint32_t *)(0x80010338/*SDRAM*/));
   }
   return 0x80048a88/*SDRAM*/;
 }

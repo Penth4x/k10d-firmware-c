@@ -11,7 +11,7 @@ void free_heap_block(void *param_1)
 {
   void *pvVar1;
   
-  if (param_1 != (void *)0x0) {
+  if (param_1 != 0) {
     pvVar1 = (void *)get_system_heap();
     mempool_release_block(pvVar1,param_1);
   }

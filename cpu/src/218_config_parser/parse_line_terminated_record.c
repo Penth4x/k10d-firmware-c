@@ -29,7 +29,7 @@ uint32_t parse_line_terminated_record(int param_1,void *param_2,uint *param_3,ui
   uint8_t auStack_58 [80];
   
   *param_3 = *(uint *)(param_1 + 0x1e0);
-  iVar4 = (int)find_common_string_prefix(param_2,(void *)&DAT_105b8910/*ROM*/);
+  iVar4 = (uintptr_t)(find_common_string_prefix(param_2,&DAT_105b8910/*ROM*/));
   if (iVar4 == 0) {
     uVar5 = *(uint *)(param_1 + 0x1e0);
     if (uVar5 < *(uint *)(param_1 + 0xc)) {
@@ -48,7 +48,7 @@ uint32_t parse_line_terminated_record(int param_1,void *param_2,uint *param_3,ui
         puVar2 = puVar2 + 1;
       } while (uVar5 < *(uint *)(param_1 + 0xc));
     }
-    iVar4 = (int)find_common_string_prefix(auStack_58,(void *)&DAT_105b8914/*ROM*/);
+    iVar4 = (uintptr_t)(find_common_string_prefix(auStack_58,&DAT_105b8914/*ROM*/));
     if (iVar4 == 0) {
       iVar4 = 0;
     }
@@ -81,9 +81,9 @@ uint32_t parse_line_terminated_record(int param_1,void *param_2,uint *param_3,ui
           puVar2 = puVar2 + 1;
         } while (uVar5 < *(uint *)(param_1 + 0xc));
       }
-      iVar3 = (int)find_common_string_prefix(auStack_58,(void *)&DAT_105b8918/*ROM*/);
+      iVar3 = (uintptr_t)(find_common_string_prefix(auStack_58,&DAT_105b8918/*ROM*/));
       if (iVar3 == 0) {
-        iVar3 = (int)find_common_string_prefix(auStack_58,(void *)&DAT_105b891c/*ROM*/);
+        iVar3 = (uintptr_t)(find_common_string_prefix(auStack_58,&DAT_105b891c/*ROM*/));
         if (iVar3 != 0) {
           iVar4 = iVar4 + -1;
         }

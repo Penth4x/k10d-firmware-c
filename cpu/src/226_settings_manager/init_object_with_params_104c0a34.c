@@ -28,7 +28,7 @@ void init_object_with_params_104c0a34(int param_1,void *param_2,uint16_t param_3
   *(uint32_t *)(param_1 + 0x490) = 2;
   *(uint16_t *)(param_1 + 0x494) = param_3;
   *(uint32_t *)(param_1 + 0x49c) = param_4;
-  if (param_2 == (void *)0x0) {
+  if (param_2 == 0) {
     bVar1 = invoke_virtual_method_on_object_104bfb72(param_1,puVar2);
     if (bVar1) {
       process_entry_array_with_virtual_init(param_1);

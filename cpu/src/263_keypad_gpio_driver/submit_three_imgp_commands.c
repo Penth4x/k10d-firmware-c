@@ -45,7 +45,7 @@ void submit_three_imgp_commands(int param_1,int *param_2)
   puVar3 = (uint32_t *)(param_1 + 0x2c);
   eventflag_clr_flg(puVar3,1);
   iVar1 = param_1 + 4;
-  imgp_b_program_and_start_104fe680(*(uint32_t *)(param_1 + 0x24),(int *)iVar1,&iStack_1c);
+  imgp_b_program_and_start_104fe680((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(iVar1),(uint32_t *)(&iStack_1c));
   eventflag_wai_flg(puVar3,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar3,1);
   imgp_a_stop_and_reset(*(uint32_t *)(param_1 + 0x24));
@@ -67,14 +67,14 @@ void submit_three_imgp_commands(int param_1,int *param_2)
   }
   uStack_e = *(uint16_t *)((int)param_2 + 6);
   eventflag_clr_flg(puVar3,1);
-  imgp_b_program_and_start_104fe680(*(uint32_t *)(param_1 + 0x24),(int *)iVar1,&iStack_1c);
+  imgp_b_program_and_start_104fe680((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(iVar1),(uint32_t *)(&iStack_1c));
   eventflag_wai_flg(puVar3,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar3,1);
   imgp_a_stop_and_reset(*(uint32_t *)(param_1 + 0x24));
   iStack_1c = piVar2[3];
   uStack_e = *(uint16_t *)(param_2 + 2);
   eventflag_clr_flg(puVar3,1);
-  imgp_b_program_and_start_104fe680(*(uint32_t *)(param_1 + 0x24),(int *)iVar1,&iStack_1c);
+  imgp_b_program_and_start_104fe680((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(iVar1),(uint32_t *)(&iStack_1c));
   eventflag_wai_flg(puVar3,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar3,1);
   imgp_a_stop_and_reset(*(uint32_t *)(param_1 + 0x24));

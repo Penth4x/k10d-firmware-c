@@ -14,10 +14,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void reset_field_at_offset_0x24_10521734(int param_1)
+void reset_field_at_offset_0x24_10521734(cls_105d7b7c *param_1)
 
 {
   (*(code *)0x10521cba/*ROM*/)();
-  *(uint32_t *)(param_1 + 0x24) = 0;
+  param_1->field_0x24 = 0;
   return;
 }

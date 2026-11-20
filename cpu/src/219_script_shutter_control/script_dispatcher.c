@@ -29,7 +29,7 @@ bool script_dispatcher(int *param_1,uint32_t param_2,uint32_t param_3)
   if (bVar2) {
     iVar3 = param_1[1];
     uVar1 = read_field_at_offset_0x86c(*param_1);
-    cmd_error_report(iVar3,uVar1);
+    cmd_error_report((uint32_t *)(iVar3),(uint32_t)(uVar1));
   }
   else {
     check_kernel_call_success_10459fea();

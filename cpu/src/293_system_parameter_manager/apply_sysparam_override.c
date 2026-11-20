@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t apply_sysparam_override(int param_1,int param_2,int *param_3)
+uint32_t apply_sysparam_override(cls_106210ec *param_1,int param_2,int *param_3)
 
 {
   uint32_t *puVar1;
@@ -25,22 +25,22 @@ uint32_t apply_sysparam_override(int param_1,int param_2,int *param_3)
   
   if (param_2 == 0) {
     uVar3 = 4;
-    uVar2 = (*(uint32_t **)(param_1 + 0x18))[7];
-    merge_masked_word_fields(*(uint32_t **)(param_1 + 0x18),uVar2,uVar2);
+    uVar2 = ((uint32_t *)param_1->field_0x18)[7];
+    merge_masked_word_fields((uint32_t *)param_1->field_0x18,uVar2,uVar2);
   }
   else {
-    *(uint32_t *)(param_1 + 0x3c) = 1;
-    *(int **)(param_1 + 0x2c) = param_3;
+    param_1->field_0x3c = 1;
+    param_1->field_0x2c = (uintptr_t)(param_3);
     uVar3 = 1;
-    if ((*(int *)(param_1 + 0x28) != 0) && (param_3 != (int *)0x0)) {
-      advance_buffer_pointer(param_3,*(uint32_t **)(param_1 + 0x20),*(int *)(param_1 + 0x28));
-      *(uint32_t *)(param_1 + 0x28) = 0;
+    if ((param_1->field_0x28 != 0) && (param_3 != (int *)0x0)) {
+      advance_buffer_pointer(param_3,(uint32_t *)param_1->field_0x20,param_1->field_0x28);
+      param_1->field_0x28 = 0;
       if (param_3[1] == param_3[3]) {
-        *(uint32_t *)(param_1 + 0x2c) = 0;
+        param_1->field_0x2c = 0;
         uVar3 = 2;
-        *(uint32_t *)(param_1 + 0x3c) = 0;
+        param_1->field_0x3c = 0;
       }
-      puVar1 = *(uint32_t **)(param_1 + 0x1c);
+      puVar1 = (uint32_t *)param_1->field_0x1c;
       uVar2 = puVar1[6];
       if ((*(uint *)*puVar1 & uVar2) != 0) {
         merge_masked_word_fields(puVar1,uVar2,uVar2);

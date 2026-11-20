@@ -19,7 +19,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void dispatch_event_by_type_and_code_1036840e(void *param_1,int *param_2)
+void dispatch_event_by_type_and_code_1036840e(cls_10557a18 *param_1,int *param_2)
 
 {
   int iVar1;
@@ -28,10 +28,10 @@ void dispatch_event_by_type_and_code_1036840e(void *param_1,int *param_2)
   
   iVar1 = *param_2;
   if (iVar1 == 1) {
-    *(int *)((int)param_1 + 0x114) = param_2[1];
-    iVar1 = (*(code *)0x1038202a/*ROM*/)((int)param_1 + 0x6c);
+    param_1->field_0x114 = param_2[1];
+    iVar1 = (*(code *)0x1038202a/*ROM*/)(&param_1->field_0x6c);
     if (iVar1 != 0) {
-      set_index_and_dispatch_event((int)param_1 + 0x6c,iVar1 + -1);
+      set_index_and_dispatch_event((cls_10558e74 *)&param_1->field_0x6c,iVar1 + -1);
     }
   }
   else if ((iVar1 != 2) && (iVar1 == 4)) {
@@ -45,8 +45,8 @@ void dispatch_event_by_type_and_code_1036840e(void *param_1,int *param_2)
       }
       else if (uVar2 != 10) {
         if (uVar2 == 0xc) {
-          *(uint8_t *)((int)param_1 + 0x14) = 1;
-          *(uint8_t *)((int)param_1 + 0x15) = 1;
+          param_1->field_0x14 = 1;
+          param_1->field_0x15 = 1;
           return;
         }
         if (uVar2 != 0x29) {

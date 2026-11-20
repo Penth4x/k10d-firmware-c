@@ -17,12 +17,12 @@ uint32_t * lens_fw_update_state_transition(uint32_t *param_1,int *param_2)
   uint8_t auStack_20 [12];
   
   puVar4 = auStack_20;
-  iVar1 = (**(code **)(*param_2 + 0x1c))((int)*(short *)(*param_2 + 0x18) + (int)param_2,2);
+  iVar1 = (((vtbl_entry*)(*param_2))[3].fn)((int)((vtbl_entry*)(*param_2))[3].adj + (int)param_2,2);
   if (iVar1 != 0) {
     return (uint32_t *)0x0;
   }
   if ((*(char *)(param_1 + 0x13) == '\0') && (*(char *)((int)param_1 + 0x4d) == '\0')) {
-    iVar1 = (**(code **)(*param_2 + 0x24))((int)*(short *)(*param_2 + 0x20) + (int)param_2,10);
+    iVar1 = (((vtbl_entry*)(*param_2))[4].fn)((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,10);
     if (iVar1 != 0) {
       *(uint8_t *)(param_1 + 0x13) = 1;
       set_flag_at_offset_0x2c(*param_1,1);
@@ -33,7 +33,7 @@ uint32_t * lens_fw_update_state_transition(uint32_t *param_1,int *param_2)
       uVar2 = 4;
       goto LAB_1053670a;
     }
-    iVar1 = (**(code **)(*param_2 + 0x24))((int)*(short *)(*param_2 + 0x20) + (int)param_2,9);
+    iVar1 = (((vtbl_entry*)(*param_2))[4].fn)((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,9);
     if (iVar1 == 0) {
       return param_1;
     }
@@ -45,7 +45,7 @@ uint32_t * lens_fw_update_state_transition(uint32_t *param_1,int *param_2)
     puVar4[0xb] = 0;
   }
   else if ((*(char *)(param_1 + 0x13) == '\0') && (*(char *)((int)param_1 + 0x4d) != '\0')) {
-    iVar1 = (**(code **)(*param_2 + 0x1c))((int)*(short *)(*param_2 + 0x18) + (int)param_2,9);
+    iVar1 = (((vtbl_entry*)(*param_2))[3].fn)((int)((vtbl_entry*)(*param_2))[3].adj + (int)param_2,9);
     if (iVar1 == 0) {
       return param_1;
     }
@@ -58,7 +58,7 @@ uint32_t * lens_fw_update_state_transition(uint32_t *param_1,int *param_2)
   }
   else {
     if ((*(char *)(param_1 + 0x13) != '\0') && (*(char *)((int)param_1 + 0x4d) == '\0')) {
-      iVar1 = (**(code **)(*param_2 + 0x1c))((int)*(short *)(*param_2 + 0x18) + (int)param_2,10);
+      iVar1 = (((vtbl_entry*)(*param_2))[3].fn)((int)((vtbl_entry*)(*param_2))[3].adj + (int)param_2,10);
       if (iVar1 == 0) {
         return param_1;
       }
@@ -86,7 +86,7 @@ uint32_t * lens_fw_update_state_transition(uint32_t *param_1,int *param_2)
   }
   uVar2 = 5;
 LAB_1053670a:
-  build_and_dispatch_draw_params((int)param_1,uVar2,7,(byte *)uVar3,*(uint16_t *)(puVar4 + 2),*(uint16_t *)(puVar4 + 6),
+  build_and_dispatch_draw_params((int)param_1,uVar2,7,(void*)(uVar3),*(uint16_t *)(puVar4 + 2),*(uint16_t *)(puVar4 + 6),
                puVar4[0xb]);
   return param_1;
 }

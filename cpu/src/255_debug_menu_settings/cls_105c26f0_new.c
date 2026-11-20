@@ -11,51 +11,51 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_105c26f0_new(uint32_t *param_1)
+cls_1059e380 * cls_105c26f0_new(cls_105c26f0 *param_1)
 
 {
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x9c), param_1 != (uint32_t *)0x0)) {
-    cls_1059e380_new(param_1);
-    *param_1 = 0x105c26f0/*ROM*/;
-    param_1[1] = 0;
-    param_1[2] = 0;
-    param_1[3] = 0;
-    param_1[4] = 0;
-    param_1[5] = 0;
-    param_1[6] = 0;
-    param_1[7] = 0;
-    param_1[8] = 0;
-    param_1[9] = 0;
-    param_1[10] = 0;
-    param_1[0xb] = 0;
-    param_1[0xc] = 0;
-    param_1[0xd] = 0;
-    param_1[0xe] = 0;
-    param_1[0xf] = 0;
-    param_1[0x10] = 0;
-    param_1[0x11] = 0;
-    param_1[0x12] = 0;
-    param_1[0x13] = 0;
-    param_1[0x14] = 0;
-    param_1[0x15] = 0;
-    param_1[0x16] = 0;
-    param_1[0x17] = 0;
-    param_1[0x18] = 0;
-    param_1[0x19] = 0;
-    param_1[0x1a] = 0;
-    param_1[0x1b] = 0;
-    param_1[0x1c] = 0;
-    param_1[0x1d] = 0;
-    param_1[0x1e] = 0;
-    param_1[0x1f] = 0;
-    param_1[0x20] = 0;
-    param_1[0x21] = 0;
-    param_1[0x22] = 0;
-    param_1[0x23] = 0;
-    param_1[0x24] = 0;
-    param_1[0x25] = 0;
-    param_1[0x26] = 0;
+  if ((param_1 != (cls_105c26f0 *)0x0) ||
+     (param_1 = (cls_105c26f0 *)heap_alloc((void *)0x9c), (cls_1059e380 *)param_1 != (cls_1059e380 *)0x0)) {
+    cls_1059e380_new((cls_1059e380 *)param_1);
+    ((cls_1059e380 *)param_1)->field_0x0 = (uintptr_t)((void *)0x105c26f0/*ROM*/);
+    ((cls_1059e380 *)param_1)->field1_0x4 = (uintptr_t)((void *)0x0);
+    ((cls_1059e380 *)param_1)->field2_0x8 = (uintptr_t)((void *)0x0);
+    ((cls_1059e380 *)param_1)->field3_0xc = (uintptr_t)((void *)0x0);
+    ((cls_1059e380 *)param_1)->field4_0x10 = (uintptr_t)((void *)0x0);
+    ((cls_1059e380 *)param_1)->field5_0x14 = (uintptr_t)((void *)0x0);
+    ((cls_1059e380 *)param_1)->field6_0x18 = (uintptr_t)((void *)0x0);
+    ((cls_1059e380 *)param_1)->field7_0x1c = (uintptr_t)((void *)0x0);
+    ((cls_1059e380 *)param_1)->field8_0x20 = (uintptr_t)((void *)0x0);
+    ((cls_1059e380 *)param_1)->field9_0x24 = (uintptr_t)((void *)0x0);
+    ((cls_1059e380 *)param_1)->field10_0x28 = (uintptr_t)((void *)0x0);
+    ((cls_1059e380 *)param_1)->field11_0x2c = (uintptr_t)((void *)0x0);
+    ((cls_1059e380 *)param_1)->field12_0x30 = (uintptr_t)((void *)0x0);
+    ((cls_1059e380 *)param_1)->field13_0x34 = (uintptr_t)((void *)0x0);
+    ((cls_1059e380 *)param_1)->field14_0x38 = (uintptr_t)((void *)0x0);
+    ((cls_1059e380 *)param_1)->field15_0x3c = (uintptr_t)((void *)0x0);
+    *(uint32_t *)&((cls_1059e380 *)param_1)->field16_0x40 = 0;
+    ((cls_1059e380 *)param_1)->field20_0x44 = 0;
+    ((cls_1059e380 *)param_1)->field21_0x48 = 0;
+    ((cls_1059e380 *)param_1)->field22_0x4c = 0;
+    ((cls_1059e380 *)param_1)->field23_0x50 = 0;
+    ((cls_1059e380 *)param_1)->field24_0x54 = 0;
+    ((cls_1059e380 *)param_1)->field25_0x58 = 0;
+    ((cls_1059e380 *)param_1)->field26_0x5c = 0;
+    ((cls_1059e380 *)param_1)->field27_0x60 = 0;
+    ((cls_1059e380 *)param_1)->field28_0x64 = 0;
+    ((cls_1059e380 *)param_1)->field29_0x68 = 0;
+    ((cls_1059e380 *)param_1)->field30_0x6c = 0;
+    ((cls_1059e380 *)param_1)->field31_0x70 = 0;
+    ((cls_1059e380 *)param_1)->field32_0x74 = 0;
+    ((cls_1059e380 *)param_1)->field33_0x78 = 0;
+    ((cls_1059e380 *)param_1)->field34_0x7c = 0;
+    ((cls_1059e380 *)param_1)->field35_0x80 = 0;
+    ((cls_1059e380 *)param_1)->field36_0x84 = 0;
+    ((cls_1059e380 *)param_1)->field37_0x88 = 0;
+    ((cls_1059e380 *)param_1)->field38_0x8c = 0;
+    ((cls_1059e380 *)param_1)->field39_0x90 = 0;
+    ((cls_1059e380 *)param_1)->field40_0x94 = 0;
+    ((cls_1059e380 *)param_1)->field41_0x98 = 0;
   }
-  return param_1;
+  return (cls_1059e380 *)param_1;
 }

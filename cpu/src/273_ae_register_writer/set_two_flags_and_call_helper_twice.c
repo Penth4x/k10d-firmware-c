@@ -6,14 +6,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t set_two_flags_and_call_helper_twice(int param_1,int param_2)
+/* WARNING: Struct "cls_105d624c": ignoring overlapping field "field_0x14" */
+
+uint32_t set_two_flags_and_call_helper_twice(cls_105d624c *param_1,int param_2)
 
 {
   if (param_2 == 0x150001) {
-    *(uint8_t *)(param_1 + 0x354) = 1;
-    *(uint8_t *)(param_1 + 0x355) = 1;
-    set_flag_at_offset_0x34c(param_1);
-    set_flag_at_offset_0x34c(param_1);
+    param_1->field_0x354 = 1;
+    param_1->field_0x355 = 1;
+    set_flag_at_offset_0x34c((int)param_1);
+    set_flag_at_offset_0x34c((int)param_1);
   }
   return 1;
 }

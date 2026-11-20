@@ -20,11 +20,11 @@ void register_menu_item_and_set_state_103ad2e6(void *param_1)
   int iVar1;
   
   iVar1 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
   iVar1 = get_setting_0x96(*(int *)((int)param_1 + 0x28));
   if (iVar1 == 1) {
     iVar1 = menu_item_register((int)param_1 + 8);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   }
   return;
 }

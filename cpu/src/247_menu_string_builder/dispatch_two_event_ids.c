@@ -22,10 +22,10 @@ void dispatch_two_event_ids(uint32_t param_1,int *param_2,uint32_t param_3)
   uint32_t uVar2;
   uint32_t r7_in;
   
-  append_string_to_buffer(param_2,0x105ba514/*ROM*/);
+  append_string_to_buffer((int *)(param_2),(char *)(0x105ba514/*ROM*/));
   iVar1 = add_offset_by_flag(param_3,0);
   uVar2 = call_helper_with_field_0x20_104d7ef0(iVar1);
-  build_and_apply_param_string(param_2,uVar2,1,r7_in);
-  append_string_to_buffer(param_2,0x105ba520/*ROM*/);
+  build_and_apply_param_string((int *)(param_2),(void *)(uVar2),(int)(1),(void *)(r7_in));
+  append_string_to_buffer((int *)(param_2),(char *)(0x105ba520/*ROM*/));
   return;
 }

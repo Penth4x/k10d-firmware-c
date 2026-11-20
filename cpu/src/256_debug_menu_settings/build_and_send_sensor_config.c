@@ -30,21 +30,21 @@ uint32_t build_and_send_sensor_config(int param_1,uint param_2)
   uintptr_t sp;
   uint8_t *puVar9;
   uint8_t auStack_a4 [20];
-  uint8_t auStack_68 [20];
-  uint32_t auStack_54 [19];
+  cls_105a6abc acStack_68 [5];
+  cls_105a6cfc acStack_54 [19];
   
   puVar9 = auStack_a4;
-  cls_105a6abc_new((void *)auStack_68);
-  copy_buffer_with_lock_1045e22a(*(int *)(param_1 + 8),auStack_68);
+  cls_105a6abc_new(acStack_68);
+  copy_buffer_with_lock_1045e22a(*(int *)(param_1 + 8),acStack_68);
   uVar1 = get_setting_0xb2(param_1);
-  uVar2 = extract_bitfield_from_byte_array(auStack_68,0x10);
-  iVar3 = extract_bitfield_from_byte_array(auStack_68,0x12);
-  iVar4 = extract_bitfield_from_byte_array(auStack_68,0x13);
-  cls_105a6cfc_new(auStack_54);
-  copy_0x45_byte_block(*(int *)(param_1 + 8),auStack_54);
-  iVar5 = extract_field_from_struct_1045fc62(auStack_54,0x29);
-  iVar6 = extract_field_from_struct_1045fc62(auStack_54,1);
-  iVar7 = extract_field_from_struct_1045fc62(auStack_54,8);
+  uVar2 = extract_bitfield_from_byte_array(acStack_68,0x10);
+  iVar3 = extract_bitfield_from_byte_array(acStack_68,0x12);
+  iVar4 = extract_bitfield_from_byte_array(acStack_68,0x13);
+  cls_105a6cfc_new(acStack_54);
+  copy_0x45_byte_block(*(int *)(param_1 + 8),acStack_54);
+  iVar5 = extract_field_from_struct_1045fc62(acStack_54,0x29);
+  iVar6 = extract_field_from_struct_1045fc62(acStack_54,1);
+  iVar7 = extract_field_from_struct_1045fc62(acStack_54,8);
   uVar8 = get_or_init_heap_block();
   puVar9[3] = (char)iVar3;
   puVar9[7] = (char)iVar5;
@@ -53,7 +53,7 @@ uint32_t build_and_send_sensor_config(int param_1,uint param_2)
   puVar9[0x13] = (char)iVar4;
   uVar1 = dispatch_rtos_call_with_conditional_args(uVar8,param_2,uVar1,uVar2 & 0xff,puVar9[3],puVar9[7],puVar9[0xb],
                        *(uint16_t *)(puVar9 + 0xe),puVar9[0x13]);
-  cls_105a6cfc_delete(auStack_54,2);
-  cls_105a6abc_delete((void *)auStack_68,2);
+  cls_105a6cfc_delete(acStack_54,2);
+  cls_105a6abc_delete(acStack_68,2);
   return uVar1;
 }

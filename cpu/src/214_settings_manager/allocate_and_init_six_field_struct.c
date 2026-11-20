@@ -28,14 +28,14 @@ int * allocate_and_init_six_field_struct(int *param_1)
     iVar2 = extract_bitfield_with_offset(8,4,1);
     iVar2 = heap_alloc_2(iVar2 << 2);
     param_1[1] = iVar2;
-    iVar2 = (int)alloc_and_zero_small_object((uint32_t *)0x0);
+    iVar2 = (uintptr_t)(alloc_and_zero_small_object((uint32_t *)0x0));
     param_1[2] = iVar2;
     param_1[3] = 0;
     iVar2 = heap_alloc_2(8);
     param_1[4] = iVar2;
     param_1[5] = 0;
     (*(code *)0x104ad2d4/*ROM*/)(param_1[2],param_1[1],8,0);
-    clear_two_fields_and_reset((void *)param_1[2],1);
+    clear_two_fields_and_reset((uint32_t *)(param_1[2]),(int)(1));
     iVar1 = 3;
     iVar2 = 0;
     do {

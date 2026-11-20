@@ -30,15 +30,10 @@ uint32_t process_two_point_event(int param_1,uint32_t *param_2,uint8_t *param_3,
   int iVar9;
   int iVar10;
   uint32_t *puVar11;
+  void **ppuVar12;
   uintptr_t sp;
-  uint8_t *puStack_2d4;
-  uint8_t auStack_2ac [16];
-  int iStack_29c;
-  uint32_t uStack_290;
-  uint32_t uStack_28c;
-  uint32_t uStack_288;
-  uint32_t uStack_284;
-  uint32_t auStack_280 [122];
+  cls_105b9458 *pcStack_2d4;
+  cls_105b9458 cStack_2ac;
   uint32_t uStack_98;
   uint32_t uStack_94;
   uint32_t uStack_90;
@@ -80,7 +75,7 @@ uint32_t process_two_point_event(int param_1,uint32_t *param_2,uint8_t *param_3,
   uint16_t uStack_c;
   
   *(uint8_t *)(param_1 + 0x219) = 0;
-  cls_105b9458_new((uint32_t *)__frv_reg_unset(4));
+  cls_105b9458_new(&cStack_2ac);
   uVar1 = return_first_word_1045c514((uint32_t *)(param_3 + 0x2c));
   uVar2 = read_struct_field_at_offset_4(param_3 + 0x2c);
   uVar3 = return_first_word_1045c514(param_2);
@@ -93,13 +88,13 @@ uint32_t process_two_point_event(int param_1,uint32_t *param_2,uint8_t *param_3,
   uVar8 = compare_version_fields(uVar5,uVar6);
   iVar9 = test_two_mmio_writes(param_1,uVar7);
   iVar10 = test_two_mmio_writes(param_1,uVar8);
-  if ((iVar9 == 0) || (puStack_2d4 = param_3, iVar10 == 0)) {
+  if ((iVar9 == 0) || (pcStack_2d4 = (cls_105b9458 *)param_3, iVar10 == 0)) {
     alloc_two_word_pair_1045c3dc(auStack_60,uVar1 & 0xffff,uVar2 & 0xffff);
     alloc_two_word_pair_1045c3dc(auStack_58,uVar3 & 0xffff,uVar4 & 0xffff);
     (*(code *)0x104c6026/*ROM*/)(auStack_50,param_1,auStack_60,auStack_58);
-    iVar9 = compute_buffer_size_and_init(auStack_2ac,auStack_50,2);
+    iVar9 = compute_buffer_size_and_init(&cStack_2ac,auStack_50,2);
     if (iVar9 == 0) {
-      if (iStack_29c == 2) {
+      if (cStack_2ac.field_0x10 == 2) {
         *(uint8_t *)(param_1 + 0x219) = 1;
       }
     }
@@ -126,22 +121,23 @@ uint32_t process_two_point_event(int param_1,uint32_t *param_2,uint8_t *param_3,
       uStack_10 = 0;
       uStack_e = 0;
       uStack_c = 0;
-      uStack_20 = uStack_28c;
-      uStack_1c = uStack_288;
-      uStack_18 = uStack_284;
-      uStack_24 = uStack_290;
+      uStack_20 = cStack_2ac.field_0x20;
+      uStack_1c = cStack_2ac.field_0x24;
+      uStack_18 = cStack_2ac.field_0x28;
+      uStack_24 = cStack_2ac.field_0x1c;
+      ppuVar12 = &cStack_2ac.field_0x2c;
       uStack_2e = (short)uVar7;
-      uVar7 = return_first_word_1045c514(auStack_280);
+      uVar7 = return_first_word_1045c514(ppuVar12);
       uStack_10 = (short)uVar7;
-      uVar7 = return_first_word_1045c514(auStack_280);
+      uVar7 = return_first_word_1045c514(ppuVar12);
       uStack_14 = (short)uVar7;
-      uVar7 = read_struct_field_at_offset_4(auStack_280);
+      uVar7 = read_struct_field_at_offset_4(ppuVar12);
       uStack_e = 0;
       uStack_c = 0;
       uStack_12 = (short)uVar7;
       iVar9 = register_two_pointers_with_flags(*(uint32_t *)(param_1 + 0x4c),&uStack_40,&uStack_24);
       if (iVar9 != 0) {
-        puStack_2d4 = auStack_2ac;
+        pcStack_2d4 = &cStack_2ac;
         free_heap_if_flagged_1045c402(auStack_50,2);
         free_heap_if_flagged_1045c402(auStack_58,2);
         free_heap_if_flagged_1045c402(auStack_60,2);
@@ -161,16 +157,16 @@ code_r0x104cadf0:
       uStack_84 = 0;
       uStack_82 = 0;
       uStack_80 = 0;
-      uStack_94 = *(uint32_t *)(puStack_2d4 + 0x20);
-      uStack_90 = *(uint32_t *)(puStack_2d4 + 0x24);
-      uStack_8c = *(uint32_t *)(puStack_2d4 + 0x28);
-      uStack_98 = *(uint32_t *)(puStack_2d4 + 0x1c);
-      puVar11 = (uint32_t *)(puStack_2d4 + 0x2c);
-      uVar7 = return_first_word_1045c514(puVar11);
+      uStack_94 = pcStack_2d4->field_0x20;
+      uStack_90 = pcStack_2d4->field_0x24;
+      uStack_8c = pcStack_2d4->field_0x28;
+      uStack_98 = pcStack_2d4->field_0x1c;
+      ppuVar12 = &pcStack_2d4->field_0x2c;
+      uVar7 = return_first_word_1045c514(ppuVar12);
       uStack_84 = (short)uVar7;
-      uVar7 = return_first_word_1045c514(puVar11);
+      uVar7 = return_first_word_1045c514(ppuVar12);
       uStack_88 = (short)uVar7;
-      uVar7 = read_struct_field_at_offset_4(puVar11);
+      uVar7 = read_struct_field_at_offset_4(ppuVar12);
       uStack_82 = 0;
       uStack_80 = 0;
       uStack_6c = 0;
@@ -193,13 +189,13 @@ code_r0x104cadf0:
       uStack_64 = 0;
       uStack_6a = (short)uVar7;
       uVar7 = register_two_pointers_with_flags(*(uint32_t *)(param_1 + 0x4c),&uStack_98,&uStack_7c);
-      cls_105b9458_delete(auStack_2ac,2);
+      cls_105b9458_delete(&cStack_2ac,2);
       return uVar7;
     }
     if (*(int *)((int)param_4 + 0x10) == 2) {
       *(uint8_t *)(param_1 + 0x219) = 1;
     }
   }
-  cls_105b9458_delete(auStack_2ac,2);
+  cls_105b9458_delete(&cStack_2ac,2);
   return 0;
 }

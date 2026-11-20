@@ -12,8 +12,8 @@ uint32_t invoke_virtual_slot_3_on_nested_object_104671e6(void *param_1)
   int iVar1;
   
   iVar1 = *(int *)(*(int *)((int)param_1 + 0x34) + 4);
-  (**(code **)(iVar1 + 0x1c))
-            (*(int *)((int)param_1 + 0x34) + 4 + (int)*(short *)(iVar1 + 0x18),(int)param_1 + 0x20,0
+  (((vtbl_entry*)(iVar1))[3].fn)
+            (*(int *)((int)param_1 + 0x34) + 4 + (int)((vtbl_entry*)(iVar1))[3].adj,(int)param_1 + 0x20,0
             );
   return 1;
 }

@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool copy_data_in_chunks(int *param_1,int param_2,uint param_3)
+bool copy_data_in_chunks(cls_105ab6c0 *param_1,int param_2,uint param_3)
 
 {
   void *pvVar1;
@@ -22,7 +22,7 @@ bool copy_data_in_chunks(int *param_1,int param_2,uint param_3)
     if (param_3 < 0x41) {
       uVar4 = param_3;
     }
-    iVar2 = call_virtual_slot_6_and_helper(param_1,param_2,uVar4);
+    iVar2 = call_virtual_slot_6_and_helper((int *)param_1,param_2,uVar4);
     if (iVar2 == 0) break;
     param_2 = param_2 + uVar4;
   }

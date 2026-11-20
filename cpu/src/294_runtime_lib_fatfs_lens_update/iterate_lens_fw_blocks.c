@@ -45,7 +45,7 @@ void iterate_lens_fw_blocks(int param_1,int param_2,int param_3,code *param_4,in
       }
     }
     if (param_5 != 0) {
-      dispatch_lens_update_callback(param_1,uStack_24,(void *)param_6,param_7);
+      dispatch_lens_update_callback((int)(param_1),(int)(uStack_24),(code *)(param_6),(int)(param_7));
     }
   }
   return;

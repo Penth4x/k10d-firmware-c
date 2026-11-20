@@ -17,32 +17,33 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_mode_change_event_1049aab6(int param_1,int param_2)
+void dispatch_mode_change_event_1049aab6(cls_105b573c *param_1,int param_2)
 
 {
   int iVar1;
   int *piVar2;
   uint32_t uVar3;
   
-  *(int *)(param_1 + 0x54) = param_2;
+  param_1->field_0x54 = param_2;
   iVar1 = *(int *)(param_2 + 4);
   uVar3 = 0;
   if (iVar1 == 0) {
     uVar3 = 0x41000;
-    dispatch_virtual_method_on_list_node(param_1);
+    dispatch_virtual_method_on_list_node((int)(param_1));
   }
   else if (iVar1 == 1) {
     uVar3 = 0x41001;
-    invoke_virtual_slot_6_1049abb8(param_1);
+    invoke_virtual_slot_6_1049abb8((int)(param_1));
   }
   else if (iVar1 == 2) {
     uVar3 = 0x41002;
-    invoke_virtual_slot_six_1049ac18(param_1);
+    invoke_virtual_slot_six_1049ac18((int)(param_1));
   }
-  piVar2 = *(int **)(*(int *)(param_1 + 0x54) + 8);
+  piVar2 = *(int **)(param_1->field_0x54 + 8);
   iVar1 = *piVar2;
-  (**(code **)(iVar1 + 0x14))((int)piVar2 + (int)*(short *)(iVar1 + 0x10),uVar3,param_1 + 0x40);
-  free_object_if_flag_set_1052107a(*(void **)(param_1 + 0x54),3);
-  *(uint32_t *)(param_1 + 0x54) = 0;
+  (((vtbl_entry*)(iVar1))[2].fn)
+            ((int)piVar2 + (int)((vtbl_entry*)(iVar1))[2].adj,uVar3,&param_1->field_0x40);
+  free_object_if_flag_set_1052107a((char*)(param_1) ->field_0x54,3);
+  param_1->field_0x54 = 0;
   return;
 }

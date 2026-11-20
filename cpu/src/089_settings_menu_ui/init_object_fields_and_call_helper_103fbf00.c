@@ -14,13 +14,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_fields_and_call_helper_103fbf00(uint32_t *param_1,uint16_t param_2)
+void init_object_fields_and_call_helper_103fbf00(cls_10597dcc *param_1,uint16_t param_2)
 
 {
-  *(uint16_t *)(param_1 + 3) = param_2;
-  *(uint8_t *)((int)param_1 + 0x23) = 0;
-  *(uint8_t *)((int)param_1 + 0x22) = 0xff;
-  *(uint8_t *)(param_1 + 9) = 0xff;
-  check_mode_transition_validity(param_1,0);
+  param_1->field_0xc = param_2;
+  param_1->field_0x23 = 0;
+  param_1->field_0x22 = 0xff;
+  param_1->field_0x24 = 0xff;
+  check_mode_transition_validity(&param_1->field_0x0,0);
   return;
 }

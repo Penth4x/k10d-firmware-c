@@ -12,9 +12,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_offset_eight_103953a6(int param_1)
+void call_helper_with_offset_eight_103953a6(cls_10562cbc *param_1)
 
 {
-  init_buffer_chain_with_handles((void *)(param_1 + 8),__frv_reg_unset(5),(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  uint32_t r5_in;
+  void *r6_in;
+  void *r7_in;
+  
+  init_buffer_chain_with_handles((cls_10563824 *)&param_1->field_0x8,r5_in,r6_in,r7_in);
   return;
 }

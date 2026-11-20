@@ -106,7 +106,7 @@ int run_lens_update_sequence_1053fcb8(char *param_1,uint param_2)
                     return iVar2;
                   }
                   if (((param_2 & 0x200) != 0) &&
-                     (iVar2 = func_0x1054019a(pvStack_10,auStack_ac), iVar2 != 0)) {
+                     (iVar2 = init_param_struct_and_dispatch_1054019a((int)(pvStack_10),(void *)(auStack_ac)), iVar2 != 0)) {
                     decrement_lens_update_step(uVar5,piStack_78);
                     return iVar2;
                   }
@@ -123,7 +123,7 @@ int run_lens_update_sequence_1053fcb8(char *param_1,uint param_2)
                       return iVar2;
                     }
                     if (((param_2 & 0x200) != 0) &&
-                       (iVar2 = func_0x1054019a(pvStack_10,auStack_ac), iVar2 != 0)) {
+                       (iVar2 = init_param_struct_and_dispatch_1054019a((int)(pvStack_10),(void *)(auStack_ac)), iVar2 != 0)) {
                       decrement_lens_update_step(uVar5,piStack_78);
                       return iVar2;
                     }
@@ -135,7 +135,7 @@ int run_lens_update_sequence_1053fcb8(char *param_1,uint param_2)
                     uStack_8d = (uint8_t)in_stack_00000012;
                     iStack_9c = 0;
                     uStack_a0 = 0;
-                    call_single_helper_1047f97e(&iStack_44);
+                    call_single_helper_1047f97e((uint32_t)(&iStack_44));
                     uStack_96 = (ushort)(iStack_44 / 2) | (ushort)(iStack_40 << 5) |
                                 (ushort)(iStack_3c << 0xb);
                     uStack_98 = (sStack_32 + 1) * 0x20 | uStack_36 | (sStack_2e + -0x50) * 0x200;

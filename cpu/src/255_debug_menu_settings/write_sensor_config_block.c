@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void write_sensor_config_block(int param_1,int param_2,int *param_3)
+void write_sensor_config_block(cls_105c2968 *param_1,int param_2,int *param_3)
 
 {
   int iVar1;
@@ -25,18 +25,18 @@ void write_sensor_config_block(int param_1,int param_2,int *param_3)
   uint8_t *puVar3;
   int iVar4;
   
-  (*(code *)0x10450a66/*ROM*/)(*(int *)(param_1 + 8) + 0x12,*(uint8_t *)(*param_3 + param_2));
-  (*(code *)0x10450ab2/*ROM*/)(*(int *)(param_1 + 8) + 0x12,*(uint8_t *)(param_3[1] + param_2));
+  (*(code *)0x10450a66/*ROM*/)(param_1->field_0x8 + 0x12,*(uint8_t *)(*param_3 + param_2));
+  (*(code *)0x10450ab2/*ROM*/)(param_1->field_0x8 + 0x12,*(uint8_t *)(param_3[1] + param_2));
   iVar4 = param_2 * 2;
-  (*(code *)0x10450afe/*ROM*/)(*(int *)(param_1 + 8) + 0x12,*(uint16_t *)(param_3[2] + iVar4));
-  (*(code *)0x10450b3e/*ROM*/)(*(int *)(param_1 + 8) + 0x12,0);
-  (*(code *)0x10450b72/*ROM*/)(*(int *)(param_1 + 8) + 0x12,*(uint16_t *)(param_3[3] + iVar4));
-  (*(code *)0x10450baa/*ROM*/)(*(int *)(param_1 + 8) + 0x12,*(uint8_t *)(param_3[4] + param_2));
-  (*(code *)0x10450bf6/*ROM*/)(*(int *)(param_1 + 8) + 0x12,*(uint8_t *)(param_3[5] + param_2));
-  (*(code *)0x10450c42/*ROM*/)(*(int *)(param_1 + 8) + 0x12,*(uint16_t *)(param_3[6] + iVar4));
-  (*(code *)0x10450c82/*ROM*/)(*(int *)(param_1 + 8) + 0x12,0);
-  (*(code *)0x10450cb6/*ROM*/)(*(int *)(param_1 + 8) + 0x12,*(uint16_t *)(param_3[7] + iVar4));
-  puVar3 = (uint8_t *)(*(code *)0x10450cee/*ROM*/)(*(int *)(param_1 + 8) + 0x12);
+  (*(code *)0x10450afe/*ROM*/)(param_1->field_0x8 + 0x12,*(uint16_t *)(param_3[2] + iVar4));
+  (*(code *)0x10450b3e/*ROM*/)(param_1->field_0x8 + 0x12,0);
+  (*(code *)0x10450b72/*ROM*/)(param_1->field_0x8 + 0x12,*(uint16_t *)(param_3[3] + iVar4));
+  (*(code *)0x10450baa/*ROM*/)(param_1->field_0x8 + 0x12,*(uint8_t *)(param_3[4] + param_2));
+  (*(code *)0x10450bf6/*ROM*/)(param_1->field_0x8 + 0x12,*(uint8_t *)(param_3[5] + param_2));
+  (*(code *)0x10450c42/*ROM*/)(param_1->field_0x8 + 0x12,*(uint16_t *)(param_3[6] + iVar4));
+  (*(code *)0x10450c82/*ROM*/)(param_1->field_0x8 + 0x12,0);
+  (*(code *)0x10450cb6/*ROM*/)(param_1->field_0x8 + 0x12,*(uint16_t *)(param_3[7] + iVar4));
+  puVar3 = (uint8_t *)(*(code *)0x10450cee/*ROM*/)(param_1->field_0x8 + 0x12);
   iVar1 = *(int *)(param_3[8] + param_2 * 4);
   iVar4 = 0;
   iVar2 = 0x3f;

@@ -19,6 +19,6 @@ bool check_field_at_offset_0x1c(int param_1)
 {
   int iVar1;
   
-  iVar1 = read_virtual_property_field(*(uint32_t *)(param_1 + 0x1c),0xe);
+  iVar1 = read_virtual_property_field((void *)(*(uint32_t *)(param_1 + 0x1c)),0xe);
   return iVar1 == 1;
 }

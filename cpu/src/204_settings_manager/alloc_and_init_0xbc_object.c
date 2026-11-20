@@ -20,8 +20,8 @@ int alloc_and_init_0xbc_object(void *param_1)
   
   puVar2 = auStack_18;
   puVar1 = auStack_18;
-  if ((param_1 != (void *)0x0) ||
-     (param_1 = (void *)heap_alloc((void *)0xbc), puVar2 = puVar1, param_1 != (void *)0x0)) {
+  if ((param_1 != 0) ||
+     (param_1 = (void *)heap_alloc((void *)0xbc), puVar2 = puVar1, param_1 != 0)) {
     puVar2[3] = 0;
     puVar2[7] = 0;
     puVar2[0xb] = 0;

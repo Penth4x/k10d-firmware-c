@@ -24,7 +24,7 @@ void reset_lens_update_context(uint32_t *param_1)
   uVar1 = 0;
   iVar2 = 0;
   do {
-    free_lens_fw_update_context((int)param_1 + iVar2 + 0xc);
+    free_lens_fw_update_context((uint32_t *)((int)param_1 + iVar2 + 0xc));
     uVar1 = uVar1 + 1;
     iVar2 = iVar2 + 8;
   } while (uVar1 < 2);

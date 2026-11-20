@@ -17,18 +17,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-void map_source_value_to_index_and_write(void *param_1)
+void map_source_value_to_index_and_write(cls_10557c18 *param_1)
 
 {
   char cVar2;
   int iVar1;
-  int iVar3;
+  uint8_t *puVar3;
   int iVar4;
   
-  iVar3 = (int)param_1 + 0x14;
-  cVar2 = read_byte_at_offset_0x1d(iVar3);
+  puVar3 = &param_1->field_0x14;
+  cVar2 = read_byte_at_offset_0x1d((int)puVar3);
   if (cVar2 != '\0') {
-    dispatch_object_state_update_10491fb2(iVar3,1);
+    dispatch_object_state_update_10491fb2((int)puVar3,1);
   }
   iVar4 = iRam800043a4;
   if (iRam800043a4 == 0) {
@@ -52,10 +52,10 @@ void map_source_value_to_index_and_write(void *param_1)
       }
     }
   }
-  reset_and_select_one_of_six_objects(iVar3,iVar4);
-  cVar2 = read_byte_at_offset_0x1d(iVar3);
+  reset_and_select_one_of_six_objects((int)(puVar3),(uint32_t)(iVar4));
+  cVar2 = read_byte_at_offset_0x1d((int)puVar3);
   if (cVar2 != '\0') {
-    dispatch_object_state_update_10491fb2(iVar3,0);
+    dispatch_object_state_update_10491fb2((int)puVar3,0);
   }
   return;
 }

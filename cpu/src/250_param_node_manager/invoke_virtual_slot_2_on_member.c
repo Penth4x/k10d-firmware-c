@@ -22,8 +22,8 @@ uint32_t invoke_virtual_slot_2_on_member(int param_1,uint32_t param_2)
   uint32_t uVar2;
   
   iVar1 = **(int **)(param_1 + 0x30);
-  iVar1 = (**(code **)(iVar1 + 0x14))
-                    ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar1 + 0x10),
+  iVar1 = (((vtbl_entry*)(iVar1))[2].fn)
+                    ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[2].adj,
                      *(uint32_t *)(*(int *)(param_1 + 0x38) + 8),*(uint32_t *)(param_1 + 0x54),
                      param_2);
   uVar2 = 1;

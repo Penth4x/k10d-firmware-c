@@ -24,7 +24,7 @@ void init_object_and_check_field(void *param_1)
   int iVar1;
   
   eventflag_clr_flg((uint32_t *)((int)param_1 + 0x38),4);
-  iVar1 = execute_cpucom_transaction((void *)(*(uint32_t *)((int)param_1 + 0x20)),(void *)((int)param_1 + 4));
+  iVar1 = execute_cpucom_transaction((int *)(*(uint32_t *)((int)param_1 + 0x20)),(void *)((int)param_1 + 4));
   if (iVar1 != 0) {
     twai_flg_obj((uint32_t *)((int)param_1 + 0x38),4,(void *)0x0,_DAT_105a2af0/*ROM*/);
   }

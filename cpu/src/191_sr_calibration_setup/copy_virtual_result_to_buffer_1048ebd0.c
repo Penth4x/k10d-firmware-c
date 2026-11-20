@@ -17,8 +17,8 @@ void copy_virtual_result_to_buffer_1048ebd0(uint32_t param_1,int param_2,uint32_
   uint32_t auStack_1c [5];
   
   iVar1 = *(int *)(*(int *)(param_2 + 0x28) + 0x20);
-  (**(code **)(iVar1 + 0x1c))
-            (auStack_1c + 1,*(int *)(param_2 + 0x28) + (int)*(short *)(iVar1 + 0x18));
+  (((vtbl_entry*)(iVar1))[3].fn)
+            (auStack_1c + 1,*(int *)(param_2 + 0x28) + (int)((vtbl_entry*)(iVar1))[3].adj);
   iVar1 = 0x10;
   do {
     iVar2 = iVar1 + -4;

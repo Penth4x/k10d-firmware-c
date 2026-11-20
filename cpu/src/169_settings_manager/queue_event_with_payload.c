@@ -28,7 +28,7 @@ uint32_t queue_event_with_payload(void *param_1,int param_2,char *param_3)
   iVar1 = count_string_bytes(param_3);
   uVar3 = 0;
   if ((((iVar1 == 3) && (param_2 != -1)) && (iVar1 = search_linked_list_for_match(param_1,param_3), iVar1 == -1)) &&
-     (iVar1 = find_entry_in_pointer_list(param_1,param_2), iVar1 == 0)) {
+     (iVar1 = (int)find_entry_in_pointer_list((int)(param_1),(int)(param_2)), iVar1 == 0)) {
     piVar2 = (int *)heap_alloc((void *)8);
     *piVar2 = param_2;
     copy_null_terminated_string(piVar2 + 1,param_3);

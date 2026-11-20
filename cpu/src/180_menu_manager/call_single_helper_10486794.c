@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_single_helper_10486794(int param_1)
+void call_single_helper_10486794(cls_105b2e98 *param_1)
 
 {
-  call_helper_with_second_field_104867ae(param_1);
+  call_helper_with_second_field_104867ae((int)param_1);
   return;
 }

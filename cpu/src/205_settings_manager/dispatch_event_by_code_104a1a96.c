@@ -83,7 +83,7 @@ uint32_t dispatch_event_by_code_104a1a96(uint32_t param_1,ushort *param_2)
           return 1;
         }
         if (uVar1 == 0x927c) {
-          func_0x104a2286();
+          empty_noop_function_104a2286();
           return 1;
         }
         if (uVar1 == 0xa000) {

@@ -13,7 +13,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-int cls_105aadf4_new(void *param_1)
+int cls_105aadf4_new(cls_105aadf4 *param_1)
 
 {
   uintptr_t sp;
@@ -23,19 +23,20 @@ int cls_105aadf4_new(void *param_1)
   
   puVar1 = auStack_18;
   puVar2 = auStack_18;
-  if ((param_1 != (void *)0x0) ||
-     (param_1 = (void *)heap_alloc((void *)0x130), puVar2 = puVar1, param_1 != (void *)0x0)) {
-    cls_105aae34_new(param_1);
-    *(uint32_t *)((int)param_1 + 0x11c) = 0x105aadf4/*ROM*/;
-    *(uint32_t *)((int)param_1 + 0x120) = 0;
+  if ((param_1 != (cls_105aadf4 *)0x0) ||
+     (param_1 = (cls_105aadf4 *)heap_alloc((void *)0x130), puVar2 = puVar1, param_1 != (cls_105aadf4 *)0x0))
+  {
+    cls_105aae34_new((cls_105aae34 *)param_1);
+    param_1->field_0x11c = 0x105aadf4/*ROM*/;
+    param_1->field_0x120 = 0;
     puVar2[3] = 0;
     puVar2[7] = 0;
     puVar2[0xb] = 0;
     puVar2[0xf] = 0;
-    alloc_and_init_small_struct_1045c524((uint16_t *)((int)param_1 + 0x124),(uint)_DAT_105a5c18/*ROM*/,1,1,puVar2[3],puVar2[7],
-                 puVar2[0xb],puVar2[0xf]);
-    *(uint16_t *)((int)param_1 + 300) = 0;
-    *(uint16_t *)((int)param_1 + 0x12e) = 0;
+    alloc_and_init_small_struct_1045c524(&param_1->field_0x124,(uint)_DAT_105a5c18/*ROM*/,1,1,puVar2[3],puVar2[7],puVar2[0xb],
+                 puVar2[0xf]);
+    param_1->field_0x12c = 0;
+    param_1->field_0x12e = 0;
   }
   return (int)param_1;
 }

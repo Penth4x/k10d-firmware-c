@@ -19,7 +19,7 @@
 /* WARNING: Instruction at (ram,0x10507704) overlaps instruction at (ram,0x10507702)
     */
 
-void dispatch_event_by_type_105076d8(int param_1,int *param_2)
+void dispatch_event_by_type_105076d8(cls_105d51fc *param_1,int *param_2)
 
 {
   bool bVar1;
@@ -28,11 +28,11 @@ void dispatch_event_by_type_105076d8(int param_1,int *param_2)
   int iVar4;
   int iVar5;
   
-  if ((*(char *)(param_1 + 0x31c) == '\0') && (*(char *)(param_1 + 0x31d) == '\0')) {
+  if ((param_1->field_0x31c == '\0') && (param_1->field_0x31d == '\0')) {
     if (param_2[2] == 0x800001) {
       iVar5 = param_2[1];
       if (iVar5 != 0) {
-        process_four_parameter_blocks(param_1,(void *)iVar5);
+        process_four_parameter_blocks((int)(param_1),(int *)(iVar5));
         if ((*(char *)(iVar5 + 8) == '\0') && (*(char *)(iVar5 + 9) == '\0')) {
           bVar1 = false;
         }
@@ -46,39 +46,39 @@ void dispatch_event_by_type_105076d8(int param_1,int *param_2)
           bVar2 = true;
         }
         if (bVar1) {
-          init_entry_and_dispatch(param_1,0);
+          init_entry_and_dispatch((int)(param_1),(int)(0));
         }
         if (bVar2) {
-          init_entry_and_dispatch(param_1,1);
+          init_entry_and_dispatch((int)(param_1),(int)(1));
         }
       }
       iVar5 = *(int *)*param_2;
-      (**(code **)(iVar5 + 0x14))(*param_2 + (int)*(short *)(iVar5 + 0x10),0x800001,param_2[3]);
+      (((vtbl_entry*)(iVar5))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar5))[2].adj,0x800001,param_2[3]);
     }
     else {
       if (param_2[2] == 0x800002) {
         if (param_2[1] != 0) {
-          invoke_object_method_chain(param_1,(uint32_t *)__frv_reg_unset(5));
+          invoke_object_method_chain((int)(param_1),(uint32_t *)__frv_reg_unset(5));
         }
         iVar5 = *(int *)*param_2;
-        (**(code **)(iVar5 + 0x14))(*param_2 + (int)*(short *)(iVar5 + 0x10),0x800002,param_2[3]);
+        (((vtbl_entry*)(iVar5))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar5))[2].adj,0x800002,param_2[3]);
         return;
       }
       if (param_2[2] != 0x800003) {
         if (param_2[2] != 0x800004) {
           return;
         }
-        iVar4 = update_subobject_state(param_1,param_2[1]);
-        init_entry_and_dispatch(param_1,param_2[1]);
+        iVar4 = update_subobject_state((int)(param_1),(int)(param_2[1]));
+        init_entry_and_dispatch((int)(param_1),(int)(param_2[1]));
         iVar5 = *(int *)*param_2;
-        (**(code **)(iVar5 + 0x14))(*param_2 + (int)*(short *)(iVar5 + 0x10),0x800004,iVar4 != 0);
+        (((vtbl_entry*)(iVar5))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar5))[2].adj,0x800004,iVar4 != 0);
         return;
       }
       pvVar3 = (void *)get_or_init_singleton_object_1051d40e();
       update_camera_state_flags(pvVar3,0xf,3);
-      init_entry_and_dispatch(param_1,param_2[1]);
+      init_entry_and_dispatch((int)(param_1),(int)(param_2[1]));
       iVar5 = *(int *)*param_2;
-      (**(code **)(iVar5 + 0x14))(*param_2 + (int)*(short *)(iVar5 + 0x10),0x800003,0);
+      (((vtbl_entry*)(iVar5))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar5))[2].adj,0x800003,0);
     }
     pvVar3 = (void *)get_or_init_singleton_object_1051d40e();
     update_camera_state_flags(pvVar3,0xf,0);
@@ -86,23 +86,23 @@ void dispatch_event_by_type_105076d8(int param_1,int *param_2)
   }
   if (param_2[2] == 0x800001) {
     iVar5 = *(int *)*param_2;
-    (**(code **)(iVar5 + 0x14))(*param_2 + (int)*(short *)(iVar5 + 0x10),0x800001,param_2[3]);
+    (((vtbl_entry*)(iVar5))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar5))[2].adj,0x800001,param_2[3]);
     return;
   }
   if (param_2[2] == 0x800002) {
     iVar5 = *(int *)*param_2;
-    (**(code **)(iVar5 + 0x14))(*param_2 + (int)*(short *)(iVar5 + 0x10),0x800002,param_2[3]);
+    (((vtbl_entry*)(iVar5))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar5))[2].adj,0x800002,param_2[3]);
     return;
   }
   if (param_2[2] == 0x800003) {
     iVar5 = *(int *)*param_2;
-    (**(code **)(iVar5 + 0x14))(*param_2 + (int)*(short *)(iVar5 + 0x10),0x800003,0);
+    (((vtbl_entry*)(iVar5))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar5))[2].adj,0x800003,0);
     return;
   }
   if (param_2[2] != 0x800004) {
     return;
   }
   iVar5 = *(int *)*param_2;
-  (**(code **)(iVar5 + 0x14))(*param_2 + (int)*(short *)(iVar5 + 0x10),0x800004,0);
+  (((vtbl_entry*)(iVar5))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar5))[2].adj,0x800004,0);
   return;
 }

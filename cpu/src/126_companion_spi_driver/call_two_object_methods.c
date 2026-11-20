@@ -16,10 +16,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_two_object_methods(int param_1)
+/* WARNING: Struct "cls_105a05a0": ignoring multiple overlapping fields */
+
+void call_two_object_methods(cls_105a05a0 *param_1)
 
 {
-  clear_bit_2_of_word_at_offset_0x18_1043c6d8(param_1);
-  dispatch_single_subobj(param_1 + 8);
+  clear_bit_2_of_word_at_offset_0x18_1043c6d8((int)param_1);
+  dispatch_single_subobj((void *)&param_1->field_0x8);
   return;
 }

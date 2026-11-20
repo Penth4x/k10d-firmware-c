@@ -14,13 +14,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_with_heap_alloc_10390566(int param_1)
+uint32_t init_object_with_heap_alloc_10390566(cls_1055a304 *param_1)
 
 {
   init_state_and_notify_zero();
-  alloc_pool_and_init_task((int *)(param_1 + 0x1c),0x10,0x1000,4);
-  wait_flg_obj((void *)(param_1 + 0x4c),0);
-  call_helper_on_offset_field_10390e1e(param_1 + 0x68);
-  create_kernel_object((void *)(param_1 + 0x44));
+  alloc_pool_and_init_task((void *)&param_1->field_0x1c,0x10,0x1000,4);
+  wait_flg_obj(&param_1->field_0x4c,0);
+  call_helper_on_offset_field_10390e1e((uint32_t)&param_1->field_0x68);
+  create_kernel_object((void *)&param_1->field_0x44);
   return 1;
 }

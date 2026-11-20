@@ -9,6 +9,6 @@
 void dispatch_virtual_slot_12(int param_1)
 
 {
-  (**(code **)(*(int *)(param_1 + 4) + 100))(*(short *)(*(int *)(param_1 + 4) + 0x60) + param_1);
+  (((vtbl_entry*)(*(int *)(param_1 + 4)))[12].fn)(((vtbl_entry*)(*(int *)(param_1 + 4)))[12].adj + param_1);
   return;
 }

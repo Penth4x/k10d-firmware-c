@@ -11,7 +11,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_1059e4d0_new(uint32_t *param_1)
+cls_1059e4d0 * cls_1059e4d0_new(cls_1059e4d0 *param_1)
 
 {
   uint uVar1;
@@ -20,268 +20,269 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
   int iVar4;
   uint16_t *puVar5;
   uint16_t *puVar6;
+  cls_105fa8e4 *pcVar7;
   uint32_t *puStack_4c;
   uint32_t *puStack_48;
   uint16_t *puStack_34;
   
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x8d8), param_1 != (uint32_t *)0x0)) {
-    param_1[0x235] = &test_mode_screen_vtable;
-    *param_1 = 0;
-    param_1[1] = 0;
-    param_1[6] = &DAT_1059e4d0/*ROM*/;
-    param_1[2] = 0;
-    param_1[3] = 0;
-    param_1[4] = 0;
-    param_1[5] = 0;
-    param_1[7] = 0;
-    param_1[8] = 0;
-    param_1[9] = 0;
-    *(uint8_t *)(param_1 + 10) = 0;
-    *(uint8_t *)((int)param_1 + 0x29) = 0;
-    *(uint8_t *)((int)param_1 + 0x2a) = 1;
-    *(uint8_t *)((int)param_1 + 0x2b) = 0;
-    *(uint8_t *)(param_1 + 0xb) = 0;
-    *(uint8_t *)((int)param_1 + 0x2d) = 0;
-    *(uint8_t *)((int)param_1 + 0x2e) = 0;
-    *(uint8_t *)((int)param_1 + 0x2f) = 0;
-    *(uint8_t *)(param_1 + 0xc) = 0;
-    param_1[0xd] = 0;
-    param_1[0xe] = 0;
-    param_1[0xf] = 0;
-    param_1[0x10] = 0;
-    param_1[0x11] = 0;
-    param_1[0x12] = 0;
-    param_1[0x13] = 0;
-    param_1[0x14] = 0;
-    param_1[0x15] = 0;
-    param_1[0x16] = 0;
-    param_1[0x17] = 0;
-    param_1[0x18] = 0;
-    param_1[0x19] = 0;
-    param_1[0x1a] = 0;
-    param_1[0x1b] = 0;
-    param_1[0x1c] = 0;
-    param_1[0x1d] = 0;
-    param_1[0x1e] = 0;
-    param_1[0x1f] = 0;
-    param_1[0x20] = 0x180;
-    param_1[0x21] = 0;
-    param_1[0x22] = 0;
-    param_1[0x23] = 0;
-    param_1[0x24] = 0;
-    param_1[0x25] = 0;
-    param_1[0x26] = 0;
-    param_1[0x27] = 0;
-    param_1[0x28] = 0;
-    param_1[0x29] = 0;
-    param_1[0x2a] = 0;
-    param_1[0x2b] = 0;
-    param_1[0x2c] = 0;
-    param_1[0x2d] = 0;
-    param_1[0x2e] = 0;
-    param_1[0x2f] = 0;
-    param_1[0x30] = 0;
-    param_1[0x31] = 0;
-    param_1[0x32] = 0;
-    param_1[0x33] = 0;
-    param_1[0x34] = 0;
-    param_1[0x35] = 0;
-    param_1[0x36] = 0;
-    param_1[0x37] = 0;
-    param_1[0x38] = 0;
-    param_1[0x39] = 0;
-    param_1[0x3a] = 0;
-    param_1[0x3b] = 0;
-    param_1[0x3c] = 0;
-    param_1[0x3d] = 0;
-    param_1[0x3e] = 4;
-    *(uint16_t *)(param_1 + 0x3f) = 0;
-    *(uint16_t *)((int)param_1 + 0xfe) = 0;
-    *(uint16_t *)(param_1 + 0x40) = 0;
-    param_1[0x41] = 0;
-    *(uint16_t *)(param_1 + 0x42) = 0;
-    *(uint16_t *)((int)param_1 + 0x10a) = 0;
-    *(uint16_t *)(param_1 + 0x43) = 0;
-    *(uint16_t *)((int)param_1 + 0x10e) = 0;
-    param_1[0x44] = 0;
-    *(uint16_t *)(param_1 + 0x45) = 0x100;
-    *(uint16_t *)((int)param_1 + 0x116) = 0x100;
-    *(uint16_t *)(param_1 + 0x46) = 0x100;
-    *(uint16_t *)((int)param_1 + 0x11a) = 0x100;
-    *(uint16_t *)(param_1 + 0x47) = 0;
-    *(uint16_t *)((int)param_1 + 0x11e) = 0;
-    *(uint16_t *)(param_1 + 0x48) = 0;
-    *(uint16_t *)((int)param_1 + 0x122) = 0;
-    *(uint16_t *)(param_1 + 0x49) = 0;
-    *(uint16_t *)((int)param_1 + 0x126) = 0;
-    *(uint16_t *)(param_1 + 0x4a) = 0;
-    *(uint16_t *)((int)param_1 + 0x12a) = 0;
-    param_1[0x4b] = 0;
-    param_1[0x4c] = 0;
-    param_1[0x4d] = 0;
-    param_1[0x4e] = 0;
-    param_1[0x4f] = 0;
-    param_1[0x50] = 0;
-    param_1[0x51] = 0;
-    construct_large_camera_object(param_1 + 0x52);
-    *(uint16_t *)(param_1 + 0x19e) = 0;
-    *(uint16_t *)((int)param_1 + 0x67a) = 0;
-    *(uint16_t *)(param_1 + 0x1a4) = 0;
-    *(uint16_t *)((int)param_1 + 0x692) = 3;
-    *(uint8_t *)(param_1 + 0x1a5) = 0;
-    *(uint8_t *)((int)param_1 + 0x695) = 1;
-    param_1[0x1a6] = 0;
-    param_1[0x1a7] = 0;
-    param_1[0x1a8] = 0;
-    *(uint8_t *)(param_1 + 0x1a9) = 0;
-    *(uint8_t *)((int)param_1 + 0x6a5) = 0;
-    *(uint16_t *)((int)param_1 + 0x6a6) = 0;
-    *(uint16_t *)(param_1 + 0x1aa) = 0;
-    *(uint16_t *)((int)param_1 + 0x6aa) = 0;
-    *(uint16_t *)(param_1 + 0x1ab) = 0;
-    param_1[0x1ac] = 0;
-    param_1[0x1ad] = 0;
-    *(uint8_t *)(param_1 + 0x1ae) = 0;
-    *(uint8_t *)((int)param_1 + 0x6b9) = 0;
-    param_1[0x1af] = 0;
-    param_1[0x1b0] = 0;
-    param_1[0x1b1] = 0;
-    param_1[0x1b2] = 0;
-    param_1[0x1b3] = 1;
-    param_1[0x1b4] = 0;
-    param_1[0x1b5] = 0;
-    param_1[0x1b6] = 0;
-    *(uint16_t *)(param_1 + 0x1b7) = 0;
-    *(uint16_t *)((int)param_1 + 0x6de) = 0;
-    *(uint16_t *)(param_1 + 0x1b8) = 0;
-    *(uint16_t *)((int)param_1 + 0x6e2) = 0;
-    *(uint16_t *)(param_1 + 0x1b9) = 0;
-    param_1[0x1ba] = 1;
-    param_1[0x1bb] = 0;
-    param_1[0x1bc] = 0;
-    param_1[0x1bd] = 0;
-    *(uint16_t *)(param_1 + 0x1be) = 0;
-    *(uint16_t *)((int)param_1 + 0x6fa) = 0;
-    *(uint16_t *)(param_1 + 0x1bf) = 0;
-    *(uint16_t *)((int)param_1 + 0x6fe) = 0;
-    *(uint16_t *)(param_1 + 0x1c0) = 0;
-    param_1[0x1c1] = 1;
-    param_1[0x1c2] = 0;
-    param_1[0x1c3] = 0;
-    param_1[0x1c4] = 0;
-    *(uint16_t *)(param_1 + 0x1c5) = 0;
-    *(uint16_t *)((int)param_1 + 0x716) = 0;
-    *(uint16_t *)(param_1 + 0x1c6) = 0;
-    *(uint16_t *)((int)param_1 + 0x71a) = 0;
-    *(uint16_t *)(param_1 + 0x1c7) = 0;
-    param_1[0x1c8] = 1;
-    param_1[0x1c9] = 0;
-    param_1[0x1ca] = 0;
-    param_1[0x1cb] = 0;
-    *(uint16_t *)(param_1 + 0x1cc) = 0;
-    *(uint16_t *)((int)param_1 + 0x732) = 0;
-    *(uint16_t *)(param_1 + 0x1cd) = 0;
-    *(uint16_t *)((int)param_1 + 0x736) = 0;
-    *(uint16_t *)(param_1 + 0x1ce) = 0;
-    param_1[0x1cf] = 1;
-    param_1[0x1d0] = 0;
-    param_1[0x1d1] = 0;
-    param_1[0x1d2] = 0;
-    *(uint16_t *)(param_1 + 0x1d3) = 0;
-    *(uint16_t *)((int)param_1 + 0x74e) = 0;
-    *(uint16_t *)(param_1 + 0x1d4) = 0;
-    *(uint16_t *)((int)param_1 + 0x752) = 0;
-    *(uint16_t *)(param_1 + 0x1d5) = 0;
-    param_1[0x1d6] = 1;
-    param_1[0x1d7] = 0;
-    param_1[0x1d8] = 0;
-    param_1[0x1d9] = 0;
-    *(uint16_t *)(param_1 + 0x1da) = 0;
-    *(uint16_t *)((int)param_1 + 0x76a) = 0;
-    *(uint16_t *)(param_1 + 0x1db) = 0;
-    *(uint16_t *)((int)param_1 + 0x76e) = 0;
-    *(uint16_t *)(param_1 + 0x1dc) = 0;
-    param_1[0x1dd] = 0;
-    param_1[0x1de] = 0;
-    param_1[0x1df] = 0;
-    param_1[0x1e0] = 0;
-    param_1[0x1e1] = 1;
-    *(uint16_t *)(param_1 + 0x1e2) = 0;
-    param_1[0x1e3] = 0;
-    param_1[0x1e4] = 0;
-    param_1[0x1e5] = 0;
-    param_1[0x1e6] = 0;
-    param_1[0x1e7] = 0;
-    param_1[0x1e8] = 1;
-    *(uint16_t *)(param_1 + 0x1e9) = 0;
-    param_1[0x1ea] = 0;
-    param_1[0x1eb] = 0;
-    param_1[0x1ec] = 0;
-    param_1[0x1ed] = 0;
-    param_1[0x1ee] = 0;
-    param_1[0x1ef] = 1;
-    *(uint16_t *)(param_1 + 0x1f0) = 0;
-    param_1[0x1f1] = 0;
-    param_1[0x1f2] = 0;
-    param_1[499] = 0;
-    param_1[500] = 0;
-    param_1[0x1f5] = 0;
-    param_1[0x1f6] = 1;
-    *(uint16_t *)(param_1 + 0x1f7) = 0;
-    param_1[0x1f8] = 0;
-    param_1[0x1f9] = 0;
-    param_1[0x1fa] = 0;
-    param_1[0x1fb] = 0;
-    param_1[0x1fc] = 0;
-    param_1[0x1fd] = 0;
-    param_1[0x1fe] = 0;
-    param_1[0x1ff] = 0;
-    param_1[0x200] = 0;
-    param_1[0x201] = 0;
-    param_1[0x202] = 0;
-    param_1[0x203] = 0;
-    param_1[0x204] = 0;
-    param_1[0x205] = 0;
-    param_1[0x206] = 0;
-    param_1[0x207] = 0;
-    param_1[0x208] = 0;
-    param_1[0x209] = 0;
-    param_1[0x20a] = 0;
-    param_1[0x20b] = 0;
-    param_1[0x20c] = 0;
-    param_1[0x20d] = 0;
-    param_1[0x20e] = 0;
-    param_1[0x20f] = 0;
-    *(uint16_t *)(param_1 + 0x210) = 0;
-    *(uint16_t *)((int)param_1 + 0x842) = 0;
-    *(uint16_t *)(param_1 + 0x211) = 0;
-    *(uint16_t *)((int)param_1 + 0x846) = 0;
-    *(uint16_t *)(param_1 + 0x212) = 0x280;
-    *(uint16_t *)((int)param_1 + 0x84a) = 0x1e0;
-    *(uint16_t *)(param_1 + 0x213) = 0xa0;
-    *(uint16_t *)((int)param_1 + 0x84e) = 0x78;
-    *(uint16_t *)(param_1 + 0x214) = 0x280;
-    *(uint16_t *)((int)param_1 + 0x852) = 0x1e0;
-    param_1[0x215] = 0x8000;
-    param_1[0x216] = 0xa000;
-    param_1[0x217] = 0x1800;
-    param_1[0x218] = 0x2000;
-    param_1[0x219] = 0x150000;
-    param_1[0x21a] = 0x170000;
-    param_1[0x21b] = 0xe100;
-    param_1[0x21c] = 0;
-    param_1[0x21d] = 0;
-    param_1[0x21e] = 0;
-    param_1[0x21f] = 0;
-    init_timing_parameter_block(param_1 + 0x220);
-    *(uint8_t *)(param_1 + 0x231) = 0;
-    *(uint8_t *)((int)param_1 + 0x8c5) = 0;
-    param_1[0x232] = 0;
-    *(uint16_t *)(param_1 + 0x233) = 0x100;
-    *(uint16_t *)((int)param_1 + 0x8ce) = 0x100;
-    *(uint16_t *)(param_1 + 0x234) = 0x100;
-    *(uint16_t *)((int)param_1 + 0x8d2) = 0x100;
+  if ((param_1 != (cls_1059e4d0 *)0x0) ||
+     (param_1 = (cls_1059e4d0 *)heap_alloc((void *)0x8d8), param_1 != (cls_1059e4d0 *)0x0)) {
+    param_1->field_0x8d4 = (uintptr_t)(&test_mode_screen_vtable);
+    param_1->field_0x0 = 0;
+    param_1->field_0x4 = 0;
+    param_1->field_0x18 = (uintptr_t)(&DAT_1059e4d0/*ROM*/);
+    param_1->field_0x8 = 0;
+    param_1->field_0xc = 0;
+    param_1->field_0x10 = 0;
+    param_1->field_0x14 = 0;
+    param_1->field_0x1c = 0;
+    param_1->field_0x20 = 0;
+    param_1->field_0x24 = 0;
+    param_1->field_0x28 = 0;
+    param_1->field_0x29 = 0;
+    param_1->field_0x2a = 1;
+    param_1->field_0x2b = 0;
+    param_1->field_0x2c = 0;
+    param_1->field_0x2d = 0;
+    param_1->field_0x2e = 0;
+    param_1->field_0x2f = 0;
+    param_1->field_0x30 = 0;
+    param_1->field_0x34 = 0;
+    param_1->field_0x38 = 0;
+    param_1->field_0x3c = 0;
+    param_1->field_0x40 = 0;
+    param_1->field_0x44 = 0;
+    param_1->field_0x48 = 0;
+    param_1->field_0x4c = 0;
+    param_1->field_0x50 = 0;
+    param_1->field_0x54 = 0;
+    param_1->field_0x58 = 0;
+    param_1->field_0x5c = 0;
+    param_1->field_0x60 = 0;
+    param_1->field_0x64 = 0;
+    param_1->field_0x68 = 0;
+    param_1->field_0x6c = 0;
+    param_1->field_0x70 = 0;
+    param_1->field_0x74 = 0;
+    param_1->field_0x78 = 0;
+    param_1->field_0x7c = 0;
+    param_1->field_0x80 = 0x180;
+    param_1->field_0x84 = 0;
+    param_1->field_0x88 = 0;
+    param_1->field_0x8c = 0;
+    param_1->field_0x90 = 0;
+    param_1->field_0x94 = 0;
+    param_1->field_0x98 = 0;
+    param_1->field_0x9c = 0;
+    param_1->field_0xa0 = 0;
+    param_1->field_0xa4 = 0;
+    param_1->field_0xa8 = 0;
+    param_1->field_0xac = 0;
+    param_1->field_0xb0 = 0;
+    param_1->field_0xb4 = 0;
+    param_1->field_0xb8 = 0;
+    param_1->field_0xbc = 0;
+    param_1->field_0xc0 = 0;
+    param_1->field_0xc4 = 0;
+    param_1->field_0xc8 = 0;
+    param_1->field_0xcc = 0;
+    param_1->field_0xd0 = 0;
+    param_1->field_0xd4 = 0;
+    param_1->field_0xd8 = 0;
+    param_1->field_0xdc = 0;
+    param_1->field_0xe0 = 0;
+    param_1->field_0xe4 = 0;
+    param_1->field_0xe8 = 0;
+    param_1->field_0xec = 0;
+    param_1->field_0xf0 = 0;
+    param_1->field_0xf4 = 0;
+    param_1->field_0xf8 = 4;
+    param_1->field_0xfc = 0;
+    param_1->field_0xfe = 0;
+    param_1->field_0x100 = 0;
+    param_1->field_0x104 = 0;
+    param_1->field_0x108 = 0;
+    param_1->field_0x10a = 0;
+    param_1->field_0x10c = 0;
+    param_1->field_0x10e = 0;
+    param_1->field_0x110 = 0;
+    param_1->field_0x114 = 0x100;
+    param_1->field_0x116 = 0x100;
+    param_1->field_0x118 = 0x100;
+    param_1->field_0x11a = 0x100;
+    param_1->field_0x11c = 0;
+    param_1->field_0x11e = 0;
+    param_1->field_0x120 = 0;
+    param_1->field_0x122 = 0;
+    param_1->field_0x124 = 0;
+    param_1->field_0x126 = 0;
+    param_1->field_0x128 = 0;
+    param_1->field_0x12a = 0;
+    param_1->field_0x12c = 0;
+    param_1->field_0x130 = 0;
+    param_1->field_0x134 = 0;
+    param_1->field_0x138 = 0;
+    param_1->field_0x13c = 0;
+    param_1->field_0x140 = 0;
+    param_1->field_0x144 = 0;
+    construct_large_camera_object(&param_1->field_0x148);
+    param_1->field_0x678 = 0;
+    param_1->field_0x67a = 0;
+    param_1->field_0x690 = 0;
+    param_1->field_0x692 = 3;
+    param_1->field_0x694 = 0;
+    param_1->field_0x695 = 1;
+    param_1->field_0x698 = 0;
+    param_1->field_0x69c = 0;
+    param_1->field_0x6a0 = 0;
+    param_1->field_0x6a4 = 0;
+    param_1->field_0x6a5 = 0;
+    param_1->field_0x6a6 = 0;
+    param_1->field_0x6a8 = 0;
+    param_1->field_0x6aa = 0;
+    param_1->field_0x6ac = 0;
+    param_1->field_0x6b0 = 0;
+    param_1->field_0x6b4 = 0;
+    param_1->field_0x6b8 = 0;
+    param_1->field_0x6b9 = 0;
+    param_1->field_0x6bc = 0;
+    param_1->field_0x6c0 = 0;
+    param_1->field_0x6c4 = 0;
+    param_1->field_0x6c8 = 0;
+    param_1->field_0x6cc = 1;
+    param_1->field_0x6d0 = 0;
+    param_1->field_0x6d4 = 0;
+    param_1->field_0x6d8 = 0;
+    param_1->field_0x6dc = 0;
+    param_1->field_0x6de = 0;
+    param_1->field_0x6e0 = 0;
+    param_1->field_0x6e2 = 0;
+    param_1->field_0x6e4 = 0;
+    param_1->field_0x6e8 = 1;
+    param_1->field_0x6ec = 0;
+    param_1->field_0x6f0 = 0;
+    param_1->field_0x6f4 = 0;
+    param_1->field_0x6f8 = 0;
+    param_1->field_0x6fa = 0;
+    param_1->field_0x6fc = 0;
+    param_1->field_0x6fe = 0;
+    param_1->field_0x700 = 0;
+    param_1->field_0x704 = 1;
+    param_1->field_0x708 = 0;
+    param_1->field_0x70c = 0;
+    param_1->field_0x710 = 0;
+    param_1->field_0x714 = 0;
+    param_1->field_0x716 = 0;
+    param_1->field_0x718 = 0;
+    param_1->field_0x71a = 0;
+    param_1->field_0x71c = 0;
+    param_1->field_0x720 = 1;
+    param_1->field_0x724 = 0;
+    param_1->field_0x728 = 0;
+    param_1->field_0x72c = 0;
+    param_1->field_0x730 = 0;
+    param_1->field_0x732 = 0;
+    param_1->field_0x734 = 0;
+    param_1->field_0x736 = 0;
+    param_1->field_0x738 = 0;
+    param_1->field_0x73c = 1;
+    param_1->field_0x740 = 0;
+    param_1->field_0x744 = 0;
+    param_1->field_0x748 = 0;
+    param_1->field_0x74c = 0;
+    param_1->field_0x74e = 0;
+    param_1->field_0x750 = 0;
+    param_1->field_0x752 = 0;
+    param_1->field_0x754 = 0;
+    param_1->field_0x758 = 1;
+    param_1->field_0x75c = 0;
+    param_1->field_0x760 = 0;
+    param_1->field_0x764 = 0;
+    param_1->field_0x768 = 0;
+    param_1->field_0x76a = 0;
+    param_1->field_0x76c = 0;
+    param_1->field_0x76e = 0;
+    param_1->field_0x770 = 0;
+    param_1->field_0x774 = 0;
+    param_1->field_0x778 = 0;
+    param_1->field_0x77c = 0;
+    param_1->field_0x780 = 0;
+    param_1->field_0x784 = 1;
+    param_1->field_0x788 = 0;
+    param_1->field_0x78c = 0;
+    param_1->field_0x790 = 0;
+    param_1->field_0x794 = 0;
+    param_1->field_0x798 = 0;
+    param_1->field_0x79c = 0;
+    param_1->field_0x7a0 = 1;
+    param_1->field_0x7a4 = 0;
+    param_1->field_0x7a8 = 0;
+    param_1->field_0x7ac = 0;
+    param_1->field_0x7b0 = 0;
+    param_1->field_0x7b4 = 0;
+    param_1->field_0x7b8 = 0;
+    param_1->field_0x7bc = 1;
+    param_1->field_0x7c0 = 0;
+    param_1->field_0x7c4 = 0;
+    param_1->field_0x7c8 = 0;
+    param_1->field_0x7cc = 0;
+    param_1->field_0x7d0 = 0;
+    param_1->field_0x7d4 = 0;
+    param_1->field_0x7d8 = 1;
+    param_1->field_0x7dc = 0;
+    param_1->field_0x7e0 = 0;
+    param_1->field_0x7e4 = (uintptr_t)((uint32_t *)0x0);
+    param_1->field_0x7e8 = (uintptr_t)((uint32_t *)0x0);
+    param_1->field_0x7ec = (uintptr_t)((uint32_t *)0x0);
+    param_1->field_0x7f0 = (uintptr_t)((uint32_t *)0x0);
+    param_1->field_0x7f4 = (uintptr_t)((uint32_t *)0x0);
+    param_1->field_0x7f8 = (uintptr_t)((uint32_t *)0x0);
+    param_1->field_0x7fc = (uintptr_t)((uint32_t *)0x0);
+    param_1->field_0x800 = (uintptr_t)((uint32_t *)0x0);
+    param_1->field_0x804 = 0;
+    param_1->field_0x808 = (uintptr_t)((uint32_t *)0x0);
+    param_1->field_0x80c = (uintptr_t)((uint32_t *)0x0);
+    param_1->field_0x810 = (uintptr_t)((uint32_t *)0x0);
+    param_1->field_0x814 = (uintptr_t)((uint32_t *)0x0);
+    param_1->field_0x818 = (uintptr_t)((uint32_t *)0x0);
+    param_1->field_0x81c = (uintptr_t)((uint32_t *)0x0);
+    param_1->field_0x820 = (uintptr_t)((uint32_t *)0x0);
+    param_1->field_0x824 = (uintptr_t)((uint32_t *)0x0);
+    param_1->field_0x828 = (uintptr_t)((uint16_t *)0x0);
+    param_1->field_0x82c = 0;
+    param_1->field_0x830 = (uintptr_t)((uint32_t *)0x0);
+    param_1->field_0x834 = (uintptr_t)((uint32_t *)0x0);
+    param_1->field_0x838 = 0;
+    param_1->field_0x83c = (uintptr_t)((uint32_t *)0x0);
+    param_1->field_0x840 = 0;
+    param_1->field_0x842 = 0;
+    param_1->field_0x844 = 0;
+    param_1->field_0x846 = 0;
+    param_1->field_0x848 = 0x280;
+    param_1->field_0x84a = 0x1e0;
+    param_1->field_0x84c = 0xa0;
+    param_1->field_0x84e = 0x78;
+    param_1->field_0x850 = 0x280;
+    param_1->field_0x852 = 0x1e0;
+    param_1->field_0x854 = 0x8000;
+    param_1->field_0x858 = 0xa000;
+    param_1->field_0x85c = 0x1800;
+    param_1->field_0x860 = 0x2000;
+    param_1->field_0x864 = 0x150000;
+    param_1->field_0x868 = 0x170000;
+    param_1->field_0x86c = 0xe100;
+    param_1->field_0x870 = 0;
+    param_1->field_0x874 = 0;
+    param_1->field_0x878 = 0;
+    param_1->field_0x87c = 0;
+    init_timing_parameter_block(&param_1->field_0x880);
+    param_1->field_0x8c4 = 0;
+    param_1->field_0x8c5 = 0;
+    param_1->field_0x8c8 = 0;
+    param_1->field_0x8cc = 0x100;
+    param_1->field_0x8ce = 0x100;
+    param_1->field_0x8d0 = 0x100;
+    param_1->field_0x8d2 = 0x100;
     puVar2 = (uint32_t *)heap_alloc((void *)0xf8);
     if (puVar2 == (uint32_t *)0x0) {
       puVar2 = (uint32_t *)0x0;
@@ -326,7 +327,7 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         puVar3[0x3d] = 0;
       }
     }
-    param_1[0x1f9] = puVar2;
+    param_1->field_0x7e4 = (uintptr_t)(puVar2);
     puVar2 = (uint32_t *)heap_alloc((void *)0xc);
     if (puVar2 == (uint32_t *)0x0) {
       puVar2 = (uint32_t *)0x0;
@@ -341,7 +342,7 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         *(uint8_t *)((int)puVar3 + 9) = 0;
       }
     }
-    param_1[0x1fa] = puVar2;
+    param_1->field_0x7e8 = (uintptr_t)(puVar2);
     puVar2 = (uint32_t *)heap_alloc((void *)0x40);
     if (puVar2 == (uint32_t *)0x0) {
       puVar2 = (uint32_t *)0x0;
@@ -377,7 +378,7 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         puVar3[0xf] = 0;
       }
     }
-    param_1[0x1fb] = puVar2;
+    param_1->field_0x7ec = (uintptr_t)(puVar2);
     puVar2 = (uint32_t *)heap_alloc((void *)0x40);
     if (puVar2 == (uint32_t *)0x0) {
       puVar2 = (uint32_t *)0x0;
@@ -413,7 +414,7 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         puVar3[0xf] = 0;
       }
     }
-    param_1[0x1fc] = puVar2;
+    param_1->field_0x7f0 = (uintptr_t)(puVar2);
     puVar2 = (uint32_t *)heap_alloc((void *)0x40);
     if (puVar2 == (uint32_t *)0x0) {
       puVar2 = (uint32_t *)0x0;
@@ -449,7 +450,7 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         puVar3[0xf] = 0;
       }
     }
-    param_1[0x1fd] = puVar2;
+    param_1->field_0x7f4 = (uintptr_t)(puVar2);
     puVar2 = (uint32_t *)heap_alloc((void *)0x2188);
     if (puVar2 == (uint32_t *)0x0) {
       puVar2 = (uint32_t *)0x0;
@@ -491,7 +492,7 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         puStack_4c[0x861] = 0;
       }
     }
-    param_1[0x1fe] = puVar2;
+    param_1->field_0x7f8 = (uintptr_t)(puVar2);
     puVar2 = (uint32_t *)heap_alloc((void *)0x24);
     if (puVar2 == (uint32_t *)0x0) {
       puVar2 = (uint32_t *)0x0;
@@ -513,7 +514,7 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         *(uint8_t *)(puVar3 + 8) = 0;
       }
     }
-    param_1[0x1ff] = puVar2;
+    param_1->field_0x7fc = (uintptr_t)(puVar2);
     puVar2 = (uint32_t *)heap_alloc((void *)0x24);
     if (puVar2 == (uint32_t *)0x0) {
       puVar2 = (uint32_t *)0x0;
@@ -536,15 +537,15 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         *(uint8_t *)((int)puVar3 + 0x23) = 0;
       }
     }
-    param_1[0x200] = puVar2;
+    param_1->field_0x800 = (uintptr_t)(puVar2);
     iVar4 = heap_alloc((void *)0x30);
     if (iVar4 == 0) {
       iVar4 = 0;
     }
     else {
-      zero_initialize_0x30_struct(iVar4);
+      zero_initialize_0x30_struct((uint32_t *)(iVar4));
     }
-    param_1[0x201] = iVar4;
+    param_1->field_0x804 = iVar4;
     puVar2 = (uint32_t *)heap_alloc((void *)0xe8);
     if (puVar2 == (uint32_t *)0x0) {
       puVar2 = (uint32_t *)0x0;
@@ -561,7 +562,7 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         puVar3[0x39] = 0;
       }
     }
-    param_1[0x202] = puVar2;
+    param_1->field_0x808 = (uintptr_t)(puVar2);
     puVar2 = (uint32_t *)heap_alloc((void *)0xe8);
     if (puVar2 == (uint32_t *)0x0) {
       puVar2 = (uint32_t *)0x0;
@@ -578,7 +579,7 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         puVar3[0x39] = 0;
       }
     }
-    param_1[0x203] = puVar2;
+    param_1->field_0x80c = (uintptr_t)(puVar2);
     puVar2 = (uint32_t *)heap_alloc((void *)0xe8);
     if (puVar2 == (uint32_t *)0x0) {
       puVar2 = (uint32_t *)0x0;
@@ -595,7 +596,7 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         puVar3[0x39] = 0;
       }
     }
-    param_1[0x204] = puVar2;
+    param_1->field_0x810 = (uintptr_t)(puVar2);
     puVar2 = (uint32_t *)heap_alloc((void *)0xe8);
     if (puVar2 == (uint32_t *)0x0) {
       puVar2 = (uint32_t *)0x0;
@@ -612,7 +613,7 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         puVar3[0x39] = 0;
       }
     }
-    param_1[0x205] = puVar2;
+    param_1->field_0x814 = (uintptr_t)(puVar2);
     puVar2 = (uint32_t *)heap_alloc((void *)0x60);
     if (puVar2 == (uint32_t *)0x0) {
       puVar2 = (uint32_t *)0x0;
@@ -628,7 +629,7 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         puStack_48[0x17] = 0;
       }
     }
-    param_1[0x206] = puVar2;
+    param_1->field_0x818 = (uintptr_t)(puVar2);
     puVar2 = (uint32_t *)heap_alloc((void *)0x60);
     if (puVar2 == (uint32_t *)0x0) {
       puVar2 = (uint32_t *)0x0;
@@ -644,7 +645,7 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         puStack_48[0x17] = 0;
       }
     }
-    param_1[0x207] = puVar2;
+    param_1->field_0x81c = (uintptr_t)(puVar2);
     puVar2 = (uint32_t *)heap_alloc((void *)0x60);
     if (puVar2 == (uint32_t *)0x0) {
       puVar2 = (uint32_t *)0x0;
@@ -660,7 +661,7 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         puStack_48[0x17] = 0;
       }
     }
-    param_1[0x208] = puVar2;
+    param_1->field_0x820 = (uintptr_t)(puVar2);
     puVar2 = (uint32_t *)heap_alloc((void *)0x60);
     if (puVar2 == (uint32_t *)0x0) {
       puVar2 = (uint32_t *)0x0;
@@ -676,7 +677,7 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         puStack_48[0x17] = 0;
       }
     }
-    param_1[0x209] = puVar2;
+    param_1->field_0x824 = (uintptr_t)(puVar2);
     puVar5 = (uint16_t *)heap_alloc((void *)0x54);
     if (puVar5 == (uint16_t *)0x0) {
       puVar5 = (uint16_t *)0x0;
@@ -732,7 +733,7 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         *(uint8_t *)(puStack_34 + 0x28) = 0;
       }
     }
-    param_1[0x20a] = puVar5;
+    param_1->field_0x828 = (uintptr_t)(puVar5);
     puVar2 = (uint32_t *)heap_alloc((void *)0x28);
     if (puVar2 == (uint32_t *)0x0) {
       puVar2 = (uint32_t *)0x0;
@@ -755,7 +756,7 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         puVar3[9] = 0;
       }
     }
-    param_1[0x20c] = puVar2;
+    param_1->field_0x830 = (uintptr_t)(puVar2);
     puVar2 = (uint32_t *)heap_alloc((void *)0xc);
     if (puVar2 == (uint32_t *)0x0) {
       puVar2 = (uint32_t *)0x0;
@@ -769,15 +770,15 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         puVar3[2] = 0;
       }
     }
-    param_1[0x20d] = puVar2;
-    iVar4 = heap_alloc((void *)0x5c);
-    if (iVar4 == 0) {
-      iVar4 = 0;
+    param_1->field_0x834 = (uintptr_t)(puVar2);
+    pcVar7 = (cls_105fa8e4 *)heap_alloc((void *)0x5c);
+    if (pcVar7 == (cls_105fa8e4 *)0x0) {
+      pcVar7 = (cls_105fa8e4 *)0x0;
     }
     else {
-      cls_105fa8e4_new(iVar4);
+      cls_105fa8e4_new(pcVar7);
     }
-    param_1[0x20e] = iVar4;
+    param_1->field_0x838 = (int)pcVar7;
     puVar2 = (uint32_t *)heap_alloc((void *)0x10);
     if (puVar2 == (uint32_t *)0x0) {
       puVar2 = (uint32_t *)0x0;
@@ -795,25 +796,25 @@ uint32_t * cls_1059e4d0_new(uint32_t *param_1)
         *(uint8_t *)((int)puVar3 + 0xe) = 1;
       }
     }
-    param_1[0x20f] = puVar2;
+    param_1->field_0x83c = (uintptr_t)(puVar2);
     uVar1 = 0;
     do {
       iVar4 = uVar1 * 2;
-      *(uint16_t *)((int)param_1 + iVar4 + 0x67c) = 0;
+      *(uint16_t *)(&param_1->field_0x67c + iVar4) = 0;
       uVar1 = uVar1 + 1 & 0xffff;
-      *(uint16_t *)((int)param_1 + iVar4 + 0x686) = 0;
+      *(uint16_t *)(&param_1->field_0x686 + iVar4) = 0;
     } while (uVar1 < 5);
-    param_1[0x183] = param_1[0x1fe] + 0x120;
-    param_1[0x184] = param_1[0x1fe] + 0x3c;
-    param_1[0x185] = param_1[0x20a];
-    *(uint32_t *)(param_1[0x1fe] + 0xd8) = param_1[0x20e];
-    *(uint32_t *)param_1[0x1fa] = param_1[0x1fb];
-    *(uint32_t *)(param_1[0x1fa] + 4) = param_1[0x1fc];
-    *(uint32_t **)(param_1[0x201] + 0x18) = param_1 + 0x220;
-    *(uint32_t *)(param_1[0x201] + 0x20) = param_1[0x206];
-    *(uint32_t *)(param_1[0x201] + 0x24) = param_1[0x207];
-    *(uint32_t *)(param_1[0x201] + 0x28) = param_1[0x208];
-    *(uint32_t *)(param_1[0x201] + 0x2c) = param_1[0x209];
+    param_1->field_0x60c = (int)(param_1->field_0x7f8 + 0x48);
+    param_1->field_0x610 = (int)(param_1->field_0x7f8 + 0xf);
+    param_1->field_0x614 = param_1->field_0x828;
+    ((uint32_t *)(param_1->field_0x7f8))[0x36] = param_1->field_0x838;
+    *(uint32_t *)(param_1->field_0x7e8) = param_1->field_0x7ec;
+    ((uint32_t *)(param_1->field_0x7e8))[1] = param_1->field_0x7f0;
+    *(uint32_t **)(param_1->field_0x804 + 0x18) = &param_1->field_0x880;
+    *(uint32_t **)(param_1->field_0x804 + 0x20) = (uint32_t *)((uintptr_t)(param_1->field_0x818));
+    *(uint32_t **)(param_1->field_0x804 + 0x24) = (uint32_t *)((uintptr_t)(param_1->field_0x81c));
+    *(uint32_t **)(param_1->field_0x804 + 0x28) = (uint32_t *)((uintptr_t)(param_1->field_0x820));
+    *(uint32_t **)(param_1->field_0x804 + 0x2c) = (uint32_t *)((uintptr_t)(param_1->field_0x824));
   }
   return param_1;
 }

@@ -16,21 +16,21 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-uint32_t check_field_bit_or_string(void *param_1,int param_2)
+uint32_t check_field_bit_or_string(cls_105a6d8c *param_1,int param_2)
 
 {
   uint32_t uVar1;
   
   if (param_2 == 10) {
     uVar1 = 0;
-    if ((*(char *)((int)param_1 + _DAT_105a64d0/*ROM*/ + 5) != '\0') ||
-       (*(char *)((int)param_1 + _DAT_105a64d0/*ROM*/ + 4) != '\0')) {
+    if ((*(char *)((int)&param_1[1].field_0x0 + _DAT_105a64d0/*ROM*/ + 1) != '\0') ||
+       (*(char *)((int)&param_1[1].field_0x0 + _DAT_105a64d0/*ROM*/) != '\0')) {
       uVar1 = 1;
     }
   }
   else {
     uVar1 = 1;
-    if ((*(byte *)((int)param_1 + *(int *)(&DAT_105a6480/*ROM*/ + param_2 * 8) + 4) &
+    if ((*(byte *)((int)&param_1[1].field_0x0 + *(int *)(&DAT_105a6480/*ROM*/ + param_2 * 8)) &
         (&DAT_105a6484/*ROM*/)[param_2 * 8]) == 0) {
       uVar1 = 0;
     }

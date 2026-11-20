@@ -22,7 +22,7 @@ void release_0x100_byte_buffer(void)
 {
   int iVar1;
   
-  if (_DAT_80014980/*SDRAM*/ != (void *)0x0) {
+  if (_DAT_80014980/*SDRAM*/ != 0) {
     iVar1 = 0;
     do {
       if (*(char *)((int)_DAT_80014980/*SDRAM*/ + iVar1) == '\x01') {

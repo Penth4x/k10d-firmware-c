@@ -6,13 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void store_result_and_set_flag_104afe1e(int param_1,uint32_t *param_2,uint32_t param_3)
+void store_result_and_set_flag_104afe1e(cls_105b7994 *param_1,uint32_t *param_2,uint32_t param_3)
 
 {
   uint32_t uVar1;
   
-  uVar1 = copy_bytes_with_alignment(*(uint32_t *)(param_1 + 100),param_2,param_3,0x200);
-  *(uint32_t *)(param_1 + 0x68) = uVar1;
-  set_flg_obj(*(uint32_t **)(param_1 + 0x34));
+  uVar1 = copy_bytes_with_alignment((uint32_t *)param_1->field_0x64,param_2,param_3,0x200);
+  param_1->field_0x68 = uVar1;
+  set_flg_obj((uint32_t *)param_1->field_0x34);
   return;
 }

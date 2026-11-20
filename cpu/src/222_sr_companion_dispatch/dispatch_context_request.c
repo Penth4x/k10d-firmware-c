@@ -32,7 +32,7 @@ int dispatch_context_request(int param_1,int param_2,int param_3,int param_4)
   }
   eventflag_clr_flg((uint32_t *)(param_1 + 0x24),1);
   if (param_2 == 0) {
-    write_byte_to_virtual_object((void *)(*(uint32_t *)(param_1 + 0x10)),5,param_3 != 0);
+    write_byte_to_virtual_object((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(5),(uint)(param_3 != 0));
 joined_r0x104b7ea4:
     if (param_4 != 0) {
 LAB_104b7ea8:
@@ -41,7 +41,7 @@ LAB_104b7ea8:
   }
   else {
     if (param_2 == 1) {
-      write_byte_to_virtual_object((void *)(*(uint32_t *)(param_1 + 0x10)),10,param_3 != 0);
+      write_byte_to_virtual_object((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(10),(uint)(param_3 != 0));
       goto joined_r0x104b7ea4;
     }
     if (param_2 != 2) {
@@ -49,13 +49,13 @@ LAB_104b7ea8:
         bVar1 = true;
         goto LAB_104b7f28;
       }
-      write_byte_to_virtual_object((void *)(*(uint32_t *)(param_1 + 0x10)),2,param_3 != 0);
+      write_byte_to_virtual_object((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(2),(uint)(param_3 != 0));
       if (param_4 == 0) goto LAB_104b7f26;
       goto LAB_104b7ea8;
     }
-    write_object_field_byte((void *)(*(uint32_t *)(param_1 + 0x20)),0xe,param_3 != 0);
+    write_object_field_byte((int *)(*(uint32_t *)(param_1 + 0x20)),(int)(0xe),(uint)(param_3 != 0));
     if (param_4 != 0) {
-      iVar2 = cpucom_ctx_resubmit((void *)(*(uint32_t *)(param_1 + 0x20)),(void *)(param_1 + 4));
+      iVar2 = cpucom_ctx_resubmit((int *)(*(uint32_t *)(param_1 + 0x20)),(void *)(param_1 + 4));
     }
   }
 LAB_104b7f26:

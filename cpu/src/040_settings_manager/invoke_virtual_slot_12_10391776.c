@@ -14,14 +14,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_12_10391776(int param_1)
+void invoke_virtual_slot_12_10391776(cls_10562400 *param_1)
 
 {
   int *piVar1;
   
-  piVar1 = *(int **)(param_1 + 0x2c48);
+  piVar1 = (int *)param_1[0x46].field_0x88;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 100))((int)*(short *)(*piVar1 + 0x60) + (int)piVar1);
+    (((vtbl_entry*)(*piVar1))[12].fn)((int)((vtbl_entry*)(*piVar1))[12].adj + (int)piVar1);
   }
   return;
 }

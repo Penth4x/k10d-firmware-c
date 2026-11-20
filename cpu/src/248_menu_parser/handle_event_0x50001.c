@@ -15,16 +15,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t handle_event_0x50001(int param_1,int param_2,int param_3)
+/* WARNING: Struct "cls_105bb0ec": ignoring overlapping field "field_0x8" */
+
+uint32_t handle_event_0x50001(cls_105bb0ec *param_1,int param_2,int param_3)
 
 {
   int iVar1;
   
   if (param_2 == 0x50001) {
-    *(int *)(param_1 + 0x90) = param_3;
-    iVar1 = **(int **)(param_1 + 0x7c);
-    (**(code **)(iVar1 + 0xc))
-              ((int)*(int **)(param_1 + 0x7c) + (int)*(short *)(iVar1 + 8),param_3 != 0);
+    param_1->field59_0x90 = (char)((uint)param_3 >> 0x18);
+    param_1->field_0x91 = (char)((uint)param_3 >> 0x10);
+    param_1->field_0x92 = (char)((uint)param_3 >> 8);
+    param_1->field_0x93 = (char)param_3;
+    iVar1 = *(int *)param_1->field_0x7c;
+    (((vtbl_entry*)(iVar1))[1].fn)((int)param_1->field_0x7c + (int)*(short *)(iVar1 + 8),param_3 != 0);
   }
   return 1;
 }

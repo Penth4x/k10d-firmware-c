@@ -16,16 +16,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t store_three_query_results(uint32_t *param_1)
+uint32_t store_three_query_results(cls_105b5c6c *param_1)
 
 {
   uint32_t uVar1;
   
-  uVar1 = read_struct_field_by_index_104a2a78((void *)*param_1,3);
-  param_1[0x16] = uVar1;
-  uVar1 = read_struct_field_by_index_104a2a78((void *)*param_1,0);
-  param_1[0x17] = uVar1;
-  uVar1 = read_struct_field_by_index_104a2a78((void *)*param_1,2);
-  param_1[0x18] = uVar1;
+  uVar1 = read_struct_field_by_index_104a2a78((char*)(param_1) ->field_0x0,3);
+  param_1->field_0x58 = uVar1;
+  uVar1 = read_struct_field_by_index_104a2a78((char*)(param_1) ->field_0x0,0);
+  param_1->field_0x5c = uVar1;
+  uVar1 = read_struct_field_by_index_104a2a78((char*)(param_1) ->field_0x0,2);
+  param_1->field_0x60 = uVar1;
   return 1;
 }

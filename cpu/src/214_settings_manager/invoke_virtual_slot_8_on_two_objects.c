@@ -24,12 +24,12 @@ uint32_t invoke_virtual_slot_8_on_two_objects(int param_1)
   if (*(int *)(param_1 + 0x18) == 0) {
     *(uint32_t *)(param_1 + 0x18) = 6;
     iVar2 = **(int **)(param_1 + 8);
-    iVar2 = (**(code **)(iVar2 + 0x44))
-                      ((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar2 + 0x40),0,0);
+    iVar2 = (((vtbl_entry*)(iVar2))[8].fn)
+                      ((int)*(int **)(param_1 + 8) + (int)((vtbl_entry*)(iVar2))[8].adj,0,0);
     if (iVar2 == 4) {
       *(uint32_t *)(param_1 + 0x18) = 0;
       iVar2 = **(int **)(param_1 + 4);
-      (**(code **)(iVar2 + 0x44))((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar2 + 0x40));
+      (((vtbl_entry*)(iVar2))[8].fn)((int)*(int **)(param_1 + 4) + (int)((vtbl_entry*)(iVar2))[8].adj);
     }
     uVar1 = 1;
   }

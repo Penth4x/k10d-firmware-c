@@ -6,11 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_with_three_calls_105001d0(int param_1)
+/* WARNING: Struct "cls_105d4c70": ignoring multiple overlapping fields */
+
+void init_object_with_three_calls_105001d0(cls_105d4c70 *param_1)
 
 {
   toggle_pointer_field_flags(__frv_reg_unset(4));
-  check_kernel_object_id_valid((void *)(param_1 + 0xc));
-  invoke_virtual_slot_two_104272e4((void *)(param_1 + 0x1c),0xe00004,9);
+  check_kernel_object_id_valid(&((uint32_t *)&(param_1->field_0x4))[2]);
+  invoke_virtual_slot_two_104272e4(&param_1->field_0x1c,0xe00004,9);
   return;
 }

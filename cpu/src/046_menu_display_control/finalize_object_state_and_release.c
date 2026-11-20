@@ -22,31 +22,31 @@ void finalize_object_state_and_release(void *param_1)
     if ((uVar1 & 1) == 0) {
       if ((uVar1 & 2) != 0) {
         iVar3 = *(int *)(*(int *)((int)param_1 + 100) + 0xc);
-        (**(code **)(iVar3 + 0xc))(*(int *)((int)param_1 + 100) + (int)*(short *)(iVar3 + 8),1);
+        (((vtbl_entry*)(iVar3))[1].fn)(*(int *)((int)param_1 + 100) + (int)*(short *)(iVar3 + 8),1);
       }
     }
     else if ((uVar1 & 4) == 0) {
       iVar3 = *(int *)(*(int *)((int)param_1 + 0x54) + 0xc);
-      (**(code **)(iVar3 + 0xc))(*(int *)((int)param_1 + 0x54) + (int)*(short *)(iVar3 + 8),1);
+      (((vtbl_entry*)(iVar3))[1].fn)(*(int *)((int)param_1 + 0x54) + (int)*(short *)(iVar3 + 8),1);
       iVar3 = *(int *)(*(int *)((int)param_1 + 0x58) + 0xc);
-      (**(code **)(iVar3 + 0xc))(*(int *)((int)param_1 + 0x58) + (int)*(short *)(iVar3 + 8),1);
+      (((vtbl_entry*)(iVar3))[1].fn)(*(int *)((int)param_1 + 0x58) + (int)*(short *)(iVar3 + 8),1);
     }
     else {
       iVar3 = *(int *)(*(int *)((int)param_1 + 0xec) + 0xc);
-      (**(code **)(iVar3 + 0xc))(*(int *)((int)param_1 + 0xec) + (int)*(short *)(iVar3 + 8));
+      (((vtbl_entry*)(iVar3))[1].fn)(*(int *)((int)param_1 + 0xec) + (int)*(short *)(iVar3 + 8));
     }
     iVar3 = *(int *)(*(int *)((int)param_1 + 0x74) + 0xc);
-    (**(code **)(iVar3 + 0xc))(*(int *)((int)param_1 + 0x74) + (int)*(short *)(iVar3 + 8),1);
+    (((vtbl_entry*)(iVar3))[1].fn)(*(int *)((int)param_1 + 0x74) + (int)*(short *)(iVar3 + 8),1);
     iVar3 = *(int *)(*(int *)((int)param_1 + 0x78) + 0xc);
-    (**(code **)(iVar3 + 0xc))(*(int *)((int)param_1 + 0x78) + (int)*(short *)(iVar3 + 8),1);
+    (((vtbl_entry*)(iVar3))[1].fn)(*(int *)((int)param_1 + 0x78) + (int)*(short *)(iVar3 + 8),1);
     iVar3 = *(int *)(*(int *)((int)param_1 + 0x7c) + 0xc);
-    (**(code **)(iVar3 + 0xc))(*(int *)((int)param_1 + 0x7c) + (int)*(short *)(iVar3 + 8),1);
+    (((vtbl_entry*)(iVar3))[1].fn)(*(int *)((int)param_1 + 0x7c) + (int)*(short *)(iVar3 + 8),1);
     iVar3 = *(int *)(*(int *)((int)param_1 + 0x80) + 0xc);
-    (**(code **)(iVar3 + 0xc))(*(int *)((int)param_1 + 0x80) + (int)*(short *)(iVar3 + 8),1);
+    (((vtbl_entry*)(iVar3))[1].fn)(*(int *)((int)param_1 + 0x80) + (int)*(short *)(iVar3 + 8),1);
     iVar3 = *(int *)(*(int *)((int)param_1 + 0x84) + 0xc);
-    (**(code **)(iVar3 + 0xc))(*(int *)((int)param_1 + 0x84) + (int)*(short *)(iVar3 + 8),1);
+    (((vtbl_entry*)(iVar3))[1].fn)(*(int *)((int)param_1 + 0x84) + (int)*(short *)(iVar3 + 8),1);
     iVar3 = *(int *)(*(int *)((int)param_1 + 0x90) + 0xc);
-    (**(code **)(iVar3 + 0xc))(*(int *)((int)param_1 + 0x90) + (int)*(short *)(iVar3 + 8),1);
+    (((vtbl_entry*)(iVar3))[1].fn)(*(int *)((int)param_1 + 0x90) + (int)*(short *)(iVar3 + 8),1);
     *(uint32_t *)((int)param_1 + 0x40) = 3;
   }
   call_helper_on_fetched_object((void *)((int)param_1 + 8),0x10);

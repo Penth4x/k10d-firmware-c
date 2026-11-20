@@ -35,7 +35,7 @@ int fetch_and_verify_buffer_entry(void *param_1,uint param_2,uint param_3,uint *
   puVar5 = (uint32_t *)auStack_38;
   uStack_24 = 1;
   pvVar1 = (void *)alloc_pool2_block((void *)0x2a0);
-  if (pvVar1 == (void *)0x0) {
+  if (pvVar1 == 0) {
     iVar2 = -0xc;
   }
   else {
@@ -43,7 +43,7 @@ int fetch_and_verify_buffer_entry(void *param_1,uint param_2,uint param_3,uint *
       uVar4 = uStack_24;
       uVar3 = *param_4;
       puStack_28 = &uStack_34;
-      *puVar5 = (uint32_t)(uintptr_t)pvVar1;
+      *puVar5 = (uintptr_t)(pvVar1);
       iVar2 = process_32_byte_record_stream_10539d34(param_1,uVar3,uVar4,(int *)&uStack_34,(void *)*puVar5);
       if (iVar2 != 0) break;
       iVar2 = iStack_2c + -1;

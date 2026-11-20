@@ -18,7 +18,7 @@ bool compare_two_offsets(int param_1)
 {
   uint uVar1;
   
-  uVar1 = sum_virtual_method_results((void *)(param_1 + 0x4b0));
-  sum_virtual_method_results((void *)(param_1 + 0x25c));
+  uVar1 = sum_virtual_method_results((cls_105f9250 *)(param_1 + 0x4b0));
+  sum_virtual_method_results((cls_105f9250 *)(param_1 + 0x25c));
   return 130000 < uVar1;
 }

@@ -6,15 +6,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool check_and_zero_two_buffers(int *param_1)
+bool check_and_zero_two_buffers(cls_105aae94 *param_1)
 
 {
   bool bVar1;
   
-  bVar1 = release_object_if_allocated_1047e45e(param_1);
+  bVar1 = release_object_if_allocated_1047e45e((cls_105aaebc *)param_1);
   if (bVar1) {
-    fill_byte_array((void *)param_1[4],0,param_1[1] << 2);
-    fill_byte_array((void *)param_1[5],0,param_1[1] << 2);
+    fill_byte_array((char*)(param_1) ->field_0x10,0,param_1->field_0x4 << 2);
+    fill_byte_array((char*)(param_1) ->field_0x14,0,param_1->field_0x4 << 2);
   }
   return bVar1;
 }

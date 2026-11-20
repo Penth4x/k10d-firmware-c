@@ -38,8 +38,7 @@ void run_infinite_event_loop(int param_1)
   *(uint16_t *)(puVar4 + 2) = 6;
   *(uint16_t *)(puVar4 + 6) = 0xff;
   puVar4[0xb] = 0;
-  dispatch_actuator_drive_command(param_1,1,2,0x105a9b30/*ROM*/,*(uint16_t *)(puVar4 + 2),*(uint16_t *)(puVar4 + 6),
-               puVar4[0xb]);
+  dispatch_actuator_drive_command((int)(param_1),(uint32_t)(1),(uint32_t)(2),(byte *)(0x105a9b30/*ROM*/),(uint16_t)(*(uint16_t *)(puVar4 + 2)),(uint16_t)(*(uint16_t *)(puVar4 + 6)), (char)(puVar4[0xb]));
   dispatch_on_flag_with_context(param_1,1);
   pvVar3 = (void *)0x105a9b58/*ROM*/;
   pvStack_5c = (void *)0x105a9b58/*ROM*/;
@@ -50,10 +49,9 @@ void run_infinite_event_loop(int param_1)
     *(uint16_t *)(puVar4 + 2) = 6;
     *(uint16_t *)(puVar4 + 6) = 0xff;
     puVar4[0xb] = 0;
-    dispatch_actuator_drive_command(param_1,3,2,auStack_58,*(uint16_t *)(puVar4 + 2),*(uint16_t *)(puVar4 + 6),
-                 puVar4[0xb]);
+    dispatch_actuator_drive_command(param_1,3,2,auStack_58,*(uint16_t *)(puVar4 + 2),*(uint16_t *)(puVar4 + 6), puVar4[0xb]);
     release_struct_fields_10466d8a(*(void **)(param_1 + 0x1c));
-    dispatch_timer_callback(param_1,pvVar1);
+    dispatch_timer_callback((int)(param_1),(uint8_t)(pvVar1));
     release_three_sub_objects(*(uint32_t *)(param_1 + 0x1c));
     iVar2 = check_mode_in_valid_set(param_1,pvVar1);
     if (iVar2 != 0) {
@@ -64,7 +62,7 @@ void run_infinite_event_loop(int param_1)
       }
     }
     release_struct_fields_10466d8a(*(void **)(param_1 + 0x1c));
-    if (pvVar1 != (void *)0x0) {
+    if (pvVar1 != 0) {
       dispatch_virtual_slot_six(param_1,pvVar1);
     }
     release_three_sub_objects(*(uint32_t *)(param_1 + 0x1c));
@@ -73,7 +71,6 @@ void run_infinite_event_loop(int param_1)
     *(uint16_t *)(puVar4 + 6) = 0xff;
     puVar4[0xb] = 0;
     pvVar3 = pvStack_5c;
-    dispatch_actuator_drive_command(param_1,7,2,0x105a9b58/*ROM*/,*(uint16_t *)(puVar4 + 2),*(uint16_t *)(puVar4 + 6),
-                 puVar4[0xb]);
+    dispatch_actuator_drive_command((int)(param_1),(uint32_t)(7),(uint32_t)(2),(byte *)(0x105a9b58/*ROM*/),(uint16_t)(*(uint16_t *)(puVar4 + 2)),(uint16_t)(*(uint16_t *)(puVar4 + 6)), (char)(puVar4[0xb]));
   } while( true );
 }

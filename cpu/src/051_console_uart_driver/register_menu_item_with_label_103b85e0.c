@@ -30,16 +30,16 @@ void register_menu_item_with_label_103b85e0(void *param_1)
     (&stack0xffffffe3)[iVar2] = *(uint8_t *)(iVar2 + 0x1056ad23/*ROM*/);
     iVar2 = iVar3;
   } while (iVar3 != 0);
-  format_string_to_buffer_10545140(abStack_1c,(void *)&DAT_1056ad38/*ROM*/,(void *)(*(uint *)((int)param_1 + 0x44) >> 0x10),
+  format_string_to_buffer_10545140(abStack_1c,&DAT_1056ad38/*ROM*/,(void *)(*(uint *)((int)param_1 + 0x44) >> 0x10),
                (void *)(*(uint *)((int)param_1 + 0x44) & 0xffff));
   iVar3 = (int)param_1 + 8;
   pvVar1 = (void *)menu_item_register(iVar3);
   glyph_draw(pvVar1,abStack_1c);
-  (**(code **)(*(int *)((int)pvVar1 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar1 + 0xc)))[1].fn)
             ((int)pvVar1 + (int)*(short *)(*(int *)((int)pvVar1 + 0xc) + 8),1);
   iVar2 = menu_item_register(iVar3);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   iVar2 = menu_item_register(iVar3);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   return;
 }

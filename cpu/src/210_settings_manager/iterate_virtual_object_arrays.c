@@ -24,12 +24,12 @@ uint32_t iterate_virtual_object_arrays(void *param_1)
   int iVar3;
   
   iVar3 = *(int *)(*(int *)((int)param_1 + 0x28) + 4);
-  (**(code **)(iVar3 + 0x1c))(*(int *)((int)param_1 + 0x28) + (int)*(short *)(iVar3 + 0x18),0);
+  (((vtbl_entry*)(iVar3))[3].fn)(*(int *)((int)param_1 + 0x28) + (int)((vtbl_entry*)(iVar3))[3].adj,0);
   uVar2 = 0;
   do {
     piVar1 = *(int **)(uVar2 * 4 + *(int *)((int)param_1 + 0x20));
     iVar3 = *piVar1;
-    iVar3 = (**(code **)(iVar3 + 0x2c))((int)piVar1 + (int)*(short *)(iVar3 + 0x28));
+    iVar3 = (((vtbl_entry*)(iVar3))[5].fn)((int)piVar1 + (int)((vtbl_entry*)(iVar3))[5].adj);
     if (iVar3 == 0) {
       return 0;
     }
@@ -39,7 +39,7 @@ uint32_t iterate_virtual_object_arrays(void *param_1)
   do {
     piVar1 = *(int **)(uVar2 * 4 + *(int *)((int)param_1 + 0x24));
     iVar3 = *piVar1;
-    iVar3 = (**(code **)(iVar3 + 0x2c))((int)piVar1 + (int)*(short *)(iVar3 + 0x28));
+    iVar3 = (((vtbl_entry*)(iVar3))[5].fn)((int)piVar1 + (int)((vtbl_entry*)(iVar3))[5].adj);
     if (iVar3 == 0) {
       return 0;
     }

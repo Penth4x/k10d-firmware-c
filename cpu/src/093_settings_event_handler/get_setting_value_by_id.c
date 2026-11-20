@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t get_setting_value_by_id(int param_1,int param_2)
+uint32_t get_setting_value_by_id(cls_10599b9c *param_1,int param_2)
 
 {
   uint32_t uVar1;
@@ -29,7 +29,7 @@ uint32_t get_setting_value_by_id(int param_1,int param_2)
   if (param_2 == 0x1bb000d) {
     auStack_10[0] = 0x1bb0010;
     auStack_10[1] = 0x1bb000f;
-    uVar3 = setting_get(*(int *)(param_1 + 8),0x9e);
+    uVar3 = setting_get(param_1->field_0x8,0x9e);
     iVar2 = 0xff;
     if (bRam10599b8c == uVar3) {
       iVar2 = 0;

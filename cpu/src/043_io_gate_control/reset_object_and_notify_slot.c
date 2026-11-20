@@ -31,7 +31,7 @@ void reset_object_and_notify_slot(int param_1)
   *(uint8_t *)(param_1 + 0xd7) = 0;
   *(uint32_t *)(param_1 + 200) = 0;
   iVar1 = **(int **)(param_1 + 0x30);
-  (**(code **)(iVar1 + 0x14))
-            ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar1 + 0x10),0x1170002,0);
+  (((vtbl_entry*)(iVar1))[2].fn)
+            ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[2].adj,0x1170002,0);
   return;
 }

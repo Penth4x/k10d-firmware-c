@@ -15,6 +15,6 @@
 void call_single_helper_on_object_104b0406(uint32_t *param_1)
 
 {
-  kernel_diag_taskstack((void *)(uintptr_t)(*param_1));
+  kernel_diag_taskstack((void *)(*param_1));
   return;
 }

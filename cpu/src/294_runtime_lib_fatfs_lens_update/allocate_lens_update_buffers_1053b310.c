@@ -43,7 +43,7 @@ int allocate_lens_update_buffers_1053b310(int param_1,uint *param_2)
     iVar2 = -0xc;
   }
   else {
-    uVar1 = alloc_pool2_block(param_2[2]);
+    uVar1 = alloc_pool2_block((void *)(param_2[2]));
     param_2[3] = uVar1;
     if (uVar1 == 0) {
       release_heap_block_1047f9bc((void *)param_2[9]);
@@ -52,7 +52,7 @@ int allocate_lens_update_buffers_1053b310(int param_1,uint *param_2)
     else {
       pvVar3 = (void *)alloc_pool2_block((void *)0x50);
       param_2[7] = (uint)pvVar3;
-      if (pvVar3 == (void *)0x0) {
+      if (pvVar3 == 0) {
         release_heap_block_1047f9bc((void *)param_2[9]);
         release_heap_block_1047f9bc((void *)param_2[3]);
         iVar2 = -0xc;

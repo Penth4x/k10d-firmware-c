@@ -16,6 +16,6 @@
 void call_single_address_helper_10435e54(void)
 
 {
-  check_magic_value_10435c7e((void*)0x10006140/*ROM*/);
+  check_magic_value_10435c7e((void *)0x10006140/*ROM*/);
   return;
 }

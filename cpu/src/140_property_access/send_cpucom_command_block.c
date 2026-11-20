@@ -17,9 +17,9 @@ uint32_t send_cpucom_command_block(int *param_1,void *param_2)
   bVar3 = set_pointer_and_clear_flag(param_1 + 7,param_2);
   uVar4 = 0;
   if (bVar3) {
-    cpucom_msg_set_cmd((void *)param_1[6],uRam105a7814);
+    cpucom_msg_set_cmd((void*)(param_1[6]),uRam105a7814);
     cpucom_resp_set_insize((void *)param_1[6],(uint)bRam105a7815);
-    iVar2 = (**(code **)(*param_1 + 0x6c))((int)*(short *)(*param_1 + 0x68) + (int)param_1);
+    iVar2 = (((vtbl_entry*)(*param_1))[13].fn)((int)((vtbl_entry*)(*param_1))[13].adj + (int)param_1);
     uVar1 = (uint)bRam105a7815;
     while (uVar1 != 0) {
       uVar1 = uVar1 - 1;

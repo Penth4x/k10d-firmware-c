@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t process_event_and_update_state_104e2142(int *param_1)
+uint32_t process_event_and_update_state_104e2142(cls_105be63c *param_1)
 
 {
   short sVar1;
@@ -24,27 +24,27 @@ uint32_t process_event_and_update_state_104e2142(int *param_1)
   uint32_t uVar3;
   int iVar4;
   
-  release_object_members(param_1);
+  release_object_members((int *)param_1);
   iVar2 = validate_sequence_counter(param_1);
   if (iVar2 == 0) {
     uVar3 = 9;
   }
   else {
-    uVar3 = get_object_field_at_offset_0x14(*param_1);
-    iVar4 = param_1[4];
-    iVar2 = dispatch_param_by_index_104e4d00(param_1[2],uVar3,param_1[6]);
+    uVar3 = get_object_field_at_offset_0x14(param_1->field_0x0);
+    iVar4 = param_1->field_0x10;
+    iVar2 = dispatch_param_by_index_104e4d00(param_1->field_0x8,uVar3,param_1->field_0x18);
     if (iVar2 == 0) {
       initialize_linked_struct_fields(param_1,0x2009);
       uVar3 = 9;
     }
     else {
-      *(uint32_t *)(param_1[1] + 0x34) = 4;
-      dispatch_virtual_slot_two_104df936(param_1,0x1009,*(int *)(param_1[6] + 0x2c0) + 0xc);
+      *(uint32_t *)(param_1->field_0x4 + 0x34) = 4;
+      dispatch_virtual_slot_two_104df936(param_1,0x1009,*(int *)((int)param_1->field_0x18 + 0x2c0) + 0xc);
       *(uint32_t *)(iVar4 + 0x28) = uVar3;
-      sVar1 = *(short *)(param_1[6] + 700);
-      advance_state_machine((int *)param_1[7],uVar3);
-      *(uint32_t *)(param_1[1] + 0x34) = 4;
-      *(uint32_t *)(param_1[1] + 0x38) = uVar3;
+      sVar1 = *(short *)((int)param_1->field_0x18 + 700);
+      advance_state_machine((int *)(param_1->field_0x1c),(int)(uVar3));
+      *(uint32_t *)(param_1->field_0x4 + 0x34) = 4;
+      *(uint32_t *)(param_1->field_0x4 + 0x38) = uVar3;
       uVar3 = 0;
       if (sVar1 != 0x3801) {
         uVar3 = 2;

@@ -63,7 +63,7 @@ bool dispatch_mode_state_update_10367558(void *param_1)
 LAB_103675cc:
   *(uint *)((int)param_1 + 100) = uVar1;
 switchD_10367580_default:
-  reset_object_fields_and_call_base((void *)((int)param_1 + 0x280));
+  reset_object_fields_and_call_base((cls_105b9458 *)((int)param_1 + 0x280));
   iVar3 = *(int *)((int)param_1 + 0x60);
   iVar2 = *(int *)((int)param_1 + 100);
   iVar4 = *(int *)((int)param_1 + 0x68);
@@ -73,8 +73,8 @@ switchD_10367580_default:
   piVar5[1] = iVar3;
   piVar5[2] = iVar2;
   *(uint8_t *)((int)piVar5 + 0x17) = DAT_800043a0/*SDRAM*/;
-  iVar2 = pack_and_forward_event_params((int)param_1,(int)param_1 + 0x6c,(void *)((int)param_1 + 0x280),0x80018058/*SDRAM*/,
-                       *piVar5,piVar5[1],piVar5[2],piVar5[3],piVar5[4],
+  iVar2 = pack_and_forward_event_params((int)param_1,(int)param_1 + 0x6c,(cls_105b9458 *)((int)param_1 + 0x280),
+                       0x80018058/*SDRAM*/,*piVar5,piVar5[1],piVar5[2],piVar5[3],piVar5[4],
                        *(uint8_t *)((int)piVar5 + 0x17));
   return iVar2 == 1;
 }

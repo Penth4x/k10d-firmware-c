@@ -24,19 +24,19 @@ uint32_t dispatch_object_event_10498ac6(void *param_1,int param_2)
   int iVar1;
   int *piVar2;
   
-  twai_sem_obj((void *)((int)param_1 + 0x10),_DAT_105a2bf0/*ROM*/);
+  twai_sem_obj((uint32_t *)((int)param_1 + 0x10),(int)(_DAT_105a2bf0/*ROM*/));
   iVar1 = get_or_create_camera_object();
   piVar2 = *(int **)(iVar1 + 4);
   if (param_2 == 0) {
-    eventflag_clr_flg((void *)((int)param_1 + 8),2);
-    (**(code **)(*piVar2 + 0x8c))
-              ((int)*(short *)(*piVar2 + 0x88) + (int)piVar2,param_1,
+    eventflag_clr_flg((uint32_t *)((int)param_1 + 8),(uint)(2));
+    (((vtbl_entry*)(*piVar2))[17].fn)
+              ((int)((vtbl_entry*)(*piVar2))[17].adj + (int)piVar2,param_1,
                *(uint32_t *)((int)param_1 + 4));
   }
   else {
-    eventflag_clr_flg((void *)((int)param_1 + 8),1);
-    (**(code **)(*piVar2 + 0x84))
-              ((int)*(short *)(*piVar2 + 0x80) + (int)piVar2,param_1,
+    eventflag_clr_flg((uint32_t *)((int)param_1 + 8),(uint)(1));
+    (((vtbl_entry*)(*piVar2))[16].fn)
+              ((int)((vtbl_entry*)(*piVar2))[16].adj + (int)piVar2,param_1,
                *(uint32_t *)((int)param_1 + 4));
   }
   return 1;

@@ -6,17 +6,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_mode_handler_1036f306(void *param_1)
+void dispatch_mode_handler_1036f306(cls_10557f3c *param_1)
 
 {
   int iVar1;
   char cVar2;
   
-  cVar2 = read_byte_at_offset_0x1d(*(int *)((int)param_1 + 0x2c));
+  cVar2 = read_byte_at_offset_0x1d(param_1->field_0x2c);
   if (cVar2 != '\0') {
-    dispatch_object_state_update_10491fb2(*(int *)((int)param_1 + 0x2c),1);
+    dispatch_object_state_update_10491fb2(param_1->field_0x2c,1);
   }
-  iVar1 = *(int *)((int)param_1 + 0xb0);
+  iVar1 = param_1->field_0xb0;
   if (iVar1 == 0) {
     configure_subobject_from_globals(param_1);
   }
@@ -29,9 +29,9 @@ void dispatch_mode_handler_1036f306(void *param_1)
   else if (iVar1 == 3) {
     call_two_helpers_on_object_1036fca6(param_1);
   }
-  cVar2 = read_byte_at_offset_0x1d(*(int *)((int)param_1 + 0x2c));
+  cVar2 = read_byte_at_offset_0x1d(param_1->field_0x2c);
   if (cVar2 != '\0') {
-    dispatch_object_state_update_10491fb2(*(int *)((int)param_1 + 0x2c),0);
+    dispatch_object_state_update_10491fb2(param_1->field_0x2c,0);
   }
   return;
 }

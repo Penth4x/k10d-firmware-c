@@ -14,7 +14,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t resolve_setting_value_index(int param_1,int param_2)
+uint32_t resolve_setting_value_index(cls_10595334 *param_1,int param_2)
 
 {
   int iVar1;
@@ -25,7 +25,7 @@ uint32_t resolve_setting_value_index(int param_1,int param_2)
   uint32_t auStack_44 [15];
   
   if (param_2 == 0x10b0038) {
-    cVar4 = *(char *)(param_1 + 0x21);
+    cVar4 = param_1->field_0x21;
     if (cVar4 == 'Z') {
       uVar2 = 0x10b0017;
     }
@@ -53,7 +53,7 @@ uint32_t resolve_setting_value_index(int param_1,int param_2)
   }
   else {
     if (param_2 == 0x10b0017) {
-      uVar3 = setting_get(*(int *)(param_1 + 8),0xc9);
+      uVar3 = setting_get(param_1->field_0x8,0xc9);
       iVar1 = 0xff;
       if (bRam10595324 == uVar3) {
         iVar1 = 0;
@@ -64,7 +64,7 @@ uint32_t resolve_setting_value_index(int param_1,int param_2)
       cVar4 = -0x3c;
     }
     else if (param_2 == 0x10b001c) {
-      uVar3 = setting_get(*(int *)(param_1 + 8),0xca);
+      uVar3 = setting_get(param_1->field_0x8,0xca);
       iVar1 = 0xff;
       if (bRam10595326 == uVar3) {
         iVar1 = 0;
@@ -75,7 +75,7 @@ uint32_t resolve_setting_value_index(int param_1,int param_2)
       cVar4 = -0x34;
     }
     else if (param_2 == 0x10b0021) {
-      uVar3 = setting_get(*(int *)(param_1 + 8),0xcb);
+      uVar3 = setting_get(param_1->field_0x8,0xcb);
       iVar1 = 0xff;
       if (bRam10595328 == uVar3) {
         iVar1 = 0;
@@ -86,7 +86,7 @@ uint32_t resolve_setting_value_index(int param_1,int param_2)
       cVar4 = -0x2c;
     }
     else if (param_2 == 0x10b0026) {
-      uVar3 = setting_get(*(int *)(param_1 + 8),0xcc);
+      uVar3 = setting_get(param_1->field_0x8,0xcc);
       iVar1 = 0xff;
       if (bRam1059532a == uVar3) {
         iVar1 = 0;
@@ -97,7 +97,7 @@ uint32_t resolve_setting_value_index(int param_1,int param_2)
       cVar4 = -0x24;
     }
     else if (param_2 == 0x10b002b) {
-      uVar3 = setting_get(*(int *)(param_1 + 8),0xcd);
+      uVar3 = setting_get(param_1->field_0x8,0xcd);
       iVar1 = 0xff;
       if (bRam1059532c == uVar3) {
         iVar1 = 0;
@@ -111,7 +111,7 @@ uint32_t resolve_setting_value_index(int param_1,int param_2)
       if (param_2 != 0x10b0030) {
         return 0;
       }
-      uVar3 = setting_get(*(int *)(param_1 + 8),0xce);
+      uVar3 = setting_get(param_1->field_0x8,0xce);
       iVar1 = 0xff;
       if (bRam1059532e == uVar3) {
         iVar1 = 0;

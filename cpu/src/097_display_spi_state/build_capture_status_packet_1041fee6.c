@@ -38,44 +38,44 @@ void build_capture_status_packet_1041fee6(void *param_1,int param_2)
   uStack_c = 0x20;
   uStack_a = 0x20;
   iVar2 = **(int **)((int)param_1 + 0x30);
-  uStack_22 = (**(code **)(iVar2 + 0x1e4))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar2 + 0x1e0));
+  uStack_22 = (((vtbl_entry*)(iVar2))[60].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar2))[60].adj);
   if (param_2 == 0) {
     iVar2 = **(int **)((int)param_1 + 0x30);
-    uStack_24 = (**(code **)(iVar2 + 500))
-                          ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar2 + 0x1f0));
+    uStack_24 = (((vtbl_entry*)(iVar2))[62].fn)
+                          ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar2))[62].adj);
   }
   else if (param_2 == 1) {
     iVar2 = **(int **)((int)param_1 + 0x30);
-    uStack_24 = (**(code **)(iVar2 + 0x1fc))
-                          ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar2 + 0x1f8));
+    uStack_24 = (((vtbl_entry*)(iVar2))[63].fn)
+                          ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar2))[63].adj);
   }
   else {
     iVar2 = **(int **)((int)param_1 + 0x30);
-    uStack_24 = (**(code **)(iVar2 + 500))
-                          ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar2 + 0x1f0));
+    uStack_24 = (((vtbl_entry*)(iVar2))[62].fn)
+                          ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar2))[62].adj);
   }
   iVar2 = **(int **)((int)param_1 + 0x30);
-  uStack_1e = (**(code **)(iVar2 + 0x204))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar2 + 0x200));
+  uStack_1e = (((vtbl_entry*)(iVar2))[64].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar2))[64].adj);
   iVar2 = **(int **)((int)param_1 + 0x30);
-  uStack_20 = (**(code **)(iVar2 + 0x20c))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar2 + 0x208));
+  uStack_20 = (((vtbl_entry*)(iVar2))[65].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar2))[65].adj);
   uStack_16 = uStack_22;
   uStack_1c = 0;
   uStack_18 = uStack_24;
   iVar2 = **(int **)((int)param_1 + 0x30);
-  uStack_12 = (**(code **)(iVar2 + 0x214))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar2 + 0x210));
+  uStack_12 = (((vtbl_entry*)(iVar2))[66].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar2))[66].adj);
   iVar2 = **(int **)((int)param_1 + 0x30);
-  uStack_14 = (**(code **)(iVar2 + 0x21c))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar2 + 0x218));
+  uStack_14 = (((vtbl_entry*)(iVar2))[67].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar2))[67].adj);
   uStack_c = 0x20;
   uStack_a = 0x20;
   uStack_10 = 0;
   cVar1 = read_sysparam_byte(*(uint8_t **)((int)param_1 + 0x48));
   if (cVar1 != '\0') {
-    iVar2 = get_sysparam_store_byte(*(uint32_t *)((int)param_1 + 0x48),0x1b);
+    iVar2 = get_sysparam_store_byte((void*)(*(uint32_t *)((int)param_1 + 0x48)),0x1b);
     if (iVar2 != 0) {
       uStack_c = *(uint16_t *)(*(int *)((int)param_1 + 0x48) + 0x2c);
       uStack_a = *(uint16_t *)(*(int *)((int)param_1 + 0x48) + 0x2e);

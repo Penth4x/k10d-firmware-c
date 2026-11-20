@@ -25,8 +25,8 @@ void notify_object_event_if_active(int param_1)
       dispatch_virtual_on_result(param_1,*(uint8_t *)(param_1 + 0x54));
     }
     iVar1 = **(int **)(param_1 + 0x2c);
-    (**(code **)(iVar1 + 0x14))
-              ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar1 + 0x10),0x1120064,0);
+    (((vtbl_entry*)(iVar1))[2].fn)
+              ((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar1))[2].adj,0x1120064,0);
   }
   return;
 }

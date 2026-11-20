@@ -29,17 +29,17 @@ uint32_t dispatch_virtual_method_by_type(int param_1,int *param_2,uint32_t param
     iVar2 = *param_2;
     sVar1 = *(short *)(iVar2 + 0x10);
     uVar3 = return_max_of_two_104a8b48(4,*(uint32_t *)(param_1 + 4));
-    uVar3 = (**(code **)(iVar2 + 0x14))((int)sVar1 + (int)param_2,param_4,uVar3,param_3);
+    uVar3 = (((vtbl_entry*)(iVar2))[2].fn)((int)sVar1 + (int)param_2,param_4,uVar3,param_3);
   }
   else if (iVar2 == 2) {
     iVar2 = *param_2;
     sVar1 = *(short *)(iVar2 + 0x18);
     uVar3 = return_max_of_two_104a8b48(2,*(uint32_t *)(param_1 + 4));
-    uVar3 = (**(code **)(iVar2 + 0x1c))((int)sVar1 + (int)param_2,param_4,uVar3,param_3);
+    uVar3 = (((vtbl_entry*)(iVar2))[3].fn)((int)sVar1 + (int)param_2,param_4,uVar3,param_3);
   }
   else if (iVar2 == 4) {
-    uVar3 = (**(code **)(*param_2 + 0x24))
-                      ((int)*(short *)(*param_2 + 0x20) + (int)param_2,param_4,
+    uVar3 = (((vtbl_entry*)(*param_2))[4].fn)
+                      ((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,param_4,
                        *(uint32_t *)(param_1 + 4),param_3);
   }
   else if (iVar2 == 8) {
@@ -47,8 +47,8 @@ uint32_t dispatch_virtual_method_by_type(int param_1,int *param_2,uint32_t param
       uVar3 = 0;
     }
     else {
-      (**(code **)(*param_2 + 0x24))
-                ((int)*(short *)(*param_2 + 0x20) + (int)param_2,param_4,*(int *)(param_1 + 4) << 1,
+      (((vtbl_entry*)(*param_2))[4].fn)
+                ((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,param_4,*(int *)(param_1 + 4) << 1,
                  param_3);
       uVar3 = 1;
     }

@@ -16,20 +16,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_fields_from_base(void *param_1)
+uint32_t init_object_fields_from_base(cls_1059d1d8 *param_1)
 
 {
-  initialize_object_state_1041ad18(param_1);
-  create_kernel_object((void *)((int)param_1 + 0x90));
-  wait_flg_obj((void *)((int)param_1 + 0xc4),0);
-  wait_flg_obj((void *)((int)param_1 + 0xcc),0);
-  *(int *)((int)param_1 + 0xd4) = *(int *)((int)param_1 + 0x4c) + 0x68;
-  *(int *)((int)param_1 + 0xd8) = *(int *)((int)param_1 + 0x4c) + 0x6c;
-  *(int *)((int)param_1 + 0xdc) = *(int *)((int)param_1 + 0x4c) + 0x70;
-  *(int *)((int)param_1 + 0xe0) = *(int *)((int)param_1 + 0x4c) + 0x74;
-  *(int *)((int)param_1 + 0xe4) = *(int *)((int)param_1 + 0x4c) + 0x7c;
-  *(int *)((int)param_1 + 0xe8) = *(int *)((int)param_1 + 0x4c) + 0x80;
-  *(int *)((int)param_1 + 0xec) = *(int *)((int)param_1 + 0x4c) + 0x30;
-  *(int *)((int)param_1 + 0xf0) = *(int *)((int)param_1 + 0x4c) + 0x4c;
+  initialize_object_state_1041ad18((cls_1059cbf0 *)param_1);
+  create_kernel_object(&param_1->field_0x90);
+  wait_flg_obj(&param_1->field_0xc4,0);
+  wait_flg_obj(&param_1->field_0xcc,0);
+  param_1->field_0xd4 = param_1->field_0x4c + 0x68;
+  param_1->field_0xd8 = param_1->field_0x4c + 0x6c;
+  param_1->field_0xdc = param_1->field_0x4c + 0x70;
+  param_1->field_0xe0 = param_1->field_0x4c + 0x74;
+  param_1->field_0xe4 = param_1->field_0x4c + 0x7c;
+  param_1->field_0xe8 = param_1->field_0x4c + 0x80;
+  *(int *)&param_1->field_0xec = param_1->field_0x4c + 0x30;
+  param_1->field_0xf0 = param_1->field_0x4c + 0x4c;
   return 1;
 }

@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void register_menu_item_and_update_ev(int *param_1,int param_2)
+void register_menu_item_and_update_ev(cls_10597d1c *param_1,int param_2)
 
 {
   short sVar1;
@@ -33,60 +33,60 @@ void register_menu_item_and_update_ev(int *param_1,int param_2)
   
   puVar7 = auStack_14;
   puVar6 = auStack_14;
-  param_1[6] = param_2;
+  param_1->field_0x18 = param_2;
   if (param_2 == 0x18f0011) {
-    set_level_state_and_notify(param_1,*(uint8_t *)((int)param_1 + 0x22));
+    set_level_state_and_notify(param_1,param_1->field_0x22);
     compute_ev_offset_and_dispatch(param_1);
-    iVar5 = menu_item_register(*param_1);
-    uVar2 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + (uint)*(byte *)((int)param_1 + 0x22) * 4);
-    uVar3 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + ((uint)*(byte *)((int)param_1 + 0x22) * 2 + 1) * 2);
+    iVar5 = menu_item_register((int)param_1->field_0x0);
+    uVar2 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + (uint)(byte)param_1->field_0x22 * 4);
+    uVar3 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + ((uint)(byte)param_1->field_0x22 * 2 + 1) * 2);
     pcVar4 = *(code **)(*(int *)(iVar5 + 0xc) + 0xf4);
     sVar1 = *(short *)(*(int *)(iVar5 + 0xc) + 0xf0);
     *(uint16_t *)(puVar6 + 2) = 0xc;
     *(uint16_t *)(puVar6 + 6) = 0xc;
     (*pcVar4)(sVar1 + iVar5,0x10,uVar2,uVar3);
-    forward_two_args_to_helper_10493bf8((void *)iVar5,1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
-    iVar5 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
+    forward_two_args_to_helper_10493bf8((int *)(iVar5),(uint8_t)(1));
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
+    iVar5 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
     puVar8 = puVar6;
   }
   else {
     puVar8 = auStack_14;
     if (param_2 == 0x18f005d) {
-      set_level_state_and_notify(param_1,*(uint8_t *)((int)param_1 + 0x22));
+      set_level_state_and_notify(param_1,param_1->field_0x22);
       compute_ev_offset_and_dispatch(param_1);
-      iVar5 = menu_item_register(*param_1);
-      uVar2 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + (uint)*(byte *)((int)param_1 + 0x22) * 4);
-      uVar3 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + ((uint)*(byte *)((int)param_1 + 0x22) * 2 + 1) * 2);
+      iVar5 = menu_item_register((int)param_1->field_0x0);
+      uVar2 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + (uint)(byte)param_1->field_0x22 * 4);
+      uVar3 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + ((uint)(byte)param_1->field_0x22 * 2 + 1) * 2);
       pcVar4 = *(code **)(*(int *)(iVar5 + 0xc) + 0xf4);
       sVar1 = *(short *)(*(int *)(iVar5 + 0xc) + 0xf0);
       *(uint16_t *)(puVar7 + 2) = 0xc;
       *(uint16_t *)(puVar7 + 6) = 0xc;
       (*pcVar4)(sVar1 + iVar5,0x10,uVar2,uVar3);
-      forward_two_args_to_helper_10493bf8((void *)iVar5,1);
-      (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
-      iVar5 = menu_item_register(*param_1);
-      (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
+      forward_two_args_to_helper_10493bf8((int *)(iVar5),(uint8_t)(1));
+      (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
+      iVar5 = menu_item_register((int)param_1->field_0x0);
+      (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
       puVar8 = puVar7;
     }
   }
-  iVar5 = menu_item_register(*param_1);
-  uVar2 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + (uint)*(byte *)((int)param_1 + 0x22) * 4);
-  uVar3 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + ((uint)*(byte *)((int)param_1 + 0x22) * 2 + 1) * 2);
+  iVar5 = menu_item_register((int)param_1->field_0x0);
+  uVar2 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + (uint)(byte)param_1->field_0x22 * 4);
+  uVar3 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + ((uint)(byte)param_1->field_0x22 * 2 + 1) * 2);
   pcVar4 = *(code **)(*(int *)(iVar5 + 0xc) + 0xf4);
   sVar1 = *(short *)(*(int *)(iVar5 + 0xc) + 0xf0);
   *(uint16_t *)(puVar8 + 2) = 0xc;
   *(uint16_t *)(puVar8 + 6) = 0xc;
   (*pcVar4)(sVar1 + iVar5,0x10,uVar2,uVar3);
-  forward_two_args_to_helper_10493bf8((void *)iVar5,1);
-  (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
-  if (param_1[6] == 0x18f0066) {
-    *(uint8_t *)(param_1 + 9) = 0;
+  forward_two_args_to_helper_10493bf8((int *)(iVar5),(uint8_t)(1));
+  (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
+  if (param_1->field_0x18 == 0x18f0066) {
+    param_1->field_0x24 = 0;
     compute_ev_offset_and_dispatch(param_1);
   }
-  else if (param_1[6] == 0x18f0067) {
-    *(uint8_t *)(param_1 + 9) = 1;
+  else if (param_1->field_0x18 == 0x18f0067) {
+    param_1->field_0x24 = 1;
     compute_ev_offset_and_dispatch(param_1);
   }
   return;

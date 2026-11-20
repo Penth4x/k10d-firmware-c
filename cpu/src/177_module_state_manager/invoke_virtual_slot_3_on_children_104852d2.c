@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t invoke_virtual_slot_3_on_children_104852d2(void *param_1)
+uint32_t invoke_virtual_slot_3_on_children_104852d2(cls_105ab92c *param_1)
 
 {
   int *piVar1;
@@ -29,34 +29,34 @@ uint32_t invoke_virtual_slot_3_on_children_104852d2(void *param_1)
   uint8_t uStack_9;
   
   heap_alloc_one_byte_1045926e((int)&uStack_9);
-  pvVar2 = (void *)return_pentax_corp_string_ptr((int)&uStack_9);
+  pvVar2 = (void *)return_pentax_corp_string_ptr((uint32_t)(&uStack_9));
   iVar3 = compare_buffer_bytes(pvVar2,(void *)0x105ab95c/*ROM*/,6);
   bVar6 = iVar3 != 0;
   iVar5 = 1;
   iVar3 = 0;
   do {
-    piVar1 = *(int **)((int)param_1 + iVar3 + 4);
+    piVar1 = *(int **)((int)&param_1->field_0x4 + iVar3);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1,bVar6);
+      (((vtbl_entry*)(*piVar1))[3].fn)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1,bVar6);
     }
-    piVar1 = *(int **)((int)param_1 + iVar3 + 8);
+    piVar1 = *(int **)((int)&param_1->field_0x8 + iVar3);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1,bVar6);
+      (((vtbl_entry*)(*piVar1))[3].fn)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1,bVar6);
     }
-    piVar1 = *(int **)((int)param_1 + iVar3 + 0xc);
+    piVar1 = *(int **)((int)&param_1->field_0xc + iVar3);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1,bVar6);
+      (((vtbl_entry*)(*piVar1))[3].fn)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1,bVar6);
     }
-    piVar1 = *(int **)((int)param_1 + iVar3 + 0x10);
+    piVar1 = *(int **)((int)&param_1->field_0x10 + iVar3);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1,bVar6);
+      (((vtbl_entry*)(*piVar1))[3].fn)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1,bVar6);
     }
     iVar5 = iVar5 + -1;
     iVar3 = iVar3 + 0x10;
   } while (-1 < iVar5);
-  iVar3 = **(int **)((int)param_1 + 0x24);
-  uVar4 = (**(code **)(iVar3 + 0x1c))
-                    ((int)*(int **)((int)param_1 + 0x24) + (int)*(short *)(iVar3 + 0x18),0);
+  iVar3 = *(int *)param_1->field_0x24;
+  uVar4 = (((vtbl_entry*)(iVar3))[3].fn)
+                    ((void *)((int)param_1->field_0x24 + (int)((vtbl_entry*)(iVar3))[3].adj),0);
   heap_free_if_flagged(&uStack_9,2);
   return uVar4;
 }

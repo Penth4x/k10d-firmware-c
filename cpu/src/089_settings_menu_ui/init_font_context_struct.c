@@ -65,18 +65,18 @@ uint32_t * init_font_context_struct(uint32_t *param_1)
     *(uint16_t *)(param_1 + 0xb) = 0;
     iVar2 = get_or_create_singleton_object_10485138();
     pvVar3 = *(void **)(iVar2 + 0x10);
-    param_1[0x14] = (uint32_t)(uintptr_t)pvVar3;
+    param_1[0x14] = (uintptr_t)(pvVar3);
     settings_refresh_working_copy(pvVar3);
     uVar4 = setting_get(param_1[0x14],0xa9);
     *(char *)(param_1 + 0x16) = (char)uVar4;
     iVar2 = get_or_init_sram_object_1040b854();
-    param_1[0x15] = (uint32_t)(uintptr_t)iVar2;
+    param_1[0x15] = iVar2;
     bVar1 = *(byte *)(param_1 + 0x16);
-    *puVar6 = (uint32_t)(uintptr_t)(param_1 + 0xe);
-    puVar6[1] = (uint32_t)(uintptr_t)(param_1 + 0xf);
+    *puVar6 = (uintptr_t)(param_1 + 0xe);
+    puVar6[1] = (uintptr_t)(param_1 + 0xf);
     text_font_setup_extended(iVar2,(uint)bVar1,param_1 + 0xc,param_1 + 0xd,(int *)*puVar6,(int *)puVar6[1]);
     iVar2 = param_1[0x15];
-    *puVar6 = (uint32_t)(uintptr_t)(param_1 + 0x13);
+    *puVar6 = (uintptr_t)(param_1 + 0x13);
     compute_four_offsets_and_call_helper(iVar2,param_1 + 0x10,param_1 + 0x11,param_1 + 0x12,(int *)*puVar6);
   }
   return param_1;

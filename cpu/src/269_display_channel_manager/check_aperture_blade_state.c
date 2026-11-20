@@ -44,8 +44,8 @@ bool check_aperture_blade_state(int param_1)
     puVar2 = (uint32_t *)(param_1 + 0x328);
     eventflag_clr_flg(puVar2,0x40);
     iVar1 = **(int **)(param_1 + 0x2fc);
-    (**(code **)(iVar1 + 0x7c))
-              ((int)*(int **)(param_1 + 0x2fc) + (int)*(short *)(iVar1 + 0x78),param_1 + 4,
+    (((vtbl_entry*)(iVar1))[15].fn)
+              ((int)*(int **)(param_1 + 0x2fc) + (int)((vtbl_entry*)(iVar1))[15].adj,param_1 + 4,
                *(int *)(param_1 + 0x8c) != 0,auStack_10);
     eventflag_wai_flg(puVar2,0x40,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar2,0x40);
@@ -71,8 +71,8 @@ bool check_aperture_blade_state(int param_1)
     puVar2 = (uint32_t *)(param_1 + 0x328);
     eventflag_clr_flg(puVar2,0x40);
     iVar1 = **(int **)(param_1 + 0x2fc);
-    (**(code **)(iVar1 + 0x7c))
-              ((int)*(int **)(param_1 + 0x2fc) + (int)*(short *)(iVar1 + 0x78),param_1 + 4,
+    (((vtbl_entry*)(iVar1))[15].fn)
+              ((int)*(int **)(param_1 + 0x2fc) + (int)((vtbl_entry*)(iVar1))[15].adj,param_1 + 4,
                *(int *)(param_1 + 0x8c) != 0,auStack_10 + 4);
     eventflag_wai_flg(puVar2,0x40,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar2,0x40);

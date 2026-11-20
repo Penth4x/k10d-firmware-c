@@ -19,7 +19,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void dispatch_mode_event_handler_103634d0(void *param_1,int *param_2)
+void dispatch_mode_event_handler_103634d0(cls_105575b0 *param_1,int *param_2)
 
 {
   int iVar1;
@@ -30,21 +30,21 @@ void dispatch_mode_event_handler_103634d0(void *param_1,int *param_2)
   
   iVar1 = *param_2;
   if (iVar1 == 1) {
-    *(int *)((int)param_1 + 0x20c) = param_2[1];
-    if (*(int *)((int)param_1 + 0x204) != 0) {
+    param_1->field_0x20c = param_2[1];
+    if (param_1->field_0x204 != 0) {
       return;
     }
-    piVar2 = *(int **)((int)param_1 + 0x70);
+    piVar2 = (int *)param_1->field_0x70;
     if (piVar2 == (int *)0x0) {
       return;
     }
-    iVar1 = (**(code **)(*piVar2 + 0xcc))((int)*(short *)(*piVar2 + 200) + (int)piVar2);
+    iVar1 = (((vtbl_entry*)(*piVar2))[25].fn)((int)*(short *)(*piVar2 + 200) + (int)piVar2);
     if (iVar1 == 0) {
       return;
     }
-    iVar5 = **(int **)((int)param_1 + 0x70);
-    (**(code **)(iVar5 + 0xc4))
-              ((int)*(int **)((int)param_1 + 0x70) + (int)*(short *)(iVar5 + 0xc0),iVar1 + -1);
+    iVar5 = *(int *)param_1->field_0x70;
+    (((vtbl_entry*)(iVar5))[24].fn)((int)param_1->field_0x70 + (int)((vtbl_entry*)(iVar5))[24].adj,iVar1 + -1)
+    ;
     return;
   }
   if (iVar1 == 2) {
@@ -63,22 +63,22 @@ void dispatch_mode_event_handler_103634d0(void *param_1,int *param_2)
     }
     else if (uVar3 != 10) {
       if (uVar3 == 0xc) {
-        if (*(int *)((int)param_1 + 0x204) == 0) {
-          *(uint8_t *)((int)param_1 + 0x14) = 1;
-          *(uint8_t *)((int)param_1 + 0x15) = 1;
+        if (param_1->field_0x204 == 0) {
+          param_1->field_0x14 = 1;
+          param_1->field_0x15 = 1;
         }
-        if (*(char *)((int)param_1 + 0x16) == '\0') {
+        if (param_1->field_0x16 == '\0') {
           return;
         }
-        *(int *)((int)param_1 + 0x210) = param_2[1];
+        param_1->field_0x210 = param_2[1];
         invoke_callback_at_8000439c();
         return;
       }
       if (uVar3 != 0x29) {
         return;
       }
-      if (*(char *)((int)param_1 + 0x16) != '\0') {
-        *(uint32_t *)((int)param_1 + 0x210) = 0x29;
+      if (param_1->field_0x16 != '\0') {
+        param_1->field_0x210 = 0x29;
         return;
       }
       if (DAT_800043a1/*SDRAM*/ != '\0') {
@@ -87,8 +87,8 @@ void dispatch_mode_event_handler_103634d0(void *param_1,int *param_2)
       goto LAB_103635ea;
     }
   }
-  if (*(char *)((int)param_1 + 0x16) != '\0') {
-    *(uint *)((int)param_1 + 0x210) = uVar3;
+  if (param_1->field_0x16 != '\0') {
+    param_1->field_0x210 = uVar3;
     return;
   }
 LAB_103635ea:

@@ -19,11 +19,11 @@ bool check_string_length_limit(int param_1)
 {
   int iVar1;
   uintptr_t sp;
-  uint8_t auStack_18 [16];
+  cls_105a705c acStack_18 [4];
   
-  cls_105a705c_new((void *)auStack_18);
-  copy_nine_bytes_to_buffer(*(int *)(param_1 + 8),auStack_18);
-  iVar1 = (*(code *)0x10460cd4/*ROM*/)(auStack_18,0x22);
-  cls_105a705c_delete((void *)auStack_18,2);
+  cls_105a705c_new(acStack_18);
+  copy_nine_bytes_to_buffer(*(int *)(param_1 + 8),acStack_18);
+  iVar1 = (*(code *)0x10460cd4/*ROM*/)(acStack_18,0x22);
+  cls_105a705c_delete(acStack_18,2);
   return iVar1 == 0;
 }

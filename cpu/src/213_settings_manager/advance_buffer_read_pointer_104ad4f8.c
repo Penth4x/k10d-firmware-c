@@ -27,10 +27,10 @@ int advance_buffer_read_pointer_104ad4f8(int *param_1,void *param_2,uint32_t par
     uVar2 = param_1[2];
     if ((uVar2 & 3) == 0) {
       iVar1 = extract_bitfield_with_offset(uVar2,4,0);
-      iVar1 = copy_bytes_with_alignment(param_2,(void *)(*param_1 + iVar1 * 4),param_3,param_1[3] - param_1[2]);
+      iVar1 = copy_bytes_with_alignment((uint32_t *)(param_2),(uint32_t *)(*param_1 + iVar1 * 4),(uint)(param_3),(uint)(param_1[3] - param_1[2]));
     }
     else {
-      iVar1 = copy_bytes_aligned(param_2,(void *)(*param_1 + uVar2),param_3,param_1[3] - uVar2);
+      iVar1 = copy_bytes_aligned((uint8_t *)(param_2),(uint8_t *)(*param_1 + uVar2),(uint)(param_3),(uint)(param_1[3] - uVar2));
     }
     param_1[2] = param_1[2] + iVar1;
   }

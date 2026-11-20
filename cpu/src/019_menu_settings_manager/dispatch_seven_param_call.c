@@ -19,8 +19,7 @@
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
 uint32_t
-dispatch_seven_param_call(void *param_1,uint32_t param_2,uint32_t param_3,void *param_4,uint32_t param_5,
-            uint32_t param_6,uint32_t param_7)
+dispatch_seven_param_call(void *param_1,uint32_t param_2,uint32_t param_3,void *param_4,uint32_t param_5, uint32_t param_6,uint32_t param_7)
 
 {
   uintptr_t sp;
@@ -28,13 +27,13 @@ dispatch_seven_param_call(void *param_1,uint32_t param_2,uint32_t param_3,void *
   uint8_t local_2c [16];
   
   puVar1 = (uint32_t *)local_2c;
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,0x400000);
-  *puVar1 = (uint32_t)param_4;
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(0x400000));
+  *puVar1 = (uint32_t)(param_4);
   puVar1[1] = param_5;
   puVar1[2] = param_6;
   puVar1[3] = param_7;
   init_object_with_six_params(_DAT_8000439c/*SDRAM*/,param_1,param_2,param_3,*puVar1,puVar1[1],puVar1[2],puVar1[3]);
   eventflag_wai_flg((uint32_t *)0x80018088/*SDRAM*/,0x400000,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,0x400000);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(0x400000));
   return *(uint32_t *)((int)param_1 + 8);
 }

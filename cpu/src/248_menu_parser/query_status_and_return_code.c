@@ -22,15 +22,15 @@ int query_status_and_return_code(void *param_1,uint32_t *param_2)
   int iVar1;
   uint32_t uVar2;
   uintptr_t sp;
-  uint8_t auStack_28 [32];
+  cls_105bb0b8 cStack_28;
   
   *param_2 = 0;
-  cls_105bb0b8_new((void *)auStack_28);
+  cls_105bb0b8_new(&cStack_28);
   iVar1 = check_flag_and_call_helper_104de5b6(param_1);
   if (iVar1 != 0) {
     uVar2 = allocate_buffer_via_helper();
     *param_2 = uVar2;
   }
-  reset_vtable_and_free_if_flagged_104ddfe6((void *)auStack_28,2);
+  reset_vtable_and_free_if_flagged_104ddfe6(&cStack_28,2);
   return iVar1;
 }

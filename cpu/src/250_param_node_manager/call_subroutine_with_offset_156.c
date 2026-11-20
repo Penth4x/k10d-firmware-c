@@ -13,9 +13,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_subroutine_with_offset_156(int param_1)
+/* WARNING: Struct "cls_105bb314": ignoring overlapping field "field_0x8" */
+
+void call_subroutine_with_offset_156(cls_105bb314 *param_1)
 
 {
-  clear_flag_and_call_two_helpers_104d8346(param_1 + 0x9c);
+  clear_flag_and_call_two_helpers_104d8346((int)(&param_1->field_0x9c));
   return;
 }

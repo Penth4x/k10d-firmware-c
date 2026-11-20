@@ -25,7 +25,7 @@ void invoke_virtual_slot_six_1049ac18(int param_1)
   **(int **)(iVar1 + param_1 + 0x24) = param_1 + 4;
   iVar1 = *(int *)(iVar1 + param_1 + 0x24);
   iVar2 = *(int *)(iVar1 + 0x10);
-  (**(code **)(iVar2 + 0x3c))(iVar1 + *(short *)(iVar2 + 0x38));
+  (((vtbl_entry*)(iVar2))[7].fn)(iVar1 + ((vtbl_entry*)(iVar2))[7].adj);
   *(uint32_t *)(param_1 + 0x40) = 0;
   return;
 }

@@ -19,7 +19,7 @@
 void * alloc_and_init_512_bytes(void *param_1)
 
 {
-  if ((param_1 != (void *)0x0) || (param_1 = (void *)heap_alloc((void *)0x200), param_1 != (void *)0x0)) {
+  if ((param_1 != 0) || (param_1 = (void *)heap_alloc((void *)0x200), param_1 != 0)) {
     initialize_lens_update_object(param_1,0x200);
     fill_byte_array(param_1,0,0x200);
   }

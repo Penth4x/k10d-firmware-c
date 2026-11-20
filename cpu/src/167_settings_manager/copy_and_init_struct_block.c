@@ -41,10 +41,10 @@ void copy_and_init_struct_block(int param_1)
   uint16_t auStack_10 [4];
   
   puVar4 = auStack_54;
-  iVar1 = check_six_char_pattern((void *)(param_1 + 0x48));
+  iVar1 = check_six_char_pattern((char *)(param_1 + 0x48));
   if (iVar1 != 0) {
     alloc_zeroed_struct_104ce600((uint32_t *)__frv_reg_unset(4));
-    iVar1 = query_status_and_fill_result(param_1, (void *)(apuStack_30 + 1));
+    iVar1 = query_status_and_fill_result(param_1,apuStack_30 + 1);
     if (iVar1 != 0) {
       iVar1 = 0xc;
       do {

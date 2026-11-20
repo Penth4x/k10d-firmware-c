@@ -19,35 +19,35 @@ void screen_mgr_forward_input(int param_1,uint32_t param_2)
   
   piVar1 = *(int **)(param_1 + 0x58);
   if ((piVar1 != (int *)0x0) &&
-     (iVar2 = (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1),
+     (iVar2 = (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1),
      iVar2 != 0)) {
     piVar1 = *(int **)(param_1 + 0x58);
     iVar2 = *piVar1;
-    (**(code **)(iVar2 + 0x1c))((int)piVar1 + (int)*(short *)(iVar2 + 0x18),param_2);
+    (((vtbl_entry*)(iVar2))[3].fn)((int)piVar1 + (int)((vtbl_entry*)(iVar2))[3].adj,param_2);
   }
   piVar1 = *(int **)(param_1 + 0x5c);
   if ((piVar1 != (int *)0x0) &&
-     (iVar2 = (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1),
+     (iVar2 = (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1),
      iVar2 != 0)) {
     iVar2 = **(int **)(param_1 + 0x5c);
-    (**(code **)(iVar2 + 0x1c))
-              ((int)*(int **)(param_1 + 0x5c) + (int)*(short *)(iVar2 + 0x18),param_2);
+    (((vtbl_entry*)(iVar2))[3].fn)
+              ((int)*(int **)(param_1 + 0x5c) + (int)((vtbl_entry*)(iVar2))[3].adj,param_2);
   }
   piVar1 = *(int **)(param_1 + 0x60);
   if ((piVar1 != (int *)0x0) &&
-     (iVar2 = (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1),
+     (iVar2 = (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1),
      iVar2 != 0)) {
     iVar2 = **(int **)(param_1 + 0x60);
-    (**(code **)(iVar2 + 0x1c))
-              ((int)*(int **)(param_1 + 0x60) + (int)*(short *)(iVar2 + 0x18),param_2);
+    (((vtbl_entry*)(iVar2))[3].fn)
+              ((int)*(int **)(param_1 + 0x60) + (int)((vtbl_entry*)(iVar2))[3].adj,param_2);
   }
   piVar1 = *(int **)(param_1 + 100);
   if ((piVar1 != (int *)0x0) &&
-     (iVar2 = (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1),
+     (iVar2 = (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1),
      iVar2 != 0)) {
     iVar2 = **(int **)(param_1 + 100);
-    (**(code **)(iVar2 + 0x1c))
-              ((int)*(int **)(param_1 + 100) + (int)*(short *)(iVar2 + 0x18),param_2);
+    (((vtbl_entry*)(iVar2))[3].fn)
+              ((int)*(int **)(param_1 + 100) + (int)((vtbl_entry*)(iVar2))[3].adj,param_2);
   }
   return;
 }

@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_single_helper_104075e0(void)
+void call_single_helper_104075e0(cls_105992d4 *param_1)
 
 {
-  invoke_virtual_slot_two_1039fd58(__frv_reg_unset(4));
+  invoke_virtual_slot_two_1039fd58((cls_1056ac8c *)param_1);
   return;
 }

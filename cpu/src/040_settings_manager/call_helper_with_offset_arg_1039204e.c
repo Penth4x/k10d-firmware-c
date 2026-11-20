@@ -6,9 +6,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_offset_arg_1039204e(int param_1)
+void call_helper_with_offset_arg_1039204e(cls_10562758 *param_1)
 
 {
-  call_helper_with_zero_1039c4e2(param_1 + 0xc);
+  call_helper_with_zero_1039c4e2((uint32_t)(&param_1->field_0xc));
   return;
 }

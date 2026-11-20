@@ -40,11 +40,11 @@ void configure_three_object_regions(void *param_1)
   uint32_t auStack_2c [9];
   
   iVar11 = *(int *)(*(int *)((int)param_1 + 0xb4) + 0xc);
-  (**(code **)(iVar11 + 0xc))(*(int *)((int)param_1 + 0xb4) + (int)*(short *)(iVar11 + 8),0);
+  (((vtbl_entry*)(iVar11))[1].fn)(*(int *)((int)param_1 + 0xb4) + (int)*(short *)(iVar11 + 8),0);
   iVar11 = *(int *)(*(int *)((int)param_1 + 0xb0) + 0xc);
-  (**(code **)(iVar11 + 0xc))(*(int *)((int)param_1 + 0xb0) + (int)*(short *)(iVar11 + 8),0);
+  (((vtbl_entry*)(iVar11))[1].fn)(*(int *)((int)param_1 + 0xb0) + (int)*(short *)(iVar11 + 8),0);
   iVar11 = *(int *)(*(int *)((int)param_1 + 0xb8) + 0xc);
-  (**(code **)(iVar11 + 0xc))(*(int *)((int)param_1 + 0xb8) + (int)*(short *)(iVar11 + 8),0);
+  (((vtbl_entry*)(iVar11))[1].fn)(*(int *)((int)param_1 + 0xb8) + (int)*(short *)(iVar11 + 8),0);
   puVar5 = auStack_2c + 1;
   alloc_two_word_pair_1045c3dc(puVar5,0,0);
   puVar12 = auStack_2c + 3;
@@ -64,7 +64,7 @@ void configure_three_object_regions(void *param_1)
   write_field_at_offset_four_1045bd50(puVar2,0x1c8 - uVar6);
   store_value_to_pointer_1045c510(puVar5,0x78);
   write_field_at_offset_four_1045c518(puVar5,uVar6);
-  call_helper_and_set_flag_104cf6c8((void *)(*(uint32_t *)((int)param_1 + 0xb4)),2);
+  call_helper_and_set_flag_104cf6c8((int *)(*(uint32_t *)((int)param_1 + 0xb4)),(uint16_t)(2));
   iVar8 = *(int *)((int)param_1 + 0xb4);
   iVar4 = *(int *)(iVar8 + 0xc);
   sVar1 = *(short *)(iVar4 + 0x10);
@@ -74,7 +74,7 @@ void configure_three_object_regions(void *param_1)
     *(uint32_t *)(local_38 + iVar11 + -4) = *(uint32_t *)((int)auStack_2c + iVar11 + 0x10);
     iVar11 = iVar13;
   } while (iVar13 != 0);
-  (**(code **)(iVar4 + 0x14))(iVar8 + sVar1,local_38);
+  (((vtbl_entry*)(iVar4))[2].fn)(iVar8 + sVar1,local_38);
   free_heap_block_if_flagged_1045bc54(local_38,2);
   uVar9 = *(uint32_t *)((int)param_1 + 0xb4);
   iVar11 = 8;
@@ -83,7 +83,7 @@ void configure_three_object_regions(void *param_1)
     *(uint32_t *)((int)&uStack_34 + iVar11) = *(uint32_t *)((int)auStack_2c + iVar11);
     iVar11 = iVar4;
   } while (iVar4 != 0);
-  dispatch_two_word_event((void *)uVar9,(void *)local_30);
+  dispatch_two_word_event((uint32_t *)(uVar9),(uint32_t *)(local_30));
   free_heap_if_flagged_1045c402(local_30,2);
   iVar8 = *(int *)((int)param_1 + 0xb0);
   iVar4 = *(int *)(iVar8 + 0xc);
@@ -94,7 +94,7 @@ void configure_three_object_regions(void *param_1)
     *(uint32_t *)(local_38 + iVar11 + -4) = *(uint32_t *)((int)auStack_2c + iVar11 + 0x10);
     iVar11 = iVar13;
   } while (iVar13 != 0);
-  (**(code **)(iVar4 + 0x14))(iVar8 + sVar1,local_38);
+  (((vtbl_entry*)(iVar4))[2].fn)(iVar8 + sVar1,local_38);
   free_heap_block_if_flagged_1045bc54(local_38,2);
   uVar9 = *(uint32_t *)((int)param_1 + 0xb0);
   iVar11 = 8;
@@ -103,7 +103,7 @@ void configure_three_object_regions(void *param_1)
     *(uint32_t *)((int)&uStack_34 + iVar11) = *(uint32_t *)((int)auStack_2c + iVar11);
     iVar11 = iVar4;
   } while (iVar4 != 0);
-  dispatch_two_word_event((void *)uVar9,(void *)local_30);
+  dispatch_two_word_event((uint32_t *)(uVar9),(uint32_t *)(local_30));
   free_heap_if_flagged_1045c402(local_30,2);
   uVar6 = return_first_word_1045c514(puVar12);
   iVar11 = compute_log2_index(uVar6);
@@ -126,7 +126,7 @@ void configure_three_object_regions(void *param_1)
   uVar10 = iVar13 + 1 + iStack_3c;
   store_word_to_pointer_1045bd48(puVar3,(iVar4 + iVar8) - (uVar6 >> 1));
   write_field_at_offset_four_1045bd50(puVar3,(uVar10 & 0xfffffffe) - (iVar11 + 1U >> 1));
-  call_helper_and_set_flag_104cf6c8((void *)(*(uint32_t *)((int)param_1 + 0xb8)),4);
+  call_helper_and_set_flag_104cf6c8((int *)(*(uint32_t *)((int)param_1 + 0xb8)),(uint16_t)(4));
   iVar8 = *(int *)((int)param_1 + 0xb8);
   iVar4 = *(int *)(iVar8 + 0xc);
   sVar1 = *(short *)(iVar4 + 0x10);
@@ -136,7 +136,7 @@ void configure_three_object_regions(void *param_1)
     *(uint32_t *)(local_38 + iVar11 + -4) = *(uint32_t *)((int)auStack_2c + iVar11 + 0x18);
     iVar11 = iVar13;
   } while (iVar13 != 0);
-  (**(code **)(iVar4 + 0x14))(iVar8 + sVar1,local_38);
+  (((vtbl_entry*)(iVar4))[2].fn)(iVar8 + sVar1,local_38);
   free_heap_block_if_flagged_1045bc54(local_38,2);
   uVar7 = *(uint32_t *)((int)param_1 + 0xb8);
   iVar11 = 8;
@@ -145,14 +145,14 @@ void configure_three_object_regions(void *param_1)
     *(uint32_t *)((int)&uStack_34 + iVar11) = *(uint32_t *)((int)auStack_2c + iVar11 + 8);
     iVar11 = iVar4;
   } while (iVar4 != 0);
-  dispatch_two_word_event((void *)uVar7,(void *)local_30);
+  dispatch_two_word_event((uint32_t *)(uVar7),(uint32_t *)(local_30));
   free_heap_if_flagged_1045c402(local_30,2);
   iVar11 = *(int *)(*(int *)((int)param_1 + 0xb4) + 0xc);
-  (**(code **)(iVar11 + 0xc))(*(int *)((int)param_1 + 0xb4) + (int)*(short *)(iVar11 + 8),1);
+  (((vtbl_entry*)(iVar11))[1].fn)(*(int *)((int)param_1 + 0xb4) + (int)*(short *)(iVar11 + 8),1);
   iVar11 = *(int *)(*(int *)((int)param_1 + 0xb0) + 0xc);
-  (**(code **)(iVar11 + 0xc))(*(int *)((int)param_1 + 0xb0) + (int)*(short *)(iVar11 + 8),1);
+  (((vtbl_entry*)(iVar11))[1].fn)(*(int *)((int)param_1 + 0xb0) + (int)*(short *)(iVar11 + 8),1);
   iVar11 = *(int *)(*(int *)((int)param_1 + 0xb8) + 0xc);
-  (**(code **)(iVar11 + 0xc))(*(int *)((int)param_1 + 0xb8) + (int)*(short *)(iVar11 + 8),1);
+  (((vtbl_entry*)(iVar11))[1].fn)(*(int *)((int)param_1 + 0xb8) + (int)*(short *)(iVar11 + 8),1);
   free_heap_block_if_flagged_1045bc54(puVar3,2);
   free_heap_block_if_flagged_1045bc54(puVar2,2);
   free_heap_if_flagged_1045c402(puVar12,2);

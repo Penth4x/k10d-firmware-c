@@ -6,15 +6,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t invoke_virtual_slot_5_104ad21e(int *param_1,int param_2)
+uint32_t invoke_virtual_slot_5_104ad21e(cls_105b7498 *param_1,int param_2)
 
 {
   uint32_t uVar1;
   
   uVar1 = 0;
-  if ((0 < param_2) && (param_2 <= param_1[1])) {
-    uVar1 = (**(code **)(*param_1 + 0x2c))((int)*(short *)(*param_1 + 0x28) + (int)param_1);
-    param_1[2] = param_2;
+  if ((0 < param_2) && (param_2 <= param_1->field_0x4)) {
+    uVar1 = (((vtbl_entry*)(param_1->field_0x0))[5].fn)
+                      ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[5].adj);
+    param_1->field_0x8 = param_2;
   }
   return uVar1;
 }

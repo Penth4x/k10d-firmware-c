@@ -15,13 +15,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_virtual_slot_4_and_helper(int param_1)
+void call_virtual_slot_4_and_helper(cls_105b96e4 *param_1)
 
 {
   int *piVar1;
   
   piVar1 = (int *)get_or_create_singleton_object_104cfcea();
-  (**(code **)(*piVar1 + 0x2c))((int)piVar1 + (int)*(short *)(*piVar1 + 0x28));
-  kernel_diag_taskstack((void *)(*(int *)(param_1 + 4) + 8));
+  (((vtbl_entry*)(*piVar1))[5].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[5].adj);
+  kernel_diag_taskstack((int *)(param_1->field_0x4 + 8));
   return;
 }

@@ -6,9 +6,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_byte_at_offset_0x20_1051b64a(int param_1,uint8_t param_2)
+void set_byte_at_offset_0x20_1051b64a(cls_105d677c *param_1,uint8_t param_2)
 
 {
-  *(uint8_t *)(param_1 + 0x20) = param_2;
+  param_1->field_0x20 = param_2;
   return;
 }

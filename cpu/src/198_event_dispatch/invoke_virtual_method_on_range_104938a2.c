@@ -14,19 +14,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_method_on_range_104938a2(int param_1)
+void invoke_virtual_method_on_range_104938a2(cls_105b47b4 *param_1)
 
 {
   int *piVar1;
   int iVar2;
   
-  piVar1 = *(int **)(param_1 + 0x48);
-  if (piVar1 != *(int **)(param_1 + 0x4c)) {
+  piVar1 = (int *)(param_1->field43_0x48);
+  if ((uint32_t)(piVar1) != param_1->field_0x4c) {
     do {
       iVar2 = *(int *)(*piVar1 + 0xc);
-      (**(code **)(iVar2 + 0x5c))(*piVar1 + (int)*(short *)(iVar2 + 0x58));
+      (((vtbl_entry*)(iVar2))[11].fn)(*piVar1 + (int)((vtbl_entry*)(iVar2))[11].adj);
       piVar1 = piVar1 + 1;
-    } while (piVar1 != *(int **)(param_1 + 0x4c));
+    } while ((uint32_t)(piVar1) != param_1->field_0x4c);
   }
   return;
 }

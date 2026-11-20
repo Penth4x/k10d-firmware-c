@@ -30,6 +30,6 @@ void initialize_object_fields_104f4184(int param_1)
   write_byte_to_mmio_40100000(*(uint32_t *)(param_1 + 0x10),0);
   pvVar1 = (void *)get_or_init_singleton_object_1051d40e();
   update_camera_state_flags(pvVar1,3,0);
-  delete_signal_semaphore((void *)(param_1 + 0x18));
+  delete_signal_semaphore((int *)(param_1 + 0x18));
   return;
 }

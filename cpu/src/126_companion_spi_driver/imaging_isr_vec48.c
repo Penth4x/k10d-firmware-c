@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t imaging_isr_vec48(int param_1,int param_2,uint32_t param_3)
+uint32_t imaging_isr_vec48(cls_105a07cc *param_1,int param_2,uint32_t param_3)
 
 {
   uint uVar1;
@@ -25,10 +25,10 @@ uint32_t imaging_isr_vec48(int param_1,int param_2,uint32_t param_3)
   uVar2 = 0;
   if (param_2 == 0x20) {
     if ((uRam6b000024 & 0x1000000) != 0) {
-      uVar2 = dispatch_event_to_matching_handlers_1043d3fa(param_1,0x3e,param_3);
+      uVar2 = dispatch_event_to_matching_handlers_1043d3fa((int)param_1,0x3e,param_3);
     }
     if ((uVar1 & 0x2000000) != 0) {
-      uVar2 = dispatch_event_to_matching_handlers_1043d3fa(param_1,0x3f,param_3);
+      uVar2 = dispatch_event_to_matching_handlers_1043d3fa((int)param_1,0x3f,param_3);
     }
   }
   return uVar2;

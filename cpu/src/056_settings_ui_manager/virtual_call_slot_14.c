@@ -11,8 +11,8 @@ int * virtual_call_slot_14(int *param_1)
 {
   int *piVar1;
   
-  piVar1 = (int *)(**(code **)(param_1[4] + 0x74))
-                            ((int)*(short *)(param_1[4] + 0x70) + (int)param_1);
+  piVar1 = (int *)(((vtbl_entry*)(param_1[4]))[14].fn)
+                            ((int)((vtbl_entry*)(param_1[4]))[14].adj + (int)param_1);
   if (piVar1 != param_1) {
     set_byte_at_offset_0x1c(*param_1,0);
   }

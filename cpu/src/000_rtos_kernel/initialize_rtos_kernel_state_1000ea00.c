@@ -129,8 +129,8 @@ void initialize_rtos_kernel_state_1000ea00(void)
     zero_two_word_struct((uint32_t *)0x6a0036c8);
     _DAT_6a0036c6 = 0xffff;
     _DAT_6a0036c4 = 0xffff;
-    _DAT_6a0036c0 = (int)&DAT_6a0036bc;
-    _DAT_6a0036bc = (int)&DAT_6a0036bc;
+    _DAT_6a0036c0 = (uintptr_t)(&DAT_6a0036bc);
+    _DAT_6a0036bc = (uintptr_t)(&DAT_6a0036bc);
     init_kernel_timer_struct();
     if (0 < DAT_10011d4a/*ROM*/) {
       iVar4 = 0x44;
@@ -159,11 +159,11 @@ void initialize_rtos_kernel_state_1000ea00(void)
     if (0 < DAT_10011d30/*ROM*/) {
       iVar4 = 0;
       do {
-        uVar5 = (*DAT_10011cb0/*ROM*/)((int)*(short *)(SUB_10011ce8 + iVar4),
-                                (short *)(SUB_10011ce8 + iVar4) + 2);
+        uVar5 = (*DAT_10011cb0/*ROM*/)((int)*(short *)((char*)SUB_10011ce8 + iVar4),
+                                (short *)((char*)SUB_10011ce8 + iVar4) + 2);
         if (uVar5 != 0) {
                     /* WARNING: Subroutine does not return */
-          iterate_virtual_callback_table(uVar5 & 0xffffe5ff,(int)*(short *)(SUB_10011ce8 + iVar4));
+          iterate_virtual_callback_table(uVar5 & 0xffffe5ff,(int)*(short *)((char*)SUB_10011ce8 + iVar4));
         }
         iVar2 = iVar2 + 1;
         iVar4 = iVar4 + 0xc;
@@ -417,7 +417,7 @@ void initialize_rtos_kernel_state_1000ea00(void)
         iVar6 = iVar4 + 4;
         iVar1 = iVar4 + 8;
         iVar4 = iVar4 + 0xc;
-        (**(code **)(PTR_DAT_10011cbc + iVar1))(*(uint32_t *)(PTR_DAT_10011cbc + iVar6));
+        (**(code **)((char*)PTR_DAT_10011cbc + iVar1))(*(uint32_t *)((char*)PTR_DAT_10011cbc + iVar6));
         iVar2 = iVar2 + 1;
       } while (iVar2 < DAT_10011d1a/*ROM*/);
     }

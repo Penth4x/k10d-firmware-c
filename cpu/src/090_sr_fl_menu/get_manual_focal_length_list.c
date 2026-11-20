@@ -19,7 +19,7 @@ uint32_t get_manual_focal_length_list(void)
 {
   if (iRam8001ce40 == 0) {
     iRam8001ce40 = 1;
-    cls_105983cc_new((uint32_t *)0x8001ce1c/*SDRAM*/);
+    cls_105983cc_new((cls_105983cc *)0x8001ce1c/*SDRAM*/);
     prepend_to_singly_linked_list((void *)0x8000faf0/*SDRAM*/);
   }
   return 0x8001ce1c/*SDRAM*/;

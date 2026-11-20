@@ -15,7 +15,7 @@ void copy_32_bytes_from_struct_field_1045e322(int param_1,void *param_2)
   
   call_kernel_with_short_id((uint32_t *)(param_1 + 0xa4));
   iVar1 = *(int *)(param_1 + 0x58);
-  empty_stub_1045dd00(param_2,iVar1);
+  empty_stub_1045dd00((int)param_2,iVar1);
   iVar3 = 0x20;
   do {
     iVar2 = iVar3 + -1;

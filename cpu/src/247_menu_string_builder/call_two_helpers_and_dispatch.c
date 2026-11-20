@@ -22,10 +22,10 @@ void call_two_helpers_and_dispatch(uint32_t param_1,int *param_2,uint32_t param_
   uint32_t uVar1;
   uint32_t r7_in;
   
-  append_string_to_buffer(param_2,(void *)0x105baf94/*ROM*/);
+  append_string_to_buffer((int *)(param_2),(char *)(0x105baf94/*ROM*/));
   add_offset_to_pointer_104d6882(param_3);
   uVar1 = (*(code *)0x104d8afc/*ROM*/)();
-  build_and_apply_param_string(param_2,(void *)uVar1,1,(void *)r7_in);
-  append_string_to_buffer(param_2,(void *)0x105bafa0/*ROM*/);
+  build_and_apply_param_string((int *)(param_2),(void *)(uVar1),(int)(1),(void *)(r7_in));
+  append_string_to_buffer((int *)(param_2),(char *)(0x105bafa0/*ROM*/));
   return;
 }

@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_one_and_param(int *param_1,uint32_t param_2)
+void call_helper_with_one_and_param(cls_105b7838 *param_1,uint32_t param_2)
 
 {
-  dispatch_by_type_field_104af7e6(param_1,1,param_2);
+  dispatch_by_type_field_104af7e6((void *)param_1,1,param_2);
   return;
 }

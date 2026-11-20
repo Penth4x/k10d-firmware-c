@@ -12,8 +12,8 @@ void store_object_and_call_virtual_slot(int *param_1,int param_2)
   int iVar1;
   
   *param_1 = param_2;
-  iVar1 = (**(code **)(*(int *)(param_2 + 4) + 0x6c))
-                    (*(short *)(*(int *)(param_2 + 4) + 0x68) + param_2);
+  iVar1 = (((vtbl_entry*)(*(int *)(param_2 + 4)))[13].fn)
+                    (((vtbl_entry*)(*(int *)(param_2 + 4)))[13].adj + param_2);
   param_1[2] = iVar1;
   param_1[4] = 3;
   return;

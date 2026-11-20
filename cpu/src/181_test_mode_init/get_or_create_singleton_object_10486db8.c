@@ -11,7 +11,7 @@ uint32_t get_or_create_singleton_object_10486db8(void)
 {
   if (iRam80048a14 == 0) {
     iRam80048a14 = 1;
-    cls_105b2f20_new((uint32_t *)0x800489b8/*SDRAM*/);
+    cls_105b2f20_new((cls_105b2f20 *)0x800489b8/*SDRAM*/);
     prepend_to_singly_linked_list((void *)0x80010310/*SDRAM*/);
   }
   return 0x800489b8/*SDRAM*/;

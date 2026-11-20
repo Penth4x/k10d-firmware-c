@@ -36,11 +36,11 @@ uint32_t copy_row_blocks_to_buffer(uint *param_1,int param_2,int param_3,int par
         iStack_c = param_5 + -3;
         if (2 < iStack_c) {
           do {
-            copy_bytes_forward((void *)(param_2 + iVar4),(void *)(iVar5 + iVar4),param_4);
+            copy_bytes_forward((uint8_t *)(param_2 + iVar4),(uint8_t *)(iVar5 + iVar4),(uint)(param_4));
             iVar4 = iVar4 + param_4;
-            copy_bytes_forward((void *)(param_2 + iVar4),(void *)(iVar5 + iVar4),param_4);
+            copy_bytes_forward((uint8_t *)(param_2 + iVar4),(uint8_t *)(iVar5 + iVar4),(uint)(param_4));
             iVar4 = iVar4 + param_4;
-            copy_bytes_forward((void *)(param_2 + iVar4),(void *)(iVar5 + iVar4),param_4);
+            copy_bytes_forward((uint8_t *)(param_2 + iVar4),(uint8_t *)(iVar5 + iVar4),(uint)(param_4));
             iStack_c = iStack_c + -3;
             iVar4 = iVar4 + param_4;
           } while (-1 < iStack_c);
@@ -48,7 +48,7 @@ uint32_t copy_row_blocks_to_buffer(uint *param_1,int param_2,int param_3,int par
         iStack_c = iStack_c + 2;
         if (-1 < iStack_c) {
           do {
-            copy_bytes_forward((void *)(param_2 + iVar4),(void *)(iVar5 + iVar4),param_4);
+            copy_bytes_forward((uint8_t *)(param_2 + iVar4),(uint8_t *)(iVar5 + iVar4),(uint)(param_4));
             iStack_c = iStack_c + -1;
             iVar4 = iVar4 + param_4;
           } while (-1 < iStack_c);

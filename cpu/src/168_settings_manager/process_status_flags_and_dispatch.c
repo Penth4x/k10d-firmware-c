@@ -45,7 +45,7 @@ int process_status_flags_and_dispatch(void *param_1)
         }
         else {
           iVar1 = initialize_singleton_object_1045d6a0();
-          write_object_field_byte((void *)(iVar1 + 8),0x10,1);
+          write_object_field_byte((int *)(*(uint32_t *)(iVar1 + 8)),(int)(0x10),(uint)(1));
           *(uint8_t *)((int)param_1 + 0x4a) = 1;
         }
       }

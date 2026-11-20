@@ -15,12 +15,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool dispatch_virtual_and_call_helper(void *param_1,uint param_2)
+/* WARNING: Struct "cls_105a04cc": ignoring multiple overlapping fields */
+
+bool dispatch_virtual_and_call_helper(cls_105a04cc *param_1,uint param_2)
 
 {
   if (param_2 < 0x40) {
-    (**(code **)(*(int *)((int)param_1 + 4) + 0x2c))
-              ((int)*(short *)(*(int *)((int)param_1 + 4) + 0x28) + (int)param_1);
+    (((vtbl_entry*)(param_1->field_0x4))[5].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x4))[5].adj);
     wait_for_sci_transmit_complete(param_1,(short)param_2 * 0x407 + -1,0xa00);
   }
   return param_2 < 0x40;

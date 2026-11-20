@@ -34,7 +34,7 @@ void compute_image_size_divisor(int param_1,uint8_t param_2)
   uintptr_t sp;
   uint8_t *puVar13;
   uint8_t auStack_44 [16];
-  uint32_t uStack_10;
+  cls_1059e05c cStack_10;
   uint8_t uStack_9;
   
   puVar13 = auStack_44;
@@ -134,16 +134,16 @@ void compute_image_size_divisor(int param_1,uint8_t param_2)
   }
   iVar12 = *(int *)(*(int *)(param_1 + 0x54) + 0x60);
   uVar5 = *(uint *)(*(int *)(param_1 + 0x54) + 0x74);
-  cls_1059e05c_new(&uStack_10);
+  cls_1059e05c_new(&cStack_10);
   if (iVar9 == 0) {
-    iVar11 = lookup_table_value_minus_offset(&uStack_10,iVar11,iVar10);
+    iVar11 = lookup_table_value_minus_offset(&cStack_10,iVar11,iVar10);
     uVar5 = iVar11 + 0x1a500;
   }
   else if (iVar9 == 1) {
     uVar5 = 0x18a500;
   }
   else if (iVar9 == 2) {
-    iVar11 = lookup_table_value_minus_offset(&uStack_10,iVar11,iVar10);
+    iVar11 = lookup_table_value_minus_offset(&cStack_10,iVar11,iVar10);
     uVar5 = iVar11 + 0x18a500;
   }
   allocate_mempool_blocks(param_1);
@@ -172,6 +172,6 @@ void compute_image_size_divisor(int param_1,uint8_t param_2)
   if ((iVar9 == 0) && (uVar2 * 2 < uVar1)) {
     *(uint *)(param_1 + 0x14e8) = (uVar1 + iVar12 * -2) / uVar5;
   }
-  virtual_destructor_free_104266ce(&uStack_10,2);
+  virtual_destructor_free_104266ce(&cStack_10,2);
   return;
 }

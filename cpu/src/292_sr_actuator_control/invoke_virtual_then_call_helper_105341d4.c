@@ -6,13 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_then_call_helper_105341d4(int param_1)
+void invoke_virtual_then_call_helper_105341d4(cls_1061e4c0 *param_1)
 
 {
   int iVar1;
   
-  iVar1 = *(int *)(*(int *)(param_1 + 0x10) + 0xc);
-  (**(code **)(iVar1 + 0x54))(*(int *)(param_1 + 0x10) + (int)*(short *)(iVar1 + 0x50));
-  call_virtual_slot_if_flag_set_1049477e(param_1);
+  iVar1 = *(int *)(param_1->field_0x10 + 0xc);
+  (((vtbl_entry*)(iVar1))[10].fn)(param_1->field_0x10 + (int)((vtbl_entry*)(iVar1))[10].adj);
+  call_virtual_slot_if_flag_set_1049477e((cls_105c136c *)param_1);
   return;
 }

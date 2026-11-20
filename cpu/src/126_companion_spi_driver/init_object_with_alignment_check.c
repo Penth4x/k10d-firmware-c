@@ -32,7 +32,7 @@ init_object_with_alignment_check(uint32_t param_1,uint param_2,uint param_3,uint
   set_bits_3_4_in_word_10442090(param_1,8);
   set_bits_8_9_in_word(param_1,0);
   store_value_at_offset_0x1c_104420c0(param_1,param_2);
-  store_value_at_offset_0x20(param_1,param_3);
+  store_value_at_offset_0x20_104420c8(param_1,param_3);
   store_value_at_offset_0x24_104420d0(param_1,0);
   store_value_at_offset_0x28_104420d8(param_1,0);
   store_value_at_offset_0x2c(param_1,param_4);

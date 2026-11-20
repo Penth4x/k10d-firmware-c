@@ -17,12 +17,12 @@ uint32_t check_and_dispatch_state_transition(int param_1)
   piVar1 = *(int **)(param_1 + 8);
   uVar2 = 0;
   if ((piVar1 != (int *)0x0) && (*(int *)(param_1 + 0x18) == 4)) {
-    iVar3 = (**(code **)(*piVar1 + 0x4c))((int)*(short *)(*piVar1 + 0x48) + (int)piVar1);
+    iVar3 = (((vtbl_entry*)(*piVar1))[9].fn)((int)((vtbl_entry*)(*piVar1))[9].adj + (int)piVar1);
     if ((iVar3 == 2) || (iVar3 == 4)) {
       *(uint32_t *)(param_1 + 0x18) = 0;
       iVar4 = **(int **)(param_1 + 4);
-      (**(code **)(iVar4 + 0x54))
-                ((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar4 + 0x50),iVar3 == 4,
+      (((vtbl_entry*)(iVar4))[10].fn)
+                ((int)*(int **)(param_1 + 4) + (int)((vtbl_entry*)(iVar4))[10].adj,iVar3 == 4,
                  *(uint32_t *)(*(int *)(param_1 + 0xc) + 8));
     }
     uVar2 = 1;

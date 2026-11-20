@@ -23,9 +23,9 @@ void register_menu_item_and_set_flag_1037faf4(int param_1,short param_2)
   
   sRam800044c0 = param_2;
   uVar1 = menu_item_register(param_1);
-  menu_list_build((void *)uVar1,(void *)0x800044c0/*SDRAM*/,2,0);
+  menu_list_build((int *)(uVar1),(uint16_t *)(0x800044c0/*SDRAM*/),(uint8_t)(2),(uint8_t)(0));
   iVar2 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)
             (iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),sRam800044c0 != 0);
   return;
 }

@@ -23,7 +23,7 @@ uint32_t * cls_105b9bd0_new(uint32_t *param_1)
     *param_1 = 0x105b9bd0/*ROM*/;
     param_1[2] = 0;
     param_1[3] = 0;
-    cls_105a2af8_new(param_1 + 4);
+    cls_105a2af8_new((void *)(param_1 + 4));
     param_1[6] = 0;
     param_1[7] = 0;
   }

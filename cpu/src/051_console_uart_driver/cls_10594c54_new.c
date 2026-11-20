@@ -11,29 +11,30 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_10594c54_new(uint32_t *param_1)
+/* WARNING: Struct "cls_1059e128": ignoring overlapping field "field_0x8" */
+
+cls_1059e128 * cls_10594c54_new(cls_10594c54 *param_1)
 
 {
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x6c), param_1 != (uint32_t *)0x0)) {
-    cls_1059e128_new(param_1);
-    cls_105a2a8c_new(param_1 + 0x10);
-    *param_1 = 0x10594c54/*ROM*/;
-    param_1[1] = 0x10594d24/*ROM*/;
-    param_1[6] = 0x10594d44/*ROM*/;
-    param_1[0xb] = 0x10594d74/*ROM*/;
-    param_1[0xc] = 0x10594d8c/*ROM*/;
-    param_1[0xd] = 0x10594dac/*ROM*/;
-    param_1[0x11] = 0x10594dec/*ROM*/;
-    cls_105a2af8_new(param_1 + 0x12);
-    param_1[0x14] = 0;
-    param_1[0x15] = 0;
-    param_1[0x16] = 0;
-    *(uint16_t *)(param_1 + 0x17) = 0;
-    param_1[0x18] = 0;
-    *(uint8_t *)(param_1 + 0x19) = 0;
-    *(uint8_t *)((int)param_1 + 0x65) = 0;
-    param_1[0x1a] = 0;
+  if ((param_1 != (cls_10594c54 *)0x0) || (param_1 = (cls_10594c54 *)heap_alloc((void *)0x6c), (cls_1059e128 *)param_1 != (cls_1059e128 *)0x0)) {
+    cls_1059e128_new((cls_1059e128 *)param_1);
+    cls_105a2a8c_new((cls_105a2a8c *)&((cls_1059e128 *)param_1)->field_0x40);
+    ((cls_1059e128 *)param_1)->field_0x0 = (uintptr_t)((void *)0x10594c54/*ROM*/);
+    ((cls_1059e128 *)param_1)->field_0x4 = (uintptr_t)((void *)0x10594d24/*ROM*/);
+    ((cls_1059e128 *)param_1)->field_0x18 = (uintptr_t)((void *)0x10594d44/*ROM*/);
+    ((cls_1059e128 *)param_1)->field_0x2c = (uintptr_t)((void *)0x10594d74/*ROM*/);
+    ((cls_1059e128 *)param_1)->field_0x30 = (uintptr_t)((void *)0x10594d8c/*ROM*/);
+    ((cls_1059e128 *)param_1)->field_0x34 = (uintptr_t)((void *)0x10594dac/*ROM*/);
+    ((cls_1059e128 *)param_1)->field_0x44 = (uintptr_t)((void *)0x10594dec/*ROM*/);
+    cls_105a2af8_new((cls_105a2af8 *)&((cls_1059e128 *)param_1)->field_0x48);
+    ((cls_1059e128 *)param_1)->field_0x50 = (uintptr_t)((void *)0x0);
+    ((cls_1059e128 *)param_1)->field_0x54 = 0;
+    ((cls_1059e128 *)param_1)->field_0x58 = 0;
+    *(uint16_t *)&((cls_1059e128 *)param_1)->field_0x5c = 0;
+    ((cls_1059e128 *)param_1)->field_0x60 = 0;
+    ((cls_1059e128 *)param_1)->field46_0x64 = '\0';
+    ((cls_1059e128 *)param_1)->field_0x65 = '\0';
+    ((cls_1059e128 *)param_1)->field_0x68 = 0;
   }
-  return param_1;
+  return (cls_1059e128 *)param_1;
 }

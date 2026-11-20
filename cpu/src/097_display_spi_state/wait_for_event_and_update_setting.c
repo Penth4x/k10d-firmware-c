@@ -27,9 +27,9 @@ void wait_for_event_and_update_setting(int param_1)
   *(uint8_t *)(*(int *)(param_1 + 0x50) + 0x354) = 1;
   set_flag_at_offset_0x34c(*(uint32_t *)(param_1 + 0x50));
   check_kernel_call_success_10459fea();
-  process_entry_list_until_sentinel(*(uint32_t *)(param_1 + 0x50),*(uint32_t *)(param_1 + 0x14f8));
+  process_entry_list_until_sentinel((int)(*(uint32_t *)(param_1 + 0x50)),(void *)(*(uint32_t *)(param_1 + 0x14f8)));
   while( true ) {
-    iVar1 = alloc_first_ring_entry(*(uint32_t *)(param_1 + 0x54),param_1 + 0x40);
+    iVar1 = (uintptr_t)(alloc_first_ring_entry(*(uint32_t *)(param_1 + 0x54),param_1 + 0x40));
     *(int *)(param_1 + 0x84) = iVar1;
     if (iVar1 != 0) break;
     check_kernel_call_success_10459fea();

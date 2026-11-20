@@ -20,12 +20,12 @@ void init_object_and_schedule_timer(int *param_1)
 
 {
   int iVar1;
-  int *piVar2;
+  cls_105b4254 *pcVar2;
   
   empty_stub_function_103b76f0();
   empty_noop_stub_103b76f2();
   if (*(char *)(param_1 + 1) == '\0') {
-    (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1,0);
+    (((vtbl_entry*)(*param_1))[8].fn)((int)((vtbl_entry*)(*param_1))[8].adj + (int)param_1,0);
   }
   param_1[0x12] = 0;
   iVar1 = read_sysparam_store_entry(param_1[0x13],1);
@@ -63,10 +63,10 @@ void init_object_and_schedule_timer(int *param_1)
   }
   param_1[0x12] = iVar1;
 LAB_1040db5a:
-  piVar2 = param_1 + 2;
-  dispatch_event_to_object_10492252(piVar2,param_1);
-  request_ui_sync_and_set_flag(piVar2);
-  request_ui_sync_with_flag_10491f5c(piVar2,1);
+  pcVar2 = (cls_105b4254 *)(param_1 + 2);
+  dispatch_event_to_object_10492252(pcVar2,param_1);
+  request_ui_sync_and_set_flag(pcVar2);
+  request_ui_sync_with_flag_10491f5c(pcVar2,1);
   register_eight_menu_items_1040dd2c(param_1);
   check_heap_alloc_success(param_1 + 0x10,1000);
   return;

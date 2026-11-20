@@ -36,49 +36,49 @@ void build_menu_with_setting_items(int *param_1)
   iVar5 = 2;
   do {
     iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
     iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
     iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
     iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
     iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
     iVar5 = iVar5 + -1;
   } while (-1 < iVar5);
   iStack_c8 = 2;
   do {
     iVar5 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
     iVar5 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
     iVar5 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
     iVar5 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
     iVar5 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
     iStack_c8 = iStack_c8 + -1;
   } while (-1 < iStack_c8);
   iStack_c4 = 2;
   do {
     iVar5 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
     iVar5 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
     iVar5 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
     iVar5 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
     iVar5 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
     iStack_c4 = iStack_c4 + -1;
   } while (-1 < iStack_c4);
   iVar5 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
   iVar5 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
   uVar2 = get_setting_by_index((int)param_1,0x21);
   uVar6 = 0xff;
   uVar4 = 0;
@@ -106,35 +106,35 @@ void build_menu_with_setting_items(int *param_1)
     iVar5 = get_setting_by_index((int)param_1,0x3f);
     uStack_a = *(uint16_t *)(iVar5 * 2 + 0x10597aaa/*ROM*/);
     uVar3 = menu_item_register(*param_1);
-    menu_list_build(uVar3,&uStack_a,5,1);
+    menu_list_build((int *)(uVar3),(uint16_t *)(&uStack_a),(uint8_t)(5),(uint8_t)(1));
     iVar5 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
     iVar5 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
   }
   else if (uVar2 == 0xd) {
     iVar5 = get_setting_by_index((int)param_1,0x42);
     uStack_a = *(uint16_t *)(iVar5 * 2 + 0x10597aaa/*ROM*/);
     uVar3 = menu_item_register(*param_1);
-    menu_list_build(uVar3,&uStack_a,5,1);
+    menu_list_build((int *)(uVar3),(uint16_t *)(&uStack_a),(uint8_t)(5),(uint8_t)(1));
     iVar5 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
     iVar5 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
   }
   else if (uVar2 == 0xe) {
     iVar5 = get_setting_by_index((int)param_1,0x45);
     uStack_a = *(uint16_t *)(iVar5 * 2 + 0x10597aaa/*ROM*/);
     uVar3 = menu_item_register(*param_1);
-    menu_list_build(uVar3,&uStack_a,5,1);
+    menu_list_build((int *)(uVar3),(uint16_t *)(&uStack_a),(uint8_t)(5),(uint8_t)(1));
     iVar5 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
     iVar5 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
   }
   else {
     iVar5 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
   }
   get_setting_by_index((int)param_1,(uint)*(byte *)(uVar6 + 0x10597a8c/*ROM*/));
   get_setting_by_index((int)param_1,(uint)*(byte *)(uVar6 + 0x10597a9b/*ROM*/));
@@ -143,12 +143,12 @@ void build_menu_with_setting_items(int *param_1)
     iVar5 = iVar5 + -1;
   } while (-1 < iVar5);
   iVar5 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
   iVar5 = 2;
   do {
     iVar5 = iVar5 + -1;
   } while (-1 < iVar5);
   iVar5 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
   return;
 }

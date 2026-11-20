@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void process_object_list_and_dispatch(int param_1,uint32_t param_2,void *param_3,void *param_4)
+void process_object_list_and_dispatch(cls_105b47b4 *param_1,uint32_t param_2,void *param_3,void *param_4)
 
 {
   int iVar1;
@@ -14,26 +14,26 @@ void process_object_list_and_dispatch(int param_1,uint32_t param_2,void *param_3
   int iVar3;
   uint64_t uVar4;
   
-  uVar4 = (uint64_t)find_matching_list_entry(__frv_reg_unset(4));
+  uVar4 = (uintptr_t)(find_matching_list_entry(__frv_reg_unset(4)));
   piVar2 = (int *)((ulonglong)uVar4 >> 0x20);
-  *(int **)(param_1 + 0x60) = piVar2;
+  param_1->field_0x60 = (uintptr_t)(piVar2);
   if ((piVar2 == (int *)0x0) || (*piVar2 == 0)) {
     console_printf((void *)0x105b48b4/*ROM*/,(void *)uVar4,param_3,param_4);
   }
-  piVar2 = *(int **)(param_1 + 0x48);
-  if (piVar2 != *(int **)(param_1 + 0x4c)) {
+  piVar2 = (int *)((uintptr_t)(param_1->field43_0x48));
+  if ((uint32_t)(piVar2) != param_1->field_0x4c) {
     do {
       iVar3 = *piVar2;
       iVar1 = read_byte_at_offset_8(iVar3);
-      if ((iVar1 != 0) && (*(int **)(param_1 + 0x60) != piVar2)) {
-        (**(code **)(*(int *)(iVar3 + 0xc) + 0x44))
-                  (*(short *)(*(int *)(iVar3 + 0xc) + 0x40) + iVar3);
+      if ((iVar1 != 0) && (param_1->field_0x60 != (uint32_t)(piVar2))) {
+        (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[8].fn)
+                  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[8].adj + iVar3);
       }
       piVar2 = piVar2 + 1;
-    } while (piVar2 != *(int **)(param_1 + 0x4c));
+    } while ((uint32_t)(piVar2) != param_1->field_0x4c);
   }
-  iVar1 = *(int *)(**(int **)(param_1 + 0x60) + 0xc);
-  (**(code **)(iVar1 + 0x44))(**(int **)(param_1 + 0x60) + (int)*(short *)(iVar1 + 0x40));
-  invoke_virtual_destroy_on_range(param_1);
+  iVar1 = *(int *)(*(uint32_t *)(param_1->field_0x60) + 0xc);
+  (((vtbl_entry*)(iVar1))[8].fn)(*(uint32_t *)(param_1->field_0x60) + (int)((vtbl_entry*)(iVar1))[8].adj);
+  invoke_virtual_destroy_on_range((cls_105b48dc *)param_1);
   return;
 }

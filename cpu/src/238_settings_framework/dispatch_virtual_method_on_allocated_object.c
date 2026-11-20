@@ -31,8 +31,8 @@ void dispatch_virtual_method_on_allocated_object(int param_1)
   if (iVar1 != 0) {
     uVar2 = get_or_create_singleton_object_104cfcea();
     piVar3 = (int *)(*(code *)0x104cfe98/*ROM*/)(uVar2,**(uint32_t **)(param_1 + 0x34));
-    iVar1 = (**(code **)(*piVar3 + 0x2c))
-                      ((int)piVar3 + (int)*(short *)(*piVar3 + 0x28),*(uint32_t *)(param_1 + 0x34)
+    iVar1 = (((vtbl_entry*)(*piVar3))[5].fn)
+                      ((int)piVar3 + (int)((vtbl_entry*)(*piVar3))[5].adj,*(uint32_t *)(param_1 + 0x34)
                        ,*(uint32_t *)(param_1 + 0x4c));
     if (iVar1 != 0) {
       iVar4 = dispatch_event_with_payload_104cea58(param_1);

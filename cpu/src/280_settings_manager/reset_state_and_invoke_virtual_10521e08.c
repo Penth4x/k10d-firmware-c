@@ -6,13 +6,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void reset_state_and_invoke_virtual_10521e08(uint32_t *param_1)
+void reset_state_and_invoke_virtual_10521e08(cls_105d86e0 *param_1)
 
 {
-  if (param_1[1] == 4) {
-    param_1[1] = 1;
-    (**(code **)(param_1[3] + 0x7c))((int)*(short *)(param_1[3] + 0x78) + (int)param_1);
-    *param_1 = 0;
+  if (param_1->field_0x4 == 4) {
+    param_1->field_0x4 = 1;
+    (((vtbl_entry*)(param_1->field_0xc))[15].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0xc))[15].adj);
+    param_1->field_0x0 = 0;
   }
   return;
 }

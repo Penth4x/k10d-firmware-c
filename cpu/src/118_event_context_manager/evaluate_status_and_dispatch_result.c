@@ -29,12 +29,12 @@ void evaluate_status_and_dispatch_result(void *param_1)
   int iVar5;
   uint32_t uVar7;
   uintptr_t sp;
-  uint8_t auStack_48 [64];
+  cls_105a8a1c acStack_48 [16];
   
-  cls_105a8a1c_new((void *)auStack_48);
-  copy_struct_under_semaphore((int)param_1,auStack_48);
+  cls_105a8a1c_new(acStack_48);
+  copy_struct_under_semaphore((int)param_1,acStack_48);
   uVar7 = *(uint32_t *)((int)param_1 + 0x30);
-  uVar1 = status_item_asserted(auStack_48,5);
+  uVar1 = status_item_asserted(acStack_48,5);
   set_two_flags_on_object_10435344(uVar7,uVar1,0);
   cVar6 = read_byte_at_offset_0x40(param_1);
   if (cVar6 != '\0') goto LAB_10432f66;
@@ -93,6 +93,6 @@ LAB_10432f62:
   store_value_at_offset_0x3c(param_1,uVar1);
 LAB_10432f66:
   store_byte_at_offset_0x40(param_1,0);
-  cls_105a8a1c_delete((void *)auStack_48,2);
+  cls_105a8a1c_delete(acStack_48,2);
   return;
 }

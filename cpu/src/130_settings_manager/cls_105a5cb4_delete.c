@@ -18,7 +18,7 @@ void cls_105a5cb4_delete(uint32_t *param_1,uint param_2)
     *param_1 = 0x105a5cb4/*ROM*/;
     param_1[1] = 0x105a5d44/*ROM*/;
     cls_105a2be0_delete(param_1 + 0x15,2);
-    cls_105a5d5c_delete(param_1 + 0x12,2);
+    cls_105a5d5c_delete((void *)(param_1 + 0x12),2);
     cls_105a7bf0_delete(param_1,0);
     if ((param_2 & 1) != 0) {
       heap_free((int)param_1);

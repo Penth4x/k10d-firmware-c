@@ -6,11 +6,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void * dispatch_state_event_by_id_1036544c(void *param_1,int *param_2)
+cls_105576e0 * dispatch_state_event_by_id_1036544c(cls_105576e0 *param_1,int *param_2)
 
 {
   int iVar1;
-  void *pvVar2;
+  cls_105576e0 *pcVar2;
   uint32_t uVar3;
   uint32_t uVar4;
   
@@ -24,7 +24,7 @@ void * dispatch_state_event_by_id_1036544c(void *param_1,int *param_2)
   if (iVar1 != 4) {
     return param_1;
   }
-  iVar1 = *(int *)((int)param_1 + 0x14);
+  iVar1 = *(int *)&param_1->field_0x14;
   if (iVar1 == 0) {
     switch(param_2[1]) {
     case 5:
@@ -32,14 +32,14 @@ void * dispatch_state_event_by_id_1036544c(void *param_1,int *param_2)
     case 0xc:
       goto code_r0x103654f6;
     case 0x11:
-      param_1 = (void *)process_event_and_return_status(param_1);
+      param_1 = (cls_105576e0 *)process_event_and_return_status(param_1);
       break;
     case 0x18:
       uVar3 = get_or_create_singleton_object_1036c796();
       uVar4 = 0xd;
       goto LAB_1036549e;
     case 0x19:
-      if (*(char *)((int)param_1 + 0x81) != '\0') {
+      if (param_1->field_0x81 != '\0') {
         init_object_with_flag_and_callbacks((void *)__frv_reg_unset(4));
         return param_1;
       }
@@ -58,8 +58,8 @@ void * dispatch_state_event_by_id_1036544c(void *param_1,int *param_2)
         init_object_substructure((void *)__frv_reg_unset(4));
         return param_1;
       case 0x11:
-        pvVar2 = (void *)process_state_0x3030009((void *)__frv_reg_unset(4));
-        return pvVar2;
+        pcVar2 = (cls_105576e0 *)process_state_0x3030009((void *)__frv_reg_unset(4));
+        return pcVar2;
       case 0x18:
         uVar3 = get_or_create_singleton_object_1036c796();
         uVar4 = 0xd;
@@ -79,7 +79,7 @@ code_r0x103654f6:
     uVar3 = get_or_create_singleton_object_1036c796();
     uVar4 = 2;
 LAB_1036549e:
-    param_1 = (void *)read_array_element_bounded(uVar3,uVar4);
+    param_1 = (cls_105576e0 *)read_array_element_bounded(uVar3,uVar4);
   }
   return param_1;
 }

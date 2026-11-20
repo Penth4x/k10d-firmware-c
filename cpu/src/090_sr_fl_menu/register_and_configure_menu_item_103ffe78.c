@@ -27,14 +27,14 @@ void register_and_configure_menu_item_103ffe78(int *param_1,int param_2)
   
   puVar4 = auStack_14;
   iVar3 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,0);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,0);
   if (param_2 == 0) {
     pcVar2 = *(code **)(*(int *)(iVar3 + 0xc) + 0xf4);
     sVar1 = *(short *)(*(int *)(iVar3 + 0xc) + 0xf0);
     *(uint16_t *)(puVar4 + 2) = 8;
     *(uint16_t *)(puVar4 + 6) = 0x10;
     (*pcVar2)(sVar1 + iVar3,6,0x14a,0x168);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
   }
   else if (param_2 == 1) {
     pcVar2 = *(code **)(*(int *)(iVar3 + 0xc) + 0xf4);
@@ -42,7 +42,7 @@ void register_and_configure_menu_item_103ffe78(int *param_1,int param_2)
     *(uint16_t *)(puVar4 + 2) = 8;
     *(uint16_t *)(puVar4 + 6) = 0x10;
     (*pcVar2)(sVar1 + iVar3,2,0x178,0x168);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
   }
   else if (param_2 == 2) {
     pcVar2 = *(code **)(*(int *)(iVar3 + 0xc) + 0xf4);
@@ -50,7 +50,7 @@ void register_and_configure_menu_item_103ffe78(int *param_1,int param_2)
     *(uint16_t *)(puVar4 + 2) = 8;
     *(uint16_t *)(puVar4 + 6) = 0x10;
     (*pcVar2)(sVar1 + iVar3,6,0x1a6,0x168);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
   }
   return;
 }

@@ -131,8 +131,8 @@ LAB_10546ad2:
   }
   else {
     compute_lens_fw_crc32(uVar4);
-    uStack_28 = (uStack_28 & ~(0xffffULL << 0)) | ((((uint64_t)((short)((uint)extraout_r4 >> 0x10))) & 0xffffULL) << 0);
-    uStack_28 = (uStack_28 & ~(0xffffULL << 16)) | ((((uint64_t)((uint16_t)extraout_r4)) & 0xffffULL) << 16);
+    uStack_28 = (uStack_28 & ~(((uint64_t)0xffff) << 0)) | ((((uint64_t)((short)((uint)extraout_r4 >> 0x10))) & ((uint64_t)0xffff)) << 0);
+    uStack_28 = (uStack_28 & ~(((uint64_t)0xffff) << 16)) | ((((uint64_t)((uint16_t)extraout_r4)) & ((uint64_t)0xffff)) << 16);
     uStack_28 = CONCAT22(((uint16_t)((uint64_t)(uStack_28) >> 0)) + 0x200,((uint16_t)((uint64_t)(uStack_28) >> 16)));
     compute_lens_fw_crc32(uVar12);
     add_two_64_bit_integers(extraout_r4_00,extraout_r5_00,uStack_28,extraout_r5);
@@ -206,7 +206,7 @@ LAB_10546bd4:
         do {
           if ((uVar12 & 1) != 0) {
             multiply_two_floats(uStack_28,uStack_24,*(uint *)(psVar11 + 2),*(uint *)(psVar11 + 4));
-            uStack_28 = (uStack_28 & ~(0xffffULL << 0)) | ((((uint64_t)((short)(extraout_r4_03 >> 0x10))) & 0xffffULL) << 0);
+            uStack_28 = (uStack_28 & ~(((uint64_t)0xffff) << 0)) | ((((uint64_t)((short)(extraout_r4_03 >> 0x10))) & ((uint64_t)0xffff)) << 0);
             uVar9 = ((uint16_t)((uint64_t)(uStack_28) >> 0)) + (uVar9 & 0x7ff0) + *psVar11;
             uStack_28 = extraout_r4_03 & 0x800fffff/*SDRAM*/ | 0x3ff00000;
             if ((0x7fef < uVar9) || (uStack_24 = extraout_r5_03, uVar9 == 0)) goto LAB_10546c8a;

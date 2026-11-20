@@ -20,6 +20,6 @@ void invoke_virtual_method_on_context(int param_1)
   int iVar1;
   
   iVar1 = *(int *)(*(int *)(param_1 + 0x20) + 4);
-  (**(code **)(iVar1 + 100))(*(int *)(param_1 + 0x20) + (int)*(short *)(iVar1 + 0x60));
+  (((vtbl_entry*)(iVar1))[12].fn)(*(int *)(param_1 + 0x20) + (int)((vtbl_entry*)(iVar1))[12].adj);
   return;
 }

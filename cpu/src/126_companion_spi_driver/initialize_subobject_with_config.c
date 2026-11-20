@@ -31,7 +31,7 @@ void initialize_subobject_with_config(void *param_1)
   uint32_t uStack_10;
   uint32_t uStack_c;
   
-  uVar1 = cls_105c11c8_new(0);
+  uVar1 = (uintptr_t)(cls_105c11c8_new((cls_105c11c8 *)0x0));
   *(uint32_t *)((int)param_1 + 0x14) = uVar1;
   uStack_2c = 0xd60;
   uStack_28 = 0xd62;
@@ -43,7 +43,7 @@ void initialize_subobject_with_config(void *param_1)
   uStack_10 = 0xd78;
   uStack_c = 0xd7c;
   iVar2 = *(int *)(*(int *)((int)param_1 + 0x14) + 4);
-  (**(code **)(iVar2 + 0x14))
-            (*(int *)((int)param_1 + 0x14) + (int)*(short *)(iVar2 + 0x10),&uStack_2c);
+  (((vtbl_entry*)(iVar2))[2].fn)
+            (*(int *)((int)param_1 + 0x14) + (int)((vtbl_entry*)(iVar2))[2].adj,&uStack_2c);
   return;
 }

@@ -175,7 +175,7 @@ LAB_10543882:
     if (*param_5 == 0) {
       *param_5 = local_40;
     }
-    if (pvVar3 == (void *)0x0) {
+    if (pvVar3 == 0) {
       return 0;
     }
   } while( true );

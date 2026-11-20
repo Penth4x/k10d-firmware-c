@@ -16,17 +16,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-void update_object_field_and_notify_104a91aa(void *param_1,int param_2)
+void update_object_field_and_notify_104a91aa(cls_105b6aa0 *param_1,int param_2)
 
 {
   int iVar1;
   
-  *(int *)((int)param_1 + 8) = param_2;
+  param_1->field_0x8 = param_2;
   iVar1 = read_two_bytes_from_heap_offset(__frv_reg_unset(4));
-  if (*(char *)((int)param_1 + 0xc) != '\0') {
+  if (param_1->field_0xc != '\0') {
     param_2 = 0;
   }
-  *(int *)(*(int *)((int)param_1 + 4) + 0x28) = iVar1 + param_2;
-  layout_list_items_sequentially(*(int *)((int)param_1 + 4));
+  *(int *)(param_1->field_0x4 + 0x28) = iVar1 + param_2;
+  layout_list_items_sequentially(param_1->field_0x4);
   return;
 }

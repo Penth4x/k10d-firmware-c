@@ -15,21 +15,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t signal_sem_if_flag_set(int param_1,int param_2,int *param_3)
+uint32_t signal_sem_if_flag_set(cls_105f9bb0 *param_1,int param_2,int *param_3)
 
 {
-  *(uint32_t *)(param_1 + 0xc) = 0;
+  param_1->field_0xc = 0;
   if ((param_2 == 0x41000) && (param_3 != (int *)0x0)) {
     if (*param_3 == 0) {
-      *(uint32_t *)(param_1 + 0xc) = 0;
+      param_1->field_0xc = 0;
     }
     else {
       if (*param_3 != 1) {
         return 0;
       }
-      *(uint32_t *)(param_1 + 0xc) = 2;
+      param_1->field_0xc = 2;
     }
-    sig_sem_obj((void *)(param_1 + 4));
+    sig_sem_obj(&param_1->field_0x4);
   }
   return 0;
 }

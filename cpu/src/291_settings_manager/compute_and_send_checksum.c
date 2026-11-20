@@ -49,6 +49,6 @@ void compute_and_send_checksum(int param_1,int param_2)
   uStack_9 = (uint8_t)uVar2;
   piVar3 = (int *)(*(int *)(param_1 + 0x14) + 0x10c);
   iVar1 = *piVar3;
-  (**(code **)(iVar1 + 0x44))((int)piVar3 + (int)*(short *)(iVar1 + 0x40),&uStack_c);
+  (((vtbl_entry*)(iVar1))[8].fn)((int)piVar3 + (int)((vtbl_entry*)(iVar1))[8].adj,&uStack_c);
   return;
 }

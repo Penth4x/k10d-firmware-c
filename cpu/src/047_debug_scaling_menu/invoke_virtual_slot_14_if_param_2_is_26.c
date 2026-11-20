@@ -6,11 +6,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_14_if_param_2_is_26(int *param_1,int param_2)
+void invoke_virtual_slot_14_if_param_2_is_26(cls_10565468 *param_1,int param_2)
 
 {
   if (param_2 == 0x1a) {
-    (**(code **)(*param_1 + 0x74))((int)*(short *)(*param_1 + 0x70) + (int)param_1,0x1120004,0);
+    (((vtbl_entry*)(param_1->field_0x0))[14].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[14].adj,0x1120004,0);
   }
   return;
 }

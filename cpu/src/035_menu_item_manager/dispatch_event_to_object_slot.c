@@ -23,22 +23,22 @@ void dispatch_event_to_object_slot(int param_1,int param_2,uint32_t param_3)
   
   if (param_2 == 0x305000e) {
     iVar1 = menu_item_register(param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)
               (iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),param_3);
   }
   else if (param_2 == 0x305000f) {
     iVar1 = menu_item_register(param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)
               (iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),param_3);
   }
   else if (param_2 == 0x3050010) {
     iVar1 = menu_item_register(param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)
               (iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),param_3);
   }
   else if (param_2 == 0x3050011) {
     iVar1 = menu_item_register(param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)
               (iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),param_3);
   }
   return;

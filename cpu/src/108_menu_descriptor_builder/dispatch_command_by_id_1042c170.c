@@ -68,7 +68,7 @@ int dispatch_command_by_id_1042c170(int param_1,uint32_t param_2,int param_3)
   puVar16 = auStack_138;
   uVar1 = *(uint8_t *)(param_3 + 0x859);
   set_struct_field_at_offset_4(param_3,0);
-  iVar6 = read_virtual_property_field(*(uint32_t *)(param_1 + 0x18),1);
+  iVar6 = read_virtual_property_field((int *)(*(uint32_t *)(param_1 + 0x18)),(int)(1));
   bVar4 = false;
   if ((iVar6 == 2) || (iVar6 == 3)) {
     bVar4 = true;
@@ -114,14 +114,14 @@ LAB_1042c27a:
     goto LAB_1042c2de;
   case 3:
     set_struct_field_at_offset_4(param_3,0);
-    iVar6 = read_virtual_property_field(*(uint32_t *)(param_1 + 0x18),2);
+    iVar6 = read_virtual_property_field((int *)(*(uint32_t *)(param_1 + 0x18)),(int)(2));
     if (iVar6 == 0) {
       iVar6 = get_or_init_singleton_10433180();
       uVar12 = *(uint32_t *)(iVar6 + 4);
       uVar11 = read_struct_field_at_index_1046c7ca(param_3,0);
       uVar9 = read_struct_field_at_index_1046c7ca(param_3,1);
       uVar7 = read_struct_field_at_index_1046c7ca(param_3,2);
-      iVar6 = dispatch_mode_event_locked(uVar12,uVar11 & 0xff,uVar9 & 0xff,uVar7 & 0xff);
+      iVar6 = dispatch_mode_event_locked((void *)(uVar12),(uint32_t)(uVar11 & 0xff),(uint32_t)(uVar9 & 0xff),(uint32_t)(uVar7 & 0xff));
       if (iVar6 != 0) {
         return 0;
       }
@@ -130,8 +130,8 @@ LAB_1042c27a:
     goto LAB_1042c36a;
   case 4:
     set_struct_field_at_offset_4(param_3,0);
-    eventflag_clr_flg(param_1 + 0x2c,1);
-    iVar6 = send_cpucom_command_sequence_104611e2(*(uint32_t *)(param_1 + 0x14),param_1 + 8);
+    eventflag_clr_flg((uint32_t *)(param_1 + 0x2c),(uint)(1));
+    iVar6 = send_cpucom_command_sequence_104611e2((int *)(*(uint32_t *)(param_1 + 0x14)),(void *)(param_1 + 8));
     iStack_100 = 0;
     if (iVar6 == 0) {
       iStack_100 = 0x82;
@@ -169,8 +169,8 @@ LAB_1042c27a:
     break;
   case 7:
     set_struct_field_at_offset_4(param_3,0);
-    eventflag_clr_flg(param_1 + 0x2c,1);
-    iVar6 = send_cpucom_command_sequence_10461916(*(uint32_t *)(param_1 + 0x14),param_1 + 8);
+    eventflag_clr_flg((uint32_t *)(param_1 + 0x2c),(uint)(1));
+    iVar6 = send_cpucom_command_sequence_10461916((int *)(*(uint32_t *)(param_1 + 0x14)),(void *)(param_1 + 8));
     iStack_100 = 0;
     if (iVar6 == 0) {
       iStack_100 = 0x82;
@@ -184,8 +184,8 @@ joined_r0x1042c538:
     set_struct_field_at_offset_4(param_3,0);
     uVar12 = *(uint32_t *)(param_1 + 0x10);
     uVar11 = read_struct_field_at_index_1046c7ca(param_3,0);
-    invoke_virtual_two_byte_write(uVar12,uVar11 & 0xffff);
-    eventflag_clr_flg(param_1 + 0x2c,1);
+    invoke_virtual_two_byte_write((int *)(uVar12),(uint)(uVar11 & 0xffff));
+    eventflag_clr_flg((uint32_t *)(param_1 + 0x2c),(uint)(1));
     iVar6 = send_data_via_cpucom(*(int **)(param_1 + 0x10),(void *)(param_1 + 8));
     goto joined_r0x1042c78e;
   case 9:
@@ -195,8 +195,8 @@ joined_r0x1042c538:
   case 10:
     set_struct_field_at_offset_4(param_3,0);
     iVar6 = read_struct_field_at_index_1046c7ca(param_3,0);
-    write_byte_to_virtual_object(*(uint32_t *)(param_1 + 0x10),1,iVar6 != 0);
-    eventflag_clr_flg(param_1 + 0x2c,1);
+    write_byte_to_virtual_object((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(1),(uint)(iVar6 != 0));
+    eventflag_clr_flg((uint32_t *)(param_1 + 0x2c),(uint)(1));
     iVar6 = send_data_via_cpucom(*(int **)(param_1 + 0x10),(void *)(param_1 + 8));
     goto joined_r0x1042c78e;
   case 0xb:
@@ -209,8 +209,8 @@ joined_r0x1042c538:
   case 0xc:
     set_struct_field_at_offset_4(param_3,0);
     iVar6 = read_struct_field_at_index_1046c7ca(param_3,0);
-    write_byte_to_virtual_object(*(uint32_t *)(param_1 + 0x10),2,iVar6 != 0);
-    eventflag_clr_flg(param_1 + 0x2c,1);
+    write_byte_to_virtual_object((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(2),(uint)(iVar6 != 0));
+    eventflag_clr_flg((uint32_t *)(param_1 + 0x2c),(uint)(1));
     iVar6 = send_data_via_cpucom(*(int **)(param_1 + 0x10),(void *)(param_1 + 8));
     goto joined_r0x1042c78e;
   case 0xd:
@@ -223,8 +223,8 @@ joined_r0x1042c538:
   case 0xe:
     set_struct_field_at_offset_4(param_3,0);
     iVar6 = read_struct_field_at_index_1046c7ca(param_3,0);
-    write_byte_to_virtual_object(*(uint32_t *)(param_1 + 0x10),3,iVar6 != 0);
-    eventflag_clr_flg(param_1 + 0x2c,1);
+    write_byte_to_virtual_object((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(3),(uint)(iVar6 != 0));
+    eventflag_clr_flg((uint32_t *)(param_1 + 0x2c),(uint)(1));
     iVar6 = send_data_via_cpucom(*(int **)(param_1 + 0x10),(void *)(param_1 + 8));
     goto joined_r0x1042c78e;
   case 0xf:
@@ -237,25 +237,25 @@ joined_r0x1042c538:
   case 0x10:
     set_struct_field_at_offset_4(param_3,0);
     iVar6 = read_struct_field_at_index_1046c7ca(param_3,0);
-    write_byte_to_virtual_object(*(uint32_t *)(param_1 + 0x10),7,iVar6 != 0);
-    eventflag_clr_flg(param_1 + 0x2c,1);
+    write_byte_to_virtual_object((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(7),(uint)(iVar6 != 0));
+    eventflag_clr_flg((uint32_t *)(param_1 + 0x2c),(uint)(1));
     iVar6 = send_data_via_cpucom(*(int **)(param_1 + 0x10),(void *)(param_1 + 8));
     goto joined_r0x1042c78e;
   case 0x11:
     set_struct_field_at_offset_4(param_3,1);
-    iVar6 = read_field_from_object(*(uint32_t *)(param_1 + 0x10),7);
+    iVar6 = read_field_from_object((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(7));
     uVar11 = (uint)(iVar6 == 1);
     goto LAB_1042ccc6;
   case 0x12:
     set_struct_field_at_offset_4(param_3,0);
     iVar6 = read_struct_field_at_index_1046c7ca(param_3,0);
-    write_byte_to_virtual_object(*(uint32_t *)(param_1 + 0x10),8,iVar6 != 0);
-    eventflag_clr_flg(param_1 + 0x2c,1);
+    write_byte_to_virtual_object((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(8),(uint)(iVar6 != 0));
+    eventflag_clr_flg((uint32_t *)(param_1 + 0x2c),(uint)(1));
     iVar6 = send_data_via_cpucom(*(int **)(param_1 + 0x10),(void *)(param_1 + 8));
     goto joined_r0x1042c78e;
   case 0x13:
     set_struct_field_at_offset_4(param_3,1);
-    iVar6 = read_field_from_object(*(uint32_t *)(param_1 + 0x10),8);
+    iVar6 = read_field_from_object((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(8));
     if (iVar6 == 1) {
       uVar11 = 1;
     }
@@ -266,13 +266,13 @@ joined_r0x1042c538:
   case 0x14:
     set_struct_field_at_offset_4(param_3,0);
     iVar6 = read_struct_field_at_index_1046c7ca(param_3,0);
-    write_byte_to_virtual_object(*(uint32_t *)(param_1 + 0x10),9,iVar6 != 0);
-    eventflag_clr_flg(param_1 + 0x2c,1);
+    write_byte_to_virtual_object((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(9),(uint)(iVar6 != 0));
+    eventflag_clr_flg((uint32_t *)(param_1 + 0x2c),(uint)(1));
     iVar6 = send_data_via_cpucom(*(int **)(param_1 + 0x10),(void *)(param_1 + 8));
     goto joined_r0x1042c78e;
   case 0x15:
     set_struct_field_at_offset_4(param_3,1);
-    iVar6 = read_field_from_object(*(uint32_t *)(param_1 + 0x10),9);
+    iVar6 = read_field_from_object((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(9));
     if (iVar6 == 1) {
       uVar11 = 1;
     }
@@ -283,13 +283,13 @@ joined_r0x1042c538:
   case 0x16:
     set_struct_field_at_offset_4(param_3,0);
     iVar6 = read_struct_field_at_index_1046c7ca(param_3,0);
-    write_byte_to_virtual_object(*(uint32_t *)(param_1 + 0x10),10,iVar6 != 0);
-    eventflag_clr_flg(param_1 + 0x2c,1);
+    write_byte_to_virtual_object((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(10),(uint)(iVar6 != 0));
+    eventflag_clr_flg((uint32_t *)(param_1 + 0x2c),(uint)(1));
     iVar6 = send_data_via_cpucom(*(int **)(param_1 + 0x10),(void *)(param_1 + 8));
     goto joined_r0x1042c78e;
   case 0x17:
     set_struct_field_at_offset_4(param_3,1);
-    iVar6 = read_field_from_object(*(uint32_t *)(param_1 + 0x10),10);
+    iVar6 = read_field_from_object((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(10));
     if (iVar6 == 1) {
       uVar11 = 1;
     }
@@ -300,8 +300,8 @@ joined_r0x1042c538:
   case 0x18:
     set_struct_field_at_offset_4(param_3,0);
     iVar6 = read_struct_field_at_index_1046c7ca(param_3,0);
-    write_byte_to_virtual_object(*(uint32_t *)(param_1 + 0x10),4,iVar6 != 0);
-    eventflag_clr_flg(param_1 + 0x2c,1);
+    write_byte_to_virtual_object((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(4),(uint)(iVar6 != 0));
+    eventflag_clr_flg((uint32_t *)(param_1 + 0x2c),(uint)(1));
     iVar6 = send_data_via_cpucom(*(int **)(param_1 + 0x10),(void *)(param_1 + 8));
     goto joined_r0x1042c78e;
   case 0x19:
@@ -314,8 +314,8 @@ joined_r0x1042c538:
   case 0x1a:
     set_struct_field_at_offset_4(param_3,0);
     iVar6 = read_struct_field_at_index_1046c7ca(param_3,0);
-    write_byte_to_virtual_object(*(uint32_t *)(param_1 + 0x10),5,iVar6 != 0);
-    eventflag_clr_flg(param_1 + 0x2c,1);
+    write_byte_to_virtual_object((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(5),(uint)(iVar6 != 0));
+    eventflag_clr_flg((uint32_t *)(param_1 + 0x2c),(uint)(1));
     iVar6 = send_data_via_cpucom(*(int **)(param_1 + 0x10),(void *)(param_1 + 8));
     goto joined_r0x1042c78e;
   case 0x1b:
@@ -328,8 +328,8 @@ joined_r0x1042c538:
   case 0x1c:
     set_struct_field_at_offset_4(param_3,0);
     iVar6 = read_struct_field_at_index_1046c7ca(param_3,0);
-    write_byte_to_virtual_object(*(uint32_t *)(param_1 + 0x10),6,iVar6 != 0);
-    eventflag_clr_flg(param_1 + 0x2c,1);
+    write_byte_to_virtual_object((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(6),(uint)(iVar6 != 0));
+    eventflag_clr_flg((uint32_t *)(param_1 + 0x2c),(uint)(1));
     iVar6 = send_data_via_cpucom(*(int **)(param_1 + 0x10),(void *)(param_1 + 8));
     goto joined_r0x1042c78e;
   case 0x1d:
@@ -348,8 +348,8 @@ LAB_1042d008:
   case 0x1e:
     set_struct_field_at_offset_4(param_3,0);
     iVar6 = read_struct_field_at_index_1046c7ca(param_3,0);
-    write_byte_to_virtual_object(*(uint32_t *)(param_1 + 0x10),0xb,iVar6 != 0);
-    eventflag_clr_flg(param_1 + 0x2c,1);
+    write_byte_to_virtual_object((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(0xb),(uint)(iVar6 != 0));
+    eventflag_clr_flg((uint32_t *)(param_1 + 0x2c),(uint)(1));
     iVar6 = send_data_via_cpucom(*(int **)(param_1 + 0x10),(void *)(param_1 + 8));
 joined_r0x1042c78e:
     if (iVar6 == 0) {
@@ -364,7 +364,7 @@ LAB_1042c5c2:
     break;
   case 0x1f:
     set_struct_field_at_offset_4(param_3,1);
-    iVar6 = read_field_from_object(*(uint32_t *)(param_1 + 0x10),0xb);
+    iVar6 = read_field_from_object((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(0xb));
     if (iVar6 == 1) {
       uVar11 = 1;
     }
@@ -468,7 +468,7 @@ LAB_1042ccc6:
     set_struct_field_at_offset_4(param_3,0);
     iVar6 = read_struct_field_at_index_1046c7ca(param_3,0);
     if (iVar6 == 0) {
-      call_helper_with_self_and_one(*(uint32_t *)(param_1 + 0x20));
+      call_helper_with_self_and_one((int *)(*(uint32_t *)(param_1 + 0x20)));
     }
     else {
       initialize_object_with_defaults((int *)__frv_reg_unset(4));

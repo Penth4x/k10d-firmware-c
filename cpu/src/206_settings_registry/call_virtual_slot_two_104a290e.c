@@ -13,7 +13,7 @@ uint8_t call_virtual_slot_two_104a290e(int param_1)
   int iVar2;
   
   iVar2 = **(int **)(param_1 + 0xc);
-  uVar1 = (**(code **)(iVar2 + 0x14))
-                    ((int)*(int **)(param_1 + 0xc) + (int)*(short *)(iVar2 + 0x10),0);
+  uVar1 = (((vtbl_entry*)(iVar2))[2].fn)
+                    ((int)*(int **)(param_1 + 0xc) + (int)((vtbl_entry*)(iVar2))[2].adj,0);
   return uVar1;
 }

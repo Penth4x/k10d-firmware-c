@@ -14,14 +14,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_helper_and_write_result(int param_1,int param_2)
+/* WARNING: Struct "cls_105d4e80": ignoring multiple overlapping fields */
+
+uint32_t call_helper_and_write_result(cls_105d4e80 *param_1,int param_2)
 
 {
   uint32_t uVar1;
   
   if (param_2 == -0x7fffffed) {
-    uVar1 = clamp_status_to_range(param_1);
-    invoke_virtual_slot_two_104272e4((void *)(param_1 + 0x14),0x20001,uVar1);
+    uVar1 = clamp_status_to_range((int)param_1);
+    invoke_virtual_slot_two_104272e4(&param_1->field_0x14,0x20001,uVar1);
   }
   return 0;
 }

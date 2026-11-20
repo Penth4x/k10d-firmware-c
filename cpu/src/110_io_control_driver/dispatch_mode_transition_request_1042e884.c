@@ -28,7 +28,7 @@ uint32_t dispatch_mode_transition_request_1042e884(uint32_t *param_1,uint32_t pa
   
   cVar1 = *(char *)(param_3 + 0x859);
   set_struct_field_at_offset_4(param_3,0);
-  iVar3 = read_virtual_property_field(param_1[0x1a],1);
+  iVar3 = read_virtual_property_field((int *)(param_1[0x1a]),(int)(1));
   bVar2 = false;
   if ((iVar3 == 2) || (iVar3 == 3)) {
     bVar2 = true;
@@ -88,10 +88,10 @@ uint32_t dispatch_mode_transition_request_1042e884(uint32_t *param_1,uint32_t pa
   case '\x04':
     set_struct_field_at_offset_4(param_3,2);
     puVar6 = param_1 + 0x12;
-    uVar11 = return_kernel_object_id_104592a4(puVar6);
+    uVar11 = return_kernel_object_id_104592a4((uint32_t)(puVar6));
     write_word_to_struct_array(param_3,uVar11,0);
-    uVar4 = return_kernel_object_id_104592e2(puVar6);
-    uVar5 = get_kernel_object_id(puVar6);
+    uVar4 = return_kernel_object_id_104592e2((uint32_t)(puVar6));
+    uVar5 = get_kernel_object_id((uint32_t)(puVar6));
     uVar5 = uVar5 & 0xffff;
     iVar3 = 1;
     goto LAB_1042ead0;
@@ -100,7 +100,7 @@ uint32_t dispatch_mode_transition_request_1042e884(uint32_t *param_1,uint32_t pa
   case '\x06':
     set_struct_field_at_offset_4(param_3,1);
     uVar10 = return_global_word_104592ce();
-    uVar5 = return_global_word_104592d8(param_1 + 0x12);
+    uVar5 = return_global_word_104592d8((uint32_t)(param_1 + 0x12));
     iVar3 = 0;
     uVar4 = (uint)uVar10;
 LAB_1042ead0:
@@ -120,10 +120,10 @@ LAB_1042ead0:
     set_struct_field_at_offset_4(param_3,iVar3);
     break;
   case '\t':
-    iVar3 = read_virtual_property_field(param_1[0x1a],2);
-    iVar7 = read_virtual_property_field(param_1[0x1a],0xd);
-    iVar8 = read_virtual_property_field(param_1[0x1a],0x15);
-    read_virtual_property_field(param_1[0x1a],0xb);
+    iVar3 = read_virtual_property_field((int *)(param_1[0x1a]),(int)(2));
+    iVar7 = read_virtual_property_field((int *)(param_1[0x1a]),(int)(0xd));
+    iVar8 = read_virtual_property_field((int *)(param_1[0x1a]),(int)(0x15));
+    read_virtual_property_field((int *)(param_1[0x1a]),(int)(0xb));
     cls_105a6eac_new(auStack_10);
     copy_four_bytes_from_struct_field_1045e59a(param_1[0x18],auStack_10);
     iVar9 = extract_field_by_index_10460366(auStack_10,0);

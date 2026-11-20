@@ -19,7 +19,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_state_transition_103b6492(void *param_1,int param_2)
+uint32_t dispatch_state_transition_103b6492(cls_10566724 *param_1,int param_2)
 
 {
   uint32_t uVar1;
@@ -28,7 +28,7 @@ uint32_t dispatch_state_transition_103b6492(void *param_1,int param_2)
   
   uVar3 = 0;
   if (param_2 == 0x2030000) {
-    uVar1 = get_setting_by_mode_flag_104f07f4(*(int *)((int)param_1 + 0x28));
+    uVar1 = get_setting_by_mode_flag_104f07f4(param_1->field_0x28);
     switch(uVar1) {
     case 0:
       uVar3 = 0x203000a;
@@ -65,11 +65,11 @@ uint32_t dispatch_state_transition_103b6492(void *param_1,int param_2)
       set_object_and_three_substates(param_1,1);
       uVar3 = 0x2030003;
     }
-    get_setting_by_mode_flag_104f08ac(*(uint32_t *)((int)param_1 + 0x28));
+    get_setting_by_mode_flag_104f08ac(param_1->field_0x28);
     invoke_virtual_slot_two_with_flags((int)param_1);
   }
   else if (param_2 == 0x2030001) {
-    iVar2 = get_setting_by_mode_flag_104f08ac(*(uint32_t *)((int)param_1 + 0x28));
+    iVar2 = get_setting_by_mode_flag_104f08ac(param_1->field_0x28);
     if (iVar2 == 4) {
       uVar3 = 0x2030017;
     }
@@ -84,7 +84,7 @@ uint32_t dispatch_state_transition_103b6492(void *param_1,int param_2)
     }
   }
   else if (param_2 == 0x2030003) {
-    iVar2 = get_setting_by_mode_flag_104f0946(*(int *)((int)param_1 + 0x28));
+    iVar2 = get_setting_by_mode_flag_104f0946(param_1->field_0x28);
     if (iVar2 == 0xc) {
       uVar3 = 0x203001d;
     }

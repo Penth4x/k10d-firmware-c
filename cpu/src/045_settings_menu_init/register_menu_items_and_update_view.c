@@ -24,11 +24,11 @@ void register_menu_items_and_update_view(void *param_1)
   
   if (*(char *)((int)param_1 + 0x50) == '\0') {
     iVar1 = menu_item_register((int)param_1 + 8);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   }
   else if (*(char *)((int)param_1 + 0x50) == '\x01') {
     iVar1 = menu_item_register((int)param_1 + 8);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     *(uint32_t *)((int)param_1 + 0x54) = 0;
     *(uint32_t *)((int)param_1 + 0x58) = 0;
     draw_viewfinder_crosshair(param_1);
@@ -36,12 +36,12 @@ void register_menu_items_and_update_view(void *param_1)
   }
   iVar2 = (int)param_1 + 8;
   iVar1 = menu_item_register(iVar2);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   iVar1 = menu_item_register(iVar2);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   iVar1 = menu_item_register(iVar2);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   iVar1 = menu_item_register(iVar2);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   return;
 }

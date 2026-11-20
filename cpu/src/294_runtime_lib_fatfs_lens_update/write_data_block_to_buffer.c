@@ -42,7 +42,7 @@ int write_data_block_to_buffer(void *param_1,int *param_2,void *param_3)
   
   puVar4 = auStack_5c;
   if ((((param_2 == (int *)0x0) || (param_2[1] == 0)) || (param_2[2] == 0)) ||
-     (param_3 == (void *)0x0)) {
+     (param_3 == 0)) {
     iVar1 = -0x16;
   }
   else {

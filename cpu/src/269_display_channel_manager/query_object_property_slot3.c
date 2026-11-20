@@ -19,11 +19,11 @@ uint32_t query_object_property_slot3(int param_1)
 {
   uint32_t uVar1;
   uintptr_t sp;
-  uint8_t auStack_10 [8];
+  cls_105a6eac cStack_10;
   
-  cls_105a6eac_new((void *)auStack_10);
-  copy_four_bytes_from_struct_field_1045e59a(*(int *)(param_1 + 0x14),auStack_10);
-  uVar1 = test_field_bit_or_nonzero(auStack_10,7);
-  cls_105a6eac_delete((void *)auStack_10,2);
+  cls_105a6eac_new(&cStack_10);
+  copy_four_bytes_from_struct_field_1045e59a(*(int *)(param_1 + 0x14),&cStack_10);
+  uVar1 = test_field_bit_or_nonzero(&cStack_10,7);
+  cls_105a6eac_delete(&cStack_10,2);
   return uVar1;
 }

@@ -2,15 +2,14 @@
  * name: earlier (carried from an earlier Ghidra session, not re-verified; the model, reading only this decompile, proposed run_sd_init_step_table)
  * unit: 126_companion_spi_driver (unit names are model-proposed)
  * purpose:
- *   Executes a sequence of up to 8 SD/MMC initialization steps from a descriptor table,
- *   stopping on the first non-success result.
+ *   Executes a sequence of SD/MMC initialization steps from a descriptor table until one
+ *   fails or the table ends.
  * summary:
- *   Sets a flag at param_1+0x3c4 to 1, then iterates through an 8-entry table starting at
- *   param_1+0x7c. Each entry is a function pointer (with optional this-adjustment) that is
- *   called with the base object pointer. The loop continues as long as the step function
- *   returns 1 and fewer than 8 steps have been executed. Returns the result of the last
- *   executed step function. Called by sd_card_init_worker to run the MMC initialization
- *   sequence.
+ *   Sets a flag at offset 0x3c4 in the host structure to 1. Iterates through an array of 8
+ *   step descriptors starting at offset 0x7c, resolving function pointers (handling both
+ *   direct and indirect references) and calling them with the host structure as an
+ *   argument. Continues execution as long as the step function returns 1 and the step index
+ *   is less than 0x40. Returns the result of the last executed step function.
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"

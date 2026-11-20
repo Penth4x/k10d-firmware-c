@@ -16,7 +16,7 @@ int alloc_and_init_event_node(int param_1,uint32_t *param_2)
   uint32_t *puVar3;
   uint32_t *puVar4;
   
-  iVar1 = twai_sem_obj((void *)(param_1 + 0x20),_DAT_105a2bf4/*ROM*/);
+  iVar1 = twai_sem_obj((uint32_t *)(param_1 + 0x20),(int)(_DAT_105a2bf4/*ROM*/));
   if (iVar1 != 0) {
     puVar2 = (uint32_t *)heap_alloc((void *)0x34);
     if (puVar2 == (uint32_t *)0x0) {

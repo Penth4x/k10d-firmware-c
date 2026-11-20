@@ -20,6 +20,6 @@ void write_value_to_struct_offset_104f2e56(uint32_t param_1,uint16_t param_2)
   int iVar1;
   
   iVar1 = initialize_singleton_object_1045d6a0();
-  write_two_byte_value_via_helper_104630d0(*(uint32_t *)(iVar1 + 0x28),param_2);
+  write_two_byte_value_via_helper_104630d0((void *)(*(uint32_t *)(iVar1 + 0x28)),param_2);
   return;
 }

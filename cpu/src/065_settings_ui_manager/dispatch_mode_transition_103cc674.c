@@ -9,102 +9,102 @@
 /* WARNING: Instruction at (ram,0x103cc75a) overlaps instruction at (ram,0x103cc758)
     */
 
-int dispatch_mode_transition_103cc674(int param_1,int param_2)
+cls_105959b0 * dispatch_mode_transition_103cc674(cls_105959b0 *param_1,int param_2)
 
 {
   int iVar1;
   int iVar2;
+  cls_105959b0 *pcVar3;
   int extraout_r4;
-  int iVar3;
   
-  iVar2 = get_or_init_singleton_104aa272();
-  iVar3 = *(int *)(iVar2 + 8);
-  *(int *)(param_1 + 0x18) = param_2;
-  iVar2 = param_1;
+  iVar1 = get_or_init_singleton_104aa272();
+  iVar1 = *(int *)(iVar1 + 8);
+  param_1->field_0x18 = param_2;
+  pcVar3 = param_1;
   if (param_2 == 0x27) {
-    iVar2 = setting_get(*(int *)(param_1 + 8),0xb0);
+    iVar2 = setting_get(param_1->field_0x8,0xb0);
     if (iVar2 == 0) {
-      iVar2 = initialize_singleton_object_103d4044();
+      pcVar3 = (cls_105959b0 *)initialize_singleton_object_103d4044();
     }
     else {
-      iVar2 = get_or_init_sram_object_103c0f94();
+      pcVar3 = (cls_105959b0 *)get_or_init_sram_object_103c0f94();
     }
   }
-  if (*(int *)(param_1 + 0x18) == 0x28) {
-    iVar2 = get_or_init_singleton_object_103c74d0();
+  if (param_1->field_0x18 == 0x28) {
+    pcVar3 = (cls_105959b0 *)get_or_init_singleton_object_103c74d0();
   }
-  if (*(int *)(param_1 + 0x18) == 0x25) {
+  if (param_1->field_0x18 == 0x25) {
     get_or_create_singleton_object_104fb12e();
     iVar2 = debug_mode_wrapper();
     if (iVar2 == 0) {
-      iVar2 = get_or_init_singleton_object_103c8200();
+      pcVar3 = (cls_105959b0 *)get_or_init_singleton_object_103c8200();
     }
     else {
-      iVar2 = get_or_init_sram_object_104248cc();
+      pcVar3 = (cls_105959b0 *)get_or_init_sram_object_104248cc();
     }
-    *(uint32_t *)(param_1 + 0x1c) = 0x1060019;
+    param_1->field_0x1c = 0x1060019;
   }
-  if (*(int *)(param_1 + 0x18) == 0x26) {
-    iVar2 = init_singleton_object_103c9046();
-    *(uint32_t *)(param_1 + 0x1c) = 0x1060019;
+  if (param_1->field_0x18 == 0x26) {
+    pcVar3 = (cls_105959b0 *)init_singleton_object_103c9046();
+    param_1->field_0x1c = 0x1060019;
   }
-  iVar1 = *(int *)(param_1 + 0x18);
-  if ((((iVar1 == 7) || (iVar1 == 0)) || (iVar1 == 1)) || (iVar1 == 3)) {
-    *(uint8_t *)(param_1 + 0x26) = 0x8c;
-    iVar2 = 0;
+  iVar2 = param_1->field_0x18;
+  if ((((iVar2 == 7) || (iVar2 == 0)) || (iVar2 == 1)) || (iVar2 == 3)) {
+    param_1->field_0x26 = 0x8c;
+    pcVar3 = (cls_105959b0 *)0x0;
   }
-  if ((*(int *)(param_1 + 0x18) == 0x19) || (*(int *)(param_1 + 0x18) == 9)) {
-    *(uint8_t *)(param_1 + 0x26) = 0x50;
-    iVar2 = 0;
+  if ((param_1->field_0x18 == 0x19) || (param_1->field_0x18 == 9)) {
+    param_1->field_0x26 = 0x50;
+    pcVar3 = (cls_105959b0 *)0x0;
   }
-  if (*(int *)(param_1 + 0x18) == 0x18) {
-    *(uint8_t *)(param_1 + 0x26) = 0xb4;
-    iVar2 = 0;
+  if (param_1->field_0x18 == 0x18) {
+    param_1->field_0x26 = 0xb4;
+    pcVar3 = (cls_105959b0 *)0x0;
   }
-  if (*(int *)(param_1 + 0x18) == 0x2c) {
-    *(uint8_t *)(param_1 + 0x26) = 0x8c;
-    iVar2 = 0;
+  if (param_1->field_0x18 == 0x2c) {
+    param_1->field_0x26 = 0x8c;
+    pcVar3 = (cls_105959b0 *)0x0;
   }
-  if (*(int *)(param_1 + 0x18) == 10) {
-    *(uint8_t *)(param_1 + 0x26) = 200;
-    iVar2 = 0;
+  if (param_1->field_0x18 == 10) {
+    param_1->field_0x26 = 200;
+    pcVar3 = (cls_105959b0 *)0x0;
   }
-  if (*(int *)(param_1 + 0x1c) == 0x1060010) {
-    if (*(int *)(param_1 + 0x18) == 0x10) {
-      iVar2 = init_singleton_object_103c9046();
+  if (param_1->field_0x1c == 0x1060010) {
+    if (param_1->field_0x18 == 0x10) {
+      pcVar3 = (cls_105959b0 *)init_singleton_object_103c9046();
     }
-    else if ((*(int *)(param_1 + 0x18) == 0xd) && (send_command_and_wait_ack(iVar3), extraout_r4 != 0)) {
-      iVar2 = get_or_init_sram_object_103cfbca();
+    else if ((param_1->field_0x18 == 0xd) && (send_command_and_wait_ack(iVar1), extraout_r4 != 0)) {
+      pcVar3 = (cls_105959b0 *)get_or_init_sram_object_103cfbca();
     }
   }
-  if ((*(int *)(param_1 + 0x1c) == 0x1060013) && (*(int *)(param_1 + 0x18) == 0xd)) {
-    iVar2 = get_or_init_sram_object_103d255a();
+  if ((param_1->field_0x1c == 0x1060013) && (param_1->field_0x18 == 0xd)) {
+    pcVar3 = (cls_105959b0 *)get_or_init_sram_object_103d255a();
   }
-  if ((*(int *)(param_1 + 0x1c) == 0x1060016) && (*(int *)(param_1 + 0x18) == 0xd)) {
-    iVar2 = initialize_singleton_object_1040adb2();
+  if ((param_1->field_0x1c == 0x1060016) && (param_1->field_0x18 == 0xd)) {
+    pcVar3 = (cls_105959b0 *)initialize_singleton_object_1040adb2();
   }
-  if (*(int *)(param_1 + 0x1c) == 0x1060019) {
-    iVar3 = *(int *)(param_1 + 0x18);
-    if (iVar3 == 0x10) {
-      iVar2 = init_singleton_object_103c9046();
+  if (param_1->field_0x1c == 0x1060019) {
+    iVar1 = param_1->field_0x18;
+    if (iVar1 == 0x10) {
+      pcVar3 = (cls_105959b0 *)init_singleton_object_103c9046();
     }
-    else if (iVar3 == 0xf) {
+    else if (iVar1 == 0xf) {
       get_or_create_singleton_object_104fb12e();
-      iVar2 = debug_mode_wrapper();
-      if (iVar2 == 0) {
-        iVar2 = get_or_init_singleton_object_103c8200();
+      iVar1 = debug_mode_wrapper();
+      if (iVar1 == 0) {
+        pcVar3 = (cls_105959b0 *)get_or_init_singleton_object_103c8200();
       }
       else {
-        iVar2 = get_or_init_sram_object_104248cc();
+        pcVar3 = (cls_105959b0 *)get_or_init_sram_object_104248cc();
       }
     }
-    else if (iVar3 == 0xd) {
-      iVar2 = get_or_init_object_at_8001c66c();
+    else if (iVar1 == 0xd) {
+      pcVar3 = (cls_105959b0 *)get_or_init_object_at_8001c66c();
     }
   }
-  if ((*(int *)(param_1 + 0x18) == 0xc) || (*(int *)(param_1 + 0x18) == 0x11)) {
-    *(uint8_t *)(param_1 + 0x26) = 0x50;
-    iVar2 = 0;
+  if ((param_1->field_0x18 == 0xc) || (param_1->field_0x18 == 0x11)) {
+    param_1->field_0x26 = 0x50;
+    pcVar3 = (cls_105959b0 *)0x0;
   }
-  return iVar2;
+  return pcVar3;
 }

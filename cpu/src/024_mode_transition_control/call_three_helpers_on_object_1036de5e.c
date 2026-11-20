@@ -15,11 +15,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_three_helpers_on_object_1036de5e(void *param_1)
+void call_three_helpers_on_object_1036de5e(cls_10557ecc *param_1)
 
 {
-  reset_object_fields_and_call_base((void *)((int)param_1 + 0x9c));
+  reset_object_fields_and_call_base((cls_105b9458 *)&param_1->field_0x9c);
   dispatch_object_state_update_1036e02a(param_1,0);
-  empty_stub_1036e028(param_1);
+  empty_stub_1036e028((int)param_1);
   return;
 }

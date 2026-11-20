@@ -21,7 +21,7 @@ void write_ten_fields_to_subobject(int param_1)
   int iVar1;
   
   iVar1 = param_1 + 0x4a8;
-  call_single_helper_with_two_args_1052d60c((void *)iVar1, (void *)(*(uint32_t *)(param_1 + 0x7c)));
+  call_single_helper_with_two_args_1052d60c((uint32_t *)(iVar1),(uint32_t *)(*(uint32_t *)(param_1 + 0x7c)));
   write_byte_to_offset_0x22d(iVar1,*(uint8_t *)(param_1 + 0x5e));
   write_byte_to_offset_0x205(iVar1,*(uint8_t *)(param_1 + 100));
   write_byte_to_offset_0x206(iVar1,*(uint8_t *)(param_1 + 0x65));

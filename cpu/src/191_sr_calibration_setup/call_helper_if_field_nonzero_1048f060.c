@@ -13,10 +13,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_if_field_nonzero_1048f060(int param_1)
+void call_helper_if_field_nonzero_1048f060(cls_105b3f00 *param_1)
 
 {
-  if (*(int *)(param_1 + 4) != 0) {
+  if (param_1->field_0x4 != 0) {
     format_and_send_message_1048f158((uint16_t *)__frv_reg_unset(4),__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
   }
   return;

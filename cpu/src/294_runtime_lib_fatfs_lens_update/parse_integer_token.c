@@ -47,7 +47,7 @@ LAB_10546868:
   }
   uVar1 = unsigned_divide(0xffffffff,param_2);
   uVar2 = 0;
-  *param_1 = (uint32_t)(uintptr_t)pbVar5;
+  *param_1 = (uintptr_t)(pbVar5);
   uVar4 = 0;
   while (((&DAT_106220f1)[*pbVar5] & 0xe0) != 0) {
     if (((&DAT_106220f1)[*pbVar5] & 0x20) == 0) {
@@ -80,7 +80,7 @@ LAB_10546868:
     uStack_24 = 0xffffffff;
   }
   else {
-    *param_1 = (uint32_t)(uintptr_t)pbVar5;
+    *param_1 = (uintptr_t)(pbVar5);
     uStack_24 = uStack_24 | uVar4;
   }
   return uStack_24;

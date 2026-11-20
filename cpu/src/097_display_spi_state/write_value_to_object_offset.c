@@ -17,6 +17,6 @@
 void write_value_to_object_offset(void *param_1)
 
 {
-  eventflag_clr_flg((int)param_1 + 0x7c,8);
+  eventflag_clr_flg((void *)((char *)param_1 + 0x7c),8);
   return;
 }

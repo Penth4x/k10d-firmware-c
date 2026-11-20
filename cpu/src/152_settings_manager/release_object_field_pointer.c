@@ -13,11 +13,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_object_field_pointer(void *param_1)
+void release_object_field_pointer(cls_105a8e3c *param_1)
 
 {
-  if (*(int *)((int)param_1 + 4) != 0) {
-    kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 4) + 4));
+  if (param_1->field_0x4 != 0) {
+    kernel_diag_taskstack((int *)(param_1->field_0x4 + 4));
   }
   return;
 }

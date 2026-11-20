@@ -25,8 +25,8 @@ int invoke_dynamic_handler_and_decrement_counters(int param_1,uint param_2)
   iVar2 = 0;
   if (((99 < param_2) &&
       (iVar1 = *(int *)(*(int *)(param_1 + 0x40) + (param_2 - 100) * 4), iVar1 != 0)) &&
-     (iVar2 = (**(int (**)(int, uint32_t))(*(int *)(iVar1 + 0x18) + 0x6c))
-                        (*(short *)(*(int *)(iVar1 + 0x18) + 0x68) + iVar1,
+     (iVar2 = (((vtbl_entry*)(*(int *)(iVar1 + 0x18)))[13].fn)
+                        (((vtbl_entry*)(*(int *)(iVar1 + 0x18)))[13].adj + iVar1,
                          *(uint32_t *)(param_1 + 0x80)), iVar2 != 0)) {
     *(int *)(param_1 + 4) = *(int *)(param_1 + 4) + -1;
     *(int *)(param_1 + 0xc) = *(int *)(param_1 + 0xc) + -1;

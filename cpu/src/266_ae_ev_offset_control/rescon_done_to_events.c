@@ -11,16 +11,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t rescon_done_to_events(int param_1,int param_2,uint param_3)
+/* WARNING: Struct "cls_105d4f74": ignoring multiple overlapping fields */
+
+uint32_t rescon_done_to_events(cls_105d4f74 *param_1,int param_2,uint param_3)
 
 {
   if (param_2 == -0x7fffffef) {
     if ((param_3 & 0x8000) != 0) {
-      invoke_virtual_slot_two_104272e4((void *)(param_1 + 0x20),0x300001,0);
+      invoke_virtual_slot_two_104272e4((void *)&param_1->field_0x20,0x300001,0);
     }
   }
   else if ((param_2 == -0x7fffffee) && ((param_3 & 0x8000) != 0)) {
-    invoke_virtual_slot_two_104272e4((void *)(param_1 + 0x38),0x300002,0);
+    invoke_virtual_slot_two_104272e4((void *)&param_1->field_0x38,0x300002,0);
   }
   return 0;
 }

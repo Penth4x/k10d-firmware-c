@@ -23,7 +23,7 @@ uint32_t call_helper_with_lock_104812d0(void *param_1,void *param_2)
   uint32_t uVar1;
   
   call_kernel_with_short_id((uint32_t *)((int)param_1 + 0xc));
-  uVar1 = query_object_via_virtual_call_10480050(*(uint32_t *)((int)param_1 + 8),(uint32_t)param_2);
+  uVar1 = query_object_via_virtual_call_10480050((uint32_t)(*(uint32_t *)((int)param_1 + 8)),(uint32_t)(param_2));
   check_kernel_call_success_10459d88((uint32_t *)((int)param_1 + 0xc));
   return uVar1;
 }

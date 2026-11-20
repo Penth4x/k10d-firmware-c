@@ -26,8 +26,8 @@ void query_and_report_state_flag(int param_1,int param_2)
   if (((*(char *)(*(int *)(param_1 + 8) + 0x50c) == '\0') &&
       (cVar1 = settings_getter(*(int *)(param_1 + 0x24),0xba), cVar1 == '\x01')) &&
      (iVar3 = **(int **)(param_1 + 0x18),
-     iVar3 = (**(code **)(iVar3 + 0x1c))
-                       ((int)*(int **)(param_1 + 0x18) + (int)*(short *)(iVar3 + 0x18),3),
+     iVar3 = (((vtbl_entry*)(iVar3))[3].fn)
+                       ((int)*(int **)(param_1 + 0x18) + (int)((vtbl_entry*)(iVar3))[3].adj,3),
      iVar3 != 0)) {
     uVar2 = 1;
   }

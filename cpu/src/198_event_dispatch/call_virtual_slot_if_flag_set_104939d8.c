@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int call_virtual_slot_if_flag_set_104939d8(uint32_t param_1)
+int call_virtual_slot_if_flag_set_104939d8(cls_105b4dac *param_1)
 
 {
   int iVar1;
@@ -24,11 +24,11 @@ int call_virtual_slot_if_flag_set_104939d8(uint32_t param_1)
   
   iVar2 = (*(code *)0x10493dac/*ROM*/)();
   if (iVar2 == 0) {
-    piVar3 = (int *)find_matching_list_entry(param_1);
+    piVar3 = (int *)find_matching_list_entry((uint32_t)(param_1));
     iVar1 = *piVar3;
     if (iVar1 != 0) {
-      iVar2 = (**(code **)(*(int *)(iVar1 + 0xc) + 0x94))
-                        (*(short *)(*(int *)(iVar1 + 0xc) + 0x90) + iVar1);
+      iVar2 = (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[18].fn)
+                        (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[18].adj + iVar1);
     }
   }
   return iVar2;

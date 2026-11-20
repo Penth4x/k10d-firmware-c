@@ -93,7 +93,7 @@ void imgp_run_four_pass_pipeline(int param_1,int param_2)
   iStack_34 = iVar2 + 0x40;
   eventflag_clr_flg(puVar5,1);
   iVar4 = param_1 + 4;
-  imgp_c_program_and_start(*(uint32_t *)(param_1 + 0x24),(void *)(uintptr_t)iVar4,&uStack_4c);
+  imgp_c_program_and_start_104fe976((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(iVar4),(int *)(&uStack_4c));
   eventflag_wai_flg(puVar5,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar5,1);
   imgp_c_start_and_ack(*(uint32_t *)(param_1 + 0x24));
@@ -101,7 +101,7 @@ void imgp_run_four_pass_pipeline(int param_1,int param_2)
   iStack_3c = iVar2 + 0x40;
   iStack_34 = iVar2 + 0x20;
   eventflag_clr_flg(puVar5,1);
-  imgp_c_program_and_start(*(uint32_t *)(param_1 + 0x24),(void *)(uintptr_t)iVar4,&uStack_4c);
+  imgp_c_program_and_start_104fe976((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(iVar4),(int *)(&uStack_4c));
   eventflag_wai_flg(puVar5,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar5,1);
   imgp_c_start_and_ack(*(uint32_t *)(param_1 + 0x24));
@@ -109,7 +109,7 @@ void imgp_run_four_pass_pipeline(int param_1,int param_2)
   iStack_3c = iVar2 + 0x20;
   iStack_34 = iVar2;
   eventflag_clr_flg(puVar5,1);
-  imgp_c_program_and_start(*(uint32_t *)(param_1 + 0x24),(void *)(uintptr_t)iVar4,&uStack_4c);
+  imgp_c_program_and_start_104fe976((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(iVar4),(int *)(&uStack_4c));
   eventflag_wai_flg(puVar5,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar5,1);
   imgp_c_start_and_ack(*(uint32_t *)(param_1 + 0x24));
@@ -136,7 +136,7 @@ void imgp_run_four_pass_pipeline(int param_1,int param_2)
   iStack_34 = uVar3;
   uStack_16 = uStack_18;
   eventflag_clr_flg(puVar5,1);
-  imgp_c_program_and_start(*(uint32_t *)(param_1 + 0x24),(void *)(uintptr_t)iVar4,&uStack_4c);
+  imgp_c_program_and_start_104fe976((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(iVar4),(int *)(&uStack_4c));
   eventflag_wai_flg(puVar5,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar5,1);
   imgp_c_start_and_ack(*(uint32_t *)(param_1 + 0x24));

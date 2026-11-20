@@ -24,12 +24,12 @@ int allocate_and_init_object_entry(int param_1,int param_2,void *param_3,short p
   void *pvVar2;
   
   pvVar2 = (void *)((param_5 + -1) * 0x18 + 0x18U & 0xffff);
-  pvVar1 = (void *)app_obj_factory(*(uint32_t *)(param_1 + 0x20),param_3,(param_4 + -1) * 0x18 + 0x20,(void *)__frv_reg_unset(7));
+  pvVar1 = (void *)app_obj_factory((int *)(*(uint32_t *)(param_1 + 0x20)),(void *)(param_3),(void *)((param_4 + -1) * 0x18 + 0x20),(void *)__frv_reg_unset(7));
   if (param_7 != 0) {
     call_helper_and_set_flag_104b7726(pvVar1,param_8 * 0x18, __frv_reg_unset(6));
   }
   iterate_and_remove_list_entry((void *)param_2,pvVar1,(void *)param_7,pvVar2);
-  (**(code **)(*(int *)((int)pvVar1 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar1 + 0xc)))[1].fn)
             ((int)*(short *)(*(int *)((int)pvVar1 + 0xc) + 8) + (int)pvVar1,param_6);
   return (int)pvVar1;
 }

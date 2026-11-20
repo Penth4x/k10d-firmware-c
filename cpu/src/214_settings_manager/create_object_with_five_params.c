@@ -29,14 +29,14 @@ create_object_with_five_params(void *param_1,uint32_t param_2,uint32_t param_3,u
   uint8_t *puVar3;
   
   puVar3 = &stack0xffffffd4;
-  uVar1 = (uint32_t)(uintptr_t)allocate_pixel_buffer_struct((uint32_t *)0x0,1,0,0,(uint16_t *)0x0);
+  uVar1 = (uintptr_t)(allocate_pixel_buffer_struct((uint32_t *)0x0,1,0,0,(uint16_t *)0x0));
   puVar3[3] = param_5;
   *(uint32_t *)(puVar3 + 4) = param_6;
   *(uint32_t *)(puVar3 + 8) = param_7;
   *(uint32_t *)(puVar3 + 0xc) = param_8;
   *(uint32_t *)(puVar3 + 0x10) = param_9;
-  iVar2 = cls_105b7e14_new((void *)0x0,param_2,param_3,param_4,puVar3[3],*(int *)(puVar3 + 4),
-                           *(int *)(puVar3 + 8),*(uint32_t *)(puVar3 + 0xc),
+  iVar2 = cls_105b7e14_new((cls_105b7e14 *)0x0,param_2,param_3,param_4,puVar3[3],
+                           *(int *)(puVar3 + 4),*(int *)(puVar3 + 8),*(uint32_t *)(puVar3 + 0xc),
                            *(int *)(puVar3 + 0x10));
   (*(code *)0x105207b2/*ROM*/)(uVar1,iVar2,0,0);
   return uVar1;

@@ -14,25 +14,25 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_with_two_ids_104e1178(int *param_1)
+uint32_t init_object_with_two_ids_104e1178(cls_105bd6c8 *param_1)
 
 {
   int iVar1;
   uint32_t uVar2;
   
-  release_object_members(param_1);
+  release_object_members((int *)param_1);
   iVar1 = validate_sequence_counter(param_1);
   if (iVar1 == 0) {
     uVar2 = 9;
   }
   else {
-    *(uint16_t *)(param_1[4] + 4) = 0x100c;
-    iVar1 = *(int *)(param_1[4] + 0x40);
-    (**(code **)(iVar1 + 0x34))(param_1[4] + (int)*(short *)(iVar1 + 0x30),0x80);
+    *(uint16_t *)(param_1->field_0x10 + 4) = 0x100c;
+    iVar1 = *(int *)(param_1->field_0x10 + 0x40);
+    (((vtbl_entry*)(iVar1))[6].fn)(param_1->field_0x10 + (int)((vtbl_entry*)(iVar1))[6].adj,0x80);
     uVar2 = 1;
-    *(uint32_t *)(param_1[4] + 0xc) = *(uint32_t *)(*param_1 + 0xc);
-    *(uint32_t *)(param_1[1] + 0x30) = 3;
-    *(uint32_t *)(param_1[1] + 0x34) = 1;
+    *(uint32_t *)(param_1->field_0x10 + 0xc) = *(uint32_t *)(param_1->field_0x0 + 0xc);
+    *(uint32_t *)(param_1->field_0x4 + 0x30) = 3;
+    *(uint32_t *)(param_1->field_0x4 + 0x34) = 1;
   }
   return uVar2;
 }

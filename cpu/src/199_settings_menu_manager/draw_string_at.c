@@ -20,24 +20,24 @@ int draw_string_at(void *param_1,byte *param_2,void *param_3,void *param_4)
 
 {
   short sVar1;
-  void *pvVar2;
+  cls_105b43cc *pcVar2;
   uint32_t uVar3;
-  int iVar4;
+  void *puVar4;
   uintptr_t sp;
   uint32_t auStack_10 [2];
   
-  pvVar2 = (void *)heap_alloc((void *)0x40);
-  if (pvVar2 == (void *)0x0) {
-    pvVar2 = (void *)0x0;
+  pcVar2 = (cls_105b43cc *)heap_alloc((void *)0x40);
+  if (pcVar2 == (cls_105b43cc *)0x0) {
+    pcVar2 = (cls_105b43cc *)0x0;
   }
   else {
-    cls_105b43cc_new(pvVar2);
+    cls_105b43cc_new(pcVar2);
   }
-  iVar4 = *(int *)((int)pvVar2 + 0xc);
-  sVar1 = *(short *)(iVar4 + 0x10);
-  uVar3 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_10,(int)param_3,(int)param_4);
-  (**(code **)(iVar4 + 0x14))((int)sVar1 + (int)pvVar2,uVar3);
+  puVar4 = (void *)((uintptr_t)(pcVar2->field_0xc));
+  sVar1 = *(short *)((char*)puVar4 + 0x10);
+  uVar3 = (uintptr_t)(alloc_two_word_pair_1045bc2e((uint32_t *)(auStack_10),(uint32_t)(param_3),(uint32_t)(param_4)));
+  (((vtbl_entry*)(puVar4))[2].fn)((int)&pcVar2->field_0x0 + (int)sVar1,uVar3);
   free_heap_block_if_flagged_1045bc54(auStack_10,2);
-  glyph_draw(pvVar2,param_2);
-  return (int)pvVar2;
+  glyph_draw(pcVar2,param_2);
+  return (int)pcVar2;
 }

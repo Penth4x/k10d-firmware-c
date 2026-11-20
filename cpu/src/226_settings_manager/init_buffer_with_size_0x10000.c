@@ -12,7 +12,7 @@ bool init_buffer_with_size_0x10000(int param_1)
   int iVar1;
   
   *(uint32_t *)(param_1 + 0x8c8) = 0x10000;
-  iVar1 = init_buffer_with_pool_alloc((void *)(param_1 + 0x8ac),0x10000);
+  iVar1 = init_buffer_with_pool_alloc((int *)(param_1 + 0x8ac),(int)(0x10000));
   *(int *)(param_1 + 0x8c4) = iVar1;
   return iVar1 != 0;
 }

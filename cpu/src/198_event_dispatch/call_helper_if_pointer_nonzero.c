@@ -12,10 +12,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_if_pointer_nonzero(int *param_1)
+void call_helper_if_pointer_nonzero(cls_1061e4c0 *param_1)
 
 {
-  if (*param_1 != 0) {
+  if (param_1->field_0x0 != 0) {
     apply_bayer_pixel_mask(__frv_reg_unset(4), __frv_reg_unset(5));
   }
   return;

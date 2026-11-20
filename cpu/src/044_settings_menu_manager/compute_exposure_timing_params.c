@@ -30,7 +30,7 @@ void compute_exposure_timing_params(int param_1)
   uint32_t auStack_10 [2];
   
   iVar4 = menu_item_register(param_1 + 8);
-  (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,0);
+  (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,0);
   uVar3 = (uint)*(byte *)(param_1 + 0x42);
   if (((uVar3 == 0) || (*(char *)(param_1 + 0x41) == '\x01')) ||
      (*(char *)(param_1 + 0x41) == '\x02')) {
@@ -52,13 +52,13 @@ void compute_exposure_timing_params(int param_1)
     }
     iVar2 = *(int *)(iVar4 + 0xc);
     sVar1 = *(short *)(iVar2 + 0x10);
-    uVar5 = alloc_two_word_pair_1045bc2e(auStack_18,0x248,uVar6);
-    (**(code **)(iVar2 + 0x14))(sVar1 + iVar4,uVar5);
+    uVar5 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_18,0x248,uVar6));
+    (((vtbl_entry*)(iVar2))[2].fn)(sVar1 + iVar4,uVar5);
     free_heap_block_if_flagged_1045bc54(auStack_18,2);
-    uVar5 = alloc_two_word_pair_1045c3dc(auStack_10,0x18,uVar3);
-    dispatch_two_word_event(iVar4,uVar5);
+    uVar5 = (uintptr_t)(alloc_two_word_pair_1045c3dc(auStack_10,0x18,uVar3));
+    dispatch_two_word_event((uint32_t *)(iVar4),(uint32_t *)(uVar5));
     free_heap_if_flagged_1045c402(auStack_10,2);
-    (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,1);
+    (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,1);
   }
   return;
 }

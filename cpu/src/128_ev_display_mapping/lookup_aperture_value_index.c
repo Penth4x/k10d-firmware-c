@@ -65,7 +65,7 @@ uint lookup_aperture_value_index(uint32_t param_1,uint param_2,int param_3,uint 
     uVar4 = compare_version_fields(uVar1,uVar2);
     uVar1 = compute_float_division(uVar4,uVar4);
     convert_signed_byte_to_unsigned(uVar1);
-    uVar1 = build_lens_update_packet_10544cd0(extraout_r4,extraout_r5);
+    uVar1 = build_lens_update_packet_10544cd0((uint)(extraout_r4),(void *)(extraout_r5));
     uVar2 = build_lens_update_packet_10544cd0(0x40000000,0);
     uVar5 = multiply_fixed_point_values_105445a2(uVar1,extraout_r5_00,uVar2,extraout_r5_01);
     uVar1 = encode_float32_to_fixed_point((uint)((ulonglong)uVar5 >> 0x20),(uint)uVar5);

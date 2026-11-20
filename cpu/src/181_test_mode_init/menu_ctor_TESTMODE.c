@@ -23,8 +23,8 @@ uint32_t menu_ctor_TESTMODE(void)
 {
   if (_DAT_80048a84/*SDRAM*/ == 0) {
     _DAT_80048a84/*SDRAM*/ = 1;
-    cls_105b2f68_new((uint32_t *)0x80048a18/*SDRAM*/);
-    prepend_to_singly_linked_list((void *)0x80010324/*SDRAM*/);
+    cls_105b2f68_new((cls_105b2f68 *)0x80048a18/*SDRAM*/);
+    prepend_to_singly_linked_list((uint32_t *)(0x80010324/*SDRAM*/));
   }
   return 0x80048a18/*SDRAM*/;
 }

@@ -14,10 +14,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_two_initializers_1048a0ce(int param_1)
+void call_two_initializers_1048a0ce(cls_105b3998 *param_1)
 
 {
-  trigger_sr_cal_transfer_104867c0(param_1);
-  call_helper_with_second_field_104867ae(param_1);
+  trigger_sr_cal_transfer_104867c0((int)param_1);
+  call_helper_with_second_field_104867ae((int)param_1);
   return;
 }

@@ -16,34 +16,36 @@
 #include "globals.h"
 #include "funcs.h"
 
-void initialize_dual_object_members(void *param_1)
+void initialize_dual_object_members(cls_105a1718 *param_1)
 
 {
-  int iVar1;
+  cls_105a1748 *pcVar1;
+  cls_105a16c8 *pcVar2;
+  int iVar3;
   
-  iVar1 = heap_alloc((void *)0x10);
-  if (iVar1 == 0) {
-    iVar1 = 0;
+  pcVar1 = (cls_105a1748 *)heap_alloc((void *)0x10);
+  if (pcVar1 == (cls_105a1748 *)0x0) {
+    pcVar1 = (cls_105a1748 *)0x0;
   }
   else {
-    cls_105a1748_new((void *)iVar1);
+    cls_105a1748_new(pcVar1);
   }
-  *(int *)((int)param_1 + 4) = iVar1;
-  store_value_if_valid((void *)iVar1,0xa2);
-  iVar1 = *(int *)(*(int *)((int)param_1 + 4) + 4);
-  iVar1 = (**(code **)(iVar1 + 0x14))(*(int *)((int)param_1 + 4) + (int)*(short *)(iVar1 + 0x10),0);
-  if (iVar1 != 0) {
-    iVar1 = heap_alloc((void *)0x10);
-    if (iVar1 == 0) {
-      iVar1 = 0;
+  param_1->field_0x4 = (uint32_t)((void *)pcVar1);
+  store_value_if_valid((void*)(pcVar1),0xa2);
+  iVar3 = *(int *)(param_1->field_0x4 + 4);
+  iVar3 = (((vtbl_entry*)(iVar3))[2].fn)(param_1->field_0x4 + ((vtbl_entry*)(iVar3))[2].adj,0);
+  if (iVar3 != 0) {
+    pcVar2 = (cls_105a16c8 *)heap_alloc((void *)0x10);
+    if (pcVar2 == (cls_105a16c8 *)0x0) {
+      pcVar2 = (cls_105a16c8 *)0x0;
     }
     else {
-      cls_105a16c8_new((void *)iVar1);
+      cls_105a16c8_new(pcVar2);
     }
-    *(int *)((int)param_1 + 8) = iVar1;
-    store_value_if_valid((void *)iVar1,0xa3);
-    iVar1 = *(int *)(*(int *)((int)param_1 + 8) + 4);
-    (**(code **)(iVar1 + 0x14))(*(int *)((int)param_1 + 8) + (int)*(short *)(iVar1 + 0x10),0);
+    param_1->field_0x8 = (uint32_t)((void *)pcVar2);
+    store_value_if_valid((void*)(pcVar2),0xa3);
+    iVar3 = *(int *)(param_1->field_0x8 + 4);
+    (((vtbl_entry*)(iVar3))[2].fn)(param_1->field_0x8 + ((vtbl_entry*)(iVar3))[2].adj,0);
   }
   return;
 }

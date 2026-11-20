@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t reset_field_at_offset_0x24_1048f352(int param_1)
+uint32_t reset_field_at_offset_0x24_1048f352(cls_105b3fbc *param_1)
 
 {
-  wait_flg_obj((void *)(param_1 + 0x24),0);
+  wait_flg_obj(&param_1->field_0x24,0);
   return 1;
 }

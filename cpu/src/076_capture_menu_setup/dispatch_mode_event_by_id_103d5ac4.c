@@ -20,7 +20,7 @@
 /* WARNING: Instruction at (ram,0x103d5ade) overlaps instruction at (ram,0x103d5adc)
     */
 
-uint32_t dispatch_mode_event_by_id_103d5ac4(int *param_1,int param_2)
+uint32_t dispatch_mode_event_by_id_103d5ac4(cls_1059639c *param_1,int param_2)
 
 {
   short sVar1;
@@ -35,58 +35,58 @@ uint32_t dispatch_mode_event_by_id_103d5ac4(int *param_1,int param_2)
   uint32_t auStack_10 [2];
   
   if (param_2 == 0x18c0066) {
-    iVar3 = setting_get(param_1[2],0xa9);
+    iVar3 = setting_get(param_1->field_0x8,0xa9);
     if (iVar3 < 10) {
-      iVar3 = menu_item_register(*param_1);
+      iVar3 = menu_item_register((int)param_1->field_0x0);
       iVar6 = *(int *)(iVar3 + 0xc);
       sVar1 = *(short *)(iVar6 + 0x10);
-      uVar5 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_20,0x1e8,0x198);
-      (**(code **)(iVar6 + 0x14))(sVar1 + iVar3,uVar5);
+      uVar5 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_20,0x1e8,0x198));
+      (((vtbl_entry*)(iVar6))[2].fn)(sVar1 + iVar3,uVar5);
       free_heap_block_if_flagged_1045bc54(auStack_20,2);
-      (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
-      iVar3 = menu_item_register(*param_1);
+      (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
+      iVar3 = menu_item_register((int)param_1->field_0x0);
       iVar6 = *(int *)(iVar3 + 0xc);
       sVar1 = *(short *)(iVar6 + 0x10);
-      uVar5 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_20,0x230,0x198);
-      (**(code **)(iVar6 + 0x14))(sVar1 + iVar3,uVar5);
+      uVar5 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_20,0x230,0x198));
+      (((vtbl_entry*)(iVar6))[2].fn)(sVar1 + iVar3,uVar5);
       free_heap_block_if_flagged_1045bc54(auStack_20,2);
-      (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
     }
     else {
-      iVar3 = menu_item_register(*param_1);
+      iVar3 = menu_item_register((int)param_1->field_0x0);
       iVar6 = *(int *)(iVar3 + 0xc);
       sVar1 = *(short *)(iVar6 + 0x10);
-      uVar5 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_18,0x1b8,0x198);
-      (**(code **)(iVar6 + 0x14))(sVar1 + iVar3,uVar5);
+      uVar5 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_18,0x1b8,0x198));
+      (((vtbl_entry*)(iVar6))[2].fn)(sVar1 + iVar3,uVar5);
       free_heap_block_if_flagged_1045bc54(auStack_18,2);
-      (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
-      iVar3 = menu_item_register(*param_1);
+      (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
+      iVar3 = menu_item_register((int)param_1->field_0x0);
       iVar6 = *(int *)(iVar3 + 0xc);
       sVar1 = *(short *)(iVar6 + 0x10);
-      uVar5 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_18,0x200,0x198);
-      (**(code **)(iVar6 + 0x14))(sVar1 + iVar3,uVar5);
+      uVar5 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_18,0x200,0x198));
+      (((vtbl_entry*)(iVar6))[2].fn)(sVar1 + iVar3,uVar5);
       free_heap_block_if_flagged_1045bc54(auStack_18,2);
-      (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
     }
     copy_five_fields_from_subobject(param_1);
-    if (*(char *)((int)param_1 + 0x23) == -1) {
-      if (*(char *)((int)param_1 + 0x21) == '>') {
-        *(uint8_t *)((int)param_1 + 0x23) = 2;
-        iVar3 = setting_get(param_1[2],0xa9);
+    if (param_1->field_0x23 == -1) {
+      if (param_1->field_0x21 == '>') {
+        param_1->field_0x23 = 2;
+        iVar3 = setting_get(param_1->field_0x8,0xa9);
         if ((iVar3 == 0) || (iVar3 == 0xb)) {
-          *(uint8_t *)((int)param_1 + 0x23) = 1;
+          param_1->field_0x23 = 1;
         }
         else if (((iVar3 == 10) || (iVar3 == 0xc)) || (iVar3 == 0xd)) {
-          *(uint8_t *)((int)param_1 + 0x23) = 0;
+          param_1->field_0x23 = 0;
         }
       }
       else {
-        uVar5 = setting_get(param_1[2],0xa3);
-        *(char *)((int)param_1 + 0x23) = (char)uVar5;
+        uVar5 = setting_get(param_1->field_0x8,0xa3);
+        param_1->field_0x23 = (char)uVar5;
       }
     }
     write_three_field_groups(param_1);
-    cVar2 = *(char *)((int)param_1 + 0x23);
+    cVar2 = param_1->field_0x23;
     if (cVar2 == '\0') {
       register_six_menu_items_103d69a2(param_1);
     }
@@ -96,13 +96,13 @@ uint32_t dispatch_mode_event_by_id_103d5ac4(int *param_1,int param_2)
     else if (cVar2 == '\x02') {
       register_six_menu_items_103d6a86(param_1);
     }
-    uVar5 = setting_get(param_1[2],0xa4);
-    *(char *)((int)param_1 + 0x22) = (char)uVar5;
+    uVar5 = setting_get(param_1->field_0x8,0xa4);
+    param_1->field_0x22 = (char)uVar5;
     build_menu_with_dynamic_item(param_1);
-    if (*(char *)((int)param_1 + 0x22) == '\0') {
+    if (param_1->field_0x22 == '\0') {
       register_four_menu_items_103d6c4e(param_1);
     }
-    else if (*(char *)((int)param_1 + 0x22) == '\x01') {
+    else if (param_1->field_0x22 == '\x01') {
       dispatch_menu_item_by_range(param_1);
     }
     uVar5 = 0x18c000d;
@@ -110,23 +110,23 @@ uint32_t dispatch_mode_event_by_id_103d5ac4(int *param_1,int param_2)
   else {
     uVar5 = 0;
     if (param_2 == 0x18c0011) {
-      if (*(char *)((int)param_1 + 0x23) == -1) {
-        if (*(char *)((int)param_1 + 0x21) == '>') {
-          *(uint8_t *)((int)param_1 + 0x23) = 2;
-          iVar3 = setting_get(param_1[2],0xa9);
+      if (param_1->field_0x23 == -1) {
+        if (param_1->field_0x21 == '>') {
+          param_1->field_0x23 = 2;
+          iVar3 = setting_get(param_1->field_0x8,0xa9);
           if ((iVar3 == 0) || (iVar3 == 0xb)) {
-            *(uint8_t *)((int)param_1 + 0x23) = 1;
+            param_1->field_0x23 = 1;
           }
           else if (((iVar3 == 10) || (iVar3 == 0xc)) || (iVar3 == 0xd)) {
-            *(uint8_t *)((int)param_1 + 0x23) = 0;
+            param_1->field_0x23 = 0;
           }
         }
         else {
-          uVar5 = setting_get(param_1[2],0xa3);
-          *(char *)((int)param_1 + 0x23) = (char)uVar5;
+          uVar5 = setting_get(param_1->field_0x8,0xa3);
+          param_1->field_0x23 = (char)uVar5;
         }
       }
-      cVar2 = *(char *)((int)param_1 + 0x23);
+      cVar2 = param_1->field_0x23;
       if (cVar2 == '\0') {
         uVar5 = 0x18c0013;
       }
@@ -141,28 +141,28 @@ uint32_t dispatch_mode_event_by_id_103d5ac4(int *param_1,int param_2)
       }
     }
     else if (param_2 == 0x18c0018) {
-      if (*(char *)((int)param_1 + 0x22) == -1) {
-        uVar5 = setting_get(param_1[2],0xa4);
-        *(char *)((int)param_1 + 0x22) = (char)uVar5;
+      if (param_1->field_0x22 == -1) {
+        uVar5 = setting_get(param_1->field_0x8,0xa4);
+        param_1->field_0x22 = (char)uVar5;
       }
-      if (*(char *)((int)param_1 + 0x22) == '\x01') {
+      if (param_1->field_0x22 == '\x01') {
         uVar5 = 0x18c001a;
-        iVar3 = menu_item_register(*param_1);
+        iVar3 = menu_item_register((int)param_1->field_0x0);
         iVar6 = *(int *)(iVar3 + 0xc);
         sVar1 = *(short *)(iVar6 + 0x10);
-        uVar4 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_10,0x218,0x138);
-        (**(code **)(iVar6 + 0x14))(iVar3 + sVar1,uVar4);
+        uVar4 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_10,0x218,0x138));
+        (((vtbl_entry*)(iVar6))[2].fn)(iVar3 + sVar1,uVar4);
       }
       else {
-        if (*(char *)((int)param_1 + 0x22) != '\0') {
+        if (param_1->field_0x22 != '\0') {
           return 0;
         }
         uVar5 = 0x18c001b;
-        iVar3 = menu_item_register(*param_1);
+        iVar3 = menu_item_register((int)param_1->field_0x0);
         iVar6 = *(int *)(iVar3 + 0xc);
         sVar1 = *(short *)(iVar6 + 0x10);
-        uVar4 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_10,0x1d0,0x138);
-        (**(code **)(iVar6 + 0x14))(iVar3 + sVar1,uVar4);
+        uVar4 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_10,0x1d0,0x138));
+        (((vtbl_entry*)(iVar6))[2].fn)(iVar3 + sVar1,uVar4);
       }
       free_heap_block_if_flagged_1045bc54(auStack_10,2);
     }

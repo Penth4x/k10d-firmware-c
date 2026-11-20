@@ -28,8 +28,8 @@ void dispatch_virtual_call_with_four_args(uint32_t param_1,uint32_t *param_2)
   piVar2 = (int *)puVar3[4];
   iVar1 = read_struct_field_by_index_104a2a78(param_2,2);
   iVar4 = *piVar2;
-  (**(code **)(iVar4 + 0x2c))
-            ((int)piVar2 + (int)*(short *)(iVar4 + 0x28),*puVar3,*(uint32_t *)(iVar1 + 0x2c),
+  (((vtbl_entry*)(iVar4))[5].fn)
+            ((int)piVar2 + (int)((vtbl_entry*)(iVar4))[5].adj,*puVar3,*(uint32_t *)(iVar1 + 0x2c),
              *(uint32_t *)(iVar1 + 0x18));
   return;
 }

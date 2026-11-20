@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void update_four_corner_positions(ushort *param_1)
+void update_four_corner_positions(cls_105b3cfc *param_1)
 
 {
   ushort uVar1;
@@ -30,26 +30,27 @@ void update_four_corner_positions(ushort *param_1)
   uint8_t auStackY_c [2];
   
   puVar6 = auStackY_c;
-  if ((*(int *)(param_1 + 2) != 0) && (param_1[0x16] != 0)) {
-    fill_bayer_pattern_region((int)param_1,(uint)*param_1,(uint)param_1[1],(uint)param_1[0x13],param_1[0x16]);
-    uVar2 = param_1[1];
-    uVar3 = param_1[0x14];
-    uVar4 = param_1[0x16];
-    uVar5 = param_1[0x13];
-    uVar1 = *param_1;
+  if ((param_1->field_0x4 != 0) && (param_1->field_0x2c != 0)) {
+    fill_bayer_pattern_region((int)param_1,(uint)param_1->field_0x0,(uint)param_1->field_0x2,
+                 (uint)param_1->field_0x26,param_1->field_0x2c);
+    uVar2 = param_1->field_0x2;
+    uVar3 = param_1->field_0x28;
+    uVar4 = param_1->field_0x2c;
+    uVar5 = param_1->field_0x26;
+    uVar1 = param_1->field_0x0;
     *(ushort *)(puVar6 + 2) = uVar4;
     fill_bayer_pattern_region((int)param_1,(uint)uVar1,((uint)uVar2 + (uint)uVar3) - (uint)uVar4 & 0xffff,
                  (uint)uVar5,*(ushort *)(puVar6 + 2));
-    uVar2 = param_1[1];
-    uVar3 = param_1[0x16];
-    uVar1 = *param_1;
-    *(ushort *)(puVar6 + 2) = param_1[0x14];
+    uVar2 = param_1->field_0x2;
+    uVar3 = param_1->field_0x2c;
+    uVar1 = param_1->field_0x0;
+    *(ushort *)(puVar6 + 2) = param_1->field_0x28;
     fill_bayer_pattern_region((int)param_1,(uint)uVar1,(uint)uVar2,(uint)uVar3,*(ushort *)(puVar6 + 2));
-    uVar2 = param_1[0x13];
-    uVar3 = param_1[0x16];
-    uVar4 = param_1[1];
-    uVar1 = *param_1;
-    *(ushort *)(puVar6 + 2) = param_1[0x14];
+    uVar2 = param_1->field_0x26;
+    uVar3 = param_1->field_0x2c;
+    uVar4 = param_1->field_0x2;
+    uVar1 = param_1->field_0x0;
+    *(ushort *)(puVar6 + 2) = param_1->field_0x28;
     fill_bayer_pattern_region((int)param_1,((uint)uVar1 + (uint)uVar2) - (uint)uVar3 & 0xffff,(uint)uVar4,
                  (uint)uVar3,*(ushort *)(puVar6 + 2));
   }

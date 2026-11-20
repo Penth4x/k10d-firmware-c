@@ -23,8 +23,8 @@ uint32_t allocate_pool_block_for_object_1041812a(int param_1,int param_2)
       uVar3 = 0;
     }
     else {
-      (**(code **)(*(int *)(param_2 + 0x8d4) + 0x1c))
-                (*(short *)(*(int *)(param_2 + 0x8d4) + 0x18) + param_2,iVar2);
+      (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[3].fn)
+                (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[3].adj + param_2,iVar2);
       *(int *)(*(int *)(param_2 + 0x7e4) + 4) = iVar2;
     }
   }

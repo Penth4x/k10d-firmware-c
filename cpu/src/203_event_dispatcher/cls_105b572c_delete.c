@@ -11,7 +11,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_105b572c_delete(void *param_1,uint param_2)
+void cls_105b572c_delete(cls_105b572c *param_1,uint param_2)
 
 {
   uintptr_t sp;
@@ -19,9 +19,9 @@ void cls_105b572c_delete(void *param_1,uint param_2)
   uint8_t auStack_14 [8];
   
   puVar1 = (uint32_t *)auStack_14;
-  if (param_1 != (void *)0x0) {
-    *(uint32_t *)((int)param_1 + 0x1b4) = 0x105b572c/*ROM*/;
-    free_object_if_flag_set_1049b220((int)param_1 + 0xf4,2);
+  if (param_1 != (cls_105b572c *)0x0) {
+    param_1->field_0x1b4 = 0x105b572c/*ROM*/;
+    free_object_if_flag_set_1049b220((int)&param_1->field_0xf4,2);
     *puVar1 = 0;
     puVar1[1] = 0;
     lens_fw_update_teardown();

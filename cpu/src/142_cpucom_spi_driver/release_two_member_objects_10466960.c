@@ -15,14 +15,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_two_member_objects_10466960(void *param_1)
+void release_two_member_objects_10466960(cls_105a7db4 *param_1)
 
 {
-  if (*(int *)((int)param_1 + 4) != 0) {
-    kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 4) + 4));
+  if (param_1->field_0x4 != 0) {
+    kernel_diag_taskstack((int *)(param_1->field_0x4 + 4));
   }
-  if (*(int *)((int)param_1 + 0x10) != 0) {
-    kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 0x10) + 0xc));
+  if (param_1->field_0x10 != 0) {
+    kernel_diag_taskstack((int *)(param_1->field_0x10 + 0xc));
   }
   return;
 }

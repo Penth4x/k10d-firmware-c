@@ -43,7 +43,7 @@ uint32_t process_four_parameter_blocks(int param_1,int *param_2)
     iVar5 = *param_2;
     if (iVar5 != 0) {
       *(uint32_t *)(param_1 + 0x8c) = 0;
-      iVar3 = map_exposure_mode_to_index(param_1,(void *)iVar5);
+      iVar3 = map_exposure_mode_to_index((int)(param_1),(uint32_t *)(iVar5));
       if (iVar3 != 0) {
         iVar3 = initialize_exposure_state_block(param_1,iVar5,0);
         if (iVar3 == 0) {
@@ -59,8 +59,8 @@ uint32_t process_four_parameter_blocks(int param_1,int *param_2)
           check_entry_flag_after_init(param_1);
           uVar1 = *(ushort *)(param_1 + 0x9e);
           uVar6 = query_exposure_mode_state_10507d2e(param_1,1);
-          format_and_dispatch_four_items(param_1,param_2,(void *)(uint)uVar1);
-          process_four_entry_list(param_1,param_2,(void *)(uint)uVar1);
+          format_and_dispatch_four_items((int)(param_1),(void *)(param_2),(void *)((uint)uVar1));
+          process_four_entry_list((int)(param_1),(void *)(param_2),(void *)((uint)uVar1));
         }
       }
     }
@@ -71,7 +71,7 @@ uint32_t process_four_parameter_blocks(int param_1,int *param_2)
     iVar5 = param_2[3];
     if (iVar5 != 0) {
       *(uint32_t *)(param_1 + 0x8c) = 1;
-      iVar3 = map_exposure_mode_to_index(param_1,(void *)iVar5);
+      iVar3 = map_exposure_mode_to_index((int)(param_1),(uint32_t *)(iVar5));
       if (iVar3 != 0) {
         iVar3 = initialize_exposure_state_block(param_1,iVar5,0);
         if (iVar3 == 0) {
@@ -91,7 +91,7 @@ uint32_t process_four_parameter_blocks(int param_1,int *param_2)
     iVar5 = param_2[1];
     if (iVar5 != 0) {
       *(uint32_t *)(param_1 + 0x8c) = 0;
-      iVar3 = map_exposure_mode_to_index(param_1,(void *)iVar5);
+      iVar3 = map_exposure_mode_to_index((int)(param_1),(uint32_t *)(iVar5));
       if (iVar3 != 0) {
         if ((*(char *)(param_2 + 2) == '\0') || (uVar6 = 1, *(char *)((int)param_2 + 9) == '\0')) {
           uVar6 = 0;
@@ -106,15 +106,15 @@ uint32_t process_four_parameter_blocks(int param_1,int *param_2)
                   (&uStack_a,*(uint32_t *)(param_1 + 0x318),
                    *(uint32_t *)(*(int *)(iVar5 + 0xe4) + 0x4c4));
         iVar3 = *(int *)(iVar5 + 0xe4);
-        uVar4 = return_constant_0x33((int)&uStack_a);
+        uVar4 = return_constant_0x33((uint32_t)(&uStack_a));
         *(uint32_t *)(iVar3 + 0x4ec) = uVar4;
         *(uint32_t *)(*(int *)(iVar5 + 0xe4) + 0x4e8) = *(uint32_t *)(param_1 + 0x310);
         iVar3 = *(int *)(iVar5 + 0xe4);
-        uVar4 = return_constant_0x5468((int)&uStack_a);
+        uVar4 = return_constant_0x5468((uint32_t)(&uStack_a));
         *(uint32_t *)(iVar3 + 0x4fc) = uVar4;
         *(uint32_t *)(*(int *)(iVar5 + 0xe4) + 0x4f8) = *(uint32_t *)(param_1 + 0x314);
         iVar3 = *(int *)(iVar5 + 0xe4);
-        uVar4 = call_subroutine_and_return_0x2026((int)&uStack_a);
+        uVar4 = call_subroutine_and_return_0x2026((uint32_t)(&uStack_a));
         *(uint32_t *)(iVar3 + 0x4f4) = uVar4;
         *(uint32_t *)(*(int *)(iVar5 + 0xe4) + 0x4f0) = *(uint32_t *)(param_1 + 0x318);
         iVar3 = initialize_exposure_state_block(param_1,iVar5,uVar6);
@@ -138,7 +138,7 @@ uint32_t process_four_parameter_blocks(int param_1,int *param_2)
     iVar5 = param_2[4];
     if (iVar5 != 0) {
       *(uint32_t *)(param_1 + 0x8c) = 1;
-      iVar3 = map_exposure_mode_to_index(param_1,(void *)iVar5);
+      iVar3 = map_exposure_mode_to_index((int)(param_1),(uint32_t *)(iVar5));
       if (iVar3 != 0) {
         if ((*(char *)(param_2 + 2) == '\0') || (uVar6 = 1, *(char *)((int)param_2 + 9) == '\0')) {
           uVar6 = 0;
@@ -153,15 +153,15 @@ uint32_t process_four_parameter_blocks(int param_1,int *param_2)
                   (&uStack_9,*(uint32_t *)(param_1 + 0x318),
                    *(uint32_t *)(*(int *)(iVar5 + 0xe4) + 0x4c4));
         iVar3 = *(int *)(iVar5 + 0xe4);
-        uVar4 = return_constant_0x33((int)&uStack_9);
+        uVar4 = return_constant_0x33((uint32_t)(&uStack_9));
         *(uint32_t *)(iVar3 + 0x4ec) = uVar4;
         *(uint32_t *)(*(int *)(iVar5 + 0xe4) + 0x4e8) = *(uint32_t *)(param_1 + 0x310);
         iVar3 = *(int *)(iVar5 + 0xe4);
-        uVar4 = return_constant_0x5468((int)&uStack_9);
+        uVar4 = return_constant_0x5468((uint32_t)(&uStack_9));
         *(uint32_t *)(iVar3 + 0x4fc) = uVar4;
         *(uint32_t *)(*(int *)(iVar5 + 0xe4) + 0x4f8) = *(uint32_t *)(param_1 + 0x314);
         iVar3 = *(int *)(iVar5 + 0xe4);
-        uVar4 = call_subroutine_and_return_0x2026((int)&uStack_9);
+        uVar4 = call_subroutine_and_return_0x2026((uint32_t)(&uStack_9));
         *(uint32_t *)(iVar3 + 0x4f4) = uVar4;
         *(uint32_t *)(*(int *)(iVar5 + 0xe4) + 0x4f0) = *(uint32_t *)(param_1 + 0x318);
         iVar3 = initialize_exposure_state_block(param_1,iVar5,uVar6);

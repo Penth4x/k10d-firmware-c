@@ -25,13 +25,13 @@ void ui_task6_body(void *param_1)
   uint8_t *puStack_c;
   
   destroy_class_105a7d14_members(*(void **)((int)param_1 + 0x24));
-  uVar1 = cpucom_execute_transaction(*(uint32_t *)((int)param_1 + 0x20));
+  uVar1 = cpucom_execute_transaction((void *)(*(uint32_t *)((int)param_1 + 0x20)));
   *(uint32_t *)((int)param_1 + 300) = uVar1;
   invoke_virtual_slot_3_on_member_10466604(param_1);
   puStack_c = (uint8_t *)0x0;
   do {
     do {
-      iVar2 = mbx_receive_message((int)param_1 + 0x18,&puStack_c,uRam105a2b18);
+      iVar2 = mbx_receive_message_104598e8((uint32_t *)((int)param_1 + 0x18),(uint32_t *)(&puStack_c),(uint32_t)(uRam105a2b18));
     } while (iVar2 == 0);
     cpucom_poll_driver(param_1,puStack_c);
   } while( true );

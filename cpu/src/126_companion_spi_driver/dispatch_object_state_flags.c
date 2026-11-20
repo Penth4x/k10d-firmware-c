@@ -16,19 +16,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_object_state_flags(int param_1)
+/* WARNING: Struct "cls_105a0b94": ignoring multiple overlapping fields */
+
+uint32_t dispatch_object_state_flags(cls_105a0b94 *param_1)
 
 {
   byte bVar1;
   uint32_t uVar2;
   
   uVar2 = 0;
-  bVar1 = **(byte **)(param_1 + 0x2c);
-  if (((bVar1 & 2) != 0) && (uVar2 = dispatch_single_subobj(param_1 + 8), (bVar1 & 0xe0) != 0)) {
-    clear_bit_2_of_flag_at_offset_0x24(param_1);
+  bVar1 = *(byte *)param_1->field_0x2c;
+  if (((bVar1 & 2) != 0) && (uVar2 = dispatch_single_subobj(&param_1->field_0x8), (bVar1 & 0xe0) != 0)) {
+    clear_bit_2_of_flag_at_offset_0x24((int)(param_1));
   }
   if (((bVar1 & 1) != 0) && ((bVar1 & 8) != 0)) {
-    uVar2 = dispatch_single_subobj(param_1 + 8);
+    uVar2 = dispatch_single_subobj(&param_1->field_0x8);
   }
   return uVar2;
 }

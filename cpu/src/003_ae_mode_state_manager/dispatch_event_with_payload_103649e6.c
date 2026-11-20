@@ -39,8 +39,8 @@ void dispatch_event_with_payload_103649e6(int param_1)
   uVar1 = read_struct_field_at_offset_4(auStack_18);
   iVar2 = **(int **)(param_1 + 0x70);
   uStack_1a = (short)uVar1;
-  (**(code **)(iVar2 + 0x9c))
-            ((int)*(int **)(param_1 + 0x70) + (int)*(short *)(iVar2 + 0x98),
+  (((vtbl_entry*)(iVar2))[19].fn)
+            ((int)*(int **)(param_1 + 0x70) + (int)((vtbl_entry*)(iVar2))[19].adj,
              *(uint32_t *)(param_1 + 0x214),&uStack_28);
   free_heap_if_flagged_1045c402(auStack_18,2);
   return;

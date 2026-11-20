@@ -20,7 +20,7 @@ uint32_t get_sensor_singleton(void)
 {
   if (_DAT_80048ee8/*SDRAM*/ == 0) {
     _DAT_80048ee8/*SDRAM*/ = 1;
-    cls_105b4094_new((void *)0x80048ee0/*SDRAM*/);
+    cls_105b4094_new((cls_105b4094 *)0x80048ee0/*SDRAM*/);
     prepend_to_singly_linked_list((void *)0x80010464/*SDRAM*/);
   }
   return 0x80048ee0/*SDRAM*/;

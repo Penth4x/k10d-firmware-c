@@ -9,24 +9,25 @@
 int allocate_and_init_object_1049671e(void *param_1,int param_2,uint32_t param_3,uint32_t param_4,ushort param_5)
 
 {
-  int iVar1;
+  cls_105d71e4 *pcVar1;
   uint32_t uVar2;
   uintptr_t sp;
   uint32_t auStack_10 [2];
   
-  iVar1 = heap_alloc((void *)0x34);
-  if (iVar1 == 0) {
-    iVar1 = 0;
+  pcVar1 = (cls_105d71e4 *)heap_alloc((void *)0x34);
+  if (pcVar1 == (cls_105d71e4 *)0x0) {
+    pcVar1 = (cls_105d71e4 *)0x0;
   }
   else {
-    cls_105d71e4_new((void *)iVar1);
+    cls_105d71e4_new(pcVar1);
   }
-  uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_10,param_4,(uint)param_5);
-  copy_two_shorts_from_source((void *)iVar1,(void *)uVar2);
+  uVar2 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_10,param_4,(uint)param_5));
+  copy_two_shorts_from_source((uint16_t *)(pcVar1),(uint32_t *)(uVar2));
   free_heap_block_if_flagged_1045bc54(auStack_10,2);
   if (param_2 != 0) {
-    (**(code **)(*(int *)(iVar1 + 0x20) + 0x24))
-              (*(short *)(*(int *)(iVar1 + 0x20) + 0x20) + iVar1,param_2,param_3);
+    (((vtbl_entry*)(pcVar1->field_0x20))[4].fn)
+              ((int)&pcVar1->field_0x0 + (int)((vtbl_entry*)(pcVar1->field_0x20))[4].adj,param_2,param_3)
+    ;
   }
-  return iVar1;
+  return (int)pcVar1;
 }

@@ -11,16 +11,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-int cls_105d6d30_new(void *param_1,uint16_t *param_2,int param_3)
+int cls_105d6d30_new(cls_105d6d30 *param_1,uint16_t *param_2,int param_3)
 
 {
   uint uVar1;
   uint uVar2;
   
-  if ((param_1 != (void *)0x0) || (param_1 = (void *)heap_alloc((void *)0xc), param_1 != (void *)0x0)) {
+  if ((param_1 != (cls_105d6d30 *)0x0) ||
+     (param_1 = (cls_105d6d30 *)heap_alloc((void *)0xc), param_1 != (cls_105d6d30 *)0x0)) {
     uVar2 = param_3 * 2 + 2;
-    cls_105b7e2c_new(param_1,uVar2 & 0xff,3);
-    *(uint32_t *)((int)param_1 + 8) = 0x105d6d30/*ROM*/;
+    cls_105b7e2c_new((cls_105b7e2c *)param_1,uVar2 & 0xff,3);
+    ((cls_105b7e2c *)param_1)->field_0x8 = 0x105d6d30/*ROM*/;
     uVar1 = 2;
     if (2 < (int)uVar2) {
       do {
@@ -30,5 +31,5 @@ int cls_105d6d30_new(void *param_1,uint16_t *param_2,int param_3)
       } while ((int)uVar1 < (int)uVar2);
     }
   }
-  return (int)param_1;
+  return (int)(cls_105b7e2c *)param_1;
 }

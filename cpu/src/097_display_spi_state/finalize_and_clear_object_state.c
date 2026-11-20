@@ -26,7 +26,7 @@ void finalize_and_clear_object_state(int param_1)
   int iVar5;
   
   iVar4 = *(int *)(*(int *)(param_1 + 0x8c) + 0x8d4);
-  (**(code **)(iVar4 + 0x94))(*(int *)(param_1 + 0x8c) + (int)*(short *)(iVar4 + 0x90));
+  (((vtbl_entry*)(iVar4))[18].fn)(*(int *)(param_1 + 0x8c) + (int)((vtbl_entry*)(iVar4))[18].adj);
   if (*(ushort *)(*(int *)(param_1 + 0x8c) + 0x690) + 1 ==
       (uint)*(ushort *)(*(int *)(param_1 + 0x8c) + 0x692)) {
     init_event_queue_and_send_msg(param_1);
@@ -40,12 +40,12 @@ void finalize_and_clear_object_state(int param_1)
                 (*(ushort *)(*(int *)(*(int *)(param_1 + 0x8c) + 0x82c) + 0x5a) ^ 0xffff) + 1);
   *(uint *)(iVar4 + 0x65c) = CONCAT22((uVar1 ^ 0xffff) + 1,(uVar2 ^ 0xffff) + 1);
   iVar5 = **(int **)(param_1 + 0x4c);
-  (**(code **)(iVar5 + 0x74))
-            ((int)*(int **)(param_1 + 0x4c) + (int)*(short *)(iVar5 + 0x70),iVar4 + 0x660,
+  (((vtbl_entry*)(iVar5))[14].fn)
+            ((int)*(int **)(param_1 + 0x4c) + (int)((vtbl_entry*)(iVar5))[14].adj,iVar4 + 0x660,
              iVar4 + 0x664);
   iVar5 = **(int **)(param_1 + 0x4c);
-  uVar3 = (**(code **)(iVar5 + 0x6c))
-                    ((int)*(int **)(param_1 + 0x4c) + (int)*(short *)(iVar5 + 0x68));
+  uVar3 = (((vtbl_entry*)(iVar5))[13].fn)
+                    ((int)*(int **)(param_1 + 0x4c) + (int)((vtbl_entry*)(iVar5))[13].adj);
   *(uint32_t *)(iVar4 + 0x674) = uVar3;
   call_two_helpers_on_object_10514cfa(*(int *)(param_1 + 0x50));
   *(uint32_t *)(param_1 + 0x8c) = 0;

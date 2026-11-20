@@ -13,7 +13,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int extract_field_from_param_table(void *param_1,int param_2)
+int extract_field_from_param_table(cls_105a6b04 *param_1,int param_2)
 
 {
   byte bVar1;
@@ -21,17 +21,17 @@ int extract_field_from_param_table(void *param_1,int param_2)
   ushort uVar3;
   
   if ((param_2 == 0) || (param_2 == 3)) {
-    bVar1 = *(byte *)((int)param_1 + *(int *)(&DAT_105a5fcc/*ROM*/ + param_2 * 8) + 5);
-    uVar3 = *(byte *)((int)param_1 + *(int *)(&DAT_105a5fcc/*ROM*/ + param_2 * 8) + 4) & 7;
+    bVar1 = *(byte *)((int)&param_1[1].field_0x0 + *(int *)(&DAT_105a5fcc/*ROM*/ + param_2 * 8) + 1);
+    uVar3 = *(byte *)((int)&param_1[1].field_0x0 + *(int *)(&DAT_105a5fcc/*ROM*/ + param_2 * 8)) & 7;
   }
   else {
     if (param_2 != 8) {
       iVar2 = param_2 * 8;
-      return (int)(uint)(*(byte *)((int)param_1 + *(int *)(&DAT_105a5fcc/*ROM*/ + iVar2) + 4) &
+      return (int)(uint)(*(byte *)((int)&param_1[1].field_0x0 + *(int *)(&DAT_105a5fcc/*ROM*/ + iVar2)) &
                         (&DAT_105a5fd0/*ROM*/)[iVar2]) >> ((byte)(&DAT_105a5fd1/*ROM*/)[iVar2] & 0x1f);
     }
-    bVar1 = *(byte *)((int)param_1 + iRam105a600c + 5);
-    uVar3 = (ushort)*(byte *)((int)param_1 + iRam105a600c + 4);
+    bVar1 = *(byte *)((int)&param_1[1].field_0x0 + iRam105a600c + 1);
+    uVar3 = (ushort)*(byte *)((int)&param_1[1].field_0x0 + iRam105a600c);
   }
   uVar3 = pack_two_byte_value_10496952(param_1,(ushort)bVar1,uVar3);
   return (uint)uVar3;

@@ -15,21 +15,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-void reset_five_module_objects(int param_1)
+void reset_five_module_objects(cls_105b2d48 *param_1)
 
 {
   int iVar1;
   
   iVar1 = modset_parser_singleton();
-  kernel_diag_taskstack((void *)(iVar1 + 0x4c));
+  kernel_diag_taskstack((int *)(iVar1 + 0x4c));
   iVar1 = get_or_init_singleton_10489b4e();
-  kernel_diag_taskstack((void *)(iVar1 + 0x4c));
+  kernel_diag_taskstack((int *)(iVar1 + 0x4c));
   iVar1 = menu_ctor_TESTMODE();
-  kernel_diag_taskstack((void *)(iVar1 + 0x4c));
+  kernel_diag_taskstack((int *)(iVar1 + 0x4c));
   iVar1 = menu_ctor_classic_wrapper();
-  kernel_diag_taskstack((void *)(iVar1 + 0x4c));
+  kernel_diag_taskstack((int *)(iVar1 + 0x4c));
   iVar1 = get_or_create_singleton_object_1048a800();
-  kernel_diag_taskstack((void *)(iVar1 + 0x4c));
-  kernel_diag_taskstack((void *)(*(int *)(param_1 + 4) + 0x1c));
+  kernel_diag_taskstack((int *)(iVar1 + 0x4c));
+  kernel_diag_taskstack((int *)(param_1->field_0x4 + 0x1c));
   return;
 }

@@ -28,7 +28,7 @@ void iterate_and_invoke_virtual_methods(int param_1)
     do {
       piVar1 = (int *)get_bounded_array_element((int *)(param_1 + 0xc));
       if ((piVar1 != (int *)0x0) &&
-         (iVar2 = (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1),
+         (iVar2 = (((vtbl_entry*)(*piVar1))[3].fn)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1),
          iVar2 == 0)) {
         (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
         decrement_timer_and_rearm((int *)(param_1 + 0xc),uVar3);

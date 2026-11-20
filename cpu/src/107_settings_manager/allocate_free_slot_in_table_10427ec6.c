@@ -13,7 +13,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t allocate_free_slot_in_table_10427ec6(void *param_1,void *param_2,uint32_t param_3)
+uint32_t allocate_free_slot_in_table_10427ec6(cls_1059e430 *param_1,void *param_2,void *param_3)
 
 {
   int iVar1;
@@ -22,9 +22,9 @@ uint32_t allocate_free_slot_in_table_10427ec6(void *param_1,void *param_2,uint32
   iVar2 = 0;
   iVar1 = 0;
   do {
-    if (*(int *)((int)param_1 + iVar1 + 4) == 0) {
-      *(void **)((int)param_1 + iVar2 * 4 + 4) = param_2;
-      *(uint32_t *)((int)param_1 + iVar2 * 4 + 0x84) = param_3;
+    if (*(int *)((int)&param_1->field_0x4 + iVar1) == 0) {
+      (&param_1->field_0x4)[iVar2] = (uint32_t)(uintptr_t)param_2;
+      (&param_1[0x10].field_0x4)[iVar2] = (uint32_t)(uintptr_t)param_3;
       return 1;
     }
     iVar1 = iVar1 + 4;

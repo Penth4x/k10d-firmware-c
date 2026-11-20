@@ -25,7 +25,7 @@ bool update_object_state_and_notify_1049ac60(int param_1,int param_2)
   *(int *)(param_1 + 0x48) = *(int *)(param_1 + 0x48) + param_2;
   piVar1 = *(int **)(*(int *)(param_1 + 0x54) + 8);
   iVar2 = *piVar1;
-  (**(code **)(iVar2 + 0x14))
-            ((int)piVar1 + (int)*(short *)(iVar2 + 0x10),0x41000,(uint32_t *)(param_1 + 0x40));
+  (((vtbl_entry*)(iVar2))[2].fn)
+            ((int)piVar1 + (int)((vtbl_entry*)(iVar2))[2].adj,0x41000,(uint32_t *)(param_1 + 0x40));
   return *(char *)(param_1 + 0x50) != '\0';
 }

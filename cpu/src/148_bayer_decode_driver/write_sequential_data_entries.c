@@ -41,76 +41,76 @@ void write_sequential_data_entries(void *param_1,int param_2,int param_3,int par
   puVar10 = (uint32_t *)auStackY_48;
   uVar1 = (uint)*(ushort *)(_DAT_800042c0/*SDRAM*/ + 0x83fbf8);
   if (param_4 == 1) {
-    forward_params_to_helper_1046a5be(param_1,param_2,param_3,(void *)&DAT_105a8160/*ROM*/,3);
+    forward_params_to_helper_1046a5be(param_1,param_2,param_3,&DAT_105a8160/*ROM*/,3);
     *(uint16_t *)((int)puVar9 + 2) = 2;
-    forward_params_to_helper_1046a5be(param_1,param_2,param_3 + 9U & 0xffff,(void *)&DAT_105a816c/*ROM*/,
+    forward_params_to_helper_1046a5be(param_1,param_2,param_3 + 9U & 0xffff,&DAT_105a816c/*ROM*/,
                  *(uint16_t *)((int)puVar9 + 2));
     uVar2 = param_3 + 0xcU & 0xffff;
     *(uint16_t *)((int)puVar9 + 2) = 3;
-    forward_params_to_helper_1046a5be(param_1,param_2,uVar2,(void *)&DAT_105a8170/*ROM*/,*(uint16_t *)((int)puVar9 + 2));
+    forward_params_to_helper_1046a5be(param_1,param_2,uVar2,&DAT_105a8170/*ROM*/,*(uint16_t *)((int)puVar9 + 2));
     uVar8 = param_2 + 1U & 0xffff;
     *(uint16_t *)((int)puVar9 + 2) = 2;
-    forward_params_to_helper_1046a5be(param_1,uVar8,param_3,(void *)&DAT_105a817c/*ROM*/,*(uint16_t *)((int)puVar9 + 2));
+    forward_params_to_helper_1046a5be(param_1,uVar8,param_3,&DAT_105a817c/*ROM*/,*(uint16_t *)((int)puVar9 + 2));
     iVar3 = (int)param_1 + 0x205;
     pvVar7 = (void *)call_helper_with_zero_and_ff(iVar3);
-    *puVar9 = (uint32_t)&DAT_105a818c/*ROM*/;
+    *puVar9 = (uintptr_t)(&DAT_105a818c/*ROM*/);
     *(uint16_t *)((int)puVar9 + 6) = 2;
     build_and_send_param_struct_1046a60e(param_1,uVar8,uVar2,pvVar7,(char *)*puVar9,*(uint16_t *)((int)puVar9 + 6));
     uVar4 = param_3 + 0xeU & 0xffff;
     pvVar7 = (void *)call_helper_with_fixed_args_1046774a(iVar3);
-    *puVar9 = (uint32_t)&DAT_105a8190/*ROM*/;
+    *puVar9 = (uintptr_t)(&DAT_105a8190/*ROM*/);
     *(uint16_t *)((int)puVar9 + 6) = 2;
     build_and_send_param_struct_1046a60e(param_1,uVar8,uVar4,pvVar7,(char *)*puVar9,*(uint16_t *)((int)puVar9 + 6));
     uVar5 = param_3 + 0x11U & 0xffff;
     pvVar7 = (void *)call_helper_with_two_and_ff(iVar3);
-    *puVar9 = (uint32_t)&DAT_105a8198/*ROM*/;
+    *puVar9 = (uintptr_t)(&DAT_105a8198/*ROM*/);
     *(uint16_t *)((int)puVar9 + 6) = 2;
     build_and_send_param_struct_1046a60e(param_1,uVar8,uVar5,pvVar7,(char *)*puVar9,*(uint16_t *)((int)puVar9 + 6));
     uVar6 = param_3 + 0x14U & 0xffff;
     pvVar7 = (void *)call_helper_with_three_args_10467786(iVar3);
-    *puVar9 = (uint32_t)&DAT_105a81a0/*ROM*/;
+    *puVar9 = (uintptr_t)(&DAT_105a81a0/*ROM*/);
     *(uint16_t *)((int)puVar9 + 6) = 2;
     build_and_send_param_struct_1046a60e(param_1,uVar8,uVar6,pvVar7,(char *)*puVar9,*(uint16_t *)((int)puVar9 + 6));
     uVar8 = param_2 + 2U & 0xffff;
     *(uint16_t *)((int)puVar9 + 2) = 2;
-    forward_params_to_helper_1046a5be(param_1,uVar8,param_3,(void *)&DAT_105a81a8/*ROM*/,*(uint16_t *)((int)puVar9 + 2));
-    *puVar9 = (uint32_t)&DAT_105a81b8/*ROM*/;
+    forward_params_to_helper_1046a5be(param_1,uVar8,param_3,&DAT_105a81a8/*ROM*/,*(uint16_t *)((int)puVar9 + 2));
+    *puVar9 = (uintptr_t)(&DAT_105a81b8/*ROM*/);
     *(uint16_t *)((int)puVar9 + 6) = 2;
     build_and_send_param_struct_1046a60e(param_1,uVar8,uVar2,(void *)((int)uVar1 >> 8),(char *)*puVar9,
                  *(uint16_t *)((int)puVar9 + 6));
-    *puVar9 = (uint32_t)&DAT_105a81bc/*ROM*/;
+    *puVar9 = (uintptr_t)(&DAT_105a81bc/*ROM*/);
     *(uint16_t *)((int)puVar9 + 6) = 2;
     build_and_send_param_struct_1046a60e(param_1,uVar8,uVar4,(void *)(uVar1 & 0xff),(char *)*puVar9,
                  *(uint16_t *)((int)puVar9 + 6));
     uVar1 = (uint)*(ushort *)(_DAT_800042c0/*SDRAM*/ + 0x83fbfa);
-    *puVar9 = (uint32_t)&DAT_105a81c4/*ROM*/;
+    *puVar9 = (uintptr_t)(&DAT_105a81c4/*ROM*/);
     *(uint16_t *)((int)puVar9 + 6) = 2;
     build_and_send_param_struct_1046a60e(param_1,uVar8,uVar5,(void *)((int)uVar1 >> 8),(char *)*puVar9,
                  *(uint16_t *)((int)puVar9 + 6));
-    *puVar9 = (uint32_t)&DAT_105a81cc/*ROM*/;
+    *puVar9 = (uintptr_t)(&DAT_105a81cc/*ROM*/);
     *(uint16_t *)((int)puVar9 + 6) = 2;
     puVar10 = puVar9;
   }
   else {
-    forward_params_to_helper_1046a5be(param_1,param_2,param_3,(void *)&DAT_105a81d4/*ROM*/,7);
+    forward_params_to_helper_1046a5be(param_1,param_2,param_3,&DAT_105a81d4/*ROM*/,7);
     uVar2 = param_3 + 0x10U & 0xffff;
     pvVar7 = (void *)call_helper_with_zero_and_ff((int)param_1 + 0x205);
-    *puVar10 = (uint32_t)&DAT_105a81e8/*ROM*/;
+    *puVar10 = (uintptr_t)(&DAT_105a81e8/*ROM*/);
     *(uint16_t *)((int)puVar10 + 6) = 7;
     build_and_send_param_struct_1046a60e(param_1,param_2,uVar2,pvVar7,(char *)*puVar10,*(uint16_t *)((int)puVar10 + 6));
     uVar6 = param_3 + 0x12U & 0xffff;
     pvVar7 = (void *)call_helper_with_fixed_args_1046774a((int)param_1 + 0x205);
-    *puVar10 = (uint32_t)&DAT_105a81ec/*ROM*/;
+    *puVar10 = (uintptr_t)(&DAT_105a81ec/*ROM*/);
     *(uint16_t *)((int)puVar10 + 6) = 7;
     build_and_send_param_struct_1046a60e(param_1,param_2,uVar6,pvVar7,(char *)*puVar10,*(uint16_t *)((int)puVar10 + 6));
     uVar8 = param_2 + 1U & 0xffff;
     *(uint16_t *)((int)puVar10 + 2) = 7;
-    forward_params_to_helper_1046a5be(param_1,uVar8,param_3,(void *)&DAT_105a81f4/*ROM*/,*(uint16_t *)((int)puVar10 + 2));
-    *puVar10 = (uint32_t)&DAT_105a8208/*ROM*/;
+    forward_params_to_helper_1046a5be(param_1,uVar8,param_3,&DAT_105a81f4/*ROM*/,*(uint16_t *)((int)puVar10 + 2));
+    *puVar10 = (uintptr_t)(&DAT_105a8208/*ROM*/);
     *(uint16_t *)((int)puVar10 + 6) = 7;
     build_and_send_param_struct_1046a60e(param_1,uVar8,uVar2,(void *)((int)uVar1 >> 8),(char *)*puVar10,
                  *(uint16_t *)((int)puVar10 + 6));
-    *puVar10 = (uint32_t)&DAT_105a820c/*ROM*/;
+    *puVar10 = (uintptr_t)(&DAT_105a820c/*ROM*/);
     *(uint16_t *)((int)puVar10 + 6) = 7;
   }
   build_and_send_param_struct_1046a60e(param_1,uVar8,uVar6,(void *)(uVar1 & 0xff),(char *)*puVar10,

@@ -15,21 +15,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-void read_two_values_via_handle(int param_1,int param_2,int param_3)
+void read_two_values_via_handle(cls_105c2cdc *param_1,int param_2,int param_3)
 
 {
   uint32_t uVar1;
   
-  (*(code *)0x1044eb0a/*ROM*/)(*(uint32_t *)(param_1 + 8),1);
-  uVar1 = (*(code *)0x1044ef82/*ROM*/)(*(uint32_t *)(param_1 + 8));
+  (*(code *)0x1044eb0a/*ROM*/)(param_1->field_0x8,1);
+  uVar1 = (*(code *)0x1044ef82/*ROM*/)(param_1->field_0x8);
   (*(code *)0x1053076c/*ROM*/)(param_3,param_2,uVar1);
-  (*(code *)0x1044eb56/*ROM*/)
-            (*(uint32_t *)(param_1 + 8),*(uint8_t *)(*(int *)(param_3 + 4) + param_2));
-  (*(code *)0x1044eba2/*ROM*/)(*(uint32_t *)(param_1 + 8),0);
-  (*(code *)0x1044ebe2/*ROM*/)(*(uint32_t *)(param_1 + 8),0xfff);
-  (*(code *)0x1044ebf2/*ROM*/)(*(uint32_t *)(param_1 + 8),0xfff);
-  (*(code *)0x1044ec02/*ROM*/)(*(uint32_t *)(param_1 + 8),0xfff);
-  uVar1 = (*(code *)0x1044ef8a/*ROM*/)(*(uint32_t *)(param_1 + 8));
+  (*(code *)0x1044eb56/*ROM*/)(param_1->field_0x8,*(uint8_t *)(*(int *)(param_3 + 4) + param_2));
+  (*(code *)0x1044eba2/*ROM*/)(param_1->field_0x8,0);
+  (*(code *)0x1044ebe2/*ROM*/)(param_1->field_0x8,0xfff);
+  (*(code *)0x1044ebf2/*ROM*/)(param_1->field_0x8,0xfff);
+  (*(code *)0x1044ec02/*ROM*/)(param_1->field_0x8,0xfff);
+  uVar1 = (*(code *)0x1044ef8a/*ROM*/)(param_1->field_0x8);
   (*(code *)0x1053072c/*ROM*/)(param_3,param_2,uVar1);
   return;
 }

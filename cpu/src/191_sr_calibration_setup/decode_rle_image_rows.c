@@ -46,7 +46,7 @@ void decode_rle_image_rows(ushort *param_1)
   char *pcStack_18;
   int iStack_14;
   
-  iVar10 = search_short_table_for_value(__frv_reg_unset(4));
+  iVar10 = (uintptr_t)(search_short_table_for_value(__frv_reg_unset(4)));
   uVar4 = (uint)*(ushort *)(iVar10 + 0x14);
   uVar2 = *(ushort *)(iVar10 + 0x16);
   iVar11 = *(int *)(iVar10 + 0x10);

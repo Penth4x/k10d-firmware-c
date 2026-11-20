@@ -31,6 +31,6 @@ void read_two_shorts_and_store_1036af70(void *param_1)
   uVar1 = read_struct_field_at_offset_4(auStack_28);
   uStack_12 = (short)uVar1;
   free_heap_if_flagged_1045c402(auStack_28,2);
-  copy_menu_item_and_register_10387f26((int)param_1 + 0x14,(uint)DAT_80015f14/*SDRAM*/,&uStack_20);
+  copy_menu_item_and_register_10387f26((cls_105595a8 *)((int)param_1 + 0x14),(uint)DAT_80015f14/*SDRAM*/,&uStack_20);
   return;
 }

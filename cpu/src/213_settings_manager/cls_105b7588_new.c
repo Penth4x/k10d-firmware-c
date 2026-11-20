@@ -11,18 +11,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_105b7588_new(uint32_t *param_1)
+cls_105b7748 * cls_105b7588_new(cls_105b7588 *param_1)
 
 {
   int iVar1;
   uint32_t *puVar2;
   
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x24), param_1 != (uint32_t *)0x0)) {
-    cls_105b7748_new(param_1);
-    param_1[6] = 0x105b7588/*ROM*/;
+  if ((param_1 != (cls_105b7588 *)0x0) ||
+     (param_1 = (cls_105b7588 *)heap_alloc((void *)0x24), (cls_105b7748 *)param_1 != (cls_105b7748 *)0x0)) {
+    cls_105b7748_new((cls_105b7748 *)param_1);
+    ((cls_105b7748 *)param_1)->field_0x18 = 0x105b7588/*ROM*/;
     puVar2 = (uint32_t *)heap_alloc_2(0x24);
-    param_1[8] = (uint32_t)puVar2;
+    *(uint32_t **)&((cls_105b7748 *)param_1)->field_0x20 = puVar2;
     iVar1 = 2;
     do {
       *puVar2 = 0;
@@ -32,5 +32,5 @@ uint32_t * cls_105b7588_new(uint32_t *param_1)
       puVar2 = puVar2 + 3;
     } while (-1 < iVar1);
   }
-  return param_1;
+  return (cls_105b7748 *)param_1;
 }

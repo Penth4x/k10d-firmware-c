@@ -83,7 +83,7 @@ int process_two_object_transfer(char *param_1)
   if (*(short *)(*(int *)((int)pvStack_18 + 100) + 0xe) != 0) {
     return -6;
   }
-  iVar5 = dispatch_parsed_string_result(in_stack_00000010,&pvStack_14,&pcStack_24);
+  iVar5 = dispatch_parsed_string_result((char *)(in_stack_00000010),(uint32_t *)(&pvStack_14),(int *)(&pcStack_24));
   pvVar4 = pvStack_18;
   if (iVar5 != 0) {
     return iVar5;
@@ -172,7 +172,7 @@ joined_r0x10543da6:
     bStack_69 = bStack_9d;
     uStack_74 = uStack_a8;
     uStack_72 = uStack_a6;
-    call_single_helper_1047f97e(&iStack_54);
+    call_single_helper_1047f97e((uint32_t)(&iStack_54));
     uStack_6e = (ushort)(iStack_54 / 2) | (ushort)(iStack_50 << 5) | (ushort)(iStack_4c << 0xb);
     uStack_70 = (sStack_42 + 1) * 0x20 | uStack_46 | (sStack_3e + -0x50) * 0x200;
     uStack_6a = uStack_9e;

@@ -23,15 +23,15 @@ void dispatch_virtual_event_0x1170001(int param_1)
   int iVar2;
   
   *(uint8_t *)(param_1 + 0x34) = 1;
-  dispatch_state_transition_1039ed80(param_1,*(uint32_t *)(param_1 + 0x60));
+  dispatch_state_transition_1039ed80((int)(param_1),(int *)(*(uint32_t *)(param_1 + 0x60)));
   if (*(char *)(param_1 + 0xd6) != '\0') {
     iVar2 = *(int *)(param_1 + 0xbc);
     uVar1 = get_setting_0xa0(iVar2);
     set_setting_and_dispatch(iVar2,uVar1);
   }
   iVar2 = **(int **)(param_1 + 0x30);
-  (**(code **)(iVar2 + 0x14))
-            ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar2 + 0x10),0x1170001,0);
+  (((vtbl_entry*)(iVar2))[2].fn)
+            ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar2))[2].adj,0x1170001,0);
   *(uint8_t *)(param_1 + 0xc5) = 0;
   return;
 }

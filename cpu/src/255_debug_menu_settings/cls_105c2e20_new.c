@@ -17,12 +17,12 @@ uint32_t * cls_105c2e20_new(uint32_t *param_1)
   if ((param_1 != (uint32_t *)0x0) ||
      (param_1 = (uint32_t *)heap_alloc((void *)0x2c), param_1 != (uint32_t *)0x0)) {
     cls_1059e4e0_new(param_1);
-    cls_1059e408_new(param_1 + 1);
+    cls_1059e408_new((void *)(param_1 + 1));
     *param_1 = 0x105c2e20/*ROM*/;
     param_1[1] = 0x105c2e50/*ROM*/;
     param_1[3] = 0;
     param_1[4] = 0;
-    cls_1059e288_new(param_1 + 5);
+    cls_1059e288_new((void *)(param_1 + 5));
   }
   return param_1;
 }

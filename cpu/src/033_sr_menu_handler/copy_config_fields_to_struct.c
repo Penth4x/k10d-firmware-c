@@ -29,11 +29,11 @@ void copy_config_fields_to_struct(int param_1)
   uVar2 = get_setting_0x83_with_refresh((uint32_t *)0x800158d4/*SDRAM*/);
   *(char *)(param_1 + 0x5d) = (char)uVar2;
   *(uint8_t *)(param_1 + 0x5f) = 2;
-  uVar2 = get_mode_dependent_setting_1039d5b4((void *)0x800158d4/*SDRAM*/,0);
+  uVar2 = get_mode_dependent_setting_1039d5b4((int *)(0x800158d4/*SDRAM*/),(int)(0));
   *(uint32_t *)(param_1 + 0x6c) = uVar2;
-  uVar2 = get_mode_dependent_setting_1039d5b4((void *)0x800158d4/*SDRAM*/,1);
+  uVar2 = get_mode_dependent_setting_1039d5b4((int *)(0x800158d4/*SDRAM*/),(int)(1));
   *(uint32_t *)(param_1 + 0x70) = uVar2;
-  uVar2 = get_mode_dependent_setting_1039d5b4((void *)0x800158d4/*SDRAM*/,2);
+  uVar2 = get_mode_dependent_setting_1039d5b4((int *)(0x800158d4/*SDRAM*/),(int)(2));
   *(uint32_t *)(param_1 + 0x74) = uVar2;
   *(uint32_t *)(param_1 + 0x78) = 0;
   uVar2 = read_struct_field_at_index_104c2890(*(void **)(param_1 + 0x7c),7);

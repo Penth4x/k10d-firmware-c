@@ -31,13 +31,13 @@ void copy_struct_with_two_subobjects_1048d3e8(uint32_t param_1,uint16_t *param_2
   uint8_t auStack_10 [4];
   uint32_t uStack_c;
   
-  alloc_and_zero_two_words_1045bc0e((void *)auStack_28);
-  store_two_words_to_memory((void *)auStack_28,*param_2,param_2[1]);
+  alloc_and_zero_two_words_1045bc0e(auStack_28);
+  store_two_words_to_memory(auStack_28,*param_2,param_2[1]);
   apuStack_3c[0] = (uint8_t *)0xffffffe8;
   allocate_and_init_widget(auStack_20);
   copy_eight_bytes_1045bf68(auStack_20,auStack_28);
-  alloc_and_zero_two_words_1045c3bc((void *)auStack_10);
-  write_two_words_to_memory((void *)auStack_10,param_2[0x13],param_2[0x14]);
+  alloc_and_zero_two_words_1045c3bc(auStack_10);
+  write_two_words_to_memory(auStack_10,param_2[0x13],param_2[0x14]);
   copy_four_words(auStack_20,auStack_10);
   apuStack_3c[0] = &stack0xfffffff8 + (int)apuStack_3c[0];
   iVar2 = 0x10;

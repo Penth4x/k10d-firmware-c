@@ -19,25 +19,25 @@ void deactivate_mode_context_103a7c22(void *param_1)
     if ((uVar1 & 1) == 0) {
       if ((uVar1 & 2) != 0) {
         iVar2 = *(int *)(*(int *)((int)param_1 + 100) + 0xc);
-        (**(code **)(iVar2 + 0xc))(*(int *)((int)param_1 + 100) + (int)*(short *)(iVar2 + 8),1);
+        (((vtbl_entry*)(iVar2))[1].fn)(*(int *)((int)param_1 + 100) + (int)*(short *)(iVar2 + 8),1);
       }
     }
     else if ((uVar1 & 4) == 0) {
       iVar2 = *(int *)(*(int *)((int)param_1 + 0x54) + 0xc);
-      (**(code **)(iVar2 + 0xc))(*(int *)((int)param_1 + 0x54) + (int)*(short *)(iVar2 + 8),1);
+      (((vtbl_entry*)(iVar2))[1].fn)(*(int *)((int)param_1 + 0x54) + (int)*(short *)(iVar2 + 8),1);
       iVar2 = *(int *)(*(int *)((int)param_1 + 0x58) + 0xc);
-      (**(code **)(iVar2 + 0xc))(*(int *)((int)param_1 + 0x58) + (int)*(short *)(iVar2 + 8),1);
+      (((vtbl_entry*)(iVar2))[1].fn)(*(int *)((int)param_1 + 0x58) + (int)*(short *)(iVar2 + 8),1);
     }
     else {
       iVar2 = *(int *)(*(int *)((int)param_1 + 0xec) + 0xc);
-      (**(code **)(iVar2 + 0xc))(*(int *)((int)param_1 + 0xec) + (int)*(short *)(iVar2 + 8));
+      (((vtbl_entry*)(iVar2))[1].fn)(*(int *)((int)param_1 + 0xec) + (int)*(short *)(iVar2 + 8));
     }
     iVar2 = *(int *)(*(int *)((int)param_1 + 0x68) + 0xc);
-    (**(code **)(iVar2 + 0xc))(*(int *)((int)param_1 + 0x68) + (int)*(short *)(iVar2 + 8),1);
+    (((vtbl_entry*)(iVar2))[1].fn)(*(int *)((int)param_1 + 0x68) + (int)*(short *)(iVar2 + 8),1);
     iVar2 = *(int *)(*(int *)((int)param_1 + 0x6c) + 0xc);
-    (**(code **)(iVar2 + 0xc))(*(int *)((int)param_1 + 0x6c) + (int)*(short *)(iVar2 + 8),1);
+    (((vtbl_entry*)(iVar2))[1].fn)(*(int *)((int)param_1 + 0x6c) + (int)*(short *)(iVar2 + 8),1);
     iVar2 = *(int *)(*(int *)((int)param_1 + 0x70) + 0xc);
-    (**(code **)(iVar2 + 0xc))(*(int *)((int)param_1 + 0x70) + (int)*(short *)(iVar2 + 8),1);
+    (((vtbl_entry*)(iVar2))[1].fn)(*(int *)((int)param_1 + 0x70) + (int)*(short *)(iVar2 + 8),1);
     *(uint32_t *)((int)param_1 + 0x40) = 2;
   }
   setup_object_with_two_subobjects(param_1,0);
@@ -46,8 +46,8 @@ void deactivate_mode_context_103a7c22(void *param_1)
   call_helper_on_fetched_object((void *)((int)param_1 + 8),0xf);
   if (*(char *)((int)param_1 + 0x45) != '\0') {
     iVar2 = **(int **)((int)param_1 + 0x2c);
-    (**(code **)(iVar2 + 0x14))
-              ((int)*(int **)((int)param_1 + 0x2c) + (int)*(short *)(iVar2 + 0x10),0x1120070,0);
+    (((vtbl_entry*)(iVar2))[2].fn)
+              ((int)*(int **)((int)param_1 + 0x2c) + (int)((vtbl_entry*)(iVar2))[2].adj,0x1120070,0);
   }
   return;
 }

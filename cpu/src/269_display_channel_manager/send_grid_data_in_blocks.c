@@ -46,15 +46,15 @@ void send_grid_data_in_blocks(uint32_t param_1,int param_2,int param_3)
           iVar4 = uVar2 - 3;
           if (2 < iVar4) {
             do {
-              copy_stream_bytes_into_struct(param_2,(void*)*puVar3,1,0);
-              copy_stream_bytes_into_struct(param_2,(void*)puVar3[4],1,0);
-              copy_stream_bytes_into_struct(param_2,(void*)puVar3[8],1,0);
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*puVar3),(int)(1),(void *)(0));
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(puVar3[4]),(int)(1),(void *)(0));
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(puVar3[8]),(int)(1),(void *)(0));
               iVar4 = iVar4 + -3;
               puVar3 = puVar3 + 0xc;
             } while (-1 < iVar4);
           }
           for (iVar4 = iVar4 + 2; -1 < iVar4; iVar4 = iVar4 + -1) {
-            copy_stream_bytes_into_struct(param_2,(void*)*puVar3,1,0);
+            copy_stream_bytes_into_struct((int)(param_2),(void *)(*puVar3),(int)(1),(void *)(0));
             puVar3 = puVar3 + 4;
           }
         }
@@ -72,15 +72,15 @@ void send_grid_data_in_blocks(uint32_t param_1,int param_2,int param_3)
           iVar5 = uVar2 - 3;
           if (2 < iVar5) {
             do {
-              copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 4)),1,0);
-              copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 0x14)),1,0);
-              copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 0x24)),1,0);
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 4)),(int)(1),(void *)(0));
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 0x14)),(int)(1),(void *)(0));
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 0x24)),(int)(1),(void *)(0));
               iVar5 = iVar5 + -3;
               iVar4 = iVar4 + 0x30;
             } while (-1 < iVar5);
           }
           for (iVar5 = iVar5 + 2; -1 < iVar5; iVar5 = iVar5 + -1) {
-            copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 4)),1,0);
+            copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 4)),(int)(1),(void *)(0));
             iVar4 = iVar4 + 0x10;
           }
         }
@@ -98,15 +98,15 @@ void send_grid_data_in_blocks(uint32_t param_1,int param_2,int param_3)
           iVar5 = uVar2 - 3;
           if (2 < iVar5) {
             do {
-              copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 8)),1,0);
-              copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 0x18)),1,0);
-              copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 0x28)),1,0);
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 8)),(int)(1),(void *)(0));
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 0x18)),(int)(1),(void *)(0));
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 0x28)),(int)(1),(void *)(0));
               iVar5 = iVar5 + -3;
               iVar4 = iVar4 + 0x30;
             } while (-1 < iVar5);
           }
           for (iVar5 = iVar5 + 2; -1 < iVar5; iVar5 = iVar5 + -1) {
-            copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 8)),1,0);
+            copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 8)),(int)(1),(void *)(0));
             iVar4 = iVar4 + 0x10;
           }
         }
@@ -124,15 +124,15 @@ void send_grid_data_in_blocks(uint32_t param_1,int param_2,int param_3)
           iVar5 = uVar2 - 3;
           if (2 < iVar5) {
             do {
-              copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 0xc)),1,0);
-              copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 0x1c)),1,0);
-              copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 0x2c)),1,0);
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 0xc)),(int)(1),(void *)(0));
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 0x1c)),(int)(1),(void *)(0));
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 0x2c)),(int)(1),(void *)(0));
               iVar5 = iVar5 + -3;
               iVar4 = iVar4 + 0x30;
             } while (-1 < iVar5);
           }
           for (iVar5 = iVar5 + 2; -1 < iVar5; iVar5 = iVar5 + -1) {
-            copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 0xc)),1,0);
+            copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 0xc)),(int)(1),(void *)(0));
             iVar4 = iVar4 + 0x10;
           }
         }
@@ -150,15 +150,15 @@ void send_grid_data_in_blocks(uint32_t param_1,int param_2,int param_3)
           iVar4 = uVar2 - 3;
           if (2 < iVar4) {
             do {
-              copy_stream_bytes_into_struct(param_2,(void*)*puVar3,1,0);
-              copy_stream_bytes_into_struct(param_2,(void*)puVar3[4],1,0);
-              copy_stream_bytes_into_struct(param_2,(void*)puVar3[8],1,0);
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*puVar3),(int)(1),(void *)(0));
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(puVar3[4]),(int)(1),(void *)(0));
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(puVar3[8]),(int)(1),(void *)(0));
               iVar4 = iVar4 + -3;
               puVar3 = puVar3 + 0xc;
             } while (-1 < iVar4);
           }
           for (iVar4 = iVar4 + 2; -1 < iVar4; iVar4 = iVar4 + -1) {
-            copy_stream_bytes_into_struct(param_2,(void*)*puVar3,1,0);
+            copy_stream_bytes_into_struct((int)(param_2),(void *)(*puVar3),(int)(1),(void *)(0));
             puVar3 = puVar3 + 4;
           }
         }
@@ -176,15 +176,15 @@ void send_grid_data_in_blocks(uint32_t param_1,int param_2,int param_3)
           iVar5 = uVar2 - 3;
           if (2 < iVar5) {
             do {
-              copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 4)),1,0);
-              copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 0x14)),1,0);
-              copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 0x24)),1,0);
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 4)),(int)(1),(void *)(0));
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 0x14)),(int)(1),(void *)(0));
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 0x24)),(int)(1),(void *)(0));
               iVar5 = iVar5 + -3;
               iVar4 = iVar4 + 0x30;
             } while (-1 < iVar5);
           }
           for (iVar5 = iVar5 + 2; -1 < iVar5; iVar5 = iVar5 + -1) {
-            copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 4)),1,0);
+            copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 4)),(int)(1),(void *)(0));
             iVar4 = iVar4 + 0x10;
           }
         }
@@ -202,15 +202,15 @@ void send_grid_data_in_blocks(uint32_t param_1,int param_2,int param_3)
           iVar5 = uVar2 - 3;
           if (2 < iVar5) {
             do {
-              copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 8)),1,0);
-              copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 0x18)),1,0);
-              copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 0x28)),1,0);
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 8)),(int)(1),(void *)(0));
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 0x18)),(int)(1),(void *)(0));
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 0x28)),(int)(1),(void *)(0));
               iVar5 = iVar5 + -3;
               iVar4 = iVar4 + 0x30;
             } while (-1 < iVar5);
           }
           for (iVar5 = iVar5 + 2; -1 < iVar5; iVar5 = iVar5 + -1) {
-            copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 8)),1,0);
+            copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 8)),(int)(1),(void *)(0));
             iVar4 = iVar4 + 0x10;
           }
         }
@@ -228,15 +228,15 @@ void send_grid_data_in_blocks(uint32_t param_1,int param_2,int param_3)
           iVar5 = uVar2 - 3;
           if (2 < iVar5) {
             do {
-              copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 0xc)),1,0);
-              copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 0x1c)),1,0);
-              copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 0x2c)),1,0);
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 0xc)),(int)(1),(void *)(0));
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 0x1c)),(int)(1),(void *)(0));
+              copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 0x2c)),(int)(1),(void *)(0));
               iVar5 = iVar5 + -3;
               iVar4 = iVar4 + 0x30;
             } while (-1 < iVar5);
           }
           for (iVar5 = iVar5 + 2; -1 < iVar5; iVar5 = iVar5 + -1) {
-            copy_stream_bytes_into_struct(param_2,(void*)(*(uint32_t *)(iVar4 + 0xc)),1,0);
+            copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint32_t *)(iVar4 + 0xc)),(int)(1),(void *)(0));
             iVar4 = iVar4 + 0x10;
           }
         }

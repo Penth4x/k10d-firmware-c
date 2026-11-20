@@ -15,12 +15,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_virtual_slot_two_then_helper_1044173c(int param_1)
+/* WARNING: Struct "cls_105a0c1c": ignoring multiple overlapping fields */
+
+uint32_t call_virtual_slot_two_then_helper_1044173c(cls_105a0c1c *param_1)
 
 {
   uint32_t uVar1;
   
-  uVar1 = dispatch_single_subobj(param_1 + 8);
-  clear_bit_3_of_word_at_offset_0x10(param_1);
+  uVar1 = dispatch_single_subobj((void *)&param_1->field_0x8);
+  clear_bit_3_of_word_at_offset_0x10((uint32_t)param_1);
   return uVar1;
 }

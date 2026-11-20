@@ -120,7 +120,7 @@ LAB_1000cf62:
     iVar7 = (uint)_DAT_6a003758 * 0x44;
     puVar9 = (uint16_t *)(iVar7 + 0x6a001be8);
     pbVar12 = (byte *)(piVar10 + -6);
-    if (PTR_FUN_10011c74 != (void *)0x0) {
+    if (PTR_FUN_10011c74 != 0) {
       uVar16 = (*(code *)PTR_FUN_10011c74)((uint)_DAT_6a003758);
       pbVar12 = (byte *)piVar11;
     }
@@ -155,14 +155,14 @@ LAB_1000cf4e:
     else {
       if ((*(char *)(iVar7 + 0x6a001c07) == '\0') || (*(char *)(iVar7 + 0x6a001c07) == '\x01')) {
         if (*(int *)(iVar7 + 0x6a001c1c) != -1) {
-          r3_in = (uint8_t *)&DAT_6a003758;
+          r3_in = &DAT_6a003758;
           remove_task_from_timeout_queue_1001166c(_DAT_6a003758);
           uVar16 = CONCAT44(extraout_r4,extraout_r5_00);
         }
       }
       else {
         remove_task_from_timeout_queue_1001166c(_DAT_6a003758);
-        r3_in = (uint8_t *)&DAT_6a003758;
+        r3_in = &DAT_6a003758;
         param_3 = 0;
         remove_node_from_queue((uint)*(ushort *)(iVar7 + 0x6a001c08),(uint)_DAT_6a003758,0);
         uVar16 = CONCAT44(extraout_r4_00,extraout_r5_01);
@@ -189,7 +189,7 @@ LAB_1000ce86:
       }
 LAB_1000cf16:
       if ((pbVar12[1] & 0xc0) != 0) {
-        r3_in = (uint8_t *)&DAT_6a003758;
+        r3_in = &DAT_6a003758;
         param_3 = (uint)_DAT_6a003758 * 0x44;
         puVar9 = (uint16_t *)(param_3 + 0x6a001be8);
         goto LAB_1000cf4e;

@@ -38,8 +38,8 @@ void dispatch_four_virtual_queries(int param_1)
   iVar2 = *(int *)(*(int *)(param_1 + 0x2c) + 4);
   uStack_31 = 1;
   puStack_38 = &uStack_a;
-  (**(code **)(iVar2 + 0xe4))
-            (*(int *)(param_1 + 0x2c) + (int)*(short *)(iVar2 + 0xe0),&uStack_10,&uStack_e,&uStack_c
+  (((vtbl_entry*)(iVar2))[28].fn)
+            (*(int *)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar2))[28].adj,&uStack_10,&uStack_e,&uStack_c
             );
   if (*(char *)(*(int *)(param_1 + 0xf4) + 0x40) != '\0') {
     append_bytes_to_ring_buffer(*(int *)(param_1 + 0xf4),0x1059d428/*ROM*/,0);
@@ -119,10 +119,10 @@ void dispatch_four_virtual_queries(int param_1)
   (*pcVar4)(iVar2 + sVar1,&uStack_10,&uStack_e,&uStack_c);
   if (*(char *)(*(int *)(param_1 + 0xf4) + 0x40) != '\0') {
     append_bytes_to_ring_buffer(*(int *)(param_1 + 0xf4),0x1059d500/*ROM*/,0);
-    copy_stream_bytes_into_struct(*(uint32_t *)(param_1 + 0xf4),(void *)(uint)uStack_10,1,0);
-    copy_stream_bytes_into_struct(*(uint32_t *)(param_1 + 0xf4),(void *)(uint)uStack_e,1,0);
-    copy_stream_bytes_into_struct(*(uint32_t *)(param_1 + 0xf4),(void *)(uint)uStack_c,1,0);
-    copy_stream_bytes_into_struct(*(uint32_t *)(param_1 + 0xf4),(void *)(uint)uStack_a,1,0);
+    copy_stream_bytes_into_struct((int)(*(uint32_t *)(param_1 + 0xf4)),(void *)(uStack_10),(int)(1),(void *)(0));
+    copy_stream_bytes_into_struct((int)(*(uint32_t *)(param_1 + 0xf4)),(void *)(uStack_e),(int)(1),(void *)(0));
+    copy_stream_bytes_into_struct((int)(*(uint32_t *)(param_1 + 0xf4)),(void *)(uStack_c),(int)(1),(void *)(0));
+    copy_stream_bytes_into_struct((int)(*(uint32_t *)(param_1 + 0xf4)),(void *)(uStack_a),(int)(1),(void *)(0));
     append_newline_to_buffer(*(int *)(param_1 + 0xf4),0);
   }
   iVar2 = *(int *)(param_1 + 0x2c);
@@ -134,10 +134,10 @@ void dispatch_four_virtual_queries(int param_1)
   (*pcVar4)(iVar2 + sVar1,&uStack_10,&uStack_e,&uStack_c);
   if (*(char *)(*(int *)(param_1 + 0xf4) + 0x40) != '\0') {
     append_bytes_to_ring_buffer(*(int *)(param_1 + 0xf4),0x1059d50c/*ROM*/,0);
-    copy_stream_bytes_into_struct(*(uint32_t *)(param_1 + 0xf4),(void *)(uint)uStack_10,1,0);
-    copy_stream_bytes_into_struct(*(uint32_t *)(param_1 + 0xf4),(void *)(uint)uStack_e,1,0);
-    copy_stream_bytes_into_struct(*(uint32_t *)(param_1 + 0xf4),(void *)(uint)uStack_c,1,0);
-    copy_stream_bytes_into_struct(*(uint32_t *)(param_1 + 0xf4),(void *)(uint)uStack_a,1,0);
+    copy_stream_bytes_into_struct((int)(*(uint32_t *)(param_1 + 0xf4)),(void *)(uStack_10),(int)(1),(void *)(0));
+    copy_stream_bytes_into_struct((int)(*(uint32_t *)(param_1 + 0xf4)),(void *)(uStack_e),(int)(1),(void *)(0));
+    copy_stream_bytes_into_struct((int)(*(uint32_t *)(param_1 + 0xf4)),(void *)(uStack_c),(int)(1),(void *)(0));
+    copy_stream_bytes_into_struct((int)(*(uint32_t *)(param_1 + 0xf4)),(void *)(uStack_a),(int)(1),(void *)(0));
     append_newline_to_buffer(*(int *)(param_1 + 0xf4),0);
   }
   return;

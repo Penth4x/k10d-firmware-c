@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_object_and_signal_semaphore(int param_1,int param_2)
+void release_object_and_signal_semaphore(cls_1059efac *param_1,int param_2)
 
 {
   process_mode_transition_event_1042f7f0(__frv_reg_unset(4),(int *)__frv_reg_unset(5));
@@ -17,6 +17,6 @@ void release_object_and_signal_semaphore(int param_1,int param_2)
     }
     heap_free(param_2);
   }
-  sig_sem_obj((void *)(param_1 + 0x20));
+  sig_sem_obj((void *)&param_1->field_0x20);
   return;
 }

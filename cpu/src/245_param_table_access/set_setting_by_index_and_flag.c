@@ -25,12 +25,12 @@ int set_setting_by_index_and_flag(int param_1,int param_2,uint16_t param_3)
   int iVar3;
   int iVar4;
   uintptr_t sp;
-  uint32_t auStack_24 [7];
+  cls_105a6d8c acStack_24 [7];
   
   iVar4 = 0;
-  cls_105a6d8c_new(auStack_24);
-  copy_status_block_bytes(*(int *)(param_1 + 8),auStack_24);
-  iVar1 = extract_field_from_struct_1045ff0e((int)auStack_24,0x2b);
+  cls_105a6d8c_new(acStack_24);
+  copy_status_block_bytes(*(int *)(param_1 + 8),acStack_24);
+  iVar1 = extract_field_from_struct_1045ff0e(acStack_24,0x2b);
   iVar3 = 0;
   if (iVar1 < 1) {
     if (param_2 == 0) {
@@ -71,6 +71,6 @@ LAB_104d46b0:
     setting_set(iVar1,iVar3,uVar2);
   }
 LAB_104d46dc:
-  cls_105a6d8c_delete(auStack_24,2);
+  cls_105a6d8c_delete(acStack_24,2);
   return iVar4;
 }

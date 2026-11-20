@@ -6,26 +6,26 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_state_two_with_flag_toggle_10367cd4(int param_1)
+void dispatch_state_two_with_flag_toggle_10367cd4(cls_105579a8 *param_1)
 
 {
   char cVar1;
-  int iVar2;
+  uint32_t *puVar2;
   
-  iVar2 = param_1 + 0x18;
-  cVar1 = read_byte_at_offset_0x1d(iVar2);
+  puVar2 = (uint32_t *)&param_1->field_0x18;
+  cVar1 = read_byte_at_offset_0x1d((int)puVar2);
   if (cVar1 != '\0') {
-    dispatch_object_state_update_10491fb2(iVar2,1);
+    dispatch_object_state_update_10491fb2((int)puVar2,1);
   }
-  if (*(int *)(param_1 + 0x9c) == 0) {
-    configure_subobject_with_two_values(param_1);
+  if (param_1->field_0x9c == 0) {
+    configure_subobject_with_two_values((int)param_1);
   }
-  else if (*(int *)(param_1 + 0x9c) == 1) {
-    init_subobject_from_parent_fields(param_1);
+  else if (param_1->field_0x9c == 1) {
+    init_subobject_from_parent_fields((int)param_1);
   }
-  cVar1 = read_byte_at_offset_0x1d(iVar2);
+  cVar1 = read_byte_at_offset_0x1d((int)puVar2);
   if (cVar1 != '\0') {
-    dispatch_object_state_update_10491fb2(iVar2,0);
+    dispatch_object_state_update_10491fb2((int)puVar2,0);
   }
   return;
 }

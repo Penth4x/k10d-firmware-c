@@ -1,4 +1,4 @@
-/* @k10d caseD_3 @ 0x1000ff66
+/* @k10d caseD_3_1000ff66 @ 0x1000ff66
  * name: earlier (carried from an earlier Ghidra session, not re-verified; the model, reading only this decompile, proposed test_bit_in_struct_array)
  * unit: 000_rtos_kernel (unit names are model-proposed)
  * purpose:

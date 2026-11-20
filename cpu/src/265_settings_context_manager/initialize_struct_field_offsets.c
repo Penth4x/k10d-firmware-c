@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t initialize_struct_field_offsets(void *param_1)
+uint32_t initialize_struct_field_offsets(cls_105d4d68 *param_1)
 
 {
   void *pvVar1;
@@ -23,17 +23,17 @@ uint32_t initialize_struct_field_offsets(void *param_1)
   
   pvVar1 = (void *)get_or_init_sram_buffer_104277bc();
   iVar2 = read_table_entry_field(pvVar1,0xc1);
-  *(int *)((int)param_1 + 0x14) = iVar2;
-  *(int *)((int)param_1 + 0x18) = iVar2 + 0x10;
-  *(int *)((int)param_1 + 0x1c) = *(int *)((int)param_1 + 0x14) + 0x14;
-  *(int *)((int)param_1 + 0x20) = *(int *)((int)param_1 + 0x14) + 0x30;
-  *(int *)((int)param_1 + 0x24) = *(int *)((int)param_1 + 0x14) + 0x4c;
-  *(int *)((int)param_1 + 0x28) = *(int *)((int)param_1 + 0x14) + 0x68;
-  *(int *)((int)param_1 + 0x2c) = *(int *)((int)param_1 + 0x14) + 0x6c;
-  *(int *)((int)param_1 + 0x30) = *(int *)((int)param_1 + 0x14) + 0x70;
-  *(int *)((int)param_1 + 0x34) = *(int *)((int)param_1 + 0x14) + 0x74;
-  *(int *)((int)param_1 + 0x38) = *(int *)((int)param_1 + 0x14) + 0x78;
-  *(int *)((int)param_1 + 0x3c) = *(int *)((int)param_1 + 0x14) + 0x7c;
-  *(int *)((int)param_1 + 0x40) = *(int *)((int)param_1 + 0x14) + 0x80;
+  param_1->field_0x14 = iVar2;
+  param_1->field_0x18 = iVar2 + 0x10;
+  param_1->field_0x1c = param_1->field_0x14 + 0x14;
+  param_1->field_0x20 = param_1->field_0x14 + 0x30;
+  param_1->field_0x24 = param_1->field_0x14 + 0x4c;
+  param_1->field_0x28 = param_1->field_0x14 + 0x68;
+  param_1->field_0x2c = param_1->field_0x14 + 0x6c;
+  param_1->field_0x30 = param_1->field_0x14 + 0x70;
+  param_1->field_0x34 = param_1->field_0x14 + 0x74;
+  param_1->field_0x38 = param_1->field_0x14 + 0x78;
+  param_1->field_0x3c = param_1->field_0x14 + 0x7c;
+  param_1->field_0x40 = param_1->field_0x14 + 0x80;
   return 1;
 }

@@ -25,12 +25,12 @@ void select_and_send_mode_config(void *param_1,int param_2)
   byte *pbVar3;
   
   if (param_2 == 1) {
-    pbVar3 = (byte *)&DAT_105a8348/*ROM*/;
+    pbVar3 = &DAT_105a8348/*ROM*/;
     uVar2 = (uint)*(ushort *)((int)param_1 + 0x262);
     uVar1 = 4;
   }
   else {
-    pbVar3 = (byte *)&DAT_105a8354/*ROM*/;
+    pbVar3 = &DAT_105a8354/*ROM*/;
     uVar1 = 7;
     uVar2 = 0;
   }

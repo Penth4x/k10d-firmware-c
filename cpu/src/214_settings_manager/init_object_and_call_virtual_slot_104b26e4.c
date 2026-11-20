@@ -25,10 +25,10 @@ uint32_t init_object_and_call_virtual_slot_104b26e4(int param_1,uint32_t param_2
   
   *(uint32_t *)(param_1 + 0xc) = param_2;
   (*(code *)0x104ad2d4/*ROM*/)(*(uint32_t *)(param_1 + 8),*(uint32_t *)(param_1 + 4),8,0);
-  clear_two_fields_and_reset(*(uint32_t *)(param_1 + 8),1);
+  clear_two_fields_and_reset((void*)(*(uint32_t *)(param_1 + 8)),1);
   iVar2 = **(int **)(param_1 + 0xc);
-  uVar1 = (**(code **)(iVar2 + 0x34))
-                    ((int)*(int **)(param_1 + 0xc) + (int)*(short *)(iVar2 + 0x30),1,
+  uVar1 = (((vtbl_entry*)(iVar2))[6].fn)
+                    ((int)*(int **)(param_1 + 0xc) + (int)((vtbl_entry*)(iVar2))[6].adj,1,
                      *(uint32_t *)(param_1 + 8));
   return uVar1;
 }

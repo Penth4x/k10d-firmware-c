@@ -26,7 +26,7 @@ void configure_subobject_with_state(int param_1)
 
 {
   uint32_t uVar1;
-  int iVar2;
+  cls_10558b34 *pcVar2;
   uintptr_t sp;
   uint32_t uStack_28;
   uint32_t uStack_24;
@@ -35,11 +35,10 @@ void configure_subobject_with_state(int param_1)
   uint16_t uStack_1a;
   uint32_t auStack_18 [4];
   
-  iVar2 = param_1 + 0x18;
-  register_two_menu_items_1037be8e(iVar2,*(uint16_t *)(*(int *)(param_1 + 0x70) + 4),
-               *(uint16_t *)(*(int *)(param_1 + 0x70) + 6));
+  pcVar2 = (cls_10558b34 *)(param_1 + 0x18);
+  register_two_menu_items_1037be8e((int)(pcVar2),(uint16_t)(*(uint16_t *)(*(int *)(param_1 + 0x70) + 4)), (uint16_t)(*(uint16_t *)(*(int *)(param_1 + 0x70) + 6)));
   if (DAT_80015f14/*SDRAM*/ == '\0') {
-    invoke_virtual_method_on_object_1037be60(iVar2,0);
+    invoke_virtual_method_on_object_1037be60((int)(pcVar2),(uint32_t)(0));
   }
   else {
     uStack_28 = _DAT_80015d24/*SDRAM*/;
@@ -50,8 +49,8 @@ void configure_subobject_with_state(int param_1)
     uStack_1c = (short)uVar1;
     uVar1 = read_struct_field_at_offset_4(auStack_18);
     uStack_1a = (short)uVar1;
-    register_menu_item_with_data_1037bdfa(iVar2,1,&uStack_28);
-    invoke_virtual_method_on_object_1037be60(iVar2,1);
+    register_menu_item_with_data_1037bdfa(pcVar2,1,&uStack_28);
+    invoke_virtual_method_on_object_1037be60((int)(pcVar2),(uint32_t)(1));
     free_heap_if_flagged_1045c402(auStack_18,2);
   }
   return;

@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t get_setting_toggle_value(int param_1,int param_2)
+uint32_t get_setting_toggle_value(cls_10596430 *param_1,int param_2)
 
 {
   uint32_t uVar1;
@@ -29,7 +29,7 @@ uint32_t get_setting_toggle_value(int param_1,int param_2)
   if (param_2 == 0x186000d) {
     auStack_18[0] = 0x1860010;
     auStack_18[1] = 0x186000f;
-    uVar3 = setting_get(*(int *)(param_1 + 8),0x76);
+    uVar3 = setting_get(param_1->field_0x8,0x76);
     iVar2 = 0xff;
     if (bRam1059642c == uVar3) {
       iVar2 = 0;
@@ -42,7 +42,7 @@ uint32_t get_setting_toggle_value(int param_1,int param_2)
   else if (param_2 == 0x1860013) {
     auStack_18[2] = 0x1860016;
     auStack_18[3] = 0x1860015;
-    uVar3 = setting_get(*(int *)(param_1 + 8),0x77);
+    uVar3 = setting_get(param_1->field_0x8,0x77);
     iVar2 = 0xff;
     if (bRam1059642e == uVar3) {
       iVar2 = 0;

@@ -18,33 +18,34 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t initialize_object_state_1048f36a(void *param_1)
+uint32_t initialize_object_state_1048f36a(cls_105b3fbc *param_1)
 
 {
-  uint32_t uVar1;
+  void *pvVar1;
   int iVar2;
+  uint32_t uVar3;
   
-  uVar1 = get_or_init_sram_buffer_104277bc();
-  *(uint32_t *)((int)param_1 + 8) = uVar1;
-  uVar1 = get_or_create_singleton_object_104fb12e();
-  *(uint32_t *)((int)param_1 + 0x2c) = uVar1;
-  uVar1 = read_table_entry_field(*(void **)((int)param_1 + 8),0xa9);
-  *(uint32_t *)((int)param_1 + 0xc) = uVar1;
-  uVar1 = read_table_entry_field(*(void **)((int)param_1 + 8),0xa2);
-  *(uint32_t *)((int)param_1 + 0x10) = uVar1;
-  uVar1 = read_table_entry_field(*(void **)((int)param_1 + 8),0xa3);
-  *(uint32_t *)((int)param_1 + 0x14) = uVar1;
-  uVar1 = read_table_entry_field(*(void **)((int)param_1 + 8),0x30);
-  *(uint32_t *)((int)param_1 + 0x20) = uVar1;
-  uVar1 = read_table_entry_field(*(void **)((int)param_1 + 8),0x4c);
-  *(uint32_t *)((int)param_1 + 0x1c) = uVar1;
-  *(uint32_t *)((int)param_1 + 0x30) = *(uint32_t *)(*(int *)((int)param_1 + 0x2c) + 0x18);
+  pvVar1 = (void *)get_or_init_sram_buffer_104277bc();
+  param_1->field_0x8 = (uintptr_t)(pvVar1);
+  iVar2 = get_or_create_singleton_object_104fb12e();
+  param_1->field_0x2c = iVar2;
+  uVar3 = read_table_entry_field((void *)(param_1->field_0x8),(int)(0xa9));
+  param_1->field_0xc = uVar3;
+  uVar3 = read_table_entry_field((void *)(param_1->field_0x8),(int)(0xa2));
+  param_1->field_0x10 = uVar3;
+  uVar3 = read_table_entry_field((void *)(param_1->field_0x8),(int)(0xa3));
+  param_1->field_0x14 = uVar3;
+  uVar3 = read_table_entry_field((void *)(param_1->field_0x8),(int)(0x30));
+  param_1->field_0x20 = uVar3;
+  uVar3 = read_table_entry_field((void *)(param_1->field_0x8),(int)(0x4c));
+  param_1->field_0x1c = uVar3;
+  param_1->field_0x30 = *(uint32_t *)(param_1->field_0x2c + 0x18);
   iVar2 = get_or_create_singleton_object_10485138();
-  *(uint32_t *)((int)param_1 + 0x18) = *(uint32_t *)(iVar2 + 0x10);
-  clear_four_status_flags(*(uint32_t *)((int)param_1 + 0x10));
-  reset_object_fields_to_defaults(*(uint32_t *)((int)param_1 + 0x14));
-  call_subroutine_with_zero(*(uint32_t *)((int)param_1 + 0x10));
-  *(uint8_t *)((int)param_1 + 0x35) = 2;
-  *(uint8_t *)((int)param_1 + 0x34) = 0;
+  param_1->field_0x18 = *(uint32_t *)(iVar2 + 0x10);
+  clear_four_status_flags(param_1->field_0x10);
+  reset_object_fields_to_defaults(param_1->field_0x14);
+  call_subroutine_with_zero(param_1->field_0x10);
+  param_1->field_0x35 = 2;
+  param_1->field_0x34 = 0;
   return 1;
 }

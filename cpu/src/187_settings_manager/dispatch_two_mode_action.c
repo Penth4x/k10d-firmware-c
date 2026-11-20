@@ -14,14 +14,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-int * dispatch_two_mode_action(int *param_1,int param_2,int *param_3)
+cls_105b3ae4 * dispatch_two_mode_action(cls_105b3ae4 *param_1,int param_2,int *param_3)
 
 {
   if (param_2 == 2) {
-    dispatch_virtual_event_flags(param_1,param_3);
+    dispatch_virtual_event_flags((void *)param_1,param_3);
   }
   else if (param_2 == 1) {
-    param_1 = (int *)0x0;
+    param_1 = (cls_105b3ae4 *)0x0;
   }
   return param_1;
 }

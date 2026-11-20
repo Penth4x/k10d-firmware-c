@@ -21,10 +21,10 @@ void write_word_and_notify(int param_1,int param_2,uint16_t param_3)
   
   *(uint16_t *)(param_1 + 0x60 + param_2 * 2) = param_3;
   uVar1 = menu_item_register(param_1);
-  menu_list_build((void *)uVar1,(void *)(param_1 + 0x60 + param_2 * 2),3,0);
+  menu_list_build((int *)(uVar1),(uint16_t *)(param_1 + 0x60 + param_2 * 2),(uint8_t)(3),(uint8_t)(0));
   iVar2 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   iVar2 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   return;
 }

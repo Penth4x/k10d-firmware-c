@@ -14,27 +14,31 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_four_member_objects(int param_1)
+void init_four_member_objects(cls_105b9afc *param_1)
 
 {
-  uint32_t uVar1;
+  void *puVar1;
   int iVar2;
   
-  uVar1 = (uint32_t)cls_105b9a7c_new(0);
-  *(uint32_t *)(param_1 + 8) = uVar1;
-  uVar1 = (uint32_t)cls_105b9b2c_new(0);
-  *(uint32_t *)(param_1 + 0xc) = uVar1;
-  uVar1 = (uint32_t)cls_105b9a3c_new((uint32_t *)0x0);
-  *(uint32_t *)(param_1 + 0x10) = uVar1;
-  uVar1 = (uint32_t)cls_105b9a3c_new((uint32_t *)0x0);
-  *(uint32_t *)(param_1 + 0x14) = uVar1;
-  iVar2 = **(int **)(param_1 + 8);
-  (**(code **)(iVar2 + 0x14))((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar2 + 0x10),0);
-  iVar2 = **(int **)(param_1 + 0xc);
-  (**(code **)(iVar2 + 0x14))((int)*(int **)(param_1 + 0xc) + (int)*(short *)(iVar2 + 0x10),0);
-  iVar2 = **(int **)(param_1 + 0x10);
-  (**(code **)(iVar2 + 0x14))((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar2 + 0x10),0);
-  iVar2 = **(int **)(param_1 + 0x14);
-  (**(code **)(iVar2 + 0x14))((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar2 + 0x10),0);
+  puVar1 = (void *)cls_105b9a7c_new((cls_105b9a7c *)0x0);
+  param_1->field_0x8 = (uint32_t)(puVar1);
+  puVar1 = (void *)cls_105b9b2c_new((cls_105b9b2c *)0x0);
+  param_1->field_0xc = (uint32_t)(puVar1);
+  puVar1 = (void *)cls_105b9a3c_new((cls_105b9a3c *)0x0);
+  param_1->field_0x10 = (uint32_t)(puVar1);
+  puVar1 = (void *)cls_105b9a3c_new((cls_105b9a3c *)0x0);
+  param_1->field_0x14 = (uint32_t)(puVar1);
+  iVar2 = *(int *)param_1->field_0x8;
+  (((vtbl_entry*)(iVar2))[2].fn)
+            ((void *)((int)param_1->field_0x8 + (int)((vtbl_entry*)(iVar2))[2].adj),0);
+  iVar2 = *(int *)param_1->field_0xc;
+  (((vtbl_entry*)(iVar2))[2].fn)
+            ((void *)((int)param_1->field_0xc + (int)((vtbl_entry*)(iVar2))[2].adj),0);
+  iVar2 = *(int *)param_1->field_0x10;
+  (((vtbl_entry*)(iVar2))[2].fn)
+            ((void *)((int)param_1->field_0x10 + (int)((vtbl_entry*)(iVar2))[2].adj),0);
+  iVar2 = *(int *)param_1->field_0x14;
+  (((vtbl_entry*)(iVar2))[2].fn)
+            ((void *)((int)param_1->field_0x14 + (int)((vtbl_entry*)(iVar2))[2].adj),0);
   return;
 }

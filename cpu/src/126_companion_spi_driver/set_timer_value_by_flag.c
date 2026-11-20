@@ -14,17 +14,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_timer_value_by_flag(void *param_1,int param_2)
+void set_timer_value_by_flag(cls_105a1a84 *param_1,int param_2)
 
 {
   int iVar1;
   
   if (param_2 == 0) {
-    clear_flag_with_notify(*(void **)((int)param_1 + 0x108));
+    clear_flag_with_notify((char*)(param_1) ->field_0x108);
     iVar1 = 0xf;
   }
   else {
-    set_flag_with_notify(*(void **)((int)param_1 + 0x108));
+    set_flag_with_notify((char*)(param_1) ->field_0x108);
     iVar1 = 200;
   }
   write_buffer_via_virtual_io(param_1,iVar1);

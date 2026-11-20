@@ -27,17 +27,17 @@ uint32_t dispatch_three_virtual_writes(int param_1,int *param_2,int param_3)
   uint32_t uVar2;
   int iVar4;
   
-  (**(code **)(*param_2 + 0x1c))((int)*(short *)(*param_2 + 0x18) + (int)param_2,param_1,1,param_3);
-  (**(code **)(*param_2 + 0x1c))
-            ((int)*(short *)(*param_2 + 0x18) + (int)param_2,param_1 + 2,1,param_3 + 2);
-  (**(code **)(*param_2 + 0x24))
-            ((int)*(short *)(*param_2 + 0x20) + (int)param_2,param_1 + 4,1,param_3 + 4);
+  (((vtbl_entry*)(*param_2))[3].fn)((int)((vtbl_entry*)(*param_2))[3].adj + (int)param_2,param_1,1,param_3);
+  (((vtbl_entry*)(*param_2))[3].fn)
+            ((int)((vtbl_entry*)(*param_2))[3].adj + (int)param_2,param_1 + 2,1,param_3 + 2);
+  (((vtbl_entry*)(*param_2))[4].fn)
+            ((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,param_1 + 4,1,param_3 + 4);
   bVar3 = check_product_exceeds_threshold((void *)param_1);
   if (bVar3) {
-    (**(code **)(*param_2 + 0x24))
-              ((int)*(short *)(*param_2 + 0x20) + (int)param_2,param_1 + 8,1,param_3 + 8);
+    (((vtbl_entry*)(*param_2))[4].fn)
+              ((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,param_1 + 8,1,param_3 + 8);
     iVar1 = compute_weighted_value(param_1);
-    allocate_and_init_buffer_104a906e((void *)param_1,(void *)iVar1);
+    allocate_and_init_buffer_104a906e((void *)param_1,(void *)(iVar1));
     iVar1 = *(int *)(param_1 + 8);
     iVar4 = *(int *)(param_1 + 0xc);
   }

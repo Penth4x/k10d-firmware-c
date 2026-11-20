@@ -18,7 +18,8 @@
 void delete_object_with_flag_10496838(int param_1,uint param_2)
 
 {
-  if ((param_1 != 0) && (cls_105a5c2c_delete((void *)(param_1 + 4),2), (param_2 & 1) != 0)) {
+  if ((param_1 != 0) && (cls_105a5c2c_delete((cls_105a5c2c *)(param_1 + 4),2), (param_2 & 1) != 0))
+  {
     heap_free(param_1);
   }
   return;

@@ -26,7 +26,7 @@ uint32_t * cls_1059e5b8_new(uint32_t *param_1)
     param_1[3] = 0;
     param_1[4] = 0;
     param_1[5] = 0;
-    cls_105a2af8_new(param_1 + 6);
+    cls_105a2af8_new((void *)(param_1 + 6));
   }
   return param_1;
 }

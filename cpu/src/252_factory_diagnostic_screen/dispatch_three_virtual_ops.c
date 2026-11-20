@@ -27,33 +27,33 @@ int dispatch_three_virtual_ops(int param_1,uint32_t param_2,uint32_t param_3,uin
   uint32_t uStack_c;
   
   fill_byte_array(auStack_10c,0,0x100);
-  (**(code **)(*(int *)(param_1 + 0x18) + 0x5c))
-            (*(short *)(*(int *)(param_1 + 0x18) + 0x58) + param_1,auStack_10c);
+  (((vtbl_entry*)(*(int *)(param_1 + 0x18)))[11].fn)
+            (((vtbl_entry*)(*(int *)(param_1 + 0x18)))[11].adj + param_1,auStack_10c);
   uStack_c = 0;
   iVar1 = 0;
   iVar2 = 1;
   do {
     if (iVar1 == 0) {
       iVar2 = **(int **)(param_1 + 8);
-      iVar2 = (**(code **)(iVar2 + 0x2c))
-                        ((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar2 + 0x28),auStack_10c,1,
+      iVar2 = (((vtbl_entry*)(iVar2))[5].fn)
+                        ((int)*(int **)(param_1 + 8) + (int)((vtbl_entry*)(iVar2))[5].adj,auStack_10c,1,
                          &uStack_c);
     }
     else if (iVar1 == 1) {
       iVar2 = **(int **)(param_1 + 8);
-      iVar2 = (**(code **)(iVar2 + 0x4c))
-                        ((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar2 + 0x48),uStack_c,
+      iVar2 = (((vtbl_entry*)(iVar2))[9].fn)
+                        ((int)*(int **)(param_1 + 8) + (int)((vtbl_entry*)(iVar2))[9].adj,uStack_c,
                          param_2,0);
     }
     else if (iVar1 == 2) {
       iVar2 = **(int **)(param_1 + 8);
-      iVar2 = (**(code **)(iVar2 + 0x3c))
-                        ((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar2 + 0x38),uStack_c,
+      iVar2 = (((vtbl_entry*)(iVar2))[7].fn)
+                        ((int)*(int **)(param_1 + 8) + (int)((vtbl_entry*)(iVar2))[7].adj,uStack_c,
                          param_3,param_4);
     }
     iVar1 = iVar1 + 1;
   } while ((iVar1 < 3) && (iVar2 == 1));
   iVar1 = **(int **)(param_1 + 8);
-  (**(code **)(iVar1 + 0x34))((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar1 + 0x30),uStack_c);
+  (((vtbl_entry*)(iVar1))[6].fn)((int)*(int **)(param_1 + 8) + (int)((vtbl_entry*)(iVar1))[6].adj,uStack_c);
   return iVar2;
 }

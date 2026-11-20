@@ -22,40 +22,35 @@ void drain_byte_queue(int *param_1)
   int iVar2;
   uint uVar3;
   uintptr_t sp;
-  int iStack_28;
-  uint uStack_24;
-  int iStack_20;
-  int iStack_1c;
-  uint8_t uStack_18;
-  int iStack_14;
-  int iStack_10;
+  cls_105bb0b8 cStack_28;
   
   if ((*param_1 != 0) && (param_1[1] != 0)) {
-    cls_105bb0b8_new(&iStack_28);
-    iStack_28 = *param_1;
-    uStack_24 = param_1[1];
-    iStack_20 = param_1[2];
-    iStack_1c = param_1[3];
-    uStack_18 = *(uint8_t *)(param_1 + 4);
-    iStack_14 = param_1[5];
-    iStack_10 = param_1[6];
+    cls_105bb0b8_new(&cStack_28);
+    cStack_28.field_0x0 = *param_1;
+    cStack_28.field_0x4 = param_1[1];
+    cStack_28.field_0x8 = param_1[2];
+    cStack_28.field_0xc = param_1[3];
+    cStack_28.field_0x10 = *(uint8_t *)(param_1 + 4);
+    cStack_28.field_0x14 = param_1[5];
+    cStack_28.field_0x18 = param_1[6];
     uVar3 = 0;
-    uVar1 = uStack_24;
-    if (uStack_24 != 0) {
+    uVar1 = cStack_28.field_0x4;
+    if (cStack_28.field_0x4 != 0) {
       do {
-        *param_1 = (int)(iStack_28 + uVar3);
-        iVar2 = check_key_code_in_set(param_1,(uint)*(byte *)(iStack_28 + uVar3));
-        uVar1 = uStack_24;
+        *param_1 = (int)(cStack_28.field_0x0 + uVar3);
+        iVar2 = check_key_code_in_set(param_1,(uint)*(byte *)(cStack_28.field_0x0 + uVar3));
+        uVar1 = cStack_28.field_0x4;
         if (iVar2 == 0) break;
         uVar3 = uVar3 + 1;
         param_1[1] = param_1[1] + -1;
-      } while (uVar3 < uStack_24);
+      } while (uVar3 < cStack_28.field_0x4);
     }
     while ((uVar1 = uVar1 - 1, -1 < (int)uVar1 &&
-           (iVar2 = check_key_code_in_set(param_1,(uint)*(byte *)(iStack_28 + uVar1)), iVar2 != 0))) {
+           (iVar2 = check_key_code_in_set(param_1,(uint)*(byte *)(cStack_28.field_0x0 + uVar1)), iVar2 != 0))
+          ) {
       param_1[1] = param_1[1] + -1;
     }
-    reset_vtable_and_free_if_flagged_104ddfe6(&iStack_28,2);
+    reset_vtable_and_free_if_flagged_104ddfe6(&cStack_28,2);
   }
   return;
 }

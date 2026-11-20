@@ -24,19 +24,19 @@ uint32_t compute_three_values_from_object(int param_1)
   int iVar3;
   uint32_t uVar5;
   uintptr_t sp;
-  uint32_t auStack_24 [7];
+  cls_105a6d8c acStack_24 [7];
   
   bVar4 = set_pointer_and_clear_flag((int *)(param_1 + 0x2c),(void *)(param_1 + 4));
   uVar5 = 0;
   if (bVar4) {
-    cls_105a6d8c_new(auStack_24);
-    copy_status_block_bytes(*(int *)(param_1 + 0x1c),auStack_24);
-    iVar1 = extract_field_from_struct_1045ff0e((int)auStack_24,0xc);
-    iVar2 = extract_field_from_struct_1045ff0e((int)auStack_24,0xd);
-    iVar3 = extract_field_from_struct_1045ff0e((int)auStack_24,0xe);
+    cls_105a6d8c_new(acStack_24);
+    copy_status_block_bytes(*(int *)(param_1 + 0x1c),acStack_24);
+    iVar1 = extract_field_from_struct_1045ff0e(acStack_24,0xc);
+    iVar2 = extract_field_from_struct_1045ff0e(acStack_24,0xd);
+    iVar3 = extract_field_from_struct_1045ff0e(acStack_24,0xe);
     uVar5 = map_mode_params_to_index(param_1,iVar1,iVar2,iVar3);
     delete_signal_semaphore((int *)(param_1 + 0x2c));
-    cls_105a6d8c_delete(auStack_24,2);
+    cls_105a6d8c_delete(acStack_24,2);
   }
   return uVar5;
 }

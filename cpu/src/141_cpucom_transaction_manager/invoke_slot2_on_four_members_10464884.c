@@ -24,19 +24,19 @@ void invoke_slot2_on_four_members_10464884(int param_1,int param_2)
     param_1 = param_1 + 0x48;
     piVar1 = *(int **)(param_1 + param_2);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1);
+      (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1);
     }
     piVar1 = *(int **)(param_1 + param_2 + 4);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1);
+      (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1);
     }
     piVar1 = *(int **)(param_1 + param_2 + 8);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1);
+      (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1);
     }
     piVar1 = *(int **)(param_1 + param_2 + 0xc);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1);
+      (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1);
     }
   }
   return;

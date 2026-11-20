@@ -27,8 +27,8 @@ uint32_t check_mode_status_flags(int param_1)
   
   uVar2 = 0;
   iVar3 = **(int **)(param_1 + 0x10);
-  iVar3 = (**(code **)(iVar3 + 0x14))
-                    ((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar3 + 0x10),0);
+  iVar3 = (((vtbl_entry*)(iVar3))[2].fn)
+                    ((int)*(int **)(param_1 + 0x10) + (int)((vtbl_entry*)(iVar3))[2].adj,0);
   if (((iVar3 == 0xd) || (iVar3 == 0xe)) || (iVar3 == 0xf)) {
     cVar1 = settings_getter(*(int *)(param_1 + 0x44),0xb2);
     uVar2 = 1;

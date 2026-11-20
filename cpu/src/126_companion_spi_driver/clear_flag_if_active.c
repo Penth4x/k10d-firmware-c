@@ -17,7 +17,7 @@
 void clear_flag_if_active(void *param_1)
 
 {
-  if (*(void **)((int)param_1 + 0x10c) != (void *)0x0) {
+  if (*(void **)((int)param_1 + 0x10c) != 0) {
     clear_flag2_with_notify(*(void **)((int)param_1 + 0x10c));
   }
   return;

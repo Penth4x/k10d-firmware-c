@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t store_exposure_value_from_params(int param_1,int param_2,int *param_3)
+uint32_t store_exposure_value_from_params(cls_105b9574 *param_1,int param_2,int *param_3)
 
 {
   int iVar1;
@@ -23,21 +23,21 @@ uint32_t store_exposure_value_from_params(int param_1,int param_2,int *param_3)
   }
   iVar1 = *param_3;
   if (iVar1 == 3) {
-    *(int *)(param_1 + 0x3c) = (param_3[2] * 100) / param_3[3];
+    param_1->field_0x3c = (param_3[2] * 100) / param_3[3];
   }
   else if (iVar1 == 0) {
-    *(uint32_t *)(param_1 + 0x40) = 1;
+    param_1->field_0x40 = 1;
   }
   else if (iVar1 == 1) {
-    *(int *)(param_1 + 0x44) = param_3[1];
-    *(uint32_t *)(param_1 + 0x40) = 0;
+    param_1->field_0x44 = param_3[1];
+    param_1->field_0x40 = 0;
   }
   else {
     if (iVar1 != 2) {
       return 0;
     }
-    *(uint32_t *)(param_1 + 0x40) = 1;
+    param_1->field_0x40 = 1;
   }
-  set_flg_obj((uint32_t *)(param_1 + 0x34));
+  set_flg_obj((void *)&param_1->field_0x34);
   return 0;
 }

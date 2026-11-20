@@ -16,19 +16,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_subobject_slot_one_1039fac6(void *param_1)
+void init_subobject_slot_one_1039fac6(cls_105642d8 *param_1)
 
 {
-  int *piVar1;
+  cls_10564150 *pcVar1;
   
-  piVar1 = (int *)heap_alloc((void *)0xdc);
-  if (piVar1 == (int *)0x0) {
-    piVar1 = (int *)0x0;
+  pcVar1 = (cls_10564150 *)heap_alloc((void *)0xdc);
+  if (pcVar1 == (cls_10564150 *)0x0) {
+    pcVar1 = (cls_10564150 *)0x0;
   }
   else {
-    cls_10564150_new(piVar1);
+    cls_10564150_new(pcVar1);
   }
-  *(int **)((int)param_1 + 4) = piVar1;
-  (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,0);
+  param_1->field_0x4 = (uintptr_t)(pcVar1);
+  (((vtbl_entry*)(pcVar1->field_0x0))[2].fn)
+            ((int)&pcVar1->field_0x0 + (int)((vtbl_entry*)(pcVar1->field_0x0))[2].adj,0);
   return;
 }

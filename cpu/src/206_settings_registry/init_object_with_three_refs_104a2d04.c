@@ -6,24 +6,22 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_with_three_refs_104a2d04(int param_1)
+void init_object_with_three_refs_104a2d04(cls_105b63b0 *param_1)
 
 {
   int iVar1;
   int iVar2;
-  int iVar3;
   
-  alloc_pool_and_init_task((int *)(param_1 + 8),0x15,0x1000,4);
-  iVar2 = (int)cls_105b6358_new((uint32_t *)0x0);
-  *(int *)(param_1 + 0x3c) = iVar2;
-  (**(code **)(*(int *)(iVar2 + 0x1c) + 0x14))(iVar2 + *(short *)(*(int *)(iVar2 + 0x1c) + 0x10),0);
+  alloc_pool_and_init_task((int *)&param_1->field_0x8,0x15,0x1000,4);
+  iVar2 = (int)(cls_105b6358_new((cls_105b6358 *)0x0));
+  param_1->field_0x3c = iVar2;
+  (((vtbl_entry*)(*(int *)(iVar2 + 0x1c)))[2].fn)(iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0x1c)))[2].adj,0);
   iVar1 = 1;
   iVar2 = 0;
   do {
-    iVar3 = param_1 + 0x24;
-    *(uint32_t *)(iVar3 + iVar2) = *(uint32_t *)(param_1 + 0x3c);
-    *(uint32_t *)(iVar3 + iVar2 + 4) = *(uint32_t *)(param_1 + 0x3c);
-    *(uint32_t *)(iVar3 + iVar2 + 8) = *(uint32_t *)(param_1 + 0x3c);
+    *(int *)(&param_1->field_0x24 + iVar2) = param_1->field_0x3c;
+    *(int *)(&param_1->field_0x28 + iVar2) = param_1->field_0x3c;
+    *(int *)(&param_1->field_0x2c + iVar2) = param_1->field_0x3c;
     iVar1 = iVar1 + -1;
     iVar2 = iVar2 + 0xc;
   } while (-1 < iVar1);

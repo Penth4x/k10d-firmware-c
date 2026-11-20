@@ -15,9 +15,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_helper_on_offset_field_105312d2(int param_1)
+uint32_t call_helper_on_offset_field_105312d2(cls_1061e0fc *param_1)
 
 {
-  alloc_pool_and_init_task((int *)(param_1 + 4),0xf,0x1000,4);
+  alloc_pool_and_init_task((int *)&param_1->field_0x4,0xf,0x1000,4);
   return 1;
 }

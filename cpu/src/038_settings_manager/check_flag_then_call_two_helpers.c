@@ -14,12 +14,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void check_flag_then_call_two_helpers(int param_1,uint32_t param_2)
+void check_flag_then_call_two_helpers(cls_10562400 *param_1,uint32_t param_2)
 
 {
-  if (*(char *)(param_1 + 0x2c4c) != '\0') {
-    release_object_and_call_helper(param_1,0);
+  if (*(char *)&param_1[0x46].field_0x8c != '\0') {
+    release_object_and_call_helper((int)(param_1),(uint32_t)(0));
   }
-  call_single_helper_104df34c(param_1,param_2);
+  call_single_helper_104df34c((uint32_t)(param_1),(uint32_t)(param_2));
   return;
 }

@@ -14,15 +14,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-void layout_wait_ready(void *param_1)
+void layout_wait_ready(cls_105a1a84 *param_1)
 
 {
   bool bVar1;
   
-  bVar1 = layout_ready_chk(*(void **)((int)param_1 + 0x110));
+  bVar1 = layout_ready_chk((char*)(param_1) ->field_0x110);
   while (!bVar1) {
-    bVar1 = layout_ready_chk(*(void **)((int)param_1 + 0x110));
+    bVar1 = layout_ready_chk((char*)(param_1) ->field_0x110);
   }
-  layout_ready_chk2(*(void **)((int)param_1 + 0x110));
+  layout_ready_chk2((char*)(param_1) ->field_0x110);
   return;
 }

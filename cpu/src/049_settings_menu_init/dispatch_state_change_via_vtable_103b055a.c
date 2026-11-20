@@ -24,7 +24,7 @@ void dispatch_state_change_via_vtable_103b055a(void *param_1)
   
   iVar2 = query_object_byte_property_104f19c4(*(uint32_t *)((int)param_1 + 0x28));
   iVar3 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
   if (iVar2 == 0) {
     bVar1 = false;
   }
@@ -40,6 +40,6 @@ void dispatch_state_change_via_vtable_103b055a(void *param_1)
   }
 LAB_103b05ca:
   iVar2 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   return;
 }

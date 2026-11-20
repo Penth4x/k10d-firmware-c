@@ -24,12 +24,12 @@ uint32_t dispatch_by_two_state_flags(int param_1,uint32_t *param_2,uint32_t *par
   
   *param_2 = 0;
   *param_3 = 0;
-  iVar1 = compare_null_terminated_strings(param_4,(void *)pvRam80010bac);
+  iVar1 = compare_null_terminated_strings((void *)(param_4),(void *)(pvRam80010bac));
   if (iVar1 == 0) {
     iVar1 = 4;
   }
   else {
-    iVar1 = compare_null_terminated_strings(param_4,(void *)pvRam80010bb4);
+    iVar1 = compare_null_terminated_strings((void *)(param_4),(void *)(pvRam80010bb4));
     if (iVar1 != 0) {
       return 0;
     }

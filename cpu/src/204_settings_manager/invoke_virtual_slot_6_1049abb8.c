@@ -29,7 +29,7 @@ void invoke_virtual_slot_6_1049abb8(int param_1)
   **(int **)(iVar5 + param_1 + 0x24) = param_1 + 4;
   iVar5 = *(int *)(iVar5 + param_1 + 0x24);
   iVar4 = *(int *)(iVar5 + 0x10);
-  iVar5 = (**(code **)(iVar4 + 0x34))(iVar5 + *(short *)(iVar4 + 0x30));
+  iVar5 = (((vtbl_entry*)(iVar4))[6].fn)(iVar5 + ((vtbl_entry*)(iVar4))[6].adj);
   *piVar1 = iVar5;
   if (iVar5 == 0) {
     *(uint32_t *)(param_1 + 0x40) = 1;

@@ -35,7 +35,7 @@ void dispatch_virtual_event_with_state_check(int param_1)
     }
   }
   iVar1 = **(int **)(param_1 + 0x30);
-  (**(code **)(iVar1 + 0x14))
-            ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar1 + 0x10),0x1170005,0);
+  (((vtbl_entry*)(iVar1))[2].fn)
+            ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[2].adj,0x1170005,0);
   return;
 }

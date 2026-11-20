@@ -24,7 +24,7 @@ void dispatch_virtual_state_toggle(void *param_1)
   
   iVar3 = (int)param_1 + 8;
   iVar1 = menu_item_register(iVar3);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
   switch(*(uint8_t *)((int)param_1 + 0x48)) {
   case 6:
     break;
@@ -47,11 +47,11 @@ void dispatch_virtual_state_toggle(void *param_1)
   case 0x1e:
   }
   iVar1 = menu_item_register(iVar3);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   uVar2 = check_object_property_43(*(int *)((int)param_1 + 0x28));
   if (uVar2 != 0) {
     iVar1 = menu_item_register(iVar3);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   }
   return;
 }

@@ -15,19 +15,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-void * dispatch_param_two_six(void *param_1,int *param_2)
+cls_105626dc * dispatch_param_two_six(cls_105626dc *param_1,int *param_2)
 
 {
-  void *pvVar1;
+  cls_105626dc *pcVar1;
   int iVar2;
   
-  pvVar1 = (void *)dispatch_state_transition_10394958(param_1,param_2,0);
+  pcVar1 = (cls_105626dc *)dispatch_state_transition_10394958((cls_10563098 *)param_1,param_2);
   if ((*param_2 == 6) && (iVar2 = check_and_process_event_103947cc(param_1), iVar2 == 0)) {
     iVar2 = get_or_init_sram_object_103973c4();
-    pvVar1 = (void *)dispatch_on_mode_value(iVar2);
+    pcVar1 = (cls_105626dc *)dispatch_on_mode_value(iVar2);
   }
-  else if (pvVar1 == param_1) {
-    pvVar1 = param_1;
+  else if (pcVar1 == param_1) {
+    pcVar1 = param_1;
   }
-  return pvVar1;
+  return pcVar1;
 }

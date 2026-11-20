@@ -20,7 +20,7 @@
 /* WARNING: Instruction at (ram,0x1051c55a) overlaps instruction at (ram,0x1051c558)
     */
 
-uint32_t dispatch_command_by_id_1051c540(int param_1,ushort *param_2,uint *param_3,int param_4)
+uint32_t dispatch_command_by_id_1051c540(cls_105d6c2c *param_1,ushort *param_2,uint *param_3,int param_4)
 
 {
   ushort uVar1;
@@ -37,56 +37,56 @@ uint32_t dispatch_command_by_id_1051c540(int param_1,ushort *param_2,uint *param
     }
     if (uVar1 < 0x110) {
       if (uVar1 == 0x101) {
-        dispatch_param_by_type_1051caaa(param_1,param_2,(int)param_3);
+        dispatch_param_by_type_1051caaa((uint32_t)(param_1),(void *)(param_2),(int)param_3);
         return 1;
       }
       if (uVar1 < 0x102) {
         if (uVar1 == 0xfe) {
-          forward_flag_to_helper(param_1,param_2,param_4);
+          forward_flag_to_helper((uint32_t)(param_1),(void *)(param_2),(int)(param_4));
           return 1;
         }
         if (uVar1 == 0x100) {
-          dispatch_by_two_byte_field(param_1,param_2,param_3);
+          dispatch_by_two_byte_field((uint32_t)(param_1),(void *)(param_2),(uint *)(param_3));
           return 1;
         }
       }
       else {
         if (uVar1 == 0x102) {
-          loop_call_helper_with_index(param_1,param_2,(int)param_3);
+          loop_call_helper_with_index((uint32_t)(param_1),(void *)(param_2),(int)param_3);
           return 1;
         }
         if (uVar1 == 0x106) {
-          map_mode_value_to_command(param_1,param_2,(int)param_3);
+          map_mode_value_to_command((uint32_t)(param_1),(void *)(param_2),(int)param_3);
           return 1;
         }
       }
     }
     else {
       if (uVar1 == 0x112) {
-        query_and_map_state_code(param_1,param_2);
+        query_and_map_state_code((int)param_1,param_2);
         return 1;
       }
       if (uVar1 < 0x113) {
         if (uVar1 == 0x110) {
-          copy_struct_field_to_offset(param_1,param_2);
+          copy_struct_field_to_offset((int)param_1,param_2);
           return 1;
         }
         if (uVar1 == 0x111) {
-          dispatch_param_by_type_1051cc5c(param_1,param_2,(int)param_3);
+          dispatch_param_by_type_1051cc5c((uint32_t)(param_1),(void *)(param_2),(int)param_3);
           return 1;
         }
       }
       else {
         if (uVar1 == 0x115) {
-          map_mode_value_to_state(param_1,param_2,(int)param_3);
+          map_mode_value_to_state((uint32_t)(param_1),(void *)(param_2),(int)param_3);
           return 1;
         }
         if (uVar1 == 0x116) {
-          dispatch_param_by_type_1051cc98(param_1,param_2,(int)param_3);
+          dispatch_param_by_type_1051cc98((uint32_t)(param_1),(void *)(param_2),(int)param_3);
           return 1;
         }
         if (uVar1 == 0x117) {
-          dispatch_by_short_field(param_1,param_2,(int)param_3);
+          dispatch_by_short_field((uint32_t)(param_1),(void *)(param_2),(int)param_3);
           return 1;
         }
       }
@@ -94,61 +94,61 @@ uint32_t dispatch_command_by_id_1051c540(int param_1,ushort *param_2,uint *param
   }
   else {
     if (uVar1 == 0x13e) {
-      write_parameter_array_to_device(param_1,param_2);
+      write_parameter_array_to_device((int)param_1,param_2);
       return 1;
     }
     if (uVar1 < 0x13f) {
       if (uVar1 == 0x128) {
-        call_helper_with_zero_and_two_1051c868(param_1,param_2);
+        call_helper_with_zero_and_two_1051c868((uint32_t)(param_1),(void *)(param_2));
         return 1;
       }
       if (uVar1 < 0x129) {
         if (uVar1 == 0x11b) {
-          init_two_field_struct(param_1,param_2);
+          init_two_field_struct((uint32_t)(param_1),(void *)(param_2));
           return 1;
         }
         if (uVar1 == 0x11c) {
-          map_state_to_three_way_flag(param_1,param_2,(int)param_3);
+          map_state_to_three_way_flag((uint32_t)(param_1),(void *)(param_2),(int)param_3);
           return 1;
         }
       }
       else {
         if (uVar1 == 0x131) {
-          copy_block_at_offset_0x40(param_1,param_2);
+          copy_block_at_offset_0x40((int)param_1,param_2);
           return 1;
         }
         if (uVar1 == 0x132) {
-          format_and_send_message_1051c894(param_1,(int)param_2);
+          format_and_send_message_1051c894((int)param_1,(int)param_2);
           return 1;
         }
       }
     }
     else {
       if (uVar1 == 0x202) {
-        forward_param_to_helper_1051cc46(param_1,param_2,(int)param_3);
+        forward_param_to_helper_1051cc46((uint32_t)(param_1),(void *)(param_2),(int)param_3);
         return 1;
       }
       if (uVar1 < 0x203) {
         if (uVar1 == 0x13f) {
-          write_array_from_table(param_1,param_2);
+          write_array_from_table((int)param_1,param_2);
           return 1;
         }
         if (uVar1 == 0x201) {
-          forward_param_to_helper_1051cc30(param_1,param_2,(int)param_3);
+          forward_param_to_helper_1051cc30((uint32_t)(param_1),(void *)(param_2),(int)param_3);
           return 1;
         }
       }
       else {
         if (uVar1 == 0x211) {
-          write_parameter_array_to_object(param_1,(int)param_2);
+          write_parameter_array_to_object((int)param_1,(int)param_2);
           return 1;
         }
         if (uVar1 == 0x212) {
-          set_two_values_from_mode_table(param_1,param_2,(int)param_3);
+          set_two_values_from_mode_table((uint32_t)(param_1),(void *)(param_2),(int)param_3);
           return 1;
         }
         if (uVar1 == 0x213) {
-          map_mode_value_to_index(param_1,param_2,(int)param_3);
+          map_mode_value_to_index((uint32_t)(param_1),(void *)(param_2),(int)param_3);
           return 1;
         }
       }

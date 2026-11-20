@@ -11,17 +11,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_105b9674_delete(uint32_t *param_1,uint param_2)
+void cls_105b9674_delete(cls_105b9674 *param_1,uint param_2)
 
 {
-  if (param_1 != (uint32_t *)0x0) {
-    *param_1 = 0x105b9674/*ROM*/;
-    param_1[1] = 0x105b96ac/*ROM*/;
-    param_1[6] = 0x105b96c4/*ROM*/;
-    free_heap_if_flagged_10482f3c(param_1 + 0xe,2);
-    cls_105a2af8_delete(param_1 + 9,2);
-    cls_105a2b50_delete(param_1 + 2,0);
-    reset_vtable_and_free_if_flagged_10428182(param_1 + 1,0);
+  if (param_1 != (cls_105b9674 *)0x0) {
+    param_1->field_0x0 = (uintptr_t)((void *)0x105b9674/*ROM*/);
+    param_1->field_0x4 = 0x105b96ac/*ROM*/;
+    ((uint32_t *)&(param_1->field_0x8))[4] = (uint32_t)((void *)0x105b96c4/*ROM*/);
+    free_heap_if_flagged_10482f3c(&param_1->field_0x38,2);
+    cls_105a2af8_delete(&param_1->field_0x24,2);
+    cls_105a2b50_delete(&param_1->field_0x8,0);
+    reset_vtable_and_free_if_flagged_10428182(&param_1->field_0x4,0);
     reset_vtable_and_free_if_flagged_10428264(param_1,0);
     if ((param_2 & 1) != 0) {
       heap_free((int)param_1);

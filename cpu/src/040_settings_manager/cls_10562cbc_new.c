@@ -11,17 +11,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_10562cbc_new(uint32_t *param_1)
+cls_10562b98 * cls_10562cbc_new(cls_10562cbc *param_1)
 
 {
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x7c), param_1 != (uint32_t *)0x0)) {
-    cls_10562b98_new(param_1);
-    *param_1 = (uint32_t)&DAT_10562cbc/*ROM*/;
-    param_1[1] = 0;
-    cls_10563824_new(param_1 + 2);
-    param_1[0x1d] = 0;
-    param_1[0x1e] = 0;
+  if ((param_1 != (cls_10562cbc *)0x0) ||
+     (param_1 = (cls_10562cbc *)heap_alloc((void *)0x7c), (cls_10562b98 *)param_1 != (cls_10562b98 *)0x0)) {
+    cls_10562b98_new((cls_10562b98 *)param_1);
+    ((cls_10562b98 *)param_1)->field_0x0 = (uintptr_t)(&DAT_10562cbc/*ROM*/);
+    ((cls_10562b98 *)param_1)->field_0x4 = 0;
+    cls_10563824_new((cls_10563824 *)&((cls_10562b98 *)param_1)->field_0x8);
+    ((cls_10562b98 *)param_1)->field_0x74 = (uintptr_t)((void *)0x0);
+    ((cls_10562b98 *)param_1)->field90_0x78 = 0;
   }
-  return param_1;
+  return (cls_10562b98 *)param_1;
 }

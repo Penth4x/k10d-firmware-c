@@ -39,14 +39,14 @@ void dispatch_virtual_on_result(int param_1,uint8_t param_2)
   puVar1 = (uint32_t *)menu_item_register(param_1 + 8);
   iVar2 = configure_pipeline_with_settings(*(uint32_t *)(param_1 + 0x38),&uStack_1c);
   if (iVar2 == 0) {
-    (**(code **)(puVar1[3] + 0xc))((int)*(short *)(puVar1[3] + 8) + (int)puVar1,0);
+    (((vtbl_entry*)(puVar1[3]))[1].fn)((int)*(short *)(puVar1[3] + 8) + (int)puVar1,0);
   }
   else {
     *(uint32_t *)(param_1 + 0x44) = *(uint32_t *)(*(int *)(param_1 + 0x3c) + 4);
     *(uint32_t *)(param_1 + 0x48) = *(uint32_t *)(*(int *)(param_1 + 0x3c) + 8);
     *(uint32_t *)(param_1 + 0x4c) = *(uint32_t *)(*(int *)(param_1 + 0x3c) + 0xc);
     call_helper_and_set_flag_10494b88(puVar1);
-    (**(code **)(puVar1[3] + 0xc))((int)*(short *)(puVar1[3] + 8) + (int)puVar1,1);
+    (((vtbl_entry*)(puVar1[3]))[1].fn)((int)*(short *)(puVar1[3] + 8) + (int)puVar1,1);
   }
   return;
 }

@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t query_exposure_mode_state_103d9148(int *param_1,int param_2)
+uint32_t query_exposure_mode_state_103d9148(cls_1059656c *param_1,int param_2)
 
 {
   int iVar1;
@@ -27,10 +27,10 @@ uint32_t query_exposure_mode_state_103d9148(int *param_1,int param_2)
   uintptr_t sp;
   uint32_t auStack_44 [15];
   
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
   uVar2 = get_setting_by_index((int)param_1,0xb);
   if (param_2 == 0x1800027) {
     iVar1 = 0xff;

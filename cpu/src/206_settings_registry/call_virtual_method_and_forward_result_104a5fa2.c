@@ -22,8 +22,8 @@ void call_virtual_method_and_forward_result_104a5fa2(int param_1,int param_2)
   int iVar2;
   
   iVar2 = **(int **)(param_1 + 0x28);
-  pvVar1 = (void *)(**(code **)(iVar2 + 0x2c))
-                             ((int)*(int **)(param_1 + 0x28) + (int)*(short *)(iVar2 + 0x28));
+  pvVar1 = (void *)(((vtbl_entry*)(iVar2))[5].fn)
+                             ((int)*(int **)(param_1 + 0x28) + (int)((vtbl_entry*)(iVar2))[5].adj);
   copy_bytes_to_struct_field(param_2,pvVar1,0x10);
   return;
 }

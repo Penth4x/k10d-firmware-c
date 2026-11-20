@@ -27,16 +27,16 @@ void init_object_and_set_flags(void)
   iVar2 = sr_driver_singleton();
   module_array_getter(*(void **)(iVar2 + 4),7);
   uVar3 = return_sram_address_10436cf4();
-  (**(code **)(*(int *)((int)pvRam800102c4 + 4) + 0x1c))
-            ((int)pvRam800102c4 + (int)*(short *)(*(int *)((int)pvRam800102c4 + 4) + 0x18),0);
-  pvVar1 = pvRam800102c4;
+  (((vtbl_entry*)(*(int *)((int)pvRam800102c4 + 4)))[3].fn)
+            ((int)pvRam800102c4 + (int)((vtbl_entry*)(*(int *)((int)pvRam800102c4 + 4)))[3].adj,0);
+  pvVar1 = (void *)((uintptr_t)(pvRam800102c4));
   iVar2 = add_four_to_param(uVar3);
   copy_bytes_into_struct_offset(pvVar1,iVar2,0x5d);
   init_struct_with_copy_and_flag(pvRam800102c4);
-  set_bit5_at_offset_0x2a(pvRam800102c4,0);
-  dispatch_on_flag_param(pvRam800102c4,1);
-  call_helper_with_flag_one_104436aa(pvRam800102c4);
-  clamp_and_write_byte_field(pvRam800102c4,1);
+  set_bit5_at_offset_0x2a((void *)(pvRam800102c4),(int)(0));
+  dispatch_on_flag_param((void *)(pvRam800102c4),(int)(1));
+  call_helper_with_flag_one_104436aa((void *)(pvRam800102c4));
+  clamp_and_write_byte_field((void *)(pvRam800102c4),(int)(1));
   check_kernel_call_success_10459fea();
   return;
 }

@@ -31,11 +31,11 @@ uint32_t rearui_draw_active_screen(void *param_1)
     wait_for_flag_at_offset_0x110(param_1);
   }
   iVar3 = *(int *)(*(int *)((int)param_1 + 0x11c) + 4);
-  iVar3 = (**(code **)(iVar3 + 0x4c))
-                    (*(int *)((int)param_1 + 0x11c) + (int)*(short *)(iVar3 + 0x48));
+  iVar3 = (((vtbl_entry*)(iVar3))[9].fn)
+                    (*(int *)((int)param_1 + 0x11c) + (int)((vtbl_entry*)(iVar3))[9].adj);
   if (iVar3 != 0) {
     iVar3 = *(int *)(*(int *)((int)param_1 + 0x11c) + 4);
-    (**(code **)(iVar3 + 0x44))(*(int *)((int)param_1 + 0x11c) + (int)*(short *)(iVar3 + 0x40));
+    (((vtbl_entry*)(iVar3))[8].fn)(*(int *)((int)param_1 + 0x11c) + (int)((vtbl_entry*)(iVar3))[8].adj);
   }
   if (*(char *)((int)param_1 + 0xdc) != '\0') {
     toggle_and_wait_for_subsystem(param_1,0);

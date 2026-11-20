@@ -17,7 +17,7 @@ uint32_t invoke_virtual_method_on_nested_object_104dfc4c(void *param_1)
   uVar2 = **(uint32_t **)((int)param_1 + 0x38);
   (*(code *)0x104e04a8/*ROM*/)(*(uint32_t *)((int)param_1 + 0x3c));
   iVar3 = **(int **)((int)param_1 + 0x30);
-  iVar3 = (**(code **)(iVar3 + 0xc))
+  iVar3 = (((vtbl_entry*)(iVar3))[1].fn)
                     ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar3 + 8),uVar1,uVar2,0)
   ;
   uVar1 = 9;

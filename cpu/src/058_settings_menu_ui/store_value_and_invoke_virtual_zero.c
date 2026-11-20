@@ -15,17 +15,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-void store_value_and_invoke_virtual_zero(int *param_1,int param_2)
+void store_value_and_invoke_virtual_zero(cls_10595788 *param_1,int param_2)
 
 {
   int iVar1;
   
-  param_1[7] = param_2;
+  param_1->field_0x1c = param_2;
   if (param_2 == 0x1030020) {
-    iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-    iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
   }
   return;
 }

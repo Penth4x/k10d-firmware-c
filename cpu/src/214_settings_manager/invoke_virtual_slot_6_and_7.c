@@ -25,12 +25,12 @@ uint32_t invoke_virtual_slot_6_and_7(int param_1)
   if (*(int *)(param_1 + 0x18) == 0) {
     *(uint32_t *)(param_1 + 0x18) = 5;
     iVar2 = **(int **)(param_1 + 8);
-    iVar2 = (**(code **)(iVar2 + 0x34))
-                      ((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar2 + 0x30),0,0);
+    iVar2 = (((vtbl_entry*)(iVar2))[6].fn)
+                      ((int)*(int **)(param_1 + 8) + (int)((vtbl_entry*)(iVar2))[6].adj,0,0);
     if (iVar2 == 4) {
       *(uint32_t *)(param_1 + 0x18) = 0;
       iVar2 = **(int **)(param_1 + 4);
-      (**(code **)(iVar2 + 0x3c))((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar2 + 0x38));
+      (((vtbl_entry*)(iVar2))[7].fn)((int)*(int **)(param_1 + 4) + (int)((vtbl_entry*)(iVar2))[7].adj);
     }
     uVar1 = 1;
   }

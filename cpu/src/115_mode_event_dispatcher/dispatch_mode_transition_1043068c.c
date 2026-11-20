@@ -37,10 +37,10 @@ uint32_t dispatch_mode_transition_1043068c(void *param_1,int *param_2)
   iVar2 = check_two_conditions_on_object(param_1);
   if (iVar2 != 0) goto LAB_10430930;
   uVar6 = *(uint32_t *)((int)param_1 + 0x30);
-  uVar5 = (**(code **)(*param_2 + 0x3c))((int)*(short *)(*param_2 + 0x38) + (int)param_2,0x2e);
+  uVar5 = (((vtbl_entry*)(*param_2))[7].fn)((int)((vtbl_entry*)(*param_2))[7].adj + (int)param_2,0x2e);
   update_mode_state_if_valid(uVar6,uVar5);
-  cls_1059f170_new(auStack_3c);
-  cls_1059f170_new(auStack_28);
+  cls_1059f170_new((void*)(auStack_3c));
+  cls_1059f170_new((void*)(auStack_28));
   uStack_14 = 0;
   uStack_10 = 0;
   uStack_c = 0;
@@ -85,12 +85,12 @@ LAB_10430864:
       iVar1 = check_and_release_object((int)param_1,param_2,piVar3,piVar4);
       if (iVar1 == 0) {
         if ((piVar4 != (int *)0x0) &&
-           (iVar1 = (**(code **)(*piVar4 + 0x2c))((int)*(short *)(*piVar4 + 0x28) + (int)piVar4),
+           (iVar1 = (((vtbl_entry*)(*piVar4))[5].fn)((int)((vtbl_entry*)(*piVar4))[5].adj + (int)piVar4),
            iVar1 != 0)) {
           (**(code **)(*piVar4 + 0x34))((int)*(short *)(*piVar4 + 0x30) + (int)piVar4,param_2);
         }
         if ((piVar3 != (int *)0x0) &&
-           (iVar1 = (**(code **)(*piVar3 + 0x2c))((int)*(short *)(*piVar3 + 0x28) + (int)piVar3),
+           (iVar1 = (((vtbl_entry*)(*piVar3))[5].fn)((int)((vtbl_entry*)(*piVar3))[5].adj + (int)piVar3),
            iVar1 != 0)) {
           (**(code **)(*piVar3 + 0x34))((int)*(short *)(*piVar3 + 0x30) + (int)piVar3,param_2);
         }

@@ -28,7 +28,7 @@ void notify_range_end_to_observers(int param_1,uint8_t param_2)
   if (piVar1 != *(int **)(param_1 + 0x1c)) {
     do {
       iVar2 = *(int *)(*piVar1 + 0xc);
-      (**(code **)(iVar2 + 0xc))(*piVar1 + (int)*(short *)(iVar2 + 8),0);
+      (((vtbl_entry*)(iVar2))[1].fn)(*piVar1 + (int)*(short *)(iVar2 + 8),0);
       piVar1 = piVar1 + 1;
     } while (piVar1 != *(int **)(param_1 + 0x1c));
   }

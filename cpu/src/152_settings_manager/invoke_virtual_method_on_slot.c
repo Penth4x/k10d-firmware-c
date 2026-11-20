@@ -25,15 +25,15 @@ uint32_t invoke_virtual_method_on_slot(int param_1,int param_2,uint32_t param_3,
   piVar2 = *(int **)(param_1 + 0x28 + param_2 * 4);
   uVar1 = 0x81;
   if (piVar2 != (int *)0x0) {
-    iVar3 = (**(code **)(*piVar2 + 0x14))((int)*(short *)(*piVar2 + 0x10) + (int)piVar2);
+    iVar3 = (((vtbl_entry*)(*piVar2))[2].fn)((int)((vtbl_entry*)(*piVar2))[2].adj + (int)piVar2);
     if (iVar3 == 0) {
       uVar1 = 0x82;
     }
     else {
       piVar2 = *(int **)(param_1 + 0x28 + param_2 * 4);
       iVar3 = *piVar2;
-      uVar1 = (**(code **)(iVar3 + 0x1c))
-                        ((int)piVar2 + (int)*(short *)(iVar3 + 0x18),param_3,param_4);
+      uVar1 = (((vtbl_entry*)(iVar3))[3].fn)
+                        ((int)piVar2 + (int)((vtbl_entry*)(iVar3))[3].adj,param_3,param_4);
     }
   }
   return uVar1;

@@ -25,7 +25,7 @@ uint32_t init_object_state_from_ram_flags(void *param_1)
   uint8_t auStack_14 [4];
   
   puVar1 = (uint32_t *)auStack_14;
-  reset_object_fields_and_call_base((void *)((int)param_1 + 0x98));
+  reset_object_fields_and_call_base((cls_105b9458 *)((int)param_1 + 0x98));
   if ((iRam80015b08 == 2) && (cRam80015d00 != '\0')) {
     *puVar1 = 3;
     retry_virtual_call_until_success_1036a776((int)param_1,(int)param_1 + 0x3c,0x80015af0/*SDRAM*/,(int)param_1 + 0x98,*puVar1);

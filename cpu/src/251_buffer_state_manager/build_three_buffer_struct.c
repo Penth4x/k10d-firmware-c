@@ -82,10 +82,10 @@ void build_three_buffer_struct(uint32_t param_1,uint32_t param_2)
   } while (iVar2 != 0);
   heap_free_2((int)pbVar8);
   heap_free_2((int)puVar7);
-  puRam80010a40 = (uint32_t *)puVar3;
-  puRam80010a44 = (uint32_t *)puVar4;
-  puRam80010a48 = (uint32_t *)puVar5;
-  puRam80010a4c = (uint32_t *)puVar6;
+  puRam80010a40 = puVar3;
+  puRam80010a44 = puVar4;
+  puRam80010a48 = puVar5;
+  puRam80010a4c = puVar6;
   heap_free_if_flagged(&uStack_9,2);
   return;
 }

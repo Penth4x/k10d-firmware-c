@@ -14,17 +14,17 @@
 /* Classic service menu ctor(obj, gate_flag). Real gate: (param2&1) test at 0x10486b6a (e205 beq ->
    epilogue). f227@0x10486b26 is a NULL-CHECK on obj, NOT the gate */
 
-void cls_105b2ed8_delete(int param_1,uint param_2)
+void cls_105b2ed8_delete(cls_105b2ed8 *param_1,uint param_2)
 
 {
-  if (param_1 != 0) {
-    *(void **)(param_1 + 0x48) = &DAT_105b2ed8/*ROM*/;
-    *(void **)(param_1 + 0x5c) = &DAT_105b2f08/*ROM*/;
-    cls_105a2af8_delete((void *)(param_1 + 0x60),2);
-    cls_105a2c1c_delete((void *)(param_1 + 0x4c),0);
-    classic_menu_reg(param_1,0);
+  if (param_1 != (cls_105b2ed8 *)0x0) {
+    *(uint32_t *)&param_1->field_0x48 = (uint32_t)&DAT_105b2ed8/*ROM*/;
+    *(uint32_t *)&param_1->field_0x5c = (uint32_t)&DAT_105b2f08/*ROM*/;
+    cls_105a2af8_delete(&param_1->field_0x60,2);
+    cls_105a2c1c_delete(&param_1->field_0x4c,0);
+    classic_menu_reg((int)param_1,0);
     if ((param_2 & 1) != 0) {
-      heap_free(param_1);
+      heap_free((int)param_1);
     }
   }
   return;

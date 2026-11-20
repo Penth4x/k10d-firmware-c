@@ -21,10 +21,10 @@ uint32_t invoke_virtual_method_and_branch(void *param_1)
   int iVar2;
   
   iVar2 = *(int *)(*(int *)((int)param_1 + 0x20) + 0x40);
-  iVar2 = (**(code **)(iVar2 + 0x1c))(*(int *)((int)param_1 + 0x20) + (int)*(short *)(iVar2 + 0x18))
+  iVar2 = (((vtbl_entry*)(iVar2))[3].fn)(*(int *)((int)param_1 + 0x20) + (int)((vtbl_entry*)(iVar2))[3].adj)
   ;
   if ((iVar2 == 1) || (iVar2 == 9)) {
-    build_and_send_packet((void *)(*(uint32_t *)((int)param_1 + 0x18)));
+    build_and_send_packet((void*)(*(uint32_t *)((int)param_1 + 0x18)));
     uVar1 = 3;
   }
   else {

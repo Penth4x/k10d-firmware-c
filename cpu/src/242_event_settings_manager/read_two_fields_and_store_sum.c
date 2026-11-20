@@ -25,13 +25,13 @@ uint32_t read_two_fields_and_store_sum(int param_1,void *param_2)
   int iVar3;
   int iVar4;
   
-  uVar1 = (uint32_t)(uintptr_t)find_entry_by_ushort_key((int)param_2,0x131);
+  uVar1 = (uintptr_t)(find_entry_by_ushort_key((int)(param_2),(uint)(0x131)));
   iVar2 = find_entry_by_id_in_table((int)param_2,0x131);
   iVar3 = format_version_string_104d0298(param_1,uVar1,iVar2);
   layout_list_items_sequentially((int)param_2);
   iVar2 = 0;
   if (iVar3 != 0) {
-    uVar1 = (uint32_t)(uintptr_t)find_entry_by_ushort_key((int)param_2,0x132);
+    uVar1 = (uintptr_t)(find_entry_by_ushort_key((int)(param_2),(uint)(0x132)));
     iVar2 = find_entry_by_id_in_table((int)param_2,0x132);
     iVar2 = send_message_if_valid_id(param_1,uVar1,iVar2);
     layout_list_items_sequentially((int)param_2);
@@ -41,7 +41,7 @@ uint32_t read_two_fields_and_store_sum(int param_1,void *param_2)
   *(int *)(param_1 + 0xc) = iVar4 + iVar3;
   uVar1 = 0;
   if (iVar2 != 0) {
-    uVar1 = (uint32_t)(uintptr_t)find_entry_by_ushort_key((int)param_2,0x8769);
+    uVar1 = (uintptr_t)(find_entry_by_ushort_key((int)(param_2),(uint)(0x8769)));
     uVar1 = process_buffer_entry(param_1,uVar1);
   }
   return uVar1;

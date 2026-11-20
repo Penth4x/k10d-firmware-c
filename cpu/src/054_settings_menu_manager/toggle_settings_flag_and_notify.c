@@ -20,72 +20,74 @@
 #include "globals.h"
 #include "funcs.h"
 
-void toggle_settings_flag_and_notify(int *param_1,uint16_t param_2)
+void toggle_settings_flag_and_notify(cls_10594e70 *param_1,uint16_t param_2)
 
 {
-  bool bVar2;
+  bool bVar3;
+  ushort uVar2;
   int iVar1;
-  int iVar3;
+  int iVar4;
   
-  *(uint16_t *)(param_1 + 3) = param_2;
-  bVar2 = check_object_field_via_helper((void *)param_1[2]);
-  if (bVar2) {
-    settings_refresh_working_copy((void *)param_1[2]);
+  param_1->field_0xc = param_2;
+  bVar3 = check_object_field_via_helper((char*)(param_1) ->field_0x8);
+  if (bVar3) {
+    settings_refresh_working_copy((char*)(param_1) ->field_0x8);
   }
-  if (((*(ushort *)(param_1 + 3) & 1) == 1) && (*(char *)(param_1 + 0xe) == '\0')) {
+  uVar2 = param_1->field_0xc & 1;
+  if ((uVar2 == 1) && (param_1->field_0x38 == '\0')) {
     write_value_to_seventy_ids(param_1,1);
     register_menu_item_with_value(param_1,0x1010014,0xffffffe8);
-    iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
-    iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
-    iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-    iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
-    *(uint8_t *)(param_1 + 0xe) = 1;
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    param_1->field_0x38 = 1;
   }
-  else if (((*(ushort *)(param_1 + 3) & 1) != 1) && (*(char *)(param_1 + 0xe) != '\0')) {
+  else if ((uVar2 != 1) && (param_1->field_0x38 != '\0')) {
     write_value_to_seventy_ids(param_1,0);
     register_menu_item_with_value(param_1,0x1010014,0x18);
-    iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-    iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-    iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
-    iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-    *(uint8_t *)(param_1 + 0xe) = 0;
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    param_1->field_0x38 = 0;
   }
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  check_mode_transition_validity(param_1,0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  check_mode_transition_validity(&param_1->field_0x0,0);
   iVar1 = get_or_create_singleton_object_1050b118();
-  *(int **)(iVar1 + 0x58) = param_1 + 5;
+  *(uint32_t **)(iVar1 + 0x58) = &param_1->field_0x14;
   iVar1 = get_or_create_camera_object();
-  iVar3 = **(int **)(iVar1 + 4);
-  (**(code **)(iVar3 + 0x9c))
-            ((int)*(int **)(iVar1 + 4) + (int)*(short *)(iVar3 + 0x98),param_1 + 5,param_1[0xc],
-             param_1 + 10);
-  *(uint8_t *)((int)param_1 + 0x39) = 1;
+  iVar4 = **(int **)(iVar1 + 4);
+  (((vtbl_entry*)(iVar4))[19].fn)
+            ((int)*(int **)(iVar1 + 4) + (int)((vtbl_entry*)(iVar4))[19].adj,&param_1->field_0x14,
+             param_1->field_0x30,&param_1->field_0x28);
+  param_1->field_0x39 = 1;
   return;
 }

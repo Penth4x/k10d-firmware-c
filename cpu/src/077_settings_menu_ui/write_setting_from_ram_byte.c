@@ -17,13 +17,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void write_setting_from_ram_byte(int param_1,int param_2)
+void write_setting_from_ram_byte(cls_10596430 *param_1,int param_2)
 
 {
   uint32_t uVar1;
   uint uVar2;
   
-  *(int *)(param_1 + 0x18) = param_2;
+  param_1->field_0x18 = param_2;
   if (param_2 == 0x1860010) {
     uVar2 = (uint)bRam1059642c;
     uVar1 = 0x76;
@@ -43,6 +43,6 @@ void write_setting_from_ram_byte(int param_1,int param_2)
     uVar2 = (uint)bRam1059642f;
     uVar1 = 0x77;
   }
-  setting_set(*(int *)(param_1 + 8),uVar1,uVar2);
+  setting_set(param_1->field_0x8,uVar1,uVar2);
   return;
 }

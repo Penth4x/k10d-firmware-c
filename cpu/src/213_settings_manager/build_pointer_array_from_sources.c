@@ -33,10 +33,9 @@ void build_pointer_array_from_sources(int param_1,int param_2,int param_3,int pa
     do {
       iVar4 = *(int *)(param_1 + 0xc);
       iVar2 = uVar3 * 4;
-      uVar1 = (uint32_t)alloc_and_init_small_struct_104af372((uint32_t *)0x0);
+      uVar1 = (uintptr_t)(alloc_and_init_small_struct_104af372((uint32_t *)0x0));
       *(uint32_t *)(iVar4 + iVar2) = uVar1;
-      store_object_and_call_virtual_slot((uint32_t *)(*(uint32_t *)(iVar2 + *(int *)(param_1 + 0xc))),*(uint32_t *)(iVar2 + param_2)
-                  );
+      store_object_and_call_virtual_slot((int *)(*(uint32_t *)(iVar2 + *(int *)(param_1 + 0xc))),(int)(*(uint32_t *)(iVar2 + param_2)));
       *(uint32_t *)(*(int *)(iVar2 + *(int *)(param_1 + 0xc)) + 4) =
            *(uint32_t *)(iVar2 + param_3);
       uVar3 = uVar3 + 1 & 0xff;

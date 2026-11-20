@@ -16,29 +16,33 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_event_by_state_byte(int *param_1)
+void dispatch_event_by_state_byte(cls_105992d4 *param_1)
 
 {
   char cVar1;
   uint uVar2;
   int iVar3;
   
-  if (*(char *)((int)param_1 + 0xbd) == '\0') {
-    cVar1 = *(char *)(param_1 + 0x15);
+  if (param_1->field_0xbd == '\0') {
+    cVar1 = param_1->field_0x54;
     if (((cVar1 == '\t') || (cVar1 == '\n')) || (cVar1 == '\v')) {
-      uVar2 = check_object_property_43(param_1[10]);
-      if (uVar2 == *(byte *)(param_1 + 0x2f)) {
-        iVar3 = *(int *)param_1[0xb];
-        (**(code **)(iVar3 + 0x14))(param_1[0xb] + (int)*(short *)(iVar3 + 0x10),0x1120065,0);
-        iVar3 = *(int *)param_1[0xb];
-        (**(code **)(iVar3 + 0x14))(param_1[0xb] + (int)*(short *)(iVar3 + 0x10),0x1120064,0);
+      uVar2 = check_object_property_43(param_1->field_0x28);
+      if (uVar2 == (byte)param_1->field_0xbc) {
+        iVar3 = *(uint32_t *)(param_1->field_0x2c);
+        (((vtbl_entry*)(iVar3))[2].fn)
+                  ((int)param_1->field_0x2c + (int)((vtbl_entry*)(iVar3))[2].adj,0x1120065,0);
+        iVar3 = *(uint32_t *)(param_1->field_0x2c);
+        (((vtbl_entry*)(iVar3))[2].fn)
+                  ((int)param_1->field_0x2c + (int)((vtbl_entry*)(iVar3))[2].adj,0x1120064,0);
       }
       else {
-        (**(code **)(*param_1 + 0x74))((int)*(short *)(*param_1 + 0x70) + (int)param_1,0x1120004);
+        (((vtbl_entry*)(param_1->field_0x0))[14].fn)
+                  ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[14].adj,0x1120004);
       }
     }
     else {
-      (**(code **)(*param_1 + 0x74))((int)*(short *)(*param_1 + 0x70) + (int)param_1,0x1120004,0);
+      (((vtbl_entry*)(param_1->field_0x0))[14].fn)
+                ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[14].adj,0x1120004,0);
     }
   }
   return;

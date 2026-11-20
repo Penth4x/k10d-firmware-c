@@ -40,38 +40,28 @@ void draw_viewfinder_crosshair(void *param_1)
   iVar3 = menu_item_register(iVar2);
   iVar5 = *(int *)(iVar3 + 0xc);
   sVar1 = *(short *)(iVar5 + 0x10);
-  uVar4 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_10,
-                       (uint)*(ushort *)((int)param_1 + 0x5c) - ((int)(uint)_DAT_10567626/*ROM*/ >> 1),
-                       (uint)*(ushort *)((int)param_1 + 0x5e) - ((int)(uint)_DAT_10567628/*ROM*/ >> 1));
-  (**(code **)(iVar5 + 0x14))(iVar3 + sVar1,uVar4);
+  uVar4 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_10, (uint)*(ushort *)((int)param_1 + 0x5c) - ((int)(uint)_DAT_10567626/*ROM*/ >> 1), (uint)*(ushort *)((int)param_1 + 0x5e) - ((int)(uint)_DAT_10567628/*ROM*/ >> 1)));
+  (((vtbl_entry*)(iVar5))[2].fn)(iVar3 + sVar1,uVar4);
   free_heap_block_if_flagged_1045bc54(auStack_10,2);
   iVar3 = menu_item_register(iVar2);
   iVar5 = *(int *)(iVar3 + 0xc);
   sVar1 = *(short *)(iVar5 + 0x10);
-  uVar4 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_10,
-                       (uint)*(ushort *)((int)param_1 + 0x5c) - ((int)(uint)_DAT_10567626/*ROM*/ >> 1),
-                       ((uint)*(ushort *)((int)param_1 + 0x5e) + ((int)(uint)_DAT_10567628/*ROM*/ >> 1)) -
-                       (uint)_DAT_10567624/*ROM*/);
-  (**(code **)(iVar5 + 0x14))(iVar3 + sVar1,uVar4);
+  uVar4 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_10, (uint)*(ushort *)((int)param_1 + 0x5c) - ((int)(uint)_DAT_10567626/*ROM*/ >> 1), ((uint)*(ushort *)((int)param_1 + 0x5e) + ((int)(uint)_DAT_10567628/*ROM*/ >> 1)) - (uint)_DAT_10567624/*ROM*/));
+  (((vtbl_entry*)(iVar5))[2].fn)(iVar3 + sVar1,uVar4);
   free_heap_block_if_flagged_1045bc54(auStack_10,2);
   iVar3 = menu_item_register(iVar2);
   iVar5 = *(int *)(iVar3 + 0xc);
   sVar1 = *(short *)(iVar5 + 0x10);
-  uVar4 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_10,
-                       (uint)*(ushort *)((int)param_1 + 0x5c) - ((int)(uint)_DAT_10567626/*ROM*/ >> 1),
-                       (uint)*(ushort *)((int)param_1 + 0x5e) - ((int)(uint)_DAT_10567628/*ROM*/ >> 1));
-  (**(code **)(iVar5 + 0x14))(iVar3 + sVar1,uVar4);
+  uVar4 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_10, (uint)*(ushort *)((int)param_1 + 0x5c) - ((int)(uint)_DAT_10567626/*ROM*/ >> 1), (uint)*(ushort *)((int)param_1 + 0x5e) - ((int)(uint)_DAT_10567628/*ROM*/ >> 1)));
+  (((vtbl_entry*)(iVar5))[2].fn)(iVar3 + sVar1,uVar4);
   free_heap_block_if_flagged_1045bc54(auStack_10,2);
   iVar3 = menu_item_register(iVar2);
   iVar5 = *(int *)(iVar3 + 0xc);
   sVar1 = *(short *)(iVar5 + 0x10);
-  uVar4 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_10,
-                       ((uint)*(ushort *)((int)param_1 + 0x5c) + ((int)(uint)_DAT_10567626/*ROM*/ >> 1)) -
-                       (uint)_DAT_10567624/*ROM*/,
-                       (uint)*(ushort *)((int)param_1 + 0x5e) - ((int)(uint)_DAT_10567628/*ROM*/ >> 1));
-  (**(code **)(iVar5 + 0x14))(iVar3 + sVar1,uVar4);
+  uVar4 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_10, ((uint)*(ushort *)((int)param_1 + 0x5c) + ((int)(uint)_DAT_10567626/*ROM*/ >> 1)) - (uint)_DAT_10567624/*ROM*/, (uint)*(ushort *)((int)param_1 + 0x5e) - ((int)(uint)_DAT_10567628/*ROM*/ >> 1)));
+  (((vtbl_entry*)(iVar5))[2].fn)(iVar3 + sVar1,uVar4);
   free_heap_block_if_flagged_1045bc54(auStack_10,2);
   iVar2 = menu_item_register(iVar2);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   return;
 }

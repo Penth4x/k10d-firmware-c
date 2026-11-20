@@ -18,7 +18,7 @@
     */
 /* DEAD CODE: zero callers. The else-if family dispatch V2/V3 patched. DO NOT PATCH */
 
-uint32_t DEAD_menu_dispatch(int *param_1,char *param_2,void *param_3,void *param_4)
+uint32_t service_op_dispatch(int *param_1,char *param_2,void *param_3,void *param_4)
 
 {
   char cVar1;
@@ -135,14 +135,14 @@ uint32_t DEAD_menu_dispatch(int *param_1,char *param_2,void *param_3,void *param
                   }
                 }
                 else {
-                  pvVar6 = (void *)get_kernel_object_id((int)&uStack_9);
-                  format_string_to_buffer_10545140(auStack_5c,(void*)&DAT_105b3330/*ROM*/,pvVar6,param_4);
+                  pvVar6 = (void *)get_kernel_object_id((uint32_t)(&uStack_9));
+                  format_string_to_buffer_10545140(auStack_5c,&DAT_105b3330/*ROM*/,pvVar6,param_4);
                   bVar8 = read_eeprom_blocks_to_heap(*param_1,auStack_5c);
                   if (bVar8) {
-                    pcVar9 = (char*)&DAT_105b3340/*ROM*/;
+                    pcVar9 = &DAT_105b3340/*ROM*/;
                   }
                   else {
-                    pcVar9 = (char*)&DAT_105b334c/*ROM*/;
+                    pcVar9 = &DAT_105b334c/*ROM*/;
                   }
                   format_string_to_buffer_10545140(auStack_ac,pcVar9,pvVar6,param_4);
                   *(uint16_t *)(puVar12 + 2) = 0xb;
@@ -157,14 +157,14 @@ uint32_t DEAD_menu_dispatch(int *param_1,char *param_2,void *param_3,void *param
                 }
               }
               else {
-                pvVar6 = (void *)get_kernel_object_id((int)&uStack_9);
-                format_string_to_buffer_10545140(auStack_5c,(void*)&DAT_105b3308/*ROM*/,pvVar6,param_4);
+                pvVar6 = (void *)get_kernel_object_id((uint32_t)(&uStack_9));
+                format_string_to_buffer_10545140(auStack_5c,&DAT_105b3308/*ROM*/,pvVar6,param_4);
                 iVar7 = eeprom_adj_dump_0xa7(*param_1,auStack_5c);
                 if (iVar7 == 0) {
-                  pcVar9 = (char*)&DAT_105b3324/*ROM*/;
+                  pcVar9 = &DAT_105b3324/*ROM*/;
                 }
                 else {
-                  pcVar9 = (char*)&DAT_105b3318/*ROM*/;
+                  pcVar9 = &DAT_105b3318/*ROM*/;
                 }
                 format_string_to_buffer_10545140(auStack_ac,pcVar9,pvVar6,param_4);
                 *(uint16_t *)(puVar12 + 2) = 0xb;
@@ -179,7 +179,7 @@ uint32_t DEAD_menu_dispatch(int *param_1,char *param_2,void *param_3,void *param
               }
             }
             else {
-              format_string_to_buffer_10545140(auStack_ac,(void*)&DAT_105b32fc/*ROM*/,param_3,param_4);
+              format_string_to_buffer_10545140(auStack_ac,&DAT_105b32fc/*ROM*/,param_3,param_4);
               initialize_twai_flag_object(*param_1);
               *(uint16_t *)(puVar12 + 2) = 0xb;
               *(uint16_t *)(puVar12 + 6) = 0xff;
@@ -193,7 +193,7 @@ uint32_t DEAD_menu_dispatch(int *param_1,char *param_2,void *param_3,void *param
             }
           }
           else {
-            format_string_to_buffer_10545140(auStack_ac,(void*)&DAT_105b32bc/*ROM*/,param_3,param_4);
+            format_string_to_buffer_10545140(auStack_ac,&DAT_105b32bc/*ROM*/,param_3,param_4);
             *(uint16_t *)(puVar12 + 2) = 0xb;
             *(uint16_t *)(puVar12 + 6) = 0xff;
             puVar12[0xb] = 0;
@@ -201,14 +201,14 @@ uint32_t DEAD_menu_dispatch(int *param_1,char *param_2,void *param_3,void *param
             puVar10 = auStack_ac;
             build_and_dispatch_draw_params((int)param_1,4,8,auStack_ac,*(uint16_t *)(puVar12 + 2),
                          *(uint16_t *)(puVar12 + 6),puVar12[0xb]);
-            format_string_to_buffer_10545140(auStack_ac,(void*)&DAT_105b32c4/*ROM*/,pvVar6,puVar10);
-            pvVar6 = (void *)get_kernel_object_id((int)&uStack_9);
-            format_string_to_buffer_10545140(auStack_5c,(void*)&DAT_105b32d0/*ROM*/,pvVar6,puVar10);
+            format_string_to_buffer_10545140(auStack_ac,&DAT_105b32c4/*ROM*/,pvVar6,puVar10);
+            pvVar6 = (void *)get_kernel_object_id((uint32_t)(&uStack_9));
+            format_string_to_buffer_10545140(auStack_5c,&DAT_105b32d0/*ROM*/,pvVar6,puVar10);
             iVar7 = write_data_to_cf_card(*param_1,auStack_5c);
             if (iVar7 == 0) {
-              format_string_to_buffer_10545140(auStack_ac,(void*)&DAT_105b32e4/*ROM*/,pvVar6,puVar10);
+              format_string_to_buffer_10545140(auStack_ac,&DAT_105b32e4/*ROM*/,pvVar6,puVar10);
             }
-            format_string_to_buffer_10545140(auStack_ac,(void*)&DAT_105b32f0/*ROM*/,pvVar6,puVar10);
+            format_string_to_buffer_10545140(auStack_ac,&DAT_105b32f0/*ROM*/,pvVar6,puVar10);
             *(uint16_t *)(puVar12 + 2) = 0xb;
             *(uint16_t *)(puVar12 + 6) = 0xff;
             puVar12[0xb] = 0;
@@ -221,7 +221,7 @@ uint32_t DEAD_menu_dispatch(int *param_1,char *param_2,void *param_3,void *param
           }
         }
         else {
-          format_string_to_buffer_10545140(auStack_ac,(void*)&DAT_105b3288/*ROM*/,param_3,param_4);
+          format_string_to_buffer_10545140(auStack_ac,&DAT_105b3288/*ROM*/,param_3,param_4);
           *(uint16_t *)(puVar12 + 2) = 0xb;
           *(uint16_t *)(puVar12 + 6) = 0xff;
           puVar12[0xb] = 0;
@@ -229,12 +229,12 @@ uint32_t DEAD_menu_dispatch(int *param_1,char *param_2,void *param_3,void *param
           puVar10 = auStack_ac;
           build_and_dispatch_draw_params((int)param_1,4,8,auStack_ac,*(uint16_t *)(puVar12 + 2),
                        *(uint16_t *)(puVar12 + 6),puVar12[0xb]);
-          format_string_to_buffer_10545140(auStack_ac,(void*)&DAT_105b3290/*ROM*/,pvVar6,puVar10);
-          pvVar6 = (void *)get_kernel_object_id((int)&uStack_9);
-          format_string_to_buffer_10545140(auStack_5c,(void*)&DAT_105b329c/*ROM*/,pvVar6,puVar10);
+          format_string_to_buffer_10545140(auStack_ac,&DAT_105b3290/*ROM*/,pvVar6,puVar10);
+          pvVar6 = (void *)get_kernel_object_id((uint32_t)(&uStack_9));
+          format_string_to_buffer_10545140(auStack_5c,&DAT_105b329c/*ROM*/,pvVar6,puVar10);
           iVar7 = read_card_data_in_chunks(*param_1,auStack_5c);
           if (iVar7 == 0) {
-            format_string_to_buffer_10545140(auStack_ac,(void*)&DAT_105b32b0/*ROM*/,pvVar6,puVar10);
+            format_string_to_buffer_10545140(auStack_ac,&DAT_105b32b0/*ROM*/,pvVar6,puVar10);
           }
           *(uint16_t *)(puVar12 + 2) = 0xb;
           *(uint16_t *)(puVar12 + 6) = 0xff;
@@ -248,7 +248,7 @@ uint32_t DEAD_menu_dispatch(int *param_1,char *param_2,void *param_3,void *param
         }
       }
       else {
-        format_string_to_buffer_10545140(auStack_ac,(void*)&DAT_105b323c/*ROM*/,param_3,param_4);
+        format_string_to_buffer_10545140(auStack_ac,&DAT_105b323c/*ROM*/,param_3,param_4);
         *(uint16_t *)(puVar12 + 2) = 0xb;
         *(uint16_t *)(puVar12 + 6) = 0xff;
         puVar12[0xb] = 0;
@@ -256,18 +256,18 @@ uint32_t DEAD_menu_dispatch(int *param_1,char *param_2,void *param_3,void *param
         puVar10 = auStack_ac;
         build_and_dispatch_draw_params((int)param_1,3,8,auStack_ac,*(uint16_t *)(puVar12 + 2),
                      *(uint16_t *)(puVar12 + 6),puVar12[0xb]);
-        format_string_to_buffer_10545140(auStack_ac,(void*)&DAT_105b3244/*ROM*/,pvVar6,puVar10);
-        pvVar6 = (void *)get_kernel_object_id((int)&uStack_9);
-        format_string_to_buffer_10545140(auStack_5c,(void*)&DAT_105b3250/*ROM*/,pvVar6,puVar10);
-        iVar7 = write_card_data_in_chunks(*param_1,(void*)&DAT_105b3260/*ROM*/);
+        format_string_to_buffer_10545140(auStack_ac,&DAT_105b3244/*ROM*/,pvVar6,puVar10);
+        pvVar6 = (void *)get_kernel_object_id((uint32_t)(&uStack_9));
+        format_string_to_buffer_10545140(auStack_5c,&DAT_105b3250/*ROM*/,pvVar6,puVar10);
+        iVar7 = write_card_data_in_chunks(*param_1,&DAT_105b3260/*ROM*/);
         if (iVar7 == 0) {
-          format_string_to_buffer_10545140(auStack_ac,(void*)&DAT_105b327c/*ROM*/,pvVar6,puVar10);
+          format_string_to_buffer_10545140(auStack_ac,&DAT_105b327c/*ROM*/,pvVar6,puVar10);
         }
         else {
           pvVar6 = (void *)0x0;
           iVar7 = verify_card_data_integrity(*param_1,(int)auStack_5c,0);
           if (iVar7 == 0) {
-            format_string_to_buffer_10545140(auStack_ac,(void*)&DAT_105b3270/*ROM*/,pvVar6,puVar10);
+            format_string_to_buffer_10545140(auStack_ac,&DAT_105b3270/*ROM*/,pvVar6,puVar10);
           }
         }
         *(uint16_t *)(puVar12 + 2) = 0xb;
@@ -282,12 +282,12 @@ uint32_t DEAD_menu_dispatch(int *param_1,char *param_2,void *param_3,void *param
       }
     }
     else {
-      format_string_to_buffer_10545140(auStack_ac,(void*)&DAT_105b3214/*ROM*/,param_3,param_4);
-      pvVar6 = (void *)get_kernel_object_id((int)&uStack_9);
-      format_string_to_buffer_10545140(auStack_5c,(void*)&DAT_105b3220/*ROM*/,pvVar6,param_4);
+      format_string_to_buffer_10545140(auStack_ac,&DAT_105b3214/*ROM*/,param_3,param_4);
+      pvVar6 = (void *)get_kernel_object_id((uint32_t)(&uStack_9));
+      format_string_to_buffer_10545140(auStack_5c,&DAT_105b3220/*ROM*/,pvVar6,param_4);
       iVar7 = write_card_data_in_chunks(*param_1,auStack_5c);
       if (iVar7 == 0) {
-        format_string_to_buffer_10545140(auStack_ac,(void*)&DAT_105b3230/*ROM*/,pvVar6,param_4);
+        format_string_to_buffer_10545140(auStack_ac,&DAT_105b3230/*ROM*/,pvVar6,param_4);
       }
       *(uint16_t *)(puVar12 + 2) = 0xb;
       *(uint16_t *)(puVar12 + 6) = 0xff;

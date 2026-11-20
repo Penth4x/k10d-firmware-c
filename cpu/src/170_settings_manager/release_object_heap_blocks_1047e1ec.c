@@ -13,15 +13,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t release_object_heap_blocks_1047e1ec(int param_1)
+uint32_t release_object_heap_blocks_1047e1ec(cls_105aae94 *param_1)
 
 {
   void *pvVar1;
   
-  release_heap_block_if_set((int *)__frv_reg_unset(4));
+  release_heap_block_if_set((cls_105aaebc *)param_1);
   pvVar1 = (void *)get_system_heap();
-  mempool_release_block(pvVar1,*(void **)(param_1 + 0x10));
+  mempool_release_block(pvVar1,(char*)(param_1) ->field_0x10);
   pvVar1 = (void *)get_system_heap();
-  mempool_release_block(pvVar1,*(void **)(param_1 + 0x14));
+  mempool_release_block(pvVar1,(char*)(param_1) ->field_0x14);
   return 1;
 }

@@ -29,8 +29,8 @@ uint32_t query_exposure_mode_state_10507d2e(int param_1,int param_2)
   if (param_2 == 0) {
     eventflag_clr_flg(puVar2,4);
     iVar3 = **(int **)(param_1 + 0x2fc);
-    (**(code **)(iVar3 + 0x44))
-              ((int)*(int **)(param_1 + 0x2fc) + (int)*(short *)(iVar3 + 0x40),param_1 + 4,
+    (((vtbl_entry*)(iVar3))[8].fn)
+              ((int)*(int **)(param_1 + 0x2fc) + (int)((vtbl_entry*)(iVar3))[8].adj,param_1 + 4,
                param_1 + 0x1c4);
     eventflag_wai_flg(puVar2,4,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar2,4);
@@ -46,8 +46,8 @@ uint32_t query_exposure_mode_state_10507d2e(int param_1,int param_2)
   else {
     eventflag_clr_flg(puVar2,2);
     iVar3 = **(int **)(param_1 + 0x2fc);
-    (**(code **)(iVar3 + 0x3c))
-              ((int)*(int **)(param_1 + 0x2fc) + (int)*(short *)(iVar3 + 0x38),param_1 + 4,
+    (((vtbl_entry*)(iVar3))[7].fn)
+              ((int)*(int **)(param_1 + 0x2fc) + (int)((vtbl_entry*)(iVar3))[7].adj,param_1 + 4,
                param_1 + 0x94);
     eventflag_wai_flg(puVar2,2,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar2,2);

@@ -82,8 +82,8 @@ char process_sensor_readout_data(int param_1,uint32_t param_2,int param_3,uint16
   iStack_34 = param_3;
   eventflag_clr_flg((uint32_t *)(param_1 + 0x1540),0x100);
   iVar5 = **(int **)(param_1 + 0x4c);
-  (**(code **)(iVar5 + 0x54))
-            ((int)*(int **)(param_1 + 0x4c) + (int)*(short *)(iVar5 + 0x50),&uStack_5c);
+  (((vtbl_entry*)(iVar5))[10].fn)
+            ((int)*(int **)(param_1 + 0x4c) + (int)((vtbl_entry*)(iVar5))[10].adj,&uStack_5c);
   eventflag_wai_flg((uint32_t *)(param_1 + 0x1540),0x100,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
   cVar1 = cStack_30;
   if (cStack_30 == '\0') {
@@ -107,17 +107,17 @@ char process_sensor_readout_data(int param_1,uint32_t param_2,int param_3,uint16
        *(char *)(*(int *)(param_1 + 0x84) + 0x8c0) != '\0')) {
       append_bytes_to_ring_buffer(iVar5,0x1059c748/*ROM*/,0);
       append_newline_to_buffer(iVar5,0);
-      copy_stream_bytes_into_struct(iVar5,(void *)(uintptr_t)uStack_2c,1,0);
-      copy_stream_bytes_into_struct(iVar5,(void *)(uintptr_t)uStack_28,1,0);
-      copy_stream_bytes_into_struct(iVar5,(void *)(uintptr_t)uStack_24,1,0);
-      copy_stream_bytes_into_struct(iVar5,(void *)(uintptr_t)uStack_20,1,0);
+      copy_stream_bytes_into_struct((int)(iVar5),(void *)(uStack_2c),(int)(1),(void *)(0));
+      copy_stream_bytes_into_struct((int)(iVar5),(void *)(uStack_28),(int)(1),(void *)(0));
+      copy_stream_bytes_into_struct((int)(iVar5),(void *)(uStack_24),(int)(1),(void *)(0));
+      copy_stream_bytes_into_struct((int)(iVar5),(void *)(uStack_20),(int)(1),(void *)(0));
       append_newline_to_buffer(iVar5,0);
       append_bytes_to_ring_buffer(iVar5,0x1059c758/*ROM*/,0);
       append_newline_to_buffer(iVar5,0);
-      copy_stream_bytes_into_struct(iVar5,(void *)(uintptr_t)uStack_1c,1,0);
-      copy_stream_bytes_into_struct(iVar5,(void *)(uintptr_t)uStack_18,1,0);
-      copy_stream_bytes_into_struct(iVar5,(void *)(uintptr_t)uStack_14,1,0);
-      copy_stream_bytes_into_struct(iVar5,(void *)(uintptr_t)uStack_10,1,0);
+      copy_stream_bytes_into_struct((int)(iVar5),(void *)(uStack_1c),(int)(1),(void *)(0));
+      copy_stream_bytes_into_struct((int)(iVar5),(void *)(uStack_18),(int)(1),(void *)(0));
+      copy_stream_bytes_into_struct((int)(iVar5),(void *)(uStack_14),(int)(1),(void *)(0));
+      copy_stream_bytes_into_struct((int)(iVar5),(void *)(uStack_10),(int)(1),(void *)(0));
       append_newline_to_buffer(iVar5,0);
       puVar3 = *(ushort **)(iVar2 + 0x30);
       append_bytes_to_ring_buffer(iVar5,0x1059c768/*ROM*/,0);

@@ -16,8 +16,8 @@ void zero_and_fill_sram_buffers(uint32_t param_x0)
   int iVar3;
   
   iVar3 = 0x3bff;
-  puVar1 = (uint32_t *)_DAT_800042c4/*SDRAM*/;
-  puVar2 = (uint32_t *)_DAT_800042c8/*SDRAM*/;
+  puVar1 = (uint32_t *)(_DAT_800042c4/*SDRAM*/);
+  puVar2 = (uint32_t *)(_DAT_800042c8/*SDRAM*/);
   do {
     *puVar2 = 0;
     *puVar1 = 0;

@@ -11,11 +11,11 @@ int query_object_via_temp_buffer_104f2e7a(int param_1)
 {
   int iVar1;
   uintptr_t sp;
-  uint8_t auStack_10 [8];
+  cls_105a6b4c cStack_10;
   
-  cls_105a6b4c_new((void *)auStack_10);
-  copy_three_bytes_from_offset(*(int *)(param_1 + 8),auStack_10);
-  iVar1 = read_two_byte_field(auStack_10);
-  cls_105a6b4c_delete((void *)auStack_10,2);
+  cls_105a6b4c_new(&cStack_10);
+  copy_three_bytes_from_offset(*(int *)(param_1 + 8),&cStack_10);
+  iVar1 = read_two_byte_field(&cStack_10);
+  cls_105a6b4c_delete(&cStack_10,2);
   return iVar1;
 }

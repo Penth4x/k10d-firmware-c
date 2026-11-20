@@ -51,14 +51,14 @@ bool build_key_event_queue(int param_1,int *param_2)
   iStack_d4 = 200;
   do {
     if ((((iVar2 != 0xd) && (iVar2 != 0xe)) && (iVar2 != 0xf)) && (iVar2 != 0x10)) {
-      iVar10 = (**(code **)(*param_2 + 0x24))((int)*(short *)(*param_2 + 0x20) + (int)param_2,iVar2)
+      iVar10 = (((vtbl_entry*)(*param_2))[4].fn)((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,iVar2)
       ;
       if (iVar10 != 0) {
         *(int *)(*(int *)(param_1 + 0x410) * 8 + param_1 + 0x2a0) = iVar2;
         *(uint32_t *)(param_1 + 0x2a0 + *(int *)(param_1 + 0x410) * 8 + 4) = 1;
         *(int *)(param_1 + 0x410) = *(int *)(param_1 + 0x410) + 1;
       }
-      iVar10 = (**(code **)(*param_2 + 0x2c))((int)*(short *)(*param_2 + 0x28) + (int)param_2,iVar2)
+      iVar10 = (((vtbl_entry*)(*param_2))[5].fn)((int)((vtbl_entry*)(*param_2))[5].adj + (int)param_2,iVar2)
       ;
       if (iVar10 != 0) {
         *(int *)(*(int *)(param_1 + 0x410) * 8 + param_1 + 0x2a0) = iStack_d4;
@@ -72,19 +72,19 @@ bool build_key_event_queue(int param_1,int *param_2)
     bVar1 = 0 < iStack_d0;
     iStack_d0 = iVar10;
   } while (bVar1 && iVar10 != 0);
-  iVar2 = (**(code **)(*param_2 + 0x54))((int)*(short *)(*param_2 + 0x50) + (int)param_2);
+  iVar2 = (((vtbl_entry*)(*param_2))[10].fn)((int)((vtbl_entry*)(*param_2))[10].adj + (int)param_2);
   if (iVar2 != 0xffff) {
     *(int *)(*(int *)(param_1 + 0x410) * 8 + param_1 + 0x2a0) = iVar2;
     *(uint32_t *)(param_1 + 0x2a0 + *(int *)(param_1 + 0x410) * 8 + 4) = 1;
     *(int *)(param_1 + 0x410) = *(int *)(param_1 + 0x410) + 1;
   }
-  iVar2 = (**(code **)(*param_2 + 0x5c))((int)*(short *)(*param_2 + 0x58) + (int)param_2);
+  iVar2 = (((vtbl_entry*)(*param_2))[11].fn)((int)((vtbl_entry*)(*param_2))[11].adj + (int)param_2);
   if (iVar2 != 0xffff) {
     iVar10 = param_1 + 0x2a0;
     *(int *)(*(int *)(param_1 + 0x410) * 8 + iVar10) = iVar2 + 200;
     *(uint32_t *)(*(int *)(param_1 + 0x410) * 8 + iVar10 + 4) = 1;
     *(int *)(param_1 + 0x410) = *(int *)(param_1 + 0x410) + 1;
-    iVar2 = (**(code **)(*param_2 + 0x54))((int)*(short *)(*param_2 + 0x50) + (int)param_2);
+    iVar2 = (((vtbl_entry*)(*param_2))[10].fn)((int)((vtbl_entry*)(*param_2))[10].adj + (int)param_2);
     if (iVar2 != 0xffff) {
       *(int *)(*(int *)(param_1 + 0x410) * 8 + iVar10) = iVar2;
       *(uint32_t *)(*(int *)(param_1 + 0x410) * 8 + iVar10 + 4) = 1;
@@ -94,32 +94,32 @@ bool build_key_event_queue(int param_1,int *param_2)
   iVar2 = 0x22;
   iStack_f0 = 3;
   do {
-    iVar10 = (**(code **)(*param_2 + 0x34))((int)*(short *)(*param_2 + 0x30) + (int)param_2,iVar2);
+    iVar10 = (((vtbl_entry*)(*param_2))[6].fn)((int)((vtbl_entry*)(*param_2))[6].adj + (int)param_2,iVar2);
     if (iVar10 != 0) {
       *(int *)(*(int *)(param_1 + 0x410) * 8 + param_1 + 0x2a0) = iVar2;
       iVar10 = *(int *)(param_1 + 0x410);
-      uVar11 = (**(code **)(*param_2 + 0x3c))((int)*(short *)(*param_2 + 0x38) + (int)param_2,iVar2)
+      uVar11 = (((vtbl_entry*)(*param_2))[7].fn)((int)((vtbl_entry*)(*param_2))[7].adj + (int)param_2,iVar2)
       ;
       *(uint32_t *)(param_1 + 0x2a0 + iVar10 * 8 + 4) = uVar11;
       *(int *)(param_1 + 0x410) = *(int *)(param_1 + 0x410) + 1;
     }
     iVar13 = iVar2 + 1;
-    iVar10 = (**(code **)(*param_2 + 0x34))((int)*(short *)(*param_2 + 0x30) + (int)param_2,iVar13);
+    iVar10 = (((vtbl_entry*)(*param_2))[6].fn)((int)((vtbl_entry*)(*param_2))[6].adj + (int)param_2,iVar13);
     if (iVar10 != 0) {
       *(int *)(*(int *)(param_1 + 0x410) * 8 + param_1 + 0x2a0) = iVar13;
       iVar10 = *(int *)(param_1 + 0x410);
-      uVar11 = (**(code **)(*param_2 + 0x3c))
-                         ((int)*(short *)(*param_2 + 0x38) + (int)param_2,iVar13);
+      uVar11 = (((vtbl_entry*)(*param_2))[7].fn)
+                         ((int)((vtbl_entry*)(*param_2))[7].adj + (int)param_2,iVar13);
       *(uint32_t *)(param_1 + 0x2a0 + iVar10 * 8 + 4) = uVar11;
       *(int *)(param_1 + 0x410) = *(int *)(param_1 + 0x410) + 1;
     }
     iVar13 = iVar2 + 2;
-    iVar10 = (**(code **)(*param_2 + 0x34))((int)*(short *)(*param_2 + 0x30) + (int)param_2,iVar13);
+    iVar10 = (((vtbl_entry*)(*param_2))[6].fn)((int)((vtbl_entry*)(*param_2))[6].adj + (int)param_2,iVar13);
     if (iVar10 != 0) {
       *(int *)(*(int *)(param_1 + 0x410) * 8 + param_1 + 0x2a0) = iVar13;
       iVar10 = *(int *)(param_1 + 0x410);
-      uVar11 = (**(code **)(*param_2 + 0x3c))
-                         ((int)*(short *)(*param_2 + 0x38) + (int)param_2,iVar13);
+      uVar11 = (((vtbl_entry*)(*param_2))[7].fn)
+                         ((int)((vtbl_entry*)(*param_2))[7].adj + (int)param_2,iVar13);
       *(uint32_t *)(param_1 + 0x2a0 + iVar10 * 8 + 4) = uVar11;
       *(int *)(param_1 + 0x410) = *(int *)(param_1 + 0x410) + 1;
     }
@@ -220,22 +220,22 @@ bool build_key_event_queue(int param_1,int *param_2)
   iStack_c4 = 10;
   iVar2 = 0;
   do {
-    iVar10 = (**(code **)(*param_2 + 0x14))
-                       ((int)*(short *)(*param_2 + 0x10) + (int)param_2,iStack_f8);
+    iVar10 = (((vtbl_entry*)(*param_2))[2].fn)
+                       ((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,iStack_f8);
     if (iVar10 != 0) {
       iVar13 = iVar13 + 1;
       *(int *)((int)aiStack_c0 + iVar2) = iStack_f8;
       iVar2 = iVar2 + 4;
     }
-    iVar10 = (**(code **)(*param_2 + 0x14))
-                       ((int)*(short *)(*param_2 + 0x10) + (int)param_2,iStack_f8 + 1);
+    iVar10 = (((vtbl_entry*)(*param_2))[2].fn)
+                       ((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,iStack_f8 + 1);
     if (iVar10 != 0) {
       iVar13 = iVar13 + 1;
       *(int *)((int)aiStack_c0 + iVar2) = iStack_f8 + 1;
       iVar2 = iVar2 + 4;
     }
-    iVar10 = (**(code **)(*param_2 + 0x14))
-                       ((int)*(short *)(*param_2 + 0x10) + (int)param_2,iStack_f8 + 2);
+    iVar10 = (((vtbl_entry*)(*param_2))[2].fn)
+                       ((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,iStack_f8 + 2);
     if (iVar10 != 0) {
       iVar13 = iVar13 + 1;
       *(int *)((int)aiStack_c0 + iVar2) = iStack_f8 + 2;

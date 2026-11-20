@@ -9,22 +9,22 @@
 void init_object_with_optional_heap_field(uint32_t *param_1)
 
 {
-  int iVar1;
+  cls_105a5c3c *pcVar1;
   
   param_1[2] = 0;
   param_1[1] = 0;
   *param_1 = 0;
   *(uint8_t *)(param_1 + 4) = 0;
   if (param_1[3] == 0) {
-    iVar1 = heap_alloc((void *)4);
-    if (iVar1 == 0) {
-      iVar1 = 0;
+    pcVar1 = (cls_105a5c3c *)heap_alloc((void *)4);
+    if (pcVar1 == (cls_105a5c3c *)0x0) {
+      pcVar1 = (cls_105a5c3c *)0x0;
     }
     else {
-      cls_105a5c3c_new((void *)iVar1);
+      cls_105a5c3c_new(pcVar1);
     }
-    param_1[3] = iVar1;
-    if (iVar1 != 0) {
+    param_1[3] = (uint32_t)pcVar1;
+    if (pcVar1 != (cls_105a5c3c *)0x0) {
       *(uint8_t *)(param_1 + 4) = 1;
     }
   }

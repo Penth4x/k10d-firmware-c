@@ -12,7 +12,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_helper_and_return_one_1051d74a(void *param_1)
+uint32_t call_helper_and_return_one_1051d74a(cls_105d6da0 *param_1)
 
 {
   write_structured_data_blocks(param_1);

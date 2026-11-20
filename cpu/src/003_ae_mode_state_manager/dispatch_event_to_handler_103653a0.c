@@ -34,7 +34,7 @@ void dispatch_event_to_handler_103653a0(int param_1,int param_2,uint param_3,int
     }
   }
   iVar2 = **(int **)(param_1 + 0x70);
-  (**(code **)(iVar2 + 0xe4))
-            ((int)*(int **)(param_1 + 0x70) + (int)*(short *)(iVar2 + 0xe0),param_2,uVar1,uVar4);
+  (((vtbl_entry*)(iVar2))[28].fn)
+            ((int)*(int **)(param_1 + 0x70) + (int)((vtbl_entry*)(iVar2))[28].adj,param_2,uVar1,uVar4);
   return;
 }

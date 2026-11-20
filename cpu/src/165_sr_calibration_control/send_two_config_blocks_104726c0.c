@@ -25,16 +25,16 @@ void send_two_config_blocks_104726c0(int param_1)
   uint8_t auStackY_2c [2];
   
   puVar3 = auStackY_2c;
-  dispatch_actuator_drive_command(param_1,4,2,(void *)&DAT_105a9f28/*ROM*/,6,0xff,'\0');
+  dispatch_actuator_drive_command(param_1,4,2,&DAT_105a9f28/*ROM*/,6,0xff,'\0');
   pvVar1 = (void *)get_or_init_sram_buffer_104277bc();
   iVar2 = read_table_entry_field(pvVar1,0xb8);
-  (**(code **)(*(int *)(iVar2 + 4) + 0x154))(*(short *)(*(int *)(iVar2 + 4) + 0x150) + iVar2,1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 4)))[42].fn)(((vtbl_entry*)(*(int *)(iVar2 + 4)))[42].adj + iVar2,1);
   wait_for_state_two_with_optional_delay(param_1,0);
-  (**(code **)(*(int *)(iVar2 + 4) + 0x154))(iVar2 + *(short *)(*(int *)(iVar2 + 4) + 0x150),0);
+  (((vtbl_entry*)(*(int *)(iVar2 + 4)))[42].fn)(iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 4)))[42].adj,0);
   *(uint16_t *)(puVar3 + 2) = 6;
   *(uint16_t *)(puVar3 + 6) = 0xff;
   puVar3[0xb] = 0;
-  dispatch_actuator_drive_command(param_1,4,2,(void *)&DAT_105a9f34/*ROM*/,*(uint16_t *)(puVar3 + 2),*(uint16_t *)(puVar3 + 6),
+  dispatch_actuator_drive_command(param_1,4,2,&DAT_105a9f34/*ROM*/,*(uint16_t *)(puVar3 + 2),*(uint16_t *)(puVar3 + 6),
                puVar3[0xb]);
   return;
 }

@@ -20,9 +20,9 @@
 void release_object_and_free_payload(void *param_1,uint param_2)
 
 {
-  if (param_1 != (void *)0x0) {
+  if (param_1 != 0) {
     *(void **)((int)param_1 + 0x10) = &DAT_105b6a30/*ROM*/;
-    mempool_release_block((void *)_DAT_8004907c/*SDRAM*/,*(void **)((int)param_1 + 0xc));
+    mempool_release_block((void *)(_DAT_8004907c/*SDRAM*/),(void *)(*(void **)((int)param_1 + 0xc)));
     if ((param_2 & 1) != 0) {
       release_mempool_block_104a8e60(param_1);
     }

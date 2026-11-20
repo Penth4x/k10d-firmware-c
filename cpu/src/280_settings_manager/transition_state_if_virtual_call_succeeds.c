@@ -6,15 +6,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-void transition_state_if_virtual_call_succeeds(int param_1)
+void transition_state_if_virtual_call_succeeds(cls_105d86e0 *param_1)
 
 {
   int iVar1;
   
-  if ((*(int *)(param_1 + 4) == 3) &&
-     (iVar1 = (**(code **)(*(int *)(param_1 + 0xc) + 100))
-                        (*(short *)(*(int *)(param_1 + 0xc) + 0x60) + param_1), iVar1 == 0)) {
-    *(uint32_t *)(param_1 + 4) = 1;
+  if ((param_1->field_0x4 == 3) &&
+     (iVar1 = (((vtbl_entry*)(param_1->field_0xc))[12].fn)
+                        ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0xc))[12].adj),
+     iVar1 == 0)) {
+    param_1->field_0x4 = 1;
   }
   return;
 }

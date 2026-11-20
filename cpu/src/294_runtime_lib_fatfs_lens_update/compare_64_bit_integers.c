@@ -37,7 +37,7 @@ ulonglong compare_64_bit_integers(uint param_1,void *param_2,uint param_3,uint p
   uVar2 = uVar1;
   uVar5 = uVar9;
   pvVar6 = (void *)param_4;
-  if ((uVar4 <= uVar1) && ((uVar1 + param_3 * -2 != 0 || (param_4 <= param_2)))) {
+  if ((uVar4 <= uVar1) && ((uVar1 + param_3 * -2 != 0 || (param_4 <= (uint32_t)param_2)))) {
     uVar2 = uVar4;
     uVar4 = uVar1;
     uVar5 = param_1;
@@ -51,9 +51,9 @@ ulonglong compare_64_bit_integers(uint param_1,void *param_2,uint param_3,uint p
   }
   uVar2 = uVar2 >> 0x15;
   if (uVar4 == 0x7ff) {
-    if (((uVar5 & 0xfffff) != 0 || pvVar6 != (void *)0x0) ||
+    if (((uVar5 & 0xfffff) != 0 || pvVar6 != 0) ||
        ((uVar2 == 0x7ff &&
-        (((param_1 & 0xfffff) != 0 || param_2 != (void *)0x0 || ((int)(param_1 ^ uVar5) < 0)))))) {
+        (((param_1 & 0xfffff) != 0 || param_2 != 0 || ((int)(param_1 ^ uVar5) < 0)))))) {
       return CONCAT44(uVar5,pvVar6) | 0x8000000000000;
     }
 LAB_10544212:

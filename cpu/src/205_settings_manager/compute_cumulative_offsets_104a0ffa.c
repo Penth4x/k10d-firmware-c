@@ -49,7 +49,7 @@ void compute_cumulative_offsets_104a0ffa(int *param_1)
   store_pointer_in_array_and_notify((void *)param_1[0x4d],piVar3,iVar7,0);
   param_1[0xe] = (int)piVar8;
   param_1[0x2a] = (int)piVar5;
-  update_object_field_and_notify_104a91aa(param_1 + 0x3b,*(int *)(param_1[0x4e] + 8));
+  update_object_field_and_notify_104a91aa((cls_105b6aa0 *)(param_1 + 0x3b),*(int *)(param_1[0x4e] + 8));
   iVar2 = sum_two_values_plus_six(piVar1);
   iVar4 = sum_two_values_plus_six(piVar3);
   iVar7 = sum_two_values_plus_six(piVar8);

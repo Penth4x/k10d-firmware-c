@@ -76,23 +76,23 @@ bool dispatch_mode_event_handler_10430944(void *param_1,int param_2,int param_3)
         bVar9 = false;
       }
       if (*(char *)((int)param_1 + 0x41) == '\0') {
-        cls_105a8a1c_new((void *)auStack_130);
+        cls_105a8a1c_new((void*)(auStack_130));
         copy_struct_under_semaphore((int)param_1,auStack_130);
         if (((iVar4 == 4) && (iVar5 == 0)) && (*(int *)((int)param_1 + 0xa0) != 0)) {
           iVar4 = *(int *)((int)param_1 + 0x30);
-          uVar6 = extract_status_bitfield(auStack_130,0x2e);
+          uVar6 = extract_status_bitfield((void*)(auStack_130),0x2e);
           apply_settings_and_dispatch(iVar4,uVar6 & 0xff,iVar11);
           bVar9 = true;
         }
         else {
           uVar7 = *(uint32_t *)((int)param_1 + 0x30);
-          uVar6 = extract_status_bitfield(auStack_130,0x2e);
+          uVar6 = extract_status_bitfield((void*)(auStack_130),0x2e);
           apply_settings_change(uVar7,uVar6 & 0xff,iVar11);
         }
         if (bVar9) {
           set_flag_at_offset_0x7c_1043209a(param_1,1);
         }
-        cls_105a8a1c_delete((void *)auStack_130,2);
+        cls_105a8a1c_delete((void*)(auStack_130),2);
       }
       if ((iVar3 == 4) && ((iVar2 == 3 || (iVar2 == 0)))) {
         dispatch_event_with_timeout_10435380(*(uint32_t *)((int)param_1 + 0x30),0,0);
@@ -101,14 +101,14 @@ bool dispatch_mode_event_handler_10430944(void *param_1,int param_2,int param_3)
       uVar7 = (*(code *)0x1042fe0a/*ROM*/)(uVar10);
       uVar6 = get_field_at_offset_eight(uVar10,uVar7);
       if (((uVar6 & 1) != 0) && (iVar3 = dispatch_power_off_steps(param_1,uVar6), iVar3 != 0)) {
-        cls_105a8a1c_new((void *)auStack_f0);
+        cls_105a8a1c_new((void*)(auStack_f0));
         copy_struct_under_semaphore((int)param_1,auStack_f0);
         iVar3 = *(int *)((int)param_1 + 0x30);
-        uVar6 = extract_status_bitfield(auStack_f0,0x2e);
+        uVar6 = extract_status_bitfield((void*)(auStack_f0),0x2e);
         apply_settings_and_dispatch(iVar3,uVar6 & 0xff,0);
         set_flag_at_offset_0x7c_1043209a(param_1,1);
         bVar9 = true;
-        cls_105a8a1c_delete((void *)auStack_f0,2);
+        cls_105a8a1c_delete((void*)(auStack_f0),2);
       }
       copy_sr_debug_flags_to_struct(*(void **)((int)param_1 + 0x30));
       evaluate_status_and_dispatch_result(param_1);
@@ -166,8 +166,8 @@ bool dispatch_mode_event_handler_10430944(void *param_1,int param_2,int param_3)
         *(uint8_t *)((int)param_1 + 0x2d) = 0;
         *(uint8_t *)((int)param_1 + 0x2c) = 0;
       }
-      cls_1059f170_new((void *)auStack_b0);
-      cls_1059f170_new((void *)auStack_9c);
+      cls_1059f170_new((void*)(auStack_b0));
+      cls_1059f170_new((void*)(auStack_9c));
       uStack_88 = 0;
       uStack_84 = 0;
       uStack_80 = 0;
@@ -177,13 +177,13 @@ bool dispatch_mode_event_handler_10430944(void *param_1,int param_2,int param_3)
       uVar7 = get_standby_timeout_ms(*(uint32_t *)((int)param_1 + 0x30));
       (*(code *)0x104aa01e/*ROM*/)(uVar10,uVar7);
       set_flg_obj((uint32_t *)((int)param_1 + 0x7c));
-      cls_1059f170_destructor((void *)auStack_9c,2);
-      cls_1059f170_destructor((void *)auStack_b0,2);
+      cls_1059f170_destructor(auStack_9c,2);
+      cls_1059f170_destructor(auStack_b0,2);
       bVar12 = false;
     }
     else if (param_3 == 3) {
-      cls_1059f170_new((void *)auStack_7c);
-      cls_1059f170_new((void *)auStack_68);
+      cls_1059f170_new((void*)(auStack_7c));
+      cls_1059f170_new((void*)(auStack_68));
       uStack_54 = 0;
       uStack_50 = 0;
       uStack_4c = 0;
@@ -196,16 +196,16 @@ bool dispatch_mode_event_handler_10430944(void *param_1,int param_2,int param_3)
       if (((iVar2 == 2) &&
           (piVar8 = (int *)app_mode_activate(*(uint32_t *)((int)param_1 + 0x38),2),
           piVar8 != (int *)0x0)) &&
-         (iVar2 = (**(code **)(*piVar8 + 0x2c))((int)*(short *)(*piVar8 + 0x28) + (int)piVar8),
+         (iVar2 = (((vtbl_entry*)(*piVar8))[5].fn)((int)((vtbl_entry*)(*piVar8))[5].adj + (int)piVar8),
          iVar2 != 0)) {
-        cls_105a8a1c_new((void *)auStack_48);
+        cls_105a8a1c_new((void*)(auStack_48));
         copy_struct_under_semaphore((int)param_1,auStack_48);
-        (**(code **)(*piVar8 + 0x34))((int)*(short *)(*piVar8 + 0x30) + (int)piVar8,auStack_48);
-        cls_105a8a1c_delete((void *)auStack_48,2);
+        (((vtbl_entry*)(*piVar8))[6].fn)((int)((vtbl_entry*)(*piVar8))[6].adj + (int)piVar8,auStack_48);
+        cls_105a8a1c_delete((void*)(auStack_48),2);
       }
       set_flg_obj((uint32_t *)((int)param_1 + 0x7c));
-      cls_1059f170_destructor((void *)auStack_68,2);
-      cls_1059f170_destructor((void *)auStack_7c,2);
+      cls_1059f170_destructor(auStack_68,2);
+      cls_1059f170_destructor(auStack_7c,2);
       bVar12 = false;
     }
     else {

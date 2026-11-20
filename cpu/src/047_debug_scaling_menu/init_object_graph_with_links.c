@@ -19,7 +19,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_graph_with_links(int param_1,uint32_t param_2,void *param_3,void *param_4)
+void init_object_graph_with_links(cls_10565468 *param_1,uint32_t param_2,void *param_3,void *param_4)
 
 {
   void *pvVar1;
@@ -98,7 +98,7 @@ void init_object_graph_with_links(int param_1,uint32_t param_2,void *param_3,voi
   void *pvVar74;
   void *pvVar75;
   
-  *(uint8_t *)(param_1 + 4) = 1;
+  param_1->field_0x4 = 1;
   pvVar1 = (void *)get_or_init_static_buffer_10495746();
   iterate_range_and_call_match(pvVar1,(uint *)0x10567c1c/*ROM*/,param_3,param_4);
   pvVar2 = (void *)app_obj_factory(pvVar1,(void *)0x2000000,0,0);
@@ -250,30 +250,30 @@ void init_object_graph_with_links(int param_1,uint32_t param_2,void *param_3,voi
   iterate_and_remove_list_entry(pvVar2,pvVar49,pvVar74,pvVar75);
   iterate_and_remove_list_entry(pvVar2,pvVar69,pvVar74,pvVar75);
   iterate_and_remove_list_entry(pvVar2,pvVar70,pvVar74,pvVar75);
-  set_object_field_at_offset_0x10((void *)(param_1 + 8),pvVar2);
-  (**(code **)(*(int *)((int)pvVar65 + 0xc) + 0xc))
+  set_object_field_at_offset_0x10(&param_1->field5_0x8,pvVar2);
+  (((vtbl_entry*)(*(int *)((int)pvVar65 + 0xc)))[1].fn)
             ((int)pvVar65 + (int)*(short *)(*(int *)((int)pvVar65 + 0xc) + 8),1);
-  (**(code **)(*(int *)((int)pvVar69 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar69 + 0xc)))[1].fn)
             ((int)pvVar69 + (int)*(short *)(*(int *)((int)pvVar69 + 0xc) + 8),1);
-  (**(code **)(*(int *)((int)pvVar70 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar70 + 0xc)))[1].fn)
             ((int)pvVar70 + (int)*(short *)(*(int *)((int)pvVar70 + 0xc) + 8),1);
-  (**(code **)(*(int *)((int)pvVar3 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar3 + 0xc)))[1].fn)
             ((int)pvVar3 + (int)*(short *)(*(int *)((int)pvVar3 + 0xc) + 8),0);
-  (**(code **)(*(int *)((int)pvVar5 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar5 + 0xc)))[1].fn)
             ((int)pvVar5 + (int)*(short *)(*(int *)((int)pvVar5 + 0xc) + 8),0);
-  (**(code **)(*(int *)((int)pvVar4 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar4 + 0xc)))[1].fn)
             ((int)pvVar4 + (int)*(short *)(*(int *)((int)pvVar4 + 0xc) + 8),0);
-  (**(code **)(*(int *)((int)pvVar6 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar6 + 0xc)))[1].fn)
             ((int)pvVar6 + (int)*(short *)(*(int *)((int)pvVar6 + 0xc) + 8),1);
-  (**(code **)(*(int *)((int)pvVar66 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar66 + 0xc)))[1].fn)
             ((int)pvVar66 + (int)*(short *)(*(int *)((int)pvVar66 + 0xc) + 8),1);
-  (**(code **)(*(int *)((int)pvVar67 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar67 + 0xc)))[1].fn)
             ((int)pvVar67 + (int)*(short *)(*(int *)((int)pvVar67 + 0xc) + 8),0);
-  (**(code **)(*(int *)((int)pvVar68 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar68 + 0xc)))[1].fn)
             ((int)pvVar68 + (int)*(short *)(*(int *)((int)pvVar68 + 0xc) + 8),0);
-  (**(code **)(*(int *)((int)pvVar49 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar49 + 0xc)))[1].fn)
             ((int)pvVar49 + (int)*(short *)(*(int *)((int)pvVar49 + 0xc) + 8),0);
-  (**(code **)(*(int *)((int)pvVar7 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar7 + 0xc)))[1].fn)
             ((int)pvVar7 + (int)*(short *)(*(int *)((int)pvVar7 + 0xc) + 8),0);
   return;
 }

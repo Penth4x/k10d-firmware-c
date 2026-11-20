@@ -28,7 +28,7 @@ uint32_t apply_three_setting_groups(int param_1,uint param_2,uint param_3,uint p
   int *piVar7;
   uint8_t local_6c [12];
   int iStack_50;
-  uint32_t auStack_30 [7];
+  cls_105a6d8c acStack_30 [7];
   byte bStack_11;
   byte bStack_10;
   byte bStack_f;
@@ -40,13 +40,13 @@ uint32_t apply_three_setting_groups(int param_1,uint param_2,uint param_3,uint p
   byte bStack_9;
   
   piVar7 = (int *)local_6c;
-  cls_105a6d8c_new(auStack_30);
-  copy_status_block_bytes(*(int *)(param_1 + 8),auStack_30);
-  iVar1 = extract_field_from_struct_1045ff0e((int)auStack_30,0x2b);
-  iVar2 = extract_field_from_struct_1045ff0e((int)auStack_30,0);
-  uVar3 = extract_field_from_struct_1045ff0e((int)auStack_30,3);
+  cls_105a6d8c_new(acStack_30);
+  copy_status_block_bytes(*(int *)(param_1 + 8),acStack_30);
+  iVar1 = extract_field_from_struct_1045ff0e(acStack_30,0x2b);
+  iVar2 = extract_field_from_struct_1045ff0e(acStack_30,0);
+  uVar3 = extract_field_from_struct_1045ff0e(acStack_30,3);
   uVar3 = uVar3 & 0xff;
-  uVar4 = extract_field_from_struct_1045ff0e((int)auStack_30,0x29);
+  uVar4 = extract_field_from_struct_1045ff0e(acStack_30,0x29);
   uVar4 = uVar4 & 0xff;
   uVar5 = get_or_init_heap_block();
   bStack_11 = 0;
@@ -128,6 +128,6 @@ uint32_t apply_three_setting_groups(int param_1,uint param_2,uint param_3,uint p
       setting_set(*(int *)(param_1 + 0x14),iVar1 + 0x134,(uint)bStack_9);
     }
   }
-  cls_105a6d8c_delete(auStack_30,2);
+  cls_105a6d8c_delete(acStack_30,2);
   return 0;
 }

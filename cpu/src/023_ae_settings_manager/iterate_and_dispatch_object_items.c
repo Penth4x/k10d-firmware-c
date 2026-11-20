@@ -36,7 +36,7 @@ void iterate_and_dispatch_object_items(void *param_1)
   
   select_mode_table_and_notify((int)param_1);
   iVar13 = **(int **)((int)param_1 + 0x70);
-  (**(code **)(iVar13 + 0x8c))((int)*(int **)((int)param_1 + 0x70) + (int)*(short *)(iVar13 + 0x88))
+  (((vtbl_entry*)(iVar13))[17].fn)((int)*(int **)((int)param_1 + 0x70) + (int)((vtbl_entry*)(iVar13))[17].adj)
   ;
   iVar13 = (int)param_1 + 0x1c;
   cVar6 = read_byte_at_offset_four_1051e508(iVar13);
@@ -46,8 +46,8 @@ void iterate_and_dispatch_object_items(void *param_1)
       *(uint *)((int)param_1 + 0x24c) = uVar11;
       if (*(char *)(uVar11 * 0x214 + -0x7ffe9ed8) == '\0') {
         iVar3 = **(int **)((int)param_1 + 0x70);
-        (**(code **)(iVar3 + 0xa4))
-                  ((int)*(int **)((int)param_1 + 0x70) + (int)*(short *)(iVar3 + 0xa0),uVar11);
+        (((vtbl_entry*)(iVar3))[20].fn)
+                  ((int)*(int **)((int)param_1 + 0x70) + (int)((vtbl_entry*)(iVar3))[20].adj,uVar11);
       }
       else {
         dispatch_virtual_event_with_payload((int)param_1);
@@ -67,8 +67,8 @@ void iterate_and_dispatch_object_items(void *param_1)
   if (cVar6 != '\0') {
     do {
       iVar3 = **(int **)((int)param_1 + 0x70);
-      (**(code **)(iVar3 + 0xac))
-                ((int)*(int **)((int)param_1 + 0x70) + (int)*(short *)(iVar3 + 0xa8),bVar7);
+      (((vtbl_entry*)(iVar3))[21].fn)
+                ((int)*(int **)((int)param_1 + 0x70) + (int)((vtbl_entry*)(iVar3))[21].adj,bVar7);
       bVar7 = bVar7 + 1;
       bVar8 = read_byte_at_offset_four_1051e508((int)param_1 + 0x1c);
     } while (bVar7 < bVar8);
@@ -78,12 +78,12 @@ void iterate_and_dispatch_object_items(void *param_1)
   sVar1 = *(short *)(iVar3 + 0xb0);
   uVar4 = read_offset_six_word_1051e514(iVar13);
   uVar5 = read_offset_8_word(iVar13);
-  (**(code **)(iVar3 + 0xb4))((int)piVar12 + (int)sVar1,uVar4,uVar5);
+  (((vtbl_entry*)(iVar3))[22].fn)((int)piVar12 + (int)sVar1,uVar4,uVar5);
   piVar12 = *(int **)((int)param_1 + 0x70);
   iVar3 = *piVar12;
   sVar1 = *(short *)(iVar3 + 0xb8);
   uVar9 = read_byte_at_offset_five_1051e50e(iVar13);
-  (**(code **)(iVar3 + 0xbc))((int)piVar12 + (int)sVar1,uVar9);
+  (((vtbl_entry*)(iVar3))[23].fn)((int)piVar12 + (int)sVar1,uVar9);
   release_object_field_0x70(param_1);
   return;
 }

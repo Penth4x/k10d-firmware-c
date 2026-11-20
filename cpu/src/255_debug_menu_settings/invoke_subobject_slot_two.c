@@ -14,18 +14,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t invoke_subobject_slot_two(int param_1)
+uint32_t invoke_subobject_slot_two(cls_105c2b6c *param_1)
 
 {
-  store_query_result_at_offset_8_104eb9c4((void *)(param_1 + 4));
-  store_result_at_offset_eight_104ebc8e((void *)(param_1 + 0x10));
-  store_query_result_at_offset_8_104ebe80((void *)(param_1 + 0x1c));
-  store_query_result_at_offset_8_104ebf8e((void *)(param_1 + 0x28));
-  store_query_result_at_offset_8_104ec422((void *)(param_1 + 0x34));
-  store_query_result_at_offset_8_104ed3ec((void *)(param_1 + 0x40));
-  store_query_result_at_offset_8_104ed4f4((void *)(param_1 + 0x4c));
-  store_result_at_offset_eight_104ed5dc((void *)(param_1 + 0x58));
-  store_result_at_offset_eight_104ed82c((void *)(param_1 + 100));
-  store_query_result_at_offset_8_1050a860((void *)(param_1 + 0x70));
+  store_query_result_at_offset_8_104eb9c4(&param_1->field_0x4);
+  store_result_at_offset_eight_104ebc8e(&param_1->field_0x10);
+  store_query_result_at_offset_8_104ebe80(&param_1->field_0x1c);
+  store_query_result_at_offset_8_104ebf8e(&param_1->field_0x28);
+  store_query_result_at_offset_8_104ec422(&param_1->field_0x34);
+  store_query_result_at_offset_8_104ed3ec((cls_105c2be4 *)&param_1->field_0x40);
+  store_query_result_at_offset_8_104ed4f4((cls_105c2c2c *)&param_1->field_0x4c);
+  store_result_at_offset_eight_104ed5dc((cls_105c2c74 *)&param_1->field_0x58);
+  store_result_at_offset_eight_104ed82c((cls_105c2cdc *)&param_1->field_0x64);
+  store_query_result_at_offset_8_1050a860((cls_105d5428 *)&param_1->field_0x70);
   return 1;
 }

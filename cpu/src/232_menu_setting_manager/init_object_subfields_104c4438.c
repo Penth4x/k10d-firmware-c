@@ -16,11 +16,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_subfields_104c4438(int param_1)
+uint32_t init_object_subfields_104c4438(cls_105b9574 *param_1)
 
 {
-  forward_three_args_to_helper_10459edc((void *)(param_1 + 0x20),1,1);
-  wait_flg_obj((void *)(param_1 + 0x34),0);
-  alloc_pool_and_init_task((int *)(param_1 + 4),0x10,0x2000,4);
+  forward_three_args_to_helper_10459edc(&((uint32_t *)&(param_1->field_0x1c))[1],1,1);
+  wait_flg_obj(&param_1->field_0x34,0);
+  alloc_pool_and_init_task(&param_1->field_0x4,0x10,0x2000,4);
   return 1;
 }

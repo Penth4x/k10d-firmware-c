@@ -15,8 +15,8 @@ uint32_t map_status_code_to_enum(int param_1)
   
   uVar2 = *(uint32_t *)(param_1 + 0x50);
   iVar3 = **(int **)(param_1 + 0x14);
-  uVar1 = (**(code **)(iVar3 + 0x14))
-                    ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar3 + 0x10),2);
+  uVar1 = (((vtbl_entry*)(iVar3))[2].fn)
+                    ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar3))[2].adj,2);
   iVar3 = lookup_two_byte_table_entry_1045a690(uVar2,uVar1,1,0);
   if (iVar3 == 400) {
     uVar2 = 0x108;

@@ -29,11 +29,11 @@ void configure_sensor_readout_channels(int param_1,int param_2,int *param_3,uint
   int iVar9;
   
   iVar8 = **(int **)(param_1 + 0x30);
-  iVar8 = (**(code **)(iVar8 + 0x9c))
-                    ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x98));
+  iVar8 = (((vtbl_entry*)(iVar8))[19].fn)
+                    ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[19].adj);
   iVar9 = **(int **)(param_1 + 0x30);
-  iVar9 = (**(code **)(iVar9 + 0xd4))
-                    ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar9 + 0xd0));
+  iVar9 = (((vtbl_entry*)(iVar9))[26].fn)
+                    ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar9))[26].adj);
   if (param_5 == '\0') {
     iVar7 = *param_3;
   }
@@ -47,22 +47,22 @@ void configure_sensor_readout_channels(int param_1,int param_2,int *param_3,uint
     (*(code *)0x10454692/*ROM*/)(*(uint32_t *)(param_1 + 0xec),0);
     (*(code *)0x10454692/*ROM*/)(*(uint32_t *)(param_1 + 0xf0),0x400);
     iVar8 = **(int **)(param_1 + 0x30);
-    iVar8 = (**(code **)(iVar8 + 0x9c))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x98));
+    iVar8 = (((vtbl_entry*)(iVar8))[19].fn)
+                      ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[19].adj);
     uVar1 = (*(code *)0x1041b790/*ROM*/)(param_1,iVar8 + iVar7);
     iVar8 = **(int **)(param_1 + 0x30);
-    iVar8 = (**(code **)(iVar8 + 0x9c))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x98));
+    iVar8 = (((vtbl_entry*)(iVar8))[19].fn)
+                      ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[19].adj);
     iVar9 = **(int **)(param_1 + 0x30);
-    iVar9 = (**(code **)(iVar9 + 0xd4))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar9 + 0xd0));
+    iVar9 = (((vtbl_entry*)(iVar9))[26].fn)
+                      ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar9))[26].adj);
     uVar2 = (*(code *)0x1041b790/*ROM*/)(param_1,iVar8 * (iVar9 * 4 + -3) + iVar7);
     iVar8 = **(int **)(param_1 + 0x30);
-    iVar8 = (**(code **)(iVar8 + 0x9c))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x98));
+    iVar8 = (((vtbl_entry*)(iVar8))[19].fn)
+                      ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[19].adj);
     iVar9 = **(int **)(param_1 + 0x30);
-    iVar9 = (**(code **)(iVar9 + 0xd4))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar9 + 0xd0));
+    iVar9 = (((vtbl_entry*)(iVar9))[26].fn)
+                      ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar9))[26].adj);
     uVar3 = (*(code *)0x1041b790/*ROM*/)(param_1,iVar8 * (iVar9 * 4 + -4) + iVar7);
     (*(code *)0x10456a8e/*ROM*/)(*(uint32_t *)(param_1 + 0xd4),iVar7);
     (*(code *)0x10456a8e/*ROM*/)(*(uint32_t *)(param_1 + 0xdc),uVar1);
@@ -70,63 +70,63 @@ void configure_sensor_readout_channels(int param_1,int param_2,int *param_3,uint
     (*(code *)0x10456a8e/*ROM*/)(*(uint32_t *)(param_1 + 0xe0),uVar3);
     uVar2 = *(uint32_t *)(param_1 + 0xd4);
     iVar8 = **(int **)(param_1 + 0x30);
-    uVar1 = (**(code **)(iVar8 + 100))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x60));
+    uVar1 = (((vtbl_entry*)(iVar8))[12].fn)
+                      ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[12].adj);
     (*(code *)0x10456a70/*ROM*/)(uVar2,uVar1);
     uVar2 = *(uint32_t *)(param_1 + 0xdc);
     iVar8 = **(int **)(param_1 + 0x30);
-    uVar1 = (**(code **)(iVar8 + 100))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x60));
+    uVar1 = (((vtbl_entry*)(iVar8))[12].fn)
+                      ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[12].adj);
     (*(code *)0x10456a70/*ROM*/)(uVar2,uVar1);
     uVar2 = *(uint32_t *)(param_1 + 0xd8);
     iVar8 = **(int **)(param_1 + 0x30);
-    uVar1 = (**(code **)(iVar8 + 100))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x60));
+    uVar1 = (((vtbl_entry*)(iVar8))[12].fn)
+                      ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[12].adj);
     (*(code *)0x10456a70/*ROM*/)(uVar2,uVar1);
     uVar2 = *(uint32_t *)(param_1 + 0xe0);
     iVar8 = **(int **)(param_1 + 0x30);
-    uVar1 = (**(code **)(iVar8 + 100))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x60));
+    uVar1 = (((vtbl_entry*)(iVar8))[12].fn)
+                      ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[12].adj);
     (*(code *)0x10456a70/*ROM*/)(uVar2,uVar1);
     iVar8 = *(int *)(*(int *)(param_1 + 0x2c) + 4);
-    iVar8 = (**(code **)(iVar8 + 0x134))(*(int *)(param_1 + 0x2c) + (int)*(short *)(iVar8 + 0x130));
+    iVar8 = (((vtbl_entry*)(iVar8))[38].fn)(*(int *)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar8))[38].adj);
     uVar1 = *(uint32_t *)(param_1 + 0xd4);
     piVar4 = *(int **)(param_1 + 0x30);
     if (iVar8 == 0) {
-      sVar5 = (**(code **)(*piVar4 + 0x74))((int)piVar4 + (int)*(short *)(*piVar4 + 0x70));
+      sVar5 = (((vtbl_entry*)(*piVar4))[14].fn)((int)piVar4 + (int)((vtbl_entry*)(*piVar4))[14].adj);
       (*(code *)0x10456a52/*ROM*/)(uVar1,sVar5 + 2);
       uVar1 = *(uint32_t *)(param_1 + 0xdc);
       iVar8 = **(int **)(param_1 + 0x30);
-      sVar5 = (**(code **)(iVar8 + 0x74))
-                        ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x70));
+      sVar5 = (((vtbl_entry*)(iVar8))[14].fn)
+                        ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[14].adj);
       (*(code *)0x10456a52/*ROM*/)(uVar1,sVar5 + 2);
       uVar2 = *(uint32_t *)(param_1 + 0xd8);
       iVar8 = **(int **)(param_1 + 0x30);
-      uVar1 = (**(code **)(iVar8 + 0x74))
-                        ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x70));
+      uVar1 = (((vtbl_entry*)(iVar8))[14].fn)
+                        ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[14].adj);
       (*(code *)0x10456a52/*ROM*/)(uVar2,uVar1);
       uVar1 = *(uint32_t *)(param_1 + 0xe0);
       iVar8 = **(int **)(param_1 + 0x30);
-      uVar6 = (**(code **)(iVar8 + 0x74))
-                        ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x70));
+      uVar6 = (((vtbl_entry*)(iVar8))[14].fn)
+                        ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[14].adj);
     }
     else {
-      uVar2 = (**(code **)(*piVar4 + 0x74))((int)piVar4 + (int)*(short *)(*piVar4 + 0x70));
+      uVar2 = (((vtbl_entry*)(*piVar4))[14].fn)((int)piVar4 + (int)((vtbl_entry*)(*piVar4))[14].adj);
       (*(code *)0x10456a52/*ROM*/)(uVar1,uVar2);
       uVar2 = *(uint32_t *)(param_1 + 0xdc);
       iVar8 = **(int **)(param_1 + 0x30);
-      uVar1 = (**(code **)(iVar8 + 0x74))
-                        ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x70));
+      uVar1 = (((vtbl_entry*)(iVar8))[14].fn)
+                        ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[14].adj);
       (*(code *)0x10456a52/*ROM*/)(uVar2,uVar1);
       uVar1 = *(uint32_t *)(param_1 + 0xd8);
       iVar8 = **(int **)(param_1 + 0x30);
-      sVar5 = (**(code **)(iVar8 + 0x74))
-                        ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x70));
+      sVar5 = (((vtbl_entry*)(iVar8))[14].fn)
+                        ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[14].adj);
       (*(code *)0x10456a52/*ROM*/)(uVar1,sVar5 + 2);
       uVar1 = *(uint32_t *)(param_1 + 0xe0);
       iVar8 = **(int **)(param_1 + 0x30);
-      iVar8 = (**(code **)(iVar8 + 0x74))
-                        ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x70));
+      iVar8 = (((vtbl_entry*)(iVar8))[14].fn)
+                        ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[14].adj);
       uVar6 = iVar8 + 2U & 0xffff;
     }
   }
@@ -139,22 +139,22 @@ void configure_sensor_readout_channels(int param_1,int param_2,int *param_3,uint
     (*(code *)0x10454692/*ROM*/)(*(uint32_t *)(param_1 + 0xec),0x200);
     (*(code *)0x10454692/*ROM*/)(*(uint32_t *)(param_1 + 0xf0),0x600);
     iVar9 = **(int **)(param_1 + 0x30);
-    iVar9 = (**(code **)(iVar9 + 0x9c))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar9 + 0x98));
+    iVar9 = (((vtbl_entry*)(iVar9))[19].fn)
+                      ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar9))[19].adj);
     uVar1 = (*(code *)0x1041b790/*ROM*/)(param_1,iVar9 + iVar8);
     iVar9 = **(int **)(param_1 + 0x30);
-    iVar9 = (**(code **)(iVar9 + 0x9c))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar9 + 0x98));
+    iVar9 = (((vtbl_entry*)(iVar9))[19].fn)
+                      ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar9))[19].adj);
     iVar7 = **(int **)(param_1 + 0x30);
-    iVar7 = (**(code **)(iVar7 + 0xd4))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar7 + 0xd0));
+    iVar7 = (((vtbl_entry*)(iVar7))[26].fn)
+                      ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar7))[26].adj);
     uVar2 = (*(code *)0x1041b790/*ROM*/)(param_1,iVar9 * (iVar7 * 4 + -3) + iVar8);
     iVar9 = **(int **)(param_1 + 0x30);
-    iVar9 = (**(code **)(iVar9 + 0x9c))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar9 + 0x98));
+    iVar9 = (((vtbl_entry*)(iVar9))[19].fn)
+                      ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar9))[19].adj);
     iVar7 = **(int **)(param_1 + 0x30);
-    iVar7 = (**(code **)(iVar7 + 0xd4))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar7 + 0xd0));
+    iVar7 = (((vtbl_entry*)(iVar7))[26].fn)
+                      ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar7))[26].adj);
     uVar3 = (*(code *)0x1041b790/*ROM*/)(param_1,iVar9 * (iVar7 * 4 + -4) + iVar8);
     (*(code *)0x10456a8e/*ROM*/)(*(uint32_t *)(param_1 + 0xd4),iVar8);
     (*(code *)0x10456a8e/*ROM*/)(*(uint32_t *)(param_1 + 0xdc),uVar1);
@@ -162,67 +162,67 @@ void configure_sensor_readout_channels(int param_1,int param_2,int *param_3,uint
     (*(code *)0x10456a8e/*ROM*/)(*(uint32_t *)(param_1 + 0xe0),uVar3);
     uVar2 = *(uint32_t *)(param_1 + 0xd4);
     iVar8 = **(int **)(param_1 + 0x30);
-    uVar1 = (**(code **)(iVar8 + 100))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x60));
+    uVar1 = (((vtbl_entry*)(iVar8))[12].fn)
+                      ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[12].adj);
     (*(code *)0x10456a70/*ROM*/)(uVar2,uVar1);
     uVar2 = *(uint32_t *)(param_1 + 0xdc);
     iVar8 = **(int **)(param_1 + 0x30);
-    uVar1 = (**(code **)(iVar8 + 100))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x60));
+    uVar1 = (((vtbl_entry*)(iVar8))[12].fn)
+                      ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[12].adj);
     (*(code *)0x10456a70/*ROM*/)(uVar2,uVar1);
     uVar1 = *(uint32_t *)(param_1 + 0xd8);
     iVar8 = **(int **)(param_1 + 0x30);
-    sVar5 = (**(code **)(iVar8 + 100))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x60));
+    sVar5 = (((vtbl_entry*)(iVar8))[12].fn)
+                      ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[12].adj);
     (*(code *)0x10456a70/*ROM*/)(uVar1,sVar5 + 2);
     uVar1 = *(uint32_t *)(param_1 + 0xe0);
     iVar8 = **(int **)(param_1 + 0x30);
-    sVar5 = (**(code **)(iVar8 + 100))
-                      ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x60));
+    sVar5 = (((vtbl_entry*)(iVar8))[12].fn)
+                      ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[12].adj);
     (*(code *)0x10456a70/*ROM*/)(uVar1,sVar5 + 2);
     iVar8 = *(int *)(*(int *)(param_1 + 0x2c) + 4);
-    iVar8 = (**(code **)(iVar8 + 0x134))(*(int *)(param_1 + 0x2c) + (int)*(short *)(iVar8 + 0x130));
+    iVar8 = (((vtbl_entry*)(iVar8))[38].fn)(*(int *)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar8))[38].adj);
     if (iVar8 == 0) {
       uVar1 = *(uint32_t *)(param_1 + 0xd4);
       iVar8 = **(int **)(param_1 + 0x30);
-      sVar5 = (**(code **)(iVar8 + 0x7c))
-                        ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x78));
+      sVar5 = (((vtbl_entry*)(iVar8))[15].fn)
+                        ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[15].adj);
       (*(code *)0x10456a52/*ROM*/)(uVar1,sVar5 + 2);
       uVar1 = *(uint32_t *)(param_1 + 0xdc);
       iVar8 = **(int **)(param_1 + 0x30);
-      sVar5 = (**(code **)(iVar8 + 0x7c))
-                        ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x78));
+      sVar5 = (((vtbl_entry*)(iVar8))[15].fn)
+                        ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[15].adj);
       (*(code *)0x10456a52/*ROM*/)(uVar1,sVar5 + 2);
       uVar2 = *(uint32_t *)(param_1 + 0xd8);
       iVar8 = **(int **)(param_1 + 0x30);
-      uVar1 = (**(code **)(iVar8 + 0x7c))
-                        ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x78));
+      uVar1 = (((vtbl_entry*)(iVar8))[15].fn)
+                        ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[15].adj);
       (*(code *)0x10456a52/*ROM*/)(uVar2,uVar1);
       uVar1 = *(uint32_t *)(param_1 + 0xe0);
       iVar8 = **(int **)(param_1 + 0x30);
-      uVar6 = (**(code **)(iVar8 + 0x7c))
-                        ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x78));
+      uVar6 = (((vtbl_entry*)(iVar8))[15].fn)
+                        ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[15].adj);
     }
     else {
       uVar2 = *(uint32_t *)(param_1 + 0xd4);
       iVar8 = **(int **)(param_1 + 0x30);
-      uVar1 = (**(code **)(iVar8 + 0x7c))
-                        ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x78));
+      uVar1 = (((vtbl_entry*)(iVar8))[15].fn)
+                        ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[15].adj);
       (*(code *)0x10456a52/*ROM*/)(uVar2,uVar1);
       uVar2 = *(uint32_t *)(param_1 + 0xdc);
       iVar8 = **(int **)(param_1 + 0x30);
-      uVar1 = (**(code **)(iVar8 + 0x7c))
-                        ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x78));
+      uVar1 = (((vtbl_entry*)(iVar8))[15].fn)
+                        ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[15].adj);
       (*(code *)0x10456a52/*ROM*/)(uVar2,uVar1);
       uVar1 = *(uint32_t *)(param_1 + 0xd8);
       iVar8 = **(int **)(param_1 + 0x30);
-      sVar5 = (**(code **)(iVar8 + 0x7c))
-                        ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x78));
+      sVar5 = (((vtbl_entry*)(iVar8))[15].fn)
+                        ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[15].adj);
       (*(code *)0x10456a52/*ROM*/)(uVar1,sVar5 + 2);
       uVar1 = *(uint32_t *)(param_1 + 0xe0);
       iVar8 = **(int **)(param_1 + 0x30);
-      iVar8 = (**(code **)(iVar8 + 0x7c))
-                        ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar8 + 0x78));
+      iVar8 = (((vtbl_entry*)(iVar8))[15].fn)
+                        ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar8))[15].adj);
       uVar6 = iVar8 + 2U & 0xffff;
     }
   }

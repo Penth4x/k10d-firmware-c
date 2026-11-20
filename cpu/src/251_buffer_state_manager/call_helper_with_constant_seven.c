@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_constant_seven(int *param_1,uint32_t param_2)
+void call_helper_with_constant_seven(cls_105bce58 *param_1,uint32_t param_2)
 
 {
-  dispatch_state_handler(param_1,7,param_2);
+  dispatch_state_handler((void *)param_1,7,param_2);
   return;
 }

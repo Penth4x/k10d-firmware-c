@@ -19,7 +19,7 @@
     */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void dispatch_event_by_type_10503594(int param_1,int *param_2)
+void dispatch_event_by_type_10503594(cls_105d4e10 *param_1,int *param_2)
 
 {
   int iVar1;
@@ -125,12 +125,12 @@ void dispatch_event_by_type_10503594(int param_1,int *param_2)
       uStack_80 = puVar4[0x1a];
       uStack_7e = puVar4[0x1b];
       uStack_7c = *(uint32_t *)(puVar4 + 0x1c);
-      puVar3 = (uint32_t *)(param_1 + 0x28);
+      puVar3 = &param_1->field_0x28;
       eventflag_clr_flg(puVar3,1);
-      configure_device_from_params_10503b80(*(int *)(param_1 + 0x24),param_1 + 4,&uStack_b4);
+      configure_device_from_params_10503b80(param_1->field_0x24,(int)&param_1->field_0x4,&uStack_b4);
       eventflag_wai_flg(puVar3,1,&uStack_c,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar3,1);
-      call_two_helpers_on_struct_10503d44(*(uint32_t *)(param_1 + 0x24));
+      call_two_helpers_on_struct_10503d44(param_1->field_0x24);
       *puVar4 = uStack_b4;
       puVar4[1] = uStack_b2;
       puVar4[2] = uStack_b0;
@@ -163,9 +163,9 @@ void dispatch_event_by_type_10503594(int param_1,int *param_2)
       *(uint8_t *)(puVar4 + 0x18) = uStack_84;
       *(uint8_t *)((int)puVar4 + 0x31) = uStack_83;
       *(uint8_t *)(puVar4 + 0x19) = uStack_82;
-      uVar2 = call_subroutine_at_offset_c(*(int *)(param_1 + 0x24));
+      uVar2 = call_subroutine_at_offset_c(param_1->field_0x24);
       *(uint32_t *)(puVar4 + 0x22) = uVar2;
-      iVar1 = clamp_status_to_range(*(int *)(param_1 + 0x24));
+      iVar1 = clamp_status_to_range(param_1->field_0x24);
       if (iVar1 == 0) {
         uVar2 = 0;
       }
@@ -183,7 +183,7 @@ void dispatch_event_by_type_10503594(int param_1,int *param_2)
       }
       *(uint32_t *)(puVar4 + 0x24) = uVar2;
       iVar1 = *(int *)*param_2;
-      (**(code **)(iVar1 + 0x14))(*param_2 + (int)*(short *)(iVar1 + 0x10),1,param_2[3]);
+      (((vtbl_entry*)(iVar1))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar1))[2].adj,1,param_2[3]);
       free_if_flag_set_10503a22(&uStack_b4,2);
     }
     else if (iVar1 == 2) {
@@ -230,15 +230,15 @@ void dispatch_event_by_type_10503594(int param_1,int *param_2)
       uStack_30 = *(uint8_t *)(puVar4 + 0x18);
       uStack_2f = *(uint8_t *)((int)puVar4 + 0x31);
       uStack_2e = *(uint8_t *)(puVar4 + 0x19);
-      puVar3 = (uint32_t *)(param_1 + 0x28);
+      puVar3 = &param_1->field_0x28;
       eventflag_clr_flg(puVar3,1);
-      configure_device_from_params_10503c40(*(int *)(param_1 + 0x24),param_1 + 4,&uStack_60);
+      configure_device_from_params_10503c40(param_1->field_0x24,(int)&param_1->field_0x4,&uStack_60);
       eventflag_wai_flg(puVar3,1,&uStack_c,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar3,1);
-      call_two_helpers_on_struct_10503d44(*(uint32_t *)(param_1 + 0x24));
-      uVar2 = call_subroutine_at_offset_c(*(int *)(param_1 + 0x24));
+      call_two_helpers_on_struct_10503d44(param_1->field_0x24);
+      uVar2 = call_subroutine_at_offset_c(param_1->field_0x24);
       *(uint32_t *)(puVar4 + 0x22) = uVar2;
-      iVar1 = clamp_status_to_range(*(int *)(param_1 + 0x24));
+      iVar1 = clamp_status_to_range(param_1->field_0x24);
       if (iVar1 == 0) {
         uVar2 = 0;
       }
@@ -256,12 +256,12 @@ void dispatch_event_by_type_10503594(int param_1,int *param_2)
       }
       *(uint32_t *)(puVar4 + 0x24) = uVar2;
       iVar1 = *(int *)*param_2;
-      (**(code **)(iVar1 + 0x14))(*param_2 + (int)*(short *)(iVar1 + 0x10),2,param_2[3]);
+      (((vtbl_entry*)(iVar1))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar1))[2].adj,2,param_2[3]);
       free_if_flag_set_10503a22(&uStack_60,2);
     }
     else if (iVar1 == 3) {
       iVar1 = *(int *)*param_2;
-      (**(code **)(iVar1 + 0x14))(*param_2 + (int)*(short *)(iVar1 + 0x10),3,param_2[3]);
+      (((vtbl_entry*)(iVar1))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar1))[2].adj,3,param_2[3]);
     }
   }
   return;

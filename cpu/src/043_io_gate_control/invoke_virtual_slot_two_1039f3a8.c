@@ -23,7 +23,7 @@ void invoke_virtual_slot_two_1039f3a8(int param_1)
     *(uint8_t *)(param_1 + 0x35) = 1;
   }
   iVar1 = **(int **)(param_1 + 0x30);
-  (**(code **)(iVar1 + 0x14))
-            ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar1 + 0x10),0x1170003,0);
+  (((vtbl_entry*)(iVar1))[2].fn)
+            ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[2].adj,0x1170003,0);
   return;
 }

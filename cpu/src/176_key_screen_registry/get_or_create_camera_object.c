@@ -13,7 +13,7 @@ uint32_t get_or_create_camera_object(void)
 {
   if (_DAT_8004886c/*SDRAM*/ == 0) {
     _DAT_8004886c/*SDRAM*/ = 1;
-    cls_105ab7d8_new((void *)0x80048858/*SDRAM*/);
+    cls_105ab7d8_new((cls_105ab7d8 *)0x80048858/*SDRAM*/);
     prepend_to_singly_linked_list((void *)0x80010054/*SDRAM*/);
   }
   return 0x80048858/*SDRAM*/;

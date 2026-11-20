@@ -12,9 +12,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_three_args_104af7ce(int *param_1)
+void call_helper_with_three_args_104af7ce(cls_105b7838 *param_1)
 
 {
-  dispatch_by_type_field_104af7e6(param_1,3,0);
+  dispatch_by_type_field_104af7e6((void *)param_1,3,0);
   return;
 }

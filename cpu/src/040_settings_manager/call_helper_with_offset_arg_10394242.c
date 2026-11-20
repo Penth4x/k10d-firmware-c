@@ -13,9 +13,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_offset_arg_10394242(int param_1)
+void call_helper_with_offset_arg_10394242(cls_10562b1c *param_1)
 
 {
-  create_seven_channel_handles((void *)(param_1 + 4),__frv_reg_unset(5),(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  uint32_t r5_in;
+  void *r6_in;
+  void *r7_in;
+  
+  create_seven_channel_handles((cls_10563750 *)&param_1->field_0x4,r5_in,r6_in,r7_in);
   return;
 }

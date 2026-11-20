@@ -15,20 +15,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_virtual_slot_with_guard(int param_1)
+uint32_t dispatch_virtual_slot_with_guard(cls_105b6554 *param_1)
 
 {
   int iVar1;
   uint32_t uVar2;
   
-  (**(code **)(*(int *)(param_1 + 4) + 0x3c))(*(short *)(*(int *)(param_1 + 4) + 0x38) + param_1);
+  (((vtbl_entry*)(param_1->field_0x4))[7].fn)
+            ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x4))[7].adj);
   iVar1 = (*(code *)0x104a29d0/*ROM*/)(param_1);
   if (iVar1 == 0) {
     uVar2 = 0;
   }
   else {
-    uVar2 = (**(code **)(*(int *)(param_1 + 4) + 0x44))
-                      (*(short *)(*(int *)(param_1 + 4) + 0x40) + param_1);
+    uVar2 = (((vtbl_entry*)(param_1->field_0x4))[8].fn)
+                      ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x4))[8].adj);
   }
   return uVar2;
 }

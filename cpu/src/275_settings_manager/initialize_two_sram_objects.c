@@ -16,7 +16,7 @@
 void initialize_two_sram_objects(void)
 
 {
-  cls_105a2af8_new((void *)0x8005a15c/*SDRAM*/);
+  cls_105a2af8_new((cls_105a2af8 *)0x8005a15c/*SDRAM*/);
   prepend_to_singly_linked_list((void *)0x800133a8/*SDRAM*/);
   return;
 }

@@ -11,17 +11,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-int cls_105b7dfc_new(void *param_1,char param_2,uint32_t param_3,int param_4,int param_5,
+int cls_105b7dfc_new(cls_105b7dfc *param_1,char param_2,uint32_t param_3,int param_4,int param_5,
                     uint32_t param_6,int param_7,int param_8)
 
 {
   uint uVar1;
   
-  if ((param_1 != (void *)0x0) || (param_1 = (void *)heap_alloc((void *)0xc), param_1 != (int *)0x0)) {
-    cls_105b7e2c_new(param_1,*(char *)(param_7 + 0x10) + '\t' + *(char *)(param_8 + 0x10),2);
-    *(int *)((int)param_1 + 8) = 0x105b7dfc/*ROM*/;
+  if ((param_1 != (cls_105b7dfc *)0x0) ||
+     (param_1 = (cls_105b7dfc *)heap_alloc((void *)0xc), param_1 != (cls_105b7dfc *)0x0)) {
+    cls_105b7e2c_new((cls_105b7e2c *)param_1,
+                     (uint)(byte)(*(char *)(param_7 + 0x10) + '\t' + *(char *)(param_8 + 0x10)),2);
+    param_1->field_0x8 = 0x105b7dfc/*ROM*/;
     set_byte_in_buffer_if_in_range(param_1,9,0);
-    insert_element_at_index(param_1,*(uint8_t *)((int)param_1 + 4),2,1);
+    insert_element_at_index(param_1,param_1->field_0x4,2,1);
     if (param_4 != 0) {
       set_byte_in_buffer_if_in_range(param_1,7,1);
     }
@@ -37,8 +39,8 @@ int cls_105b7dfc_new(void *param_1,char param_2,uint32_t param_3,int param_4,int
     }
     set_byte_in_buffer_if_in_range(param_1,uVar1,7);
     set_byte_in_buffer_if_in_range(param_1,(int)(*(ushort *)(param_5 * 2 + 0x105f9c06/*ROM*/) + 2) >> 1 & 0xff,8);
-    uVar1 = iterate_and_dispatch_byte_records(param_1,param_7,9);
-    iterate_and_dispatch_byte_records(param_1,param_8,uVar1);
+    uVar1 = iterate_and_dispatch_byte_records((int *)param_1,param_7,9);
+    iterate_and_dispatch_byte_records((int *)param_1,param_8,uVar1);
   }
   return (int)param_1;
 }

@@ -21,15 +21,15 @@ uint32_t get_setting_or_compute_value(int param_1,int param_2)
   uint uVar1;
   uint32_t uVar2;
   uintptr_t sp;
-  uint32_t auStack_24 [7];
+  cls_105a6d8c acStack_24 [7];
   
   uVar2 = 0;
   if (param_2 == 0) {
-    cls_105a6d8c_new(auStack_24);
-    copy_status_block_bytes(*(int *)(param_1 + 8),auStack_24);
-    uVar1 = extract_field_from_struct_1045ff0e((int)auStack_24,7);
+    cls_105a6d8c_new(acStack_24);
+    copy_status_block_bytes(*(int *)(param_1 + 8),acStack_24);
+    uVar1 = extract_field_from_struct_1045ff0e(acStack_24,7);
     uVar2 = map_mode_code_to_index_1045b3e8(*(uint32_t *)(param_1 + 0x44),uVar1 & 0xff,2);
-    cls_105a6d8c_delete(auStack_24,2);
+    cls_105a6d8c_delete(acStack_24,2);
   }
   else {
     uVar1 = check_object_property_43(param_1);

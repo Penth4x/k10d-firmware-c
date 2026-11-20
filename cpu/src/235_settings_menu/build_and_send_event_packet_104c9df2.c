@@ -34,13 +34,13 @@ int build_and_send_event_packet_104c9df2(int param_1,int param_2,uint32_t *param
   iVar8 = *(int *)(param_2 + 0x1c);
   uStack_c = 0;
   uVar6 = *(uint32_t *)(param_1 + 0x4c);
-  *puVar9 = (uint32_t)(uintptr_t)auStack_14;
+  *puVar9 = (uintptr_t)(auStack_14);
   puVar9[1] = iVar8;
   puVar9[2] = param_4;
   *(uint16_t *)((int)puVar9 + 0xe) = param_5;
   puVar9[4] = param_6;
   puVar9[5] = param_7;
-  puVar9[6] = (uint32_t)(uintptr_t)&uStack_c;
+  puVar9[6] = (uintptr_t)(&uStack_c);
   iVar7 = build_and_send_event_packet_104c2d7c(uVar6,uVar1,uVar2,uVar3,(uint32_t *)*puVar9,puVar9[1],puVar9[2],
                        *(uint16_t *)((int)puVar9 + 0xe),puVar9[4],puVar9[5],
                        (uint32_t *)puVar9[6]);

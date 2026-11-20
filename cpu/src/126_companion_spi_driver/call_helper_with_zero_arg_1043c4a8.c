@@ -12,7 +12,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_helper_with_zero_arg_1043c4a8(void *param_1)
+/* WARNING: Struct "cls_105a05a0": ignoring multiple overlapping fields */
+
+uint32_t call_helper_with_zero_arg_1043c4a8(cls_105a05a0 *param_1)
 
 {
   set_two_byte_state_flag(param_1,0);

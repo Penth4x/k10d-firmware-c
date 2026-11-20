@@ -18,7 +18,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * init_vlens_ctrl_params(uint32_t *param_1)
+cls_10621c8c * init_vlens_ctrl_params(cls_10621c8c *param_1)
 
 {
   uintptr_t sp;
@@ -28,14 +28,14 @@ uint32_t * init_vlens_ctrl_params(uint32_t *param_1)
   puVar1 = auStack_14;
   set_two_fields_to_four((int)param_1);
   enable_display_output(param_1);
-  lens_fw_update_slot3((int)param_1);
+  lens_fw_update_slot3((uint32_t)(param_1));
   *(uint16_t *)(puVar1 + 2) = 7;
   *(uint16_t *)(puVar1 + 6) = 0xff;
   puVar1[0xb] = 0;
   build_and_dispatch_draw_params((int)param_1,3,7,s_VLENS_CTRL_10621cb4,*(uint16_t *)(puVar1 + 2),
                *(uint16_t *)(puVar1 + 6),puVar1[0xb]);
-  forward_event_to_subobject(*param_1,1);
-  reset_subobject_at_offset_0x2c_104706a0(*param_1);
-  set_flag_based_on_param_10470714(*param_1,1);
+  forward_event_to_subobject(param_1->field_0x0,1);
+  reset_subobject_at_offset_0x2c_104706a0(param_1->field_0x0);
+  set_flag_based_on_param_10470714(param_1->field_0x0,1);
   return param_1;
 }

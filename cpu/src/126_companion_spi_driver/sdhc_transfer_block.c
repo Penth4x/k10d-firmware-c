@@ -27,25 +27,25 @@ uint32_t sdhc_transfer_block(void *param_1,uint param_2)
       uVar2 = *(uint *)((int)param_1 + 0xfc);
     }
     iVar4 = *(int *)(*(int *)((int)param_1 + 0x11c) + 4);
-    (**(code **)(iVar4 + 0x34))
-              (*(int *)((int)param_1 + 0x11c) + (int)*(short *)(iVar4 + 0x30),iVar1,uVar2,1);
+    (((vtbl_entry*)(iVar4))[6].fn)
+              (*(int *)((int)param_1 + 0x11c) + (int)((vtbl_entry*)(iVar4))[6].adj,iVar1,uVar2,1);
     iVar1 = *(int *)(*(int *)((int)param_1 + 0x11c) + 4);
-    for (iVar1 = (**(code **)(iVar1 + 0x4c))
-                           (*(int *)((int)param_1 + 0x11c) + (int)*(short *)(iVar1 + 0x48));
+    for (iVar1 = (((vtbl_entry*)(iVar1))[9].fn)
+                           (*(int *)((int)param_1 + 0x11c) + (int)((vtbl_entry*)(iVar1))[9].adj);
         iVar1 != 0;
-        iVar1 = (**(code **)(*(int *)(iVar1 + 4) + 0x4c))
-                          (iVar1 + *(short *)(*(int *)(iVar1 + 4) + 0x48))) {
+        iVar1 = (((vtbl_entry*)(*(int *)(iVar1 + 4)))[9].fn)
+                          (iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 4)))[9].adj)) {
       iVar1 = *(int *)((int)param_1 + 0x11c);
       if (*(char *)((int)param_1 + 0xdc) != '\0') {
-        iVar3 = (**(code **)(*(int *)(iVar1 + 4) + 0x44))
-                          (iVar1 + *(short *)(*(int *)(iVar1 + 4) + 0x40));
+        iVar3 = (((vtbl_entry*)(*(int *)(iVar1 + 4)))[8].fn)
+                          (iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 4)))[8].adj);
         break;
       }
     }
     if (iVar3 == 0) {
       iVar1 = *(int *)(*(int *)((int)param_1 + 0x11c) + 4);
-      uStack_c = (**(code **)(iVar1 + 0x3c))
-                           (*(int *)((int)param_1 + 0x11c) + (int)*(short *)(iVar1 + 0x38));
+      uStack_c = (((vtbl_entry*)(iVar1))[7].fn)
+                           (*(int *)((int)param_1 + 0x11c) + (int)((vtbl_entry*)(iVar1))[7].adj);
     }
     if (bVar5) {
       iVar1 = *(int *)((int)param_1 + 0xfc);

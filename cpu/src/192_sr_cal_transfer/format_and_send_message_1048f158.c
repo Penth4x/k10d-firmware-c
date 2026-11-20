@@ -85,6 +85,6 @@ void format_and_send_message_1048f158(uint16_t *param_1,uint32_t param_2,uint32_
     *(uint32_t *)((int)&uStack_28 + iVar3) = *(uint32_t *)((int)apcStack_44 + iVar3);
     iVar3 = iVar4;
   } while (iVar4 != 0);
-  process_event_queue_entry_103fe55a((void *)uVar2,auStack_24);
+  process_event_queue_entry_103fe55a((uint32_t *)(uVar2),(uint32_t *)(auStack_24));
   return;
 }

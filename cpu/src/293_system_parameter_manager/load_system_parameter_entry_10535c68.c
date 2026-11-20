@@ -16,21 +16,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t load_system_parameter_entry_10535c68(int *param_1)
+uint32_t load_system_parameter_entry_10535c68(cls_1062190c *param_1)
 
 {
   int iVar1;
   uint uVar2;
   uint32_t uVar3;
   
-  release_object_members(param_1);
+  release_object_members((int *)param_1);
   iVar1 = validate_sequence_counter(param_1);
   uVar3 = 9;
   if (iVar1 == 0) {
     uVar3 = 9;
   }
   else {
-    uVar2 = get_object_field_at_offset_0x14(*param_1);
+    uVar2 = get_object_field_at_offset_0x14(param_1->field_0x0);
     if (uVar2 == 0xffffffff) {
       initialize_linked_struct_fields(param_1,0x2009);
       uVar3 = 9;

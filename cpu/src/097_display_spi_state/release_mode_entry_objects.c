@@ -78,33 +78,33 @@ uint32_t release_mode_entry_objects(int param_1,int param_2,int param_3)
     call_kernel_with_short_id((uint32_t *)(param_1 + 0x1558));
     if (param_2 < 0) {
       if ((*(int *)(param_1 + 0x84) != 0) &&
-         (iVar9 = func_0x1041a6a2(param_1,*(uint32_t *)(param_1 + 0x84)), iVar9 != -1)) {
+         (iVar9 = find_index_in_struct_array(param_1,*(uint32_t *)(param_1 + 0x84)), iVar9 != -1)) {
         iVar6 = *(int *)(param_1 + 0x84);
         pvVar2 = *(void **)(iVar6 + 0x34);
         pvVar3 = *(void **)(iVar6 + 0x3c);
         pvVar4 = *(void **)(iVar6 + 0x38);
-        (**(code **)(*(int *)(iVar6 + 0x8d4) + 0x14))
-                  (*(short *)(*(int *)(iVar6 + 0x8d4) + 0x10) + iVar6,0);
-        (**(code **)(*(int *)(iVar6 + 0x8d4) + 0x24))
-                  (*(short *)(*(int *)(iVar6 + 0x8d4) + 0x20) + iVar6,0);
-        (**(code **)(*(int *)(iVar6 + 0x8d4) + 0x1c))
-                  (*(short *)(*(int *)(iVar6 + 0x8d4) + 0x18) + iVar6,0);
-        (**(code **)(*(int *)(iVar6 + 0x8d4) + 0x34))
-                  (*(short *)(*(int *)(iVar6 + 0x8d4) + 0x30) + iVar6,0);
-        (**(code **)(*(int *)(iVar6 + 0x8d4) + 0x54))
-                  (*(short *)(*(int *)(iVar6 + 0x8d4) + 0x50) + iVar6,0);
-        (**(code **)(*(int *)(iVar6 + 0x8d4) + 0x5c))
-                  (*(short *)(*(int *)(iVar6 + 0x8d4) + 0x58) + iVar6,0);
+        (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[2].fn)
+                  (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[2].adj + iVar6,0);
+        (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[4].fn)
+                  (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[4].adj + iVar6,0);
+        (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[3].fn)
+                  (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[3].adj + iVar6,0);
+        (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[6].fn)
+                  (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[6].adj + iVar6,0);
+        (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[10].fn)
+                  (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[10].adj + iVar6,0);
+        (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[11].fn)
+                  (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[11].adj + iVar6,0);
         call_kernel_with_short_id((uint32_t *)(param_1 + 0x1550));
-        if (pvVar2 != (void *)0x0) {
+        if (pvVar2 != 0) {
           pvVar5 = (void *)get_system_heap();
           mempool_release_block(pvVar5,pvVar2);
         }
-        if (pvVar3 != (void *)0x0) {
+        if (pvVar3 != 0) {
           pvVar2 = (void *)get_system_heap();
           mempool_release_block(pvVar2,pvVar3);
         }
-        if (pvVar4 != (void *)0x0) {
+        if (pvVar4 != 0) {
           pvVar2 = (void *)get_system_heap();
           mempool_release_block(pvVar2,pvVar4);
         }
@@ -122,28 +122,28 @@ uint32_t release_mode_entry_objects(int param_1,int param_2,int param_3)
           pvVar4 = *(void **)(iVar6 + 0x34);
           pvVar2 = *(void **)(iVar6 + 0x3c);
           pvVar3 = *(void **)(iVar6 + 0x38);
-          (**(code **)(*(int *)(iVar6 + 0x8d4) + 0x14))
-                    (*(short *)(*(int *)(iVar6 + 0x8d4) + 0x10) + iVar6,0);
-          (**(code **)(*(int *)(iVar6 + 0x8d4) + 0x24))
-                    (*(short *)(*(int *)(iVar6 + 0x8d4) + 0x20) + iVar6,0);
-          (**(code **)(*(int *)(iVar6 + 0x8d4) + 0x1c))
-                    (*(short *)(*(int *)(iVar6 + 0x8d4) + 0x18) + iVar6,0);
-          (**(code **)(*(int *)(iVar6 + 0x8d4) + 0x34))
-                    (*(short *)(*(int *)(iVar6 + 0x8d4) + 0x30) + iVar6,0);
-          (**(code **)(*(int *)(iVar6 + 0x8d4) + 0x54))
-                    (*(short *)(*(int *)(iVar6 + 0x8d4) + 0x50) + iVar6,0);
-          (**(code **)(*(int *)(iVar6 + 0x8d4) + 0x5c))
-                    (*(short *)(*(int *)(iVar6 + 0x8d4) + 0x58) + iVar6,0);
+          (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[2].fn)
+                    (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[2].adj + iVar6,0);
+          (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[4].fn)
+                    (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[4].adj + iVar6,0);
+          (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[3].fn)
+                    (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[3].adj + iVar6,0);
+          (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[6].fn)
+                    (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[6].adj + iVar6,0);
+          (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[10].fn)
+                    (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[10].adj + iVar6,0);
+          (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[11].fn)
+                    (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[11].adj + iVar6,0);
           call_kernel_with_short_id((uint32_t *)(param_1 + 0x1550));
-          if (pvVar4 != (void *)0x0) {
+          if (pvVar4 != 0) {
             pvVar5 = (void *)get_system_heap();
             mempool_release_block(pvVar5,pvVar4);
           }
-          if (pvVar2 != (void *)0x0) {
+          if (pvVar2 != 0) {
             pvVar4 = (void *)get_system_heap();
             mempool_release_block(pvVar4,pvVar2);
           }
-          if (pvVar3 != (void *)0x0) {
+          if (pvVar3 != 0) {
             pvVar2 = (void *)get_system_heap();
             mempool_release_block(pvVar2,pvVar3);
           }
@@ -162,29 +162,29 @@ uint32_t release_mode_entry_objects(int param_1,int param_2,int param_3)
       pvVar2 = *(void **)(iVar9 + 0x34);
       pvVar3 = *(void **)(iVar9 + 0x3c);
       pvVar4 = *(void **)(iVar9 + 0x38);
-      (**(code **)(*(int *)(iVar9 + 0x8d4) + 0x14))
-                (*(short *)(*(int *)(iVar9 + 0x8d4) + 0x10) + iVar9,0);
-      (**(code **)(*(int *)(iVar9 + 0x8d4) + 0x24))
-                (*(short *)(*(int *)(iVar9 + 0x8d4) + 0x20) + iVar9,0);
-      (**(code **)(*(int *)(iVar9 + 0x8d4) + 0x1c))
-                (*(short *)(*(int *)(iVar9 + 0x8d4) + 0x18) + iVar9,0);
-      (**(code **)(*(int *)(iVar9 + 0x8d4) + 0x34))
-                (*(short *)(*(int *)(iVar9 + 0x8d4) + 0x30) + iVar9,0);
-      (**(code **)(*(int *)(iVar9 + 0x8d4) + 0x54))
-                (*(short *)(*(int *)(iVar9 + 0x8d4) + 0x50) + iVar9,0);
-      (**(code **)(*(int *)(iVar9 + 0x8d4) + 0x5c))
-                (*(short *)(*(int *)(iVar9 + 0x8d4) + 0x58) + iVar9,0);
+      (((vtbl_entry*)(*(int *)(iVar9 + 0x8d4)))[2].fn)
+                (((vtbl_entry*)(*(int *)(iVar9 + 0x8d4)))[2].adj + iVar9,0);
+      (((vtbl_entry*)(*(int *)(iVar9 + 0x8d4)))[4].fn)
+                (((vtbl_entry*)(*(int *)(iVar9 + 0x8d4)))[4].adj + iVar9,0);
+      (((vtbl_entry*)(*(int *)(iVar9 + 0x8d4)))[3].fn)
+                (((vtbl_entry*)(*(int *)(iVar9 + 0x8d4)))[3].adj + iVar9,0);
+      (((vtbl_entry*)(*(int *)(iVar9 + 0x8d4)))[6].fn)
+                (((vtbl_entry*)(*(int *)(iVar9 + 0x8d4)))[6].adj + iVar9,0);
+      (((vtbl_entry*)(*(int *)(iVar9 + 0x8d4)))[10].fn)
+                (((vtbl_entry*)(*(int *)(iVar9 + 0x8d4)))[10].adj + iVar9,0);
+      (((vtbl_entry*)(*(int *)(iVar9 + 0x8d4)))[11].fn)
+                (((vtbl_entry*)(*(int *)(iVar9 + 0x8d4)))[11].adj + iVar9,0);
       puVar8 = (uint32_t *)(param_1 + 0x1550);
       call_kernel_with_short_id(puVar8);
-      if (pvVar2 != (void *)0x0) {
+      if (pvVar2 != 0) {
         pvVar5 = (void *)get_system_heap();
         mempool_release_block(pvVar5,pvVar2);
       }
-      if (pvVar3 != (void *)0x0) {
+      if (pvVar3 != 0) {
         pvVar2 = (void *)get_system_heap();
         mempool_release_block(pvVar2,pvVar3);
       }
-      if (pvVar4 != (void *)0x0) {
+      if (pvVar4 != 0) {
         pvVar2 = (void *)get_system_heap();
         mempool_release_block(pvVar2,pvVar4);
       }
@@ -192,33 +192,33 @@ uint32_t release_mode_entry_objects(int param_1,int param_2,int param_3)
       *(uint32_t *)(iVar9 + 0x1c) = 1;
       *(uint8_t *)(param_2 * 8 + param_1 + 0x1588 + 5) = 0;
       if ((*(int *)(param_1 + 0x84) != 0) &&
-         (iVar9 = func_0x1041a6a2(param_1,*(uint32_t *)(param_1 + 0x84)), iVar9 != -1)) {
+         (iVar9 = find_index_in_struct_array(param_1,*(uint32_t *)(param_1 + 0x84)), iVar9 != -1)) {
         iVar6 = *(int *)(param_1 + 0x84);
         pvVar2 = *(void **)(iVar6 + 0x34);
         pvVar3 = *(void **)(iVar6 + 0x3c);
         pvVar4 = *(void **)(iVar6 + 0x38);
-        (**(code **)(*(int *)(iVar6 + 0x8d4) + 0x14))
-                  (*(short *)(*(int *)(iVar6 + 0x8d4) + 0x10) + iVar6,0);
-        (**(code **)(*(int *)(iVar6 + 0x8d4) + 0x24))
-                  (*(short *)(*(int *)(iVar6 + 0x8d4) + 0x20) + iVar6,0);
-        (**(code **)(*(int *)(iVar6 + 0x8d4) + 0x1c))
-                  (*(short *)(*(int *)(iVar6 + 0x8d4) + 0x18) + iVar6,0);
-        (**(code **)(*(int *)(iVar6 + 0x8d4) + 0x34))
-                  (*(short *)(*(int *)(iVar6 + 0x8d4) + 0x30) + iVar6,0);
-        (**(code **)(*(int *)(iVar6 + 0x8d4) + 0x54))
-                  (*(short *)(*(int *)(iVar6 + 0x8d4) + 0x50) + iVar6,0);
-        (**(code **)(*(int *)(iVar6 + 0x8d4) + 0x5c))
-                  (*(short *)(*(int *)(iVar6 + 0x8d4) + 0x58) + iVar6,0);
+        (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[2].fn)
+                  (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[2].adj + iVar6,0);
+        (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[4].fn)
+                  (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[4].adj + iVar6,0);
+        (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[3].fn)
+                  (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[3].adj + iVar6,0);
+        (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[6].fn)
+                  (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[6].adj + iVar6,0);
+        (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[10].fn)
+                  (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[10].adj + iVar6,0);
+        (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[11].fn)
+                  (((vtbl_entry*)(*(int *)(iVar6 + 0x8d4)))[11].adj + iVar6,0);
         call_kernel_with_short_id(puVar8);
-        if (pvVar2 != (void *)0x0) {
+        if (pvVar2 != 0) {
           pvVar5 = (void *)get_system_heap();
           mempool_release_block(pvVar5,pvVar2);
         }
-        if (pvVar3 != (void *)0x0) {
+        if (pvVar3 != 0) {
           pvVar2 = (void *)get_system_heap();
           mempool_release_block(pvVar2,pvVar3);
         }
-        if (pvVar4 != (void *)0x0) {
+        if (pvVar4 != 0) {
           pvVar2 = (void *)get_system_heap();
           mempool_release_block(pvVar2,pvVar4);
         }

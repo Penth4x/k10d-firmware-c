@@ -13,6 +13,6 @@ void store_value_and_dispatch_callback(int param_1,uint32_t param_2)
   
   *(uint32_t *)(param_1 + 0xb0) = param_2;
   uVar1 = (*(code *)0x1036ff30/*ROM*/)();
-  set_setting_0x70((void *)0x800158d4/*SDRAM*/,uVar1);
+  set_setting_0x70((int *)(0x800158d4/*SDRAM*/),(uint32_t)(uVar1));
   return;
 }

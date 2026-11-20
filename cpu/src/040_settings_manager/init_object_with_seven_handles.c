@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_with_seven_handles(void *param_1,uint32_t param_2,void *param_3,void *param_4)
+void init_object_with_seven_handles(cls_10563d1c *param_1,uint32_t param_2,void *param_3,void *param_4)
 
 {
   void *pvVar1;
@@ -44,7 +44,7 @@ void init_object_with_seven_handles(void *param_1,uint32_t param_2,void *param_3
   piVar5[2] = 0x14;
   iVar2 = allocate_and_init_object_1039c94c((int)param_1,(int)pvVar1,(void *)0x5010003,3,*piVar5,piVar5[1],
                        *(short *)((int)piVar5 + 10));
-  *(int *)((int)param_1 + 0x28) = iVar2;
+  param_1->field_0x28 = iVar2;
   *piVar5 = 0x501000d;
   piVar5[1] = 3;
   piVar5[2] = 10;
@@ -56,7 +56,7 @@ void init_object_with_seven_handles(void *param_1,uint32_t param_2,void *param_3
   piVar5[2] = 0x14;
   iVar2 = allocate_and_init_object_1039c94c((int)param_1,(int)pvVar1,(void *)0x5010004,3,*piVar5,piVar5[1],
                        *(short *)((int)piVar5 + 10));
-  *(int *)((int)param_1 + 0x2c) = iVar2;
+  *(int *)&param_1->field_0x2c = iVar2;
   *piVar5 = 0x501000d;
   piVar5[1] = 3;
   piVar5[2] = 0xc;
@@ -68,32 +68,32 @@ void init_object_with_seven_handles(void *param_1,uint32_t param_2,void *param_3
   piVar5[2] = 0x14;
   iVar2 = allocate_and_init_object_1039c94c((int)param_1,(int)pvVar1,(void *)0x5010005,3,*piVar5,piVar5[1],
                        *(short *)((int)piVar5 + 10));
-  *(int *)((int)param_1 + 0x30) = iVar2;
+  param_1->field_0x30 = iVar2;
   *piVar5 = 0x501000c;
   piVar5[1] = 3;
   piVar5[2] = 0xe;
   piVar5[3] = 3;
   compute_three_grid_offsets((int)param_1,iVar2,(void *)0x501000a,(void *)0x501000b,(void *)*piVar5,
                *(short *)((int)piVar5 + 6),*(short *)((int)piVar5 + 10),piVar5[3]);
-  iVar2 = *(int *)((int)param_1 + 0x28);
-  iVar3 = *(int *)((int)param_1 + 0x30);
-  iVar4 = *(int *)((int)param_1 + 0x2c);
+  iVar2 = param_1->field_0x28;
+  iVar3 = param_1->field_0x30;
+  iVar4 = *(int *)&param_1->field_0x2c;
   *piVar5 = 0;
   piVar5[1] = 0;
   piVar5[2] = 0;
   piVar5[3] = 0;
   dispatch_six_optional_items(param_1,iVar2,iVar3,iVar4,*piVar5,piVar5[1],piVar5[2],piVar5[3]);
-  iVar2 = *(int *)((int)param_1 + 0x2c);
-  iVar3 = *(int *)((int)param_1 + 0x28);
-  iVar4 = *(int *)((int)param_1 + 0x30);
+  iVar2 = *(int *)&param_1->field_0x2c;
+  iVar3 = param_1->field_0x28;
+  iVar4 = param_1->field_0x30;
   *piVar5 = 0;
   piVar5[1] = 0;
   piVar5[2] = 0;
   piVar5[3] = 0;
   dispatch_six_optional_items(param_1,iVar2,iVar3,iVar4,*piVar5,piVar5[1],piVar5[2],piVar5[3]);
-  iVar2 = *(int *)((int)param_1 + 0x30);
-  iVar3 = *(int *)((int)param_1 + 0x2c);
-  iVar4 = *(int *)((int)param_1 + 0x28);
+  iVar2 = param_1->field_0x30;
+  iVar3 = *(int *)&param_1->field_0x2c;
+  iVar4 = param_1->field_0x28;
   *piVar5 = 0;
   piVar5[1] = 0;
   piVar5[2] = 0;
@@ -101,14 +101,14 @@ void init_object_with_seven_handles(void *param_1,uint32_t param_2,void *param_3
   dispatch_six_optional_items(param_1,iVar2,iVar3,iVar4,*piVar5,piVar5[1],piVar5[2],piVar5[3]);
   *piVar5 = 0x11;
   iVar2 = allocate_and_init_2d_buffer_1039c664((int)param_1,(int)pvVar1,(void *)0x5010006,0x12,*piVar5);
-  *(int *)((int)param_1 + 0x34) = iVar2;
+  *(int *)&param_1->field_0x34 = iVar2;
   *piVar5 = 0x11;
   *(uint8_t *)((int)piVar5 + 7) = 1;
   piVar5[2] = 0;
   piVar5[3] = 0;
   iVar2 = allocate_and_init_object_entry((int)param_1,(int)pvVar1,(void *)0x5010007,0x15,*piVar5,
                        *(uint8_t *)((int)piVar5 + 7),piVar5[2],*(short *)((int)piVar5 + 0xe));
-  *(int *)((int)param_1 + 0x38) = iVar2;
+  *(int *)&param_1->field_0x38 = iVar2;
   set_object_field_at_offset_0x10(param_1,pvVar1);
   return;
 }

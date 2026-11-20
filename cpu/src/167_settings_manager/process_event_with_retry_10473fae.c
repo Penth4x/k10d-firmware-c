@@ -36,7 +36,7 @@ uint32_t process_event_with_retry_10473fae(int param_1,int param_2)
   uint32_t uStack_40;
   uint32_t uStack_3c;
   uint8_t uStack_38;
-  uint8_t auStack_28 [32];
+  cls_105ab468 cStack_28;
   
   puVar8 = (uint32_t *)auStack_64;
   piVar1 = (int *)call_subroutine_with_offset_c_104766ae(*(int *)(param_1 + 8));
@@ -45,26 +45,26 @@ uint32_t process_event_with_retry_10473fae(int param_1,int param_2)
   }
   else {
     uVar6 = 0;
-    iVar2 = (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1);
+    iVar2 = (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1);
     if (iVar2 == 0) {
       format_integer_as_four_digits_10477702(*(void **)(param_1 + 0x14),param_2);
       copy_string_to_offset_10477b94(*(void **)(param_1 + 0x14));
       write_field_at_offset_0x1a(*(uint32_t *)(param_1 + 0x14));
       uStack_40 = 0;
       uStack_3c = 0;
-      cls_105ab468_new(auStack_28);
+      cls_105ab468_new(&cStack_28);
       uStack_38 = 0;
       iVar2 = *(int *)(param_1 + 4);
       pvVar3 = (void *)(*(code *)0x104779aa/*ROM*/)(*(uint32_t *)(param_1 + 0x10));
       uVar4 = (*(code *)0x10477aaa/*ROM*/)(*(uint32_t *)(param_1 + 0x14));
       *puVar8 = (uint32_t)(&uStack_40);
-      iVar2 = call_inner_with_lock_pair(iVar2,pvVar3,(void *)uVar4,0,*puVar8);
+      iVar2 = call_inner_with_lock_pair(iVar2,pvVar3,(void*)(uVar4),0,*puVar8);
       if (iVar2 != 0) {
         iVar2 = 1;
         do {
-          iVar5 = validate_iso_code_string(*(uint32_t *)(param_1 + 0xc),auStack_28,(ushort *)0x0);
+          iVar5 = validate_iso_code_string(*(uint32_t *)(param_1 + 0xc),&cStack_28,(ushort *)0x0);
           if (iVar5 != 0) {
-            copy_12_bytes_if_length_12(*(uint32_t *)(param_1 + 0x10),auStack_28);
+            copy_12_bytes_if_length_12(*(uint32_t *)(param_1 + 0x10),(void*)(&cStack_28));
             pvVar7 = *(void **)(param_1 + 4);
             pvVar3 = (void *)(*(code *)0x10477a62/*ROM*/)(*(uint32_t *)(param_1 + 0x10));
             iVar2 = call_with_offset_lock_10480e32(pvVar7,pvVar3);
@@ -87,7 +87,7 @@ uint32_t process_event_with_retry_10473fae(int param_1,int param_2)
         }
       }
       call_three_helpers_on_param(*(int *)(param_1 + 4),&uStack_40);
-      cls_105ab468_delete(auStack_28,2);
+      cls_105ab468_delete(&cStack_28,2);
     }
   }
   return uVar6;

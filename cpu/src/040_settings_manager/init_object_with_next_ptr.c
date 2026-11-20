@@ -15,13 +15,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void * init_object_with_next_ptr(void *param_1)
+cls_10562a24 * init_object_with_next_ptr(cls_10562a24 *param_1)
 
 {
-  *(int *)((int)param_1 + 4) = (int)param_1 + 8;
-  *(uint8_t *)((int)param_1 + 0x7c) = 0;
-  if (*(char *)((int)param_1 + 0x72) != '\0') {
-    forward_param_to_helper_10394ad8(param_1,*(uint32_t *)((int)param_1 + 0x80));
+  param_1->field_0x4 = (uint32_t)&param_1->field_0x8;
+  *(uint8_t *)&param_1->field_0x7c = 0;
+  if (param_1->field_0x72 != '\0') {
+    forward_param_to_helper_10394ad8(param_1,param_1->field_0x80);
   }
   call_two_helpers_on_struct_10393db0((int)param_1);
   return param_1;

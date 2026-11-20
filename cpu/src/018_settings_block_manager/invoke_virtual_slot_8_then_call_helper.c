@@ -15,10 +15,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-int * invoke_virtual_slot_8_then_call_helper(int *param_1)
+cls_10557c18 * invoke_virtual_slot_8_then_call_helper(cls_10557c18 *param_1)
 
 {
-  (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1);
+  (((vtbl_entry*)(param_1->field_0x0))[8].fn)
+            ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[8].adj);
   init_object_with_two_calls(param_1);
   return param_1;
 }

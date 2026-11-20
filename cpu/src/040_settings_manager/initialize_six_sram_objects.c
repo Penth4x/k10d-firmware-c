@@ -17,15 +17,15 @@
 void initialize_six_sram_objects(void)
 
 {
-  cls_105b9458_new((void*)0x80019c58/*SDRAM*/);
-  prepend_to_singly_linked_list((void*)0x800045bc/*SDRAM*/);
-  cls_105b9458_new((void*)0x80019e6c/*SDRAM*/);
-  prepend_to_singly_linked_list((void*)0x800045cc/*SDRAM*/);
-  cls_105b9458_new((void*)0x8001a080/*SDRAM*/);
-  prepend_to_singly_linked_list((void*)0x800045dc/*SDRAM*/);
-  cls_105b9458_new((void*)0x8001a294/*SDRAM*/);
-  prepend_to_singly_linked_list((void*)0x800045ec/*SDRAM*/);
-  alloc_and_zero_two_words_1045c3bc((void*)0x8001a4a8/*SDRAM*/);
-  prepend_to_singly_linked_list((void*)0x800045fc/*SDRAM*/);
+  cls_105b9458_new((cls_105b9458 *)0x80019c58/*SDRAM*/);
+  prepend_to_singly_linked_list((uint32_t *)(0x800045bc/*SDRAM*/));
+  cls_105b9458_new((cls_105b9458 *)0x80019e6c/*SDRAM*/);
+  prepend_to_singly_linked_list((uint32_t *)(0x800045cc/*SDRAM*/));
+  cls_105b9458_new((cls_105b9458 *)0x8001a080/*SDRAM*/);
+  prepend_to_singly_linked_list((uint32_t *)(0x800045dc/*SDRAM*/));
+  cls_105b9458_new((cls_105b9458 *)0x8001a294/*SDRAM*/);
+  prepend_to_singly_linked_list((uint32_t *)(0x800045ec/*SDRAM*/));
+  alloc_and_zero_two_words_1045c3bc((uint32_t *)(0x8001a4a8/*SDRAM*/));
+  prepend_to_singly_linked_list((uint32_t *)(0x800045fc/*SDRAM*/));
   return;
 }

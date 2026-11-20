@@ -16,11 +16,11 @@ uint32_t write_setting_pair_by_id(int param_1,int param_2,uint param_3,uint para
   int iVar5;
   uintptr_t sp;
   int iStack_34;
-  uint32_t auStack_24 [7];
+  cls_105a6d8c acStack_24 [7];
   
-  cls_105a6d8c_new(auStack_24);
-  copy_status_block_bytes(*(int *)(param_1 + 8),auStack_24);
-  iVar3 = extract_field_from_struct_1045ff0e((int)auStack_24,0x2b);
+  cls_105a6d8c_new(acStack_24);
+  copy_status_block_bytes(*(int *)(param_1 + 8),acStack_24);
+  iVar3 = extract_field_from_struct_1045ff0e(acStack_24,0x2b);
   uVar4 = 0x83;
   if (iVar3 < 1) {
     iStack_34 = 0;
@@ -29,7 +29,7 @@ uint32_t write_setting_pair_by_id(int param_1,int param_2,uint param_3,uint para
     iStack_34 = (iVar3 + -1) * 0x80;
   }
   if (param_2 == 0xff) {
-    param_2 = extract_field_from_struct_1045ff0e((int)auStack_24,0x15);
+    param_2 = extract_field_from_struct_1045ff0e(acStack_24,0x15);
   }
   iVar1 = 0;
   iVar2 = (uint)(0 < iVar3) * 0xb4;
@@ -47,6 +47,6 @@ uint32_t write_setting_pair_by_id(int param_1,int param_2,uint param_3,uint para
     iVar2 = iVar2 + 0xc;
     iVar1 = iVar1 + 1;
   } while (iVar2 < iVar5);
-  cls_105a6d8c_delete(auStack_24,2);
+  cls_105a6d8c_delete(acStack_24,2);
   return uVar4;
 }

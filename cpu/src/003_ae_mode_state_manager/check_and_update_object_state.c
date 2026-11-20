@@ -26,7 +26,7 @@ void check_and_update_object_state(void *param_1)
   
   piVar1 = *(int **)((int)param_1 + 0x70);
   if (piVar1 != (int *)0x0) {
-    cVar2 = (**(code **)(*piVar1 + 0xcc))
+    cVar2 = (((vtbl_entry*)(*piVar1))[25].fn)
                       ((int)*(short *)(*piVar1 + 200) + (int)piVar1,
                        *(uint32_t *)((int)param_1 + 0x20c));
     if (cVar2 != '\0') {

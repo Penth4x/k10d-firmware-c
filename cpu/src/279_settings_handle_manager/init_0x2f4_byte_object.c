@@ -19,7 +19,7 @@
 int init_0x2f4_byte_object(void *param_1)
 
 {
-  if ((param_1 != (void *)0x0) || (param_1 = (void *)heap_alloc((void *)0x2f4), param_1 != (void *)0x0)) {
+  if ((param_1 != 0) || (param_1 = (void *)heap_alloc((void *)0x2f4), param_1 != 0)) {
     *(uint32_t *)((int)param_1 + 0x224) = 0;
     *(uint16_t *)((int)param_1 + 0x2aa) = 0xffff;
     *(uint16_t *)((int)param_1 + 0x2ac) = 0xffff;

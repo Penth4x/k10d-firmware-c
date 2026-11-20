@@ -23,12 +23,12 @@ void check_two_flags_and_write_values(int param_1)
   uint16_t uStack_a;
   
   uVar1 = get_sysparam_store_instance();
-  iVar2 = get_sysparam_store_byte((void *)uVar1,0x1d);
+  iVar2 = get_sysparam_store_byte((uint8_t *)(uVar1),(uint32_t)(0x1d));
   if (iVar2 != 0) {
     *(uint8_t *)(param_1 + 0x1571) = 1;
   }
   uVar1 = get_sysparam_store_instance();
-  iVar2 = get_sysparam_store_byte((void *)uVar1,3);
+  iVar2 = get_sysparam_store_byte((uint8_t *)(uVar1),(uint32_t)(3));
   if (iVar2 != 0) {
     uStack_a = 0;
     get_field_from_context(*(uint32_t *)(param_1 + 0x5c),(void *)(param_1 + 0x1572));

@@ -15,51 +15,51 @@
 #include "globals.h"
 #include "funcs.h"
 
-int dispatch_mode_change_request_103dd22e(int param_1,int param_2)
+cls_10596808 * dispatch_mode_change_request_103dd22e(cls_10596808 *param_1,int param_2)
 
 {
   int iVar1;
-  uint32_t *puVar2;
+  cls_10596808 *pcVar2;
+  uint32_t *puVar3;
   
-  *(int *)(param_1 + 0x14) = param_2;
+  param_1->field_0x14 = param_2;
   if (param_2 == 0xc) {
-    iVar1 = check_init_magic_at_offset_0x14(*(int *)(param_1 + 8));
+    iVar1 = check_init_magic_at_offset_0x14(param_1->field_0x8);
     if (iVar1 == 0) {
-      iVar1 = get_or_init_screen_object();
-      return iVar1;
+      pcVar2 = (cls_10596808 *)get_or_init_screen_object();
+      return pcVar2;
     }
   }
   else if (param_2 == 0x11) {
-    setting_set(*(int *)(param_1 + 8),0xa7,(uint)*(byte *)(param_1 + 0x22));
-    setting_set(*(int *)(param_1 + 8),0xa5,(uint)*(byte *)(param_1 + 0x24));
-    first_run_set_flag_b(*(uint32_t *)(param_1 + 8),1);
-    iVar1 = check_init_magic_at_offset_14(*(int *)(param_1 + 8));
+    setting_set(param_1->field_0x8,0xa7,(uint)(byte)param_1->field_0x22);
+    setting_set(param_1->field_0x8,0xa5,(uint)(byte)param_1->field_0x24);
+    first_run_set_flag_b(param_1->field_0x8,1);
+    iVar1 = check_init_magic_at_offset_14(param_1->field_0x8);
     if (iVar1 == 0) {
-      setting_set(*(int *)(param_1 + 8),0xaa,
-                   (uint)*(byte *)(*(byte *)(param_1 + 0x24) + 0x105967be/*ROM*/));
-      puVar2 = (uint32_t *)get_or_init_sram_block_1052b6fc();
-      call_three_helpers_on_struct_1052b8d6(puVar2);
-      init_two_magic_fields_104849d8(*(uint32_t *)(param_1 + 8),1);
+      setting_set(param_1->field_0x8,0xaa,(uint)*(byte *)((byte)param_1->field_0x24 + 0x105967be/*ROM*/));
+      puVar3 = (uint32_t *)get_or_init_sram_block_1052b6fc();
+      call_three_helpers_on_struct_1052b8d6(puVar3);
+      init_two_magic_fields_104849d8(param_1->field_0x8,1);
     }
-    iVar1 = check_init_magic_at_offset_0x14(*(int *)(param_1 + 8));
+    iVar1 = check_init_magic_at_offset_0x14(param_1->field_0x8);
     if (iVar1 == 0) {
-      iVar1 = get_or_init_screen_object();
-      return iVar1;
+      pcVar2 = (cls_10596808 *)get_or_init_screen_object();
+      return pcVar2;
     }
   }
   else {
     if (param_2 == 0xd) {
-      if (*(int *)(param_1 + 0x18) != 0x195000d) {
+      if (param_1->field_0x18 != 0x195000d) {
         return param_1;
       }
-      iVar1 = get_language_select_screen();
-      first_run_set_flag_a(*(uint32_t *)(param_1 + 8),0);
-      return iVar1;
+      pcVar2 = (cls_10596808 *)get_language_select_screen();
+      first_run_set_flag_a(param_1->field_0x8,0);
+      return pcVar2;
     }
     if ((param_2 != 0) && (param_2 != 1)) {
       return param_1;
     }
   }
-  *(uint8_t *)(param_1 + 0x25) = 0x8c;
-  return 0;
+  param_1->field_0x25 = -0x74;
+  return (cls_10596808 *)0x0;
 }

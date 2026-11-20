@@ -33,6 +33,6 @@ void dispatch_object_event_103b456c(void *param_1)
   pvVar3 = (void *)menu_item_register(iVar4);
   set_struct_fields_and_flag(pvVar3,0x60,2);
   iVar4 = menu_item_register(iVar4);
-  (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
   return;
 }

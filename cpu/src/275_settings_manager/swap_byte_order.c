@@ -11,8 +11,8 @@ uint16_t swap_byte_order(uint16_t param_1)
 {
   uint16_t uStack_6;
   
-  uStack_6 = (uStack_6 & ~(0xffULL << 0)) | ((((uint64_t)((uint8_t)((ushort)param_1 >> 8))) & 0xffULL) << 0);
-  uStack_6 = (uStack_6 & ~(0xffULL << 8)) | ((((uint64_t)((uint8_t)param_1)) & 0xffULL) << 8);
+  uStack_6 = (uStack_6 & ~(((uint64_t)0xff) << 0)) | ((((uint64_t)((uint8_t)((ushort)param_1 >> 8))) & ((uint64_t)0xff)) << 0);
+  uStack_6 = (uStack_6 & ~(((uint64_t)0xff) << 8)) | ((((uint64_t)((uint8_t)param_1)) & ((uint64_t)0xff)) << 8);
   uStack_6 = CONCAT11((uint8_t)uStack_6,((uint8_t)((uint64_t)(uStack_6) >> 0)));
   return uStack_6;
 }

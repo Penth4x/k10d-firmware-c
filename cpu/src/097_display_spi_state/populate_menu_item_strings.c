@@ -210,6 +210,6 @@ void populate_menu_item_strings(int param_1)
   pvVar2 = (void *)menu_item_register(iVar4);
   glyph_draw(pvVar2,(byte *)(param_1 + 0x4ed));
   iVar4 = menu_item_register(iVar4);
-  (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
   return;
 }

@@ -26,7 +26,7 @@ uint32_t init_object_with_five_members(void *param_1)
   
   piVar1 = (int *)cls_105ab5a8_new(0,1);
   *(int **)((int)param_1 + 4) = piVar1;
-  (**(code **)(*piVar1 + 0x14))((int)piVar1 + (int)*(short *)(*piVar1 + 0x10),0);
+  (((vtbl_entry*)(*piVar1))[2].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[2].adj,0);
   if (0 < iRam105ab504) {
     cVar8 = 'C';
     iVar5 = 0;
@@ -43,39 +43,39 @@ uint32_t init_object_with_five_members(void *param_1)
         iVar6 = *(int *)((int)param_1 + 4) + 4;
       }
       cVar8 = cVar8 + '\x01';
-      (**(code **)(*(int *)(iVar3 + 8) + 0x1c))
-                (iVar3 + 8 + (int)*(short *)(*(int *)(iVar3 + 8) + 0x18),iVar6,0);
+      (((vtbl_entry*)(*(int *)(iVar3 + 8)))[3].fn)
+                (iVar3 + 8 + (int)((vtbl_entry*)(*(int *)(iVar3 + 8)))[3].adj,iVar6,0);
       piVar1 = (int *)(iVar5 + 0x105ab508/*ROM*/);
       iVar5 = iVar5 + 4;
     } while (0 < *piVar1);
   }
-  uVar4 = (uint32_t)cls_105aafd8_new(0);
+  uVar4 = (uint32_t)(cls_105aafd8_new(0));
   *(uint32_t *)((int)param_1 + 8) = uVar4;
   iVar5 = get_or_create_singleton_object_1046d20c();
   uVar7 = *(uint32_t *)(iVar5 + 4);
   pvVar2 = (void *)get_or_init_sram_buffer_104277bc();
-  uVar4 = (uint32_t)read_table_entry_field(pvVar2,0xcd);
+  uVar4 = read_table_entry_field(pvVar2,0xcd);
   alloc_and_zero_small_struct_10480920(&uStack_18);
   uStack_18 = *(uint32_t *)((int)param_1 + 4);
   iVar5 = **(int **)((int)param_1 + 8);
   uStack_14 = uVar7;
   uStack_10 = uVar4;
-  (**(code **)(iVar5 + 0x14))
-            ((int)*(int **)((int)param_1 + 8) + (int)*(short *)(iVar5 + 0x10),&uStack_18);
-  iVar5 = (int)cls_105ab47c_new(0);
+  (((vtbl_entry*)(iVar5))[2].fn)
+            ((int)*(int **)((int)param_1 + 8) + (int)((vtbl_entry*)(iVar5))[2].adj,&uStack_18);
+  iVar5 = (uint32_t)(cls_105ab47c_new(0));
   *(int *)((int)param_1 + 0xc) = iVar5;
   *(uint32_t *)(iVar5 + 8) = *(uint32_t *)((int)param_1 + 8);
   iVar5 = **(int **)((int)param_1 + 0xc);
-  (**(code **)(iVar5 + 0x14))((int)*(int **)((int)param_1 + 0xc) + (int)*(short *)(iVar5 + 0x10),0);
-  uVar4 = (uint32_t)cls_105ab560_new(0);
+  (((vtbl_entry*)(iVar5))[2].fn)((int)*(int **)((int)param_1 + 0xc) + (int)((vtbl_entry*)(iVar5))[2].adj,0);
+  uVar4 = (uint32_t)(cls_105ab560_new(0));
   *(uint32_t *)((int)param_1 + 0x10) = uVar4;
   uStack_c = *(uint32_t *)((int)param_1 + 4);
   iVar5 = **(int **)((int)param_1 + 0x10);
-  (**(code **)(iVar5 + 0x14))
-            ((int)*(int **)((int)param_1 + 0x10) + (int)*(short *)(iVar5 + 0x10),&uStack_c);
+  (((vtbl_entry*)(iVar5))[2].fn)
+            ((int)*(int **)((int)param_1 + 0x10) + (int)((vtbl_entry*)(iVar5))[2].adj,&uStack_c);
   piVar1 = (int *)cls_105ab720_new(0);
   *(int **)((int)param_1 + 0x14) = piVar1;
-  uVar4 = (**(code **)(*piVar1 + 0x14))((int)piVar1 + (int)*(short *)(*piVar1 + 0x10),0);
+  uVar4 = (((vtbl_entry*)(*piVar1))[2].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[2].adj,0);
   free_heap_block_if_flagged_10480944(&uStack_18,2);
   return uVar4;
 }

@@ -13,7 +13,7 @@ void invoke_virtual_slot_3_on_member_10466604(void *param_1)
   
   piVar1 = *(int **)((int)param_1 + 0x134);
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1);
+    (((vtbl_entry*)(*piVar1))[3].fn)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1);
   }
   return;
 }

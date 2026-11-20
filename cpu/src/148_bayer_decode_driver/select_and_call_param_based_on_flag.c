@@ -25,12 +25,12 @@ void select_and_call_param_based_on_flag(void *param_1,int param_2)
   byte *pbVar3;
   
   if (param_2 == 1) {
-    pbVar3 = (byte *)&DAT_105a83c4/*ROM*/;
+    pbVar3 = &DAT_105a83c4/*ROM*/;
     uVar2 = (uint)*(ushort *)((int)param_1 + 0x262);
     uVar1 = 4;
   }
   else {
-    pbVar3 = (byte *)&DAT_105a83dc/*ROM*/;
+    pbVar3 = &DAT_105a83dc/*ROM*/;
     uVar1 = 7;
     uVar2 = 9;
   }

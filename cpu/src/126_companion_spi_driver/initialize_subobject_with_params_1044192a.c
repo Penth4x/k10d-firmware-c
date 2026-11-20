@@ -15,10 +15,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t initialize_subobject_with_params_1044192a(void *param_1)
+/* WARNING: Struct "cls_105a0c1c": ignoring multiple overlapping fields */
+
+uint32_t initialize_subobject_with_params_1044192a(cls_105a0c74 *param_1)
 
 {
-  int iVar1;
+  void *puVar1;
   uint32_t uVar2;
   uintptr_t sp;
   uint32_t uStack_18;
@@ -31,10 +33,10 @@ uint32_t initialize_subobject_with_params_1044192a(void *param_1)
   uStack_14 = 100;
   uStack_c = 0xd;
   uStack_10 = 0xb3;
-  iVar1 = cls_105a0c1c_new((uint32_t *)0x0,&uStack_18);
-  *(int *)((int)param_1 + 4) = iVar1;
-  uVar2 = (**(code **)(*(int *)(iVar1 + 4) + 0x14))
-                    (iVar1 + *(short *)(*(int *)(iVar1 + 4) + 0x10),0);
+  puVar1 = (void *)cls_105a0c1c_new((cls_105a0c1c *)0x0,&uStack_18);
+  param_1->field_0x4 = (uint32_t)(puVar1);
+  uVar2 = (((vtbl_entry*)(*(int *)((char*)puVar1 + 4)))[2].fn)
+                    ((char*)puVar1 + ((vtbl_entry*)(*(int *)((char*)puVar1 + 4)))[2].adj,0);
   free_heap_block_if_flagged_104418e0(&uStack_18,2);
   return uVar2;
 }

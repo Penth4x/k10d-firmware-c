@@ -10,15 +10,15 @@
     */
 /* WARNING: Type propagation algorithm not settling */
 
-uint32_t validate_and_store_event_params(int param_1,int param_2,int param_3)
+uint32_t validate_and_store_event_params(cls_10599c24 *param_1,int param_2,int param_3)
 
 {
-  *(int *)(param_1 + 4) = param_2;
+  param_1->field_0x4 = param_2;
   if (0x16 < param_2 - 0xc0001U) {
-    *(int *)(param_1 + 8) = param_3;
+    param_1->field_0x8 = param_3;
     return 0;
   }
-  *(int *)(param_1 + 8) = param_3;
+  param_1->field_0x8 = param_3;
   switch(param_2) {
   case 0xc0001:
     if ((param_3 == 0) || (param_3 == 1)) goto LAB_1036b6d2;

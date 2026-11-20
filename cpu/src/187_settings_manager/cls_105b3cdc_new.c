@@ -11,23 +11,23 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_105b3cdc_new(uint16_t *param_1)
+void cls_105b3cdc_new(cls_105b3cdc *param_1)
 
 {
-  if ((param_1 != (uint16_t *)0x0) ||
-     (param_1 = (uint16_t *)heap_alloc((void *)0x24), param_1 != (uint16_t *)0x0)) {
-    *(void **)(param_1 + 0x10) = &DAT_105b3cdc/*ROM*/;
-    *param_1 = 0;
-    param_1[1] = 0;
-    *(uint8_t *)(param_1 + 0xc) = 1;
-    *(uint8_t *)((int)param_1 + 0x19) = 0;
-    *(uint32_t *)(param_1 + 0xe) = 0;
-    *(uint32_t *)(param_1 + 8) = 0;
-    *(uint32_t *)(param_1 + 4) = 0;
-    *(uint32_t *)(param_1 + 6) = 0;
-    *(uint32_t *)(param_1 + 2) = 0;
-    param_1[10] = 0;
-    param_1[0xb] = 0;
+  if ((param_1 != (cls_105b3cdc *)0x0) ||
+     (param_1 = (cls_105b3cdc *)heap_alloc((void *)0x24), param_1 != (cls_105b3cdc *)0x0)) {
+    param_1->field_0x20 = (uint32_t)&DAT_105b3cdc/*ROM*/;
+    param_1->field_0x0 = 0;
+    param_1->field_0x2 = 0;
+    param_1->field_0x18 = 1;
+    param_1->field_0x19 = 0;
+    param_1->field_0x1c = 0;
+    param_1->field_0x10 = 0;
+    param_1->field_0x8 = 0;
+    param_1->field_0xc = 0;
+    param_1->field_0x4 = 0;
+    param_1->field_0x14 = 0;
+    param_1->field_0x16 = 0;
   }
   return;
 }

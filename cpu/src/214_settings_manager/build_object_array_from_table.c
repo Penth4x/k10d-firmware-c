@@ -33,7 +33,7 @@ uint32_t build_object_array_from_table(void *param_1,uint32_t param_2,int param_
   
   puVar11 = &stack0xffffffc8;
   uVar10 = (uint)bRam105f9bcb;
-  uVar4 = (uint32_t)allocate_pixel_buffer_struct((uint32_t *)0x0,(ushort)bRam105f9bcb,0,0,(uint16_t *)0x0);
+  uVar4 = (uintptr_t)(allocate_pixel_buffer_struct((uint32_t *)0x0,(ushort)bRam105f9bcb,0,0,(uint16_t *)0x0));
   iVar5 = heap_alloc_2(uVar10 << 2);
   uVar8 = 0;
   if (uVar10 != 0) {
@@ -45,8 +45,8 @@ uint32_t build_object_array_from_table(void *param_1,uint32_t param_2,int param_
       uVar3 = *(uint8_t *)(param_3 + 0x105f9beb/*ROM*/ + uVar8 * 2);
       *(uint16_t *)(puVar11 + 2) = *(uint16_t *)(iVar9 + param_3 * 2 + 0x105f9bdc/*ROM*/);
       puVar11[7] = uVar3;
-      iVar6 = cls_105b7e94_new((void *)0x0,bVar1,cVar2,uVar7 & 0xff,*(uint16_t *)(puVar11 + 2),
-                               puVar11[7]);
+      iVar6 = cls_105b7e94_new((cls_105b7e94 *)0x0,bVar1,cVar2,uVar7 & 0xff,
+                               *(uint16_t *)(puVar11 + 2),puVar11[7]);
       *(int *)(iVar5 + iVar9) = iVar6;
       (*(code *)0x105207b2/*ROM*/)(uVar4,iVar6,uVar8,0);
       uVar8 = uVar8 + 1 & 0xff;

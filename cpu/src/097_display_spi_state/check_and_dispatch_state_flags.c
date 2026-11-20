@@ -19,14 +19,14 @@ uint32_t check_and_dispatch_state_flags(int param_1)
   puVar1 = (uint8_t *)get_sysparam_store_instance();
   cVar4 = read_sysparam_byte(puVar1);
   if (cVar4 != '\0') {
-    uVar2 = get_sysparam_store_instance();
+    uVar2 = (uint32_t)(uintptr_t)get_sysparam_store_instance();
     iVar3 = get_sysparam_store_byte((void *)uVar2,0x10);
     if (iVar3 != 0) {
       run_test_mode_sequence(param_1);
     }
   }
   if (*(int *)(param_1 + 0x1530) == 0) {
-    uVar2 = get_sysparam_store_instance();
+    uVar2 = (uint32_t)(uintptr_t)get_sysparam_store_instance();
     iVar3 = get_sysparam_store_byte((void *)uVar2,3);
     if (iVar3 != 0) {
       allocate_and_configure_buffer_1041941c(param_1);

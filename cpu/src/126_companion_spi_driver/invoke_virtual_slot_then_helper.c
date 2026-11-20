@@ -15,10 +15,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_then_helper(int param_1,uint32_t param_2,uint32_t param_3)
+void invoke_virtual_slot_then_helper(cls_105a0828 *param_1,uint32_t param_2,uint32_t param_3)
 
 {
-  (**(code **)(*(int *)(param_1 + 4) + 0x84))(*(short *)(*(int *)(param_1 + 4) + 0x80) + param_1);
-  irq_dispatch_broadcast32(param_1 + 8,param_2,param_3);
+  (((vtbl_entry*)(param_1->field_0x4))[16].fn)
+            ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x4))[16].adj);
+  irq_dispatch_broadcast32(&param_1->field_0x8,param_2,param_3);
   return;
 }

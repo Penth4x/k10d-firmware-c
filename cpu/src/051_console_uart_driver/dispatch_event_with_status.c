@@ -42,7 +42,7 @@ void dispatch_event_with_status(int param_1,uint8_t param_2)
   iVar2 = configure_pipeline_with_settings(*(uint32_t *)(param_1 + 0x38),&uStack_1c);
   if (iVar2 == 0) {
     dispatch_object_state_update_10491fb2((int)pvVar3,0);
-    (**(code **)(puVar1[3] + 0xc))((int)*(short *)(puVar1[3] + 8) + (int)puVar1,0);
+    (((vtbl_entry*)(puVar1[3]))[1].fn)((int)*(short *)(puVar1[3] + 8) + (int)puVar1,0);
   }
   else {
     *(uint32_t *)(param_1 + 0x44) = *(uint32_t *)(*(int *)(param_1 + 0x3c) + 4);
@@ -51,7 +51,7 @@ void dispatch_event_with_status(int param_1,uint8_t param_2)
     dispatch_object_state_update_10491fb2((int)pvVar3,0);
     request_ui_sync_code_4(pvVar3);
     call_helper_and_set_flag_10494b88(puVar1);
-    (**(code **)(puVar1[3] + 0xc))((int)*(short *)(puVar1[3] + 8) + (int)puVar1,1);
+    (((vtbl_entry*)(puVar1[3]))[1].fn)((int)*(short *)(puVar1[3] + 8) + (int)puVar1,1);
   }
   return;
 }

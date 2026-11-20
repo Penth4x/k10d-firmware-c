@@ -14,9 +14,9 @@ void clear_flag_and_invoke_virtual_slot(int param_1)
   if ((*(char *)(param_1 + 0x55) != '\0') &&
      (*(uint8_t *)(param_1 + 0x55) = 0, *(char *)(param_1 + 0x54) == '\0')) {
     iVar1 = menu_item_register(param_1 + 8);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0x74))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 0x70),1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].fn)(iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].adj,1);
     iVar1 = menu_item_register(param_1 + 8);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0x74))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 0x70),1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].fn)(iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].adj,1);
   }
   return;
 }

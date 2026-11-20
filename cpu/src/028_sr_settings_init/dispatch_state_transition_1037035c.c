@@ -6,12 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-int dispatch_state_transition_1037035c(int param_1,int *param_2)
+cls_10557fec * dispatch_state_transition_1037035c(cls_10557fec *param_1,int *param_2)
 
 {
   int iVar1;
-  uint32_t uVar2;
+  cls_10557fec *pcVar2;
   uint32_t uVar3;
+  uint32_t uVar4;
   
   iVar1 = *param_2;
   if (iVar1 == 1) {
@@ -23,11 +24,11 @@ int dispatch_state_transition_1037035c(int param_1,int *param_2)
   if (iVar1 != 4) {
     return param_1;
   }
-  iVar1 = *(int *)(param_1 + 0x14);
+  iVar1 = *(int *)&param_1->field_0x14;
   if (iVar1 == 0) {
     switch(param_2[1]) {
     case 5:
-      if (*(char *)(param_1 + 0x75) != '\0') {
+      if (param_1->field_0x75 != '\0') {
         set_flag_and_init_subobject((void *)__frv_reg_unset(4));
         return param_1;
       }
@@ -37,11 +38,11 @@ int dispatch_state_transition_1037035c(int param_1,int *param_2)
     case 0x19:
       goto code_r0x10370400;
     case 0x11:
-      param_1 = dispatch_state_transition_103707fc((void *)__frv_reg_unset(4));
+      param_1 = (cls_10557fec *)dispatch_state_transition_103707fc((void *)__frv_reg_unset(4));
       break;
     case 0x18:
-      uVar2 = get_or_create_singleton_object_1036c796();
-      uVar3 = 0xd;
+      uVar3 = get_or_create_singleton_object_1036c796();
+      uVar4 = 0xd;
       goto LAB_103703a8;
     }
   }
@@ -58,11 +59,11 @@ int dispatch_state_transition_1037035c(int param_1,int *param_2)
         init_object_with_three_helpers_10370a68((void *)__frv_reg_unset(4));
         return param_1;
       case 0x11:
-        iVar1 = process_sensor_readout_cycle_103708ca((void *)__frv_reg_unset(4));
-        return iVar1;
+        pcVar2 = (cls_10557fec *)process_sensor_readout_cycle_103708ca((void *)__frv_reg_unset(4));
+        return pcVar2;
       case 0x18:
-        uVar2 = get_or_create_singleton_object_1036c796();
-        uVar3 = 0xd;
+        uVar3 = get_or_create_singleton_object_1036c796();
+        uVar4 = 0xd;
         goto LAB_103703a8;
       }
     }
@@ -76,10 +77,10 @@ int dispatch_state_transition_1037035c(int param_1,int *param_2)
       return param_1;
     }
 code_r0x10370400:
-    uVar2 = get_or_create_singleton_object_1036c796();
-    uVar3 = 2;
+    uVar3 = get_or_create_singleton_object_1036c796();
+    uVar4 = 2;
 LAB_103703a8:
-    param_1 = read_array_element_bounded(uVar2,uVar3);
+    param_1 = (cls_10557fec *)read_array_element_bounded(uVar3,uVar4);
   }
   return param_1;
 }

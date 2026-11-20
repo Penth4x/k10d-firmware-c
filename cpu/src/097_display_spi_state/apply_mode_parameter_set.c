@@ -17,30 +17,30 @@
 #include "globals.h"
 #include "funcs.h"
 
-void apply_mode_parameter_set(int param_1,int param_2)
+void apply_mode_parameter_set(cls_1059be70 *param_1,int param_2)
 
 {
   if (param_2 == 0) {
-    set_two_config_values(param_1,0);
-    configure_mode_parameter_table(param_1,2);
-    send_two_byte_pairs_over_ch2(param_1,0x841,0,0);
-    send_two_byte_pairs_over_ch2(param_1,0x845,0,0);
-    send_two_byte_pairs_over_ch2(param_1,0x85d,*(uint16_t *)(param_1 + 0x9a),*(uint16_t *)(param_1 + 0x9c));
-    send_two_byte_pairs_over_ch2(param_1,0x867,0x14,0x14);
-    send_two_byte_pairs_over_ch2(param_1,0x84b,0x100,0x100);
-    send_two_byte_pairs_over_ch2(param_1,0x840,*(uint16_t *)(param_1 + 0xca),*(uint16_t *)(param_1 + 0xca));
-    send_nine_param_updates(param_1,*(uint32_t *)(param_1 + 0xac),*(uint32_t *)(param_1 + 0xb4));
+    set_two_config_values((uint32_t)(param_1),(int)(0));
+    configure_mode_parameter_table((int)(param_1),(int)(2));
+    send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(0x841),(int)(0),(int)(0));
+    send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(0x845),(int)(0),(int)(0));
+    send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(0x85d),(int)(param_1->field_0x9a),(int)(param_1->field_0x9c));
+    send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(0x867),(int)(0x14),(int)(0x14));
+    send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(0x84b),(int)(0x100),(int)(0x100));
+    send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(0x840),(int)(param_1->field_0xca),(int)(param_1->field_0xca));
+    send_nine_param_updates((int)(param_1),(uint)(param_1->field_0xac),(uint)(param_1->field_0xb4));
   }
   else if (param_2 == 1) {
-    set_two_config_values(param_1,0);
-    configure_mode_parameter_table(param_1,3);
-    send_two_byte_pairs_over_ch2(param_1,0x841,0,0);
-    send_two_byte_pairs_over_ch2(param_1,0x845,0,0);
-    send_two_byte_pairs_over_ch2(param_1,0x85d,*(uint16_t *)(param_1 + 0x9a),*(uint16_t *)(param_1 + 0x9c));
-    send_two_byte_pairs_over_ch2(param_1,0x867,0x14,0x14);
-    send_two_byte_pairs_over_ch2(param_1,0x84b,0x100,0x100);
-    send_two_byte_pairs_over_ch2(param_1,0x840,*(uint16_t *)(param_1 + 0xca),*(uint16_t *)(param_1 + 0xca));
-    send_nine_param_updates(param_1,*(uint32_t *)(param_1 + 0xb0),*(uint32_t *)(param_1 + 0xb8));
+    set_two_config_values((uint32_t)(param_1),(int)(0));
+    configure_mode_parameter_table((int)(param_1),(int)(3));
+    send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(0x841),(int)(0),(int)(0));
+    send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(0x845),(int)(0),(int)(0));
+    send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(0x85d),(int)(param_1->field_0x9a),(int)(param_1->field_0x9c));
+    send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(0x867),(int)(0x14),(int)(0x14));
+    send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(0x84b),(int)(0x100),(int)(0x100));
+    send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(0x840),(int)(param_1->field_0xca),(int)(param_1->field_0xca));
+    send_nine_param_updates((int)(param_1),(uint)(param_1->field_0xb0),(uint)(param_1->field_0xb8));
   }
   return;
 }

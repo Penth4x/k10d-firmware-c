@@ -18,7 +18,7 @@
 void destroy_and_free_object(void *param_1,uint param_2)
 
 {
-  if ((param_1 != (void *)0x0) && (free_heap_if_flagged_1049a016(param_1,2), (param_2 & 1) != 0)) {
+  if ((param_1 != 0) && (free_heap_if_flagged_1049a016(param_1,2), (param_2 & 1) != 0)) {
     heap_free((int)param_1);
   }
   return;

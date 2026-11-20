@@ -21,7 +21,7 @@ uint32_t write_value_to_struct_offset_104351c2(uint32_t param_1,void *param_2,in
 {
   uint32_t uVar1;
   
-  store_value_to_pointer_1043554a((int)param_2 + 0x14,2);
+  store_value_to_pointer_1043554a((uint32_t *)((int)param_2 + 0x14),(uint32_t)(2));
   if (param_3 != 0) {
     uVar1 = return_zero_stub_104351ec(param_1,param_3);
     write_field_at_offset_four_1043554e((int)param_2 + 0x14,uVar1);

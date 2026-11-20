@@ -34,7 +34,7 @@ uint32_t * cls_105aa5ec_new(uint32_t *param_1)
     param_1[0x3a93] = 0;
     param_1[0x3a94] = 0;
     heap_alloc_one_byte_1045926e((int)&uStack_9);
-    uVar1 = return_pentax_k10d_string_10459378(&uStack_9);
+    uVar1 = (uintptr_t)(return_pentax_k10d_string_10459378((uint32_t)(&uStack_9)));
     param_1[4] = uVar1;
     fill_byte_array(param_1 + 8,0,0xea24);
     uVar1 = get_or_init_singleton_10530978();

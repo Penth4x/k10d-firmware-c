@@ -13,10 +13,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void clear_byte_at_offset_0x4d_1039420e(int param_1)
+void clear_byte_at_offset_0x4d_1039420e(cls_10562b1c *param_1)
 
 {
   call_single_helper_103942d8();
-  *(uint8_t *)(param_1 + 0x4d) = 0;
+  param_1->field_0x4d = 0;
   return;
 }

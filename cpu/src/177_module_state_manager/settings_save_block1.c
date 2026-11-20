@@ -21,14 +21,14 @@ uint32_t settings_save_block1(int param_1)
   
   uVar4 = *(uint32_t *)(param_1 + 4);
   iVar5 = **(int **)(param_1 + 0xc);
-  uVar1 = (**(code **)(iVar5 + 0x4c))((int)*(int **)(param_1 + 0xc) + (int)*(short *)(iVar5 + 0x48))
+  uVar1 = (((vtbl_entry*)(iVar5))[9].fn)((int)*(int **)(param_1 + 0xc) + (int)((vtbl_entry*)(iVar5))[9].adj)
   ;
   iVar5 = **(int **)(param_1 + 0xc);
-  uVar2 = (**(code **)(iVar5 + 0x44))((int)*(int **)(param_1 + 0xc) + (int)*(short *)(iVar5 + 0x40))
+  uVar2 = (((vtbl_entry*)(iVar5))[8].fn)((int)*(int **)(param_1 + 0xc) + (int)((vtbl_entry*)(iVar5))[8].adj)
   ;
   iVar5 = **(int **)(param_1 + 0xc);
-  uVar3 = (**(code **)(iVar5 + 0x54))((int)*(int **)(param_1 + 0xc) + (int)*(short *)(iVar5 + 0x50))
+  uVar3 = (((vtbl_entry*)(iVar5))[10].fn)((int)*(int **)(param_1 + 0xc) + (int)((vtbl_entry*)(iVar5))[10].adj)
   ;
-  uVar1 = flash_program_block(uVar4,(void *)uVar1,uVar2,uVar3);
+  uVar1 = flash_program_block(uVar4,(void*)(uVar1),uVar2,uVar3);
   return uVar1;
 }

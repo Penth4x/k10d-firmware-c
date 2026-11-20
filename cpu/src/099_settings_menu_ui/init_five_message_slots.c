@@ -15,44 +15,43 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_five_message_slots(int *param_1)
+uint32_t init_five_message_slots(cls_1059ddb0 *param_1)
 
 {
   uint32_t uVar1;
-  int iVar2;
   uintptr_t sp;
   uint16_t uStack_a;
   
   uStack_a = 0;
   uVar1 = get_sysparam_store_instance();
-  iVar2 = read_sysparam_store_entry(uVar1,0);
-  param_1[8] = iVar2;
-  uVar1 = menu_item_register(*param_1);
-  uStack_a = (uint16_t)param_1[8];
-  menu_list_build((void *)uVar1,&uStack_a,1,0);
+  uVar1 = read_sysparam_store_entry(uVar1,0);
+  *(uint32_t *)&param_1->field_0x20 = uVar1;
+  uVar1 = menu_item_register((int)param_1->field_0x0);
+  uStack_a = (uint16_t)*(uint32_t *)&param_1->field_0x20;
+  menu_list_build((int *)(uVar1),(uint16_t *)(&uStack_a),(uint8_t)(1),(uint8_t)(0));
   uVar1 = get_sysparam_store_instance();
-  iVar2 = read_sysparam_store_entry(uVar1,1);
-  param_1[9] = iVar2;
-  uVar1 = menu_item_register(*param_1);
-  uStack_a = (uint16_t)param_1[9];
-  menu_list_build((void *)uVar1,&uStack_a,1,0);
+  uVar1 = read_sysparam_store_entry(uVar1,1);
+  *(uint32_t *)&param_1->field_0x24 = uVar1;
+  uVar1 = menu_item_register((int)param_1->field_0x0);
+  uStack_a = (uint16_t)*(uint32_t *)&param_1->field_0x24;
+  menu_list_build((int *)(uVar1),(uint16_t *)(&uStack_a),(uint8_t)(1),(uint8_t)(0));
   uVar1 = get_sysparam_store_instance();
-  iVar2 = read_sysparam_store_entry(uVar1,2);
-  param_1[10] = iVar2;
-  uVar1 = menu_item_register(*param_1);
-  uStack_a = (uint16_t)param_1[10];
-  menu_list_build((void *)uVar1,&uStack_a,1,0);
+  uVar1 = read_sysparam_store_entry(uVar1,2);
+  *(uint32_t *)&param_1->field_0x28 = uVar1;
+  uVar1 = menu_item_register((int)param_1->field_0x0);
+  uStack_a = (uint16_t)*(uint32_t *)&param_1->field_0x28;
+  menu_list_build((int *)(uVar1),(uint16_t *)(&uStack_a),(uint8_t)(1),(uint8_t)(0));
   uVar1 = get_sysparam_store_instance();
-  iVar2 = read_sysparam_store_entry(uVar1,3);
-  param_1[0xb] = iVar2;
-  uVar1 = menu_item_register(*param_1);
-  uStack_a = (uint16_t)param_1[0xb];
-  menu_list_build((void *)uVar1,&uStack_a,1,0);
+  uVar1 = read_sysparam_store_entry(uVar1,3);
+  *(uint32_t *)&param_1->field_0x2c = uVar1;
+  uVar1 = menu_item_register((int)param_1->field_0x0);
+  uStack_a = (uint16_t)*(uint32_t *)&param_1->field_0x2c;
+  menu_list_build((int *)(uVar1),(uint16_t *)(&uStack_a),(uint8_t)(1),(uint8_t)(0));
   uVar1 = get_sysparam_store_instance();
-  iVar2 = read_sysparam_store_entry(uVar1,4);
-  param_1[0xc] = iVar2;
-  uVar1 = menu_item_register(*param_1);
-  uStack_a = (uint16_t)param_1[0xc];
-  menu_list_build((void *)uVar1,&uStack_a,1,0);
+  uVar1 = read_sysparam_store_entry(uVar1,4);
+  *(uint32_t *)&param_1->field_0x30 = uVar1;
+  uVar1 = menu_item_register((int)param_1->field_0x0);
+  uStack_a = (uint16_t)*(uint32_t *)&param_1->field_0x30;
+  menu_list_build((int *)(uVar1),(uint16_t *)(&uStack_a),(uint8_t)(1),(uint8_t)(0));
   return 0x1be0005;
 }

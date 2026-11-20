@@ -20,12 +20,12 @@ uint32_t dispatch_param_by_index_104e48a8(int param_1,uint32_t param_2,uint32_t 
   int iVar1;
   uint32_t uVar2;
   
-  iVar1 = compare_null_terminated_strings(param_4,(void *)pvRam80010ba8);
+  iVar1 = compare_null_terminated_strings((void *)(param_4),(void *)(pvRam80010ba8));
   if (iVar1 == 0) {
     iVar1 = 3;
   }
   else {
-    iVar1 = compare_null_terminated_strings(param_4,(void *)pvRam80010bb0);
+    iVar1 = compare_null_terminated_strings((void *)(param_4),(void *)(pvRam80010bb0));
     if (iVar1 != 0) {
       return 0;
     }

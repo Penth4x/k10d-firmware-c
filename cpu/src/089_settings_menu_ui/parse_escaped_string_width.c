@@ -59,8 +59,8 @@ LAB_103fe762:
         }
         if (*(char *)((int)param_2 + 0x58) == '\r') {
           uVar1 = 0xffff;
-          sVar4 = *psRam10363170;
-          psVar2 = psRam10363170;
+          sVar4 = *(uint32_t*)(psRam10363170);
+          psVar2 = (void*)(psRam10363170);
           while (sVar4 != 0) {
             if (*psVar2 == *(short *)param_3) {
               uVar1 = (uint)(ushort)psVar2[1];
@@ -69,7 +69,7 @@ LAB_103fe762:
             psVar2 = psVar2 + 2;
             sVar4 = *psVar2;
           }
-          uVar1 = (uint)(byte)apuStack_1c[0][uVar1];
+          uVar1 = (uint)(byte)((char*)apuStack_1c[0])[uVar1];
           if (uVar1 != (uVar1 & 0xfffffffe)) {
             uVar1 = uVar1 + 1;
           }
@@ -91,7 +91,7 @@ LAB_103fe762:
   if (uVar6 < uVar5) {
     uVar6 = uVar5;
   }
-  alloc_two_word_pair_1045c3dc(apuStack_1c + 1,uVar6,uStack_24);
+  alloc_two_word_pair_1045c3dc((void*)(apuStack_1c + 1),uVar6,uStack_24);
   iVar3 = 8;
   do {
     iVar7 = iVar3 + -4;

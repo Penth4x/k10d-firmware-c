@@ -39,10 +39,10 @@ uint32_t deactivate_mode_context_1047059c(int param_1)
   eventflag_clr_flg((uint32_t *)(param_1 + 0x44),2);
   *(uint32_t *)(param_1 + 0x50) = 0;
   iVar3 = *(int *)(*(int *)(param_1 + 0x4c) + 4);
-  (**(code **)(iVar3 + 0x44))(*(int *)(param_1 + 0x4c) + (int)*(short *)(iVar3 + 0x40),0x14,1,0);
+  (((vtbl_entry*)(iVar3))[8].fn)(*(int *)(param_1 + 0x4c) + (int)((vtbl_entry*)(iVar3))[8].adj,0x14,1,0);
   twai_flg_obj((uint32_t *)(param_1 + 0x44),2,(void *)0x0,_DAT_105a2af0/*ROM*/);
   iVar3 = *(int *)(*(int *)(param_1 + 0x4c) + 4);
-  (**(code **)(iVar3 + 0x2c))(*(int *)(param_1 + 0x4c) + (int)*(short *)(iVar3 + 0x28));
+  (((vtbl_entry*)(iVar3))[5].fn)(*(int *)(param_1 + 0x4c) + (int)((vtbl_entry*)(iVar3))[5].adj);
   check_kernel_call_success_10459fea();
   clear_flag_with_notify(*(void **)(param_1 + 0x54));
   check_kernel_call_success_10459fea();

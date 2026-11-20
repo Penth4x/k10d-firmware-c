@@ -29,10 +29,10 @@ void process_buffer_state_transition_104cc440(int param_1)
   uintptr_t sp;
   int *piVar6;
   uint8_t auStack_228 [4];
-  uint8_t auStack_21c [532];
+  cls_105b9458 cStack_21c;
   
   piVar6 = (int *)auStack_228;
-  cls_105b9458_new((void *)auStack_21c);
+  cls_105b9458_new(&cStack_21c);
   iVar4 = *(int *)(param_1 + 0xb0);
   if (*(char *)(iVar4 + 0x210) == '\0') {
     copy_large_struct((uint32_t *)(*(int *)(param_1 + 0xb4) + 0x34),(uint32_t *)(iVar4 + 0x34));
@@ -60,14 +60,14 @@ LAB_104cc584:
   }
   else {
     *piVar6 = *(uint32_t *)(param_1 + 0xb8);
-    iVar4 = dispatch_exposure_mode_handler(param_1,pvVar2,iVar4,(int)auStack_21c,*piVar6);
+    iVar4 = dispatch_exposure_mode_handler(param_1,pvVar2,iVar4,(int)&cStack_21c,*piVar6);
     iVar4 = set_object_state_and_notify(param_1,iVar4,0xc0012,8);
     if (iVar4 == 0) {
       puVar3 = (uint32_t *)(*(int *)(param_1 + 0xb0) + 0x34);
       puVar1 = (uint32_t *)(*(int *)(param_1 + 0xb4) + 0x34);
     }
     else {
-      iVar4 = compare_two_structs_by_mode(param_1,*(int *)(*(int *)(param_1 + 0xac) + 0x2c),auStack_21c,
+      iVar4 = compare_two_structs_by_mode(param_1,*(int *)(*(int *)(param_1 + 0xac) + 0x2c),&cStack_21c,
                            *(void **)(param_1 + 0xb4));
       iVar4 = set_object_state_and_notify(param_1,iVar4,0xc0012,9);
       if (iVar4 != 0) goto LAB_104cc584;
@@ -80,6 +80,6 @@ LAB_104cc584:
        *(uint32_t *)(*(int *)(param_1 + 0xb0) + 0x18);
   *(uint8_t *)(*(int *)(param_1 + 0xb4) + 0x210) = 0;
 LAB_104cc594:
-  cls_105b9458_delete(auStack_21c,2);
+  cls_105b9458_delete(&cStack_21c,2);
   return;
 }

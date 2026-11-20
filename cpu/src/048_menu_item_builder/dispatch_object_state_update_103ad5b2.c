@@ -29,7 +29,7 @@ void dispatch_object_state_update_103ad5b2(void *param_1)
   int iVar4;
   
   iVar2 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
   if (*(char *)((int)param_1 + 0x48) == '\f') {
     iVar2 = compute_exposure_params(*(uint32_t *)((int)param_1 + 0x28),*(uint8_t *)((int)param_1 + 0x4e));
   }

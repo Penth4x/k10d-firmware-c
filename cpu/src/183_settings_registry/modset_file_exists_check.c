@@ -21,15 +21,15 @@ uint32_t modset_file_exists_check(uint32_t param_1)
   uint32_t uVar3;
   void *pvVar4;
   uintptr_t sp;
-  uint8_t auStack_28 [32];
+  cls_105ab468 cStack_28;
   
   pvVar1 = (void *)heap_alloc_2(0xf);
   (*(code *)0x10486a2c/*ROM*/)(param_1,0x105b2fc8/*ROM*/,pvVar1,0xf);
   iVar2 = get_or_create_camera_object();
   pvVar4 = *(void **)(iVar2 + 0xc);
-  cls_105ab468_new(auStack_28);
-  uVar3 = call_with_offset_lock_1048101c(pvVar4,pvVar1,auStack_28);
+  cls_105ab468_new(&cStack_28);
+  uVar3 = call_with_offset_lock_1048101c(pvVar4,pvVar1,&cStack_28);
   heap_free_2((int)pvVar1);
-  cls_105ab468_delete(auStack_28,2);
+  cls_105ab468_delete(&cStack_28,2);
   return uVar3;
 }

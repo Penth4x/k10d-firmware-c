@@ -23,14 +23,14 @@ uint32_t dispatch_event_via_vtable_104e08ce(int param_1)
   int iVar1;
   
   iVar1 = *(int *)(*(int *)(param_1 + 0x1c) + 0x14);
-  iVar1 = (**(code **)(iVar1 + 0x14))
-                    (*(int *)(param_1 + 0x1c) + (int)*(short *)(iVar1 + 0x10),
+  iVar1 = (((vtbl_entry*)(iVar1))[2].fn)
+                    (*(int *)(param_1 + 0x1c) + (int)((vtbl_entry*)(iVar1))[2].adj,
                      *(uint32_t *)(param_1 + 0x18),*(uint32_t *)(param_1 + 0x20));
   if (iVar1 == 1) {
     iVar1 = *(int *)(param_1 + 0x20);
     if (iVar1 != 0) {
-      iVar1 = (**(code **)(*(int *)(iVar1 + 0x40) + 0x14))
-                        (*(short *)(*(int *)(iVar1 + 0x40) + 0x10) + iVar1);
+      iVar1 = (((vtbl_entry*)(*(int *)(iVar1 + 0x40)))[2].fn)
+                        (((vtbl_entry*)(*(int *)(iVar1 + 0x40)))[2].adj + iVar1);
       if (iVar1 == 1) {
         return 2;
       }
@@ -41,9 +41,9 @@ uint32_t dispatch_event_via_vtable_104e08ce(int param_1)
   }
   else if (*(int *)(param_1 + 0x20) != 0) {
     iVar1 = **(int **)(param_1 + 0x24);
-    (**(code **)(iVar1 + 0x24))((int)*(int **)(param_1 + 0x24) + (int)*(short *)(iVar1 + 0x20));
+    (((vtbl_entry*)(iVar1))[4].fn)((int)*(int **)(param_1 + 0x24) + (int)((vtbl_entry*)(iVar1))[4].adj);
     return 2;
   }
-  build_and_send_packet((void *)(*(uint32_t *)(param_1 + 0x18)));
+  build_and_send_packet((void*)(*(uint32_t *)(param_1 + 0x18)));
   return 3;
 }

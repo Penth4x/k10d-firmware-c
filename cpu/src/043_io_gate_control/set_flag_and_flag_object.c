@@ -14,10 +14,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_flag_and_flag_object(int param_1)
+void set_flag_and_flag_object(cls_10564150 *param_1)
 
 {
-  *(uint8_t *)(param_1 + 0xd9) = 1;
-  set_flg_obj((uint32_t *)(param_1 + 0xcc));
+  param_1->field_0xd9 = 1;
+  set_flg_obj((void *)&param_1->field_0xcc);
   return;
 }

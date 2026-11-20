@@ -9,9 +9,9 @@
 void invoke_virtual_two_byte_write(int *param_1,uint param_2)
 
 {
-  (**(code **)(*param_1 + 0x4c))
-            ((int)*(short *)(*param_1 + 0x48) + (int)param_1,0,(int)param_2 >> 8 & 0xff,0xff);
-  (**(code **)(*param_1 + 0x4c))
-            ((int)*(short *)(*param_1 + 0x48) + (int)param_1,1,param_2 & 0xff,0xff);
+  (((vtbl_entry*)(*param_1))[9].fn)
+            ((int)((vtbl_entry*)(*param_1))[9].adj + (int)param_1,0,(int)param_2 >> 8 & 0xff,0xff);
+  (((vtbl_entry*)(*param_1))[9].fn)
+            ((int)((vtbl_entry*)(*param_1))[9].adj + (int)param_1,1,param_2 & 0xff,0xff);
   return;
 }

@@ -23,7 +23,7 @@ uint32_t dispatch_virtual_state_handler(int *param_1,uint32_t param_2,int param_
   int iVar2;
   uint32_t uVar3;
   
-  iVar2 = (**(code **)(*param_1 + 0x54))((int)*(short *)(*param_1 + 0x50) + (int)param_1);
+  iVar2 = (((vtbl_entry*)(*param_1))[10].fn)((int)((vtbl_entry*)(*param_1))[10].adj + (int)param_1);
   uVar3 = 0x82;
   if (iVar2 != 0) {
     cVar1 = *(char *)(param_3 + 0x859);

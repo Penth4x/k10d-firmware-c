@@ -47,8 +47,8 @@ void check_mode_transition_preconditions(int param_1,uint32_t param_2)
         return;
       }
       piVar4 = (int *)(*(int *)(param_1 + 0x84) + 0x148);
-      iVar1 = (**(code **)(*piVar4 + 0x14))((int)*(short *)(*piVar4 + 0x10) + (int)piVar4,0x12);
-      iVar2 = (**(code **)(*piVar4 + 0x14))((int)piVar4 + (int)*(short *)(*piVar4 + 0x10),0x13);
+      iVar1 = (((vtbl_entry*)(*piVar4))[2].fn)((int)((vtbl_entry*)(*piVar4))[2].adj + (int)piVar4,0x12);
+      iVar2 = (((vtbl_entry*)(*piVar4))[2].fn)((int)piVar4 + (int)((vtbl_entry*)(*piVar4))[2].adj,0x13);
       if (iVar1 != iVar2 + 1) {
         return;
       }
@@ -72,8 +72,8 @@ void check_mode_transition_preconditions(int param_1,uint32_t param_2)
       return;
     }
     piVar4 = (int *)(*(int *)(param_1 + 0x84) + 0x148);
-    iVar1 = (**(code **)(*piVar4 + 0x14))((int)*(short *)(*piVar4 + 0x10) + (int)piVar4,0x12);
-    iVar2 = (**(code **)(*piVar4 + 0x14))((int)piVar4 + (int)*(short *)(*piVar4 + 0x10),0x13);
+    iVar1 = (((vtbl_entry*)(*piVar4))[2].fn)((int)((vtbl_entry*)(*piVar4))[2].adj + (int)piVar4,0x12);
+    iVar2 = (((vtbl_entry*)(*piVar4))[2].fn)((int)piVar4 + (int)((vtbl_entry*)(*piVar4))[2].adj,0x13);
     if (iVar1 != iVar2 + 1) {
       return;
     }

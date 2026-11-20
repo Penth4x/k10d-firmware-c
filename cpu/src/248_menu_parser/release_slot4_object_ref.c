@@ -14,15 +14,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_slot4_object_ref(void *param_1)
+/* WARNING: Struct "cls_105bb0ec": ignoring overlapping field "field_0x8" */
+
+void release_slot4_object_ref(cls_105bb0ec *param_1)
 
 {
-  int iVar1;
+  uint32_t *puVar1;
   
-  iVar1 = *(int *)((int)param_1 + 0x70);
-  if (iVar1 != 0) {
-    (**(code **)(*(int *)(iVar1 + 4) + 0xc))(*(short *)(*(int *)(iVar1 + 4) + 8) + iVar1,3);
+  puVar1 = (uint32_t *)((uintptr_t)(param_1->field_0x70));
+  if (puVar1 != (uint32_t *)0x0) {
+    (((vtbl_entry*)(puVar1[1]))[1].fn)((int)*(short *)(puVar1[1] + 8) + (int)puVar1,3);
   }
-  *(uint32_t *)((int)param_1 + 0x70) = 0;
+  param_1->field_0x70 = (uintptr_t)((uint32_t *)0x0);
   return;
 }

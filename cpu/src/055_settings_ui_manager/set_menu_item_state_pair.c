@@ -15,24 +15,24 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_menu_item_state_pair(int *param_1,int param_2)
+void set_menu_item_state_pair(cls_105950ac *param_1,int param_2)
 
 {
   int iVar1;
   
-  param_1[6] = param_2;
+  param_1->field_0x18 = param_2;
   if ((((param_2 == 0x1070020) || (param_2 == 0x1070027)) || (param_2 == 0x107002c)) ||
      ((param_2 == 0x1070031 || (param_2 == 0x1070039)))) {
-    iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
-    iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
   }
   else {
-    iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-    iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   }
   return;
 }

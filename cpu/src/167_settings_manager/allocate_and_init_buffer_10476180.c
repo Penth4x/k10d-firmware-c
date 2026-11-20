@@ -25,9 +25,9 @@ bool allocate_and_init_buffer_10476180(uint32_t param_1,int param_2,int param_3)
   }
   uVar1 = get_or_create_sram_object_1047dd7a();
   pvVar2 = (void *)find_entry_in_pointer_list(uVar1,param_3);
-  if (pvVar2 != (void *)0x0) {
+  if (pvVar2 != 0) {
     *(uint8_t *)(param_2 + 8) = 0x2e;
     copy_null_terminated_string((void *)(param_2 + 9),pvVar2);
   }
-  return pvVar2 != (void *)0x0;
+  return pvVar2 != 0;
 }

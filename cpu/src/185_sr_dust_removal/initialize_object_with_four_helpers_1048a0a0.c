@@ -14,13 +14,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-int initialize_object_with_four_helpers_1048a0a0(int *param_1)
+int initialize_object_with_four_helpers_1048a0a0(cls_105b3998 *param_1)
 
 {
   set_two_fields_to_four((int)param_1);
   enable_display_output(param_1);
   clear_flag_at_offset_0x58_1048a71a(param_1);
-  param_1[0x11] = 0;
-  serialize_exposure_params_to_buffer(param_1);
+  param_1->field_0x44 = 0;
+  serialize_exposure_params_to_buffer((void *)param_1);
   return (int)param_1;
 }

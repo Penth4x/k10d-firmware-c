@@ -28,10 +28,10 @@ void copy_three_fields_to_offset(void *param_1,uint32_t param_2)
   uVar1 = find_entry_in_fixed_table(uVar1,uVar2);
   iVar3 = (int)param_1 + 8;
   uVar2 = read_byte_at_offset_104d5d8e(uVar1,0);
-  set_object_field_by_index_10398c82((void *)iVar3,0,uVar2);
+  set_object_field_by_index_10398c82((void *)(iVar3),(int)(0),(uint32_t)(uVar2));
   uVar2 = read_byte_at_offset_104d5d8e(uVar1,1);
-  set_object_field_by_index_10398c82((void *)iVar3,1,uVar2);
+  set_object_field_by_index_10398c82((void *)(iVar3),(int)(1),(uint32_t)(uVar2));
   uVar1 = read_byte_at_offset_104d5d8e(uVar1,2);
-  set_object_field_by_index_10398c82((void *)iVar3,2,uVar1);
+  set_object_field_by_index_10398c82((void *)(iVar3),(int)(2),(uint32_t)(uVar1));
   return;
 }

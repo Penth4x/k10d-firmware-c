@@ -20,8 +20,8 @@ void initialize_subobject_at_offset_0x18(int param_1)
 {
   int iVar1;
   
-  iVar1 = (int)cls_105b6858_new(0);
+  iVar1 = (uintptr_t)(cls_105b6858_new((cls_105b6858 *)0x0));
   *(int *)(param_1 + 0x18) = iVar1;
-  (**(code **)(*(int *)(iVar1 + 0x1c) + 0x14))(iVar1 + *(short *)(*(int *)(iVar1 + 0x1c) + 0x10),0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0x1c)))[2].fn)(iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 0x1c)))[2].adj,0);
   return;
 }

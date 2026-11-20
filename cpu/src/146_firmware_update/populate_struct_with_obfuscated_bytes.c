@@ -40,7 +40,7 @@ void populate_struct_with_obfuscated_bytes(void *param_1,uint32_t param_2,uint32
   *(uint32_t *)((int)param_1 + 0x24c) = *(uint32_t *)(iVar1 + 4);
   *(uint32_t *)((int)param_1 + 0x25c) = 0;
   pvVar2 = (void *)get_kernel_object_id((int)param_1 + 0x204);
-  format_string_to_buffer_10545140(&uStack_c,(void *)&DAT_105a8068/*ROM*/,pvVar2,param_4);
+  format_string_to_buffer_10545140(&uStack_c,&DAT_105a8068/*ROM*/,pvVar2,param_4);
   iVar4 = 3;
   iVar1 = 0;
   do {

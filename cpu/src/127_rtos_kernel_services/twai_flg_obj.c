@@ -29,7 +29,7 @@ bool twai_flg_obj(uint32_t *param_1,uint32_t param_2,void *param_3,int param_4)
     }
   }
   uStack_8 = 0;
-  if (param_3 == (void *)0x0) {
+  if (param_3 == 0) {
     iVar1 = kernel_wai_flg_svc((int)(short)*param_1,param_2,0,&uStack_8,param_4);
   }
   else {

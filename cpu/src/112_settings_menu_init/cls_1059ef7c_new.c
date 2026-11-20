@@ -11,28 +11,28 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_1059ef7c_new(uint32_t *param_1,uint32_t param_2,uint32_t param_3)
+cls_1059ef7c * cls_1059ef7c_new(cls_1059ef7c *param_1,uint32_t param_2,uint32_t param_3)
 
 {
-  uint32_t *puVar1;
+  cls_1059ef7c *pcVar1;
   
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x18), param_1 != (uint32_t *)0x0)) {
-    puVar1 = param_1;
-    if ((param_1 != (uint32_t *)0x0) ||
-       (puVar1 = (uint32_t *)heap_alloc((void *)0x14), puVar1 != (uint32_t *)0x0)) {
-      puVar1[4] = 0x1059ef6c/*ROM*/;
-      *puVar1 = 0;
-      puVar1[1] = 0;
-      puVar1[2] = 0;
-      *(uint8_t *)(puVar1 + 3) = 0;
+  if ((param_1 != (cls_1059ef7c *)0x0) ||
+     (param_1 = (cls_1059ef7c *)heap_alloc((void *)0x18), param_1 != (cls_1059ef7c *)0x0)) {
+    pcVar1 = param_1;
+    if ((param_1 != (cls_1059ef7c *)0x0) ||
+       (pcVar1 = (cls_1059ef7c *)heap_alloc((void *)0x14), pcVar1 != (cls_1059ef7c *)0x0)) {
+      pcVar1->field_0x10 = 0x1059ef6c/*ROM*/;
+      pcVar1->field_0x0 = 0;
+      pcVar1->field_0x4 = 0;
+      pcVar1->field_0x8 = 0;
+      pcVar1->field_0xc = 0;
     }
-    param_1[4] = 0x1059ef7c/*ROM*/;
-    param_1[5] = param_3;
-    *param_1 = param_2;
-    param_1[1] = 0;
-    param_1[2] = 0;
-    *(uint8_t *)(param_1 + 3) = 0;
+    param_1->field_0x10 = 0x1059ef7c/*ROM*/;
+    param_1->field_0x14 = param_3;
+    param_1->field_0x0 = param_2;
+    param_1->field_0x4 = 0;
+    param_1->field_0x8 = 0;
+    param_1->field_0xc = 0;
   }
   return param_1;
 }

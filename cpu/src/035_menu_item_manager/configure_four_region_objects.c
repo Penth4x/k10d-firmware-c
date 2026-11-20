@@ -53,17 +53,17 @@ void configure_four_region_objects(int param_1,int param_2,uint32_t *param_3,uin
   iVar4 = menu_item_register(param_1);
   iVar5 = menu_item_register(param_1);
   iVar6 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,0);
-  (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(*(short *)(*(int *)(iVar5 + 0xc) + 8) + iVar5,0);
-  (**(code **)(*(int *)(iVar6 + 0xc) + 0xc))(*(short *)(*(int *)(iVar6 + 0xc) + 8) + iVar6,0);
+  (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,0);
+  (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar5 + 0xc) + 8) + iVar5,0);
+  (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar6 + 0xc) + 8) + iVar6,0);
   ppuVar7 = apuStack_3c + 1;
-  alloc_two_word_pair_1045c3dc((uint32_t *)ppuVar7,0,0);
+  alloc_two_word_pair_1045c3dc(ppuVar7,0,0);
   ppuVar2 = apuStack_3c + 3;
-  alloc_two_word_pair_1045c3dc((uint32_t *)ppuVar2,0,0);
+  alloc_two_word_pair_1045c3dc(ppuVar2,0,0);
   ppuVar8 = apuStack_3c + 5;
-  alloc_two_word_pair_1045bc2e((uint32_t *)ppuVar8,0,0);
+  alloc_two_word_pair_1045bc2e(ppuVar8,0,0);
   ppuVar3 = apuStack_3c + 7;
-  alloc_two_word_pair_1045bc2e((uint32_t *)ppuVar3,0,0);
+  alloc_two_word_pair_1045bc2e(ppuVar3,0,0);
   bVar16 = 0;
   bVar17 = param_2 == 0;
   if (!(bool)bVar17) {
@@ -125,15 +125,15 @@ void configure_four_region_objects(int param_1,int param_2,uint32_t *param_3,uin
        (uVar13 = ((uStack_70 + uStack_68) - (uVar13 + uVar9)) + uVar13, uVar13 < uStack_70)) {
       uVar9 = uStack_68;
     }
-    store_word_to_pointer_1045bd48((uint32_t *)ppuVar8,0x20);
+    store_word_to_pointer_1045bd48(ppuVar8,0x20);
     write_field_at_offset_four_1045bd50(ppuVar8,uStack_70);
-    store_value_to_pointer_1045c510((uint32_t *)ppuVar7,uStack_4c);
+    store_value_to_pointer_1045c510(ppuVar7,uStack_4c);
     write_field_at_offset_four_1045c518(ppuVar7,uStack_68);
-    store_word_to_pointer_1045bd48((uint32_t *)ppuVar3,uVar14);
+    store_word_to_pointer_1045bd48(ppuVar3,uVar14);
     write_field_at_offset_four_1045bd50(ppuVar3,uVar13);
-    store_value_to_pointer_1045c510((uint32_t *)ppuVar2,uStack_40);
+    store_value_to_pointer_1045c510(ppuVar2,uStack_40);
     write_field_at_offset_four_1045c518(ppuVar2,uVar9);
-    call_helper_and_set_flag_104cf6c8((void *)iVar4,2);
+    call_helper_and_set_flag_104cf6c8((int *)(iVar4),(uint16_t)(2));
     iVar11 = *(int *)(iVar4 + 0xc);
     sVar1 = *(short *)(iVar11 + 0x10);
     iVar10 = 8;
@@ -143,7 +143,7 @@ void configure_four_region_objects(int param_1,int param_2,uint32_t *param_3,uin
            *(uint32_t *)((int)apuStack_3c + iVar10 + 0x10);
       iVar10 = iVar15;
     } while (iVar15 != 0);
-    (**(code **)(iVar11 + 0x14))(sVar1 + iVar4,auStack_18);
+    (((vtbl_entry*)(iVar11))[2].fn)(sVar1 + iVar4,auStack_18);
     free_heap_block_if_flagged_1045bc54(auStack_18,2);
     iVar10 = 8;
     do {
@@ -151,7 +151,7 @@ void configure_four_region_objects(int param_1,int param_2,uint32_t *param_3,uin
       *(uint32_t *)((int)&uStack_14 + iVar10) = *(uint32_t *)((int)apuStack_3c + iVar10);
       iVar10 = iVar11;
     } while (iVar11 != 0);
-    dispatch_two_word_event((void *)iVar4,(void *)auStack_10);
+    dispatch_two_word_event((uint32_t *)(iVar4),(uint32_t *)(auStack_10));
     free_heap_if_flagged_1045c402(auStack_10,2);
     iVar11 = *(int *)(iVar5 + 0xc);
     sVar1 = *(short *)(iVar11 + 0x10);
@@ -162,7 +162,7 @@ void configure_four_region_objects(int param_1,int param_2,uint32_t *param_3,uin
            *(uint32_t *)((int)apuStack_3c + iVar10 + 0x10);
       iVar10 = iVar15;
     } while (iVar15 != 0);
-    (**(code **)(iVar11 + 0x14))(sVar1 + iVar5,auStack_18);
+    (((vtbl_entry*)(iVar11))[2].fn)(sVar1 + iVar5,auStack_18);
     free_heap_block_if_flagged_1045bc54(auStack_18,2);
     iVar10 = 8;
     do {
@@ -170,9 +170,9 @@ void configure_four_region_objects(int param_1,int param_2,uint32_t *param_3,uin
       *(uint32_t *)((int)&uStack_14 + iVar10) = *(uint32_t *)((int)apuStack_3c + iVar10);
       iVar10 = iVar11;
     } while (iVar11 != 0);
-    dispatch_two_word_event((void *)iVar5,(void *)auStack_10);
+    dispatch_two_word_event((uint32_t *)(iVar5),(uint32_t *)(auStack_10));
     free_heap_if_flagged_1045c402(auStack_10,2);
-    call_helper_and_set_flag_104cf6c8((void *)iVar6,4);
+    call_helper_and_set_flag_104cf6c8((int *)(iVar6),(uint16_t)(4));
     iVar11 = *(int *)(iVar6 + 0xc);
     sVar1 = *(short *)(iVar11 + 0x10);
     iVar10 = 8;
@@ -182,7 +182,7 @@ void configure_four_region_objects(int param_1,int param_2,uint32_t *param_3,uin
            *(uint32_t *)((int)apuStack_3c + iVar10 + 0x18);
       iVar10 = iVar15;
     } while (iVar15 != 0);
-    (**(code **)(iVar11 + 0x14))(sVar1 + iVar6,auStack_18);
+    (((vtbl_entry*)(iVar11))[2].fn)(sVar1 + iVar6,auStack_18);
     free_heap_block_if_flagged_1045bc54(auStack_18,2);
     iVar10 = 8;
     do {
@@ -190,11 +190,11 @@ void configure_four_region_objects(int param_1,int param_2,uint32_t *param_3,uin
       *(uint32_t *)((int)&uStack_14 + iVar10) = *(uint32_t *)((int)apuStack_3c + iVar10 + 8);
       iVar10 = iVar11;
     } while (iVar11 != 0);
-    dispatch_two_word_event((void *)iVar6,(void *)auStack_10);
+    dispatch_two_word_event((uint32_t *)(iVar6),(uint32_t *)(auStack_10));
     free_heap_if_flagged_1045c402(auStack_10,2);
-    (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(*(short *)(*(int *)(iVar5 + 0xc) + 8) + iVar5,1);
-    (**(code **)(*(int *)(iVar6 + 0xc) + 0xc))(*(short *)(*(int *)(iVar6 + 0xc) + 8) + iVar6,1);
+    (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,1);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar5 + 0xc) + 8) + iVar5,1);
+    (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar6 + 0xc) + 8) + iVar6,1);
   }
   free_heap_block_if_flagged_1045bc54(ppuVar3,2);
   free_heap_block_if_flagged_1045bc54(ppuVar8,2);

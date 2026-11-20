@@ -30,7 +30,7 @@ void dispatch_two_param_operation(int param_1,int param_2,uint32_t param_3)
     issue_sr_dma_command(param_1,param_3);
   }
   else if (param_2 == 3) {
-    build_and_send_two_byte_payload_10470d38(param_1,3,param_3,(void*)r7_in);
+    build_and_send_two_byte_payload_10470d38((int)(param_1),(uint32_t)(3),(uint32_t)(param_3),(void *)(r7_in));
   }
   return;
 }

@@ -36,7 +36,7 @@ int allocate_and_link_event_node_105382e4(int param_1,ushort param_2,int *param_
     if (*(int *)((param_2 - 1) * 4 + -0x7ffeb67c) != 0) {
       for (iVar5 = piVar6[1]; iVar5 != 0; iVar5 = *(int *)(iVar5 + 4)) {
         pcVar2 = *(code **)((param_2 - 1) * 4 + -0x7ffeb67c);
-        if (param_4 == (void *)0x0) {
+        if (param_4 == 0) {
           iVar3 = (*pcVar2)(iVar5,0,0);
         }
         else {
@@ -59,7 +59,7 @@ int allocate_and_link_event_node_105382e4(int param_1,ushort param_2,int *param_
       fill_byte_array((void *)*param_3,0,0x3c);
       *(uint32_t *)(*param_3 + 4) = 0;
       *(int *)(*param_3 + 0xc) = param_1;
-      if ((((param_4 == (void *)0x0) || (param_2 == 1)) || (param_2 == 2)) ||
+      if ((((param_4 == 0) || (param_2 == 1)) || (param_2 == 2)) ||
          (((param_2 == 3 || (param_2 == 4)) || ((param_2 == 5 || (param_2 == 0x17)))))) {
         *(uint32_t *)(*param_3 + 8) = 0;
         *(uint32_t *)(*param_3 + 0x10) = *(uint32_t *)(param_1 + 0x28);

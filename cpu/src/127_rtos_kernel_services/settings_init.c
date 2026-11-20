@@ -31,14 +31,14 @@ int settings_init(int *param_1,int param_2,uint32_t param_3,uint32_t param_4)
   uStack_c = param_3;
   uStack_8 = param_4;
   if (param_2 == 0) {
-    iVar1 = find_free_queue_slot_1000da18((void *)&uStack_10);
+    iVar1 = find_free_queue_slot_1000da18(&uStack_10);
     if (0 < iVar1) {
       *param_1 = iVar1;
       return iVar1;
     }
   }
   else {
-    iVar1 = validate_and_dispatch_event((int)(short)param_2,(void *)&uStack_10);
+    iVar1 = validate_and_dispatch_event((int)(short)param_2,&uStack_10);
   }
   if (iVar1 == 0) {
     iVar1 = 0;

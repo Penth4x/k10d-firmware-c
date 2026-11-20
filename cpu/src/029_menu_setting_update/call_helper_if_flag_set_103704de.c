@@ -6,10 +6,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_if_flag_set_103704de(int param_1)
+void call_helper_if_flag_set_103704de(cls_10557fec *param_1)
 
 {
-  if (*(char *)(param_1 + 0xd4) != '\0') {
+  if (param_1->field_0xd4 != '\0') {
     invoke_callback_at_8000439c();
   }
   return;

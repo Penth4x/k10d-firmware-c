@@ -6,16 +6,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_flag_and_invoke_virtual(int param_1)
+void set_flag_and_invoke_virtual(cls_1055a304 *param_1)
 
 {
   int *piVar1;
   
-  *(uint8_t *)(param_1 + 0x5d) = 1;
-  piVar1 = *(int **)(param_1 + 0x60);
+  param_1->field_0x5d = 1;
+  piVar1 = (int *)param_1->field_0x60;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0x2c))((int)*(short *)(*piVar1 + 0x28) + (int)piVar1);
+    (((vtbl_entry*)(*piVar1))[5].fn)((int)((vtbl_entry*)(*piVar1))[5].adj + (int)piVar1);
   }
-  set_flg_obj((uint32_t *)(param_1 + 0x4c));
+  set_flg_obj(&param_1->field_0x4c);
   return;
 }

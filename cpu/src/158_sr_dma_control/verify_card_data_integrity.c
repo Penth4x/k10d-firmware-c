@@ -47,8 +47,7 @@ int verify_card_data_integrity(int param_1,int param_2,int param_3)
   uint32_t uStack_38;
   uint16_t uStack_34;
   int iStack_30;
-  uint8_t auStack_2c [16];
-  int iStack_1c;
+  cls_105ab468 cStack_2c;
   uint32_t uStack_c;
   
   puVar15 = auStackY_c4;
@@ -57,33 +56,33 @@ int verify_card_data_integrity(int param_1,int param_2,int param_3)
   iStack_30 = 0;
   puVar16 = (uint *)auStackY_c4;
   if (param_3 != 0) {
-    sr_dma_command(param_1,3,5,&DAT_105a9340/*ROM*/,7,0xff);
+    sr_dma_command(param_1,3,5,(void*)(&DAT_105a9340/*ROM*/),7,0xff);
     puVar16 = (uint *)puVar15;
   }
   iVar4 = get_or_create_camera_object();
   piVar11 = *(int **)(iVar4 + 0xc);
-  cls_105ab468_new(auStack_2c);
-  iVar4 = call_with_offset_lock_1048101c(piVar11,(void *)param_2,auStack_2c);
+  cls_105ab468_new(&cStack_2c);
+  iVar4 = call_with_offset_lock_1048101c(piVar11,(void *)param_2,&cStack_2c);
   if (iVar4 == 0) {
     uStack_9c = 0;
   }
   else {
     uStack_c = 0;
-    iVar4 = (**(code **)(*piVar11 + 0x2c))
-                      ((int)*(short *)(*piVar11 + 0x28) + (int)piVar11,param_2,1,&uStack_c);
+    iVar4 = (((vtbl_entry*)(*piVar11))[5].fn)
+                      ((int)((vtbl_entry*)(*piVar11))[5].adj + (int)piVar11,param_2,1,&uStack_c);
     if (iVar4 == 0) {
       uStack_9c = 0;
     }
     else {
-      puVar5 = (uint8_t *)heap_alloc_2(iStack_1c + 1);
-      uStack_9c = (**(code **)(*piVar11 + 0x3c))
-                            ((int)*(short *)(*piVar11 + 0x38) + (int)piVar11,uStack_c,puVar5,
-                             iStack_1c);
-      (**(code **)(*piVar11 + 0x34))((int)*(short *)(*piVar11 + 0x30) + (int)piVar11,uStack_c);
+      puVar5 = (uint8_t *)heap_alloc_2(cStack_2c.field_0x10 + 1);
+      uStack_9c = (((vtbl_entry*)(*piVar11))[7].fn)
+                            ((int)((vtbl_entry*)(*piVar11))[7].adj + (int)piVar11,uStack_c,puVar5,
+                             cStack_2c.field_0x10);
+      (((vtbl_entry*)(*piVar11))[6].fn)((int)((vtbl_entry*)(*piVar11))[6].adj + (int)piVar11,uStack_c);
       pvVar6 = (void *)map_index_to_bitmask(param_1);
       if (((uStack_9c != 0) && (0 < (int)pvVar6)) && ((int)pvVar6 < 0x801)) {
         reset_subobject_at_offset_0x2c_104706a0(param_1);
-        puVar5[iStack_1c] = 0;
+        puVar5[cStack_2c.field_0x10] = 0;
         iVar4 = heap_alloc_2((int)pvVar6);
         uStack_38 = 0;
         uVar13 = SUB42(pvVar6,0);
@@ -163,7 +162,7 @@ int verify_card_data_integrity(int param_1,int param_2,int param_3)
       if ((uStack_9c != 0) && (param_3 != 0)) {
         *(uint16_t *)((int)puVar16 + 2) = 0;
         *(uint16_t *)((int)puVar16 + 6) = 0xff;
-        sr_dma_command(param_1,4,5,0x105a93a4/*ROM*/,*(uint16_t *)((int)puVar16 + 2),
+        sr_dma_command(param_1,4,5,(void*)(0x105a93a4/*ROM*/),*(uint16_t *)((int)puVar16 + 2),
                        *(uint16_t *)((int)puVar16 + 6));
       }
     }
@@ -172,6 +171,6 @@ int verify_card_data_integrity(int param_1,int param_2,int param_3)
   if (param_3 != 0) {
     update_field_at_offset_0x20(param_1);
   }
-  cls_105ab468_delete(auStack_2c,2);
+  cls_105ab468_delete(&cStack_2c,2);
   return uStack_9c;
 }

@@ -33,7 +33,7 @@ uint32_t check_and_send_status_packet_10364e9e(void *param_1)
       (*(short *)(iStack_c + 6) == _DAT_80015d3e/*SDRAM*/)) &&
      ((_DAT_80015d1c/*SDRAM*/ == 2 && (DAT_80015f14/*SDRAM*/ != '\0')))) {
     copy_two_words_from_param2((int)auStack_1c,-0x7ffea2fc);
-    iVar1 = compare_two_int_pairs((void *)0x80018058/*SDRAM*/,(void *)auStack_1c);
+    iVar1 = compare_two_int_pairs((int *)(0x80018058/*SDRAM*/),(int *)(auStack_1c));
     free_heap_if_flagged_1045c402(auStack_1c,2);
     uVar2 = 0;
     if (iVar1 == 0) {

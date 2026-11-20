@@ -22,12 +22,12 @@ uint32_t validate_buffer_copy(uint32_t *param_1,void *param_2,uint param_3)
   uint32_t uVar1;
   int iVar2;
   
-  if (((void *)*param_1 == (void *)0x0) || ((uint)param_1[1] < param_3)) {
+  if (((void *)*param_1 == 0) || ((uint)param_1[1] < param_3)) {
     uVar1 = 0;
   }
   else {
     uVar1 = 0;
-    if (param_2 != (void *)0x0) {
+    if (param_2 != 0) {
       iVar2 = compare_buffer_bytes(param_2,(void *)*param_1,param_3);
       uVar1 = 1;
       if (iVar2 != 0) {

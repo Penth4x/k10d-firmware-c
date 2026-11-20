@@ -13,9 +13,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_subroutine_with_offset_1039654a(int param_1)
+void call_subroutine_with_offset_1039654a(cls_10562eec *param_1)
 
 {
-  init_object_with_seventeen_handles_1039ba32((void *)(param_1 + 0xc),__frv_reg_unset(5),(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  uint32_t r5_in;
+  void *r6_in;
+  void *r7_in;
+  
+  init_object_with_seventeen_handles_1039ba32((cls_10563ae8 *)&param_1->field_0xc,r5_in,r6_in,r7_in);
   return;
 }

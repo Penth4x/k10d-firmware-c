@@ -6,9 +6,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_with_field_at_offset_0x70(int param_1)
+void call_with_field_at_offset_0x70(cls_105d6608 *param_1)
 
 {
-  heap_free_2(*(int *)(param_1 + 0x70));
+  heap_free_2(param_1->field_0x70);
   return;
 }

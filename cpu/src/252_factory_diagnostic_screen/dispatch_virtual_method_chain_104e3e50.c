@@ -26,12 +26,12 @@ uint32_t dispatch_virtual_method_chain_104e3e50(int param_1,int param_2,uint32_t
   uint32_t uStack_c;
   
   fill_byte_array(auStack_10c,0,0x100);
-  (**(code **)(*(int *)(param_1 + 0x18) + 0x5c))
-            (*(short *)(*(int *)(param_1 + 0x18) + 0x58) + param_1,auStack_10c);
+  (((vtbl_entry*)(*(int *)(param_1 + 0x18)))[11].fn)
+            (((vtbl_entry*)(*(int *)(param_1 + 0x18)))[11].adj + param_1,auStack_10c);
   uStack_c = 0;
   iVar2 = **(int **)(param_1 + 8);
-  iVar2 = (**(code **)(iVar2 + 0x2c))
-                    ((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar2 + 0x28),auStack_10c,1,
+  iVar2 = (((vtbl_entry*)(iVar2))[5].fn)
+                    ((int)*(int **)(param_1 + 8) + (int)((vtbl_entry*)(iVar2))[5].adj,auStack_10c,1,
                      &uStack_c);
   uVar1 = 0;
   if (iVar2 != 0) {
@@ -41,18 +41,18 @@ uint32_t dispatch_virtual_method_chain_104e3e50(int param_1,int param_2,uint32_t
     }
     else {
       iVar3 = **(int **)(param_1 + 8);
-      iVar2 = (**(code **)(iVar3 + 0x4c))
-                        ((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar3 + 0x48),uStack_c,
+      iVar2 = (((vtbl_entry*)(iVar3))[9].fn)
+                        ((int)*(int **)(param_1 + 8) + (int)((vtbl_entry*)(iVar3))[9].adj,uStack_c,
                          param_2 + iVar2,0);
       uVar1 = 0;
       if (iVar2 != 0) {
         iVar2 = **(int **)(param_1 + 8);
-        uVar1 = (**(code **)(iVar2 + 0x3c))
-                          ((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar2 + 0x38),uStack_c,
+        uVar1 = (((vtbl_entry*)(iVar2))[7].fn)
+                          ((int)*(int **)(param_1 + 8) + (int)((vtbl_entry*)(iVar2))[7].adj,uStack_c,
                            param_3,param_4);
         iVar2 = **(int **)(param_1 + 8);
-        (**(code **)(iVar2 + 0x34))
-                  ((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar2 + 0x30),uStack_c);
+        (((vtbl_entry*)(iVar2))[6].fn)
+                  ((int)*(int **)(param_1 + 8) + (int)((vtbl_entry*)(iVar2))[6].adj,uStack_c);
       }
     }
   }

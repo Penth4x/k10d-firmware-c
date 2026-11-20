@@ -17,18 +17,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_with_timer_and_vcalls_1049e204(int *param_1)
+void init_object_with_timer_and_vcalls_1049e204(cls_105b5b6c *param_1)
 
 {
-  param_1[0x93] = 45000;
+  param_1->field_0x24c = 45000;
   init_object_with_virtual_queries(__frv_reg_unset(4));
   send_twenty_six_virtual_commands((int)param_1);
   init_object_with_stack_copy_and_vcall((int)param_1);
   copy_stack_and_query_six_ids_1049ea1e((int)param_1);
   copy_virtual_values_to_buffer_1049eb18((int)param_1);
   compute_cumulative_offsets_1049f3fe(param_1);
-  (**(code **)(param_1[0x52] + 0x14))((int)param_1 + *(short *)(param_1[0x52] + 0x10) + 0x144,0);
-  (**(code **)(param_1[0x6b] + 0x14))((int)param_1 + *(short *)(param_1[0x6b] + 0x10) + 0x1a8,0);
-  initialize_object_state_104a387c((int)(param_1 + 0x77));
+  (((vtbl_entry*)(param_1->field_0x148))[2].fn)
+            ((int)&param_1->field_0x144 + (int)((vtbl_entry*)(param_1->field_0x148))[2].adj,0);
+  (((vtbl_entry*)(param_1->field_0x1ac))[2].fn)
+            ((int)&param_1->field_0x1a8 + (int)((vtbl_entry*)(param_1->field_0x1ac))[2].adj,0);
+  initialize_object_state_104a387c((cls_105b6554 *)&param_1->field_0x1dc);
   return;
 }

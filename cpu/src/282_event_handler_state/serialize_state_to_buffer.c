@@ -33,21 +33,21 @@ void serialize_state_to_buffer(uint32_t param_1,int param_2)
     uVar1 = *(ushort *)(iVar5 + 0x14);
     puVar3 = *(uint16_t **)(iVar5 + 0x18);
     append_bytes_to_ring_buffer(param_2,0x105d9110/*ROM*/,0);
-    copy_stream_bytes_into_struct(param_2,*(uint16_t *)(iVar5 + 0x14),1,0);
+    copy_stream_bytes_into_struct((int)(param_2),(void *)(*(uint16_t *)(iVar5 + 0x14)),(int)(1),(void *)(0));
     append_newline_to_buffer(param_2,0);
     iVar2 = 0;
     if (uVar1 != 0) {
       do {
         append_bytes_to_ring_buffer(param_2,0x105d9120/*ROM*/,0);
-        copy_stream_bytes_into_struct(param_2,*puVar3,1,0);
+        copy_stream_bytes_into_struct((int)(param_2),(void *)(*puVar3),(int)(1),(void *)(0));
         append_bytes_to_ring_buffer(param_2,0x105d9128/*ROM*/,0);
-        copy_stream_bytes_into_struct(param_2,puVar3[1],1,0);
+        copy_stream_bytes_into_struct((int)(param_2),(void *)(puVar3[1]),(int)(1),(void *)(0));
         append_bytes_to_ring_buffer(param_2,0x105d9130/*ROM*/,0);
-        copy_stream_bytes_into_struct(param_2,puVar3[2] & 0xf,1,0);
+        copy_stream_bytes_into_struct((int)(param_2),(void *)(puVar3[2] & 0xf),(int)(1),(void *)(0));
         append_bytes_to_ring_buffer(param_2,0x105d9138/*ROM*/,0);
-        copy_stream_bytes_into_struct(param_2,((ushort)puVar3[2] & 0xf00) >> 8,1,0);
+        copy_stream_bytes_into_struct((int)(param_2),(void *)(((ushort)puVar3[2] & 0xf00) >> 8),(int)(1),(void *)(0));
         append_bytes_to_ring_buffer(param_2,0x105d9140/*ROM*/,0);
-        copy_stream_bytes_into_struct(param_2,(puVar3[2] & 0x8000) != 0,1,0);
+        copy_stream_bytes_into_struct((int)(param_2),(void *)((puVar3[2] & 0x8000) != 0),(int)(1),(void *)(0));
         append_newline_to_buffer(param_2,0);
         iVar2 = iVar2 + 1;
         puVar3 = puVar3 + 3;
@@ -57,13 +57,13 @@ void serialize_state_to_buffer(uint32_t param_1,int param_2)
     uVar4 = *(uint *)(iVar5 + 0x40) >> 1;
     append_bytes_to_ring_buffer(param_2,0x105d9148/*ROM*/,0);
     parse_and_store_buffered_records(param_2,puVar3,1,0);
-    copy_stream_bytes_into_struct(param_2,uVar4,1,0);
-    copy_stream_bytes_into_struct(param_2,puVar3[uVar4 - 1],1,0);
+    copy_stream_bytes_into_struct((int)(param_2),(void *)(uVar4),(int)(1),(void *)(0));
+    copy_stream_bytes_into_struct((int)(param_2),(void *)(puVar3[uVar4 - 1]),(int)(1),(void *)(0));
     append_newline_to_buffer(param_2,0);
     iVar2 = 0;
     if (uVar4 != 0) {
       do {
-        copy_stream_bytes_into_struct(param_2,*puVar3,1,0);
+        copy_stream_bytes_into_struct((int)(param_2),(void *)(*puVar3),(int)(1),(void *)(0));
         append_newline_to_buffer(param_2,0);
         iVar2 = iVar2 + 1;
         puVar3 = puVar3 + 1;
@@ -73,13 +73,13 @@ void serialize_state_to_buffer(uint32_t param_1,int param_2)
     uVar4 = *(uint *)(iVar5 + 0x44) >> 1;
     append_bytes_to_ring_buffer(param_2,0x105d9150/*ROM*/,0);
     parse_and_store_buffered_records(param_2,puVar3,1,0);
-    copy_stream_bytes_into_struct(param_2,uVar4,1,0);
-    copy_stream_bytes_into_struct(param_2,puVar3[uVar4 - 1],1,0);
+    copy_stream_bytes_into_struct((int)(param_2),(void *)(uVar4),(int)(1),(void *)(0));
+    copy_stream_bytes_into_struct((int)(param_2),(void *)(puVar3[uVar4 - 1]),(int)(1),(void *)(0));
     append_newline_to_buffer(param_2,0);
     iVar2 = 0;
     if (uVar4 != 0) {
       do {
-        copy_stream_bytes_into_struct(param_2,*puVar3,1,0);
+        copy_stream_bytes_into_struct((int)(param_2),(void *)(*puVar3),(int)(1),(void *)(0));
         append_newline_to_buffer(param_2,0);
         iVar2 = iVar2 + 1;
         puVar3 = puVar3 + 1;
@@ -89,13 +89,13 @@ void serialize_state_to_buffer(uint32_t param_1,int param_2)
     uVar4 = *(uint *)(iVar5 + 0x48) >> 1;
     append_bytes_to_ring_buffer(param_2,0x105d9158/*ROM*/,0);
     parse_and_store_buffered_records(param_2,puVar3,1,0);
-    copy_stream_bytes_into_struct(param_2,uVar4,1,0);
-    copy_stream_bytes_into_struct(param_2,puVar3[uVar4 - 1],1,0);
+    copy_stream_bytes_into_struct((int)(param_2),(void *)(uVar4),(int)(1),(void *)(0));
+    copy_stream_bytes_into_struct((int)(param_2),(void *)(puVar3[uVar4 - 1]),(int)(1),(void *)(0));
     append_newline_to_buffer(param_2,0);
     iVar2 = 0;
     if (uVar4 != 0) {
       do {
-        copy_stream_bytes_into_struct(param_2,*puVar3,1,0);
+        copy_stream_bytes_into_struct((int)(param_2),(void *)(*puVar3),(int)(1),(void *)(0));
         append_newline_to_buffer(param_2,0);
         iVar2 = iVar2 + 1;
         puVar3 = puVar3 + 1;
@@ -105,13 +105,13 @@ void serialize_state_to_buffer(uint32_t param_1,int param_2)
     uVar4 = *(uint *)(iVar5 + 0x4c) >> 1;
     append_bytes_to_ring_buffer(param_2,0x105d9160/*ROM*/,0);
     parse_and_store_buffered_records(param_2,puVar3,1,0);
-    copy_stream_bytes_into_struct(param_2,uVar4,1,0);
-    copy_stream_bytes_into_struct(param_2,puVar3[uVar4 - 1],1,0);
+    copy_stream_bytes_into_struct((int)(param_2),(void *)(uVar4),(int)(1),(void *)(0));
+    copy_stream_bytes_into_struct((int)(param_2),(void *)(puVar3[uVar4 - 1]),(int)(1),(void *)(0));
     append_newline_to_buffer(param_2,0);
     iVar2 = 0;
     if (uVar4 != 0) {
       do {
-        copy_stream_bytes_into_struct(param_2,*puVar3,1,0);
+        copy_stream_bytes_into_struct((int)(param_2),(void *)(*puVar3),(int)(1),(void *)(0));
         append_newline_to_buffer(param_2,0);
         iVar2 = iVar2 + 1;
         puVar3 = puVar3 + 1;

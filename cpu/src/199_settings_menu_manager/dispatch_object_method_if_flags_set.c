@@ -15,18 +15,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_object_method_if_flags_set(int param_1)
+void dispatch_object_method_if_flags_set(cls_105b4dac *param_1)
 
 {
   int iVar1;
   
-  dispatch_object_event_and_notify(__frv_reg_unset(4));
-  if (((*(char *)(param_1 + 0xac) == '\0') && (iVar1 = read_byte_at_offset_8(param_1), iVar1 != 0)) &&
-     (*(char *)(param_1 + 0xa0) != '\0')) {
-    dispatch_virtual_method_with_params(param_1);
-    iVar1 = *(int *)(**(int **)(param_1 + 0x60) + 0xc);
-    (**(code **)(iVar1 + 0x54))(**(int **)(param_1 + 0x60) + (int)*(short *)(iVar1 + 0x50));
-    dispatch_virtual_call_with_params_10495120(param_1);
+  dispatch_object_event_and_notify((cls_105b48dc *)param_1);
+  if (((param_1->field_0xac == '\0') && (iVar1 = read_byte_at_offset_8((int)(param_1)), iVar1 != 0)) &&
+     (param_1->field_0xa0 != '\0')) {
+    dispatch_virtual_method_with_params((int)(param_1));
+    iVar1 = *(int *)(*(int *)param_1->field_0x60 + 0xc);
+    (((vtbl_entry*)(iVar1))[10].fn)(*(int *)param_1->field_0x60 + (int)((vtbl_entry*)(iVar1))[10].adj);
+    dispatch_virtual_call_with_params_10495120((int)(param_1));
   }
   invoke_virtual_on_range_items_10493858(param_1,0);
   return;

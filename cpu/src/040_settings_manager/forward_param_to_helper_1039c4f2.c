@@ -12,7 +12,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void forward_param_to_helper_1039c4f2(void *param_1)
+void forward_param_to_helper_1039c4f2(cls_105b4254 *param_1)
 
 {
   store_two_values_at_offsets(param_1);

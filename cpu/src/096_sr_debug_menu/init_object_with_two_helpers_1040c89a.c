@@ -11,7 +11,7 @@ void init_object_with_two_helpers_1040c89a(void *param_1)
 {
   uint32_t uVar1;
   
-  init_subobject_at_offset_8((int)param_1);
+  init_subobject_at_offset_8(param_1);
   create_kernel_object((void *)((int)param_1 + 0x40));
   uVar1 = get_sysparam_store_instance();
   *(uint32_t *)((int)param_1 + 0x4c) = uVar1;

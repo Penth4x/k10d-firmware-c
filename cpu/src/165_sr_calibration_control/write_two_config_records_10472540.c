@@ -23,12 +23,12 @@ void write_two_config_records_10472540(int param_1)
   uint8_t auStackY_20 [2];
   
   puVar1 = auStackY_20;
-  dispatch_actuator_drive_command(param_1,4,2,(void *)&DAT_105a9e98/*ROM*/,6,0xff,'\0');
+  dispatch_actuator_drive_command(param_1,4,2,&DAT_105a9e98/*ROM*/,6,0xff,'\0');
   wait_for_state_two_with_optional_delay(param_1,0);
   *(uint16_t *)(puVar1 + 2) = 6;
   *(uint16_t *)(puVar1 + 6) = 0xff;
   puVar1[0xb] = 0;
-  dispatch_actuator_drive_command(param_1,4,2,(void *)&DAT_105a9ea8/*ROM*/,*(uint16_t *)(puVar1 + 2),*(uint16_t *)(puVar1 + 6),
+  dispatch_actuator_drive_command(param_1,4,2,&DAT_105a9ea8/*ROM*/,*(uint16_t *)(puVar1 + 2),*(uint16_t *)(puVar1 + 6),
                puVar1[0xb]);
   return;
 }

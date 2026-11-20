@@ -36,7 +36,7 @@ int update_entry_pair_and_notify(int param_1,int param_2,uint param_3)
       }
       copy_three_bytes_to_list_entries(param_1,pvVar4);
       process_three_item_groups(param_1,pvVar4);
-      deep_copy_struct_with_subblocks((void *)(*(int *)(param_1 + 0x8d0) * 0xb34 + param_1 + 0x2118),pvVar4);
+      deep_copy_struct_with_subblocks((uint16_t *)(*(int *)(param_1 + 0x8d0) * 0xb34 + param_1 + 0x2118),(uint16_t *)(pvVar4));
       iVar6 = *(int *)(param_1 + 0x8d0) * 0xb34;
       psVar7 = (short *)(param_1 + 0x2118 + iVar6);
       iVar3 = iVar3 + iVar6;
@@ -49,15 +49,15 @@ int update_entry_pair_and_notify(int param_1,int param_2,uint param_3)
       }
       copy_three_bytes_to_list_entries(param_1,pvVar4);
       process_three_item_groups(param_1,pvVar4);
-      iVar6 = compare_two_short_arrays(param_1,(void *)(*(int *)(param_1 + 0x8d0) * 0xb34 + iVar3),pvVar4);
+      iVar6 = compare_two_short_arrays((int)(param_1),(short *)(*(int *)(param_1 + 0x8d0) * 0xb34 + iVar3),(short *)(pvVar4));
       if (iVar6 != 0) {
-        iVar3 = compare_two_short_arrays(param_1,(void *)(param_1 + 0x2118 + *(int *)(param_1 + 0x8d0) * 0xb34),pvVar4);
+        iVar3 = compare_two_short_arrays((int)(param_1),(short *)(param_1 + 0x2118 + *(int *)(param_1 + 0x8d0) * 0xb34),(short *)(pvVar4));
         if (iVar3 == 0) {
           process_three_string_slots_per_entry(param_1);
         }
         return 1;
       }
-      deep_copy_struct_with_subblocks((void *)(*(int *)(param_1 + 0x8d0) * 0xb34 + param_1 + 0x2118),pvVar4);
+      deep_copy_struct_with_subblocks((uint16_t *)(*(int *)(param_1 + 0x8d0) * 0xb34 + param_1 + 0x2118),(uint16_t *)(pvVar4));
       iVar6 = *(int *)(param_1 + 0x8d0) * 0xb34;
       psVar7 = (short *)(param_1 + 0x2118 + iVar6);
       iVar3 = iVar3 + iVar6;
@@ -80,6 +80,6 @@ int update_entry_pair_and_notify(int param_1,int param_2,uint param_3)
     process_three_item_groups(param_1,psVar7);
     iVar3 = *(int *)(param_1 + 0x8d0) * 0xb34 + param_1 + 0x2118;
   }
-  deep_copy_struct_with_subblocks((void *)iVar3,psVar7);
+  deep_copy_struct_with_subblocks((uint16_t *)(iVar3),(uint16_t *)(psVar7));
   return iVar5;
 }

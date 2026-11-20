@@ -15,18 +15,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_on_offset_0x30(void *param_1)
+uint32_t dispatch_on_offset_0x30(cls_105b7670 *param_1)
 
 {
   uint32_t uVar1;
   
-  if (*(uint *)((int)param_1 + 0x30) == 0) {
+  if (param_1->field_0x30 == 0) {
     uVar1 = 0;
     zero_struct_fields_20_to_30_104adfa2(__frv_reg_unset(4));
     invoke_virtual_slot_two_104ae294(param_1);
   }
   else {
-    uVar1 = dispatch_buffer_write_request((int)param_1,*(int *)((int)param_1 + 0x2c),*(uint *)((int)param_1 + 0x30));
+    uVar1 = dispatch_buffer_write_request((int)param_1,param_1->field_0x2c,param_1->field_0x30);
   }
   return uVar1;
 }

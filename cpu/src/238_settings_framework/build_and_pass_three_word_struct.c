@@ -21,16 +21,14 @@ uint32_t build_and_pass_three_word_struct(int param_1)
 {
   uint32_t uVar1;
   uintptr_t sp;
-  uint32_t auStack_1c0 [3];
-  uint32_t uStack_1b4;
-  uint32_t uStack_1b0;
+  cls_105b572c cStack_1c0;
   
-  cls_105b572c_new(auStack_1c0);
-  auStack_1c0[0] = *(uint32_t *)(*(int *)(param_1 + 0x34) + 4);
-  uStack_1b4 = *(uint32_t *)(*(int *)(param_1 + 0x34) + 0xc);
-  uStack_1b0 = *(uint32_t *)(*(int *)(param_1 + 0x34) + 0x10);
-  allocate_and_init_event_struct_1049aa36(*(int *)(param_1 + 0x2c),param_1 + 4,auStack_1c0,param_1 + 0x4c);
+  cls_105b572c_new(&cStack_1c0);
+  cStack_1c0.field_0x0 = *(uint32_t *)(*(int *)(param_1 + 0x34) + 4);
+  cStack_1c0.field_0xc = *(uint32_t *)(*(int *)(param_1 + 0x34) + 0xc);
+  cStack_1c0.field_0x10 = *(uint32_t *)(*(int *)(param_1 + 0x34) + 0x10);
+  allocate_and_init_event_struct_1049aa36(*(int *)(param_1 + 0x2c),param_1 + 4,&cStack_1c0,param_1 + 0x4c);
   uVar1 = query_flag_with_timeout(param_1,2);
-  cls_105b572c_delete(auStack_1c0,2);
+  cls_105b572c_delete(&cStack_1c0,2);
   return uVar1;
 }

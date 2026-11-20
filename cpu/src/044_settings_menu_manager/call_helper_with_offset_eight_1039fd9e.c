@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_offset_eight_1039fd9e(int param_1)
+void call_helper_with_offset_eight_1039fd9e(cls_105992d4 *param_1)
 
 {
-  invoke_virtual_slot_6_with_arg_3(param_1 + 8);
+  invoke_virtual_slot_6_with_arg_3((cls_105b4254 *)&param_1->field_0x8);
   return;
 }

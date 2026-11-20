@@ -16,8 +16,7 @@ configure_object_with_seven_params_104d6aea(uint32_t param_1,uint32_t param_2,in
   int iVar2;
   uint32_t uVar3;
   uintptr_t sp;
-  uint8_t auStack_28 [28];
-  uint32_t uStack_c;
+  cls_105ba0ac cStack_28;
   
   (*(code *)0x104de094/*ROM*/)();
   write_field_at_offset_0x2370(param_1,4);
@@ -62,11 +61,11 @@ configure_object_with_seven_params_104d6aea(uint32_t param_1,uint32_t param_2,in
   forward_param_to_helper_104d8b04(uVar1,param_6);
   uVar1 = add_offset_to_pointer_104d6882(param_1);
   (*(code *)0x104d8af4/*ROM*/)(uVar1,param_11);
-  cls_105ba0ac_new(auStack_28);
-  uStack_c = 0x105ba1d8/*ROM*/;
-  invoke_virtual_slot_on_two_objects_104d8c46(auStack_28,param_2,param_1);
+  cls_105ba0ac_new(&cStack_28);
+  cStack_28.field_0x1c = 0x105ba1d8/*ROM*/;
+  invoke_virtual_slot_on_two_objects_104d8c46(&cStack_28,param_2,param_1);
   (*(code *)0x104de82c/*ROM*/)(param_2);
-  uStack_c = 0x105ba1d8/*ROM*/;
-  cls_105ba0ac_delete(auStack_28,0);
+  cStack_28.field_0x1c = 0x105ba1d8/*ROM*/;
+  cls_105ba0ac_delete(&cStack_28,0);
   return 1;
 }

@@ -27,28 +27,28 @@ uint32_t dispatch_virtual_method_sequence_104d056e(int param_1, int param_2, uin
   piVar4 = *(int **)(*(int *)(param_1 + 8) + 0xc);
   uVar1 = 1;
   if ((param_2 != 0) && (piVar4 != (int *)0x0)) {
-    (**(code **)(*piVar4 + 0x1c))
-              ((int)*(short *)(*piVar4 + 0x18) + (int)piVar4,*(uint32_t *)(param_2 + 8));
+    (((vtbl_entry*)(*piVar4))[3].fn)
+              ((int)((vtbl_entry*)(*piVar4))[3].adj + (int)piVar4,*(uint32_t *)(param_2 + 8));
     iVar3 = piVar4[1];
-    uVar1 = (uint32_t)find_entry_by_ushort_key(iVar3,3);
+    uVar1 = (uint32_t)(find_entry_by_ushort_key(iVar3,3));
     iVar2 = find_entry_by_id_in_table(iVar3,3);
     iVar2 = call_helper_if_param2_nonzero_104d06ba(param_1,uVar1,iVar2);
     uVar1 = 0;
     if (iVar2 != 0) {
       iVar5 = *(int *)(param_2 + 8);
-      iVar2 = (**(code **)(*piVar4 + 0x24))((int)*(short *)(*piVar4 + 0x20) + (int)piVar4);
+      iVar2 = (((vtbl_entry*)(*piVar4))[4].fn)((int)((vtbl_entry*)(*piVar4))[4].adj + (int)piVar4);
       *(int *)(*(int *)(*(int *)(param_1 + 4) + 0x18) + 0x30) = iVar5 + iVar2;
-      uVar1 = (uint32_t)find_entry_by_ushort_key(iVar3,4);
+      uVar1 = (uint32_t)(find_entry_by_ushort_key(iVar3,4));
       iVar2 = find_entry_by_id_in_table(iVar3,4);
       iVar2 = invoke_callback_if_param2_set(param_1,uVar1,iVar2);
       uVar1 = 0;
       if (iVar2 != 0) {
-        uVar1 = (uint32_t)find_entry_by_ushort_key(iVar3,0x32);
+        uVar1 = (uint32_t)(find_entry_by_ushort_key(iVar3,0x32));
         iVar2 = find_entry_by_id_in_table(iVar3,0x32);
         iVar2 = set_flag_bit_2_on_param(param_1,uVar1,iVar2);
         uVar1 = 0;
         if (iVar2 != 0) {
-          uVar1 = (uint32_t)find_entry_by_ushort_key(iVar3,0x41);
+          uVar1 = (uint32_t)(find_entry_by_ushort_key(iVar3,0x41));
           iVar2 = find_entry_by_id_in_table(iVar3,0x41);
           uVar1 = increment_counter_if_nonzero(param_1,uVar1,iVar2);
         }

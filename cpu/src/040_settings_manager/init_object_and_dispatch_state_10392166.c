@@ -17,31 +17,32 @@
 #include "globals.h"
 #include "funcs.h"
 
-int * init_object_and_dispatch_state_10392166(int *param_1)
+cls_10562758 * init_object_and_dispatch_state_10392166(cls_10562758 *param_1)
 
 {
   int iVar1;
   int iVar2;
   
-  *(uint8_t *)((int)param_1 + 0x89) = 0;
+  param_1->field_0x89 = 0;
   init_two_sram_objects();
   iVar1 = 8;
   do {
     iVar2 = iVar1 + -4;
-    *(uint32_t *)((int)param_1 + iVar1 + 0x78) = *(uint32_t *)(iVar1 + -0x7ffe5b5c);
+    *(uint32_t *)(&param_1->field_0x78 + iVar1) = *(uint32_t *)(iVar1 + -0x7ffe5b5c);
     iVar1 = iVar2;
   } while (iVar2 != 0);
-  param_1[2] = (int)(param_1 + 3);
+  param_1->field_0x8 = (uintptr_t)(&param_1->field_0xc);
   get_or_create_sram_object_1040a240();
   iVar1 = process_object_state_transition_1040a96a((void *)__frv_reg_unset(4));
   if (iVar1 == 0) {
-    (**(code **)(*param_1 + 0x34))((int)*(short *)(*param_1 + 0x30) + (int)param_1);
-    param_1 = (int *)create_and_configure_object_10393b48(5,1,param_1);
+    (((vtbl_entry*)(param_1->field_0x0))[6].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[6].adj);
+    param_1 = (cls_10562758 *)create_and_configure_object_10393b48(5,1,param_1);
   }
   else {
     call_three_unnamed_helpers_103923fa(param_1,0);
     init_object_with_two_ids_103923aa(param_1);
-    request_ui_sync_code_4((void *)param_1[2]);
+    request_ui_sync_code_4((char*)(param_1) ->field_0x8);
     get_or_create_sram_object_1040a240();
     init_object_flag_and_subobj(__frv_reg_unset(4));
   }

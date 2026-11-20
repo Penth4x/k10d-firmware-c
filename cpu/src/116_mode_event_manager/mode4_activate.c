@@ -32,22 +32,22 @@ uint32_t mode4_activate(void *param_1,uint32_t *param_2,int *param_3)
   iVar1 = read_first_word_10433098(param_2);
   iVar2 = read_first_word_10433098(param_2 + 5);
   if (iVar2 == 3) {
-    iVar3 = (**(code **)(*param_3 + 0x14))((int)*(short *)(*param_3 + 0x10) + (int)param_3,0x2c);
+    iVar3 = (((vtbl_entry*)(*param_3))[2].fn)((int)((vtbl_entry*)(*param_3))[2].adj + (int)param_3,0x2c);
     if (iVar3 == 0) {
-      iVar3 = (**(code **)(*param_3 + 0x14))((int)*(short *)(*param_3 + 0x10) + (int)param_3,0);
+      iVar3 = (((vtbl_entry*)(*param_3))[2].fn)((int)((vtbl_entry*)(*param_3))[2].adj + (int)param_3,0);
       if (((iVar3 == 0) &&
-          (iVar3 = (**(code **)(*param_3 + 0x14))((int)*(short *)(*param_3 + 0x10) + (int)param_3,1)
+          (iVar3 = (((vtbl_entry*)(*param_3))[2].fn)((int)((vtbl_entry*)(*param_3))[2].adj + (int)param_3,1)
           , iVar3 == 0)) &&
          (iVar3 = (**(code **)(*param_3 + 0x14))
-                            ((int)*(short *)(*param_3 + 0x10) + (int)param_3,0xb), iVar3 == 0)) {
+                            ((int)((vtbl_entry*)(*param_3))[2].adj + (int)param_3,0xb), iVar3 == 0)) {
         iVar3 = (**(code **)(*param_3 + 0x34))((int)*(short *)(*param_3 + 0x30) + (int)param_3,0x2e)
         ;
         if (iVar3 == 0) {
-          iVar3 = (**(code **)(*param_3 + 0x24))
-                            ((int)*(short *)(*param_3 + 0x20) + (int)param_3,0x17);
+          iVar3 = (((vtbl_entry*)(*param_3))[4].fn)
+                            ((int)((vtbl_entry*)(*param_3))[4].adj + (int)param_3,0x17);
           if (iVar3 == 0) {
-            iVar3 = (**(code **)(*param_3 + 0x24))
-                              ((int)*(short *)(*param_3 + 0x20) + (int)param_3,0xe);
+            iVar3 = (((vtbl_entry*)(*param_3))[4].fn)
+                              ((int)((vtbl_entry*)(*param_3))[4].adj + (int)param_3,0xe);
             if (iVar3 != 0) {
               init_and_set_value_10434ee8(*(uint32_t *)((int)param_1 + 0x30),param_2,1);
             }
@@ -79,7 +79,7 @@ uint32_t mode4_activate(void *param_1,uint32_t *param_2,int *param_3)
   }
   else {
     if (iVar2 == 0) {
-      iVar3 = (**(code **)(*param_3 + 0x1c))((int)*(short *)(*param_3 + 0x18) + (int)param_3,0x2c);
+      iVar3 = (((vtbl_entry*)(*param_3))[3].fn)((int)((vtbl_entry*)(*param_3))[3].adj + (int)param_3,0x2c);
       if (iVar3 == 0) goto LAB_10431b30;
       iVar3 = read_field_at_offset_0x6c(*(uint32_t *)((int)param_1 + 0x38));
       if (iVar3 == 1) {
@@ -100,8 +100,8 @@ uint32_t mode4_activate(void *param_1,uint32_t *param_2,int *param_3)
     }
     else {
       if ((iVar2 != 1) ||
-         (iVar3 = (**(code **)(*param_3 + 0x1c))
-                            ((int)*(short *)(*param_3 + 0x18) + (int)param_3,0x2c), iVar3 == 0))
+         (iVar3 = (((vtbl_entry*)(*param_3))[3].fn)
+                            ((int)((vtbl_entry*)(*param_3))[3].adj + (int)param_3,0x2c), iVar3 == 0))
       goto LAB_10431b30;
       iVar3 = read_field_at_offset_0x6c(*(uint32_t *)((int)param_1 + 0x38));
       if (iVar3 == 1) {

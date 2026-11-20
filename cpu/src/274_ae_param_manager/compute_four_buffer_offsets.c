@@ -27,7 +27,7 @@ void compute_four_buffer_offsets(uint32_t *param_1,void *param_2)
   *(uint32_t *)(iVar1 + 0x30) = *param_1;
   iVar2 = read_struct_field_by_index_104a2a78(param_2,1);
   iVar4 = *(int *)(param_1[0x4f] + 8);
-  iVar3 = sum_two_helper_results(param_1 + 0x3b);
+  iVar3 = sum_two_helper_results((cls_105b6aa0 *)(param_1 + 0x3b));
   *(int *)(iVar2 + 0x30) = iVar4 + iVar3;
   iVar2 = read_struct_field_by_index_104a2a78(param_2,3);
   *(uint *)(iVar2 + 0x30) = *(int *)(iVar1 + 0x30) + (*(int *)(iVar1 + 0x18) + 3U & 0xfffffffc);

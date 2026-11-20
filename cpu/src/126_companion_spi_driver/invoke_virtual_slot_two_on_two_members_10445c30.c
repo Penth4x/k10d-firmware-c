@@ -6,18 +6,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t invoke_virtual_slot_two_on_two_members_10445c30(void *param_1)
+uint32_t invoke_virtual_slot_two_on_two_members_10445c30(cls_105a1718 *param_1)
 
 {
-  int iVar1;
+  void *puVar1;
   
-  iVar1 = *(int *)((int)param_1 + 4);
-  if (iVar1 != 0) {
-    (**(code **)(*(int *)(iVar1 + 4) + 0x1c))(*(short *)(*(int *)(iVar1 + 4) + 0x18) + iVar1,0);
+  puVar1 = (void *)(param_1->field_0x4);
+  if (puVar1 != 0) {
+    (((vtbl_entry*)(*(int *)((char*)puVar1 + 4)))[3].fn)((char*)puVar1 + ((vtbl_entry*)(*(int *)((char*)puVar1 + 4)))[3].adj,0);
   }
-  iVar1 = *(int *)((int)param_1 + 8);
-  if (iVar1 != 0) {
-    (**(code **)(*(int *)(iVar1 + 4) + 0x1c))(*(short *)(*(int *)(iVar1 + 4) + 0x18) + iVar1,0);
+  puVar1 = (void *)(param_1->field_0x8);
+  if (puVar1 != 0) {
+    (((vtbl_entry*)(*(int *)((char*)puVar1 + 4)))[3].fn)((char*)puVar1 + ((vtbl_entry*)(*(int *)((char*)puVar1 + 4)))[3].adj,0);
   }
   return 1;
 }

@@ -16,20 +16,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-void iterate_vtable_callback(int param_1,uint32_t param_2)
+void iterate_vtable_callback(cls_105b4dac *param_1,uint32_t param_2)
 
 {
   int *piVar1;
   int iVar2;
   
   (*(code *)0x1049417c/*ROM*/)();
-  piVar1 = *(int **)(param_1 + 0x48);
-  if (piVar1 != *(int **)(param_1 + 0x4c)) {
+  piVar1 = *(int **)&param_1->field_0x48;
+  if ((uint32_t)(piVar1) != param_1->field_0x4c) {
     do {
       iVar2 = *(int *)(*piVar1 + 0xc);
-      (**(code **)(iVar2 + 0x74))(*piVar1 + (int)*(short *)(iVar2 + 0x70),param_2);
+      (((vtbl_entry*)(iVar2))[14].fn)(*piVar1 + (int)((vtbl_entry*)(iVar2))[14].adj,param_2);
       piVar1 = piVar1 + 1;
-    } while (piVar1 != *(int **)(param_1 + 0x4c));
+    } while ((uint32_t)(piVar1) != param_1->field_0x4c);
   }
   return;
 }

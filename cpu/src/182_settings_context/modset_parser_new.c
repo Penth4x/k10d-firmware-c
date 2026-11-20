@@ -12,7 +12,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int cls_105b2fd8_new(uint32_t *param_1)
+int modset_parser_new(uint32_t *param_1)
 
 {
   if ((param_1 != (uint32_t *)0x0) ||
@@ -20,9 +20,9 @@ int cls_105b2fd8_new(uint32_t *param_1)
     cls_105b2e98_new(param_1);
     cls_105a2c1c_new(param_1 + 0x13);
     cls_1059e478_new(param_1 + 0x18);
-    param_1[0x12] = (uint32_t)&DAT_105b2fd8/*ROM*/;
-    param_1[0x17] = (uint32_t)&DAT_105b3010/*ROM*/;
-    param_1[0x18] = (uint32_t)&DAT_105b3028/*ROM*/;
+    param_1[0x12] = (uintptr_t)(&DAT_105b2fd8/*ROM*/);
+    param_1[0x17] = (uintptr_t)(&DAT_105b3010/*ROM*/);
+    param_1[0x18] = (uintptr_t)(&DAT_105b3028/*ROM*/);
     cls_105a2af8_new(param_1 + 0x19);
     *(uint8_t *)(param_1 + 0x1b) = 0;
     *(uint8_t *)((int)param_1 + 0x6d) = 0;

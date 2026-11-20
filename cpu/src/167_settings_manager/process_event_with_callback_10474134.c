@@ -35,7 +35,7 @@ uint32_t process_event_with_callback_10474134(int param_1,int param_2,uint32_t p
   uint32_t uStack_40;
   uint32_t uStack_3c;
   uint8_t uStack_38;
-  uint8_t auStack_28 [32];
+  cls_105ab468 cStack_28;
   
   puVar7 = (uint32_t *)auStack_64;
   piVar1 = (int *)call_subroutine_with_offset_c_104766ae(*(int *)(param_1 + 8));
@@ -44,28 +44,28 @@ uint32_t process_event_with_callback_10474134(int param_1,int param_2,uint32_t p
   }
   else {
     uVar4 = 1;
-    iVar2 = (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1);
+    iVar2 = (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1);
     if (iVar2 == 0) {
       format_integer_as_four_digits_10477702(*(void **)(param_1 + 0x14),param_2);
       copy_string_to_offset_10477b94(*(void **)(param_1 + 0x14));
       uVar5 = *(uint32_t *)(param_1 + 0x14);
       uVar4 = get_or_create_sram_object_1047dd7a();
-      uVar4 = find_entry_in_pointer_list(uVar4,param_3);
+      uVar4 = (uint32_t)(find_entry_in_pointer_list(uVar4,param_3));
       (*(code *)0x104778ee/*ROM*/)(uVar5,uVar4,3);
       uStack_40 = 0;
       uStack_3c = 0;
-      cls_105ab468_new(auStack_28);
+      cls_105ab468_new(&cStack_28);
       uStack_38 = 0;
       iStack_4c = 0;
       iVar2 = *(int *)(param_1 + 4);
       pvVar3 = (void *)(*(code *)0x104779aa/*ROM*/)(*(uint32_t *)(param_1 + 0x10));
       uVar4 = (*(code *)0x10477aaa/*ROM*/)(*(uint32_t *)(param_1 + 0x14));
-      *puVar7 = &uStack_40;
-      iVar2 = call_inner_with_lock_pair(iVar2,pvVar3,uVar4,0,*puVar7);
+      *puVar7 = (uint32_t)(&uStack_40);
+      iVar2 = call_inner_with_lock_pair(iVar2,pvVar3,(void*)(uVar4),0,*puVar7);
       if (iVar2 != 0) {
-        iVar2 = validate_iso_code_string(*(uint32_t *)(param_1 + 0xc),auStack_28,(ushort *)0x0);
+        iVar2 = validate_iso_code_string(*(uint32_t *)(param_1 + 0xc),&cStack_28,(ushort *)0x0);
         if (iVar2 != 0) {
-          copy_12_bytes_if_length_12(*(uint32_t *)(param_1 + 0x10),auStack_28);
+          copy_12_bytes_if_length_12(*(uint32_t *)(param_1 + 0x10),(void*)(&cStack_28));
           pvVar6 = *(void **)(param_1 + 4);
           pvVar3 = (void *)(*(code *)0x10477a62/*ROM*/)(*(uint32_t *)(param_1 + 0x10));
           iStack_4c = call_with_offset_lock_10480e32(pvVar6,pvVar3);
@@ -86,7 +86,7 @@ uint32_t process_event_with_callback_10474134(int param_1,int param_2,uint32_t p
           uVar4 = 0;
         }
       }
-      cls_105ab468_delete(auStack_28,2);
+      cls_105ab468_delete(&cStack_28,2);
     }
   }
   return uVar4;

@@ -15,10 +15,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-int init_struct_with_next_ptr_1039543e(int param_1)
+cls_10562cbc * init_struct_with_next_ptr_1039543e(cls_10562cbc *param_1)
 
 {
-  *(int *)(param_1 + 4) = param_1 + 8;
+  param_1->field_0x4 = (uint32_t)&param_1->field_0x8;
   initialize_object_with_three_calls_103954ba((void *)__frv_reg_unset(4));
   return param_1;
 }

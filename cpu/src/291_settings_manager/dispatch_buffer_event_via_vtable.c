@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int dispatch_buffer_event_via_vtable(int param_1)
+int dispatch_buffer_event_via_vtable(cls_1061e14c *param_1)
 
 {
   uint uVar1;
@@ -25,32 +25,30 @@ int dispatch_buffer_event_via_vtable(int param_1)
   uint32_t uVar4;
   int iVar5;
   
-  iVar5 = **(int **)(param_1 + 4);
-  iVar5 = (**(code **)(iVar5 + 0x3c))((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar5 + 0x38));
-  if ((*(int *)(param_1 + 0x1c) != 0) && (iVar5 == 2)) {
-    uVar4 = (*(uint32_t **)(param_1 + 0x18))[3];
-    if (*(int *)(param_1 + 0xc) == 0) {
-      uVar2 = read_little_endian_word_104acb5e((void *)**(uint32_t **)(param_1 + 0x18),4);
-      *(uint *)(param_1 + 0xc) = uVar2;
+  iVar5 = *(int *)param_1->field_0x4;
+  iVar5 = (((vtbl_entry*)(iVar5))[7].fn)(param_1->field_0x4 + (int)((vtbl_entry*)(iVar5))[7].adj);
+  if ((param_1->field_0x1c != 0) && (iVar5 == 2)) {
+    uVar4 = ((uint32_t *)param_1->field_0x18)[3];
+    if (param_1->field_0xc == 0) {
+      uVar2 = read_little_endian_word_104acb5e(*(void **)param_1->field_0x18,4);
+      param_1->field_0xc = uVar2;
     }
-    iVar3 = dispatch_buffer_copy((void *)(*(uint32_t *)(param_1 + 0x18)),(void *)(*(uint32_t *)(param_1 + 0x1c)),uVar4);
-    uVar1 = *(int *)(param_1 + 0xc) - iVar3;
-    *(uint *)(param_1 + 0xc) = uVar1;
-    uVar2 = *(int *)(*(int *)(param_1 + 0x1c) + 4) - *(int *)(*(int *)(param_1 + 0x1c) + 0xc);
+    iVar3 = dispatch_buffer_copy((void*)(param_1->field_0x18),(void*)(param_1->field_0x1c),uVar4);
+    uVar1 = param_1->field_0xc - iVar3;
+    param_1->field_0xc = uVar1;
+    uVar2 = *(int *)(param_1->field_0x1c + 4) - *(int *)(param_1->field_0x1c + 0xc);
     if (uVar1 <= uVar2) {
       uVar2 = uVar1;
     }
     if ((uVar1 == 0) || (uVar2 == 0)) {
-      *(uint32_t *)(param_1 + 0x1c) = 0;
-      (*(code *)0x104ad2d4/*ROM*/)(*(uint32_t *)(param_1 + 0x18),0,0,0);
+      param_1->field_0x1c = 0;
+      (*(code *)0x104ad2d4/*ROM*/)(param_1->field_0x18,0,0,0);
     }
     else {
-      (*(code *)0x104ad2d4/*ROM*/)(*(uint32_t *)(param_1 + 0x18),*(uint32_t *)(param_1 + 0x10),uVar2,0)
-      ;
-      iVar5 = **(int **)(param_1 + 4);
-      iVar5 = (**(code **)(iVar5 + 0x34))
-                        ((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar5 + 0x30),1,
-                         *(uint32_t *)(param_1 + 0x18));
+      (*(code *)0x104ad2d4/*ROM*/)(param_1->field_0x18,param_1->field_0x10,uVar2,0);
+      iVar5 = *(int *)param_1->field_0x4;
+      iVar5 = (((vtbl_entry*)(iVar5))[6].fn)
+                        (param_1->field_0x4 + (int)((vtbl_entry*)(iVar5))[6].adj,1,param_1->field_0x18);
     }
   }
   return iVar5;

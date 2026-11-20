@@ -44,7 +44,7 @@ int allocate_kernel_task_slot_1000d89c(ushort *param_1)
       } while (iVar3 < DAT_10011d3a/*ROM*/);
     }
     if (iVar3 < DAT_10011d3a/*ROM*/) {
-      if ((pvStack_c == (void *)0x0) &&
+      if ((pvStack_c == 0) &&
          (iVar3 = allocate_kernel_memory_block(*(uint *)(param_1 + 2),&pvStack_c), iVar3 != 1)) {
         caller_r9 = E_NOMEM;
       }

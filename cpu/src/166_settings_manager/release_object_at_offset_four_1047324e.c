@@ -14,11 +14,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_object_at_offset_four_1047324e(void *param_1)
+void release_object_at_offset_four_1047324e(cls_105aa2f4 *param_1)
 
 {
-  if (*(int *)((int)param_1 + 4) != 0) {
-    kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 4) + 8));
+  if (param_1->field_0x4 != 0) {
+    kernel_diag_taskstack((int *)(param_1->field_0x4 + 8));
   }
   return;
 }

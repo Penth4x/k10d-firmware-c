@@ -8,7 +8,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-uint32_t query_status_item_by_index(int param_1,int param_2)
+uint32_t query_status_item_by_index(cls_105b5410 *param_1,int param_2)
 
 {
   uint32_t uVar1;
@@ -16,7 +16,7 @@ uint32_t query_status_item_by_index(int param_1,int param_2)
   uVar1 = 0;
   if (((((param_2 != 0xe) && (param_2 != 0xd)) && (param_2 != 0xf)) && (param_2 != 0x10)) ||
      (param_2 == _DAT_8001053c/*SDRAM*/)) {
-    uVar1 = status_item_asserted((void *)(param_1 + 4),*(int *)(param_2 * 4 + 0x105b52c4/*ROM*/));
+    uVar1 = status_item_asserted((void *)&param_1->field_0x4,*(int *)(param_2 * 4 + 0x105b52c4/*ROM*/));
   }
   return uVar1;
 }

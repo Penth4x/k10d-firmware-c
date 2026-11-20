@@ -15,19 +15,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t query_object_slot_three_1052049a(int param_1)
+uint32_t query_object_slot_three_1052049a(cls_105d7118 *param_1)
 
 {
   int *piVar1;
   uint32_t uVar2;
   
-  *(uint32_t *)(param_1 + 0xc) = 0;
-  piVar1 = *(int **)(param_1 + 8);
+  param_1->field_0xc = 0;
+  piVar1 = (int *)param_1->field_0x8;
   if (piVar1 == (int *)0x0) {
     uVar2 = 1;
   }
   else {
-    uVar2 = (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1);
+    uVar2 = (((vtbl_entry*)(*piVar1))[3].fn)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1);
   }
   return uVar2;
 }

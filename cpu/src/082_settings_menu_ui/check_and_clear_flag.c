@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void check_and_clear_flag(void *param_1)
+void check_and_clear_flag(cls_10596dc4 *param_1)
 
 {
   uint uVar1;

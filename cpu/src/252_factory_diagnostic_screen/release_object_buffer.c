@@ -17,7 +17,7 @@
 void release_object_buffer(int param_1)
 
 {
-  if (*(void **)(param_1 + 0x38) != (void *)0x0) {
+  if (*(void **)(param_1 + 0x38) != 0) {
     mempool_release_block(*(void **)(param_1 + 0x48),*(void **)(param_1 + 0x38));
     *(uint32_t *)(param_1 + 0x38) = 0;
   }

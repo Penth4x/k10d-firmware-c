@@ -24,6 +24,6 @@ void set_flag_at_offset_0x7c_1043209a(void *param_1,int param_2)
   else {
     uVar1 = 0x200;
   }
-  eventflag_clr_flg((void *)((char *)param_1 + 0x7c),uVar1);
+  eventflag_clr_flg((void *)((int)param_1 + 0x7c),uVar1);
   return;
 }

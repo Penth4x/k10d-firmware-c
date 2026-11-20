@@ -12,7 +12,7 @@
 int alloc_and_init_0x20_object(void *param_1)
 
 {
-  if ((param_1 != (void *)0x0) || (param_1 = (void *)heap_alloc((void *)0x20), param_1 != (void *)0x0)) {
+  if ((param_1 != 0) || (param_1 = (void *)heap_alloc((void *)0x20), param_1 != 0)) {
     cls_105a5c2c_new_2(param_1,900,0);
     *(uint32_t *)((int)param_1 + 0x18) = 0;
     *(uint16_t *)((int)param_1 + 0x1c) = 0xff9c;

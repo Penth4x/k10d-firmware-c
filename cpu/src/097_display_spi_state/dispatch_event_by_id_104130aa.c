@@ -19,7 +19,7 @@
 /* WARNING: Instruction at (ram,0x104130c2) overlaps instruction at (ram,0x104130c0)
     */
 
-uint32_t dispatch_event_by_id_104130aa(int param_1,int param_2,uint param_3)
+uint32_t dispatch_event_by_id_104130aa(cls_1059c10c *param_1,int param_2,uint param_3)
 
 {
   uint32_t uVar1;
@@ -40,11 +40,11 @@ uint32_t dispatch_event_by_id_104130aa(int param_1,int param_2,uint param_3)
       }
       if (param_2 < 0xd00005) {
         if (param_2 == 0xd00001) {
-          clear_linked_object_and_flags(param_1);
+          clear_linked_object_and_flags((int)(param_1));
           return 0;
         }
         if (param_2 == 0xd00002) {
-          uVar1 = configure_exposure_state(param_1);
+          uVar1 = configure_exposure_state((int)(param_1));
           return uVar1;
         }
         if (param_2 == 0xd00003) {
@@ -68,22 +68,22 @@ uint32_t dispatch_event_by_id_104130aa(int param_1,int param_2,uint param_3)
     }
     else {
       if (param_2 == 0xd0000c) {
-        invoke_virtual_and_check_flag(param_1);
+        invoke_virtual_and_check_flag((int)(param_1));
         return 0;
       }
       if (0xd0000c < param_2) {
         if (param_2 == 0xd0000d) {
-          set_object_flag_and_notify(param_1,0);
+          set_object_flag_and_notify((int)(param_1),(int)(0));
           return 0;
         }
         if (param_2 == 0xd0000e) {
-          set_object_flag_and_notify(param_1,1);
+          set_object_flag_and_notify((int)(param_1),(int)(1));
           return 0;
         }
         if (param_2 != 0xd0000f) {
           return 0;
         }
-        iVar2 = check_and_dispatch_state_flags(param_1);
+        iVar2 = check_and_dispatch_state_flags((int)(param_1));
         if (iVar2 != 0) {
           return 1;
         }
@@ -91,16 +91,16 @@ uint32_t dispatch_event_by_id_104130aa(int param_1,int param_2,uint param_3)
       }
       if (param_2 != 0xd00009) {
         if (param_2 == 0xd0000a) {
-          uVar1 = poll_until_flag_clear_10416cbc(param_1);
+          uVar1 = poll_until_flag_clear_10416cbc((int)(param_1));
           return uVar1;
         }
         if (param_2 == 0xd0000b) {
-          set_flag_and_call_helper_10416bd2(param_1);
+          set_flag_and_call_helper_10416bd2((int)(param_1));
           return 0;
         }
         return 0;
       }
-      set_flg_obj((uint32_t *)(param_1 + 0x1538));
+      set_flg_obj((uint32_t *)&param_1[1].field_0x580);
       iVar2 = 0x1540;
     }
   }
@@ -111,7 +111,7 @@ uint32_t dispatch_event_by_id_104130aa(int param_1,int param_2,uint param_3)
     if (param_2 < 0xf00009) {
       if (param_2 == 0xf00004) {
         iVar2 = 0x1538;
-        *(uint32_t *)(param_1 + 0x1518) = *(uint32_t *)(param_3 + 0x8c8);
+        *(uint32_t *)&param_1[1].field_0x560 = *(uint32_t *)(param_3 + 0x8c8);
       }
       else if (param_2 < 0xf00005) {
         if (param_2 == 0xf00001) {
@@ -128,18 +128,19 @@ uint32_t dispatch_event_by_id_104130aa(int param_1,int param_2,uint param_3)
         }
       }
       else if (param_2 == 0xf00005) {
-        *(uint8_t *)(param_1 + 0x14fc) = 1;
+        param_1[1].field_0x544 = 1;
         iVar2 = 0x1540;
       }
       else if (param_2 == 0xf00006) {
-        if ((*(uint *)(param_1 + 0x1508) == param_3) && (*(int *)(param_1 + 0x1508) != 0)) {
+        if ((*(uint *)&param_1[1].field_0x550 == param_3) && (*(int *)&param_1[1].field_0x550 != 0))
+        {
           return 0;
         }
         if ((param_3 & 0x2000000) == 0) {
-          *(uint *)(param_1 + 0x1508) = *(uint *)(param_1 + 0x1508) | param_3;
+          *(uint *)&param_1[1].field_0x550 = *(uint *)&param_1[1].field_0x550 | param_3;
         }
         else {
-          *(uint32_t *)(param_1 + 0x1508) = 0x2000000;
+          *(uint32_t *)&param_1[1].field_0x550 = 0x2000000;
         }
         iVar2 = 0x1538;
       }
@@ -148,7 +149,7 @@ uint32_t dispatch_event_by_id_104130aa(int param_1,int param_2,uint param_3)
           return 0;
         }
         iVar2 = 0x1538;
-        *(uint *)(param_1 + 0x1508) = *(uint *)(param_1 + 0x1508) | param_3;
+        *(uint *)&param_1[1].field_0x550 = *(uint *)&param_1[1].field_0x550 | param_3;
       }
     }
     else if (param_2 == 0x1140002) {
@@ -184,6 +185,6 @@ uint32_t dispatch_event_by_id_104130aa(int param_1,int param_2,uint param_3)
       iVar2 = 0x1540;
     }
   }
-  set_flg_obj((uint32_t *)(iVar2 + param_1));
+  set_flg_obj((uint32_t *)((int)&param_1->field_0x0 + iVar2));
   return 0;
 }

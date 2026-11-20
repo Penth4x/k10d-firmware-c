@@ -16,7 +16,7 @@ void invoke_virtual_slot_two_1047d840(uint32_t param_1,int *param_2,uint32_t par
   alloc_and_zero_20_bytes(&uStack_1c);
   uStack_1c = 1;
   uStack_18 = 0x14;
-  (**(code **)(*param_2 + 0x14))((int)*(short *)(*param_2 + 0x10) + (int)param_2,param_3,&uStack_1c)
+  (((vtbl_entry*)(*param_2))[2].fn)((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,param_3,&uStack_1c)
   ;
   free_heap_if_flagged_10482f3c(&uStack_1c,2);
   return;

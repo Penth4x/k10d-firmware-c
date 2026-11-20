@@ -30,14 +30,14 @@ void register_menu_item_with_value(int *param_1,uint32_t param_2,int param_3)
   uint32_t auStack_18 [4];
   
   iVar2 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0x1c))
-            (auStack_18,*(short *)(*(int *)(iVar2 + 0xc) + 0x18) + iVar2);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[3].fn)
+            (auStack_18,((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[3].adj + iVar2);
   iVar5 = *(int *)(iVar2 + 0xc);
   sVar1 = *(short *)(iVar5 + 0x10);
   uVar3 = read_first_word_1045bd4c(auStack_18);
   iVar4 = get_second_word_of_struct(auStack_18);
-  uVar3 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_20,uVar3,iVar4 + param_3);
-  (**(code **)(iVar5 + 0x14))(iVar2 + sVar1,uVar3);
+  uVar3 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_20,uVar3,iVar4 + param_3));
+  (((vtbl_entry*)(iVar5))[2].fn)(iVar2 + sVar1,uVar3);
   free_heap_block_if_flagged_1045bc54(auStack_20,2);
   free_heap_block_if_flagged_1045bc54(auStack_18,2);
   return;

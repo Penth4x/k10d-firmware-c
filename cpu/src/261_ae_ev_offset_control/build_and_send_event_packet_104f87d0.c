@@ -108,7 +108,7 @@ void build_and_send_event_packet_104f87d0(int param_1,int param_2,void *param_3)
   uStack_c = 0;
   pvStack_2c = param_3;
   eventflag_clr_flg(puVar1,1);
-  build_and_send_structured_packet(*(uint32_t *)(param_1 + 0x28),1,(void *)(param_1 + 4),&uStack_74);
+  build_and_send_structured_packet((int)(*(uint32_t *)(param_1 + 0x28)),(int)(1),(void *)(param_1 + 4),(uint32_t *)(&uStack_74));
   eventflag_wai_flg(puVar1,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,1);
   configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),1);

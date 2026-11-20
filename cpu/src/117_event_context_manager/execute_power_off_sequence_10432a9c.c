@@ -21,15 +21,15 @@ uint32_t execute_power_off_sequence_10432a9c(void *param_1,int param_2)
   int iVar1;
   int iVar2;
   uintptr_t sp;
-  uint8_t auStack_3c [20];
-  uint8_t auStack_28 [20];
+  cls_1059f170 cStack_3c;
+  cls_1059f170 cStack_28;
   uint32_t uStack_14;
   uint8_t uStack_10;
   uint32_t uStack_c;
   
   iVar1 = call_subroutine_with_arg3(*(uint32_t *)((int)param_1 + 0x34));
   if ((param_2 == 3) || (iVar1 == 3)) {
-    invoke_virtual_method_with_id(param_1);
+    invoke_virtual_method_with_id((uint32_t)(param_1));
   }
   iVar2 = poll_event_until_clear(param_1,(uint)(*(char *)((int)param_1 + 0x9c) == '\0'));
   if (iVar2 != 0) {
@@ -45,14 +45,14 @@ uint32_t execute_power_off_sequence_10432a9c(void *param_1,int param_2)
         update_settings_status_flags(*(uint32_t *)((int)param_1 + 0x30),1);
       }
       else {
-        cls_1059f170_new(auStack_3c);
-        cls_1059f170_new(auStack_28);
+        cls_1059f170_new(&cStack_3c);
+        cls_1059f170_new(&cStack_28);
         uStack_14 = 0;
         uStack_10 = 0;
         uStack_c = 0;
-        write_param_to_buffer(*(uint32_t *)((int)param_1 + 0x30),auStack_3c,1);
-        write_struct_field_with_optional_value(*(uint32_t *)((int)param_1 + 0x30),auStack_3c,1);
-        update_status_flags_from_params(*(int *)((int)param_1 + 0x30),auStack_3c,0);
+        write_param_to_buffer(*(uint32_t *)((int)param_1 + 0x30),&cStack_3c,1);
+        write_struct_field_with_optional_value(*(uint32_t *)((int)param_1 + 0x30),&cStack_3c,1);
+        update_status_flags_from_params(*(int *)((int)param_1 + 0x30),&cStack_3c,0);
         iVar1 = read_field_at_offset_0x90(*(uint32_t *)((int)param_1 + 0x38));
         if (iVar1 == 1) {
           set_flag_and_call_helper_10435224(*(uint32_t *)((int)param_1 + 0x30),0);
@@ -60,8 +60,8 @@ uint32_t execute_power_off_sequence_10432a9c(void *param_1,int param_2)
         set_flag_and_call_helper_10435224(*(uint32_t *)((int)param_1 + 0x30),1);
         update_settings_status_flags(*(uint32_t *)((int)param_1 + 0x30),0);
         compute_exposure_value_from_settings(*(uint32_t *)((int)param_1 + 0x30),8);
-        cls_1059f170_destructor(auStack_28,2);
-        cls_1059f170_destructor(auStack_3c,2);
+        cls_1059f170_destructor(&cStack_28,2);
+        cls_1059f170_destructor(&cStack_3c,2);
       }
       process_mode_setting_updates(*(uint32_t *)((int)param_1 + 0x30),1);
       forward_two_fields_to_helper_104341e4(*(uint32_t *)((int)param_1 + 0x30));

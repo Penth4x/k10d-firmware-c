@@ -18,8 +18,7 @@ int allocate_and_store_buffer(int param_1,int param_2,void *param_3,short param_
 {
   int iVar1;
   
-  iVar1 = (int)app_obj_factory((void *)(*(uint32_t *)(param_1 + 0x20)),param_3,
-                       (void *)((param_4 + -1) * 0x18 + 0x20),
+  iVar1 = (int)app_obj_factory(*(void **)(param_1 + 0x20),param_3,(void *)((param_4 + -1) * 0x18 + 0x20),
                        (void *)((param_5 + -1) * 0x18 + 0x18));
   invoke_virtual_then_call_helper_10494188(param_2,iVar1);
   return iVar1;

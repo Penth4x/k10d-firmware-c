@@ -30,14 +30,14 @@ void process_sensor_readout_event_104cd384(int param_1)
   pvVar4 = (void *)(*(code *)0x1052d61a/*ROM*/)(*(uint32_t *)(param_1 + 0x1e0));
   iVar12 = *(int *)((int)pvVar4 + 8);
   if (((iVar12 == 2) || (iVar12 == 3)) && (cVar10 = read_byte_at_offset_104c2842(pvVar4,3), cVar10 != '\0')) {
-    piVar5 = (int *)cls_1059e05c_new((uint32_t *)0x0);
+    piVar5 = (int *)cls_1059e05c_new((cls_1059e05c *)0x0);
     iVar6 = (*(code *)0x1052d6a8/*ROM*/)(*(uint32_t *)(param_1 + 0x1e0));
     iVar7 = (*(code *)0x1052d6a0/*ROM*/)(*(uint32_t *)(param_1 + 0x1e0));
     iVar6 = lookup_table_entry(piVar5,iVar6,iVar7);
     iVar7 = (*(code *)0x1042682e/*ROM*/)(piVar5);
     iVar8 = (*(code *)0x10426834/*ROM*/)(piVar5);
     if (piVar5 != (int *)0x0) {
-      (**(code **)(*piVar5 + 0xc))((int)*(short *)(*piVar5 + 8) + (int)piVar5,3);
+      (((vtbl_entry*)(*piVar5))[1].fn)((int)*(short *)(*piVar5 + 8) + (int)piVar5,3);
     }
     *piVar13 = (int)pvVar4;
     iVar6 = query_setting_status_code(param_1,iVar8,iVar7,iVar6,*piVar13);
@@ -46,8 +46,8 @@ void process_sensor_readout_event_104cd384(int param_1)
     }
     *(uint32_t *)(param_1 + 0x214) = 10;
     iVar6 = **(int **)(param_1 + 0x1c);
-    (**(code **)(iVar6 + 0x14))
-              ((int)*(int **)(param_1 + 0x1c) + (int)*(short *)(iVar6 + 0x10),
+    (((vtbl_entry*)(iVar6))[2].fn)
+              ((int)*(int **)(param_1 + 0x1c) + (int)((vtbl_entry*)(iVar6))[2].adj,
                *(uint32_t *)(param_1 + 0x210),10);
     iVar6 = (*(code *)0x1052d61c/*ROM*/)(*(uint32_t *)(param_1 + 0x1e0));
     if ((*(int *)(iVar6 + 4) == 0) && (iVar6 = process_sensor_readout_status(param_1), iVar6 == 0)) {

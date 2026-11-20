@@ -12,7 +12,7 @@ void invoke_virtual_slot_two_1040dc6e(int param_1)
   int iVar1;
   
   iVar1 = **(int **)(param_1 + 0x2c);
-  (**(code **)(iVar1 + 0x14))
-            ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar1 + 0x10),0x112006e,0);
+  (((vtbl_entry*)(iVar1))[2].fn)
+            ((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar1))[2].adj,0x112006e,0);
   return;
 }

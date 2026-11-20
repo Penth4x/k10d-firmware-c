@@ -68,25 +68,25 @@ int allocate_mempool_blocks(int param_1)
   iVar1 = 0;
   do {
     pvVar3 = *(void **)((int)aiStack_108 + iVar1);
-    if (pvVar3 != (void *)0x0) {
+    if (pvVar3 != 0) {
       pvVar4 = (void *)get_system_heap();
       mempool_release_block(pvVar4,pvVar3);
       *(uint32_t *)((int)aiStack_108 + iVar1) = 0;
     }
     pvVar3 = *(void **)((int)aiStack_108 + iVar1 + 4);
-    if (pvVar3 != (void *)0x0) {
+    if (pvVar3 != 0) {
       pvVar4 = (void *)get_system_heap();
       mempool_release_block(pvVar4,pvVar3);
       *(uint32_t *)((int)aiStack_108 + iVar1 + 4) = 0;
     }
     pvVar3 = *(void **)((int)aiStack_108 + iVar1 + 8);
-    if (pvVar3 != (void *)0x0) {
+    if (pvVar3 != 0) {
       pvVar4 = (void *)get_system_heap();
       mempool_release_block(pvVar4,pvVar3);
       *(uint32_t *)((int)aiStack_108 + iVar1 + 8) = 0;
     }
     pvVar3 = *(void **)((int)aiStack_108 + iVar1 + 0xc);
-    if (pvVar3 != (void *)0x0) {
+    if (pvVar3 != 0) {
       pvVar4 = (void *)get_system_heap();
       mempool_release_block(pvVar4,pvVar3);
       *(uint32_t *)((int)aiStack_108 + iVar1 + 0xc) = 0;

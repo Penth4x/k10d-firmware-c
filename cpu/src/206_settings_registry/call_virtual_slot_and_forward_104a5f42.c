@@ -21,8 +21,8 @@ void call_virtual_slot_and_forward_104a5f42(int param_1,int param_2)
   int iVar2;
   
   iVar2 = **(int **)(param_1 + 0x18);
-  pvVar1 = (void *)(**(code **)(iVar2 + 0x2c))
-                             ((int)*(int **)(param_1 + 0x18) + (int)*(short *)(iVar2 + 0x28));
+  pvVar1 = (void *)(((vtbl_entry*)(iVar2))[5].fn)
+                             ((int)*(int **)(param_1 + 0x18) + (int)((vtbl_entry*)(iVar2))[5].adj);
   copy_bytes_to_struct_field(param_2,pvVar1,0x45);
   return;
 }

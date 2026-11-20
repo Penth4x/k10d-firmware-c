@@ -30,7 +30,7 @@ void invoke_virtual_slot_two_with_flag(int param_1)
     uVar2 = _DAT_105bb5b8/*ROM*/;
   }
   iVar3 = **(int **)(param_1 + 0x2c);
-  (**(code **)(iVar3 + 0x1c))
-            ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar3 + 0x18),0x130066,uVar2);
+  (((vtbl_entry*)(iVar3))[3].fn)
+            ((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar3))[3].adj,0x130066,uVar2);
   return;
 }

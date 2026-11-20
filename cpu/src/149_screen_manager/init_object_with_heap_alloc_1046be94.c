@@ -24,12 +24,12 @@ void init_object_with_heap_alloc_1046be94(void *param_1)
     iVar1 = 0;
   }
   else {
-    cls_105a8b34_new((void *)iVar1);
+    cls_105a8b34_new((uint32_t *)(iVar1));
   }
   *(int *)((int)param_1 + 4) = iVar1;
   iVar1 = initialize_singleton_object_1045d6a0();
   *(uint32_t *)(*(int *)((int)param_1 + 4) + 0xb8) = *(uint32_t *)(iVar1 + 0x1c);
   iVar1 = **(int **)((int)param_1 + 4);
-  (**(code **)(iVar1 + 0x14))((int)*(int **)((int)param_1 + 4) + (int)*(short *)(iVar1 + 0x10),0);
+  (((vtbl_entry*)(iVar1))[2].fn)((int)*(int **)((int)param_1 + 4) + (int)((vtbl_entry*)(iVar1))[2].adj,0);
   return;
 }

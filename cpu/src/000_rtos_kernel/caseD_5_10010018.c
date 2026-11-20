@@ -1,4 +1,4 @@
-/* @k10d caseD_5 @ 0x10010018
+/* @k10d caseD_5_10010018 @ 0x10010018
  * name: earlier (carried from an earlier Ghidra session, not re-verified; the model, reading only this decompile, proposed return_zero_stub)
  * unit: 000_rtos_kernel (unit names are model-proposed)
  * purpose:

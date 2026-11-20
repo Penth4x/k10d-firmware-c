@@ -112,10 +112,10 @@ void init_image_buffer_pools(void)
   uRam800102cc = 0x280;
   uRam800102ce = 0x1e0;
   puRam800102b4 = puRam800102dc;
-  _DAT_800102a0/*SDRAM*/ = puRam800102dc;
+  _DAT_800102a0/*SDRAM*/ = (uintptr_t)(puRam800102dc);
   puRam800102a4 = puRam800102dc + 0x4b000;
-  _DAT_800102a8/*SDRAM*/ = puRam800102dc + 0x5dc00;
-  _DAT_800102ac/*SDRAM*/ = puRam800102dc + 0x70800;
+  _DAT_800102a8/*SDRAM*/ = (uintptr_t)(puRam800102dc + 0x5dc00);
+  _DAT_800102ac/*SDRAM*/ = (uintptr_t)(puRam800102dc + 0x70800);
   puRam800102b0 = puRam800102b8;
   clear_four_status_flags(uRam800102c0);
   reset_object_fields_to_defaults(_DAT_800102bc/*SDRAM*/);

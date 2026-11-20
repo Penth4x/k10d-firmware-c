@@ -45,7 +45,7 @@ uint copy_words_with_tail(uint16_t *param_1,uint16_t *param_2,uint param_3,uint 
     }
   }
   if ((param_3 & 1) != 0) {
-    copy_bytes_aligned((void *)param_1,(void *)param_2,param_3 & 1,0);
+    copy_bytes_aligned(param_1,param_2,param_3 & 1,0);
   }
   return param_3;
 }

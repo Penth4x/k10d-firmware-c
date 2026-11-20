@@ -19,7 +19,7 @@ uint32_t initialize_class_instance(int *param_1, uint32_t param_x1)
   int iVar1;
   uint32_t uVar2;
   
-  iVar1 = cls_10562400_new(0);
+  iVar1 = (uintptr_t)(cls_10562400_new((cls_10562400 *)0x0));
   *param_1 = iVar1;
   if (iVar1 == 0) {
     uVar2 = 0;

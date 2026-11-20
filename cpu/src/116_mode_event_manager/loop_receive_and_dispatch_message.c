@@ -26,7 +26,7 @@ void loop_receive_and_dispatch_message(void *param_1)
   process_mode_transition_sequence(param_1);
   do {
     do {
-      iVar1 = mbx_receive_message((int)param_1 + 100,&puStack_c,uRam105a2b18);
+      iVar1 = mbx_receive_message_104598e8((uint32_t *)((int)param_1 + 100),(uint32_t *)(&puStack_c),(uint32_t)(uRam105a2b18));
     } while (iVar1 == 0);
     process_event_and_release((int)param_1,puStack_c);
   } while( true );

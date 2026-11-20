@@ -15,13 +15,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_helper_and_branch_on_result(int *param_1)
+uint32_t call_helper_and_branch_on_result(cls_105d6c2c *param_1)
 
 {
   int iVar1;
   uint32_t uVar2;
   
-  clear_four_word_fields(__frv_reg_unset(4));
+  clear_four_word_fields(param_1);
   iVar1 = (*(code *)0x104a29d0/*ROM*/)(param_1);
   if (iVar1 == 0) {
     uVar2 = 0;

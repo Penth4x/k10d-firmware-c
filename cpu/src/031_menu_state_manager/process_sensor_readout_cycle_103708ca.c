@@ -35,7 +35,7 @@ uint32_t process_sensor_readout_cycle_103708ca(void *param_1)
   *(uint32_t *)((int)param_1 + 0x6c) = 0x2e;
   *(uint8_t *)((int)param_1 + 0xd4) = 1;
   while (iVar1 = register_and_activate_event((int)param_1), iVar1 == 0xb) {
-    uVar3 = get_sram_field_at_offset_0x3c(param_1);
+    uVar3 = get_sram_field_at_offset_0x3c((uint32_t)(param_1));
     register_menu_item_with_limit(0x80018060/*SDRAM*/,uVar3);
   }
   *(uint8_t *)((int)param_1 + 0xd4) = 0;
@@ -49,9 +49,9 @@ uint32_t process_sensor_readout_cycle_103708ca(void *param_1)
   set_field_and_call_helper_10370bbc((int)param_1);
   write_second_field_of_struct(param_1,1);
   if (iVar1 == 1) {
-    lookup_and_copy_result(param_1,0x80015d38/*SDRAM*/);
-    lookup_and_copy_result(param_1,0x80015b24/*SDRAM*/);
-    lookup_and_copy_result(param_1,0x80015910/*SDRAM*/);
+    lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015d38/*SDRAM*/));
+    lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015b24/*SDRAM*/));
+    lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015910/*SDRAM*/));
     uVar3 = get_or_create_singleton_object_1036c796();
     uVar4 = 2;
   }

@@ -19,7 +19,7 @@ void allocate_and_fill_struct_1047ad78(int param_1,uint32_t param_2,uint32_t par
 {
   int iVar1;
   
-  iVar1 = (int)alloc_dynamic_array_header(0,2);
+  iVar1 = (uintptr_t)(alloc_dynamic_array_header(0,2));
   *(uint32_t *)(iVar1 + 8) = param_2;
   *(uint32_t *)(iVar1 + 4) = 0x20;
   **(uint32_t **)(iVar1 + 0xc) = param_4;

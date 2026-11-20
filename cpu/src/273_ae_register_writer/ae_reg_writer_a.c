@@ -28,8 +28,8 @@ void ae_reg_writer_a(int param_1,void *param_2)
     uVar1 = 0;
   }
   else {
-    (**(code **)(*(int *)((int)param_2 + 0x8d4) + 0xb4))
-              ((int)*(short *)(*(int *)((int)param_2 + 0x8d4) + 0xb0) + (int)param_2,
+    (((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[22].fn)
+              ((int)((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[22].adj + (int)param_2,
                *(uint16_t *)
                 (*(int *)((int)param_2 + 0x24) * 2 + *(int *)((int)param_2 + 0x20) + 0xa0));
     *(uint32_t *)((int)param_2 + 0x10) = 0xa00005;

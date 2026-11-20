@@ -31,7 +31,7 @@ void update_state_and_call_helper(void *param_1,uint param_2,int param_3)
   }
   if (((param_2 & 1) == 0) && (param_2 != 0)) {
     forward_six_args_to_helper_1046a5e6(param_1,(uint)*(ushort *)((int)param_1 + 0x250),
-                 (uint)*(ushort *)((int)param_1 + 0x252),(void *)&DAT_105a829c/*ROM*/,0,3);
+                 (uint)*(ushort *)((int)param_1 + 0x252),&DAT_105a829c/*ROM*/,0,3);
     *(short *)((int)param_1 + 0x252) = *(short *)((int)param_1 + 0x252) + 1;
   }
   return;

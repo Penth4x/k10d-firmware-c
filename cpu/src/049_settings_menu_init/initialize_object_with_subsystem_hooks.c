@@ -15,30 +15,31 @@
 #include "globals.h"
 #include "funcs.h"
 
-void initialize_object_with_subsystem_hooks(int *param_1,uint32_t param_2,void *param_3,void *param_4)
+void initialize_object_with_subsystem_hooks(cls_10565d08 *param_1,uint32_t param_2,void *param_3,void *param_4)
 
 {
   uint8_t uVar3;
   uint32_t uVar1;
   uint uVar2;
-  int *piVar4;
+  uint8_t *puVar4;
   undefined5 uVar5;
   
-  param_1[0xd] = 15000;
-  if (*(char *)(param_1 + 1) == '\0') {
-    (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1,0);
+  param_1->field_0x34 = 15000;
+  if (param_1->field_0x4 == '\0') {
+    (((vtbl_entry*)(param_1->field_0x0))[8].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[8].adj,0);
   }
-  uVar3 = query_object_property_via_temp_104f2482(param_1[10]);
-  *(uint8_t *)(param_1 + 0x14) = uVar3;
-  uVar1 = call_two_helpers_in_sequence_104f1b02(param_1[10]);
-  *(char *)(param_1 + 0x12) = (char)uVar1;
-  uVar2 = query_object_byte_property_104f1ab6(param_1[10]);
-  *(char *)((int)param_1 + 0x49) = (char)uVar2;
-  uVar3 = classify_state_by_two_checks(param_1[10]);
-  *(uint8_t *)((int)param_1 + 0x4e) = uVar3;
-  uVar5 = compute_value_from_object_state(param_1[10],0);
+  uVar3 = query_object_property_via_temp_104f2482(param_1->field_0x28);
+  *(uint8_t *)&param_1->field_0x50 = uVar3;
+  uVar1 = call_two_helpers_in_sequence_104f1b02(param_1->field_0x28);
+  param_1->field_0x48 = (char)uVar1;
+  uVar2 = query_object_byte_property_104f1ab6(param_1->field_0x28);
+  param_1->field_0x49 = (char)uVar2;
+  uVar3 = classify_state_by_two_checks(param_1->field_0x28);
+  param_1->field_0x4e = uVar3;
+  uVar5 = compute_value_from_object_state(param_1->field_0x28,0);
   uVar1 = (uint32_t)uVar5;
-  *(char *)((int)param_1 + 0x4f) = (char)((uint5)uVar5 >> 0x20);
+  param_1->field_0x4f = (char)((uint5)uVar5 >> 0x20);
   dispatch_virtual_state_toggle(param_1);
   dispatch_state_change_via_vtable_103b055a(param_1);
   dispatch_mode_state_change_103b05ee(param_1);
@@ -62,9 +63,9 @@ void initialize_object_with_subsystem_hooks(int *param_1,uint32_t param_2,void *
   prepare_and_send_buffer(param_1);
   configure_menu_item_visibility(param_1);
   format_and_register_menu_item_103b22a2(param_1,uVar1,(uint)param_3,(uint)param_4);
-  piVar4 = param_1 + 2;
-  dispatch_event_to_object_10492252(piVar4,param_1);
-  request_ui_sync_and_set_flag(piVar4);
-  request_ui_sync_with_flag_10491f5c(piVar4,1);
+  puVar4 = &param_1->field5_0x8;
+  dispatch_event_to_object_10492252((cls_105b4254 *)puVar4,param_1);
+  request_ui_sync_and_set_flag((cls_105b4254 *)puVar4);
+  request_ui_sync_with_flag_10491f5c(puVar4,1);
   return;
 }

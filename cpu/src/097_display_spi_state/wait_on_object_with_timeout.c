@@ -15,17 +15,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-void wait_on_object_with_timeout(int param_1,int param_2)
+void wait_on_object_with_timeout(cls_1059d1d8 *param_1,int param_2)
 
 {
   uintptr_t sp;
   uint32_t uStack_c;
   
   if (param_2 == 0) {
-    eventflag_clr_flg((uint32_t *)(param_1 + 0xcc),1);
+    eventflag_clr_flg(&param_1->field_0xcc,1);
   }
   uStack_c = 0;
-  eventflag_wai_flg((uint32_t *)(param_1 + 0xcc),1,&uStack_c,500);
-  eventflag_clr_flg((uint32_t *)(param_1 + 0xcc),1);
+  eventflag_wai_flg(&param_1->field_0xcc,1,&uStack_c,500);
+  eventflag_clr_flg(&param_1->field_0xcc,1);
   return;
 }

@@ -6,13 +6,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_4_on_nested_object_10504fb0(int param_1)
+/* WARNING: Struct "cls_105d4f74": ignoring multiple overlapping fields */
+
+void invoke_virtual_slot_4_on_nested_object_10504fb0(cls_105d4f74 *param_1)
 
 {
   int iVar1;
   
-  iVar1 = *(int *)(*(int *)(param_1 + 0x1c) + 4);
-  (**(code **)(iVar1 + 0x24))
-            (*(int *)(param_1 + 0x1c) + 4 + (int)*(short *)(iVar1 + 0x20),param_1 + 4);
+  iVar1 = *(int *)(param_1->field_0x1c + 4);
+  (((vtbl_entry*)(iVar1))[4].fn)
+            (param_1->field_0x1c + 4 + (int)((vtbl_entry*)(iVar1))[4].adj,&param_1->field_0x4);
   return;
 }

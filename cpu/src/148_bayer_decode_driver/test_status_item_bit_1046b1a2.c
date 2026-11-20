@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t test_status_item_bit_1046b1a2(int param_1,int param_2)
+uint32_t test_status_item_bit_1046b1a2(cls_105a8a1c *param_1,int param_2)
 
 {
   int *piVar1;
@@ -15,13 +15,13 @@ uint32_t test_status_item_bit_1046b1a2(int param_1,int param_2)
   piVar1 = (int *)status_item_location(param_2);
   if ((param_2 == 0x29) || (param_2 == 0x2a)) {
     uVar2 = 1;
-    if ((*(byte *)(*piVar1 + param_1 + 4) & *(byte *)(piVar1 + 1)) != 0) {
+    if ((*(byte *)((int)&param_1[1].field_0x0 + *piVar1) & *(byte *)(piVar1 + 1)) != 0) {
       uVar2 = 0;
     }
   }
   else {
     uVar2 = 1;
-    if (((*(byte *)(param_1 + 4 + *piVar1) ^ 0xff) & *(byte *)(piVar1 + 1)) != 0) {
+    if (((*(byte *)((int)&param_1[1].field_0x0 + *piVar1) ^ 0xff) & *(byte *)(piVar1 + 1)) != 0) {
       uVar2 = 0;
     }
   }

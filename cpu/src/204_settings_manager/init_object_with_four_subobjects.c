@@ -15,36 +15,37 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_with_four_subobjects(int param_1)
+uint32_t init_object_with_four_subobjects(cls_105b57ac *param_1)
 
 {
-  uint32_t uVar1;
-  int *piVar2;
-  int iVar3;
+  void *puVar1;
+  uint32_t uVar2;
+  int *piVar3;
   
-  uVar1 = (uint32_t)cls_105b5814_new(0);
-  *(uint32_t *)(param_1 + 0x20) = uVar1;
-  uVar1 = (uint32_t)cls_105b5814_new(0);
-  *(uint32_t *)(param_1 + 0x24) = uVar1;
-  uVar1 = (uint32_t)cls_105b5834_new(0);
-  *(uint32_t *)(param_1 + 0x28) = uVar1;
-  uVar1 = (uint32_t)cls_1061e22c_new(0);
-  *(uint32_t *)(param_1 + 0x2c) = uVar1;
-  iVar3 = *(int *)(param_1 + 0x20);
-  uVar1 = get_or_create_singleton_object_104a93d0();
-  *(uint32_t *)(iVar3 + 8) = uVar1;
-  iVar3 = *(int *)(param_1 + 0x24);
-  uVar1 = get_or_create_singleton_object_10533ca8();
-  *(uint32_t *)(iVar3 + 8) = uVar1;
-  initialize_object_with_shared_child(param_1);
-  initialize_subobject_with_params_1049b06c(param_1);
-  initialize_object_with_nested_alloc(param_1);
-  piVar2 = (int *)cls_105b573c_new(0);
-  *(int **)(param_1 + 4) = piVar2;
-  uVar1 = (**(code **)(*piVar2 + 0x14))((int)piVar2 + (int)*(short *)(*piVar2 + 0x10),0);
-  (*(code *)0x1049a9ec/*ROM*/)(*(uint32_t *)(param_1 + 4),0,*(uint32_t *)(param_1 + 8));
-  (*(code *)0x1049a9ec/*ROM*/)(*(uint32_t *)(param_1 + 4),1,*(uint32_t *)(param_1 + 8));
-  (*(code *)0x1049a9ec/*ROM*/)(*(uint32_t *)(param_1 + 4),2,*(uint32_t *)(param_1 + 0xc));
-  (*(code *)0x1049a9ec/*ROM*/)(*(uint32_t *)(param_1 + 4),3,*(uint32_t *)(param_1 + 0x10));
-  return uVar1;
+  puVar1 = (void *)cls_105b5814_new((cls_105b5814 *)0x0);
+  param_1->field_0x20 = (uint32_t)(puVar1);
+  puVar1 = (void *)cls_105b5814_new((cls_105b5814 *)0x0);
+  param_1->field_0x24 = (uint32_t)(puVar1);
+  puVar1 = (void *)cls_105b5834_new((cls_105b5834 *)0x0);
+  param_1->field_0x28 = (uint32_t)(puVar1);
+  puVar1 = (void *)cls_1061e22c_new((cls_1061e22c *)0x0);
+  param_1->field_0x2c = (uint32_t)(puVar1);
+  puVar1 = (void*)(param_1->field_0x20);
+  uVar2 = get_or_create_singleton_object_104a93d0();
+  *(uint32_t *)((char*)puVar1 + 8) = uVar2;
+  puVar1 = (void*)(param_1->field_0x24);
+  uVar2 = get_or_create_singleton_object_10533ca8();
+  *(uint32_t *)((char*)puVar1 + 8) = uVar2;
+  initialize_object_with_shared_child((uint32_t)(param_1));
+  initialize_subobject_with_params_1049b06c((uint32_t)(param_1));
+  initialize_object_with_nested_alloc((uint32_t)(param_1));
+  piVar3 = (int *)cls_105b573c_new(0);
+  param_1->field_0x4 = (uint32_t)((void *)piVar3);
+  uVar2 = (((vtbl_entry*)(*piVar3))[2].fn)
+                    ((void *)((int)piVar3 + (int)((vtbl_entry*)(*piVar3))[2].adj),0);
+  (*(code *)0x1049a9ec/*ROM*/)(param_1->field_0x4,0,param_1->field_0x8);
+  (*(code *)0x1049a9ec/*ROM*/)(param_1->field_0x4,1,param_1->field_0x8);
+  (*(code *)0x1049a9ec/*ROM*/)(param_1->field_0x4,2,param_1->field_0xc);
+  (*(code *)0x1049a9ec/*ROM*/)(param_1->field_0x4,3,param_1->field_0x10);
+  return uVar2;
 }

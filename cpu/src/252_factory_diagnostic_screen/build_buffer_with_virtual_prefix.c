@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int build_buffer_with_virtual_prefix(int param_1,int param_2)
+int build_buffer_with_virtual_prefix(cls_105c0074 *param_1,int param_2)
 
 {
   int iVar1;
@@ -16,9 +16,9 @@ int build_buffer_with_virtual_prefix(int param_1,int param_2)
   int iStack_c;
   
   iStack_c = 0;
-  iVar1 = *(int *)(param_1 + 0x10);
+  iVar1 = param_1->field_0x10;
   if (iVar1 == 0) {
-    iVar2 = copy_and_clamp_byte_value((int *)(*(uint32_t *)(param_1 + 4)),&iStack_c);
+    iVar2 = copy_and_clamp_byte_value((void*)(param_1->field_0x4),&iStack_c);
     iVar1 = iVar2;
     while (iVar1 != 0) {
       iVar1 = iVar1 + -1;
@@ -26,9 +26,9 @@ int build_buffer_with_virtual_prefix(int param_1,int param_2)
     }
   }
   else {
-    iVar2 = (**(code **)(*(int *)(iVar1 + 0x18) + 0x5c))
-                      (*(short *)(*(int *)(iVar1 + 0x18) + 0x58) + iVar1,param_2);
-    iVar3 = copy_and_clamp_byte_value((int *)(*(uint32_t *)(param_1 + 4)),&iStack_c);
+    iVar2 = (((vtbl_entry*)(*(int *)(iVar1 + 0x18)))[11].fn)
+                      (((vtbl_entry*)(*(int *)(iVar1 + 0x18)))[11].adj + iVar1,param_2);
+    iVar3 = copy_and_clamp_byte_value((void*)(param_1->field_0x4),&iStack_c);
     *(uint8_t *)(param_2 + iVar2) = 0x5c;
     iVar1 = iVar3;
     while (iVar1 != 0) {

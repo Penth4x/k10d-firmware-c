@@ -21,7 +21,7 @@ void process_object_state_change_1047b99e(int param_1)
     uStack_c = *(uint16_t *)(iVar1 + 8);
     uStack_a = *(uint16_t *)(iVar1 + 10);
     if (*(int *)(iVar1 + 4) == 1) {
-      iVar1 = process_object_with_helper_chain(param_1,&uStack_c,*(uint32_t *)(iVar1 + 0xc));
+      iVar1 = process_object_with_helper_chain((int)(param_1),(uint16_t *)(&uStack_c),(ushort *)(*(uint32_t *)(iVar1 + 0xc)));
       bVar2 = iVar1 == 0;
     }
     else if (*(int *)(iVar1 + 4) == 3) {

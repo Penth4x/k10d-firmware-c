@@ -14,10 +14,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_two_helpers_on_object_1040db9a(int param_1)
+uint32_t call_two_helpers_on_object_1040db9a(cls_10564e90 *param_1)
 
 {
-  check_kernel_object_id_valid((void *)(param_1 + 0x40));
+  check_kernel_object_id_valid((void *)(&param_1->field_0x40));
   clear_struct_field_at_offset_8(param_1);
   return 0;
 }

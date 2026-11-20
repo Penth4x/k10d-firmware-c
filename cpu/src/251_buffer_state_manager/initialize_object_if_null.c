@@ -17,14 +17,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t initialize_object_if_null(int *param_1)
+uint32_t initialize_object_if_null(cls_105bce58 *param_1)
 
 {
   int iVar1;
   uint32_t uVar2;
   
   uVar2 = 0;
-  if ((*param_1 == 0) && (iVar1 = call_helper_on_field_0x28_104e0bfc((int)param_1), iVar1 != 0)) {
+  if ((param_1->field_0x0 == 0) && (iVar1 = call_helper_on_field_0x28_104e0bfc((int)param_1), iVar1 != 0)) {
     init_two_pointers_via_helper(param_1,1);
     invoke_virtual_then_call_helper_104e0c0e(param_1);
     uVar2 = dispatch_state_handler(param_1,2,0);

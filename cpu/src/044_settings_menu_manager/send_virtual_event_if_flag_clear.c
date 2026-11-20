@@ -13,12 +13,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void send_virtual_event_if_flag_clear(int *param_1,int param_2)
+void send_virtual_event_if_flag_clear(cls_105649cc *param_1,int param_2)
 
 {
-  if ((*(char *)(param_1 + 0x46) == '\0') && (param_2 == 0x1a)) {
-    *(uint8_t *)(param_1 + 0x46) = 1;
-    (**(code **)(*param_1 + 0x74))((int)*(short *)(*param_1 + 0x70) + (int)param_1,0x1120004,0);
+  if ((param_1->field_0x118 == '\0') && (param_2 == 0x1a)) {
+    param_1->field_0x118 = 1;
+    (((vtbl_entry*)(param_1->field_0x0))[14].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[14].adj,0x1120004,0);
   }
   return;
 }

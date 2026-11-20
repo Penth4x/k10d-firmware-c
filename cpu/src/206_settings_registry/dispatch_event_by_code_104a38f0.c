@@ -18,7 +18,7 @@
 /* WARNING: Instruction at (ram,0x104a3904) overlaps instruction at (ram,0x104a3902)
     */
 
-uint32_t dispatch_event_by_code_104a38f0(int param_1,ushort *param_2)
+uint32_t dispatch_event_by_code_104a38f0(cls_105b6554 *param_1,ushort *param_2)
 
 {
   ushort uVar1;
@@ -317,7 +317,7 @@ uint32_t dispatch_event_by_code_104a38f0(int param_1,ushort *param_2)
           }
           uVar2 = 7;
         }
-        write_four_bytes_to_mmio_block_104a5c9c(param_1,param_2,uVar2);
+        write_four_bytes_to_mmio_block_104a5c9c((uint32_t)(param_1),(void *)(param_2),(uint32_t)(uVar2));
         return 1;
       }
       if (uVar1 == 0x206) {
@@ -499,6 +499,6 @@ uint32_t dispatch_event_by_code_104a38f0(int param_1,ushort *param_2)
   }
   uVar2 = 0;
 code_r0x104a4486:
-  compute_four_channel_weights(param_1,param_2,uVar2);
+  compute_four_channel_weights((int)param_1,param_2,uVar2);
   return 1;
 }

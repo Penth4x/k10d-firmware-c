@@ -25,7 +25,7 @@ void call_virtual_slot_and_forward_result_104633ba(int *param_1,int *param_2)
   uint8_t auStack_10 [4];
   
   piVar2 = (int *)auStack_10;
-  uVar1 = (**(code **)(*param_2 + 0x2c))((int)*(short *)(*param_2 + 0x28) + (int)param_2);
+  uVar1 = (((vtbl_entry*)(*param_2))[5].fn)((int)((vtbl_entry*)(*param_2))[5].adj + (int)param_2);
   *piVar2 = uVar1;
   issue_indexed_command_and_wait(param_1,param_1 + 1,0x3e,(void *)0x0,*piVar2);
   return;

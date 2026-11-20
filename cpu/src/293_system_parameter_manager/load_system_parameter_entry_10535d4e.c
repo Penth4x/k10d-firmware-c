@@ -18,21 +18,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t load_system_parameter_entry_10535d4e(int *param_1)
+uint32_t load_system_parameter_entry_10535d4e(cls_10621c08 *param_1)
 
 {
   int iVar1;
   uint32_t uVar2;
   uint32_t uVar3;
   
-  release_object_members(param_1);
+  release_object_members((int *)param_1);
   iVar1 = validate_sequence_counter(param_1);
   if (iVar1 == 0) {
     uVar2 = 9;
   }
   else {
-    uVar2 = get_object_field_at_offset_0x14(*param_1);
-    iVar1 = get_field_at_offset_0x18(*param_1);
+    uVar2 = get_object_field_at_offset_0x14(param_1->field_0x0);
+    iVar1 = get_field_at_offset_0x18(param_1->field_0x0);
     if (iVar1 == 0) {
       uVar3 = 0;
     }
@@ -43,7 +43,7 @@ uint32_t load_system_parameter_entry_10535d4e(int *param_1)
       }
       uVar3 = 1;
     }
-    iVar1 = call_slot_handler_if_index_valid(param_1[2],uVar2,uVar3);
+    iVar1 = call_slot_handler_if_index_valid(param_1->field_0x8,uVar2,uVar3);
     if (iVar1 == 0) {
       initialize_linked_struct_fields(param_1,0x2009);
     }

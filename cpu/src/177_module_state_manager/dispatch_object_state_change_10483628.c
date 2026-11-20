@@ -21,14 +21,14 @@ void dispatch_object_state_change_10483628(void *param_1)
   int iVar2;
   
   iVar2 = **(int **)((int)param_1 + 8);
-  iVar2 = (**(code **)(iVar2 + 0x14))
-                    ((int)*(int **)((int)param_1 + 8) + (int)*(short *)(iVar2 + 0x10));
+  iVar2 = (((vtbl_entry*)(iVar2))[2].fn)
+                    ((int)*(int **)((int)param_1 + 8) + (int)((vtbl_entry*)(iVar2))[2].adj);
   piVar1 = *(int **)((int)param_1 + 8);
   if (iVar2 == 0) {
-    (**(code **)(*piVar1 + 0x34))((int)piVar1 + (int)*(short *)(*piVar1 + 0x30));
+    (((vtbl_entry*)(*piVar1))[6].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[6].adj);
   }
   else {
-    (**(code **)(*piVar1 + 0x3c))((int)piVar1 + (int)*(short *)(*piVar1 + 0x38));
+    (((vtbl_entry*)(*piVar1))[7].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[7].adj);
   }
   return;
 }

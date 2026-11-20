@@ -41,7 +41,7 @@ void format_and_register_menu_item_103b22a2(void *param_1,uint32_t param_2,uint 
   iVar1 = (int)param_1 + 8;
   iVar3 = menu_item_register(iVar1);
   bVar10 = false;
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
   if (uVar2 < 0xf41dd) {
     cVar8 = 1000 < uVar2;
     cVar9 = uVar2 == 1000;
@@ -109,13 +109,13 @@ LAB_103b2516:
   if (bVar10) {
     pvVar6 = (void *)menu_item_register(iVar1);
     glyph_draw(pvVar6,abStack_f);
-    (**(code **)(*(int *)((int)pvVar6 + 0xc) + 0xc))
+    (((vtbl_entry*)(*(int *)((int)pvVar6 + 0xc)))[1].fn)
               ((int)*(short *)(*(int *)((int)pvVar6 + 0xc) + 8) + (int)pvVar6,1);
     set_struct_fields_and_flag(pvVar6,0x90,2);
   }
   else {
     iVar1 = menu_item_register(iVar1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   }
   return;
 }

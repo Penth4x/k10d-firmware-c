@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_method_with_offset_1047d332(int param_1,uint32_t param_2,uint32_t param_3,uint32_t param_4,
+void invoke_virtual_method_with_offset_1047d332(cls_105aac00 *param_1,uint32_t param_2,uint32_t param_3,uint32_t param_4,
                  uint32_t param_5,uint32_t param_6)
 
 {
@@ -18,7 +18,7 @@ void invoke_virtual_method_with_offset_1047d332(int param_1,uint32_t param_2,uin
   uint8_t auStack_1c [8];
   
   puVar4 = (uint32_t *)auStack_1c;
-  piVar3 = (int *)dispatch_on_state_check(param_1,param_3);
+  piVar3 = (int *)dispatch_on_state_check((int)param_1,param_3);
   sVar1 = *(short *)(*piVar3 + 0x58);
   pcVar2 = *(code **)(*piVar3 + 0x5c);
   *puVar4 = param_5;

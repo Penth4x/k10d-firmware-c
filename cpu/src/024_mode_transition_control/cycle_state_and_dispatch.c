@@ -42,7 +42,7 @@ LAB_1036e332:
     uVar2 = map_mode_state_pair(param_1);
     set_field_and_call_handler(param_1 + 0x10,uVar2);
     init_object_with_three_params_1036e1d6(param_1);
-    (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1);
+    (((vtbl_entry*)(*param_1))[8].fn)((int)((vtbl_entry*)(*param_1))[8].adj + (int)param_1);
     request_ui_sync_code_4(param_1 + 6);
   }
   return iVar1 != 0;

@@ -31,8 +31,8 @@ bool dispatch_event_to_subscribers(int param_1,int *param_2,int param_3)
   
   iVar1 = *(int *)(param_1 + 8) - *(int *)(param_1 + 4);
   uStack_a = (uint16_t)((int)(((uint)(iVar1 >> 1) >> 0x1e) + iVar1) >> 2);
-  (**(code **)(*param_2 + 0x1c))
-            ((int)*(short *)(*param_2 + 0x18) + (int)param_2,&uStack_a,1,
+  (((vtbl_entry*)(*param_2))[3].fn)
+            ((int)((vtbl_entry*)(*param_2))[3].adj + (int)param_2,&uStack_a,1,
              *(uint32_t *)(param_1 + 0x28));
   iVar4 = *(int *)(param_1 + 0x28) + 2;
   iVar1 = compute_scaled_interval(param_1);
@@ -42,12 +42,12 @@ bool dispatch_event_to_subscribers(int param_1,int *param_2,int param_3)
     do {
       iVar2 = *piVar3;
       if (param_3 != 0) {
-        (**(code **)(*(int *)(param_3 + 4) + 0x2c))
-                  (*(short *)(*(int *)(param_3 + 4) + 0x28) + param_3,iVar2,
+        (((vtbl_entry*)(*(int *)(param_3 + 4)))[5].fn)
+                  (((vtbl_entry*)(*(int *)(param_3 + 4)))[5].adj + param_3,iVar2,
                    *(uint32_t *)(param_1 + 0x20),*(uint32_t *)(param_1 + 0x24));
       }
-      (**(code **)(*(int *)(iVar2 + 0x10) + 0x1c))
-                (*(short *)(*(int *)(iVar2 + 0x10) + 0x18) + iVar2,param_2,iVar4);
+      (((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[3].fn)
+                (((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[3].adj + iVar2,param_2,iVar4);
       piVar3 = piVar3 + 1;
       iVar4 = iVar4 + 0xc;
     } while (piVar3 != *(int **)(param_1 + 8));
@@ -58,8 +58,8 @@ bool dispatch_event_to_subscribers(int param_1,int *param_2,int param_3)
   else {
     uStack_10 = *(uint32_t *)(*(int *)(param_1 + 0x2c) + 0x28);
   }
-  (**(code **)(*param_2 + 0x24))((int)*(short *)(*param_2 + 0x20) + (int)param_2,&uStack_10,1,iVar1)
+  (((vtbl_entry*)(*param_2))[4].fn)((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,&uStack_10,1,iVar1)
   ;
-  iVar1 = (**(code **)(*param_2 + 0x4c))((int)*(short *)(*param_2 + 0x48) + (int)param_2);
+  iVar1 = (((vtbl_entry*)(*param_2))[9].fn)((int)((vtbl_entry*)(*param_2))[9].adj + (int)param_2);
   return iVar1 == 0;
 }

@@ -20,13 +20,13 @@
 void initialize_two_sram_structs(void)
 
 {
-  _DAT_8005accc/*SDRAM*/ = (uint32_t)&DAT_105fb31c/*ROM*/;
-  _DAT_8005acd0/*SDRAM*/ = (uint32_t)&DAT_105fb32a/*ROM*/;
+  _DAT_8005accc/*SDRAM*/ = (uintptr_t)(&DAT_105fb31c/*ROM*/);
+  _DAT_8005acd0/*SDRAM*/ = (uintptr_t)(&DAT_105fb32a/*ROM*/);
   _DAT_8005acd4/*SDRAM*/ = 0x80013944/*SDRAM*/;
-  prepend_to_singly_linked_list((void *)0x800139b8/*SDRAM*/);
-  _DAT_8005acd8/*SDRAM*/ = (uint32_t)&DAT_105fb323/*ROM*/;
-  _DAT_8005acdc/*SDRAM*/ = (uint32_t)&DAT_105fb32a/*ROM*/;
+  prepend_to_singly_linked_list((uint32_t *)(0x800139b8/*SDRAM*/));
+  _DAT_8005acd8/*SDRAM*/ = (uintptr_t)(&DAT_105fb323/*ROM*/);
+  _DAT_8005acdc/*SDRAM*/ = (uintptr_t)(&DAT_105fb32a/*ROM*/);
   _DAT_8005ace0/*SDRAM*/ = 0x80013944/*SDRAM*/;
-  prepend_to_singly_linked_list((void *)0x800139c8/*SDRAM*/);
+  prepend_to_singly_linked_list((uint32_t *)(0x800139c8/*SDRAM*/));
   return;
 }

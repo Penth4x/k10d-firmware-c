@@ -15,17 +15,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-void ec_start_diagnostics(void *param_1)
+void ec_start_diagnostics(cls_1059f284 *param_1)
 
 {
-  if (*(int *)((int)param_1 + 0x2c) != 0) {
-    kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 0x2c) + 4));
+  if (param_1->field_0x2c != 0) {
+    kernel_diag_taskstack((int *)(param_1->field_0x2c + 4));
   }
-  if (*(int *)((int)param_1 + 4) != 0) {
-    kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 4) + 8));
+  if (param_1->field_0x4 != 0) {
+    kernel_diag_taskstack((int *)(param_1->field_0x4 + 8));
   }
-  if (*(int *)((int)param_1 + 0x38) != 0) {
-    kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 0x38) + 4));
+  if (param_1->field_0x38 != 0) {
+    kernel_diag_taskstack((int *)(param_1->field_0x38 + 4));
   }
   return;
 }

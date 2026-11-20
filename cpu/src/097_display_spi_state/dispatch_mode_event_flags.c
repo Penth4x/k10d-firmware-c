@@ -27,12 +27,12 @@ void dispatch_mode_event_flags(int param_1)
       *(uint *)(param_1 + 0x1508) = *(uint *)(param_1 + 0x1508) | 0x20000000;
     }
     classify_mode_from_flags(param_1);
-    dispatch_mode_event_request((void *)(param_1 + 0x60),0x130003);
+    dispatch_mode_event_request((cls_105c2050 *)(param_1 + 0x60),0x130003);
   }
-  dispatch_mode_event_request((void *)(param_1 + 0x60),0x130009);
+  dispatch_mode_event_request((cls_105c2050 *)(param_1 + 0x60),0x130009);
   puVar1 = (uint32_t *)(param_1 + 0x1540);
   eventflag_clr_flg(puVar1,1);
-  invoke_virtual_slot_12_104ea3ae((void *)(param_1 + 0x60));
+  invoke_virtual_slot_12_104ea3ae((cls_105c2050 *)(param_1 + 0x60));
   eventflag_wai_flg(puVar1,1,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,1);
   return;

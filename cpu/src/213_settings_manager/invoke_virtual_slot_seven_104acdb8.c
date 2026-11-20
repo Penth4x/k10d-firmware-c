@@ -12,6 +12,6 @@ void invoke_virtual_slot_seven_104acdb8(int param_1)
   int iVar1;
   
   iVar1 = **(int **)(param_1 + 0x10);
-  (**(code **)(iVar1 + 0x4c))((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar1 + 0x48));
+  (((vtbl_entry*)(iVar1))[9].fn)((int)*(int **)(param_1 + 0x10) + (int)((vtbl_entry*)(iVar1))[9].adj);
   return;
 }

@@ -23,7 +23,7 @@ uint32_t register_entry_in_table(void *param_1,int param_2,void *param_3)
   
   uVar1 = 0;
   if (((param_2 < 0x100) && (pcVar2 = (char *)(param_2 * 0xc + (int)param_1), *pcVar2 == '\0')) &&
-     (param_3 != (void *)0x0)) {
+     (param_3 != 0)) {
     *(int *)(pcVar2 + 4) = param_2;
     set_pointer_field_at_offset_8(pcVar2,(int)param_3);
     *pcVar2 = '\x01';

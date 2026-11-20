@@ -18,16 +18,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_mode_change_event_103b0252(int *param_1,uint param_2,uint32_t param_3)
+void dispatch_mode_change_event_103b0252(cls_10565d08 *param_1,uint param_2,uint32_t param_3)
 
 {
   bool bVar1;
   uint32_t uVar2;
   int iVar3;
+  void *puVar4;
   
-  iVar3 = *(int *)param_1[0xb];
-  (**(code **)(iVar3 + 0x14))(param_1[0xb] + (int)*(short *)(iVar3 + 0x10),0x1120065,0);
-  dispatch_event_0x29_via_vtable(param_1,param_2,param_3);
+  iVar3 = *(uint32_t *)param_1->field_0x2c;
+  (((vtbl_entry*)(iVar3))[2].fn)((int)param_1->field_0x2c + (int)((vtbl_entry*)(iVar3))[2].adj,0x1120065,0);
+  dispatch_event_0x29_via_vtable((cls_105643d0 *)param_1,param_2,param_3);
   uVar2 = 0;
   if (param_2 == 0x11) {
 LAB_103b0300:
@@ -66,19 +67,20 @@ LAB_103b0334:
       empty_stub_function_103b76f0();
       empty_noop_stub_103b76f2();
       uVar2 = 0x1120004;
-      iVar3 = *param_1;
+      puVar4 = (void *)(param_1->field_0x0);
       goto LAB_103b0354;
     }
-    iVar3 = *(int *)param_1[0xb];
-    (**(code **)(iVar3 + 0x14))(param_1[0xb] + (int)*(short *)(iVar3 + 0x10),0x1120066,0);
+    iVar3 = *(uint32_t *)param_1->field_0x2c;
+    (((vtbl_entry*)(iVar3))[2].fn)
+              ((int)param_1->field_0x2c + (int)((vtbl_entry*)(iVar3))[2].adj,0x1120066,0);
     bVar1 = true;
   }
 LAB_103b0350:
   if (bVar1) {
     return;
   }
-  iVar3 = *param_1;
+  puVar4 = (void *)(param_1->field_0x0);
 LAB_103b0354:
-  (**(code **)(iVar3 + 0x74))((int)*(short *)(iVar3 + 0x70) + (int)param_1,uVar2,0);
+  (((vtbl_entry*)(puVar4))[14].fn)((int)&param_1->field_0x0 + (int)((vtbl_entry*)(puVar4))[14].adj,uVar2,0);
   return;
 }

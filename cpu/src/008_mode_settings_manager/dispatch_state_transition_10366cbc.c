@@ -17,32 +17,32 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_state_transition_10366cbc(void *param_1)
+void dispatch_state_transition_10366cbc(cls_105577f8 *param_1)
 
 {
   int iVar1;
   char cVar2;
-  void *pvVar3;
+  uint32_t *puVar3;
   
-  pvVar3 = (void *)((int)param_1 + 0x20);
-  cVar2 = read_byte_at_offset_0x1d((int)pvVar3);
+  puVar3 = &param_1->field_0x20;
+  cVar2 = read_byte_at_offset_0x1d((int)puVar3);
   if (cVar2 != '\0') {
-    dispatch_object_state_update_10491fb2((int)pvVar3,1);
+    dispatch_object_state_update_10491fb2((int)puVar3,1);
   }
-  iVar1 = *(int *)((int)param_1 + 0x4c);
+  iVar1 = param_1->field_0x4c;
   if (iVar1 != 0) {
     if (iVar1 == 1) {
-      set_object_flags_via_virtual_calls(pvVar3,0);
-      transition_mode_state(pvVar3,*(uint32_t *)((int)param_1 + 0x18));
+      set_object_flags_via_virtual_calls(puVar3,0);
+      transition_mode_state(puVar3,param_1->field_0x18);
       dispatch_six_mode_cases(param_1);
       goto LAB_10366d4a;
     }
     if (iVar1 == 2) {
-      set_object_flags_via_virtual_calls(pvVar3,1);
+      set_object_flags_via_virtual_calls(puVar3,1);
       goto LAB_10366d4a;
     }
     if (iVar1 == 3) {
-      transition_mode_state(pvVar3,*(uint32_t *)((int)param_1 + 0x18));
+      transition_mode_state(puVar3,param_1->field_0x18);
       dispatch_six_mode_cases(param_1);
     }
     else {
@@ -50,11 +50,11 @@ void dispatch_state_transition_10366cbc(void *param_1)
       dispatch_six_mode_cases(param_1);
     }
   }
-  read_two_shorts_from_param2_103674ca(param_1,(void *)((int)param_1 + 0x280));
+  read_two_shorts_from_param2_103674ca(param_1,&param_1->field_0x280);
 LAB_10366d4a:
-  cVar2 = read_byte_at_offset_0x1d((int)pvVar3);
+  cVar2 = read_byte_at_offset_0x1d((int)puVar3);
   if (cVar2 != '\0') {
-    dispatch_object_state_update_10491fb2((int)pvVar3,0);
+    dispatch_object_state_update_10491fb2((int)puVar3,0);
   }
   return;
 }

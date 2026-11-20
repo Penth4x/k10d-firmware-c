@@ -22,7 +22,7 @@ bool invoke_virtual_slot_two_and_update(int param_1,uint32_t param_2)
   
   piVar1 = (int *)get_bounded_array_element((int *)(param_1 + 0xc));
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+    (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
     decrement_timer_and_rearm((int *)(param_1 + 0xc),param_2);
   }
   return piVar1 != (int *)0x0;

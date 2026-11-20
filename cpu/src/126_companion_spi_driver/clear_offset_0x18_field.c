@@ -6,9 +6,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void clear_offset_0x18_field(void *param_1)
+/* WARNING: Struct "cls_105a05a0": ignoring multiple overlapping fields */
+
+void clear_offset_0x18_field(cls_105a05a0 *param_1)
 
 {
-  **(uint16_t **)((int)param_1 + 0x18) = 0;
+  *(uint16_t *)param_1->field_0x18 = 0;
   return;
 }

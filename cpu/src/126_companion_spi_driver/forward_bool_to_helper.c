@@ -14,7 +14,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool forward_bool_to_helper(void *param_1)
+/* WARNING: Struct "cls_105a05a0": ignoring multiple overlapping fields */
+
+bool forward_bool_to_helper(cls_105a05a0 *param_1)
 
 {
   bool bVar1;

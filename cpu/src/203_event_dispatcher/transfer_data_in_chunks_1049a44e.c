@@ -33,13 +33,13 @@ bool transfer_data_in_chunks_1049a44e(int *param_1,int param_2)
   iVar4 = *(int *)(param_1[1] + 8);
   iVar3 = read_struct_field_by_index_1049a7dc((void *)param_1[1],param_2);
   iVar5 = *(int *)param_1[2];
-  iVar5 = (**(code **)(iVar5 + 0x34))(param_1[2] + (int)*(short *)(iVar5 + 0x30),uVar1,uVar2,0);
+  iVar5 = (((vtbl_entry*)(iVar5))[6].fn)(param_1[2] + (int)((vtbl_entry*)(iVar5))[6].adj,uVar1,uVar2,0);
   if (iVar5 != 0) {
     while( true ) {
       iVar5 = return_min_of_two_1049a362(iVar3,param_1[3]);
       iVar6 = *(int *)param_1[2];
-      iVar6 = (**(code **)(iVar6 + 0x24))
-                        (param_1[2] + (int)*(short *)(iVar6 + 0x20),uVar1,iVar4,iVar5);
+      iVar6 = (((vtbl_entry*)(iVar6))[4].fn)
+                        (param_1[2] + (int)((vtbl_entry*)(iVar6))[4].adj,uVar1,iVar4,iVar5);
       if (iVar6 == 0) break;
       iVar6 = invoke_virtual_slot_two_1049a4f8(param_1,iVar5);
       iVar3 = iVar3 - iVar5;

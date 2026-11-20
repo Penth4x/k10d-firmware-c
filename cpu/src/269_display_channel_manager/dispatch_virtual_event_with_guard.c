@@ -18,7 +18,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_virtual_event_with_guard(uint32_t param_1,int *param_2)
+void dispatch_virtual_event_with_guard(cls_105d5470 *param_1,int *param_2)
 
 {
   void *pvVar1;
@@ -28,9 +28,9 @@ void dispatch_virtual_event_with_guard(uint32_t param_1,int *param_2)
     if (param_2[2] == 0x1130001) {
       pvVar1 = (void *)get_or_init_singleton_object_1051d40e();
       update_camera_state_flags(pvVar1,0x13,1);
-      process_exposure_parameter_update(param_1,param_2[1]);
+      process_exposure_parameter_update((int)(param_1),(int *)(param_2[1]));
       iVar2 = *(int *)*param_2;
-      (**(code **)(iVar2 + 0x14))(*param_2 + (int)*(short *)(iVar2 + 0x10),0x1130001,param_2[3]);
+      (((vtbl_entry*)(iVar2))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar2))[2].adj,0x1130001,param_2[3]);
     }
     pvVar1 = (void *)get_or_init_singleton_object_1051d40e();
     update_camera_state_flags(pvVar1,0x13,0);

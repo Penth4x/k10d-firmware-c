@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void initialize_object_fields_1047f846(int *param_1)
+void initialize_object_fields_1047f846(cls_105aaf90 *param_1)
 
 {
   uint32_t uVar1;
@@ -14,7 +14,7 @@ void initialize_object_fields_1047f846(int *param_1)
   int iVar3;
   int iVar4;
   
-  initialize_object_header((int *)__frv_reg_unset(4));
+  initialize_object_header((cls_105aaf60 *)param_1);
   write_two_bytes_to_object_offset_1047f8d6(param_1,0);
   write_two_bytes_to_object(param_1,0,0);
   write_u32_to_obj_offset_0x2c(param_1,2);
@@ -24,7 +24,7 @@ void initialize_object_fields_1047f846(int *param_1)
   set_byte_at_offset_0x42(param_1,0x29);
   write_u32_to_obj_offset_0x43(param_1,0);
   copy_eleven_bytes(param_1,0x105aaf54/*ROM*/);
-  iVar3 = *param_1;
+  iVar3 = param_1->field_0x0;
   uVar1 = get_or_init_global_buffer();
   iVar2 = get_ram_value_by_index(uVar1,0x20);
   iVar4 = 8;

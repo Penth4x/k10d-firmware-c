@@ -68,7 +68,7 @@ void rtos_dispatch_entry(uint32_t param_1,uint32_t param_2,uint32_t param_3,uint
   puVar5[-1] = uVar7;
   puVar5[-2] = uVar4;
   puVar5[-3] = r13_in;
-  puVar5[-4] = (uint32_t)r12_in;
+  puVar5[-4] = (uintptr_t)(r12_in);
   puVar5[-5] = caller_r11;
   puVar5[-6] = caller_r10;
   puVar5[-7] = caller_r9;
@@ -86,13 +86,13 @@ void rtos_dispatch_entry(uint32_t param_1,uint32_t param_2,uint32_t param_3,uint
     uVar1 = puVar5[4];
   }
   else {
-    uVar1 = (uint32_t)*in_usp;
+    uVar1 = *in_usp;
   }
   puVar5[-0x11] = _DAT_6a003774;
-  puVar5[-0x12] = (uint32_t)&DAT_6a003774;
+  puVar5[-0x12] = (uintptr_t)(&DAT_6a003774);
   puVar6 = puVar5 + -0x13;
   puVar5[-0x13] = uVar1;
-  _DAT_6a003774 = (uint32_t)(puVar5 + -0x10);
+  _DAT_6a003774 = (uintptr_t)(puVar5 + -0x10);
   (*r12_in)();
   **(uint32_t **)((int)puVar6 + 4) = *(uint32_t *)((int)puVar6 + 8);
   uVar2 = *(uint *)((int)puVar6 + 0x58) & 0x1f0030;

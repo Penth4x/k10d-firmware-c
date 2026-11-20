@@ -19,8 +19,8 @@
 void copy_object_fields_to_target(int param_1)
 
 {
-  (**(code **)(*(int *)(param_1 + 0x8d4) + 0xc4))
-            (*(short *)(*(int *)(param_1 + 0x8d4) + 0xc0) + param_1,1,1,0);
+  (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[24].fn)
+            (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[24].adj + param_1,1,1,0);
   *(uint32_t *)(*(int *)(param_1 + 0x7f8) + 0x70) = *(uint32_t *)(param_1 + 0xa0);
   *(uint32_t *)(*(int *)(param_1 + 0x7f8) + 0x74) = *(uint32_t *)(param_1 + 0xa4);
   *(uint32_t *)(*(int *)(param_1 + 0x7f8) + 0x78) = *(uint32_t *)(param_1 + 0x98);

@@ -31,14 +31,13 @@ void init_object_with_sram_pointers(int *param_1)
   puVar2[2] = 0xffffffff;
   puVar2[3] = 3;
   *(uint8_t *)((int)puVar2 + 0x13) = 1;
-  retry_operation_five_times_1036a7ce((int)param_1,0,0x80018058/*SDRAM*/,0x80015d04/*SDRAM*/,*puVar2,puVar2[1],puVar2[2],puVar2[3],
-               *(uint8_t *)((int)puVar2 + 0x13));
+  retry_operation_five_times_1036a7ce((int)param_1,(uint32_t)(0),(void *)(0x80018058/*SDRAM*/),(uint32_t)(0x80015d04/*SDRAM*/),(uint32_t)(*puVar2),(uint32_t)(puVar2[1]),(uint32_t)(puVar2[2]),(uint32_t)(puVar2[3]), (uint8_t)(*(uint8_t *)((int)puVar2 + 0x13)));
   compute_exposure_compensation(param_1);
   init_object_state_from_ram_flags(param_1);
   dispatch_state_update(param_1,0);
-  (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1);
+  (((vtbl_entry*)(*param_1))[8].fn)((int)((vtbl_entry*)(*param_1))[8].adj + (int)param_1);
   request_ui_sync_code_4(param_1 + 5);
-  iVar1 = check_setting_0x72_enabled(0x800158d4/*SDRAM*/);
+  iVar1 = check_setting_0x72_enabled((int *)(0x800158d4/*SDRAM*/));
   dispatch_state_update(param_1,iVar1);
   return;
 }

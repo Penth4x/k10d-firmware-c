@@ -42,7 +42,7 @@ void send_three_mmio_blocks_10504ad2(int param_1,int param_2,uint16_t param_3,ui
   uStack_e = param_3;
   eventflag_clr_flg(puVar2,4);
   iVar1 = param_1 + 4;
-  imgp_b_program_and_start_104fe680(*(uint32_t *)(param_1 + 0x28),iVar1,&uStack_1c);
+  imgp_b_program_and_start_104fe680((int)(*(uint32_t *)(param_1 + 0x28)),(void *)(iVar1),(uint32_t *)(&uStack_1c));
   eventflag_wai_flg(puVar2,4,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar2,4);
   imgp_a_stop_and_reset(*(uint32_t *)(param_1 + 0x28));
@@ -50,13 +50,13 @@ void send_three_mmio_blocks_10504ad2(int param_1,int param_2,uint16_t param_3,ui
   uStack_14 = (uint16_t)((int)(uint)*(ushort *)(param_2 + 0x14) >> 1);
   uStack_1c = *(uint32_t *)(param_2 + 8);
   uStack_e = param_4;
-  imgp_b_program_and_start_104fe680(*(uint32_t *)(param_1 + 0x28),iVar1,&uStack_1c);
+  imgp_b_program_and_start_104fe680((int)(*(uint32_t *)(param_1 + 0x28)),(void *)(iVar1),(uint32_t *)(&uStack_1c));
   eventflag_wai_flg(puVar2,4,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar2,4);
   imgp_a_stop_and_reset(*(uint32_t *)(param_1 + 0x28));
   uStack_1c = *(uint32_t *)(param_2 + 0xc);
   uStack_e = param_5;
-  imgp_b_program_and_start_104fe680(*(uint32_t *)(param_1 + 0x28),iVar1,&uStack_1c);
+  imgp_b_program_and_start_104fe680((int)(*(uint32_t *)(param_1 + 0x28)),(void *)(iVar1),(uint32_t *)(&uStack_1c));
   eventflag_wai_flg(puVar2,4,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar2,4);
   imgp_a_stop_and_reset(*(uint32_t *)(param_1 + 0x28));

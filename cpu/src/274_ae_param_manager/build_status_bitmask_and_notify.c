@@ -46,20 +46,20 @@ void build_status_bitmask_and_notify(int param_1,int *param_2,int param_3)
       }
       if (param_3 == 0) {
         *(uint *)(param_1 + 0x33c) = uVar3;
-        (**(code **)(*param_2 + 0x14))((int)*(short *)(*param_2 + 0x10) + (int)param_2,0xf00006);
+        (((vtbl_entry*)(*param_2))[2].fn)((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,0xf00006);
       }
       else {
         *(uint *)(param_1 + 0x340) = uVar3;
-        (**(code **)(*param_2 + 0x14))((int)*(short *)(*param_2 + 0x10) + (int)param_2,0xf00008);
+        (((vtbl_entry*)(*param_2))[2].fn)((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,0xf00008);
       }
     }
     if (*(char *)(iVar1 + 8) != '\0') {
       if (param_3 == 0) {
-        (**(code **)(*param_2 + 0x14))((int)*(short *)(*param_2 + 0x10) + (int)param_2,0xf00007);
+        (((vtbl_entry*)(*param_2))[2].fn)((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,0xf00007);
       }
       else {
-        (**(code **)(*param_2 + 0x14))
-                  ((int)*(short *)(*param_2 + 0x10) + (int)param_2,0xf00009,0x10000);
+        (((vtbl_entry*)(*param_2))[2].fn)
+                  ((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,0xf00009,0x10000);
       }
       (*(code *)0x1050709e/*ROM*/)(iVar1);
     }

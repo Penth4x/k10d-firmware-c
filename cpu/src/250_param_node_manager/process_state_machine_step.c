@@ -16,31 +16,31 @@
 #include "globals.h"
 #include "funcs.h"
 
-int process_state_machine_step(uint *param_1)
+int process_state_machine_step(cls_105bc1c4 *param_1)
 
 {
   int iVar1;
   uint uVar2;
   
   iVar1 = 1;
-  uVar2 = *(uint *)param_1[0xe];
-  if (param_1[0x11] == 0) {
-    *param_1 = param_1[0x12];
-    if (uVar2 < param_1[0x12]) {
+  uVar2 = *(uint *)param_1->field_0x38;
+  if (param_1->field_0x44 == 0) {
+    param_1->field_0x0 = param_1->field_0x48;
+    if (uVar2 < (uint)param_1->field_0x48) {
       iVar1 = invoke_virtual_method_on_nested_object_104dfc4c(param_1);
       if (iVar1 == 1) {
-        *param_1 = *param_1 - uVar2;
-        param_1[0x11] = 1;
+        param_1->field_0x0 = param_1->field_0x0 - uVar2;
+        param_1->field_0x44 = 1;
         iVar1 = 5;
       }
     }
     else {
-      copy_twenty_byte_struct((uint8_t *)param_1[0xf],(uint *)param_1[0xe]);
+      copy_twenty_byte_struct((uint8_t *)param_1->field_0x3c,(uint *)param_1->field_0x38);
       iVar1 = process_buffer_state_transition_104dfc94(param_1);
     }
   }
-  else if (param_1[0x11] == 1) {
-    copy_twenty_byte_struct((uint8_t *)param_1[0xf],(uint *)param_1[0xe]);
+  else if (param_1->field_0x44 == 1) {
+    copy_twenty_byte_struct((uint8_t *)param_1->field_0x3c,(uint *)param_1->field_0x38);
     iVar1 = process_buffer_state_transition_104dfc94(param_1);
   }
   return iVar1;

@@ -20,7 +20,7 @@ uint32_t * cls_105d8b38_new(uint32_t *param_1)
   if ((param_1 != (uint32_t *)0x0) ||
      (param_1 = (uint32_t *)heap_alloc((void *)0x2c), param_1 != (uint32_t *)0x0)) {
     cls_1059e478_new(param_1);
-    cls_10621c28_new(param_1 + 1);
+    cls_10621c28_new_10535dd4(param_1 + 1);
     *param_1 = 0x105d8b38/*ROM*/;
     param_1[1] = 0x105d8b58/*ROM*/;
     param_1[2] = 0;

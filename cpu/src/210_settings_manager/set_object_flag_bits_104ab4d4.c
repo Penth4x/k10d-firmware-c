@@ -14,12 +14,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t set_object_flag_bits_104ab4d4(void *param_1)
+uint32_t set_object_flag_bits_104ab4d4(cls_105b71d4 *param_1)
 
 {
-  **(uint **)((int)param_1 + 0x28) = **(uint **)((int)param_1 + 0x28) | 0xff000000;
-  **(uint **)((int)param_1 + 0x2c) = **(uint **)((int)param_1 + 0x2c) & 0xffffff;
-  **(uint **)((int)param_1 + 0x30) = **(uint **)((int)param_1 + 0x30) | 0xf;
-  **(uint **)((int)param_1 + 0x24) = **(uint **)((int)param_1 + 0x24) | 4;
+  *(uint *)param_1->field_0x28 = *(uint *)param_1->field_0x28 | 0xff000000;
+  *(uint *)param_1->field_0x2c = *(uint *)param_1->field_0x2c & 0xffffff;
+  *(uint *)param_1->field_0x30 = *(uint *)param_1->field_0x30 | 0xf;
+  *(uint *)param_1->field_0x24 = *(uint *)param_1->field_0x24 | 4;
   return 1;
 }

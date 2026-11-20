@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int allocate_two_element_array(void *param_1,uint16_t param_2,int param_3,int param_4)
+int allocate_two_element_array(void *param_1,ushort param_2,int param_3,int param_4)
 
 {
   int iVar1;
@@ -23,19 +23,18 @@ int allocate_two_element_array(void *param_1,uint16_t param_2,int param_3,int pa
   uint uVar3;
   int iVar4;
   uintptr_t sp;
-  uint16_t auStack_c [2];
+  ushort auStack_c [2];
   
   iVar1 = heap_alloc_2(8);
   heap_alloc_2(8);
-  auStack_c[1] = (uint16_t)param_3;
+  auStack_c[1] = (ushort)param_3;
   auStack_c[0] = param_2;
-  uVar2 = (uint32_t)heap_alloc_2(param_4 * param_3 * 4);
+  uVar2 = heap_alloc_2(param_4 * param_3 * 4);
   *(uint32_t *)((int)param_1 + 0x38) = uVar2;
   uVar3 = 0;
   do {
     iVar4 = uVar3 * 4;
-    uVar2 = (uint32_t)cls_1061e14c_new(0,auStack_c[uVar3],*(uint32_t *)((int)param_1 + 0x38),
-                             param_4 * param_3);
+    uVar2 = (uint32_t)(cls_1061e14c_new((cls_1061e14c *)0x0,(uint)auStack_c[uVar3], *(uint32_t *)((int)param_1 + 0x38),param_4 * param_3));
     uVar3 = uVar3 + 1 & 0xff;
     *(uint32_t *)(iVar1 + iVar4) = uVar2;
   } while (uVar3 < 2);

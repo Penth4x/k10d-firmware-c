@@ -26,8 +26,8 @@ uint32_t dispatch_param_by_index_104e4d00(int param_1,uint param_2,uint32_t para
   }
   else if ((99 < param_2) &&
           (iVar2 = *(int *)(*(int *)(param_1 + 0x40) + (param_2 - 100) * 4), iVar2 != 0)) {
-    uVar1 = (**(code **)(*(int *)(iVar2 + 0x18) + 0x24))
-                      (*(short *)(*(int *)(iVar2 + 0x18) + 0x20) + iVar2,param_3);
+    uVar1 = (((vtbl_entry*)(*(int *)(iVar2 + 0x18)))[4].fn)
+                      (((vtbl_entry*)(*(int *)(iVar2 + 0x18)))[4].adj + iVar2,param_3);
   }
   return uVar1;
 }

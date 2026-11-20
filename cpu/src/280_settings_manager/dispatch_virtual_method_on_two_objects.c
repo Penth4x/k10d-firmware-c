@@ -6,19 +6,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_virtual_method_on_two_objects(uint32_t *param_1)
+void dispatch_virtual_method_on_two_objects(cls_105d7b7c *param_1)
 
 {
   int iVar1;
   
-  if (param_1[9] == 0) {
-    iVar1 = *(int *)param_1[0xb];
-    (**(code **)(iVar1 + 0x1c))((int)param_1[0xb] + (int)*(short *)(iVar1 + 0x18));
+  if (param_1->field_0x24 == 0) {
+    iVar1 = *(int *)param_1->field_0x2c;
+    (((vtbl_entry*)(iVar1))[3].fn)((int)param_1->field_0x2c + (int)((vtbl_entry*)(iVar1))[3].adj);
   }
   else {
-    (**(code **)(param_1[3] + 0xa4))((int)*(short *)(param_1[3] + 0xa0) + (int)param_1,*param_1);
-    iVar1 = *(int *)param_1[0xb];
-    (**(code **)(iVar1 + 0x1c))((int)param_1[0xb] + (int)*(short *)(iVar1 + 0x18));
+    (((vtbl_entry*)(param_1->field_0xc))[20].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0xc))[20].adj,
+               param_1->field_0x0);
+    iVar1 = *(int *)param_1->field_0x2c;
+    (((vtbl_entry*)(iVar1))[3].fn)((int)param_1->field_0x2c + (int)((vtbl_entry*)(iVar1))[3].adj);
   }
   return;
 }

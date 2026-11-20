@@ -23,7 +23,7 @@ void invoke_virtual_slot_on_array_104abf04(uint32_t param_1,int param_2,uint par
     do {
       iVar1 = *(int *)(param_2 + (param_3 - 1) * 4);
       if (iVar1 != 0) {
-        (**(code **)(*(int *)(iVar1 + 0x10) + 0xc))
+        (((vtbl_entry*)(*(int *)(iVar1 + 0x10)))[1].fn)
                   (*(short *)(*(int *)(iVar1 + 0x10) + 8) + iVar1,3);
       }
       param_3 = param_3 - 1 & 0xff;

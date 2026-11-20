@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_event_with_params(int *param_1,uint32_t param_2)
+uint32_t dispatch_event_with_params(cls_105aaebc *param_1,uint32_t param_2)
 
 {
   ushort uVar1;
@@ -36,11 +36,11 @@ uint32_t dispatch_event_with_params(int *param_1,uint32_t param_2)
   uStack_1c = param_2;
   copy_or_zero_buffer(&uStack_1c,0);
   alloc_and_zero_16_bytes_1047f12a(auStack_18);
-  uVar2 = *(uint8_t *)((int)param_1 + 0x1d);
-  uVar1 = *(ushort *)((int)param_1 + 0x12);
-  iVar4 = param_1[5];
-  iVar3 = param_1[6];
-  *(uint16_t *)(puVar6 + 2) = *(uint16_t *)(param_1 + 4);
+  uVar2 = param_1->field_0x1d;
+  uVar1 = param_1->field_0x12;
+  iVar4 = param_1->field_0x14;
+  iVar3 = param_1->field_0x18;
+  *(uint16_t *)(puVar6 + 2) = param_1->field_0x10;
   *(int *)(puVar6 + 4) = iVar4;
   *(int *)(puVar6 + 8) = iVar3;
   init_struct_with_two_subblocks(auStack_18,1,uVar2,(uint)uVar1,*(uint16_t *)(puVar6 + 2),*(int *)(puVar6 + 4),
@@ -50,7 +50,7 @@ uint32_t dispatch_event_with_params(int *param_1,uint32_t param_2)
   (*(code *)0x1047f3fa/*ROM*/)(&uStack_1c,2,0);
   (*(code *)0x1047f3fa/*ROM*/)(&uStack_1c,3,0);
   (*(code *)0x1047f46a/*ROM*/)(&uStack_1c);
-  uVar5 = call_virtual_slot_6_and_helper(param_1,0,1);
+  uVar5 = call_virtual_slot_6_and_helper((int *)param_1,0,1);
   free_heap_block_if_flagged_1047f182(auStack_18,2);
   free_heap_if_flag_set_1047f3b6(&uStack_1c,2);
   return uVar5;

@@ -19,7 +19,7 @@ int allocate_and_init_object_with_dims(void *param_1,uint32_t param_2,uint32_t p
                 ushort param_5,ushort param_6)
 
 {
-  uint16_t *puVar1;
+  cls_105b3d9c *pcVar1;
   uint32_t uVar2;
   uintptr_t sp;
   uint32_t auStack_10 [2];
@@ -30,17 +30,18 @@ int allocate_and_init_object_with_dims(void *param_1,uint32_t param_2,uint32_t p
   if (param_6 < 2) {
     param_6 = 2;
   }
-  puVar1 = (uint16_t *)heap_alloc((void *)0x2c);
-  if (puVar1 == (uint16_t *)0x0) {
-    puVar1 = (uint16_t *)0x0;
+  pcVar1 = (cls_105b3d9c *)heap_alloc((void *)0x2c);
+  if (pcVar1 == (cls_105b3d9c *)0x0) {
+    pcVar1 = (cls_105b3d9c *)0x0;
   }
   else {
-    cls_105b3d9c_new(puVar1);
+    cls_105b3d9c_new(pcVar1);
   }
-  uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_10,param_3,param_4);
-  copy_two_shorts_from_source(puVar1,(void *)uVar2);
+  uVar2 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_10,param_3,param_4));
+  copy_two_shorts_from_source((uint16_t *)(pcVar1),(uint32_t *)(uVar2));
   free_heap_block_if_flagged_1045bc54(auStack_10,2);
-  (**(code **)(*(int *)(puVar1 + 0x10) + 0x24))
-            ((int)*(short *)(*(int *)(puVar1 + 0x10) + 0x20) + (int)puVar1,param_5,param_6,param_2);
-  return (int)puVar1;
+  (((vtbl_entry*)(pcVar1->field_0x20))[4].fn)
+            ((int)&pcVar1->field_0x0 + (int)((vtbl_entry*)(pcVar1->field_0x20))[4].adj,param_5,param_6,
+             param_2);
+  return (int)pcVar1;
 }

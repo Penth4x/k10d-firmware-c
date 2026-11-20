@@ -15,11 +15,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_state_and_flags(int *param_1)
+uint32_t init_object_state_and_flags(cls_105bdba0 *param_1)
 
 {
-  release_object_members(param_1);
-  validate_sequence_counter(param_1);
-  *(uint32_t *)(param_1[1] + 0x34) = 6;
+  release_object_members((int *)param_1);
+  validate_sequence_counter((int *)param_1);
+  *(uint32_t *)(param_1->field_0x4 + 0x34) = 6;
   return 1;
 }

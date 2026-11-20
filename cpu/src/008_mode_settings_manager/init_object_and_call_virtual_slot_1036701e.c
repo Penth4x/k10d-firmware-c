@@ -11,7 +11,7 @@ void init_object_and_call_virtual_slot_1036701e(int *param_1)
 {
   param_1[7] = 1;
   param_1[0x13] = 2;
-  (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1);
+  (((vtbl_entry*)(*param_1))[8].fn)((int)((vtbl_entry*)(*param_1))[8].adj + (int)param_1);
   init_object_with_offset_field_10366c8a(param_1);
   return;
 }

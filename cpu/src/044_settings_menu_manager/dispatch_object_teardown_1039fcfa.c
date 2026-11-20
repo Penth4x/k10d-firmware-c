@@ -16,17 +16,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_object_teardown_1039fcfa(int *param_1, uint32_t param_x1)
+void dispatch_object_teardown_1039fcfa(cls_105643d0 *param_1)
 
 {
   int *piVar1;
   
-  if (*(char *)(param_1 + 1) == '\0') {
-    (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1,0);
+  if (param_1->field_0x4 == '\0') {
+    (((vtbl_entry*)(param_1->field_0x0))[8].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[8].adj,0);
   }
-  piVar1 = param_1 + 2;
-  dispatch_event_to_object_10492252(piVar1,param_1);
-  request_ui_sync_and_set_flag(piVar1);
+  piVar1 = &param_1->field5_0x8;
+  dispatch_event_to_object_10492252((cls_105b4254 *)piVar1,param_1);
+  request_ui_sync_and_set_flag((cls_105b4254 *)piVar1);
   request_ui_sync_with_flag_10491f5c(piVar1,1);
   return;
 }

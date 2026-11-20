@@ -26,7 +26,7 @@ void init_struct_and_call_handler_1036bfc0(int param_1,uint16_t param_2,uint8_t 
   
   puVar1 = auStack_18;
   *(uint32_t *)(param_1 + 0xc) = 0x8000;
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,0x8000);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(0x8000));
   puVar1[3] = param_4;
   init_object_with_params_104c4a00(_DAT_8000439c/*SDRAM*/,param_1,param_2,param_3,puVar1[3]);
   return;

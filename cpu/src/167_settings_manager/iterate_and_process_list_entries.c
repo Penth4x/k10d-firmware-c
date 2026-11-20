@@ -15,8 +15,8 @@ uint32_t iterate_and_process_list_entries(int param_1,int param_2)
   int iVar4;
   uint32_t uVar5;
   
-  iVar2 = (**(code **)(*(int *)(param_2 + 0xc) + 0x24))
-                    (*(short *)(*(int *)(param_2 + 0xc) + 0x20) + param_2);
+  iVar2 = (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[4].fn)
+                    (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[4].adj + param_2);
   uVar5 = 0;
   if (iVar2 != 0) {
     bVar1 = true;

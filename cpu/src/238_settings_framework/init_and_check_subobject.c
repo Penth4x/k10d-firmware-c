@@ -15,12 +15,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool init_and_check_subobject(int param_1)
+bool init_and_check_subobject(cls_105b9674 *param_1)
 
 {
   int iVar1;
   
-  alloc_pool_and_init_task((int *)(param_1 + 8),0x14,0x1000,4);
-  iVar1 = wait_flg_obj((void *)(param_1 + 0x24),0);
+  alloc_pool_and_init_task((int *)&param_1->field_0x8,0x14,0x1000,4);
+  iVar1 = wait_flg_obj(&param_1->field_0x24,0);
   return 0 < iVar1;
 }

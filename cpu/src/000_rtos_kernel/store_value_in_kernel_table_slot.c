@@ -36,7 +36,7 @@ uint32_t store_value_in_kernel_table_slot(int param_1,uint32_t param_2)
     }
     else {
       if (*(int *)(iVar3 + -0x18) != iVar3 + -0x18) {
-        insert_into_timeout_queue_10011644(iVar3 + -0x18);
+        insert_into_timeout_queue_10011644((int *)(iVar3 + -0x18));
       }
       *(uint32_t *)(DAT_10011cf0/*ROM*/ + iVar1 + -0x10) = param_2;
       insert_into_timeout_queue_1000fcd4((uint32_t *)(DAT_10011cf0/*ROM*/ + iVar1 + -0x18));

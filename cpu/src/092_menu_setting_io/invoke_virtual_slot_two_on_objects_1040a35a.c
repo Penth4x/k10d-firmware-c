@@ -10,16 +10,16 @@ void invoke_virtual_slot_two_on_objects_1040a35a(void *param_1,int param_2,int p
 
 {
   if (param_2 != 0) {
-    (**(code **)(*(int *)(param_2 + 0x14) + 0x14))
-              (*(short *)(*(int *)(param_2 + 0x14) + 0x10) + param_2);
+    (((vtbl_entry*)(*(int *)(param_2 + 0x14)))[2].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0x14)))[2].adj + param_2);
   }
   if (param_3 != 0) {
-    (**(code **)(*(int *)(param_3 + 0x14) + 0x14))
-              (*(short *)(*(int *)(param_3 + 0x14) + 0x10) + param_3);
+    (((vtbl_entry*)(*(int *)(param_3 + 0x14)))[2].fn)
+              (((vtbl_entry*)(*(int *)(param_3 + 0x14)))[2].adj + param_3);
   }
   if (param_4 != 0) {
-    (**(code **)(*(int *)(param_4 + 0x14) + 0x14))
-              (*(short *)(*(int *)(param_4 + 0x14) + 0x10) + param_4);
+    (((vtbl_entry*)(*(int *)(param_4 + 0x14)))[2].fn)
+              (((vtbl_entry*)(*(int *)(param_4 + 0x14)))[2].adj + param_4);
   }
   return;
 }

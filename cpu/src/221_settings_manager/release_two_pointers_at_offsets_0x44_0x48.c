@@ -14,16 +14,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_two_pointers_at_offsets_0x44_0x48(int param_1)
+void release_two_pointers_at_offsets_0x44_0x48(cls_105b9274 *param_1)
 
 {
-  if (*(int *)(param_1 + 0x44) != 0) {
-    heap_free_2(*(int *)(param_1 + 0x44));
+  if (param_1->field_0x44 != 0) {
+    heap_free_2(param_1->field_0x44);
   }
-  *(uint32_t *)(param_1 + 0x44) = 0;
-  if (*(int *)(param_1 + 0x48) != 0) {
-    heap_free_2(*(int *)(param_1 + 0x48));
+  param_1->field_0x44 = 0;
+  if (param_1->field_0x48 != 0) {
+    heap_free_2(param_1->field_0x48);
   }
-  *(uint32_t *)(param_1 + 0x48) = 0;
+  param_1->field_0x48 = 0;
   return;
 }

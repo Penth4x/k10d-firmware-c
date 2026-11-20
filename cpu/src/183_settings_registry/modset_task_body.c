@@ -27,7 +27,7 @@ void modset_task_body(int *param_1)
       eventflag_wai_flg(param_1 + 0x19,1,&uStack_c,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(param_1 + 0x19,uStack_c);
     } while ((uStack_c & 1) == 0);
-    iVar1 = DEAD_menu_dispatch(param_1,(int)param_1 + 0x6d);
+    iVar1 = service_op_dispatch((int *)(param_1),(char *)((int)param_1 + 0x6d),(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
     param_1[0x21] = iVar1;
     *(uint8_t *)(param_1 + 0x1b) = 1;
   } while( true );

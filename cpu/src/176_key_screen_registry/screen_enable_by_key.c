@@ -28,7 +28,7 @@ uint32_t screen_enable_by_key(void *param_1,uint8_t *param_2)
     iVar1 = iVar1 * 8;
     iVar2 = *(int *)(*(int *)((int)param_1 + 0xc) + iVar1);
     iVar4 = *(int *)(iVar2 + 4);
-    iVar2 = (**(code **)(iVar4 + 0x4c))(iVar2 + *(short *)(iVar4 + 0x48));
+    iVar2 = (((vtbl_entry*)(iVar4))[9].fn)(iVar2 + ((vtbl_entry*)(iVar4))[9].adj);
     if (iVar2 != 0) {
       *(uint8_t *)(*(int *)((int)param_1 + 0xc) + iVar1 + 7) = 1;
       *(uint8_t *)(*(int *)((int)param_1 + 0xc) + iVar1 + 6) = 1;

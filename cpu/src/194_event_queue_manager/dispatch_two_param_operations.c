@@ -31,18 +31,18 @@ void dispatch_two_param_operations(uint32_t *param_1,int param_2)
     call_single_helper_on_param(puVar1);
     if (extraout_r4 == 0) {
       uVar2 = get_or_init_sram_block_1052b6fc();
-      uVar3 = select_channel_by_index(param_1[1]);
-      uVar4 = select_channel_by_index(*param_1);
-      run_sr_state_machine(uVar2,uVar3,uVar4);
+      uVar3 = select_channel_by_index((uint32_t *)(param_1[1]));
+      uVar4 = select_channel_by_index((uint32_t *)(*param_1));
+      run_sr_state_machine((int *)(uVar2),(uint32_t)(uVar3),(uint32_t)(uVar4));
       goto LAB_10491780;
     }
   }
   uVar2 = get_or_init_sram_block_1052b6fc();
-  uVar3 = select_channel_by_index(*param_1);
-  call_three_helpers_on_struct_1052b9b2(uVar2,uVar3);
+  uVar3 = select_channel_by_index((uint32_t *)(*param_1));
+  call_three_helpers_on_struct_1052b9b2((uint32_t *)(uVar2),(uint32_t)(uVar3));
   uVar2 = get_or_init_sram_block_1052b6fc();
-  uVar3 = select_channel_by_index(param_1[1]);
-  call_three_helpers_on_struct_1052b9e4(uVar2,uVar3);
+  uVar3 = select_channel_by_index((uint32_t *)(param_1[1]));
+  call_three_helpers_on_struct_1052b9e4((int *)(uVar2),(uint32_t)(uVar3));
 LAB_10491780:
   toggle_three_state_value(*param_1);
   toggle_three_state_value(param_1[1]);

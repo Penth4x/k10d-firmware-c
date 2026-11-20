@@ -33,7 +33,7 @@ void iterate_three_step_range(int param_1,char *param_2)
   uint8_t auStack_58 [80];
   
   puVar5 = auStack_84;
-  format_string_to_buffer_10545140(auStack_58,(void *)&DAT_105b88f4/*ROM*/,r6_in,r7_in);
+  format_string_to_buffer_10545140(auStack_58,&DAT_105b88f4/*ROM*/,r6_in,r7_in);
   uVar1 = parse_numeric_expression((uint32_t *)param_1,0,param_2,r7_in);
   uVar2 = parse_numeric_expression((uint32_t *)param_1,0,param_2,r7_in);
   uVar3 = parse_numeric_expression((uint32_t *)param_1,0,param_2,r7_in);

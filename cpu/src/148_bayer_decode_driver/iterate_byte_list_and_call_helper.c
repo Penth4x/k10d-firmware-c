@@ -16,8 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void iterate_byte_list_and_call_helper(void *param_1,byte *param_2,short param_3,short param_4,int param_5,
-                 uint16_t param_6,uint16_t param_7)
+void iterate_byte_list_and_call_helper(void *param_1,byte *param_2,short param_3,short param_4,int param_5, uint16_t param_6,uint16_t param_7)
 
 {
   byte bVar1;
@@ -35,9 +34,7 @@ void iterate_byte_list_and_call_helper(void *param_1,byte *param_2,short param_3
     *piVar4 = param_5;
     *(uint16_t *)((int)piVar4 + 6) = param_6;
     *(uint16_t *)((int)piVar4 + 10) = param_7;
-    decode_bayer_pattern_to_sram((int)param_1,(byte *)(iVar3 + -0x7fffe604),uVar2 & 0xffff,
-                 (uint)(ushort)param_4 * 0x30 & 0xffff,*piVar4,*(ushort *)((int)piVar4 + 6),
-                 *(ushort *)((int)piVar4 + 10));
+    decode_bayer_pattern_to_sram((uint32_t)(param_1),(byte *)(iVar3 + -0x7fffe604),(int)(uVar2 & 0xffff), (uint)(ushort)param_4 * 0x30 & 0xffff,(int)(*piVar4),(ushort)(*(ushort *)((int)piVar4 + 6)), (ushort)(*(ushort *)((int)piVar4 + 10)));
     uVar2 = (uVar2 & 0xffff) + 0x18;
     param_2 = param_2 + 1;
     bVar1 = *param_2;

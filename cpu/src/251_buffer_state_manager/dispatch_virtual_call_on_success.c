@@ -16,21 +16,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_virtual_call_on_success(int *param_1)
+uint32_t dispatch_virtual_call_on_success(cls_105bec34 *param_1)
 
 {
   int iVar1;
   uint32_t uVar2;
   uint32_t uVar3;
   
-  release_object_members(param_1);
+  release_object_members((int *)param_1);
   iVar1 = validate_sequence_counter(param_1);
   uVar3 = 9;
   if (iVar1 == 0) {
     uVar3 = 9;
   }
   else {
-    uVar2 = get_object_field_at_offset_0x14(*param_1);
+    uVar2 = get_object_field_at_offset_0x14(param_1->field_0x0);
     iVar1 = set_field_and_call_helper_104e25fc((int)param_1,uVar2);
     if (iVar1 == 0) {
       initialize_linked_struct_fields(param_1,0x2009);
@@ -38,10 +38,11 @@ uint32_t dispatch_virtual_call_on_success(int *param_1)
     else {
       iVar1 = serialize_struct_to_buffer(__frv_reg_unset(4));
       dispatch_virtual_slot_two_104df936(param_1,0x1008,iVar1 + 0xc);
-      iVar1 = *(int *)(param_1[7] + 0xc);
-      (**(code **)(iVar1 + 0x2c))(param_1[7] + (int)*(short *)(iVar1 + 0x28),uVar2,param_1[6]);
-      *(uint32_t *)(param_1[1] + 0x34) = 3;
-      *(uint32_t *)(param_1[1] + 0x38) = uVar2;
+      iVar1 = *(int *)(param_1->field_0x1c + 0xc);
+      (((vtbl_entry*)(iVar1))[5].fn)
+                (param_1->field_0x1c + (int)((vtbl_entry*)(iVar1))[5].adj,uVar2,param_1->field_0x18);
+      *(uint32_t *)(param_1->field_0x4 + 0x34) = 3;
+      *(uint32_t *)(param_1->field_0x4 + 0x38) = uVar2;
       uVar3 = 1;
     }
   }

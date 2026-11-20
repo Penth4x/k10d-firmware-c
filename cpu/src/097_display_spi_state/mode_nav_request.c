@@ -12,33 +12,33 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t mode_nav_request(int param_1,int param_2,int param_3)
+uint32_t mode_nav_request(cls_1059c10c *param_1,int param_2,int param_3)
 
 {
   if (param_2 != 0x130068) {
     if (param_2 < 0x130069) {
       if (param_2 == 0x50001) {
-        *(int *)(param_1 + 0x1560) = param_3;
+        *(int *)&param_1[1].field_0x5a8 = param_3;
         return 1;
       }
       if (param_2 == 0x130064) {
-        set_flag_and_toggle_state(param_1,1);
+        set_flag_and_toggle_state((int)(param_1),(int)(1));
         return 1;
       }
       if (param_2 == 0x130065) {
-        set_flag_and_toggle_state(param_1,0);
+        set_flag_and_toggle_state((int)(param_1),(int)(0));
         return 1;
       }
       if (param_2 != 0x130066) {
         return 1;
       }
-      if (*(char *)(param_1 + 0x151d) != '\0') {
+      if (param_1[1].field_0x565 != '\0') {
         return 1;
       }
-      if (*(char *)(param_1 + 0x151e) != '\0') {
+      if (param_1[1].field_0x566 != '\0') {
         return 1;
       }
-      *(int *)(param_1 + 0x1528) = param_3;
+      *(int *)&param_1[1].field_0x570 = param_3;
     }
     else if (param_2 != 0x13006b) {
       if (param_2 < 0x13006c) {
@@ -48,7 +48,7 @@ uint32_t mode_nav_request(int param_1,int param_2,int param_3)
       }
       else {
         if (param_2 == 0x13006d) {
-          *(bool *)(param_1 + 0x1521) = param_3 != 0;
+          param_1[1].field_0x569 = param_3 != 0;
           return 1;
         }
         if (param_2 != 0x13006e) {
@@ -57,6 +57,6 @@ uint32_t mode_nav_request(int param_1,int param_2,int param_3)
       }
     }
   }
-  set_flg_obj((uint32_t *)(param_1 + 0x1538));
+  set_flg_obj((uint32_t *)&param_1[1].field_0x580);
   return 1;
 }

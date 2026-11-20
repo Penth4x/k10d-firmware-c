@@ -16,6 +16,6 @@
 void store_result_to_global(void)
 
 {
-  DAT_800043a1/*SDRAM*/ = check_setting_0x97_valid((void*)0x800158d4/*SDRAM*/);
+  DAT_800043a1/*SDRAM*/ = check_setting_0x97_valid((void *)0x800158d4/*SDRAM*/);
   return;
 }

@@ -14,10 +14,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_10_103686ce(int param_1)
+void invoke_virtual_slot_10_103686ce(cls_10557a18 *param_1)
 
 {
-  (**(code **)(*(int *)(param_1 + 0x6c) + 0x44))
-            (param_1 + 0x6c + (int)*(short *)(*(int *)(param_1 + 0x6c) + 0x40),0);
+  (((vtbl_entry*)(param_1->field_0x6c))[8].fn)
+            ((int)&param_1->field_0x6c + (int)((vtbl_entry*)(param_1->field_0x6c))[8].adj,0);
   return;
 }

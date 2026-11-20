@@ -35,10 +35,10 @@ void build_and_send_buffered_message(uint32_t param_1,int param_2,int param_3,in
   uint8_t auStack_20 [24];
   
   iStack_34 = param_4;
-  (**(code **)(*(int *)(param_2 + 0xc) + 0x2c))
-            (&uStack_28,*(short *)(*(int *)(param_2 + 0xc) + 0x28) + param_2);
-  (**(code **)(*(int *)(param_2 + 0xc) + 0x1c))
-            (auStack_20,*(short *)(*(int *)(param_2 + 0xc) + 0x18) + param_2);
+  (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[5].fn)
+            (&uStack_28,((vtbl_entry*)(*(int *)(param_2 + 0xc)))[5].adj + param_2);
+  (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[3].fn)
+            (auStack_20,((vtbl_entry*)(*(int *)(param_2 + 0xc)))[3].adj + param_2);
   uVar3 = return_first_word_1045c514(&uStack_28);
   if (((iStack_34 + -1) * 0x18 + 0x20U & 0xffff) < uVar3) {
     param_3 = param_3 + iStack_34;
@@ -57,7 +57,7 @@ void build_and_send_buffered_message(uint32_t param_1,int param_2,int param_3,in
     *(uint32_t *)(auStack_30 + iVar4 + -4) = *(uint32_t *)((int)&uStack_24 + iVar4);
     iVar4 = iVar5;
   } while (iVar5 != 0);
-  (**(code **)(iVar2 + 0x14))(sVar1 + param_2,auStack_30);
+  (((vtbl_entry*)(iVar2))[2].fn)(sVar1 + param_2,auStack_30);
   free_heap_block_if_flagged_1045bc54(auStack_30,2);
   free_heap_block_if_flagged_1045bc54(auStack_20,2);
   free_heap_if_flagged_1045c402(&uStack_28,2);

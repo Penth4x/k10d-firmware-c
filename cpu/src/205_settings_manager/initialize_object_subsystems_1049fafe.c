@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void initialize_object_subsystems_1049fafe(int *param_1)
+void initialize_object_subsystems_1049fafe(cls_105b5c34 *param_1)
 
 {
   populate_status_struct_via_virtual_calls(__frv_reg_unset(4));
@@ -25,8 +25,10 @@ void initialize_object_subsystems_1049fafe(int *param_1)
   register_event_handlers_104a038a((int)param_1);
   populate_struct_from_virtual_table((int)param_1);
   compute_cumulative_offsets_104a0ffa(param_1);
-  (**(code **)(param_1[0x50] + 0x14))((int)param_1 + *(short *)(param_1[0x50] + 0x10) + 0x13c,0);
-  (**(code **)(param_1[0x69] + 0x14))((int)param_1 + *(short *)(param_1[0x69] + 0x10) + 0x1a0,0);
-  initialize_object_state_104a387c((int)(param_1 + 0x74));
+  (((vtbl_entry*)(param_1->field_0x140))[2].fn)
+            ((int)&param_1->field_0x13c + (int)((vtbl_entry*)(param_1->field_0x140))[2].adj,0);
+  (((vtbl_entry*)(param_1->field_0x1a4))[2].fn)
+            ((int)&param_1->field_0x1a0 + (int)((vtbl_entry*)(param_1->field_0x1a4))[2].adj,0);
+  initialize_object_state_104a387c((cls_105b6554 *)&param_1->field_0x1d0);
   return;
 }

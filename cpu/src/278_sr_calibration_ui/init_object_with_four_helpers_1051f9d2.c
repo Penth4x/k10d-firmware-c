@@ -15,13 +15,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-int init_object_with_four_helpers_1051f9d2(int *param_1)
+int init_object_with_four_helpers_1051f9d2(cls_105d6fa0 *param_1)
 
 {
   set_two_fields_to_four((int)param_1);
   enable_display_output(param_1);
   clear_flag_at_offset_0x58_1051ff7c(param_1);
-  param_1[0x11] = 0;
-  build_exposure_param_table(param_1);
+  param_1->field_0x44 = 0;
+  build_exposure_param_table((void *)param_1);
   return (int)param_1;
 }

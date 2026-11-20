@@ -20,10 +20,10 @@ uint32_t * cls_105d5584_new(uint32_t *param_1)
     cls_1059e478_new(param_1 + 1);
     cls_1059e458_new(param_1 + 2);
     cls_105a2b50_new(param_1 + 3);
-    *param_1 = (uint32_t)&DAT_105d5584/*ROM*/;
-    param_1[1] = (uint32_t)&DAT_105d55cc/*ROM*/;
-    param_1[2] = (uint32_t)&DAT_105d55e4/*ROM*/;
-    param_1[7] = (uint32_t)&DAT_105d5604/*ROM*/;
+    *param_1 = (uintptr_t)(&DAT_105d5584/*ROM*/);
+    param_1[1] = (uintptr_t)(&DAT_105d55cc/*ROM*/);
+    param_1[2] = (uintptr_t)(&DAT_105d55e4/*ROM*/);
+    param_1[7] = (uintptr_t)(&DAT_105d5604/*ROM*/);
     param_1[10] = 0;
     param_1[0xb] = 0;
     param_1[0xc] = 0;

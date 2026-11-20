@@ -15,26 +15,26 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t allocate_framebuffer_pool_block(void *param_1)
+uint32_t allocate_framebuffer_pool_block(cls_10564150 *param_1)
 
 {
   void *pvVar1;
   uint32_t uVar2;
   
-  alloc_pool_and_init_task((int *)((int)param_1 + 4),0x10,0x1000,4);
-  wait_flg_obj((void *)((int)param_1 + 0xcc),0);
+  alloc_pool_and_init_task(&param_1->field_0x4,0x10,0x1000,4);
+  wait_flg_obj(&param_1->field_0xcc,0);
   pvVar1 = (void *)get_system_heap();
   uVar2 = mempool_get_block(pvVar1,(void *)0x96100,0);
-  *(uint32_t *)((int)param_1 + 0x98) = uVar2;
-  *(uint32_t *)((int)param_1 + 0xa0) = 2;
-  *(uint32_t *)((int)param_1 + 0xa4) = *(uint32_t *)((int)param_1 + 0x98);
-  *(int *)((int)param_1 + 0xa8) = *(int *)((int)param_1 + 0x98) + 0x4b000;
-  *(int *)((int)param_1 + 0xac) = *(int *)((int)param_1 + 0x98) + 0x5dc00;
-  *(uint16_t *)((int)param_1 + 0xb0) = 0x280;
-  *(uint16_t *)((int)param_1 + 0xb2) = 0x1e0;
-  *(uint16_t *)((int)param_1 + 0xb4) = 0x280;
-  *(uint16_t *)((int)param_1 + 0xb6) = 0;
-  *(uint16_t *)((int)param_1 + 0xb8) = 0;
-  create_kernel_object((void *)((int)param_1 + 0x20));
+  param_1->field_0x98 = uVar2;
+  param_1->field_0xa0 = 2;
+  param_1->field_0xa4 = param_1->field_0x98;
+  param_1->field_0xa8 = param_1->field_0x98 + 0x4b000;
+  param_1->field_0xac = param_1->field_0x98 + 0x5dc00;
+  param_1->field_0xb0 = 0x280;
+  param_1->field_0xb2 = 0x1e0;
+  param_1->field_0xb4 = 0x280;
+  param_1->field_0xb6 = 0;
+  param_1->field_0xb8 = 0;
+  create_kernel_object(&param_1->field_0x20);
   return 1;
 }

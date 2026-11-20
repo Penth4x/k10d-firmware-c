@@ -14,7 +14,7 @@
 void cls_105ba1b8_delete_5(void *param_1,uint param_2)
 
 {
-  if (param_1 != (void *)0x0) {
+  if (param_1 != 0) {
     *(uint32_t *)((int)param_1 + 0x1c) = 0x105ba1b8/*ROM*/;
     reset_vtable_and_free_if_flagged_104ddfe6(param_1,0);
     if ((param_2 & 1) != 0) {

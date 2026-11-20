@@ -16,11 +16,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t build_string_from_param_values(void *param_1)
+/* WARNING: Struct "cls_105a0b94": ignoring multiple overlapping fields */
+
+uint32_t build_string_from_param_values(cls_105a0bec *param_1)
 
 {
   void *pvVar1;
-  int iVar2;
+  void *puVar2;
   uint32_t uVar3;
   uintptr_t sp;
   uint32_t uStack_38;
@@ -50,10 +52,10 @@ uint32_t build_string_from_param_values(void *param_1)
   uStack_14 = 0xc;
   uStack_10 = 0xb;
   uStack_c = 0xb2;
-  iVar2 = cls_105a0b94_new((uint32_t *)0x0,&uStack_38);
-  *(int *)((int)param_1 + 4) = iVar2;
-  uVar3 = (**(code **)(*(int *)(iVar2 + 4) + 0x14))
-                    (iVar2 + *(short *)(*(int *)(iVar2 + 4) + 0x10),0);
+  puVar2 = (void *)cls_105a0b94_new((cls_105a0b94 *)0x0,&uStack_38);
+  param_1->field_0x4 = (uint32_t)(puVar2);
+  uVar3 = (((vtbl_entry*)(*(int *)((char*)puVar2 + 4)))[2].fn)
+                    ((char*)puVar2 + ((vtbl_entry*)(*(int *)((char*)puVar2 + 4)))[2].adj,0);
   free_if_flag_set_1044148a(&uStack_38,2);
   return uVar3;
 }

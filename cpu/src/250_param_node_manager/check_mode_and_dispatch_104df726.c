@@ -15,20 +15,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t check_mode_and_dispatch_104df726(int param_1,uint32_t param_2,uint32_t param_3)
+uint32_t check_mode_and_dispatch_104df726(cls_105bb69c *param_1,uint32_t param_2,uint32_t param_3)
 
 {
   bool bVar1;
   int iVar2;
   uint32_t uVar3;
   
-  iVar2 = read_virtual_property_field(*(uint32_t *)(param_1 + 0xc),1);
+  iVar2 = read_virtual_property_field((void *)param_1->field_0xc,1);
   bVar1 = false;
   if ((iVar2 == 2) || (iVar2 == 3)) {
     bVar1 = true;
   }
   if (bVar1) {
-    uVar3 = invoke_virtual_slot_7_104df79e(param_1,param_2,param_3);
+    uVar3 = invoke_virtual_slot_7_104df79e((uint32_t)param_1,param_2,param_3);
   }
   else {
     uVar3 = 0x84;

@@ -14,18 +14,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-int update_setting_and_apply(int param_1,int param_2,int param_3)
+cls_105977ac * update_setting_and_apply(cls_105977ac *param_1,int param_2,int param_3)
 
 {
-  *(int *)(param_1 + 0x14) = param_3;
+  param_1->field_0x14 = param_3;
   if (param_2 == 0x187001c) {
     if ((param_3 == 0x11) || (param_3 == 0xe)) {
-      setting_set(*(int *)(param_1 + 8),0x7f,(uint)*(byte *)(param_1 + 0x20));
+      setting_set(param_1->field_0x8,0x7f,(uint)(byte)param_1->field_0x20);
     }
     else if ((((param_3 == 7) || (param_3 == 0)) || (param_3 == 1)) || (param_3 == 3)) {
-      setting_set(*(int *)(param_1 + 8),0x7f,(uint)*(byte *)(param_1 + 0x20));
-      *(uint8_t *)(param_1 + 0x22) = 0x8c;
-      param_1 = 0;
+      setting_set(param_1->field_0x8,0x7f,(uint)(byte)param_1->field_0x20);
+      param_1->field_0x22 = 0x8c;
+      param_1 = (cls_105977ac *)0x0;
     }
   }
   return param_1;

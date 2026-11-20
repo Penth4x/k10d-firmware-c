@@ -101,13 +101,13 @@ void compute_indexed_pair_offsets(uint32_t param_1,int param_2,uint32_t *param_3
     iVar3 = iVar3 + 0x3e;
     break;
   default:
-    (**(code **)(*(int *)(param_2 + 0xc) + 0xc))
+    (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[1].fn)
               (*(short *)(*(int *)(param_2 + 0xc) + 8) + param_2,0);
     goto LAB_1038bc60;
   }
   store_two_words_to_memory(&uStack_18,iVar2,iVar3);
-  (**(code **)(*(int *)(param_2 + 0xc) + 0xec))
-            (*(short *)(*(int *)(param_2 + 0xc) + 0xe8) + param_2,param_5);
+  (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[29].fn)
+            (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[29].adj + param_2,param_5);
   iVar3 = *(int *)(param_2 + 0xc);
   sVar1 = *(short *)(iVar3 + 0x10);
   iVar2 = 8;
@@ -116,7 +116,7 @@ void compute_indexed_pair_offsets(uint32_t param_1,int param_2,uint32_t *param_3
     *(uint32_t *)((int)&uStack_14 + iVar2) = *(uint32_t *)(&stack0xffffffe4 + iVar2);
     iVar2 = iVar4;
   } while (iVar4 != 0);
-  (**(code **)(iVar3 + 0x14))(sVar1 + param_2,auStack_10);
+  (((vtbl_entry*)(iVar3))[2].fn)(sVar1 + param_2,auStack_10);
   free_heap_block_if_flagged_1045bc54(auStack_10,2);
 LAB_1038bc60:
   free_heap_block_if_flagged_1045bc54(&uStack_18,2);

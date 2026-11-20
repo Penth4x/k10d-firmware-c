@@ -6,12 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_flag_and_invoke_virtual_slot_103b405c(int *param_1,int param_2)
+void set_flag_and_invoke_virtual_slot_103b405c(cls_10566478 *param_1,int param_2)
 
 {
-  if ((*(char *)((int)param_1 + 0x66) == '\0') && (param_2 == 0x1a)) {
-    *(uint8_t *)((int)param_1 + 0x66) = 1;
-    (**(code **)(*param_1 + 0x74))((int)*(short *)(*param_1 + 0x70) + (int)param_1,0x1120004,0);
+  if ((param_1->field_0x66 == '\0') && (param_2 == 0x1a)) {
+    param_1->field_0x66 = 1;
+    (((vtbl_entry*)(param_1->field_0x0))[14].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[14].adj,0x1120004,0);
   }
   return;
 }

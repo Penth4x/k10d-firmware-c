@@ -11,6 +11,6 @@
 void release_mempool_block_104a8e60(void *param_1)
 
 {
-  mempool_release_block((void *)_DAT_8004907c/*SDRAM*/,param_1);
+  mempool_release_block((void *)(_DAT_8004907c/*SDRAM*/),(void *)(param_1));
   return;
 }

@@ -25,13 +25,13 @@ int check_mode_flag_condition(int param_1)
   int iVar4;
   uint32_t uVar5;
   uintptr_t sp;
-  uint8_t auStack_10 [8];
+  cls_105a6eac cStack_10;
   
-  cls_105a6eac_new((void *)auStack_10);
-  copy_four_bytes_from_struct_field_1045e59a(*(int *)(param_1 + 8),auStack_10);
-  iVar2 = test_field_bit_or_nonzero(auStack_10,8);
-  iVar3 = test_field_bit_or_nonzero(auStack_10,0xd);
-  iVar4 = test_field_bit_or_nonzero(auStack_10,0xe);
+  cls_105a6eac_new(&cStack_10);
+  copy_four_bytes_from_struct_field_1045e59a(*(int *)(param_1 + 8),&cStack_10);
+  iVar2 = test_field_bit_or_nonzero(&cStack_10,8);
+  iVar3 = test_field_bit_or_nonzero(&cStack_10,0xd);
+  iVar4 = test_field_bit_or_nonzero(&cStack_10,0xe);
   uVar5 = get_setting_by_mode_flag_104f147e(param_1,0);
   switch(uVar5) {
   case 2:
@@ -62,6 +62,6 @@ int check_mode_flag_condition(int param_1)
       iVar2 = 0;
     }
   }
-  cls_105a6eac_delete((void *)auStack_10,2);
+  cls_105a6eac_delete(&cStack_10,2);
   return iVar2;
 }

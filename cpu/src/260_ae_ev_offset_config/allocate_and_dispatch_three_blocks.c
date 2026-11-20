@@ -44,16 +44,16 @@ void allocate_and_dispatch_three_blocks(int param_1,int param_2,int param_3)
   pvVar4 = (void *)mempool_get_block(pvVar4,pvVar6,0);
   pvVar5 = (void *)get_system_heap();
   pvVar6 = (void *)mempool_get_block(pvVar5,pvVar6,0);
-  if (pvVar3 != (void *)0x0) {
-    if ((pvVar4 != (void *)0x0) && (pvVar6 != (void *)0x0)) {
+  if (pvVar3 != 0) {
+    if ((pvVar4 != 0) && (pvVar6 != 0)) {
       uVar8 = *(uint32_t *)(param_2 + 4);
       uVar9 = *(uint32_t *)(param_2 + 8);
       uVar10 = *(uint32_t *)(param_2 + 0xc);
       uVar1 = *(uint16_t *)(param_2 + 0x10);
       uVar2 = *(uint16_t *)(param_2 + 0x12);
-      *puVar12 = (uint32_t)(uintptr_t)pvVar3;
-      puVar12[1] = (uint32_t)(uintptr_t)pvVar4;
-      puVar12[2] = (uint32_t)(uintptr_t)pvVar6;
+      *puVar12 = (uintptr_t)(pvVar3);
+      puVar12[1] = (uintptr_t)(pvVar4);
+      puVar12[2] = (uintptr_t)(pvVar6);
       *(uint16_t *)((int)puVar12 + 0xe) = uVar1;
       *(uint16_t *)((int)puVar12 + 0x12) = uVar2;
       puVar12[5] = 0;
@@ -103,11 +103,11 @@ void allocate_and_dispatch_three_blocks(int param_1,int param_2,int param_3)
     pvVar5 = (void *)get_system_heap();
     mempool_release_block(pvVar5,pvVar3);
   }
-  if (pvVar4 != (void *)0x0) {
+  if (pvVar4 != 0) {
     pvVar3 = (void *)get_system_heap();
     mempool_release_block(pvVar3,pvVar4);
   }
-  if (pvVar6 != (void *)0x0) {
+  if (pvVar6 != 0) {
     pvVar3 = (void *)get_system_heap();
     mempool_release_block(pvVar3,pvVar6);
   }

@@ -6,9 +6,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void store_value_at_offset_0x30_104933ba(void *param_1,uint32_t param_2)
+void store_value_at_offset_0x30_104933ba(cls_105b43cc *param_1,uint32_t param_2)
 
 {
-  *(uint32_t *)((int)param_1 + 0x30) = param_2;
+  param_1->field_0x30 = param_2;
   return;
 }

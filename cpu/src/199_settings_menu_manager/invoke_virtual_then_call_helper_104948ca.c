@@ -14,13 +14,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_then_call_helper_104948ca(int param_1)
+void invoke_virtual_then_call_helper_104948ca(cls_105b4ad4 *param_1)
 
 {
   int iVar1;
   
-  iVar1 = *(int *)(*(int *)(param_1 + 0x48) + 0xc);
-  (**(code **)(iVar1 + 0x54))(*(int *)(param_1 + 0x48) + (int)*(short *)(iVar1 + 0x50));
-  dispatch_object_event_and_notify(param_1);
+  iVar1 = *(int *)(param_1->field_0x48 + 0xc);
+  (((vtbl_entry*)(iVar1))[10].fn)(param_1->field_0x48 + (int)((vtbl_entry*)(iVar1))[10].adj);
+  dispatch_object_event_and_notify((cls_105b48dc *)param_1);
   return;
 }

@@ -23,8 +23,8 @@ uint32_t iterate_virtual_method_on_array(uint32_t param_1,int *param_2)
   
   iVar2 = 0;
   do {
-    iVar1 = (**(code **)(*param_2 + 0x24))
-                      ((int)*(short *)(*param_2 + 0x20) + (int)param_2,
+    iVar1 = (((vtbl_entry*)(*param_2))[4].fn)
+                      ((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,
                        *(uint32_t *)(iVar2 + 0x105b379c/*ROM*/));
     if (iVar1 != 0) {
       return 1;

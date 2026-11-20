@@ -6,14 +6,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_with_new_child_104a79e4(void *param_1)
+void init_object_with_new_child_104a79e4(cls_105b6980 *param_1)
 
 {
   int *piVar1;
   
   initialize_object_hierarchy();
   piVar1 = (int *)cls_105b6938_new(0);
-  *(int **)((int)param_1 + 4) = piVar1;
-  (**(code **)(*piVar1 + 0x14))((int)piVar1 + (int)*(short *)(*piVar1 + 0x10),0);
+  param_1->field_0x4 = (uintptr_t)((void *)piVar1);
+  (((vtbl_entry*)(*piVar1))[2].fn)((void *)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[2].adj),0);
   return;
 }

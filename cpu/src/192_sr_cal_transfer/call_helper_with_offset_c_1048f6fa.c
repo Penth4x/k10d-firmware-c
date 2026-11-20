@@ -17,6 +17,6 @@
 void call_helper_with_offset_c_1048f6fa(int param_1, uint32_t param_x1)
 
 {
-  clamp_and_write_byte_field(*(uint32_t *)(param_1 + 0xc), __frv_reg_unset(5));
+  clamp_and_write_byte_field((void *)(*(uint32_t *)(param_1 + 0xc)), (int)(__frv_reg_unset(5)));
   return;
 }

@@ -74,7 +74,7 @@ void populate_viewfinder_overlay_struct(int param_1,int param_2)
   *(uint16_t *)(*(int *)(param_1 + 0x82c) + 0x6c) = uVar1;
   *(uint16_t *)(*(int *)(param_1 + 0x82c) + 0x6e) = uVar1;
   uVar2 = get_sysparam_store_instance();
-  iVar5 = get_sysparam_store_byte((void *)uVar2,0x1a);
+  iVar5 = get_sysparam_store_byte((uint8_t *)(uVar2),(uint32_t)(0x1a));
   if (iVar5 == 0) {
     *(uint16_t *)(*(int *)(param_1 + 0x82c) + 0x58) = 0;
     *(uint16_t *)(*(int *)(param_1 + 0x82c) + 0x5a) = 0;
@@ -92,7 +92,7 @@ void populate_viewfinder_overlay_struct(int param_1,int param_2)
     sStack_a = 0;
   }
   uVar2 = get_or_init_sram_buffer_1052c5b8();
-  uVar4 = get_SVD((void *)(param_1 + 0x164));
+  uVar4 = get_SVD((int *)(param_1 + 0x164));
   *piVar7 = (int)&sStack_a;
   *(uint8_t *)((int)piVar7 + 7) = uVar4;
   (*(code *)0x1052c5ea/*ROM*/)(uVar2,&sStack_10,&sStack_e,&sStack_c);

@@ -15,8 +15,8 @@
 #include "globals.h"
 #include "funcs.h"
 
-void forward_six_args_to_helper_10546f8a(uint32_t param_1,uint32_t param_2,void *param_3,uint32_t param_4,
-                 uint32_t param_5,void *param_6)
+void forward_six_args_to_helper_10546f8a(int param_1,int param_2,void *param_3,uint32_t param_4,uint32_t param_5,
+                 void *param_6)
 
 {
   alloc_and_init_lens_fw_buffer(0,param_1,param_2,param_3,param_6,0);

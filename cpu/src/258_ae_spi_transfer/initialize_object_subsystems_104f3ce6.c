@@ -16,7 +16,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t initialize_object_subsystems_104f3ce6(void *param_1)
+/* WARNING: Struct "cls_105c3a34": ignoring multiple overlapping fields */
+
+uint32_t initialize_object_subsystems_104f3ce6(cls_105c3a34 *param_1)
 
 {
   void *pvVar1;
@@ -30,10 +32,10 @@ uint32_t initialize_object_subsystems_104f3ce6(void *param_1)
   uint16_t uStack_c;
   uint16_t uStack_a;
   
-  set_flag_bit_8_in_dat_40128202(*(uint32_t *)((int)param_1 + 0xc),0);
-  set_bit15_of_dat_40100002(*(uint32_t *)((int)param_1 + 0x10),0);
-  set_bit15_of_dat_40100d00(*(uint32_t *)((int)param_1 + 0x10),0);
-  write_mmio_control_word(*(uint32_t *)((int)param_1 + 0x10),1,1);
+  set_flag_bit_8_in_dat_40128202(((uint32_t *)&(param_1->field_0x4))[2],0);
+  set_bit15_of_dat_40100002(((uint32_t *)&(param_1->field_0x4))[3],0);
+  set_bit15_of_dat_40100d00(((uint32_t *)&(param_1->field_0x4))[3],0);
+  write_mmio_control_word(((uint32_t *)&(param_1->field_0x4))[3],1,1);
   uStack_18 = 0;
   uStack_16 = 0;
   uStack_14 = 0;
@@ -42,7 +44,7 @@ uint32_t initialize_object_subsystems_104f3ce6(void *param_1)
   uStack_e = 0;
   uStack_c = 0;
   uStack_a = 0;
-  write_masked_shorts_to_mmio_block(*(uint32_t *)((int)param_1 + 0x10),&uStack_18,&uStack_18);
+  write_masked_shorts_to_mmio_block(((uint32_t *)&(param_1->field_0x4))[3],&uStack_18,&uStack_18);
   pvVar1 = (void *)get_or_init_singleton_object_1051d40e();
   update_camera_state_flags(pvVar1,3,0);
   return 1;

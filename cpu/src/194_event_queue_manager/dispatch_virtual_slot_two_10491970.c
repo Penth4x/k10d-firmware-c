@@ -15,14 +15,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_virtual_slot_two_10491970(uint32_t *param_1)
+void dispatch_virtual_slot_two_10491970(cls_105b4130 *param_1)
 
 {
   uint32_t uVar1;
   uint32_t uVar2;
   
   uVar1 = get_or_init_sram_block_1052b6fc();
-  uVar2 = select_channel_by_index(param_1);
+  uVar2 = select_channel_by_index((void *)param_1);
   transfer_sr_calibration_data((void *)uVar1, uVar2, 1);
   return;
 }

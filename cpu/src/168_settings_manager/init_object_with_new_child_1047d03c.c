@@ -6,21 +6,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_with_new_child_1047d03c(void *param_1)
+void init_object_with_new_child_1047d03c(cls_105aabd0 *param_1)
 
 {
-  uint32_t uVar1;
+  void *puVar1;
   int iVar2;
   uintptr_t sp;
   uint32_t uStack_c;
   
-  uVar1 = cls_105aaa50_new(0);
-  *(uint32_t *)((int)param_1 + 4) = uVar1;
+  puVar1 = (void *)cls_105aaa50_new((cls_105aaa50 *)0x0);
+  param_1->field_0x4 = (uintptr_t)(puVar1);
   uStack_c = 0;
   iVar2 = get_or_create_sram_object_104816ee();
   uStack_c = *(uint32_t *)(iVar2 + 0x14);
-  iVar2 = **(int **)((int)param_1 + 4);
-  (**(code **)(iVar2 + 0x24))
-            ((int)*(int **)((int)param_1 + 4) + (int)*(short *)(iVar2 + 0x20),&uStack_c);
+  iVar2 = *(int *)param_1->field_0x4;
+  (((vtbl_entry*)(iVar2))[4].fn)
+            ((void *)((int)param_1->field_0x4 + (int)((vtbl_entry*)(iVar2))[4].adj),&uStack_c);
   return;
 }

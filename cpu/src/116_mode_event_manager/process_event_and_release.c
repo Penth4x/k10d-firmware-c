@@ -39,6 +39,6 @@ void process_event_and_release(int param_1,uint32_t *param_2)
     release_sem_and_set_flag((uint32_t *)(param_1 + 0x44));
   }
   finalize_object_with_count(*(uint32_t *)(param_1 + 0x34));
-  sig_sem_obj((void *)(param_1 + 0x6c));
+  sig_sem_obj((uint32_t *)(param_1 + 0x6c));
   return;
 }

@@ -6,10 +6,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_flag_and_init_object(int param_1)
+void set_flag_and_init_object(cls_1059c10c *param_1)
 
 {
-  *(uint8_t *)(param_1 + 0x150f) = 1;
-  set_flg_obj((uint32_t *)(param_1 + 0x1538));
+  param_1[1].field_0x557 = 1;
+  set_flg_obj((uint32_t *)&param_1[1].field_0x580);
   return;
 }

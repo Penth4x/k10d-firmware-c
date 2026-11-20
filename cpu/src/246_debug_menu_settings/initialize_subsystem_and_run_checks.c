@@ -24,7 +24,7 @@ uint32_t initialize_subsystem_and_run_checks(int param_1)
   int iVar1;
   
   *(uint8_t *)(param_1 + 0x2b5c) = 1;
-  eventflag_clr_flg((void *)(param_1 + 0x2b60), 0xffffffff);
+  eventflag_clr_flg((uint32_t *)(param_1 + 0x2b60),(uint)(0xffffffff));
   *(uint8_t *)(param_1 + 0x2b6d) = 0;
   iVar1 = ensure_buffer_allocated(param_1);
   if (iVar1 != 0) {

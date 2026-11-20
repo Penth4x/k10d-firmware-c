@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_object_event_and_notify(int param_1)
+void dispatch_object_event_and_notify(cls_105b48dc *param_1)
 
 {
   int iVar1;
@@ -24,33 +24,33 @@ void dispatch_object_event_and_notify(int param_1)
   
   iVar1 = read_byte_at_offset_8(__frv_reg_unset(4));
   if (iVar1 != 0) {
-    iVar1 = (**(code **)(*(int *)(param_1 + 0xc) + 0x6c))
-                      (*(short *)(*(int *)(param_1 + 0xc) + 0x68) + param_1);
+    iVar1 = (((vtbl_entry*)(param_1->field_0xc))[13].fn)
+                      ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0xc))[13].adj);
     if (iVar1 == 0) {
-      (**(code **)(*(int *)(param_1 + 0xc) + 0xe4))
-                (*(short *)(*(int *)(param_1 + 0xc) + 0xe0) + param_1,1);
+      (((vtbl_entry*)(param_1->field_0xc))[28].fn)
+                ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0xc))[28].adj,1);
     }
     else {
-      iVar1 = (**(code **)(*(int *)(param_1 + 0xc) + 0x7c))
-                        (*(short *)(*(int *)(param_1 + 0xc) + 0x78) + param_1);
+      iVar1 = (((vtbl_entry*)(param_1->field_0xc))[15].fn)
+                        ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0xc))[15].adj);
       if (iVar1 == 0) {
-        (**(code **)(*(int *)(param_1 + 0xc) + 0xe4))
-                  (*(short *)(*(int *)(param_1 + 0xc) + 0xe0) + param_1,0);
+        (((vtbl_entry*)(param_1->field_0xc))[28].fn)
+                  ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0xc))[28].adj,0);
       }
       else {
-        (**(code **)(*(int *)(param_1 + 0xc) + 0xe4))
-                  (*(short *)(*(int *)(param_1 + 0xc) + 0xe0) + param_1,1);
+        (((vtbl_entry*)(param_1->field_0xc))[28].fn)
+                  ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0xc))[28].adj,1);
       }
     }
   }
-  piVar2 = *(int **)(param_1 + 0x18);
-  if (piVar2 != *(int **)(param_1 + 0x1c)) {
+  piVar2 = (void*)(param_1->field11_0x18);
+  if ((uint32_t)(piVar2) != param_1->field_0x1c) {
     do {
       iVar1 = *(int *)(*piVar2 + 0xc);
-      (**(code **)(iVar1 + 0x54))(*piVar2 + (int)*(short *)(iVar1 + 0x50));
+      (((vtbl_entry*)(iVar1))[10].fn)(*piVar2 + (int)((vtbl_entry*)(iVar1))[10].adj);
       piVar2 = piVar2 + 1;
-    } while (piVar2 != *(int **)(param_1 + 0x1c));
+    } while ((uint32_t)(piVar2) != param_1->field_0x1c);
   }
-  *(uint8_t *)(param_1 + 9) = 0;
+  param_1->field_0x9 = '\0';
   return;
 }

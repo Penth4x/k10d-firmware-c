@@ -18,7 +18,7 @@ uint32_t initialize_sram_object(void)
 {
   if (iRam8001cecc == 0) {
     iRam8001cecc = 1;
-    cls_10599a88_new((uint32_t *)0x8001cea8/*SDRAM*/);
+    cls_10599a88_new((cls_10599a88 *)0x8001cea8/*SDRAM*/);
     prepend_to_singly_linked_list((void *)0x8000fb20/*SDRAM*/);
   }
   return 0x8001cea8/*SDRAM*/;

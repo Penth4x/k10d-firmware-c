@@ -46,11 +46,11 @@ uint32_t query_object_array_for_value(int param_1,int param_2,uint param_3,uint3
         do {
           iVar1 = *(int *)(*(int *)(param_1 + 0x40) + iVar3);
           if ((iVar1 != 0) &&
-             (iVar1 = (**(code **)(*(int *)(iVar1 + 0x18) + 0x4c))
-                                (*(short *)(*(int *)(iVar1 + 0x18) + 0x48) + iVar1), iVar1 != 0)) {
+             (iVar1 = (((vtbl_entry*)(*(int *)(iVar1 + 0x18)))[9].fn)
+                                (((vtbl_entry*)(*(int *)(iVar1 + 0x18)))[9].adj + iVar1), iVar1 != 0)) {
             iVar1 = *(int *)(*(int *)(param_1 + 0x40) + iVar3);
             iVar7 = *(int *)(iVar1 + 0x18);
-            uVar2 = (**(code **)(iVar7 + 0x54))(iVar1 + *(short *)(iVar7 + 0x50));
+            uVar2 = (((vtbl_entry*)(iVar7))[10].fn)(iVar1 + ((vtbl_entry*)(iVar7))[10].adj);
             iVar6 = iVar6 + 1;
             *(uint32_t *)(param_2 + iVar4) = uVar2;
             iVar4 = iVar4 + 4;

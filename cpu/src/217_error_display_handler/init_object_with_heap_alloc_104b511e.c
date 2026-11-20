@@ -14,19 +14,22 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_with_heap_alloc_104b511e(int param_1)
+/* WARNING: Struct "cls_105b8354": ignoring overlapping field "field_0x8" */
+
+void init_object_with_heap_alloc_104b511e(cls_105b857c *param_1)
 
 {
-  int *piVar1;
+  cls_105b8354 *pcVar1;
   
-  piVar1 = (int *)heap_alloc((void *)0x78);
-  if (piVar1 == (int *)0x0) {
-    piVar1 = (int *)0x0;
+  pcVar1 = (cls_105b8354 *)heap_alloc((void *)0x78);
+  if (pcVar1 == (cls_105b8354 *)0x0) {
+    pcVar1 = (cls_105b8354 *)0x0;
   }
   else {
-    cls_105b8354_new(piVar1);
+    cls_105b8354_new(pcVar1);
   }
-  *(int **)(param_1 + 4) = piVar1;
-  (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,0);
+  param_1->field_0x4 = (uintptr_t)((void *)pcVar1);
+  (((vtbl_entry*)(pcVar1->field_0x0))[2].fn)
+            ((void *)((int)&pcVar1->field_0x0 + (int)((vtbl_entry*)(pcVar1->field_0x0))[2].adj),0);
   return;
 }

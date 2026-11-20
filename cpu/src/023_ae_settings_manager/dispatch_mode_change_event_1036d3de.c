@@ -44,7 +44,7 @@ uint32_t dispatch_mode_change_event_1036d3de(void *param_1,uint32_t param_2)
       iVar3 = *piVar2;
       sVar1 = *(short *)(iVar3 + 0xc0);
       uVar7 = read_byte_at_offset_five_1051e50e((int)pvVar9);
-      (**(code **)(iVar3 + 0xc4))((int)piVar2 + (int)sVar1,uVar7);
+      (((vtbl_entry*)(iVar3))[24].fn)((int)piVar2 + (int)sVar1,uVar7);
 LAB_1036d62c:
       release_object_field_0x70(param_1);
       return 1;
@@ -71,7 +71,7 @@ LAB_1036d62c:
       iVar3 = *piVar2;
       sVar1 = *(short *)(iVar3 + 0xc0);
       uVar7 = read_byte_at_offset_five_1051e50e((int)pvVar9);
-      (**(code **)(iVar3 + 0xc4))((int)piVar2 + (int)sVar1,uVar7);
+      (((vtbl_entry*)(iVar3))[24].fn)((int)piVar2 + (int)sVar1,uVar7);
       goto LAB_1036d62c;
     }
     break;
@@ -96,7 +96,7 @@ LAB_1036d62c:
       iVar3 = *piVar2;
       sVar1 = *(short *)(iVar3 + 0xc0);
       uVar7 = read_byte_at_offset_five_1051e50e((int)pvVar9);
-      (**(code **)(iVar3 + 0xc4))((int)piVar2 + (int)sVar1,uVar7);
+      (((vtbl_entry*)(iVar3))[24].fn)((int)piVar2 + (int)sVar1,uVar7);
       goto LAB_1036d62c;
     }
     break;
@@ -121,7 +121,7 @@ LAB_1036d62c:
       iVar3 = *piVar2;
       sVar1 = *(short *)(iVar3 + 0xc0);
       uVar7 = read_byte_at_offset_five_1051e50e((int)pvVar9);
-      (**(code **)(iVar3 + 0xc4))((int)piVar2 + (int)sVar1,uVar7);
+      (((vtbl_entry*)(iVar3))[24].fn)((int)piVar2 + (int)sVar1,uVar7);
       goto LAB_1036d62c;
     }
     break;

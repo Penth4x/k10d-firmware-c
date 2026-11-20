@@ -54,7 +54,7 @@ int process_sensor_readout_request_104c50e4(int param_1,void *param_2)
     }
     else {
       if (*(int *)(param_1 + 0x50) == 0) {
-        eventflag_clr_flg((uint32_t *)(param_1 + 0x34),0xffffffff);
+        eventflag_clr_flg((uint32_t *)(param_1 + 0x34),(uint)(0xffffffff));
         iVar2 = *(int *)(param_1 + 0x48);
         uVar3 = get_aligned_next_pointer((int)param_2);
         uVar1 = (*(code *)0x104bcd52/*ROM*/)(param_2);

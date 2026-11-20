@@ -22,27 +22,26 @@ uint32_t write_data_to_stream_object(int param_1)
   int iVar1;
   uint32_t uVar2;
   uintptr_t sp;
-  uint8_t auStack_2c [16];
-  uint uStack_1c;
+  cls_105ab468 cStack_2c;
   uint32_t uStack_c;
   
   uVar2 = 0;
   clear_struct_fields_and_subblock(param_1);
-  cls_105ab468_new(auStack_2c);
-  iVar1 = call_with_offset_lock_1048101c(*(void **)(param_1 + 0x14),*(void **)(param_1 + 0xc),auStack_2c);
-  if ((iVar1 != 0) && (uStack_1c < 150000)) {
+  cls_105ab468_new(&cStack_2c);
+  iVar1 = call_with_offset_lock_1048101c(*(void **)(param_1 + 0x14),*(void **)(param_1 + 0xc),&cStack_2c);
+  if ((iVar1 != 0) && (cStack_2c.field_0x10 < 150000)) {
     uStack_c = 0;
     iVar1 = **(int **)(param_1 + 0x14);
-    iVar1 = (**(code **)(iVar1 + 0x2c))
-                      ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar1 + 0x28),
+    iVar1 = (((vtbl_entry*)(iVar1))[5].fn)
+                      ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar1))[5].adj,
                        *(uint32_t *)(param_1 + 0xc),1,&uStack_c);
     if (iVar1 != 0) {
       iVar1 = **(int **)(param_1 + 0x14);
-      iVar1 = (**(code **)(iVar1 + 0x3c))
-                        ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar1 + 0x38),uStack_c,
-                         *(uint32_t *)(param_1 + 0x18),uStack_1c);
+      iVar1 = (((vtbl_entry*)(iVar1))[7].fn)
+                        ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar1))[7].adj,uStack_c,
+                         *(uint32_t *)(param_1 + 0x18),cStack_2c.field_0x10);
       if (iVar1 != 0) {
-        iVar1 = parse_eeprom_calibration_data(param_1,(void *)(*(uint32_t *)(param_1 + 0x18)));
+        iVar1 = parse_eeprom_calibration_data(param_1,(void*)(*(uint32_t *)(param_1 + 0x18)));
         if (iVar1 == 0) {
           clear_struct_fields_and_subblock(param_1);
         }
@@ -51,10 +50,10 @@ uint32_t write_data_to_stream_object(int param_1)
         }
       }
       iVar1 = **(int **)(param_1 + 0x14);
-      (**(code **)(iVar1 + 0x34))
-                ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar1 + 0x30),uStack_c);
+      (((vtbl_entry*)(iVar1))[6].fn)
+                ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar1))[6].adj,uStack_c);
     }
   }
-  cls_105ab468_delete(auStack_2c,2);
+  cls_105ab468_delete(&cStack_2c,2);
   return uVar2;
 }

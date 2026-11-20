@@ -26,7 +26,7 @@ void toggle_object_state_via_virtual_call_103ac2a0(void *param_1)
   uVar1 = get_setting_by_mode_flag_104f147e(*(uint32_t *)((int)param_1 + 0x28),0);
   iVar2 = get_setting_by_two_probe_flags(*(int *)((int)param_1 + 0x28));
   iVar3 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
   iVar3 = query_object_property_via_temp_104f2570(*(uint32_t *)((int)param_1 + 0x28));
   if ((((((iVar3 == 0) && (iVar3 = check_object_property_15(*(uint32_t *)((int)param_1 + 0x28)), iVar3 == 0))
         && ((iVar2 != 1 || (*(char *)((int)param_1 + 0x48) == '\n')))) &&
@@ -48,6 +48,6 @@ void toggle_object_state_via_virtual_call_103ac2a0(void *param_1)
     }
   }
   iVar2 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   return;
 }

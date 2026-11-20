@@ -21,7 +21,7 @@ uint32_t * cls_105c2d24_new(uint32_t *param_1)
     initialize_seven_subobject_container(param_1 + 1);
     param_1[0xc48] = 0x105f9304/*ROM*/;
     *(uint8_t *)(param_1 + 0xc49) = 0;
-    cls_105fa760_new(param_1 + 0xc4a);
+    cls_105fa760_new((void *)(param_1 + 0xc4a));
     alloc_if_null(param_1 + 0xc4b);
   }
   return param_1;

@@ -16,46 +16,46 @@
 #include "globals.h"
 #include "funcs.h"
 
-int set_mode_and_update_byte(int param_1,int param_2)
+cls_10596f7c * set_mode_and_update_byte(cls_10596f7c *param_1,int param_2)
 
 {
   int iVar1;
-  int iVar2;
+  cls_10596f7c *pcVar2;
   
-  *(int *)(param_1 + 0x28) = param_2;
-  iVar2 = param_1;
-  if (*(char *)(param_1 + 0x36) == '\0') {
+  *(int *)&param_1->field_0x28 = param_2;
+  pcVar2 = param_1;
+  if (param_1->field_0x36 == '\0') {
     if ((param_2 == 0xc) || (param_2 == 0x11)) {
-      check_kernel_object_id_valid((void *)(param_1 + 0x18));
-      *(uint8_t *)(param_1 + 0x48) = 0x50;
-      iVar2 = 0;
+      check_kernel_object_id_valid(&param_1->field_0x18);
+      param_1->field_0x48 = 0x50;
+      pcVar2 = (cls_10596f7c *)0x0;
     }
-    iVar1 = *(int *)(param_1 + 0x28);
+    iVar1 = *(int *)&param_1->field_0x28;
     if ((((iVar1 == 7) || (iVar1 == 0)) || (iVar1 == 1)) || (iVar1 == 3)) {
-      check_kernel_object_id_valid((void *)(param_1 + 0x18));
-      *(uint8_t *)(param_1 + 0x48) = 0x8c;
-      iVar2 = 0;
+      check_kernel_object_id_valid(&param_1->field_0x18);
+      param_1->field_0x48 = 0x8c;
+      pcVar2 = (cls_10596f7c *)0x0;
     }
-    if ((*(int *)(param_1 + 0x28) == 0x19) || (*(int *)(param_1 + 0x28) == 9)) {
-      check_kernel_object_id_valid((void *)(param_1 + 0x18));
-      *(uint8_t *)(param_1 + 0x48) = 0x50;
-      iVar2 = 0;
+    if ((*(int *)&param_1->field_0x28 == 0x19) || (*(int *)&param_1->field_0x28 == 9)) {
+      check_kernel_object_id_valid(&param_1->field_0x18);
+      param_1->field_0x48 = 0x50;
+      pcVar2 = (cls_10596f7c *)0x0;
     }
-    if (*(int *)(param_1 + 0x28) == 0x18) {
-      check_kernel_object_id_valid((void *)(param_1 + 0x18));
-      *(uint8_t *)(param_1 + 0x48) = 0xb4;
-      iVar2 = 0;
+    if (*(int *)&param_1->field_0x28 == 0x18) {
+      check_kernel_object_id_valid(&param_1->field_0x18);
+      param_1->field_0x48 = 0xb4;
+      pcVar2 = (cls_10596f7c *)0x0;
     }
-    if (*(int *)(param_1 + 0x28) == 0x2c) {
-      check_kernel_object_id_valid((void *)(param_1 + 0x18));
-      *(uint8_t *)(param_1 + 0x48) = 0x8c;
-      iVar2 = 0;
+    if (*(int *)&param_1->field_0x28 == 0x2c) {
+      check_kernel_object_id_valid(&param_1->field_0x18);
+      param_1->field_0x48 = 0x8c;
+      pcVar2 = (cls_10596f7c *)0x0;
     }
-    if (*(int *)(param_1 + 0x28) == 10) {
-      check_kernel_object_id_valid((void *)(param_1 + 0x18));
-      *(uint8_t *)(param_1 + 0x48) = 200;
-      iVar2 = 0;
+    if (*(int *)&param_1->field_0x28 == 10) {
+      check_kernel_object_id_valid(&param_1->field_0x18);
+      param_1->field_0x48 = 200;
+      pcVar2 = (cls_10596f7c *)0x0;
     }
   }
-  return iVar2;
+  return pcVar2;
 }

@@ -16,22 +16,24 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t populate_context_from_global_state(void *param_1)
+/* WARNING: Struct "cls_105a7df8": ignoring multiple overlapping fields */
+
+uint32_t populate_context_from_global_state(cls_105a7df8 *param_1)
 
 {
   void *pvVar1;
-  uint32_t uVar2;
+  void *puVar2;
   int iVar3;
   
   pvVar1 = (void *)get_or_init_sram_buffer_104277bc();
-  uVar2 = read_table_entry_field(pvVar1,0x44);
-  *(uint32_t *)((int)param_1 + 0x18) = uVar2;
-  uVar2 = read_table_entry_field(pvVar1,0x46);
-  *(uint32_t *)((int)param_1 + 0x1c) = uVar2;
+  puVar2 = (void *)read_table_entry_field(pvVar1,0x44);
+  ((uint32_t *)&(param_1->field_0x14))[1] = (uint32_t)(puVar2);
+  puVar2 = (void *)read_table_entry_field(pvVar1,0x46);
+  ((uint32_t *)&(param_1->field_0x14))[2] = (uint32_t)(puVar2);
   iVar3 = read_table_entry_field(pvVar1,8);
-  *(int *)((int)param_1 + 0x20) = iVar3;
-  (**(code **)(*(int *)(iVar3 + 8) + 0x1c))
-            (iVar3 + 8 + (int)*(short *)(*(int *)(iVar3 + 8) + 0x18),(int)param_1 + 4,0xe);
-  create_kernel_object((void *)((int)param_1 + 0xc));
+  param_1->field_0x20 = iVar3;
+  (((vtbl_entry*)(*(int *)(iVar3 + 8)))[3].fn)
+            (iVar3 + 8 + (int)((vtbl_entry*)(*(int *)(iVar3 + 8)))[3].adj,&param_1->field_0x4,0xe);
+  create_kernel_object(&param_1->field_0xc);
   return 1;
 }

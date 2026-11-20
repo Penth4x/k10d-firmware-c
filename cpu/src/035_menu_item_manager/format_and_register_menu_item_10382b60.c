@@ -29,7 +29,7 @@ void format_and_register_menu_item_10382b60(int param_1,int param_2)
     pvVar3 = (void *)0x63;
   }
   pvVar4 = (void *)((param_2 % 100 & 0xffffU) / 10);
-  if (pvVar4 == (void *)0x0) {
+  if (pvVar4 == 0) {
     pcVar2 = (char *)0x105590ac/*ROM*/;
   }
   else {

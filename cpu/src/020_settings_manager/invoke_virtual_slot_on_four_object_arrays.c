@@ -18,17 +18,17 @@ void invoke_virtual_slot_on_four_object_arrays(int param_1)
   iVar2 = 0;
   do {
     iVar4 = **(int **)(param_1 + iVar2);
-    (**(code **)(iVar4 + 0x34))((int)*(int **)(param_1 + iVar2) + (int)*(short *)(iVar4 + 0x30));
+    (((vtbl_entry*)(iVar4))[6].fn)((int)*(int **)(param_1 + iVar2) + (int)((vtbl_entry*)(iVar4))[6].adj);
     piVar1 = *(int **)(param_1 + iVar2 + 4);
     iVar4 = *piVar1;
-    (**(code **)(iVar4 + 0x34))((int)piVar1 + (int)*(short *)(iVar4 + 0x30));
+    (((vtbl_entry*)(iVar4))[6].fn)((int)piVar1 + (int)((vtbl_entry*)(iVar4))[6].adj);
     piVar1 = *(int **)(param_1 + iVar2 + 8);
     iVar4 = *piVar1;
-    (**(code **)(iVar4 + 0x34))((int)piVar1 + (int)*(short *)(iVar4 + 0x30));
+    (((vtbl_entry*)(iVar4))[6].fn)((int)piVar1 + (int)((vtbl_entry*)(iVar4))[6].adj);
     piVar1 = *(int **)(param_1 + iVar2 + 0xc);
     iVar4 = *piVar1;
     iVar2 = iVar2 + 0x10;
-    (**(code **)(iVar4 + 0x34))((int)piVar1 + (int)*(short *)(iVar4 + 0x30));
+    (((vtbl_entry*)(iVar4))[6].fn)((int)piVar1 + (int)((vtbl_entry*)(iVar4))[6].adj);
     iVar3 = iVar3 + -1;
   } while (-1 < iVar3);
   invoke_virtual_slot_9_1036c3f8();

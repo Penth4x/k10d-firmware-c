@@ -13,10 +13,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_two_initializers_on_struct(int param_1)
+void call_two_initializers_on_struct(cls_10565770 *param_1)
 
 {
-  init_subobject_at_offset_8(param_1);
-  create_kernel_object((void *)(param_1 + 0x40));
+  init_subobject_at_offset_8((cls_105992d4 *)param_1);
+  create_kernel_object((void *)&param_1->field_0x40);
   return;
 }

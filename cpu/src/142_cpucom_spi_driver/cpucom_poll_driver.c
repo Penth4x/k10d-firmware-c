@@ -34,7 +34,7 @@ void cpucom_poll_driver(void *param_1,uint8_t *param_2)
   if (bVar5) {
     cpucom_resp_get_byte0(param_2);
     get_cpucom_msg_data_ptr_104655b6(param_2);
-    cpucom_resp_get_byte0(*(uint8_t **)((int)param_1 + 0x28));
+    cpucom_resp_get_byte0((uint8_t *)(*(uint32_t *)((int)param_1 + 0x28)));
     get_cpucom_msg_data_ptr_104655b6(*(void **)((int)param_1 + 0x28));
     invoke_virtual_slot_3_on_member_10466604(param_1);
   }
@@ -42,7 +42,7 @@ void cpucom_poll_driver(void *param_1,uint8_t *param_2)
   iVar2 = *piVar3;
   sVar1 = *(short *)(iVar2 + 0x10);
   uVar4 = get_field_at_offset_0x10_104655ce(param_2);
-  (**(code **)(iVar2 + 0x14))((int)piVar3 + (int)sVar1,uVar4,bVar5);
+  (((vtbl_entry*)(iVar2))[2].fn)((int)piVar3 + (int)sVar1,uVar4,bVar5);
   release_object_and_free_heap(param_2,3);
   if (!bVar5) {
     cpucom_response_dispatcher(*(void **)((int)param_1 + 0x13c),*(uint8_t **)((int)param_1 + 0x28));

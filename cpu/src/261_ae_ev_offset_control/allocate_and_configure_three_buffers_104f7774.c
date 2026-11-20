@@ -34,16 +34,16 @@ void allocate_and_configure_three_buffers_104f7774(int param_1,int param_2,int p
   pvVar6 = (void *)mempool_get_block(pvVar6,pvVar8,0);
   pvVar7 = (void *)get_system_heap();
   pvVar8 = (void *)mempool_get_block(pvVar7,pvVar8,0);
-  if (pvVar5 != (void *)0x0) {
-    if ((pvVar6 != (void *)0x0) && (pvVar8 != (void *)0x0)) {
+  if (pvVar5 != 0) {
+    if ((pvVar6 != 0) && (pvVar8 != 0)) {
       uVar10 = *(uint32_t *)(param_2 + 4);
       uVar11 = *(uint32_t *)(param_2 + 8);
       uVar12 = *(uint32_t *)(param_2 + 0xc);
       uVar1 = *(uint16_t *)(param_2 + 0x10);
       uVar2 = *(uint16_t *)(param_2 + 0x12);
-      *puVar13 = (uint32_t)(uintptr_t)pvVar5;
-      puVar13[1] = (uint32_t)(uintptr_t)pvVar6;
-      puVar13[2] = (uint32_t)(uintptr_t)pvVar8;
+      *puVar13 = (uintptr_t)(pvVar5);
+      puVar13[1] = (uintptr_t)(pvVar6);
+      puVar13[2] = (uintptr_t)(pvVar8);
       *(uint16_t *)((int)puVar13 + 0xe) = uVar1;
       *(uint16_t *)((int)puVar13 + 0x12) = uVar2;
       puVar13[5] = 0;
@@ -114,7 +114,7 @@ void allocate_and_configure_three_buffers_104f7774(int param_1,int param_2,int p
       puVar13[5] = 0;
       puVar13[6] = 0;
       puVar13[7] = 0;
-      puVar13[8] = (uint32_t)(uintptr_t)local_38;
+      puVar13[8] = (uintptr_t)(local_38);
       init_event_queue_struct_104f8648(param_1,pvVar5,pvVar6,pvVar8,*puVar13,puVar13[1],puVar13[2],
                    *(ushort *)((int)puVar13 + 0xe),*(uint16_t *)((int)puVar13 + 0x12),puVar13[5],
                    puVar13[6],puVar13[7],(uint16_t *)puVar13[8]);
@@ -129,11 +129,11 @@ void allocate_and_configure_three_buffers_104f7774(int param_1,int param_2,int p
     pvVar7 = (void *)get_system_heap();
     mempool_release_block(pvVar7,pvVar5);
   }
-  if (pvVar6 != (void *)0x0) {
+  if (pvVar6 != 0) {
     pvVar5 = (void *)get_system_heap();
     mempool_release_block(pvVar5,pvVar6);
   }
-  if (pvVar8 != (void *)0x0) {
+  if (pvVar8 != 0) {
     pvVar5 = (void *)get_system_heap();
     mempool_release_block(pvVar5,pvVar8);
   }

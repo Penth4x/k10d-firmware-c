@@ -13,7 +13,7 @@ bool invoke_virtual_slot_7_104b2a3a(int param_1)
   
   piVar1 = *(int **)(param_1 + 8);
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0x3c))((int)*(short *)(*piVar1 + 0x38) + (int)piVar1);
+    (((vtbl_entry*)(*piVar1))[7].fn)((int)((vtbl_entry*)(*piVar1))[7].adj + (int)piVar1);
   }
   return piVar1 != (int *)0x0;
 }

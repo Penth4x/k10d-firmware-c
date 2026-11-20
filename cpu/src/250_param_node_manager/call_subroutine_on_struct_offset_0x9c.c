@@ -6,9 +6,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_subroutine_on_struct_offset_0x9c(int param_1)
+/* WARNING: Struct "cls_105bb314": ignoring overlapping field "field_0x8" */
+
+void call_subroutine_on_struct_offset_0x9c(cls_105bb314 *param_1)
 
 {
-  call_helper_and_return_one_104d84c0(param_1 + 0x9c);
+  call_helper_and_return_one_104d84c0((uint32_t)(&param_1->field_0x9c));
   return;
 }

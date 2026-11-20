@@ -14,12 +14,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_substructures_10391266(int param_1)
+/* WARNING: Struct "cls_105bb314": ignoring overlapping field "field_0x8" */
+
+uint32_t init_object_substructures_10391266(cls_10562400 *param_1)
 
 {
-  override_parent_slot_two();
+  override_parent_slot_two((cls_105bb314 *)param_1);
   invoke_virtual_slot_7_on_sixteen_objects();
-  call_helper_on_offset_field_10391b2e(param_1 + 0x2c50);
-  create_kernel_object((void *)(param_1 + 0x2c20));
+  call_helper_on_offset_field_10391b2e((int)(&param_1[0x46].field_0x90));
+  create_kernel_object(&param_1[0x46].field_0x60);
   return 1;
 }

@@ -31,7 +31,7 @@ short count_matching_entries_in_range(int param_1)
     do {
       piVar2 = (int *)read_bounded_array_element_10477358(param_1 + 0xc,uVar4 & 0xffff);
       if ((piVar2 != (int *)0x0) &&
-         (iVar3 = (**(code **)(*piVar2 + 0x14))((int)*(short *)(*piVar2 + 0x10) + (int)piVar2),
+         (iVar3 = (((vtbl_entry*)(*piVar2))[2].fn)((int)((vtbl_entry*)(*piVar2))[2].adj + (int)piVar2),
          iVar3 != 0)) {
         sVar1 = sVar1 + 1;
       }

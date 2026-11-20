@@ -36,13 +36,13 @@ void copy_twenty_byte_struct(uint8_t *param_1,uint *param_2)
   uStack_10 = 0;
   uStack_c = 0;
   copy_bytes_if_capacity_ok(param_2,&local_28,0x20,0);
-  copy_bytes_forward((uint8_t *)&local_28,param_1,4);
-  copy_bytes_forward((uint8_t *)&uStack_24 + 2,param_1 + 4,2);
-  copy_bytes_forward((uint8_t *)&uStack_20,param_1 + 0xc,4);
-  copy_bytes_forward((uint8_t *)&uStack_1c,param_1 + 0x14,4);
-  copy_bytes_forward((uint8_t *)&uStack_18,param_1 + 0x18,4);
-  copy_bytes_forward((uint8_t *)&uStack_14,param_1 + 0x1c,4);
-  copy_bytes_forward((uint8_t *)&uStack_10,param_1 + 0x20,4);
-  copy_bytes_forward((uint8_t *)&uStack_c,param_1 + 0x24,4);
+  copy_bytes_forward(&local_28,param_1,4);
+  copy_bytes_forward((uint8_t *)((int)&uStack_24 + 2),(uint8_t *)(param_1 + 4),(uint)(2));
+  copy_bytes_forward(&uStack_20,param_1 + 0xc,4);
+  copy_bytes_forward(&uStack_1c,param_1 + 0x14,4);
+  copy_bytes_forward(&uStack_18,param_1 + 0x18,4);
+  copy_bytes_forward(&uStack_14,param_1 + 0x1c,4);
+  copy_bytes_forward(&uStack_10,param_1 + 0x20,4);
+  copy_bytes_forward(&uStack_c,param_1 + 0x24,4);
   return;
 }

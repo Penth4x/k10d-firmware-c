@@ -17,8 +17,8 @@ int create_object_with_init_call_104960f6(void *param_1,uint32_t param_2)
 {
   int iVar1;
   
-  iVar1 = cls_105b48dc_new((uint32_t *)0x0);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0x84))
-            (*(short *)(*(int *)(iVar1 + 0xc) + 0x80) + iVar1,param_2,0);
+  iVar1 = cls_105b48dc_new((cls_105b48dc *)0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[16].fn)
+            (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[16].adj + iVar1,param_2,0);
   return iVar1;
 }

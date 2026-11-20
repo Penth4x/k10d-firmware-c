@@ -17,31 +17,31 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-uint32_t init_object_with_two_ids_104df838(int *param_1)
+uint32_t init_object_with_two_ids_104df838(cls_105bb920 *param_1)
 
 {
   uint32_t uVar1;
   int iVar2;
   
-  release_object_members(param_1);
-  iVar2 = *param_1;
+  release_object_members((int *)param_1);
+  iVar2 = param_1->field_0x0;
   if (*(int *)(iVar2 + 8) == 0) {
     iVar2 = get_object_field_at_offset_0x14(__frv_reg_unset(4));
     if (iVar2 == 0) {
       initialize_linked_struct_fields(param_1,0x201d);
     }
     else {
-      param_1[6] = iVar2;
-      *(int *)(*param_1 + 8) = iVar2;
-      _DAT_80010908/*SDRAM*/ = *(uint32_t *)(*param_1 + 0xc);
-      *(uint32_t *)(param_1[1] + 0x34) = 5;
+      param_1->field_0x18 = iVar2;
+      *(int *)(param_1->field_0x0 + 8) = iVar2;
+      _DAT_80010908/*SDRAM*/ = *(uint32_t *)(param_1->field_0x0 + 0xc);
+      *(uint32_t *)(param_1->field_0x4 + 0x34) = 5;
     }
   }
   else {
     uVar1 = get_object_field_at_offset_0x14(iVar2);
     *(uint32_t *)(iVar2 + 8) = uVar1;
-    _DAT_80010908/*SDRAM*/ = *(uint32_t *)(*param_1 + 0xc);
-    *(uint32_t *)(param_1[1] + 0x34) = 5;
+    _DAT_80010908/*SDRAM*/ = *(uint32_t *)(param_1->field_0x0 + 0xc);
+    *(uint32_t *)(param_1->field_0x4 + 0x34) = 5;
   }
   return 1;
 }

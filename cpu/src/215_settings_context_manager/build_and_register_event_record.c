@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t build_and_register_event_record(uint32_t param_1)
+uint32_t build_and_register_event_record(cls_105b8204 *param_1)
 
 {
   uint32_t uVar1;
@@ -30,18 +30,18 @@ uint32_t build_and_register_event_record(uint32_t param_1)
   
   uVar1 = get_or_init_sram_block_104b3d52();
   uVar2 = get_sram_buffer_pointer();
-  iVar3 = alloc_and_zero_struct_1051c15c(0);
+  iVar3 = (uintptr_t)(alloc_and_zero_struct_1051c15c(0));
   heap_alloc_one_byte_1045926e((int)&uStack_9);
-  pbVar4 = (byte *)return_pentax_corp_string_ptr(&uStack_9);
+  pbVar4 = (byte *)return_pentax_corp_string_ptr((uint32_t)(&uStack_9));
   store_computed_value_in_array(iVar3,0,pbVar4);
-  pbVar4 = (byte *)return_pentax_string_ptr(&uStack_9);
+  pbVar4 = (byte *)return_pentax_string_ptr((uint32_t)(&uStack_9));
   store_computed_value_in_array(iVar3,1,pbVar4);
   pbVar4 = (byte *)(*(code *)0x10459346/*ROM*/)(&uStack_9);
   store_computed_value_in_array(iVar3,2,pbVar4);
   pbVar4 = (byte *)(*(code *)0x1045934e/*ROM*/)(&uStack_9);
   store_computed_value_in_array(iVar3,3,pbVar4);
   uVar5 = return_global_word_104592ce();
-  encode_two_byte_value(iVar3,uVar5);
+  encode_two_byte_value((uint16_t *)(iVar3),(uint)(uVar5));
   uVar5 = (*(code *)0x10459318/*ROM*/)(&uStack_9);
   *(uint16_t *)(iVar3 + 8) = uVar5;
   uVar5 = (*(code *)0x10459322/*ROM*/)(&uStack_9);
@@ -49,11 +49,11 @@ uint32_t build_and_register_event_record(uint32_t param_1)
   uVar5 = (*(code *)0x1045932c/*ROM*/)(&uStack_9);
   *(uint16_t *)(iVar3 + 0xc) = uVar5;
   call_helper_with_param_two_104b3d84(uVar1,iVar3);
-  init_object_with_two_ids_104b02ba(uVar2,iVar3);
-  destroy_object_and_free_heap_1051c1ba(iVar3,3);
-  call_handler_with_fetched_arg_104b462c(param_1,uVar1,uVar2);
-  call_two_helpers_with_params_104b464e(param_1,uVar2,uVar1);
-  allocate_and_dispatch_two_values(param_1,uVar2,uVar1);
+  init_object_with_two_ids_104b02ba((int *)(uVar2),(uint32_t)(iVar3));
+  destroy_object_and_free_heap_1051c1ba((uint16_t *)(iVar3),(uint)(3));
+  call_handler_with_fetched_arg_104b462c((uint32_t)(param_1),(uint32_t)(uVar1),(uint32_t)(uVar2));
+  call_two_helpers_with_params_104b464e((uint32_t)(param_1),(uint32_t)(uVar2),(uint32_t)(uVar1));
+  allocate_and_dispatch_two_values((uint32_t)(param_1),(uint32_t)(uVar2),(uint32_t)(uVar1));
   heap_free_if_flagged(&uStack_9,2);
   return 1;
 }

@@ -6,11 +6,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-int * deactivate_object_via_virtual_call(int *param_1)
+cls_10599c24 * deactivate_object_via_virtual_call(cls_10599c24 *param_1)
 
 {
-  *(uint8_t *)(param_1 + 5) = 0;
-  (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1);
+  param_1->field_0x14 = 0;
+  (((vtbl_entry*)(param_1->field_0x0))[8].fn)
+            ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[8].adj);
   call_two_helpers_with_param_1040b76a(param_1);
   return param_1;
 }

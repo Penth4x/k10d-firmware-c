@@ -11,8 +11,8 @@ uint32_t get_or_create_object_at_8001ef10(void)
 {
   if (iRam8001ef20 == 0) {
     iRam8001ef20 = 1;
-    cls_105a0b64_new((void*)0x8001ef10/*SDRAM*/);
-    prepend_to_singly_linked_list((void*)0x8000fcf4/*SDRAM*/);
+    cls_105a0b64_new((cls_105a0b64 *)0x8001ef10/*SDRAM*/);
+    prepend_to_singly_linked_list((void *)0x8000fcf4/*SDRAM*/);
   }
   return 0x8001ef10/*SDRAM*/;
 }

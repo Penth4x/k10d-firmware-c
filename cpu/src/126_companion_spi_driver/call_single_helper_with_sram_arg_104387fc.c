@@ -16,6 +16,6 @@
 void call_single_helper_with_sram_arg_104387fc(void)
 
 {
-  write_fill_pattern_to_word_104384b8((void*)0x800f3848/*SDRAM*/, __frv_reg_unset(5));
+  write_fill_pattern_to_word_104384b8((void *)0x800f3848/*SDRAM*/, __frv_reg_unset(5));
   return;
 }

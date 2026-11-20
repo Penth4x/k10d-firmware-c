@@ -29,7 +29,7 @@ void destroy_object_members_10520720(int *param_1,uint param_2)
       iVar3 = (uVar2 - 1) * 4;
       iVar1 = *(int *)(*param_1 + iVar3);
       if (iVar1 != 0) {
-        (**(code **)(*(int *)(iVar1 + 8) + 0xc))(*(short *)(*(int *)(iVar1 + 8) + 8) + iVar1,3);
+        (((vtbl_entry*)(*(int *)(iVar1 + 8)))[1].fn)(*(short *)(*(int *)(iVar1 + 8) + 8) + iVar1,3);
       }
       *(uint32_t *)(*param_1 + iVar3) = 0;
     }

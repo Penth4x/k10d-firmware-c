@@ -16,10 +16,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void initialize_derived_object_state(void *param_1)
+void initialize_derived_object_state(cls_105aaf78 *param_1)
 
 {
-  initialize_object_header((int *)__frv_reg_unset(4));
+  initialize_object_header((cls_105aaf60 *)param_1);
   set_object_field_0x24(param_1,0x80);
   set_byte_at_offset_0x26(param_1,0x29);
   write_u32_to_obj_offset_0x27(param_1,0);

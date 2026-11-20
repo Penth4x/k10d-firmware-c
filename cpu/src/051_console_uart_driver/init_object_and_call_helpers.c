@@ -6,13 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_and_call_helpers(int param_1)
+void init_object_and_call_helpers(cls_10566724 *param_1)
 
 {
-  *(uint8_t *)(param_1 + 0x54) = 0;
-  *(uint8_t *)(param_1 + 0x55) = 0;
-  call_two_helpers_in_sequence_104920f2(param_1 + 8);
+  param_1->field_0x54 = 0;
+  param_1->field_0x55 = '\0';
+  call_two_helpers_in_sequence_104920f2((int)&param_1->field5_0x8);
   call_helper_on_fetched_pointer();
-  clear_struct_field_at_offset_8(param_1);
+  clear_struct_field_at_offset_8((cls_10564e90 *)param_1);
   return;
 }

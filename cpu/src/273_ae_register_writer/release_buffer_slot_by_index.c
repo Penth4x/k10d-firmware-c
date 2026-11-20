@@ -35,8 +35,8 @@ void release_buffer_slot_by_index(int param_1,int param_2,uint32_t param_3)
       return;
     }
     forward_two_params_with_offset_10515f7e(param_1,*(int *)(param_2 + 0x3c));
-    (**(code **)(*(int *)(param_2 + 0x8d4) + 0x24))
-              (*(short *)(*(int *)(param_2 + 0x8d4) + 0x20) + param_2,0);
+    (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[4].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[4].adj + param_2,0);
     return;
   case 2:
     if (*(int *)(param_2 + 0x50) == 0) {
@@ -46,8 +46,8 @@ void release_buffer_slot_by_index(int param_1,int param_2,uint32_t param_3)
       return;
     }
     forward_two_params_with_offset_10515f92(param_1, __frv_reg_unset(5));
-    (**(code **)(*(int *)(param_2 + 0x8d4) + 0x4c))
-              (*(short *)(*(int *)(param_2 + 0x8d4) + 0x48) + param_2,0);
+    (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[9].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[9].adj + param_2,0);
     return;
   case 3:
     if (*(int *)(param_2 + 0x54) == 0) {
@@ -57,8 +57,8 @@ void release_buffer_slot_by_index(int param_1,int param_2,uint32_t param_3)
       return;
     }
     call_subroutine_with_offset_10515fa6(param_1, __frv_reg_unset(5));
-    (**(code **)(*(int *)(param_2 + 0x8d4) + 0x54))
-              (*(short *)(*(int *)(param_2 + 0x8d4) + 0x50) + param_2,0);
+    (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[10].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[10].adj + param_2,0);
     return;
   case 4:
     if (*(int *)(param_2 + 0x34) == 0) {
@@ -66,8 +66,8 @@ void release_buffer_slot_by_index(int param_1,int param_2,uint32_t param_3)
     }
     pvVar1 = (void *)get_system_heap();
     mempool_release_block(pvVar1,*(void **)(param_2 + 0x34));
-    (**(code **)(*(int *)(param_2 + 0x8d4) + 0x14))
-              (*(short *)(*(int *)(param_2 + 0x8d4) + 0x10) + param_2,0);
+    (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[2].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[2].adj + param_2,0);
     uVar2 = 4;
     break;
   case 5:
@@ -76,8 +76,8 @@ void release_buffer_slot_by_index(int param_1,int param_2,uint32_t param_3)
     }
     pvVar1 = (void *)get_system_heap();
     mempool_release_block(pvVar1,*(void **)(param_2 + 0x38));
-    (**(code **)(*(int *)(param_2 + 0x8d4) + 0x1c))
-              (*(short *)(*(int *)(param_2 + 0x8d4) + 0x18) + param_2,0);
+    (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[3].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[3].adj + param_2,0);
     uVar2 = 5;
     break;
   case 6:
@@ -86,8 +86,8 @@ void release_buffer_slot_by_index(int param_1,int param_2,uint32_t param_3)
     }
     pvVar1 = (void *)get_system_heap();
     mempool_release_block(pvVar1,*(void **)(param_2 + 0x3c));
-    (**(code **)(*(int *)(param_2 + 0x8d4) + 0x24))
-              (*(short *)(*(int *)(param_2 + 0x8d4) + 0x20) + param_2,0);
+    (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[4].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[4].adj + param_2,0);
     uVar2 = 6;
     break;
   case 7:
@@ -96,8 +96,8 @@ void release_buffer_slot_by_index(int param_1,int param_2,uint32_t param_3)
     }
     pvVar1 = (void *)get_system_heap();
     mempool_release_block(pvVar1,*(void **)(param_2 + 0x40));
-    (**(code **)(*(int *)(param_2 + 0x8d4) + 0x2c))
-              (*(short *)(*(int *)(param_2 + 0x8d4) + 0x28) + param_2,0);
+    (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[5].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[5].adj + param_2,0);
     uVar2 = 7;
     break;
   case 8:
@@ -106,8 +106,8 @@ void release_buffer_slot_by_index(int param_1,int param_2,uint32_t param_3)
     }
     pvVar1 = (void *)get_system_heap();
     mempool_release_block(pvVar1,*(void **)(param_2 + 0x44));
-    (**(code **)(*(int *)(param_2 + 0x8d4) + 0x34))
-              (*(short *)(*(int *)(param_2 + 0x8d4) + 0x30) + param_2,0);
+    (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[6].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[6].adj + param_2,0);
     uVar2 = 8;
     break;
   case 9:
@@ -116,8 +116,8 @@ void release_buffer_slot_by_index(int param_1,int param_2,uint32_t param_3)
     }
     pvVar1 = (void *)get_system_heap();
     mempool_release_block(pvVar1,*(void **)(param_2 + 0x48));
-    (**(code **)(*(int *)(param_2 + 0x8d4) + 0x3c))
-              (*(short *)(*(int *)(param_2 + 0x8d4) + 0x38) + param_2,0);
+    (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[7].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[7].adj + param_2,0);
     uVar2 = 9;
     break;
   case 10:
@@ -126,8 +126,8 @@ void release_buffer_slot_by_index(int param_1,int param_2,uint32_t param_3)
     }
     pvVar1 = (void *)get_system_heap();
     mempool_release_block(pvVar1,*(void **)(param_2 + 0x4c));
-    (**(code **)(*(int *)(param_2 + 0x8d4) + 0x44))
-              (*(short *)(*(int *)(param_2 + 0x8d4) + 0x40) + param_2,0);
+    (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[8].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[8].adj + param_2,0);
     uVar2 = 10;
     break;
   case 0xb:
@@ -136,8 +136,8 @@ void release_buffer_slot_by_index(int param_1,int param_2,uint32_t param_3)
     }
     pvVar1 = (void *)get_system_heap();
     mempool_release_block(pvVar1,*(void **)(param_2 + 0x50));
-    (**(code **)(*(int *)(param_2 + 0x8d4) + 0x4c))
-              (*(short *)(*(int *)(param_2 + 0x8d4) + 0x48) + param_2,0);
+    (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[9].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[9].adj + param_2,0);
     uVar2 = 0xb;
     break;
   case 0xc:
@@ -146,8 +146,8 @@ void release_buffer_slot_by_index(int param_1,int param_2,uint32_t param_3)
     }
     pvVar1 = (void *)get_system_heap();
     mempool_release_block(pvVar1,*(void **)(param_2 + 0x54));
-    (**(code **)(*(int *)(param_2 + 0x8d4) + 0x54))
-              (*(short *)(*(int *)(param_2 + 0x8d4) + 0x50) + param_2,0);
+    (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[10].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[10].adj + param_2,0);
     uVar2 = 0xc;
     break;
   case 0xd:
@@ -156,8 +156,8 @@ void release_buffer_slot_by_index(int param_1,int param_2,uint32_t param_3)
     }
     pvVar1 = (void *)get_system_heap();
     mempool_release_block(pvVar1,*(void **)(param_2 + 0x58));
-    (**(code **)(*(int *)(param_2 + 0x8d4) + 0x5c))
-              (*(short *)(*(int *)(param_2 + 0x8d4) + 0x58) + param_2,0);
+    (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[11].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[11].adj + param_2,0);
     uVar2 = 0xd;
     break;
   case 0xe:
@@ -166,8 +166,8 @@ void release_buffer_slot_by_index(int param_1,int param_2,uint32_t param_3)
     }
     pvVar1 = (void *)get_system_heap();
     mempool_release_block(pvVar1,*(void **)(param_2 + 0x5c));
-    (**(code **)(*(int *)(param_2 + 0x8d4) + 100))
-              (*(short *)(*(int *)(param_2 + 0x8d4) + 0x60) + param_2,0);
+    (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[12].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[12].adj + param_2,0);
     uVar2 = 0xe;
     break;
   default:

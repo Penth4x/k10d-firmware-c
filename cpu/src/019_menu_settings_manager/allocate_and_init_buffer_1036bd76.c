@@ -21,9 +21,9 @@
 uint32_t allocate_and_init_buffer_1036bd76(void *param_1,uint32_t param_2,void *param_3)
 
 {
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,0x800);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(0x800));
   init_object_with_two_pointers_104c4868(_DAT_8000439c/*SDRAM*/,(int)param_1,param_2,param_3);
   eventflag_wai_flg((uint32_t *)0x80018088/*SDRAM*/,0x800,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,0x800);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(0x800));
   return *(uint32_t *)((int)param_1 + 8);
 }

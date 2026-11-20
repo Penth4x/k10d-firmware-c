@@ -47,7 +47,7 @@ void apply_bayer_pixel_mask(int param_1,int param_2)
   uint32_t auStack_10 [2];
   
   aiStack_6c[0] = param_2;
-  uVar3 = select_channel_by_index(*(uint32_t *)(param_1 + 0x1c));
+  uVar3 = select_channel_by_index((void*)(*(uint32_t *)(param_1 + 0x1c)));
   *(uint32_t *)(param_1 + 4) = uVar3;
   *(uint32_t *)(param_1 + 8) = 0;
   *(uint32_t *)(param_1 + 0xc) = 0;
@@ -86,13 +86,13 @@ void apply_bayer_pixel_mask(int param_1,int param_2)
   *(short *)(param_1 + 0x16) = (short)uVar3;
   free_heap_if_flagged_1045c402(piVar6,2);
   iVar8 = *(int *)(*(int *)(param_1 + 0x1c) + 0x18);
-  uVar3 = (**(code **)(iVar8 + 0x24))(*(int *)(param_1 + 0x1c) + (int)*(short *)(iVar8 + 0x20));
+  uVar3 = (((vtbl_entry*)(iVar8))[4].fn)(*(int *)(param_1 + 0x1c) + (int)((vtbl_entry*)(iVar8))[4].adj);
   set_byte_at_offset_0x18(param_1,uVar3);
-  (**(code **)(*(int *)(param_1 + 0x20) + 0x14))
-            (*(short *)(*(int *)(param_1 + 0x20) + 0x10) + param_1);
+  (((vtbl_entry*)(*(int *)(param_1 + 0x20)))[2].fn)
+            (((vtbl_entry*)(*(int *)(param_1 + 0x20)))[2].adj + param_1);
   if (aiStack_6c[0] == 0) {
-    (**(code **)(*(int *)(param_1 + 0x20) + 0x1c))
-              (aiStack_6c + 9,*(short *)(*(int *)(param_1 + 0x20) + 0x18) + param_1);
+    (((vtbl_entry*)(*(int *)(param_1 + 0x20)))[3].fn)
+              (aiStack_6c + 9,((vtbl_entry*)(*(int *)(param_1 + 0x20)))[3].adj + param_1);
     iVar8 = 0x10;
     do {
       iVar2 = iVar8 + -4;
@@ -182,8 +182,8 @@ void apply_bayer_pixel_mask(int param_1,int param_2)
     destroy_text_widget(aiStack_6c + 5,2);
   }
   if (*(char *)(param_1 + 0x19) != '\0') {
-    (**(code **)(*(int *)(param_1 + 0x20) + 0x1c))
-              (auStack_28,*(short *)(*(int *)(param_1 + 0x20) + 0x18) + param_1);
+    (((vtbl_entry*)(*(int *)(param_1 + 0x20)))[3].fn)
+              (auStack_28,((vtbl_entry*)(*(int *)(param_1 + 0x20)))[3].adj + param_1);
     uVar4 = call_single_helper_1045c0f2(auStack_28);
     iVar8 = uVar4 - (uVar4 & 0xfffffff8);
     if (iVar8 != 0) {

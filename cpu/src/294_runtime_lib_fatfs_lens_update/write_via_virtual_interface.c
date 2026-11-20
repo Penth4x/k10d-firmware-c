@@ -22,7 +22,7 @@ uint32_t write_via_virtual_interface(void *param_1,int param_2,uint param_3)
     if (param_3 < 8) {
       uVar2 = param_3;
     }
-    iVar1 = (**(code **)((int)param_1 + 0x5c))
+    iVar1 = (((vtbl_entry*)((int)param_1))[11].fn)
                       (*(uint32_t *)((int)param_1 + 0x60),param_2,uVar2,_DAT_8005b2b0/*SDRAM*/);
     if (iVar1 != 0) break;
     param_2 = param_2 + uVar2;

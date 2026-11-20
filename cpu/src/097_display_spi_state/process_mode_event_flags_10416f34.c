@@ -144,7 +144,7 @@ void process_mode_event_flags_10416f34(int param_1)
     set_mode_state_flag(param_1,1,0);
     check_kernel_call_success_10459fea();
     classify_mode_from_flags(param_1);
-    dispatch_mode_event_request((void *)(param_1 + 0x60),0x130003);
+    dispatch_mode_event_request((cls_105c2050 *)(param_1 + 0x60),0x130003);
     *(uint *)(param_1 + 0x1508) = *(uint *)(param_1 + 0x1508) & 0xfffeffff;
   }
   if ((*(int *)(param_1 + 0x1530) == 0) && (iVar1 = check_and_init_object_state(param_1), iVar1 != 0)) {

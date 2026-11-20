@@ -39,16 +39,16 @@ uint32_t allocate_and_link_event_object(int param_1,void *param_2)
         iVar1 = 0;
       }
       else {
-        construct_cls_105aa4c0(iVar1);
+        construct_cls_105aa4c0((cls_105aae4c *)(iVar1));
       }
-      record_sample_index_and_bounds(param_1 + 0xc,uStack_a,iVar1);
+      record_sample_index_and_bounds((int *)(param_1 + 0xc),(int)(uStack_a),(uint32_t)(iVar1));
     }
     if ((*(byte *)((int)param_2 + 0xd) & 1) != 0) {
       *(uint8_t *)(iVar1 + 0xc) = 1;
     }
     pvVar2 = (void *)get_or_create_sram_object_1047dd7a();
     uVar3 = search_linked_list_for_match(pvVar2,(void *)((int)param_2 + 9));
-    iVar1 = toggle_bit_in_two_word_flags(iVar1,uVar3);
+    iVar1 = toggle_bit_in_two_word_flags((void *)(iVar1),(int)(uVar3));
     if (iVar1 == 0) {
       update_short_max_value(param_1,uStack_a);
     }

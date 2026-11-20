@@ -32,10 +32,10 @@ void setup_object_with_two_subobjects(int *param_1,int param_2)
       iVar1 = call_with_offset_lock_1050b8de(param_1[0xe],(void *)param_1[0xf],0);
       if (iVar1 == 0) {
         iVar1 = *(int *)(param_1[0x14] + 0xc);
-        (**(code **)(iVar1 + 0xc))(param_1[0x14] + (int)*(short *)(iVar1 + 8),0);
+        (((vtbl_entry*)(iVar1))[1].fn)(param_1[0x14] + (int)*(short *)(iVar1 + 8),0);
         iVar1 = *(int *)(param_1[0x13] + 0xc);
-        (**(code **)(iVar1 + 0xc))(param_1[0x13] + (int)*(short *)(iVar1 + 8),0);
-        (**(code **)(*param_1 + 0x74))((int)*(short *)(*param_1 + 0x70) + (int)param_1,0x1120004,0);
+        (((vtbl_entry*)(iVar1))[1].fn)(param_1[0x13] + (int)*(short *)(iVar1 + 8),0);
+        (((vtbl_entry*)(*param_1))[14].fn)((int)((vtbl_entry*)(*param_1))[14].adj + (int)param_1,0x1120004,0);
       }
       else {
         iVar1 = compute_offset_from_field_0x28(param_1[0xe]);
@@ -54,19 +54,19 @@ void setup_object_with_two_subobjects(int *param_1,int param_2)
         param_1[0x3e] = *(int *)(param_1[0xf] + 0xc);
         call_helper_and_set_flag_10494b88((uint32_t *)param_1[0x14]);
         iVar1 = *(int *)(param_1[0x14] + 0xc);
-        (**(code **)(iVar1 + 0xc))(param_1[0x14] + (int)*(short *)(iVar1 + 8),1);
+        (((vtbl_entry*)(iVar1))[1].fn)(param_1[0x14] + (int)*(short *)(iVar1 + 8),1);
         iVar1 = *(int *)(param_1[0x13] + 0xc);
-        (**(code **)(iVar1 + 0xc))(param_1[0x13] + (int)*(short *)(iVar1 + 8),1);
+        (((vtbl_entry*)(iVar1))[1].fn)(param_1[0x13] + (int)*(short *)(iVar1 + 8),1);
       }
     }
     else {
       iVar1 = call_with_offset_lock_1050b8de(param_1[0xe],param_1 + 0x48,1);
       if (iVar1 == 0) {
         iVar1 = *(int *)(param_1[0x22] + 0xc);
-        (**(code **)(iVar1 + 0xc))(param_1[0x22] + (int)*(short *)(iVar1 + 8),0);
+        (((vtbl_entry*)(iVar1))[1].fn)(param_1[0x22] + (int)*(short *)(iVar1 + 8),0);
         iVar1 = *(int *)(param_1[0x23] + 0xc);
-        (**(code **)(iVar1 + 0xc))(param_1[0x23] + (int)*(short *)(iVar1 + 8),0);
-        (**(code **)(*param_1 + 0x74))((int)*(short *)(*param_1 + 0x70) + (int)param_1,0x1120004,0);
+        (((vtbl_entry*)(iVar1))[1].fn)(param_1[0x23] + (int)*(short *)(iVar1 + 8),0);
+        (((vtbl_entry*)(*param_1))[14].fn)((int)((vtbl_entry*)(*param_1))[14].adj + (int)param_1,0x1120004,0);
       }
       else {
         iVar1 = compute_offset_from_field_0x28(param_1[0xe]);
@@ -85,9 +85,9 @@ void setup_object_with_two_subobjects(int *param_1,int param_2)
         param_1[0x42] = *(int *)(param_1[0xf] + 0xc);
         call_helper_and_set_flag_10494b88((uint32_t *)param_1[0x22]);
         iVar1 = *(int *)(param_1[0x22] + 0xc);
-        (**(code **)(iVar1 + 0xc))(param_1[0x22] + (int)*(short *)(iVar1 + 8),1);
+        (((vtbl_entry*)(iVar1))[1].fn)(param_1[0x22] + (int)*(short *)(iVar1 + 8),1);
         iVar1 = *(int *)(param_1[0x23] + 0xc);
-        (**(code **)(iVar1 + 0xc))(param_1[0x23] + (int)*(short *)(iVar1 + 8),1);
+        (((vtbl_entry*)(iVar1))[1].fn)(param_1[0x23] + (int)*(short *)(iVar1 + 8),1);
       }
     }
   }

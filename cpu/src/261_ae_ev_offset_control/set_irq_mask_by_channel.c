@@ -144,11 +144,11 @@ void set_irq_mask_by_channel(int param_1,int param_2,uint param_3)
     break;
   case -0x7fffffe6:
     iVar3 = *(int *)(*(int *)(param_1 + 0x110) + 4);
-    (**(code **)(iVar3 + 100))(*(int *)(param_1 + 0x110) + (int)*(short *)(iVar3 + 0x60));
+    (((vtbl_entry*)(iVar3))[12].fn)(*(int *)(param_1 + 0x110) + (int)((vtbl_entry*)(iVar3))[12].adj);
     break;
   case -0x7fffffe5:
     iVar3 = *(int *)(*(int *)(param_1 + 0x114) + 4);
-    (**(code **)(iVar3 + 100))(*(int *)(param_1 + 0x114) + (int)*(short *)(iVar3 + 0x60));
+    (((vtbl_entry*)(iVar3))[12].fn)(*(int *)(param_1 + 0x114) + (int)((vtbl_entry*)(iVar3))[12].adj);
     break;
   default:
   }

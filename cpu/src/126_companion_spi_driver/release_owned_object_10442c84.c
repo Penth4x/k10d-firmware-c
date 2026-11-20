@@ -6,18 +6,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_owned_object_10442c84(void *param_1)
+void release_owned_object_10442c84(cls_105a0db4 *param_1)
 
 {
   int iVar1;
   
-  if ((*(int *)((int)param_1 + 4) != 0) &&
-     (iVar1 = *(int *)(*(int *)((int)param_1 + 4) + 4),
-     (**(code **)(iVar1 + 0x24))(*(int *)((int)param_1 + 4) + (int)*(short *)(iVar1 + 0x20)),
-     *(int *)((int)param_1 + 4) != 0)) {
-    iVar1 = *(int *)(*(int *)((int)param_1 + 4) + 4);
-    (**(code **)(iVar1 + 0xc))(*(int *)((int)param_1 + 4) + (int)*(short *)(iVar1 + 8),3);
+  if ((param_1->field_0x4 != 0) &&
+     (iVar1 = *(int *)(param_1->field_0x4 + 4),
+     (((vtbl_entry*)(iVar1))[4].fn)(param_1->field_0x4 + ((vtbl_entry*)(iVar1))[4].adj),
+     param_1->field_0x4 != 0)) {
+    iVar1 = *(int *)(param_1->field_0x4 + 4);
+    (((vtbl_entry*)(iVar1))[1].fn)(param_1->field_0x4 + *(short *)(iVar1 + 8),3);
   }
-  *(uint32_t *)((int)param_1 + 4) = 0;
+  param_1->field_0x4 = (uintptr_t)((void *)0x0);
   return;
 }

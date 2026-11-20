@@ -17,7 +17,7 @@
 void init_class_with_vtable_and_flag(void *param_1,uint param_2)
 
 {
-  if (param_1 != (void *)0x0) {
+  if (param_1 != 0) {
     *(uint32_t *)((int)param_1 + 0x10) = 0x105fa778/*ROM*/;
     release_object_and_free_payload(param_1,0);
     if ((param_2 & 1) != 0) {

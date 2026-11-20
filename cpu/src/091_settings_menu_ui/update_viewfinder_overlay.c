@@ -29,28 +29,24 @@ void update_viewfinder_overlay(void *param_1)
   uint32_t auStack_10 [2];
   
   iVar5 = **(int **)((int)param_1 + 0x2c);
-  (**(code **)(iVar5 + 0x14))
-            ((int)*(int **)((int)param_1 + 0x2c) + (int)*(short *)(iVar5 + 0x10),0x1120065,0);
+  (((vtbl_entry*)(iVar5))[2].fn)
+            ((int)*(int **)((int)param_1 + 0x2c) + (int)((vtbl_entry*)(iVar5))[2].adj,0x1120065,0);
   iVar5 = (int)param_1 + 8;
   iVar2 = menu_item_register(iVar5);
   iVar4 = *(int *)(iVar2 + 0xc);
   sVar1 = *(short *)(iVar4 + 0x10);
-  uVar3 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_10,
-                       (500 - ((int)(uint)_DAT_10598df4/*ROM*/ >> 1)) +
-                       (int)((*(byte *)((int)param_1 + 0x58) - 7) * 100) / 10 & 0xffff,
-                       (0x114 - ((int)(uint)_DAT_10598df4/*ROM*/ >> 1)) -
-                       (int)((*(byte *)((int)param_1 + 0x57) - 7) * 100) / 10 & 0xffff);
-  (**(code **)(iVar4 + 0x14))(sVar1 + iVar2,uVar3);
+  uVar3 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_10, (500 - ((int)(uint)_DAT_10598df4/*ROM*/ >> 1)) + (int)((*(byte *)((int)param_1 + 0x58) - 7) * 100) / 10 & 0xffff, (0x114 - ((int)(uint)_DAT_10598df4/*ROM*/ >> 1)) - (int)((*(byte *)((int)param_1 + 0x57) - 7) * 100) / 10 & 0xffff));
+  (((vtbl_entry*)(iVar4))[2].fn)(sVar1 + iVar2,uVar3);
   free_heap_block_if_flagged_1045bc54(auStack_10,2);
   if ((*(char *)((int)param_1 + 0x58) == '\a') && (*(char *)((int)param_1 + 0x57) == '\a')) {
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0xec))(*(short *)(*(int *)(iVar2 + 0xc) + 0xe8) + iVar2,2);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[29].fn)(((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[29].adj + iVar2,2);
     iVar5 = menu_item_register(iVar5);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
   }
   else {
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0xec))(*(short *)(*(int *)(iVar2 + 0xc) + 0xe8) + iVar2,6);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[29].fn)(((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[29].adj + iVar2,6);
     iVar5 = menu_item_register(iVar5);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
   }
   return;
 }

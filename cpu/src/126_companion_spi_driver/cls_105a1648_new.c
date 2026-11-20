@@ -11,7 +11,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-int cls_105a1648_new(uint32_t *param_1)
+/* WARNING: Struct "cls_105a1648": ignoring overlapping field "field_0x10" */
+
+int cls_105a1648_new(cls_105a1648 *param_1)
 
 {
   int iVar1;
@@ -19,31 +21,31 @@ int cls_105a1648_new(uint32_t *param_1)
   void *pvVar3;
   uint32_t uVar4;
   
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x38), param_1 != (uint32_t *)0x0)) {
-    cls_1059e2e0_new(param_1);
-    param_1[1] = 0x105a1648/*ROM*/;
-    param_1[2] = 0x105a1670/*ROM*/;
+  if ((param_1 != (cls_105a1648 *)0x0) ||
+     (param_1 = (cls_105a1648 *)heap_alloc((void *)0x38), (cls_1059e2e0 *)param_1 != (cls_1059e2e0 *)0x0)) {
+    cls_1059e2e0_new((cls_1059e2e0 *)param_1);
+    ((cls_1059e2e0 *)param_1)->field_0x4 = 0x105a1648/*ROM*/;
+    ((uint32_t *)&((((cls_1059e2e0 *)param_1)->field_0x8)))[0] = 0x105a1670/*ROM*/;
     iVar1 = 0;
-    *(uint8_t *)(param_1 + 0xd) = 0;
-    *(uint8_t *)((int)param_1 + 0x35) = 0;
+    ((cls_1059e2e0 *)param_1)->field_0x34 = 0;
+    ((cls_1059e2e0 *)param_1)->field_0x35 = 0;
     iVar2 = 3;
     do {
-      *(uint8_t *)((int)param_1 + iVar1 + 0x14) = 0;
-      *(uint8_t *)((int)param_1 + iVar1 + 0x24) = 0;
-      *(uint8_t *)((int)param_1 + iVar1 + 0x15) = 0;
-      *(uint8_t *)((int)param_1 + iVar1 + 0x25) = 0;
-      *(uint8_t *)((int)param_1 + iVar1 + 0x16) = 0;
-      *(uint8_t *)((int)param_1 + iVar1 + 0x26) = 0;
-      *(uint8_t *)((int)param_1 + iVar1 + 0x17) = 0;
-      *(uint8_t *)((int)param_1 + iVar1 + 0x27) = 0;
+      *(uint8_t *)((int)&((cls_1059e2e0 *)param_1)->field4_0x14 + iVar1) = 0;
+      (&((cls_1059e2e0 *)param_1)->field_0x24)[iVar1] = 0;
+      *(uint8_t *)((int)&((cls_1059e2e0 *)param_1)->field4_0x14 + iVar1 + 1) = 0;
+      (&((cls_1059e2e0 *)param_1)->field_0x25)[iVar1] = 0;
+      *(uint8_t *)((int)&((cls_1059e2e0 *)param_1)->field4_0x14 + iVar1 + 2) = 0;
+      (&((cls_1059e2e0 *)param_1)->field_0x26)[iVar1] = 0;
+      *(uint8_t *)((int)&((cls_1059e2e0 *)param_1)->field4_0x14 + iVar1 + 3) = 0;
+      (&((cls_1059e2e0 *)param_1)->field_0x27)[iVar1] = 0;
       iVar2 = iVar2 + -1;
       iVar1 = iVar1 + 4;
     } while (-1 < iVar2);
     pvVar3 = (void *)get_or_init_sram_buffer_104277bc();
     uVar4 = read_table_entry_field(pvVar3,0xb0);
-    param_1[4] = uVar4;
+    ((cls_1059e2e0 *)param_1)->field3_0x10 = uVar4;
     store_value_if_valid(param_1,0xb1);
   }
-  return (int)param_1;
+  return (int)(cls_1059e2e0 *)param_1;
 }

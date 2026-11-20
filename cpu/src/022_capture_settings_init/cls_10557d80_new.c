@@ -11,28 +11,28 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_10557d80_new(uint32_t *param_1)
+cls_10557c88 * cls_10557d80_new(cls_10557d80 *param_1)
 
 {
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x254), param_1 != (uint32_t *)0x0)) {
-    cls_10557c88_new(param_1);
-    *param_1 = (uint32_t)&DAT_10557d80/*ROM*/;
-    *(uint8_t *)(param_1 + 5) = 0;
-    *(uint8_t *)((int)param_1 + 0x15) = 0;
-    param_1[6] = 0;
-    init_0x50_byte_object_1051e422((void *)(param_1 + 7));
-    *(uint8_t *)(param_1 + 0x1b) = 0;
-    param_1[0x1c] = 0;
-    cls_105592e8_new(param_1 + 0x1d);
-    cls_10559448_new(param_1 + 0x39);
-    cls_105590b8_new(param_1 + 0x5c);
-    cls_1056b154_new(param_1 + 0x87);
-    param_1[0x91] = 0;
-    param_1[0x92] = 0;
-    param_1[0x93] = 0;
-    *(uint16_t *)(param_1 + 0x94) = 0;
-    *(uint16_t *)((int)param_1 + 0x252) = 0;
+  if ((param_1 != (cls_10557d80 *)0x0) || (param_1 = (cls_10557d80 *)heap_alloc((void *)0x254), (cls_10557c88 *)param_1 != (cls_10557c88 *)0x0))
+  {
+    cls_10557c88_new((cls_10557c88 *)param_1);
+    ((cls_10557c88 *)param_1)->field_0x0 = (uint32_t)(&DAT_10557d80/*ROM*/);
+    ((cls_10557c88 *)param_1)->field8_0x14 = 0;
+    ((cls_10557c88 *)param_1)->field_0x15 = 0;
+    ((cls_10557c88 *)param_1)->field_0x18 = 0;
+    init_0x50_byte_object_1051e422(&((cls_10557c88 *)param_1)->field_0x1c);
+    ((cls_10557c88 *)param_1)->field65_0x6c = 0;
+    ((cls_10557c88 *)param_1)->field_0x70 = 0;
+    cls_105592e8_new((cls_105592e8 *)&((cls_10557c88 *)param_1)->field_0x74);
+    cls_10559448_new((cls_10559448 *)&((cls_10557c88 *)param_1)->field149_0xe4);
+    cls_105590b8_new((cls_105590b8 *)&((cls_10557c88 *)param_1)->field277_0x170);
+    cls_1056b154_new((cls_1056b154 *)&((cls_10557c88 *)param_1)->field_0x21c);
+    ((cls_10557c88 *)param_1)->field458_0x244 = 0;
+    ((cls_10557c88 *)param_1)->field459_0x248 = 0;
+    ((cls_10557c88 *)param_1)->field460_0x24c = 0;
+    ((cls_10557c88 *)param_1)->field461_0x250 = 0;
+    ((cls_10557c88 *)param_1)->field462_0x252 = 0;
   }
-  return param_1;
+  return (cls_10557c88 *)param_1;
 }

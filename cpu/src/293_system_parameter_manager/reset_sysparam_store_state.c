@@ -18,18 +18,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t reset_sysparam_store_state(void *param_1)
+uint32_t reset_sysparam_store_state(cls_106210ec *param_1)
 
 {
-  *(uint32_t *)((int)param_1 + 0x2c) = 0;
-  *(uint32_t *)((int)param_1 + 0x28) = 0;
-  call_helper_with_param_and_field5((void *)(*(uint32_t *)((int)param_1 + 0x18)));
-  *(uint32_t *)**(uint32_t **)((int)param_1 + 0x18) = (*(uint32_t **)((int)param_1 + 0x18))[1]
-  ;
-  *(uint32_t *)**(uint32_t **)((int)param_1 + 0x1c) = (*(uint32_t **)((int)param_1 + 0x1c))[1]
-  ;
-  merge_masked_word_fields(*(uint32_t **)((int)param_1 + 0x18),0,(*(uint32_t **)((int)param_1 + 0x18))[0xe])
-  ;
-  *(uint32_t *)((int)param_1 + 0x3c) = 0;
+  param_1->field_0x2c = 0;
+  param_1->field_0x28 = 0;
+  call_helper_with_param_and_field5((uint32_t *)(param_1->field_0x18));
+  **(uint32_t **)param_1->field_0x18 = ((uint32_t *)param_1->field_0x18)[1];
+  **(uint32_t **)param_1->field_0x1c = ((uint32_t *)param_1->field_0x1c)[1];
+  merge_masked_word_fields((uint32_t *)param_1->field_0x18,0,((uint32_t *)param_1->field_0x18)[0xe]);
+  param_1->field_0x3c = 0;
   return 1;
 }

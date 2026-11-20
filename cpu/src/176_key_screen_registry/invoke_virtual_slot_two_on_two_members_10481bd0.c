@@ -13,11 +13,11 @@ void invoke_virtual_slot_two_on_two_members_10481bd0(int param_1)
   
   iVar1 = *(int *)(param_1 + 0xc);
   if (iVar1 != 0) {
-    (**(code **)(*(int *)(iVar1 + 0x30) + 0xc))(*(short *)(*(int *)(iVar1 + 0x30) + 8) + iVar1,3);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0x30)))[1].fn)(*(short *)(*(int *)(iVar1 + 0x30) + 8) + iVar1,3);
   }
   iVar1 = *(int *)(param_1 + 0x10);
   if (iVar1 != 0) {
-    (**(code **)(*(int *)(iVar1 + 0x30) + 0xc))(*(short *)(*(int *)(iVar1 + 0x30) + 8) + iVar1,3);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0x30)))[1].fn)(*(short *)(*(int *)(iVar1 + 0x30) + 8) + iVar1,3);
   }
   return;
 }

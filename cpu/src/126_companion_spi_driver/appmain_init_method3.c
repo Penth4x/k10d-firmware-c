@@ -14,11 +14,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void appmain_init_method3(uint32_t param_1)
+void appmain_init_method3(cls_105a020c *param_1)
 
 {
   invoke_virtual_slot_on_eight_objects();
-  invoke_virtual_slot_on_sixteen_objects_1043913e(param_1);
-  invoke_virtual_slot_on_two_objects_1043934c(param_1);
+  invoke_virtual_slot_on_sixteen_objects_1043913e((uint)(param_1));
+  invoke_virtual_slot_on_two_objects_1043934c((uint)(param_1));
   return;
 }

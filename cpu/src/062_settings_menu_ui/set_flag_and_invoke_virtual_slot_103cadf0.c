@@ -19,19 +19,19 @@
 /* WARNING: Instruction at (ram,0x103cae20) overlaps instruction at (ram,0x103cae1e)
     */
 
-void set_flag_and_invoke_virtual_slot_103cadf0(int *param_1,uint16_t param_2)
+void set_flag_and_invoke_virtual_slot_103cadf0(cls_105958e8 *param_1,uint16_t param_2)
 
 {
   int iVar1;
   
-  *(uint16_t *)(param_1 + 3) = param_2;
-  iVar1 = menu_item_register(*param_1);
-  if (((*(ushort *)(param_1 + 3) & 2) == 2) || ((*(ushort *)(param_1 + 3) & 4) == 4)) {
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0x74))(*(short *)(*(int *)(iVar1 + 0xc) + 0x70) + iVar1,0);
+  param_1->field_0xc = param_2;
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  if (((param_1->field_0xc & 2) == 2) || ((param_1->field_0xc & 4) == 4)) {
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].fn)(((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].adj + iVar1,0);
   }
   else {
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0x74))(*(short *)(*(int *)(iVar1 + 0xc) + 0x70) + iVar1,1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].fn)(((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].adj + iVar1,1);
   }
-  check_mode_transition_validity(param_1,0);
+  check_mode_transition_validity(&param_1->field_0x0,0);
   return;
 }

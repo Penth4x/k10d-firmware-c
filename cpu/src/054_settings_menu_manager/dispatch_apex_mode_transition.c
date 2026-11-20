@@ -17,7 +17,7 @@
 /* WARNING: Instruction at (ram,0x103bfdd6) overlaps instruction at (ram,0x103bfdd4)
     */
 
-uint32_t dispatch_apex_mode_transition(int *param_1,int param_2)
+uint32_t dispatch_apex_mode_transition(cls_10594f8c *param_1,int param_2)
 
 {
   ushort uVar1;
@@ -32,7 +32,7 @@ uint32_t dispatch_apex_mode_transition(int *param_1,int param_2)
   
   uVar6 = 0;
   if (param_2 == 0x1020053) {
-    cVar7 = *(char *)((int)param_1 + 0x31);
+    cVar7 = param_1->field_0x31;
     if (cVar7 == '(') {
       uVar6 = 0x102002f;
     }
@@ -46,10 +46,10 @@ uint32_t dispatch_apex_mode_transition(int *param_1,int param_2)
       uVar6 = 0x1020046;
     }
     else if (cVar7 == '\x01') {
-      if (*(char *)((int)param_1 + 0x35) == '\0') {
-        uVar1 = *(ushort *)(param_1 + 3);
+      if (param_1->field_0x35 == '\0') {
+        uVar1 = param_1->field_0xc;
         if ((uVar1 & 1) == 1) {
-          if (*(char *)((int)param_1 + 0x32) == '\0') {
+          if (param_1->field_0x32 == '\0') {
             uVar6 = 0x1020025;
           }
           else if (((uVar1 & 2) == 2) || ((uVar1 & 4) == 4)) {
@@ -70,15 +70,15 @@ uint32_t dispatch_apex_mode_transition(int *param_1,int param_2)
     else {
       uVar6 = 0x1020011;
     }
-    iVar3 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
-    iVar3 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
+    iVar3 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
+    iVar3 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
   }
-  iVar3 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
-  iVar3 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
+  iVar3 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
+  iVar3 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
   if (param_2 == 0x1020020) {
     iVar3 = get_setting_by_index((int)param_1,0x47);
     if (iVar3 == 0) {
@@ -143,14 +143,14 @@ uint32_t dispatch_apex_mode_transition(int *param_1,int param_2)
             iVar3 = 4;
           }
           uVar6 = auStack_40[iVar3];
-          iVar3 = menu_item_register(*param_1);
-          if (*(char *)((int)param_1 + 0x32) == '\0') {
-            (**(code **)(*(int *)(iVar3 + 0xc) + 0x74))
-                      (*(short *)(*(int *)(iVar3 + 0xc) + 0x70) + iVar3,0);
+          iVar3 = menu_item_register((int)param_1->field_0x0);
+          if (param_1->field_0x32 == '\0') {
+            (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[14].fn)
+                      (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[14].adj + iVar3,0);
             return 0x1020036;
           }
-          (**(code **)(*(int *)(iVar3 + 0xc) + 0x74))
-                    (*(short *)(*(int *)(iVar3 + 0xc) + 0x70) + iVar3,1);
+          (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[14].fn)
+                    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[14].adj + iVar3,1);
           return uVar6;
         }
         if (param_2 != 0x1020037) {
@@ -183,15 +183,15 @@ uint32_t dispatch_apex_mode_transition(int *param_1,int param_2)
           uVar4 = uVar4 + 3;
         } while (-1 < iVar3);
         uVar6 = auStack_40[uVar2 + 5];
-        iVar3 = menu_item_register(*param_1);
-        if (((*(char *)((int)param_1 + 0x32) != '\0') && ((*(ushort *)(param_1 + 3) & 2) != 2)) &&
-           ((*(ushort *)(param_1 + 3) & 4) != 4)) {
-          (**(code **)(*(int *)(iVar3 + 0xc) + 0x74))
-                    (*(short *)(*(int *)(iVar3 + 0xc) + 0x70) + iVar3,1);
+        iVar3 = menu_item_register((int)param_1->field_0x0);
+        if (((param_1->field_0x32 != '\0') && ((param_1->field_0xc & 2) != 2)) &&
+           ((param_1->field_0xc & 4) != 4)) {
+          (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[14].fn)
+                    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[14].adj + iVar3,1);
           return uVar6;
         }
-        (**(code **)(*(int *)(iVar3 + 0xc) + 0x74))
-                  (*(short *)(*(int *)(iVar3 + 0xc) + 0x70) + iVar3,0);
+        (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[14].fn)
+                  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[14].adj + iVar3,0);
         return uVar6;
       }
       uVar4 = get_setting_by_index((int)param_1,0x47);

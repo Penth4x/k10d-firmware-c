@@ -21,36 +21,37 @@ int clone_object_with_sem_guard(int param_1,void *param_2)
 
 {
   int iVar1;
-  void *pvVar2;
-  void *pvVar3;
+  cls_1059f170 *pcVar2;
+  cls_1059f170 *pcVar3;
   int iVar4;
   
-  iVar1 = twai_sem_obj((void *)(param_1 + 0x6c),_DAT_105a2bf4/*ROM*/);
+  iVar1 = twai_sem_obj((uint32_t *)(param_1 + 0x6c),(int)(_DAT_105a2bf4/*ROM*/));
   if (iVar1 != 0) {
-    pvVar2 = (void *)heap_alloc((void *)0x34);
-    if (pvVar2 == (void *)0x0) {
-      pvVar2 = (void *)0x0;
+    pcVar2 = (cls_1059f170 *)heap_alloc((void *)0x34);
+    if (pcVar2 == (cls_1059f170 *)0x0) {
+      pcVar2 = (cls_1059f170 *)0x0;
     }
     else {
-      pvVar3 = pvVar2;
-      if ((pvVar2 != (void *)0x0) || (pvVar3 = (void *)heap_alloc((void *)0x34), pvVar3 != (void *)0x0)) {
-        cls_1059f170_new(pvVar3);
-        cls_1059f170_new((void *)((int)pvVar3 + 0x14));
-        *(uint32_t *)((int)pvVar3 + 0x28) = 0;
-        *(uint8_t *)((int)pvVar3 + 0x2c) = 0;
-        *(uint32_t *)((int)pvVar3 + 0x30) = 0;
+      pcVar3 = pcVar2;
+      if ((pcVar2 != (cls_1059f170 *)0x0) ||
+         (pcVar3 = (cls_1059f170 *)heap_alloc((void *)0x34), pcVar3 != (cls_1059f170 *)0x0)) {
+        cls_1059f170_new(pcVar3);
+        cls_1059f170_new(pcVar3 + 1);
+        pcVar3[2].field_0x0 = 0;
+        *(uint8_t *)&pcVar3[2].field_0x4 = 0;
+        pcVar3[2].field_0x8 = 0;
       }
     }
-    copy_four_words_and_byte(pvVar2,param_2);
-    copy_four_words_and_byte((void *)((int)pvVar2 + 0x14),(void *)((int)param_2 + 0x14));
-    *(uint32_t *)((int)pvVar2 + 0x28) = *(uint32_t *)((int)param_2 + 0x28);
-    *(uint8_t *)((int)pvVar2 + 0x2c) = *(uint8_t *)((int)param_2 + 0x2c);
-    *(uint32_t *)((int)pvVar2 + 0x30) = *(uint32_t *)((int)param_2 + 0x30);
-    iVar4 = send_two_byte_mailbox_message(param_1,pvVar2);
-    if ((iVar4 == 0) && (pvVar2 != (void *)0x0)) {
-      cls_1059f170_destructor((void *)((int)pvVar2 + 0x14),2);
-      cls_1059f170_destructor(pvVar2,2);
-      heap_free((int)pvVar2);
+    copy_four_words_and_byte(pcVar2,param_2);
+    copy_four_words_and_byte((uint32_t *)(pcVar2 + 1),(uint32_t *)((int)param_2 + 0x14));
+    pcVar2[2].field_0x0 = *(uint32_t *)((int)param_2 + 0x28);
+    *(uint8_t *)&pcVar2[2].field_0x4 = *(uint8_t *)((int)param_2 + 0x2c);
+    pcVar2[2].field_0x8 = *(uint32_t *)((int)param_2 + 0x30);
+    iVar4 = send_two_byte_mailbox_message(param_1,pcVar2);
+    if ((iVar4 == 0) && (pcVar2 != (cls_1059f170 *)0x0)) {
+      cls_1059f170_destructor(pcVar2 + 1,2);
+      cls_1059f170_destructor(pcVar2,2);
+      heap_free((int)pcVar2);
     }
   }
   return iVar1;

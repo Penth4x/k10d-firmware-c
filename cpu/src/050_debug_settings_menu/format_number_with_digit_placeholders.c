@@ -23,19 +23,19 @@ void format_number_with_digit_placeholders(void *param_1,void *param_2,uint8_t *
   
   puVar2 = param_3;
   if ((int)param_2 < 1) {
-    pcVar1 = (char *)&DAT_10565f20/*ROM*/;
+    pcVar1 = &DAT_10565f20/*ROM*/;
   }
   else if ((int)param_2 < 100) {
-    pcVar1 = (char *)&DAT_10565f28/*ROM*/;
+    pcVar1 = &DAT_10565f28/*ROM*/;
     puVar2 = (uint8_t *)((int)param_2 / 10);
     param_2 = (void *)((int)param_2 % 10);
   }
   else if ((int)param_2 < 0x2707) {
-    pcVar1 = (char *)&DAT_10565f30/*ROM*/;
+    pcVar1 = &DAT_10565f30/*ROM*/;
     puVar2 = (uint8_t *)((int)param_2 / 10);
   }
   else {
-    pcVar1 = (char *)&DAT_10565f34/*ROM*/;
+    pcVar1 = &DAT_10565f34/*ROM*/;
   }
   format_string_to_buffer_10545140(param_3,pcVar1,puVar2,param_2);
   return;

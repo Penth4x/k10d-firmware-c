@@ -157,7 +157,7 @@ int write_data_block_to_device(char *param_1,uint param_2)
           if (((iVar4 == 0) || (iVar2 = iVar4, iVar4 == -0x1c)) &&
              (iStack_38 = iVar2, lens_fw_update_step_1053db22((int)pvStack_20), iVar2 = extraout_r4,
              extraout_r4 == 0)) {
-            call_single_helper_1047f97e(&iStack_a8);
+            call_single_helper_1047f97e((uint32_t)(&iStack_a8));
             uStack_ce = (ushort)(iStack_a8 / 2) | (ushort)(iStack_a4 << 5) |
                         (ushort)(iStack_a0 << 0xb);
             uStack_d0 = (sStack_96 + 1) * 0x20 | uStack_9a | (sStack_92 + -0x50) * 0x200;
@@ -166,7 +166,7 @@ int write_data_block_to_device(char *param_1,uint param_2)
         }
         else {
           uStack_d4 = param_2;
-          call_single_helper_1047f97e(&iStack_84);
+          call_single_helper_1047f97e((uint32_t)(&iStack_84));
           uStack_ce = (ushort)(iStack_84 / 2) | (ushort)(iStack_80 << 5) |
                       (ushort)(iStack_7c << 0xb);
           uStack_d0 = (sStack_72 + 1) * 0x20 | uStack_76 | (sStack_6e + -0x50) * 0x200;

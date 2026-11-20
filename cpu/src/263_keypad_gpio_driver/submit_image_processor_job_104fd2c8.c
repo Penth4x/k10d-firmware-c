@@ -89,7 +89,7 @@ void submit_image_processor_job_104fd2c8(int param_1,int *param_2)
   iStack_10 = param_2[10];
   puVar4 = (uint32_t *)(param_1 + 0x2c);
   eventflag_clr_flg(puVar4,1);
-  imgp_a_program_and_start_104fe526(*(uint32_t *)(param_1 + 0x24),(void *)(param_1 + 4),&uStack_38);
+  imgp_a_program_and_start_104fe526((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(param_1 + 4),(uint32_t *)(&uStack_38));
   eventflag_wai_flg(puVar4,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar4,1);
   if ((*param_2 == 2) || (*param_2 == 3)) {

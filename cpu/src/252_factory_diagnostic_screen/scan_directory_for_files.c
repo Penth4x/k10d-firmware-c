@@ -33,7 +33,7 @@ uint32_t scan_directory_for_files(void *param_1,int param_2,int *param_3)
   uint32_t uStack_48;
   uint32_t uStack_44;
   uint8_t uStack_40;
-  char acStack_30 [32];
+  cls_105ab468 cStack_30;
   int iStack_10;
   uint16_t uStack_a;
   
@@ -43,36 +43,36 @@ uint32_t scan_directory_for_files(void *param_1,int param_2,int *param_3)
   invoke_virtual_slot_14_104e6148(param_1,*(void **)(*(int *)((int)param_1 + 0x40) + iVar4));
   iVar4 = *(int *)(*(int *)((int)param_1 + 0x40) + iVar4);
   iVar5 = *(int *)(iVar4 + 0x18);
-  (**(code **)(iVar5 + 0x5c))(iVar4 + *(short *)(iVar5 + 0x58),acStack_148);
+  (((vtbl_entry*)(iVar5))[11].fn)(iVar4 + ((vtbl_entry*)(iVar5))[11].adj,acStack_148);
   iVar4 = count_string_bytes(acStack_148);
   if (iVar4 < 0x100) {
     acStack_148[iVar4] = '\\';
     uStack_150 = 1;
     uStack_48 = 0;
     uStack_44 = 0;
-    cls_105ab468_new(acStack_30);
+    cls_105ab468_new(&cStack_30);
     uStack_40 = 0;
     uStack_164 = 0;
     uStack_160 = 0;
     iStack_10 = 0;
     iVar4 = *(int *)((int)param_1 + 0x4c);
-    *puVar6 = &uStack_48;
-    iVar4 = call_inner_with_lock_pair(iVar4,acStack_148,uRam80010b9c,0,*puVar6);
+    *puVar6 = (uintptr_t)(&uStack_48);
+    iVar4 = call_inner_with_lock_pair((int)(iVar4),(void *)(acStack_148),(char *)(uRam80010b9c),(uint32_t)(0),(uint32_t)(*puVar6));
     if (iVar4 == 1) {
       uStack_164 = 0;
       uStack_160 = 0;
       do {
         uStack_a = 0;
-        iVar4 = call_two_step_helper(param_1,acStack_30,&uStack_a);
+        iVar4 = call_two_step_helper(param_1,&cStack_30,&uStack_a);
         if (iVar4 == 1) {
           pvVar2 = (void *)get_or_create_sram_object_1047dd7a();
           iVar4 = 0;
-          cVar1 = acStack_30[0];
+          cVar1 = cStack_30.field_0x0;
           while (cVar1 != '.') {
+            cVar1 = ((uint8_t *)&cStack_30 + 1)[iVar4];
             iVar4 = iVar4 + 1;
-            cVar1 = acStack_30[iVar4];
           }
-          iVar4 = search_linked_list_for_match(pvVar2,acStack_30 + iVar4 + 1);
+          iVar4 = search_linked_list_for_match(pvVar2,((uint8_t *)&cStack_30 + 1) + iVar4);
           if (iVar4 == 0) {
             uVar3 = allocate_queue_slot((int)param_1);
             if (uVar3 == 0xffffffff) {
@@ -83,11 +83,11 @@ uint32_t scan_directory_for_files(void *param_1,int param_2,int *param_3)
             if (uStack_160 == 0) {
               uStack_160 = uVar3;
             }
-            iVar4 = allocate_and_link_entry(param_1,param_2,uVar3);
+            iVar4 = (uintptr_t)(allocate_and_link_entry((int)(param_1),(int)(param_2),(int)(uVar3)));
             *(uint16_t *)(iVar4 + 0x14) = uStack_a;
-            (**(code **)(*(int *)(iVar4 + 0x18) + 0x44))
-                      (*(short *)(*(int *)(iVar4 + 0x18) + 0x40) + iVar4,acStack_30);
-            store_result_at_offset_0x1c(iVar4,acStack_30);
+            (((vtbl_entry*)(*(int *)(iVar4 + 0x18)))[8].fn)
+                      (((vtbl_entry*)(*(int *)(iVar4 + 0x18)))[8].adj + iVar4,&cStack_30);
+            store_result_at_offset_0x1c(iVar4,&cStack_30);
             invoke_virtual_slot_14_104e612e(param_1,iVar4);
             insert_sorted_list_entry(param_1,uStack_164,uVar3,&iStack_10);
           }
@@ -98,7 +98,7 @@ uint32_t scan_directory_for_files(void *param_1,int param_2,int *param_3)
     }
     *param_3 = (*param_3 + uStack_164) - iStack_10;
     process_pending_event_list(param_1,param_2,uStack_160,uStack_164);
-    cls_105ab468_delete(acStack_30,2);
+    cls_105ab468_delete(&cStack_30,2);
   }
   else {
     uStack_150 = 0;

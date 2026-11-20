@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_with_three_pools(void *param_1)
+uint32_t init_object_with_three_pools(cls_105d51fc *param_1)
 
 {
   void *pvVar1;
@@ -25,22 +25,22 @@ uint32_t init_object_with_three_pools(void *param_1)
   uintptr_t sp;
   uint8_t uStack_9;
   
-  wait_flg_obj((void *)((int)param_1 + 0x328),0);
-  forward_three_args_to_helper_10459d64((void *)((int)param_1 + 0x308),1,0x1f);
+  wait_flg_obj(&param_1->field_0x328,0);
+  forward_three_args_to_helper_10459d64(&param_1->field_0x308,1,0x1f);
   pvVar1 = (void *)get_system_heap();
-  pvVar2 = (void *)return_constant_0x33((int)&uStack_9);
+  pvVar2 = (void *)return_constant_0x33((uint32_t)(&uStack_9));
   uVar3 = mempool_get_block(pvVar1,pvVar2,0);
-  *(uint32_t *)((int)param_1 + 0x310) = uVar3;
+  param_1->field_0x310 = uVar3;
   pvVar1 = (void *)get_system_heap();
-  pvVar2 = (void *)return_constant_0x5468((int)&uStack_9);
+  pvVar2 = (void *)return_constant_0x5468((uint32_t)(&uStack_9));
   uVar3 = mempool_get_block(pvVar1,pvVar2,0);
-  *(uint32_t *)((int)param_1 + 0x314) = uVar3;
+  param_1->field_0x314 = uVar3;
   pvVar1 = (void *)get_system_heap();
-  pvVar2 = (void *)call_subroutine_and_return_0x2026((int)&uStack_9);
+  pvVar2 = (void *)call_subroutine_and_return_0x2026((uint32_t)(&uStack_9));
   uVar3 = mempool_get_block(pvVar1,pvVar2,0);
-  *(uint32_t *)((int)param_1 + 0x318) = uVar3;
-  *(uint32_t *)((int)param_1 + 0x24) = 0;
-  *(uint32_t *)((int)param_1 + 0x58) = 1;
-  alloc_pool_and_init_task((int *)((int)param_1 + 8),0xe,0x1000,4);
+  param_1->field_0x318 = uVar3;
+  param_1->field_0x24 = 0;
+  param_1->field_0x58 = 1;
+  alloc_pool_and_init_task((int *)&param_1->field_0x8,0xe,0x1000,4);
   return 1;
 }

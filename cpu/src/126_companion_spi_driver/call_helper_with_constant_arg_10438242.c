@@ -15,6 +15,6 @@
 void call_helper_with_constant_arg_10438242(void)
 
 {
-  check_magic_value_1043819a((void*)0x10006080/*ROM*/);
+  check_magic_value_1043819a((void *)0x10006080/*ROM*/);
   return;
 }

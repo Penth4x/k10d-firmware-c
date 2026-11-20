@@ -34,15 +34,15 @@ void update_dual_object_state_flags(int param_1)
     uVar1 = 2;
   }
   iVar2 = **(int **)(param_1 + 0x78);
-  iVar2 = (**(code **)(iVar2 + 0x1c))
-                    ((int)*(int **)(param_1 + 0x78) + (int)*(short *)(iVar2 + 0x18),
+  iVar2 = (((vtbl_entry*)(iVar2))[3].fn)
+                    ((int)*(int **)(param_1 + 0x78) + (int)((vtbl_entry*)(iVar2))[3].adj,
                      *(uint32_t *)(param_1 + 0x8c));
   if (iVar2 != 0) {
     poll_event_queue_for_mask(param_1,*(uint32_t *)(param_1 + 100),0);
   }
   iVar2 = **(int **)(param_1 + 0x74);
-  iVar2 = (**(code **)(iVar2 + 0x4c))
-                    ((int)*(int **)(param_1 + 0x74) + (int)*(short *)(iVar2 + 0x48),
+  iVar2 = (((vtbl_entry*)(iVar2))[9].fn)
+                    ((int)*(int **)(param_1 + 0x74) + (int)((vtbl_entry*)(iVar2))[9].adj,
                      *(uint32_t *)(param_1 + 0x88),uVar1);
   if (iVar2 != 0) {
     poll_event_queue_for_mask(param_1,*(uint32_t *)(param_1 + 0x58),0);
@@ -51,7 +51,7 @@ void update_dual_object_state_flags(int param_1)
     *(int *)(param_1 + 0x8c) = *(int *)(param_1 + 0x88);
   }
   iVar2 = **(int **)(param_1 + 0x74);
-  (**(code **)(iVar2 + 0x3c))((int)*(int **)(param_1 + 0x74) + (int)*(short *)(iVar2 + 0x38),uVar1);
+  (((vtbl_entry*)(iVar2))[7].fn)((int)*(int **)(param_1 + 0x74) + (int)((vtbl_entry*)(iVar2))[7].adj,uVar1);
   *(uint8_t *)(param_1 + 0x94) = 1;
   return;
 }

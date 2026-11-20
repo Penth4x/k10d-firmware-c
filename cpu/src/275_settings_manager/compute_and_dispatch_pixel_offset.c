@@ -18,7 +18,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void compute_and_dispatch_pixel_offset(ushort *param_1)
+void compute_and_dispatch_pixel_offset(cls_105d6afc *param_1)
 
 {
   uint extraout_r4;
@@ -30,24 +30,24 @@ void compute_and_dispatch_pixel_offset(ushort *param_1)
   uint extraout_r5_01;
   uint64_t uVar2;
   
-  if ((*(int *)(param_1 + 4) == 0) && (*(int *)(param_1 + 6) == 0)) {
-    compute_lens_fw_crc32(*(uint *)(param_1 + 2));
-    uVar2 = abs_uint32((uint)param_1[10] * (uint)param_1[0xb]);
+  if ((param_1->field_0x8 == 0) && (param_1->field_0xc == 0)) {
+    compute_lens_fw_crc32(param_1->field_0x4);
+    uVar2 = abs_uint32((uint)param_1->field_0x14 * (uint)param_1->field_0x16);
     multiply_two_floats((uint)((ulonglong)uVar2 >> 0x20),(uint)uVar2,0x3ff80000,0);
     add_two_64_bit_integers(extraout_r4_00,extraout_r5_00,extraout_r4,extraout_r5);
     iVar1 = normalize_fixed_point_value_105448ac(extraout_r4_01,extraout_r5_01);
   }
   else {
-    iVar1 = *(int *)(param_1 + 8);
+    iVar1 = param_1->field_0x10;
   }
-  if ((uint)param_1[0x13] == ((int)(uint)param_1[0x13] >> 5) * 0x20) {
+  if ((uint)param_1->field_0x26 == ((int)(uint)param_1->field_0x26 >> 5) * 0x20) {
     allocate_and_process_buffer(__frv_reg_unset(4), __frv_reg_unset(5), __frv_reg_unset(6));
   }
   else {
-    clear_zero_high_nibble_bytes(param_1,(uint)param_1[1] * (uint)param_1[10] + *(int *)(param_1 + 2) +
-                         (uint)*param_1,
-                 (uint)param_1[1] * ((int)(uint)param_1[10] >> 1) + iVar1 +
-                 ((int)(uint)*param_1 >> 1));
+    clear_zero_high_nibble_bytes(param_1,(uint)param_1->field_0x2 * (uint)param_1->field_0x14 + param_1->field_0x4 +
+                         (uint)param_1->field_0x0,
+                 (uint)param_1->field_0x2 * ((int)(uint)param_1->field_0x14 >> 1) + iVar1 +
+                 ((int)(uint)param_1->field_0x0 >> 1));
   }
   return;
 }

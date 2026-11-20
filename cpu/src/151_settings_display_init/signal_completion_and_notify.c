@@ -37,10 +37,10 @@ void signal_completion_and_notify(int param_1,int *param_2)
     iVar1 = map_mode_bit_to_code_1046c480(param_1,uStack_c);
   }
   if (param_2 != (int *)0x0) {
-    (**(code **)(param_2[4] + 0xc))((int)*(short *)(param_2[4] + 8) + (int)param_2,3);
+    (((vtbl_entry*)(param_2[4]))[1].fn)((int)*(short *)(param_2[4] + 8) + (int)param_2,3);
   }
-  sig_sem_obj((void *)(param_1 + 0xb8));
+  sig_sem_obj((uint32_t *)(param_1 + 0xb8));
   iVar3 = *piVar2;
-  (**(code **)(iVar3 + 0x14))((int)*(short *)(iVar3 + 0x10) + (int)piVar2,0x1000000,iVar1);
+  (((vtbl_entry*)(iVar3))[2].fn)((int)((vtbl_entry*)(iVar3))[2].adj + (int)piVar2,0x1000000,iVar1);
   return;
 }

@@ -42,7 +42,7 @@ uint32_t dispatch_buffer_write_request(int param_1,int param_2,uint param_3)
   else {
     zero_struct_fields_20_to_30_104adfa2(param_1);
   }
-  if (((pvVar4 != (void *)0x0) && (piVar5 != (int *)0x0)) && (uVar3 != 0)) {
+  if (((pvVar4 != 0) && (piVar5 != (int *)0x0)) && (uVar3 != 0)) {
     iVar1 = dispatch_virtual_method_with_lock(piVar5,pvVar4,param_2,param_3);
     if (iVar1 == 0) {
       uVar2 = invoke_virtual_slot_two_104af0c8((int *)param_1,pvVar4,param_3 * uVar3);

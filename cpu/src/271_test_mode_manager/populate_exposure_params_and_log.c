@@ -42,7 +42,7 @@ void populate_exposure_params_and_log(int param_1)
   
   puVar26 = (uint *)local_6c;
   iVar25 = *(int *)(param_1 + 0x148);
-  cVar16 = (**(code **)(iVar25 + 0x14))((int)*(short *)(iVar25 + 0x10) + param_1 + 0x148,0);
+  cVar16 = (((vtbl_entry*)(iVar25))[2].fn)((int)((vtbl_entry*)(iVar25))[2].adj + param_1 + 0x148,0);
   if ((cVar16 == '\t') || (cVar16 == '\f')) {
     uVar17 = 1;
   }
@@ -57,16 +57,16 @@ void populate_exposure_params_and_log(int param_1)
   *(uint8_t *)(*(int *)(param_1 + 0x7e4) + 0x5d) = *(uint8_t *)(param_1 + 0x29);
   iVar25 = *(int *)(param_1 + 0x7e4);
   iVar24 = param_1 + 0x164;
-  uVar14 = get_TVD((void *)iVar24);
+  uVar14 = get_TVD((void*)(iVar24));
   *(uint16_t *)(iVar25 + 0x10) = uVar14;
   iVar25 = *(int *)(param_1 + 0x7e4);
-  uVar14 = get_SVD((void *)iVar24);
+  uVar14 = get_SVD((void*)(iVar24));
   *(uint16_t *)(iVar25 + 0x12) = uVar14;
   iVar25 = *(int *)(param_1 + 0x7e4);
-  uVar14 = get_TVD((void *)iVar24);
+  uVar14 = get_TVD((void*)(iVar24));
   *(uint16_t *)(iVar25 + 0x14) = uVar14;
   iVar25 = *(int *)(param_1 + 0x7e4);
-  uVar14 = get_SVD((void *)iVar24);
+  uVar14 = get_SVD((void*)(iVar24));
   *(uint16_t *)(iVar25 + 0x16) = uVar14;
   iVar25 = *(int *)(param_1 + 0x7e4);
   uVar15 = *(ushort *)(param_1 + 0x116);
@@ -86,7 +86,7 @@ void populate_exposure_params_and_log(int param_1)
   *(uint16_t *)(iVar25 + 0x3e) = uVar4;
   iVar23 = param_1 + 0x880;
   *(int *)(*(int *)(param_1 + 0x7e4) + 0xf4) = iVar23;
-  uVar14 = get_SVD((void *)iVar24);
+  uVar14 = get_SVD((void*)(iVar24));
   *(uint16_t *)(*(int *)(param_1 + 0x7e4) + 0x12) = uVar14;
   *(uint16_t *)(*(int *)(param_1 + 0x7e4) + 0x16) = uVar14;
   uStack_10 = 0x20002000;
@@ -99,17 +99,17 @@ void populate_exposure_params_and_log(int param_1)
   uVar13 = get_field_at_offset_four_10435b56(iVar25);
   iVar25 = return_sram_address_104357ec();
   uVar15 = read_offset_four_10435660(iVar25);
-  uStack_10 = (uStack_10 & ~(0xffffULL << 0)) | ((((uint64_t)(uVar15)) & 0xffffULL) << 0);
+  uStack_10 = (uStack_10 & ~(((uint64_t)0xffff) << 0)) | ((((uint64_t)(uVar15)) & ((uint64_t)0xffff)) << 0);
   iVar25 = return_sram_address_104357ec();
   uVar14 = read_offset_six_word_10435666(iVar25);
   uStack_10 = CONCAT22(((uint16_t)((uint64_t)(uStack_10) >> 0)),uVar14);
   iVar25 = return_sram_address_104357ec();
   uVar14 = read_offset_eight_word(iVar25);
-  uStack_c = (uStack_c & ~(0xffffULL << 0)) | ((((uint64_t)(uVar14)) & 0xffffULL) << 0);
+  uStack_c = (uStack_c & ~(((uint64_t)0xffff) << 0)) | ((((uint64_t)(uVar14)) & ((uint64_t)0xffff)) << 0);
   iVar25 = return_sram_address_104357ec();
   uVar14 = read_offset_10_field(iVar25);
   uStack_c = CONCAT22(((uint16_t)((uint64_t)(uStack_c) >> 0)),uVar14);
-  iVar25 = get_SVD((void *)iVar24);
+  iVar25 = get_SVD((void*)(iVar24));
   uVar8 = *(uint *)(&DAT_105d5698/*ROM*/ + iVar25 * 4);
   iVar25 = param_1 + 0x2ac;
   uVar17 = settings_getter(iVar25,0x51);
@@ -118,7 +118,7 @@ void populate_exposure_params_and_log(int param_1)
     uVar17 = 2;
   }
   puVar9 = *(uint **)(param_1 + 0x838);
-  uVar18 = get_AVD((void *)iVar24);
+  uVar18 = get_AVD((void*)(iVar24));
   uVar19 = settings_getter(iVar25,0xd);
   uVar20 = settings_getter(iVar25,0x2b);
   uVar21 = settings_getter(iVar25,0x2e);
@@ -159,7 +159,7 @@ void populate_exposure_params_and_log(int param_1)
   *(uint32_t *)(iVar25 + 0x20) = uVar11;
   *(uint32_t *)(iVar25 + 0x24) = uVar10;
   uVar10 = get_sysparam_store_instance();
-  iVar25 = get_sysparam_store_byte((void *)uVar10,4);
+  iVar25 = get_sysparam_store_byte((void*)(uVar10),4);
   if (iVar25 != 0) {
     append_bytes_to_ring_buffer(iVar23,0x105d5eec/*ROM*/,0);
     parse_and_store_buffered_records(iVar23,(void *)(uint)*(ushort *)(param_1 + 0x114),1,0);

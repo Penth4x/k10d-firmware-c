@@ -27,7 +27,7 @@ bool process_object_event_and_notify(int param_1,uint32_t param_2,void *param_3)
   uintptr_t sp;
   uint8_t auStack_11 [9];
   
-  dispatch_on_first_char(*(uint32_t *)(param_1 + 0xc),(uint32_t)(uintptr_t)auStack_11,param_2,(uint32_t)(uintptr_t)param_3);
+  dispatch_on_first_char((uint32_t)(*(uint32_t *)(param_1 + 0xc)),(uint32_t)(auStack_11),(uint32_t)(param_2),(uint32_t)(param_3));
   copy_8_byte_block_if_valid(param_1 + 0x14,auStack_11);
   uVar3 = *(uint32_t *)(param_1 + 4);
   uVar1 = (*(code *)0x104779aa/*ROM*/)(param_1 + 0x14);

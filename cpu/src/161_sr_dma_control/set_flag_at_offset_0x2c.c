@@ -9,6 +9,6 @@
 void set_flag_at_offset_0x2c(int param_1,int param_2)
 
 {
-  call_helper_with_offset_args_10463110(*(uint32_t *)(param_1 + 0x2c),param_2 != 0);
+  call_helper_with_offset_args_10463110((int *)(*(uint32_t *)(param_1 + 0x2c)),(uint32_t)(param_2 != 0));
   return;
 }

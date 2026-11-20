@@ -16,14 +16,14 @@ void query_object_state_and_report_104a2324(int param_1,int param_2)
   int aiStack_10 [2];
   
   iVar3 = **(int **)(param_1 + 0xc);
-  iVar3 = (**(code **)(iVar3 + 0x1c))
-                    ((int)*(int **)(param_1 + 0xc) + (int)*(short *)(iVar3 + 0x18),0xf);
+  iVar3 = (((vtbl_entry*)(iVar3))[3].fn)
+                    ((int)*(int **)(param_1 + 0xc) + (int)((vtbl_entry*)(iVar3))[3].adj,0xf);
   if (iVar3 == 0) {
     compute_two_byte_sum_value(param_1,aiStack_10);
     if ((aiStack_10[0] == 0) &&
        (iVar3 = **(int **)(param_1 + 0xc),
-       iVar3 = (**(code **)(iVar3 + 0x1c))
-                         ((int)*(int **)(param_1 + 0xc) + (int)*(short *)(iVar3 + 0x18),0x10),
+       iVar3 = (((vtbl_entry*)(iVar3))[3].fn)
+                         ((int)*(int **)(param_1 + 0xc) + (int)((vtbl_entry*)(iVar3))[3].adj,0x10),
        iVar3 == 0)) {
       uVar1 = call_virtual_slot_two_104a290e(param_1);
       switch(uVar1) {

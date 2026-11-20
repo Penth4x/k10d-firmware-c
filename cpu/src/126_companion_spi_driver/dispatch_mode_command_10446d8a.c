@@ -34,8 +34,8 @@ uint32_t dispatch_mode_command_10446d8a(void *param_1,int param_2)
     else {
       iVar4 = *(int *)((int)param_1 + 4) + 8;
     }
-    (**(code **)(*(int *)(iVar3 + 8) + 0x1c))
-              (iVar3 + 8 + (int)*(short *)(*(int *)(iVar3 + 8) + 0x18),iVar4,0x3f);
+    (((vtbl_entry*)(*(int *)(iVar3 + 8)))[3].fn)
+              (iVar3 + 8 + (int)((vtbl_entry*)(*(int *)(iVar3 + 8)))[3].adj,iVar4,0x3f);
     uVar1 = 1;
   }
   else if (param_2 == 1) {

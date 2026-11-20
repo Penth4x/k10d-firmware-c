@@ -44,18 +44,10 @@ void build_exposure_parameter_table_104a66a0(int param_1,int param_2)
     iVar3 = uStack_20 * 2;
     uVar2 = (*(code *)0x104a7076/*ROM*/)
                       (param_1,*(uint16_t *)(*(int *)(*(int *)(param_1 + 100) + 0x20) + iVar3));
-    write_two_byte_value_104a7246(param_1,(void *)((int)pvVar1 + iStack_10),uVar2,1);
-    write_two_byte_value_104a7246(param_1,(void *)((int)pvVar1 + iStack_1c),
-                 *(uint16_t *)(*(int *)(*(int *)(param_1 + 100) + 0x2c) + iVar3),1);
-    write_two_byte_value_104a7246(param_1,(void *)((int)pvVar1 + iStack_18),
-                 (int)((uint)*(ushort *)(*(int *)(*(int *)(param_1 + 100) + 0x24) + iVar3) *
-                      (uint)*(ushort *)(*(int *)(param_1 + 0x60) + 0x1a)) /
-                 (int)(uint)**(ushort **)(*(int *)(param_1 + 100) + 0x38) >> 5 & 0xffff,1);
-    write_two_byte_value_104a7246(param_1,(void *)((int)pvVar1 + iStack_14),
-                 (int)((uint)*(ushort *)(*(int *)(*(int *)(param_1 + 100) + 0x28) + iVar3) *
-                      (uint)*(ushort *)(*(int *)(param_1 + 0x60) + 0x20)) /
-                 (int)(uint)*(ushort *)(*(int *)(*(int *)(param_1 + 100) + 0x38) + 6) >> 5 & 0xffff,
-                 1);
+    write_two_byte_value_104a7246((uint32_t)(param_1),(uint8_t *)((int)pvVar1 + iStack_10),(int)(uVar2),(int)(1));
+    write_two_byte_value_104a7246((uint32_t)(param_1),(uint8_t *)((int)pvVar1 + iStack_1c), (int)(*(uint16_t *)(*(int *)(*(int *)(param_1 + 100) + 0x2c) + iVar3)),(int)(1));
+    write_two_byte_value_104a7246((uint32_t)(param_1),(uint8_t *)((int)pvVar1 + iStack_18), (int)((uint)*(ushort *)(*(int *)(*(int *)(param_1 + 100) + 0x24) + iVar3) * (uint)*(ushort *)(*(int *)(param_1 + 0x60) + 0x1a)) / (int)(uint)**(ushort **)(*(int *)(param_1 + 100) + 0x38) >> 5 & 0xffff,(int)(1));
+    write_two_byte_value_104a7246((uint32_t)(param_1),(uint8_t *)((int)pvVar1 + iStack_14), (int)((uint)*(ushort *)(*(int *)(*(int *)(param_1 + 100) + 0x28) + iVar3) * (uint)*(ushort *)(*(int *)(param_1 + 0x60) + 0x20)) / (int)(uint)*(ushort *)(*(int *)(*(int *)(param_1 + 100) + 0x38) + 6) >> 5 & 0xffff, (int)(1));
     iStack_10 = iStack_10 + 8;
     iStack_14 = iStack_14 + 8;
     iStack_18 = iStack_18 + 8;

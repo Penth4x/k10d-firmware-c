@@ -14,13 +14,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-int get_status_or_default_five(int param_1)
+int get_status_or_default_five(cls_105c20d0 *param_1)
 
 {
   int iVar1;
   
-  if (*(int *)(param_1 + 0xc) == 0) {
-    iVar1 = dispatch_on_state_field_104ea53c(param_1);
+  if (param_1->field_0xc == 0) {
+    iVar1 = dispatch_on_state_field_104ea53c((int)param_1);
   }
   else {
     iVar1 = 5;

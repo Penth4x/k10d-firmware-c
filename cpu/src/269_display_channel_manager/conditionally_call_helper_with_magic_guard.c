@@ -15,11 +15,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t conditionally_call_helper_with_magic_guard(int param_1,int param_2,uint param_3)
+/* WARNING: Struct "cls_105d518c": ignoring multiple overlapping fields */
+
+uint32_t conditionally_call_helper_with_magic_guard(cls_105d518c *param_1,int param_2,uint param_3)
 
 {
   if ((param_2 == -0x7ffffff3) && ((param_3 & 0x8000000d/*SDRAM*/) != 0)) {
-    invoke_virtual_slot_two_104272e4((void *)(param_1 + 0x14),0x1010000,0);
+    invoke_virtual_slot_two_104272e4(&param_1->field_0x14,0x1010000,0);
   }
   return 0;
 }

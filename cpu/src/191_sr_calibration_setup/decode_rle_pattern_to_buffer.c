@@ -38,7 +38,7 @@ void decode_rle_pattern_to_buffer(ushort *param_1)
   char *pcStack_18;
   int iStack_14;
   
-  iVar12 = search_short_table_for_value(__frv_reg_unset(4));
+  iVar12 = (uintptr_t)(search_short_table_for_value(__frv_reg_unset(4)));
   uVar4 = (uint)*(ushort *)(iVar12 + 0x14);
   uVar2 = *(ushort *)(iVar12 + 0x16);
   iVar19 = *(int *)(iVar12 + 0x10);

@@ -22,7 +22,7 @@ void release_three_object_handles(int *param_1)
   
   iVar1 = *param_1;
   if (iVar1 != 0) {
-    (**(code **)(*(int *)(iVar1 + 8) + 0xc))(*(short *)(*(int *)(iVar1 + 8) + 8) + iVar1,3);
+    (((vtbl_entry*)(*(int *)(iVar1 + 8)))[1].fn)(*(short *)(*(int *)(iVar1 + 8) + 8) + iVar1,3);
   }
   *param_1 = 0;
   destroy_system_parameter_entry(param_1[1],3);

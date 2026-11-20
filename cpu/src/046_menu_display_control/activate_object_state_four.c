@@ -27,28 +27,28 @@ void activate_object_state_four(void *param_1)
     forward_params_to_helper_1049207a((void *)((int)param_1 + 8),6,0x80);
     forward_params_to_helper_1049207a((void *)((int)param_1 + 8),0x12,0x80);
     iVar1 = *(int *)(*(int *)((int)param_1 + 0xbc) + 0xc);
-    (**(code **)(iVar1 + 0xc))(*(int *)((int)param_1 + 0xbc) + (int)*(short *)(iVar1 + 8),0);
+    (((vtbl_entry*)(iVar1))[1].fn)(*(int *)((int)param_1 + 0xbc) + (int)*(short *)(iVar1 + 8),0);
     iVar1 = *(int *)(*(int *)((int)param_1 + 100) + 0xc);
-    (**(code **)(iVar1 + 0xc))
+    (((vtbl_entry*)(iVar1))[1].fn)
               (*(int *)((int)param_1 + 100) + (int)*(short *)(iVar1 + 8),
                (*(uint *)((int)param_1 + 0x11c) & 2) != 0);
     iVar1 = *(int *)(*(int *)((int)param_1 + 0xa4) + 0xc);
-    (**(code **)(iVar1 + 0xc))(*(int *)((int)param_1 + 0xa4) + (int)*(short *)(iVar1 + 8),1);
+    (((vtbl_entry*)(iVar1))[1].fn)(*(int *)((int)param_1 + 0xa4) + (int)*(short *)(iVar1 + 8),1);
     iVar1 = *(int *)(*(int *)((int)param_1 + 0xa8) + 0xc);
-    (**(code **)(iVar1 + 0xc))(*(int *)((int)param_1 + 0xa8) + (int)*(short *)(iVar1 + 8),1);
+    (((vtbl_entry*)(iVar1))[1].fn)(*(int *)((int)param_1 + 0xa8) + (int)*(short *)(iVar1 + 8),1);
     iVar1 = *(int *)(*(int *)((int)param_1 + 0xac) + 0xc);
-    (**(code **)(iVar1 + 0xc))(*(int *)((int)param_1 + 0xac) + (int)*(short *)(iVar1 + 8),1);
+    (((vtbl_entry*)(iVar1))[1].fn)(*(int *)((int)param_1 + 0xac) + (int)*(short *)(iVar1 + 8),1);
     iVar1 = *(int *)(*(int *)((int)param_1 + 0xb0) + 0xc);
-    (**(code **)(iVar1 + 0xc))(*(int *)((int)param_1 + 0xb0) + (int)*(short *)(iVar1 + 8),1);
+    (((vtbl_entry*)(iVar1))[1].fn)(*(int *)((int)param_1 + 0xb0) + (int)*(short *)(iVar1 + 8),1);
     iVar1 = *(int *)(*(int *)((int)param_1 + 0xb4) + 0xc);
-    (**(code **)(iVar1 + 0xc))(*(int *)((int)param_1 + 0xb4) + (int)*(short *)(iVar1 + 8),1);
+    (((vtbl_entry*)(iVar1))[1].fn)(*(int *)((int)param_1 + 0xb4) + (int)*(short *)(iVar1 + 8),1);
     iVar1 = *(int *)(*(int *)((int)param_1 + 0xb8) + 0xc);
-    (**(code **)(iVar1 + 0xc))(*(int *)((int)param_1 + 0xb8) + (int)*(short *)(iVar1 + 8),1);
+    (((vtbl_entry*)(iVar1))[1].fn)(*(int *)((int)param_1 + 0xb8) + (int)*(short *)(iVar1 + 8),1);
     *(uint32_t *)((int)param_1 + 0x40) = 4;
     if (*(char *)((int)param_1 + 0x45) != '\0') {
       iVar1 = **(int **)((int)param_1 + 0x2c);
-      (**(code **)(iVar1 + 0x14))
-                ((int)*(int **)((int)param_1 + 0x2c) + (int)*(short *)(iVar1 + 0x10),0x1120070,0);
+      (((vtbl_entry*)(iVar1))[2].fn)
+                ((int)*(int **)((int)param_1 + 0x2c) + (int)((vtbl_entry*)(iVar1))[2].adj,0x1120070,0);
     }
   }
   process_exposure_status_update(param_1);

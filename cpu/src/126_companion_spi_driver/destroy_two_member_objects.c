@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void destroy_two_member_objects(void *param_1)
+void destroy_two_member_objects(cls_105a0d28 *param_1)
 
 {
   int iVar1;
@@ -26,24 +26,26 @@ void destroy_two_member_objects(void *param_1)
   iVar2 = 1;
   iVar1 = 0;
   do {
-    if ((*(int *)((int)param_1 + iVar1 + 4) != 0) &&
-       (iVar3 = *(int *)(*(int *)((int)param_1 + iVar1 + 4) + 4),
-       (**(code **)(iVar3 + 0x24))
-                 (*(int *)((int)param_1 + iVar1 + 4) + (int)*(short *)(iVar3 + 0x20)),
-       *(int *)((int)param_1 + iVar1 + 4) != 0)) {
-      iVar3 = *(int *)(*(int *)((int)param_1 + iVar1 + 4) + 4);
-      (**(code **)(iVar3 + 0xc))(*(int *)((int)param_1 + iVar1 + 4) + (int)*(short *)(iVar3 + 8),3);
+    if ((*(int *)((int)&param_1->field_0x4 + iVar1) != 0) &&
+       (iVar3 = *(int *)(*(int *)((int)&param_1->field_0x4 + iVar1) + 4),
+       (((vtbl_entry*)(iVar3))[4].fn)
+                 (*(int *)((int)&param_1->field_0x4 + iVar1) + (int)((vtbl_entry*)(iVar3))[4].adj),
+       *(int *)((int)&param_1->field_0x4 + iVar1) != 0)) {
+      iVar3 = *(int *)(*(int *)((int)&param_1->field_0x4 + iVar1) + 4);
+      (((vtbl_entry*)(iVar3))[1].fn)
+                (*(int *)((int)&param_1->field_0x4 + iVar1) + (int)*(short *)(iVar3 + 8),3);
     }
-    *(uint32_t *)((int)param_1 + iVar1 + 4) = 0;
-    if ((*(int *)((int)param_1 + iVar1 + 8) != 0) &&
-       (iVar3 = *(int *)(*(int *)((int)param_1 + iVar1 + 8) + 4),
-       (**(code **)(iVar3 + 0x24))
-                 (*(int *)((int)param_1 + iVar1 + 8) + (int)*(short *)(iVar3 + 0x20)),
-       *(int *)((int)param_1 + iVar1 + 8) != 0)) {
-      iVar3 = *(int *)(*(int *)((int)param_1 + iVar1 + 8) + 4);
-      (**(code **)(iVar3 + 0xc))(*(int *)((int)param_1 + iVar1 + 8) + (int)*(short *)(iVar3 + 8),3);
+    *(uint32_t *)((int)&param_1->field_0x4 + iVar1) = 0;
+    if ((*(int *)((int)&param_1->field_0x8 + iVar1) != 0) &&
+       (iVar3 = *(int *)(*(int *)((int)&param_1->field_0x8 + iVar1) + 4),
+       (((vtbl_entry*)(iVar3))[4].fn)
+                 (*(int *)((int)&param_1->field_0x8 + iVar1) + (int)((vtbl_entry*)(iVar3))[4].adj),
+       *(int *)((int)&param_1->field_0x8 + iVar1) != 0)) {
+      iVar3 = *(int *)(*(int *)((int)&param_1->field_0x8 + iVar1) + 4);
+      (((vtbl_entry*)(iVar3))[1].fn)
+                (*(int *)((int)&param_1->field_0x8 + iVar1) + (int)*(short *)(iVar3 + 8),3);
     }
-    *(uint32_t *)((int)param_1 + iVar1 + 8) = 0;
+    *(uint32_t *)((int)&param_1->field_0x8 + iVar1) = 0;
     iVar2 = iVar2 + -1;
     iVar1 = iVar1 + 8;
   } while (-1 < iVar2);

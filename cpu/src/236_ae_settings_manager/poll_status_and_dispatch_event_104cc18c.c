@@ -17,7 +17,7 @@ void poll_status_and_dispatch_event_104cc18c(int param_1)
   uintptr_t sp;
   uint uStack_c;
   
-  eventflag_clr_flg((uint32_t *)(param_1 + 0x34),0xffffffff);
+  eventflag_clr_flg((uint32_t *)(param_1 + 0x34),(uint)(0xffffffff));
   iVar2 = forward_four_args_to_helper();
   if (iVar2 != 0) {
     uStack_c = 0;
@@ -29,13 +29,12 @@ void poll_status_and_dispatch_event_104cc18c(int param_1)
         *(uint32_t *)(param_1 + 0x214) = 0xb;
         *(uint32_t *)(param_1 + 0x210) = 0xc000f;
         iVar2 = **(int **)(param_1 + 0x1c);
-        (**(code **)(iVar2 + 0x14))
-                  ((int)*(int **)(param_1 + 0x1c) + (int)*(short *)(iVar2 + 0x10),0xc000f,0xb);
+        (((vtbl_entry*)(iVar2))[2].fn)
+                  ((int)*(int **)(param_1 + 0x1c) + (int)((vtbl_entry*)(iVar2))[2].adj,0xc000f,0xb);
       }
     }
     uVar3 = uStack_c & 0x8000000;
-    if ((*(int *)(param_1 + 0x40) != 0) &&
-       (iVar2 = init_object_and_check_flag(*(uint32_t *)(param_1 + 0x48)), iVar2 != 0)) {
+    if ((*(int *)(param_1 + 0x40) != 0) && (iVar2 = init_object_and_check_flag(*(uint32_t *)(param_1 + 0x48)), iVar2 != 0)) {
       if (uVar3 == 0) {
         uVar1 = 1;
       }

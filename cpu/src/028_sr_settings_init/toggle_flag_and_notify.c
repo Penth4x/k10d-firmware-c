@@ -10,6 +10,6 @@ void toggle_flag_and_notify(int param_1)
 
 {
   *(uint *)(param_1 + 0xb4) = (uint)(*(int *)(param_1 + 0xb4) == 0);
-  set_setting_0x81((void *)0x800158d4/*SDRAM*/,*(int *)(param_1 + 0xb4) != 0);
+  set_setting_0x81((int *)(0x800158d4/*SDRAM*/),(uint32_t)(*(int *)(param_1 + 0xb4) != 0));
   return;
 }

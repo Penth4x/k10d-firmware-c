@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_single_helper_103adb72(int param_1)
+void call_single_helper_103adb72(cls_10565d08 *param_1)
 
 {
-  init_subobject_at_offset_8(param_1);
+  init_subobject_at_offset_8((cls_105992d4 *)param_1);
   return;
 }

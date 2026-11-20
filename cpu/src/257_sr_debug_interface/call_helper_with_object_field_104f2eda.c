@@ -20,11 +20,11 @@ uint32_t call_helper_with_object_field_104f2eda(int param_1)
 {
   uint32_t uVar1;
   uintptr_t sp;
-  uint8_t auStack_1c [20];
+  cls_105a6d44 acStack_1c [5];
   
-  cls_105a6d44_new((void *)auStack_1c);
-  copy_fourteen_bytes_to_buffer(*(int *)(param_1 + 8),auStack_1c);
-  uVar1 = (*(code *)0x1045fe44/*ROM*/)(auStack_1c);
-  cls_105a6d44_delete((void *)auStack_1c,2);
+  cls_105a6d44_new(acStack_1c);
+  copy_fourteen_bytes_to_buffer(*(int *)(param_1 + 8),acStack_1c);
+  uVar1 = (*(code *)0x1045fe44/*ROM*/)(acStack_1c);
+  cls_105a6d44_delete(acStack_1c,2);
   return uVar1;
 }

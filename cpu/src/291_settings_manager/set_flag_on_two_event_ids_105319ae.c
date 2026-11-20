@@ -13,11 +13,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t set_flag_on_two_event_ids_105319ae(int param_1,int param_2)
+uint32_t set_flag_on_two_event_ids_105319ae(cls_1061e19c *param_1,int param_2)
 
 {
   if ((param_2 == 0x1040007) || (param_2 == 0x1040015)) {
-    set_flg_obj((uint32_t *)(param_1 + 0xc));
+    set_flg_obj((void *)&param_1->field_0xc);
   }
   return 0;
 }

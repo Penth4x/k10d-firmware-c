@@ -26,19 +26,19 @@ void configure_menu_item_states_103b0e74(void *param_1)
   select_setting_id_by_probe(*(uint32_t *)((int)param_1 + 0x28));
   iVar3 = (int)param_1 + 8;
   iVar2 = menu_item_register(iVar3);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
   iVar2 = menu_item_register(iVar3);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
   iVar2 = query_object_property_byte_104f2294(*(uint32_t *)((int)param_1 + 0x28));
   if ((iVar2 != 0) && (iVar2 == 1)) {
     bVar1 = true;
   }
   iVar2 = menu_item_register(iVar3);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   if (!bVar1) {
     read_setting_by_id(*(uint32_t *)((int)param_1 + 0x28));
     iVar2 = menu_item_register(iVar3);
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   }
   return;
 }

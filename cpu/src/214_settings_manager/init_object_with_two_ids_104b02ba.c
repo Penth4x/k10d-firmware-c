@@ -27,11 +27,11 @@ void init_object_with_two_ids_104b02ba(int *param_1,uint32_t param_2)
   puVar1 = (uint32_t *)get_or_init_sram_buffer_104af136();
   piVar2 = (int *)get_or_create_singleton_object_104ea7f6();
   init_object_with_heap_buffer_104af168(puVar1,param_2);
-  (**(code **)(*piVar2 + 0x14))((int)*(short *)(*piVar2 + 0x10) + (int)piVar2,param_2);
+  (((vtbl_entry*)(*piVar2))[2].fn)((int)((vtbl_entry*)(*piVar2))[2].adj + (int)piVar2,param_2);
   init_object_with_two_ids_104b04a8(param_1);
   iVar3 = cls_105b7994_new((uint32_t *)0x0,2);
   *param_1 = iVar3;
-  (**(code **)(*(int *)(iVar3 + 0x10) + 0x1c))(iVar3 + *(short *)(*(int *)(iVar3 + 0x10) + 0x18),0);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0x10)))[3].fn)(iVar3 + ((vtbl_entry*)(*(int *)(iVar3 + 0x10)))[3].adj,0);
   (*(code *)0x104afcb2/*ROM*/)(*param_1,1,*puVar1,0);
   iVar3 = *param_1;
   uVar4 = (*(code *)0x104eac02/*ROM*/)(piVar2);

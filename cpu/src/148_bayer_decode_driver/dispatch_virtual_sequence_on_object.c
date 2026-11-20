@@ -12,19 +12,19 @@ void dispatch_virtual_sequence_on_object(void *param_1,uint32_t param_2)
   int iVar1;
   
   iVar1 = *(int *)(*(int *)((int)param_1 + 0x23c) + 4);
-  (**(code **)(iVar1 + 0x2c))(*(int *)((int)param_1 + 0x23c) + (int)*(short *)(iVar1 + 0x28));
+  (((vtbl_entry*)(iVar1))[5].fn)(*(int *)((int)param_1 + 0x23c) + (int)((vtbl_entry*)(iVar1))[5].adj);
   iVar1 = *(int *)(*(int *)((int)param_1 + 0x23c) + 4);
-  (**(code **)(iVar1 + 0x4c))
-            (*(int *)((int)param_1 + 0x23c) + (int)*(short *)(iVar1 + 0x48),param_2,0,0);
+  (((vtbl_entry*)(iVar1))[9].fn)
+            (*(int *)((int)param_1 + 0x23c) + (int)((vtbl_entry*)(iVar1))[9].adj,param_2,0,0);
   iVar1 = *(int *)(*(int *)((int)param_1 + 0x23c) + 4);
-  for (iVar1 = (**(code **)(iVar1 + 0x54))
-                         (*(int *)((int)param_1 + 0x23c) + (int)*(short *)(iVar1 + 0x50));
+  for (iVar1 = (((vtbl_entry*)(iVar1))[10].fn)
+                         (*(int *)((int)param_1 + 0x23c) + (int)((vtbl_entry*)(iVar1))[10].adj);
       iVar1 == 0;
-      iVar1 = (**(code **)(iVar1 + 0x54))
-                        (*(int *)((int)param_1 + 0x23c) + (int)*(short *)(iVar1 + 0x50))) {
+      iVar1 = (((vtbl_entry*)(iVar1))[10].fn)
+                        (*(int *)((int)param_1 + 0x23c) + (int)((vtbl_entry*)(iVar1))[10].adj)) {
     iVar1 = *(int *)(*(int *)((int)param_1 + 0x23c) + 4);
   }
   iVar1 = *(int *)(*(int *)((int)param_1 + 0x23c) + 4);
-  (**(code **)(iVar1 + 0x2c))(*(int *)((int)param_1 + 0x23c) + (int)*(short *)(iVar1 + 0x28));
+  (((vtbl_entry*)(iVar1))[5].fn)(*(int *)((int)param_1 + 0x23c) + (int)((vtbl_entry*)(iVar1))[5].adj);
   return;
 }

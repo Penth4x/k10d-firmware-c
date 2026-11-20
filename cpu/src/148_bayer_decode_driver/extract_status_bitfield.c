@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int extract_status_bitfield(void *param_1,uint32_t param_2)
+int extract_status_bitfield(cls_105a8a1c *param_1,uint32_t param_2)
 
 {
   int iVar1;
@@ -25,16 +25,16 @@ int extract_status_bitfield(void *param_1,uint32_t param_2)
   case 0x30:
   case 0x31:
   case 0x32:
-    iVar1 = (int)(uint)(*(byte *)((int)param_1 + *piVar2 + 4) & *(byte *)(piVar2 + 1)) >>
+    iVar1 = (int)(uint)(*(byte *)((int)&param_1[1].field_0x0 + *piVar2) & *(byte *)(piVar2 + 1)) >>
             (*(byte *)((int)piVar2 + 5) & 0x1f);
     break;
   default:
-    iVar1 = (int)((*(byte *)((int)param_1 + *piVar2 + 4) ^ 0xffffffff) & (uint)*(byte *)(piVar2 + 1)
-                 ) >> (*(byte *)((int)piVar2 + 5) & 0x1f);
+    iVar1 = (int)((*(byte *)((int)&param_1[1].field_0x0 + *piVar2) ^ 0xffffffff) &
+                 (uint)*(byte *)(piVar2 + 1)) >> (*(byte *)((int)piVar2 + 5) & 0x1f);
     break;
   case 0x29:
   case 0x2a:
-    iVar1 = (int)(char)(*(byte *)((int)param_1 + *piVar2 + 4) & *(byte *)(piVar2 + 1));
+    iVar1 = (int)(char)(*(byte *)((int)&param_1[1].field_0x0 + *piVar2) & *(byte *)(piVar2 + 1));
   }
   return iVar1;
 }

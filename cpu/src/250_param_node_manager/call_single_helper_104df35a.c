@@ -13,9 +13,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_single_helper_104df35a(void)
+/* WARNING: Struct "cls_105bb314": ignoring overlapping field "field_0x8" */
+/* WARNING: Struct "cls_105bb0ec": ignoring overlapping field "field_0x8" */
+
+void call_single_helper_104df35a(cls_105bb314 *param_1)
 
 {
-  drain_flagged_queue(__frv_reg_unset(4));
+  drain_flagged_queue((cls_105bb0ec *)param_1);
   return;
 }

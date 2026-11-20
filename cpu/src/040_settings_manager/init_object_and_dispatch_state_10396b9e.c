@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int * init_object_and_dispatch_state_10396b9e(int *param_1)
+cls_10562f68 * init_object_and_dispatch_state_10396b9e(cls_10562f68 *param_1)
 
 {
   int iVar1;
@@ -29,7 +29,7 @@ int * init_object_and_dispatch_state_10396b9e(int *param_1)
   uint8_t auStack_d [4];
   char cStack_9;
   
-  param_1[1] = (int)(param_1 + 2);
+  param_1->field_0x4 = (uintptr_t)(&param_1->field_0x8);
   call_helper_with_second_field_10396d1e((void *)__frv_reg_unset(4));
   iVar1 = get_value_from_object();
   add_offset_to_pointer_104df392(iVar1);
@@ -39,7 +39,7 @@ int * init_object_and_dispatch_state_10396b9e(int *param_1)
   format_string_to_buffer_10545140(auStack_1a,(char *)0x10562fe0/*ROM*/,(void *)((int)uVar2 >> 8),(void *)(uVar2 & 0xff));
   iVar1 = get_value_from_object();
   iVar1 = add_offset_to_pointer_104df392(iVar1);
-  pcVar3 = (char *)return_pentax_corp_string_ptr((int)auStack_d);
+  pcVar3 = (char *)return_pentax_corp_string_ptr((uint32_t)(auStack_d));
   pcVar4 = (char *)(*(code *)0x10459346/*ROM*/)(auStack_d);
   set_three_object_properties(iVar1,pcVar3,auStack_1a,pcVar4);
   cStack_9 = '\0';
@@ -48,8 +48,9 @@ int * init_object_and_dispatch_state_10396b9e(int *param_1)
   iVar1 = check_flag_and_set_out_param_104d810e(iVar1,&cStack_9);
   if (iVar1 == 0) {
     if (cStack_9 == '\0') {
-      (**(code **)(*param_1 + 0x34))((int)*(short *)(*param_1 + 0x30) + (int)param_1);
-      param_1 = (int *)create_and_configure_object_10393b48(0,0,param_1);
+      (((vtbl_entry*)(param_1->field_0x0))[6].fn)
+                ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[6].adj);
+      param_1 = (cls_10562f68 *)create_and_configure_object_10393b48(0,0,param_1);
     }
   }
   else {
@@ -61,8 +62,9 @@ int * init_object_and_dispatch_state_10396b9e(int *param_1)
     reset_four_subobjects(__frv_reg_unset(4));
     get_or_init_singleton_10392e96();
     call_virtual_slot_two_10393058(__frv_reg_unset(4));
-    (**(code **)(*param_1 + 0x34))((int)*(short *)(*param_1 + 0x30) + (int)param_1);
-    param_1 = (int *)get_or_init_sram_object_103973c4();
+    (((vtbl_entry*)(param_1->field_0x0))[6].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[6].adj);
+    param_1 = (cls_10562f68 *)get_or_init_sram_object_103973c4();
   }
   heap_free_if_flagged(auStack_d,2);
   return param_1;

@@ -19,9 +19,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void init_event_queue_struct_104f8648(int param_1,void *param_2,void *param_3,void *param_4,uint32_t param_5,
-                 uint32_t param_6,uint32_t param_7,ushort param_8,uint16_t param_9,
-                 int param_10,int param_11,int param_12,uint16_t *param_13)
+void init_event_queue_struct_104f8648(int param_1,void *param_2,void *param_3,void *param_4,uint32_t param_5, uint32_t param_6,uint32_t param_7,ushort param_8,uint16_t param_9, int param_10,int param_11,int param_12,uint16_t *param_13)
 
 {
   uint32_t *puVar1;
@@ -138,7 +136,7 @@ void init_event_queue_struct_104f8648(int param_1,void *param_2,void *param_3,vo
   pvStack_6c = param_3;
   pvStack_68 = param_4;
   eventflag_clr_flg(puVar1,1);
-  build_and_send_structured_packet(*(uint32_t *)(param_1 + 0x28),1,(void *)(param_1 + 4),&uStack_74);
+  build_and_send_structured_packet((int)(*(uint32_t *)(param_1 + 0x28)),(int)(1),(void *)(param_1 + 4),(uint32_t *)(&uStack_74));
   eventflag_wai_flg(puVar1,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,1);
   configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),1);

@@ -14,7 +14,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t check_id_and_set_flag(int param_1,int param_2,int param_3)
+uint32_t check_id_and_set_flag(cls_105c1610 *param_1,int param_2,int param_3)
 
 {
   if (param_2 != 0xf00003) {
@@ -27,11 +27,11 @@ uint32_t check_id_and_set_flag(int param_1,int param_2,int param_3)
       if (param_2 != 0xf0000a) {
         return 0;
       }
-      if (*(int *)(param_1 + 0x180) != param_3) {
+      if (param_1->field_0x180 != param_3) {
         return 0;
       }
     }
   }
-  set_flg_obj((uint32_t *)(param_1 + 0x188));
+  set_flg_obj(&param_1->field_0x188);
   return 0;
 }

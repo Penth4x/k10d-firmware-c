@@ -6,27 +6,27 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * set_flag_and_call_virtual(uint32_t *param_1,int param_2,int *param_3)
+cls_105b3928 * set_flag_and_call_virtual(cls_105b3928 *param_1,int param_2,int *param_3)
 
 {
   int iVar1;
   
   if (param_2 == 2) {
-    if (*(char *)(param_1 + 0x1a) != '\0') {
-      return (uint32_t *)0x0;
+    if (param_1->field_0x68 != '\0') {
+      return (cls_105b3928 *)0x0;
     }
-    iVar1 = (**(code **)(*param_3 + 0x24))((int)*(short *)(*param_3 + 0x20) + (int)param_3,0x17);
+    iVar1 = (((vtbl_entry*)(*param_3))[4].fn)((int)((vtbl_entry*)(*param_3))[4].adj + (int)param_3,0x17);
     if (iVar1 == 0) {
       return param_1;
     }
-    *(uint8_t *)((int)param_1 + 0x31) = 1;
+    param_1->field_0x31 = 1;
   }
   else {
     if (param_2 != 1) {
       return param_1;
     }
-    *(uint8_t *)((int)param_1 + 0x31) = 1;
+    param_1->field_0x31 = 1;
   }
-  (*(code *)0x1046fd04/*ROM*/)(*param_1);
+  (*(code *)0x1046fd04/*ROM*/)(param_1->field_0x0);
   return param_1;
 }

@@ -4,7 +4,7 @@
  * purpose:
  *   Releases two heap-allocated blocks stored in an object and nulls the pointers.
  * summary:
- *   Takes an object pointer, calls deactivate_display_mode on the value at offset 0x54,
+ *   Takes an object pointer, calls deactivate_display_state on the value at offset 0x54,
  *   then frees the blocks at offsets 0x58 and 0x5c via mempool_release_block on the system
  *   heap. Finally sets both pointers to zero. This is a cleanup/destructor routine for an
  *   object with two heap-allocated members.
@@ -18,7 +18,7 @@ void release_object_heap_blocks_104713e0(int param_1)
 {
   void *pvVar1;
   
-  deactivate_display_mode(*(int *)(param_1 + 0x54));
+  deactivate_display_state(*(int *)(param_1 + 0x54));
   pvVar1 = (void *)get_system_heap();
   mempool_release_block(pvVar1,*(void **)(param_1 + 0x58));
   pvVar1 = (void *)get_system_heap();

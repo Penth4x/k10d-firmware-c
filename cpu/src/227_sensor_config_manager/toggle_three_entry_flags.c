@@ -84,7 +84,7 @@ uint32_t toggle_three_entry_flags(int param_1,void *param_2)
         iVar2 = find_first_active_entry((int)param_2,iVar1);
         *(uint8_t *)(iVar2 + 0x30) = 0;
         iVar2 = find_first_active_entry((int)param_2,iVar1);
-        iVar2 = process_event_with_callback_104c1bae(param_1,(void *)iVar2);
+        iVar2 = process_event_with_callback_104c1bae((int)(param_1),(uint32_t *)(iVar2));
         if (iVar2 == 0) {
           uStack_14 = 0;
         }
@@ -101,7 +101,7 @@ uint32_t toggle_three_entry_flags(int param_1,void *param_2)
         iVar2 = find_first_active_entry((int)param_2,iVar1);
         *(uint8_t *)(iVar2 + 0x30) = 0;
         iVar2 = find_first_active_entry((int)param_2,iVar1);
-        iVar2 = process_event_with_callback_104c1bae(param_1,(void *)iVar2);
+        iVar2 = process_event_with_callback_104c1bae((int)(param_1),(uint32_t *)(iVar2));
         if (iVar2 == 0) {
           uStack_14 = 0;
         }
@@ -118,7 +118,7 @@ uint32_t toggle_three_entry_flags(int param_1,void *param_2)
         iVar2 = find_first_active_entry((int)param_2,iVar1);
         *(uint8_t *)(iVar2 + 0x30) = 0;
         iVar2 = find_first_active_entry((int)param_2,iVar1);
-        iVar2 = process_event_with_callback_104c1bae(param_1,(void *)iVar2);
+        iVar2 = process_event_with_callback_104c1bae((int)(param_1),(uint32_t *)(iVar2));
         if (iVar2 == 0) {
           uStack_14 = 0;
         }

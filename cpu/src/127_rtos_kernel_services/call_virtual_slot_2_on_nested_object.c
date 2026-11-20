@@ -9,7 +9,7 @@
 void call_virtual_slot_2_on_nested_object(void *param_1)
 
 {
-  (**(code **)(*(int *)((int)param_1 + 4) + 0x14))
-            ((int)*(short *)(*(int *)((int)param_1 + 4) + 0x10) + (int)param_1);
+  (((vtbl_entry*)(*(int *)((int)param_1 + 4)))[2].fn)
+            ((int)((vtbl_entry*)(*(int *)((int)param_1 + 4)))[2].adj + (int)param_1);
   return;
 }

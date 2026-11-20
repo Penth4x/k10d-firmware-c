@@ -26,8 +26,8 @@ bool invoke_virtual_callback_on_object_104bff0c(int param_1,void *param_2)
   puVar1 = (uint32_t *)(param_1 + 0x20);
   eventflag_clr_flg(puVar1,0x80000);
   iVar2 = **(int **)(param_1 + 0x480);
-  (**(code **)(iVar2 + 0xd4))
-            ((int)*(int **)(param_1 + 0x480) + (int)*(short *)(iVar2 + 0xd0),param_1,
+  (((vtbl_entry*)(iVar2))[26].fn)
+            ((int)*(int **)(param_1 + 0x480) + (int)((vtbl_entry*)(iVar2))[26].adj,param_1,
              *(uint32_t *)(param_1 + 0x34),param_2);
   eventflag_wai_flg(puVar1,0x80000,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,0x80000);

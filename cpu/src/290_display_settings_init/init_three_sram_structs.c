@@ -20,26 +20,26 @@
 void init_three_sram_structs(void)
 
 {
-  _DAT_8005b0cc/*SDRAM*/ = (uint32_t)&DAT_1061e05c;
-  _DAT_8005b0b8/*SDRAM*/ = (uint32_t)&DAT_1060e053;
-  _DAT_8005b0bc/*SDRAM*/ = (uint32_t)&DAT_1060e04c;
+  _DAT_8005b0cc/*SDRAM*/ = (uintptr_t)(&DAT_1061e05c);
+  _DAT_8005b0b8/*SDRAM*/ = (uintptr_t)(&DAT_1060e053);
+  _DAT_8005b0bc/*SDRAM*/ = (uintptr_t)(&DAT_1060e04c);
   _DAT_8005b0c0/*SDRAM*/ = 0x8001477c/*SDRAM*/;
   _DAT_8005b0c4/*SDRAM*/ = 0x80014798/*SDRAM*/;
   _DAT_8005b0c8/*SDRAM*/ = 0;
-  prepend_to_singly_linked_list((void *)0x8001480c/*SDRAM*/);
-  _DAT_8005b0e4/*SDRAM*/ = (uint32_t)&DAT_1061e05c;
-  _DAT_8005b0d0/*SDRAM*/ = (uint32_t)&DAT_1060e053;
-  _DAT_8005b0d4/*SDRAM*/ = (uint32_t)&DAT_1060e04c;
+  prepend_to_singly_linked_list((uint32_t *)(0x8001480c/*SDRAM*/));
+  _DAT_8005b0e4/*SDRAM*/ = (uintptr_t)(&DAT_1061e05c);
+  _DAT_8005b0d0/*SDRAM*/ = (uintptr_t)(&DAT_1060e053);
+  _DAT_8005b0d4/*SDRAM*/ = (uintptr_t)(&DAT_1060e04c);
   _DAT_8005b0d8/*SDRAM*/ = 0x80014744/*SDRAM*/;
   _DAT_8005b0dc/*SDRAM*/ = 0x80014798/*SDRAM*/;
   _DAT_8005b0e0/*SDRAM*/ = 0;
-  prepend_to_singly_linked_list((void *)0x8001481c/*SDRAM*/);
-  _DAT_8005b0fc/*SDRAM*/ = (uint32_t)&DAT_1061e05c;
-  _DAT_8005b0e8/*SDRAM*/ = (uint32_t)&DAT_1060e053;
-  _DAT_8005b0ec/*SDRAM*/ = (uint32_t)&DAT_1060e04c;
+  prepend_to_singly_linked_list((uint32_t *)(0x8001481c/*SDRAM*/));
+  _DAT_8005b0fc/*SDRAM*/ = (uintptr_t)(&DAT_1061e05c);
+  _DAT_8005b0e8/*SDRAM*/ = (uintptr_t)(&DAT_1060e053);
+  _DAT_8005b0ec/*SDRAM*/ = (uintptr_t)(&DAT_1060e04c);
   _DAT_8005b0f0/*SDRAM*/ = 0x80014760/*SDRAM*/;
   _DAT_8005b0f4/*SDRAM*/ = 0x80014798/*SDRAM*/;
   _DAT_8005b0f8/*SDRAM*/ = 0;
-  prepend_to_singly_linked_list((void *)0x8001482c/*SDRAM*/);
+  prepend_to_singly_linked_list((uint32_t *)(0x8001482c/*SDRAM*/));
   return;
 }

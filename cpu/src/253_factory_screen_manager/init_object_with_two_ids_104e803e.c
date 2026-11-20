@@ -16,11 +16,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_with_two_ids_104e803e(void *param_1)
+uint32_t init_object_with_two_ids_104e803e(cls_105c1610 *param_1)
 
 {
-  alloc_pool_and_init_task((int *)((int)param_1 + 0x10),0x10,0x1000,4);
-  wait_flg_obj((void *)((int)param_1 + 0x188),0);
-  *(uint16_t *)((int)param_1 + 0x17c) = 3;
+  alloc_pool_and_init_task((int *)&param_1->field_0x10,0x10,0x1000,4);
+  wait_flg_obj(&param_1->field_0x188,0);
+  param_1->field_0x17c = 3;
   return 1;
 }

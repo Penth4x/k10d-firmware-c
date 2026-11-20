@@ -27,7 +27,7 @@ uint16_t dispatch_class_constructor_by_id_104a9a14(uint32_t param_1,int param_2)
   
   puVar3 = (uint32_t *)auStack_14;
   if (param_2 == 0x220) {
-    iVar2 = return_constant_0x33((int)&uStack_9);
+    iVar2 = return_constant_0x33((uint32_t)(&uStack_9));
     uVar1 = 0x220;
     iVar2 = iVar2 + 2;
   }

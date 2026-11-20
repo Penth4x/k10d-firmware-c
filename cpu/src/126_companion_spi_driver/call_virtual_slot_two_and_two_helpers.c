@@ -15,13 +15,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_virtual_slot_two_and_two_helpers(int param_1)
+uint32_t call_virtual_slot_two_and_two_helpers(cls_105a0a84 *param_1)
 
 {
   uint32_t uVar1;
   
-  uVar1 = dispatch_single_subobj(param_1 + 8);
-  serdev_clear_ready(param_1);
-  clear_high_bit_at_offset_0x1c(param_1);
+  uVar1 = dispatch_single_subobj((cls_1059e408 *)&param_1->field_0x8);
+  serdev_clear_ready((uint32_t)param_1);
+  clear_high_bit_at_offset_0x1c((uint32_t)param_1);
   return uVar1;
 }

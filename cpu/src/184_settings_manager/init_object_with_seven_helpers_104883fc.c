@@ -17,13 +17,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-int init_object_with_seven_helpers_104883fc(void *param_1)
+int init_object_with_seven_helpers_104883fc(cls_105b3370 *param_1)
 
 {
   set_two_fields_to_four((int)param_1);
   set_byte_at_offset_0x52(param_1,0);
   store_four_status_bytes(param_1);
-  *(uint8_t *)((int)param_1 + 0x53) = 0;
+  param_1->field_0x53 = 0;
   enable_display_output(param_1);
   clear_flag_at_offset_0x4c_104888d2(param_1);
   clear_byte_at_offset_0x4d_104888fe(param_1);

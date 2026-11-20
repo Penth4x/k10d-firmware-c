@@ -6,10 +6,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void store_two_words_to_buffer(uint32_t *param_1,uint32_t param_2,uint32_t param_3)
+void store_two_words_to_buffer(cls_1061e4c0 *param_1,void *param_2,uint32_t param_3)
 
 {
-  *param_1 = param_2;
-  param_1[1] = param_3;
+  param_1->field_0x0 = (uintptr_t)(param_2);
+  param_1->field_0x4 = param_3;
   return;
 }

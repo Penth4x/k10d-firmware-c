@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t resolve_setting_option_id(int param_1,int param_2)
+uint32_t resolve_setting_option_id(cls_10595788 *param_1,int param_2)
 
 {
   char cVar1;
@@ -27,7 +27,7 @@ uint32_t resolve_setting_option_id(int param_1,int param_2)
   
   uVar2 = 0;
   if (param_2 == 0x1030029) {
-    cVar1 = *(char *)(param_1 + 0x21);
+    cVar1 = param_1->field_0x21;
     if (cVar1 == 'c') {
       uVar2 = 0x1030010;
     }
@@ -49,7 +49,7 @@ uint32_t resolve_setting_option_id(int param_1,int param_2)
     auStack_28[1] = 0x1030017;
     auStack_28[2] = 0x1030018;
     auStack_28[3] = 0x1030019;
-    uVar4 = setting_get(*(int *)(param_1 + 8),0x73);
+    uVar4 = setting_get(param_1->field_0x8,0x73);
     iVar3 = 0xff;
     if (bRam10595770 == uVar4) {
       iVar3 = 0;
@@ -70,7 +70,7 @@ uint32_t resolve_setting_option_id(int param_1,int param_2)
     auStack_28[5] = 0x1030024;
     auStack_28[6] = 0x1030025;
     auStack_28[7] = 0x1030026;
-    uVar4 = setting_get(*(int *)(param_1 + 8),0x7f);
+    uVar4 = setting_get(param_1->field_0x8,0x7f);
     iVar3 = 0xff;
     if (bRam10595774 == uVar4) {
       iVar3 = 0;

@@ -6,13 +6,13 @@
  *   status flags.
  * summary:
  *   The function initiates a transfer sequence by checking state via
- *   scan_record_array_for_marker and FUN_1053dc22. If ready, it enters a loop calling
- *   allocate_lens_fw_buffer_1053d612 and write_via_virtual_interface to move data, handling
- *   specific error codes (-6, -0x1c) and retries via merge_lens_fw_block_entry. It compares
- *   a value at offset 0x28 before and after the loop; if changed, it byte-swaps the value
- *   and sends a command via write_two_buffer_blocks. Finally, it calls
- *   lens_fw_update_step_1053db22 and potentially free_pending_update_nodes to complete the
- *   process.
+ *   scan_record_array_for_marker and dispatch_by_mode_field_1053dc22. If ready, it enters a
+ *   loop calling allocate_lens_fw_buffer_1053d612 and write_via_virtual_interface to move
+ *   data, handling specific error codes (-6, -0x1c) and retries via
+ *   merge_lens_fw_block_entry. It compares a value at offset 0x28 before and after the
+ *   loop; if changed, it byte-swaps the value and sends a command via
+ *   write_two_buffer_blocks. Finally, it calls lens_fw_update_step_1053db22 and potentially
+ *   free_pending_update_nodes to complete the process.
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"

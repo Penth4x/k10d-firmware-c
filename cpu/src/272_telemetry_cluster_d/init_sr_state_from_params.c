@@ -24,18 +24,18 @@ void init_sr_state_from_params(int param_1)
   uint32_t uVar1;
   int iVar4;
   uintptr_t sp;
-  uint32_t uStack_c;
+  cls_1059e05c cStack_c;
   
-  cls_1059e05c_new(&uStack_c);
+  cls_1059e05c_new(&cStack_c);
   iVar4 = param_1 + 0x2ac;
   bVar2 = settings_getter(iVar4,0x53);
   bVar3 = settings_getter(iVar4,0x52);
-  uVar1 = lookup_table_entry(&uStack_c,(uint)bVar2,(uint)bVar3);
+  uVar1 = lookup_table_entry(&cStack_c,(uint)bVar2,(uint)bVar3);
   *(uint32_t *)(param_1 + 300) = uVar1;
   bVar2 = settings_getter(iVar4,0x53);
   bVar3 = settings_getter(iVar4,0x52);
-  iVar4 = lookup_table_value_minus_offset(&uStack_c,(uint)bVar2,(uint)bVar3);
+  iVar4 = lookup_table_value_minus_offset(&cStack_c,(uint)bVar2,(uint)bVar3);
   *(int *)(param_1 + 0x130) = iVar4;
-  virtual_destructor_free_104266ce(&uStack_c,2);
+  virtual_destructor_free_104266ce(&cStack_c,2);
   return;
 }

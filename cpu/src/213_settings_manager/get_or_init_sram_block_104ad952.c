@@ -20,7 +20,7 @@ uint32_t get_or_init_sram_block_104ad952(void)
   if (iRam800491c8 == 0) {
     iRam800491c8 = 1;
     alloc_one_byte_if_null_104ada3c(0x800491c4/*SDRAM*/);
-    prepend_to_singly_linked_list((void *)0x80010674/*SDRAM*/);
+    prepend_to_singly_linked_list((void*)0x80010674/*SDRAM*/);
   }
   return 0x800491c4/*SDRAM*/;
 }

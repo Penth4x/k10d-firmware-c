@@ -16,7 +16,7 @@ void cls_105aae0c_delete(uint32_t *param_1,uint param_2)
 {
   if (param_1 != (uint32_t *)0x0) {
     *param_1 = 0x105aae0c/*ROM*/;
-    cls_105a5c2c_delete(param_1 + 1,2);
+    cls_105a5c2c_delete((void *)(param_1 + 1),2);
     reset_vtable_and_free_if_flagged_10428264(param_1,0);
     if ((param_2 & 1) != 0) {
       heap_free((int)param_1);

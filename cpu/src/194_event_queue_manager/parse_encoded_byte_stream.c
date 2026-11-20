@@ -83,7 +83,7 @@ void parse_encoded_byte_stream(uint32_t param_1,byte *param_2,short param_3,shor
           puVar9[0x1f] = param_11;
           puVar9[0x23] = param_12;
           puVar9[0x27] = param_13;
-          func_0x1049099e(param_1,iVar6,0x18,0x30);
+          expand_2bit_pixel_data((void *)(param_1),(void *)(iVar6),(int)(0x18),(int)(0x30));
           param_2 = param_2 + 1;
           sVar7 = sVar7 + 0x18;
         }
@@ -111,7 +111,7 @@ code_r0x10490954:
             puVar9[0x1f] = param_11;
             puVar9[0x23] = param_12;
             puVar9[0x27] = param_13;
-            func_0x1049099e(param_1,(uint)uVar1 * 0x240 + iStack_10,0x30,0x30);
+            expand_2bit_pixel_data((void *)(param_1),(void *)((uint)uVar1 * 0x240 + iStack_10),(int)(0x30),(int)(0x30));
             sVar7 = sVar7 + 0x30;
             goto code_r0x10490954;
           }

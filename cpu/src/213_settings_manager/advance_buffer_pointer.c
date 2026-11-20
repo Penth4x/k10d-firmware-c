@@ -31,11 +31,10 @@ int advance_buffer_pointer(int *param_1,uint32_t *param_2,uint32_t param_3)
   if (iVar2 != 0) {
     uVar1 = param_1[3];
     if ((uVar1 & 3) == 0) {
-      iVar3 = copy_bytes_with_alignment((int *)((uVar1 >> (_DAT_800491c0/*SDRAM*/ & 0x1f)) * 4 + iVar2),param_2,param_3,
-                           param_1[1] - uVar1);
+      iVar3 = copy_bytes_with_alignment((uint32_t *)((uVar1 >> (_DAT_800491c0/*SDRAM*/ & 0x1f)) * 4 + iVar2),(uint32_t *)(param_2),(uint)(param_3), (uint)(param_1[1] - uVar1));
     }
     else {
-      iVar3 = copy_bytes_aligned((uint8_t *)(iVar2 + uVar1),(uint8_t *)__frv_reg_unset(5),__frv_reg_unset(6),__frv_reg_unset(7));
+      iVar3 = copy_bytes_aligned((uint8_t *)(iVar2 + uVar1),(uint8_t *)__frv_reg_unset(5),(uint)(__frv_reg_unset(6)),(uint)(__frv_reg_unset(7)));
     }
     param_1[3] = param_1[3] + iVar3;
   }

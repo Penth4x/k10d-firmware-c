@@ -6,10 +6,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t set_two_word_flags_to_31(int param_1)
+uint32_t set_two_word_flags_to_31(cls_105c1344 *param_1)
 
 {
-  forward_three_args_to_helper_10459d64((void *)(param_1 + 0x2c),1,0x1f);
-  forward_three_args_to_helper_10459d64((void *)(param_1 + 0x34),1,0x1f);
+  forward_three_args_to_helper_10459d64(&param_1->field_0x2c,1,0x1f);
+  forward_three_args_to_helper_10459d64(&param_1->field_0x34,1,0x1f);
   return 1;
 }

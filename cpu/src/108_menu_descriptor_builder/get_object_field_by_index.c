@@ -22,7 +22,7 @@ uint32_t get_object_field_by_index(int param_1,int param_2,uint32_t *param_3,uin
   
   if (param_2 < 0x1e) {
     piVar1 = (int *)module_array_getter(*(void **)(param_1 + 8),param_2);
-    uVar2 = (**(code **)(*piVar1 + 100))((int)piVar1 + (int)*(short *)(*piVar1 + 0x60),param_4);
+    uVar2 = (((vtbl_entry*)(*piVar1))[12].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[12].adj,param_4);
     *param_3 = uVar2;
     uVar2 = 0;
   }

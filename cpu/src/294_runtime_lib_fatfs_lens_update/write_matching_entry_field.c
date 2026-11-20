@@ -34,7 +34,7 @@ int write_matching_entry_field(void *param_1,int param_2,uint param_3,uint param
   
   puVar4 = (uint32_t *)auStack_3c;
   pvVar1 = (void *)alloc_pool2_block((void *)0x2a0);
-  if (pvVar1 == (void *)0x0) {
+  if (pvVar1 == 0) {
     iVar2 = -0xc;
   }
   else {
@@ -46,7 +46,7 @@ int write_matching_entry_field(void *param_1,int param_2,uint param_3,uint param
     uStack_2c = (int)(param_4 >> 0x10) >> 8 | (param_4 >> 0x10) << 8;
     iStack_c = param_2;
     while( true ) {
-      *puVar4 = (uint32_t)(uintptr_t)pvVar1;
+      *puVar4 = (uintptr_t)(pvVar1);
       iVar2 = process_32_byte_record_stream_10539d34(param_1,iStack_c,uVar3,&iStack_38,(void *)*puVar4);
       if (iVar2 != 0) break;
       iVar2 = iStack_30 + -1;

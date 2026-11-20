@@ -18,7 +18,7 @@
 void release_transaction_context(int param_1)
 
 {
-  if (*(void **)(param_1 + 0x18) != (void *)0x0) {
+  if (*(void **)(param_1 + 0x18) != 0) {
     release_object_and_free_heap(*(void **)(param_1 + 0x18),3);
   }
   *(uint32_t *)(param_1 + 0x18) = 0;

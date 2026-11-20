@@ -26,7 +26,7 @@ void build_and_send_two_byte_payload_10470d38(int param_1,uint32_t param_2,uint3
   
   puVar2 = auStack_6c;
   pvVar1 = (void *)read_dat_50000000_upper_nibble();
-  format_string_to_buffer_10545140(auStack_58,(void *)&DAT_105a9788/*ROM*/,pvVar1,param_4);
+  format_string_to_buffer_10545140(auStack_58,&DAT_105a9788/*ROM*/,pvVar1,param_4);
   *(uint16_t *)(puVar2 + 2) = 7;
   *(uint16_t *)(puVar2 + 6) = 0xff;
   sr_dma_command(param_1,3,5,auStack_58,*(uint16_t *)(puVar2 + 2),*(uint16_t *)(puVar2 + 6));

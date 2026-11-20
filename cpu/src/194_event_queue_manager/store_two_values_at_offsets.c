@@ -13,14 +13,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t store_two_values_at_offsets(void *param_1)
+uint32_t store_two_values_at_offsets(cls_105b4254 *param_1)
 
 {
-  uint32_t uVar1;
+  int iVar1;
+  uint32_t *puVar2;
   
-  uVar1 = get_or_create_singleton_object_10492ade();
-  *(uint32_t *)((int)param_1 + 0x18) = uVar1;
-  uVar1 = get_or_init_singleton_10491684();
-  *(uint32_t *)((int)param_1 + 0x14) = uVar1;
+  iVar1 = get_or_create_singleton_object_10492ade();
+  param_1->field_0x18 = iVar1;
+  puVar2 = (uint32_t *)get_or_init_singleton_10491684();
+  param_1->field_0x14 = (uintptr_t)(puVar2);
   return 1;
 }

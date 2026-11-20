@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t get_setting_subblock_offset(int param_1,int param_2)
+uint32_t get_setting_subblock_offset(cls_10595d4c *param_1,int param_2)
 
 {
   uint32_t uVar1;
@@ -31,7 +31,7 @@ uint32_t get_setting_subblock_offset(int param_1,int param_2)
     auStack_1c[2] = 0x1af0014;
     auStack_1c[3] = 0x1af0018;
     auStack_1c[4] = 0x1af001c;
-    uVar3 = setting_get(*(int *)(param_1 + 8),199);
+    uVar3 = setting_get(param_1->field_0x8,199);
     iVar2 = 0xff;
     if (bRam10595d44 == uVar3) {
       iVar2 = 0;

@@ -17,36 +17,36 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_from_config(void *param_1)
+uint32_t init_object_from_config(cls_105d4190 *param_1)
 
 {
   void *pvVar1;
   uint32_t uVar2;
-  int iVar3;
+  cls_1059e430 *pcVar3;
   
-  forward_three_args_to_helper_10459d64((void *)((int)param_1 + 0x118),1,0x1f);
+  forward_three_args_to_helper_10459d64(&param_1->field_0x118,1,0x1f);
   pvVar1 = (void *)get_or_init_sram_buffer_104277bc();
   uVar2 = read_table_entry_field(pvVar1,0xbb);
-  *(uint32_t *)((int)param_1 + 0x108) = uVar2;
+  param_1->field_0x108 = uVar2;
   uVar2 = read_table_entry_field(pvVar1,0xbc);
-  *(uint32_t *)((int)param_1 + 0x10c) = uVar2;
+  param_1->field_0x10c = uVar2;
   uVar2 = read_table_entry_field(pvVar1,10);
-  *(uint32_t *)((int)param_1 + 0x110) = uVar2;
+  param_1->field_0x110 = uVar2;
   uVar2 = read_table_entry_field(pvVar1,0xb);
-  *(uint32_t *)((int)param_1 + 0x114) = uVar2;
+  param_1->field_0x114 = uVar2;
   uVar2 = irq_dispatch_prologue();
-  iVar3 = (int)param_1 + 4;
-  set_if_null_and_report(uVar2,0x12,iVar3);
-  set_if_null_and_report(uVar2,0x13,iVar3);
-  set_if_null_and_report(uVar2,0x14,iVar3);
-  set_if_null_and_report(uVar2,0x15,iVar3);
-  set_if_null_and_report(uVar2,0x16,iVar3);
-  set_if_null_and_report(uVar2,0x17,iVar3);
-  set_if_null_and_report(uVar2,0x18,iVar3);
-  set_if_null_and_report(uVar2,0x19,iVar3);
-  set_if_null_and_report(uVar2,0x1a,iVar3);
-  set_if_null_and_report(uVar2,0x1b,iVar3);
-  set_if_null_and_report(uVar2,0x1c,iVar3);
-  set_if_null_and_report(uVar2,0x1f,iVar3);
+  pcVar3 = &param_1->field_0x4;
+  set_if_null_and_report((uint32_t)(uVar2),(int)(0x12),(uint32_t)(pcVar3));
+  set_if_null_and_report((uint32_t)(uVar2),(int)(0x13),(uint32_t)(pcVar3));
+  set_if_null_and_report((uint32_t)(uVar2),(int)(0x14),(uint32_t)(pcVar3));
+  set_if_null_and_report((uint32_t)(uVar2),(int)(0x15),(uint32_t)(pcVar3));
+  set_if_null_and_report((uint32_t)(uVar2),(int)(0x16),(uint32_t)(pcVar3));
+  set_if_null_and_report((uint32_t)(uVar2),(int)(0x17),(uint32_t)(pcVar3));
+  set_if_null_and_report((uint32_t)(uVar2),(int)(0x18),(uint32_t)(pcVar3));
+  set_if_null_and_report((uint32_t)(uVar2),(int)(0x19),(uint32_t)(pcVar3));
+  set_if_null_and_report((uint32_t)(uVar2),(int)(0x1a),(uint32_t)(pcVar3));
+  set_if_null_and_report((uint32_t)(uVar2),(int)(0x1b),(uint32_t)(pcVar3));
+  set_if_null_and_report((uint32_t)(uVar2),(int)(0x1c),(uint32_t)(pcVar3));
+  set_if_null_and_report((uint32_t)(uVar2),(int)(0x1f),(uint32_t)(pcVar3));
   return 1;
 }

@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void clamp_and_copy_buffer_field(int *param_1)
+void clamp_and_copy_buffer_field(cls_105b7588 *param_1)
 
 {
   uint uVar1;
@@ -25,6 +25,6 @@ void clamp_and_copy_buffer_field(int *param_1)
   if (0x24 < uVar1) {
     uVar1 = 0x24;
   }
-  invoke_virtual_slot_two_104af0c8(param_1,(void *)param_1[8],uVar1);
+  invoke_virtual_slot_two_104af0c8(&param_1->field_0x0,(void *)param_1->field_0x20,uVar1);
   return;
 }

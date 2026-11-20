@@ -80,7 +80,7 @@ int process_two_buffer_transfer(char *param_1)
   if (iVar4 != 0) {
     return iVar4;
   }
-  iVar4 = dispatch_parsed_string_result(in_stack_00000010,&pvStack_10,&pcStack_24);
+  iVar4 = dispatch_parsed_string_result((char *)(in_stack_00000010),(uint32_t *)(&pvStack_10),(int *)(&pcStack_24));
   pvVar3 = pvStack_14;
   if (iVar4 != 0) {
     return iVar4;
@@ -130,7 +130,7 @@ int process_two_buffer_transfer(char *param_1)
     pvVar3 = pvStack_10;
     puVar2 = puStack_34;
     if (iVar4 != 0) goto LAB_10540d26;
-    *puVar5 = &uStack_c0;
+    *puVar5 = (uintptr_t)(&uStack_c0);
     iVar4 = resolve_file_path_and_read((int)pvVar3,pcStack_24,(int *)puVar2,(int *)&uStack_8c,(int *)*puVar5);
   }
   if (iVar4 == -0x191) {
@@ -195,7 +195,7 @@ LAB_10540b8c:
       bStack_6d = bStack_a1;
       uStack_78 = uStack_ac;
       uStack_76 = uStack_aa;
-      call_single_helper_1047f97e(&iStack_58);
+      call_single_helper_1047f97e((uint32_t)(&iStack_58));
       uStack_72 = (ushort)(iStack_58 / 2) | (ushort)(iStack_54 << 5) | (ushort)(iStack_50 << 0xb);
       uStack_74 = (sStack_46 + 1) * 0x20 | uStack_4a | (sStack_42 + -0x50) * 0x200;
       uStack_6e = uStack_a2;

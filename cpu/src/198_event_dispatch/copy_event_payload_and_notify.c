@@ -34,8 +34,8 @@ void copy_event_payload_and_notify(int *param_1,int *param_2)
   }
   iVar1 = *param_1;
 LAB_10493e80:
-  (**(code **)(*(int *)(iVar1 + 0x20) + 0x24))
-            (iVar1 + *(short *)(*(int *)(iVar1 + 0x20) + 0x20),param_1 + 4);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0x20)))[4].fn)
+            (iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 0x20)))[4].adj,param_1 + 4);
   *(uint8_t *)((int)param_1 + 9) = 1;
   return;
 }

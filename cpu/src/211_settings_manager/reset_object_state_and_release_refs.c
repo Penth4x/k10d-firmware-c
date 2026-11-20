@@ -18,18 +18,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t reset_object_state_and_release_refs(void *param_1)
+uint32_t reset_object_state_and_release_refs(cls_105b72e0 *param_1)
 
 {
-  *(uint32_t *)((int)param_1 + 0x24) = 0;
-  call_helper_with_param_and_field5((void *)(*(uint32_t *)((int)param_1 + 0x18)));
-  *(uint32_t *)**(uint32_t **)((int)param_1 + 0x18) = (*(uint32_t **)((int)param_1 + 0x18))[1]
-  ;
-  *(uint32_t *)**(uint32_t **)((int)param_1 + 0x1c) = (*(uint32_t **)((int)param_1 + 0x1c))[1]
-  ;
-  if (*(uint32_t **)((int)param_1 + 0x20) != (uint32_t *)0x0) {
-    init_struct_with_two_helpers(*(uint32_t **)((int)param_1 + 0x20));
+  param_1->field_0x24 = 0;
+  call_helper_with_param_and_field5((uint32_t *)(param_1->field_0x18));
+  **(uint32_t **)param_1->field_0x18 = ((uint32_t *)param_1->field_0x18)[1];
+  **(uint32_t **)param_1->field_0x1c = ((uint32_t *)param_1->field_0x1c)[1];
+  if ((uint32_t *)param_1->field_0x20 != (uint32_t *)0x0) {
+    init_struct_with_two_helpers((uint32_t *)param_1->field_0x20);
   }
-  *(uint32_t *)((int)param_1 + 0x34) = 0;
+  param_1->field_0x34 = 0;
   return 1;
 }

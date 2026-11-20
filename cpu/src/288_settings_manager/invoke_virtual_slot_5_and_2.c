@@ -14,19 +14,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_5_and_2(int *param_1)
+void invoke_virtual_slot_5_and_2(cls_105fa6fc *param_1)
 
 {
   int iVar1;
-  int in_stack_00000000;
+  uint32_t in_stack_00000000;
   
-  param_1[5] = 1;
-  param_1[1] = in_stack_00000000;
-  (*(code *)0x104ad2d4/*ROM*/)(param_1[4],param_1[3],6,0);
-  iVar1 = *(int *)param_1[1];
-  iVar1 = (**(code **)(iVar1 + 0x34))(param_1[1] + (int)*(short *)(iVar1 + 0x30),1,param_1[4]);
+  param_1->field_0x14 = 1;
+  param_1->field_0x4 = in_stack_00000000;
+  (*(code *)0x104ad2d4/*ROM*/)(param_1->field_0x10,param_1->field_0xc,6,0);
+  iVar1 = *(int *)param_1->field_0x4;
+  iVar1 = (((vtbl_entry*)(iVar1))[6].fn)
+                    ((int)param_1->field_0x4 + (int)((vtbl_entry*)(iVar1))[6].adj,1,param_1->field_0x10);
   if (iVar1 == 2) {
-    (**(code **)(*param_1 + 0x24))((int)*(short *)(*param_1 + 0x20) + (int)param_1,2);
+    (((vtbl_entry*)(param_1->field_0x0))[4].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[4].adj,2);
   }
   return;
 }

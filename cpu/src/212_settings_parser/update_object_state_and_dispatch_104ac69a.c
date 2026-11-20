@@ -33,7 +33,7 @@ void update_object_state_and_dispatch_104ac69a(int param_1,int param_2)
     uStack_c = *(int *)(param_2 + 0xc) - *(int *)(param_2 + 8);
     if ((uStack_c != 0) && (*(int *)(param_1 + 0x20) != 0)) {
       *(uint32_t *)(param_1 + 0x34) = 1;
-      advance_buffer_read_pointer_104ad348((void *)(*(uint32_t *)(param_1 + 0x24)),uStack_c);
+      advance_buffer_read_pointer_104ad348((int *)(*(uint32_t *)(param_1 + 0x24)),(uint)(uStack_c));
       merge_masked_word_fields(*(uint32_t **)(param_1 + 0x1c),0,(*(uint32_t **)(param_1 + 0x1c))[0xb]);
       merge_masked_word_fields(*(uint32_t **)(param_1 + 0x18),0,(*(uint32_t **)(param_1 + 0x18))[0x11]);
       (*(code *)0x104ab006/*ROM*/)
@@ -49,7 +49,7 @@ void update_object_state_and_dispatch_104ac69a(int param_1,int param_2)
       *(uint32_t *)(param_1 + 0x34) = 1;
       uStack_c = uVar1;
     }
-    read_bytes_from_buffer((void *)(*(uint32_t *)(param_1 + 0x24)),(void *)(*(uint32_t *)(param_1 + 0x10)),uStack_c);
+    read_bytes_from_buffer((int *)(*(uint32_t *)(param_1 + 0x24)),(uint32_t *)(*(uint32_t *)(param_1 + 0x10)),(uint)(uStack_c));
   }
   uVar1 = (*(uint32_t **)(param_1 + 0x1c))[6];
   merge_masked_word_fields(*(uint32_t **)(param_1 + 0x1c),uVar1,uVar1);

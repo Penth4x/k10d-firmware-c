@@ -61,23 +61,23 @@ LAB_1046a310:
   bVar2 = call_helper_and_store_result_1046a3ea((int)param_1,pcVar4,&iStack_c);
   if ((bVar2) &&
      (iVar6 = **(int **)((int)param_1 + 0x248),
-     iVar6 = (**(code **)(iVar6 + 0x2c))
-                       ((int)*(int **)((int)param_1 + 0x248) + (int)*(short *)(iVar6 + 0x28),pcVar4,
+     iVar6 = (((vtbl_entry*)(iVar6))[5].fn)
+                       ((int)*(int **)((int)param_1 + 0x248) + (int)((vtbl_entry*)(iVar6))[5].adj,pcVar4,
                         1,&uStack_10), iVar6 != 0)) {
-    zero_and_fill_sram_buffers(param_1);
+    zero_and_fill_sram_buffers((uint32_t)(param_1));
     sr_state_machine(*(int *)((int)param_1 + 0x24c),_DAT_800042c8/*SDRAM*/,_DAT_800042c4/*SDRAM*/);
     display_output_enable(*(uint32_t *)((int)param_1 + 0x24c));
     uVar3 = _DAT_800042d0/*SDRAM*/ + 1;
     *(uint16_t *)(puVar7 + 2) = 7;
-    forward_params_to_helper_1046a5be(param_1,0,(uint)uVar3,&DAT_105a8524/*ROM*/,*(uint16_t *)(puVar7 + 2));
+    forward_params_to_helper_1046a5be(param_1,0,(uint)uVar3,(void*)(&DAT_105a8524/*ROM*/),*(uint16_t *)(puVar7 + 2));
     iVar6 = **(int **)((int)param_1 + 0x248);
-    iVar1 = (**(code **)(iVar6 + 0x3c))
-                      ((int)*(int **)((int)param_1 + 0x248) + (int)*(short *)(iVar6 + 0x38),
+    iVar1 = (((vtbl_entry*)(iVar6))[7].fn)
+                      ((int)*(int **)((int)param_1 + 0x248) + (int)((vtbl_entry*)(iVar6))[7].adj,
                        uStack_10,iVar1 * 2 + param_3,iStack_c);
     bStack_15 = iVar1 != 0;
     iVar1 = **(int **)((int)param_1 + 0x248);
-    (**(code **)(iVar1 + 0x34))
-              ((int)*(int **)((int)param_1 + 0x248) + (int)*(short *)(iVar1 + 0x30),uStack_10);
+    (((vtbl_entry*)(iVar1))[6].fn)
+              ((int)*(int **)((int)param_1 + 0x248) + (int)((vtbl_entry*)(iVar1))[6].adj,uStack_10);
   }
   if (iVar5 != iStack_c) {
     bStack_15 = false;

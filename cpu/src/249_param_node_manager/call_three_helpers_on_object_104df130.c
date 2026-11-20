@@ -16,10 +16,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_three_helpers_on_object_104df130(int param_1)
+void call_three_helpers_on_object_104df130(cls_105bb2e4 *param_1)
 
 {
-  kernel_diag_taskstack((void *)(*(int *)(param_1 + 4) + 0x1c));
+  kernel_diag_taskstack((void *)(param_1->field_0x4 + 0x1c));
   get_or_init_sram_block_10391bfa();
   call_helper_with_offset_10391cbe();
   return;

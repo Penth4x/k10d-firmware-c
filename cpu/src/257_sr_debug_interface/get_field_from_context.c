@@ -22,6 +22,6 @@ uint32_t get_field_from_context(uint32_t param_1,void *param_2)
   uint32_t uVar2;
   
   iVar1 = initialize_singleton_object_1045d6a0();
-  uVar2 = compute_two_byte_result(*(uint32_t *)(iVar1 + 0x28),param_2);
+  uVar2 = compute_two_byte_result((int *)(*(uint32_t *)(iVar1 + 0x28)),(ushort *)(param_2));
   return uVar2;
 }

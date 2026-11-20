@@ -14,24 +14,24 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_virtual_slot_two_104cfa9e(int param_1,uint32_t param_2,uint32_t param_3,int param_4)
+uint32_t dispatch_virtual_slot_two_104cfa9e(cls_105b9aac *param_1,uint32_t param_2,uint32_t param_3,int param_4)
 
 {
   uint32_t uVar1;
   int iVar2;
   
-  iVar2 = **(int **)(param_1 + 8);
-  iVar2 = (**(code **)(iVar2 + 0x34))
-                    ((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar2 + 0x30),
-                     *(uint32_t *)(param_1 + 0xc),*(int *)(param_1 + 0x10) + param_4,0);
+  iVar2 = *(int *)param_1->field_0x8;
+  iVar2 = (((vtbl_entry*)(iVar2))[6].fn)
+                    ((int)param_1->field_0x8 + (int)((vtbl_entry*)(iVar2))[6].adj,param_1->field_0xc,
+                     param_1->field_0x10 + param_4,0);
   if (iVar2 == 0) {
     uVar1 = 0;
   }
   else {
-    iVar2 = **(int **)(param_1 + 8);
-    uVar1 = (**(code **)(iVar2 + 0x2c))
-                      ((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar2 + 0x28),
-                       *(uint32_t *)(param_1 + 0xc),param_2,param_3);
+    iVar2 = *(int *)param_1->field_0x8;
+    uVar1 = (((vtbl_entry*)(iVar2))[5].fn)
+                      ((int)param_1->field_0x8 + (int)((vtbl_entry*)(iVar2))[5].adj,param_1->field_0xc,
+                       param_2,param_3);
   }
   return uVar1;
 }

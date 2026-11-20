@@ -30,13 +30,13 @@ uint32_t dispatch_state_based_on_flag_10478e08(int param_1)
   }
   else {
     uVar3 = *(uint32_t *)(param_1 + 0x18);
-    iVar1 = build_exif_string_from_list(param_1,(void *)uVar3);
+    iVar1 = build_exif_string_from_list((int)(param_1),(char *)(uVar3));
     if (iVar1 == 0) {
       check_and_cleanup_on_success(param_1);
       uVar2 = 1;
     }
     else {
-      iVar1 = dispatch_virtual_method_sequence_10478f3a(param_1,(void *)uVar3);
+      iVar1 = dispatch_virtual_method_sequence_10478f3a((int)(param_1),(char *)(uVar3));
       if (iVar1 != 0) {
         uVar2 = write_data_to_stream_object(param_1);
       }

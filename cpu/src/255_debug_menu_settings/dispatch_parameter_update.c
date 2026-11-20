@@ -48,7 +48,7 @@ void dispatch_parameter_update(int param_1,ushort *param_2,int param_3,int param
   uVar2 = *(uint32_t *)(param_3 + 0x2c);
   uVar3 = *(uint32_t *)(param_3 + 0x34);
   *puVar5 = *(uint32_t *)(param_3 + 0x30);
-  puVar5[1] = (uint32_t)param_5;
+  puVar5[1] = (uintptr_t)(param_5);
   (*(code *)0x1052e43c/*ROM*/)(param_1 + 0x312c,uVar1,uVar2,uVar3);
   return;
 }

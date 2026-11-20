@@ -42,16 +42,16 @@ uint32_t update_object_list_entry(int param_1,void *param_2)
       *(uint32_t *)(&stack0xffffffe8 + iVar7) = *(uint32_t *)(iVar6 + (int)param_2);
       iVar7 = iVar6;
     } while (iVar6 != 0);
-    piVar4 = (int *)(**(code **)(iVar2 + 0x1c))((int)sVar1 + (int)piVar5,auStack_14);
+    piVar4 = (int *)(((vtbl_entry*)(iVar2))[3].fn)((int)sVar1 + (int)piVar5,auStack_14);
     if ((piVar4 != piVar5) && (*(char *)(param_1 + 0x2c4e) == '\0')) {
       *(uint32_t *)(param_1 + 0x2c48) = 0;
       set_byte_at_offset_0x1c(*(int *)(param_1 + 0x3c),0);
-      (**(code **)(*piVar5 + 0x34))((int)*(short *)(*piVar5 + 0x30) + (int)piVar5);
+      (((vtbl_entry*)(*piVar5))[6].fn)((int)((vtbl_entry*)(*piVar5))[6].adj + (int)piVar5);
       *(int **)(param_1 + 0x2c48) = piVar4;
-      piVar5 = (int *)(**(code **)(*piVar4 + 0x2c))((int)*(short *)(*piVar4 + 0x28) + (int)piVar4);
+      piVar5 = (int *)(((vtbl_entry*)(*piVar4))[5].fn)((int)((vtbl_entry*)(*piVar4))[5].adj + (int)piVar4);
       if (piVar5 != *(int **)(param_1 + 0x2c48)) {
         *(int **)(param_1 + 0x2c48) = piVar5;
-        (**(code **)(*piVar5 + 0x2c))((int)*(short *)(*piVar5 + 0x28) + (int)piVar5);
+        (((vtbl_entry*)(*piVar5))[5].fn)((int)((vtbl_entry*)(*piVar5))[5].adj + (int)piVar5);
       }
     }
     uVar3 = 1;

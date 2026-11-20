@@ -17,7 +17,7 @@
 void cls_105aaebc_delete(void *param_1,uint param_2)
 
 {
-  if ((param_1 != (void *)0x0) &&
+  if ((param_1 != 0) &&
      (*(void **)((int)param_1 + 0xc) = &DAT_105aaebc/*ROM*/, (param_2 & 1) != 0)) {
     heap_free((int)param_1);
   }

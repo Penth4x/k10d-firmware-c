@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_virtual_slot_three_10522630(int param_1)
+void dispatch_virtual_slot_three_10522630(cls_105d8bc8 *param_1)
 
 {
   code *pcVar1;
@@ -23,17 +23,17 @@ void dispatch_virtual_slot_three_10522630(int param_1)
   int iVar3;
   short *psVar4;
   
-  iVar2 = (uint)*(byte *)(param_1 + 0x30) * 8;
-  iVar3 = *(short *)(&DAT_105d8ba0/*ROM*/ + iVar2) + param_1;
-  pcVar1 = *(code **)(&DAT_105d8ba4/*ROM*/ + iVar2);
-  if (-1 < *(short *)(&DAT_105d8ba2/*ROM*/ + iVar2)) {
-    psVar4 = (short *)(*(int *)((short)pcVar1 + iVar3) + *(short *)(&DAT_105d8ba2/*ROM*/ + iVar2) * 8);
-    iVar3 = *psVar4 + iVar3;
+  iVar3 = (uint)(byte)param_1->field_0x30 * 8;
+  iVar2 = (int)&param_1->field_0x0 + (int)*(short *)(&DAT_105d8ba0/*ROM*/ + iVar3);
+  pcVar1 = *(code **)(&DAT_105d8ba4/*ROM*/ + iVar3);
+  if (-1 < *(short *)(&DAT_105d8ba2/*ROM*/ + iVar3)) {
+    psVar4 = (short *)(*(int *)((short)pcVar1 + iVar2) + *(short *)(&DAT_105d8ba2/*ROM*/ + iVar3) * 8);
+    iVar2 = *psVar4 + iVar2;
     pcVar1 = *(code **)(psVar4 + 2);
   }
-  (*pcVar1)(iVar3);
-  *(uint8_t *)(param_1 + 0x30) = 0;
-  *(uint16_t *)(param_1 + 0x24) = 0;
-  *(uint32_t *)(param_1 + 0x28) = 0;
+  (*pcVar1)(iVar2);
+  param_1->field_0x30 = 0;
+  *(uint16_t *)&param_1->field_0x24 = 0;
+  param_1->field_0x28 = 0;
   return;
 }

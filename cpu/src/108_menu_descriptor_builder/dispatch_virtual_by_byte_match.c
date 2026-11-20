@@ -25,10 +25,10 @@ uint32_t dispatch_virtual_by_byte_match(int *param_1,uint32_t param_2,int param_
   uVar2 = 0x81;
   if (cVar1 != -1) {
     if (cVar1 == *(char *)((int)param_1 + 5)) {
-      uVar2 = (**(code **)(*param_1 + 0x24))((int)*(short *)(*param_1 + 0x20) + (int)param_1);
+      uVar2 = (((vtbl_entry*)(*param_1))[4].fn)((int)((vtbl_entry*)(*param_1))[4].adj + (int)param_1);
     }
     else if (cVar1 == *(char *)((int)param_1 + 6)) {
-      uVar2 = (**(code **)(*param_1 + 0x2c))((int)*(short *)(*param_1 + 0x28) + (int)param_1);
+      uVar2 = (((vtbl_entry*)(*param_1))[5].fn)((int)((vtbl_entry*)(*param_1))[5].adj + (int)param_1);
     }
     else {
       uVar2 = 0x81;

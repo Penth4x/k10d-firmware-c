@@ -16,23 +16,23 @@
 #include "globals.h"
 #include "funcs.h"
 
-void iterate_and_dispatch_object_list(int param_1)
+void iterate_and_dispatch_object_list(cls_105b44b4 *param_1)
 
 {
   int iVar1;
   int *piVar2;
   
-  piVar2 = *(int **)(param_1 + 0x48);
-  if (piVar2 != *(int **)(param_1 + 0x4c)) {
+  piVar2 = (int *)((uintptr_t)(param_1->field47_0x48));
+  if ((uint32_t)(piVar2) != param_1->field_0x4c) {
     do {
       iVar1 = read_byte_at_offset_8(*piVar2);
       if (iVar1 != 0) {
         iVar1 = *(int *)(*piVar2 + 0xc);
-        (**(code **)(iVar1 + 0x44))(*piVar2 + (int)*(short *)(iVar1 + 0x40));
+        (((vtbl_entry*)(iVar1))[8].fn)(*piVar2 + (int)((vtbl_entry*)(iVar1))[8].adj);
       }
       piVar2 = piVar2 + 1;
-    } while (piVar2 != *(int **)(param_1 + 0x4c));
+    } while ((uint32_t)(piVar2) != param_1->field_0x4c);
   }
-  invoke_virtual_destroy_on_range(param_1);
+  invoke_virtual_destroy_on_range((cls_105b48dc *)param_1);
   return;
 }

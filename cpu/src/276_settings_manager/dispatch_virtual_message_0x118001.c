@@ -14,13 +14,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_virtual_message_0x118001(int param_1,int param_2)
+uint32_t dispatch_virtual_message_0x118001(cls_105d6d48 *param_1,int param_2)
 
 {
   int *piVar1;
   
-  if ((param_2 == 0x118001) && (piVar1 = *(int **)(param_1 + 8), piVar1 != (int *)0x0)) {
-    (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1,0x118001);
+  if ((param_2 == 0x118001) && (piVar1 = (int *)param_1->field_0x8, piVar1 != (int *)0x0)) {
+    (((vtbl_entry*)(*piVar1))[3].fn)
+              ((void *)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1),0x118001);
   }
   return 1;
 }

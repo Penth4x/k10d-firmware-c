@@ -18,65 +18,67 @@
 #include "globals.h"
 #include "funcs.h"
 
-int dispatch_mode_change_event_10393c10(int *param_1,int *param_2)
+uint32_t dispatch_mode_change_event_10393c10(cls_10562a24 *param_1,int *param_2)
 
 {
   int iVar1;
-  int iVar2;
+  uint32_t uVar2;
+  int iVar3;
   uintptr_t sp;
   uint8_t auStack_c [4];
   
-  param_1[0x1b] = (int)param_1;
+  param_1->field_0x6c = (uint32_t)(param_1);
   iVar1 = *param_2;
   if (iVar1 == 3) {
     if (param_2[1] == 0xc) {
-      if (*(char *)(param_1 + 0x1c) != '\0') {
+      if (param_1->field_0x70 != '\0') {
         store_value_at_offset_0x6c(param_1);
       }
       goto LAB_10393c86;
     }
-    if ((param_2[1] != 0x11) || (*(char *)((int)param_1 + 0x71) == '\0')) goto LAB_10393c86;
-    iVar1 = get_or_init_sram_object_103973c4();
+    if ((param_2[1] != 0x11) || (param_1->field_0x71 == '\0')) goto LAB_10393c86;
+    uVar2 = get_or_init_sram_object_103973c4();
   }
   else if (iVar1 == 7) {
-    iVar1 = get_or_create_singleton_object_10396af8();
+    uVar2 = get_or_create_singleton_object_10396af8();
   }
   else {
     if (iVar1 != 8) goto LAB_10393c86;
-    iVar1 = (**(code **)(*param_1 + 0x6c))
-                      ((int)*(short *)(*param_1 + 0x68) + (int)param_1,auStack_c,0);
+    uVar2 = (((vtbl_entry*)(param_1->field_0x0))[13].fn)
+                      ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[13].adj,
+                       auStack_c,0);
   }
-  param_1[0x1b] = iVar1;
+  param_1->field_0x6c = uVar2;
 LAB_10393c86:
-  if ((*(char *)((int)param_1 + 0x72) == '\0') || (*(char *)(param_1 + 0x1f) == '\0')) {
-    iVar1 = param_1[0x1b];
+  if ((param_1->field_0x72 == '\0') || (*(char *)&param_1->field_0x7c == '\0')) {
+    uVar2 = param_1->field_0x6c;
   }
   else {
     iVar1 = check_and_process_event_103947cc(param_1);
     if (iVar1 == 0) {
-      iVar2 = param_1[0x1d];
+      iVar3 = param_1->field_0x74;
       iVar1 = get_or_create_singleton_object_103957d8(1);
-      if (iVar2 == iVar1) {
+      if (iVar3 == iVar1) {
         iVar1 = check_and_process_event_103947cc(param_1);
         if (iVar1 == 0) {
-          iVar1 = get_or_init_singleton_object_103938e2();
-          return iVar1;
+          uVar2 = get_or_init_singleton_object_103938e2();
+          return uVar2;
         }
       }
       else {
-        iVar2 = param_1[0x1d];
+        iVar3 = param_1->field_0x74;
         iVar1 = get_or_create_singleton_object_10391da4();
-        if ((iVar2 == iVar1) && (iVar1 = check_and_process_event_103947cc(param_1), iVar1 == 0)) {
+        if ((iVar3 == iVar1) && (iVar1 = check_and_process_event_103947cc(param_1), iVar1 == 0)) {
           iVar1 = get_or_init_sram_object_103973c4();
-          iVar1 = dispatch_on_mode_value(iVar1);
-          return iVar1;
+          uVar2 = dispatch_on_mode_value(iVar1);
+          return uVar2;
         }
       }
-      iVar1 = param_1[0x1e];
+      uVar2 = param_1->field_0x78;
     }
     else {
-      iVar1 = get_or_create_singleton_object_103957d8(0);
+      uVar2 = get_or_create_singleton_object_103957d8(0);
     }
   }
-  return iVar1;
+  return uVar2;
 }

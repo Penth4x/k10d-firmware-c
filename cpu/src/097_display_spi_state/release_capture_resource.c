@@ -15,7 +15,7 @@ void release_capture_resource(void *param_1)
   
   if (*(int *)((int)param_1 + 0xb8) != 0) {
     iVar3 = *(int *)(*(int *)((int)param_1 + 0x2c) + 4);
-    (**(code **)(iVar3 + 0x94))(*(int *)((int)param_1 + 0x2c) + (int)*(short *)(iVar3 + 0x90),0);
+    (((vtbl_entry*)(iVar3))[18].fn)(*(int *)((int)param_1 + 0x2c) + (int)((vtbl_entry*)(iVar3))[18].adj,0);
     *(uint32_t *)((int)param_1 + 0xb8) = 0;
     pvVar2 = *(void **)((int)param_1 + 0x44);
     uVar1 = read_bounded_array_element_1051d696(pvVar2,0);

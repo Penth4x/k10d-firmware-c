@@ -11,21 +11,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-int cls_105b2ed8_new(uint32_t *param_1)
+int cls_105b2ed8_new(cls_105b2ed8 *param_1)
 
 {
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x74), param_1 != (uint32_t *)0x0)) {
-    cls_105b2e98_new(param_1);
-    cls_105a2c1c_new(param_1 + 0x13);
-    param_1[0x12] = (uint32_t)&DAT_105b2ed8/*ROM*/;
-    param_1[0x17] = (uint32_t)&DAT_105b2f08/*ROM*/;
-    cls_105a2af8_new(param_1 + 0x18);
-    *(uint8_t *)(param_1 + 0x1a) = 0;
-    param_1[0x1b] = 0;
-    param_1[0x1c] = 0;
-    wait_flg_obj(param_1 + 0x18,0);
-    alloc_pool_and_init_task(param_1 + 0x13,0x10,0x1000,4);
+  if ((param_1 != (cls_105b2ed8 *)0x0) ||
+     (param_1 = (cls_105b2ed8 *)heap_alloc((void *)0x74), param_1 != (cls_105b2ed8 *)0x0)) {
+    cls_105b2e98_new((cls_105b2e98 *)param_1);
+    cls_105a2c1c_new((cls_105a2c1c *)&param_1->field_0x4c);
+    param_1->field_0x48 = (uintptr_t)(&DAT_105b2ed8/*ROM*/);
+    param_1->field_0x5c = (uintptr_t)(&DAT_105b2f08/*ROM*/);
+    cls_105a2af8_new(&param_1->field_0x60);
+    param_1->field_0x68 = 0;
+    param_1->field_0x6c = 0;
+    param_1->field_0x70 = 0;
+    wait_flg_obj(&param_1->field_0x60,0);
+    alloc_pool_and_init_task((int *)&param_1->field_0x4c,0x10,0x1000,4);
   }
   return (int)param_1;
 }

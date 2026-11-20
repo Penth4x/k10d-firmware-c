@@ -21,8 +21,8 @@ uint32_t init_singleton_object_103cc008(void)
 {
   if (_DAT_8001bf64/*SDRAM*/ == 0) {
     _DAT_8001bf64/*SDRAM*/ = 1;
-    cls_105959b0_new((uint32_t *)0x8001bf3c/*SDRAM*/);
-    prepend_to_singly_linked_list((void *)0x8000f678/*SDRAM*/);
+    cls_105959b0_new((cls_105959b0 *)0x8001bf3c/*SDRAM*/);
+    prepend_to_singly_linked_list((uint32_t *)(0x8000f678/*SDRAM*/));
   }
   return 0x8001bf3c/*SDRAM*/;
 }

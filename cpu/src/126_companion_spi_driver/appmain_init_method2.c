@@ -16,18 +16,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t appmain_init_method2(uint32_t param_1)
+uint32_t appmain_init_method2(cls_105a020c *param_1)
 
 {
   int *piVar1;
   int iVar2;
   
-  invoke_virtual_slot_3_on_eight_objects(param_1,0);
-  reset_sixteen_module_objects(param_1,0);
+  invoke_virtual_slot_3_on_eight_objects((uint32_t)(param_1),(uint32_t)(0));
+  reset_sixteen_module_objects((uint32_t)(param_1),(uint32_t)(0));
   piVar1 = (int *)display_mgr_getter();
-  (**(code **)(*piVar1 + 0x1c))((int)piVar1 + (int)*(short *)(*piVar1 + 0x18),0);
+  (((vtbl_entry*)(*piVar1))[3].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[3].adj,0);
   iVar2 = display_mgr_getter();
   firmware_update_handler(*(void **)(iVar2 + 4));
-  invoke_virtual_slot_two_on_two_objects_1043930a(param_1,0);
+  invoke_virtual_slot_two_on_two_objects_1043930a((uint32_t)(param_1),(uint32_t)(0));
   return 1;
 }

@@ -14,22 +14,22 @@
 #include "globals.h"
 #include "funcs.h"
 
-void iterate_vtable_check_range(int param_1)
+void iterate_vtable_check_range(cls_105b4dac *param_1)
 
 {
   int iVar1;
   int *piVar2;
   
   iVar1 = (*(code *)0x10493dba/*ROM*/)();
-  if ((iVar1 == 0) && (piVar2 = *(int **)(param_1 + 0x48), piVar2 != *(int **)(param_1 + 0x4c))) {
+  if ((iVar1 == 0) && (piVar2 = *(int **)&param_1->field_0x48, (uint32_t)(piVar2) != param_1->field_0x4c)) {
     do {
       iVar1 = *(int *)(*piVar2 + 0xc);
-      iVar1 = (**(code **)(iVar1 + 0xb4))(*piVar2 + (int)*(short *)(iVar1 + 0xb0));
+      iVar1 = (((vtbl_entry*)(iVar1))[22].fn)(*piVar2 + (int)((vtbl_entry*)(iVar1))[22].adj);
       if (iVar1 != 0) {
         return;
       }
       piVar2 = piVar2 + 1;
-    } while (piVar2 != *(int **)(param_1 + 0x4c));
+    } while ((uint32_t)(piVar2) != param_1->field_0x4c);
   }
   return;
 }

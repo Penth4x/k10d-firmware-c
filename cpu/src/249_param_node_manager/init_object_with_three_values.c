@@ -18,36 +18,36 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_with_three_values(int param_1,uint32_t param_2)
+uint32_t init_object_with_three_values(cls_105bb2e4 *param_1,uint32_t param_2)
 
 {
   uint32_t uVar1;
   uint32_t *puVar2;
   int *piVar3;
   uint32_t uVar4;
-  int iVar5;
+  void *puVar5;
   
   uVar1 = get_or_create_singleton_object_104b43d6();
   puVar2 = (uint32_t *)get_or_init_sram_block_10391bfa();
   initialize_class_instance(puVar2,param_2);
   piVar3 = (int *)read_first_word_10391cba(puVar2);
-  *(int **)(param_1 + 4) = piVar3;
-  (**(code **)(*piVar3 + 0x14))((int)piVar3 + (int)*(short *)(*piVar3 + 0x10),0);
-  iVar5 = *(int *)(param_1 + 4);
+  param_1->field_0x4 = (uintptr_t)((void *)piVar3);
+  (((vtbl_entry*)(*piVar3))[2].fn)((void *)((int)piVar3 + (int)((vtbl_entry*)(*piVar3))[2].adj),0);
+  puVar5 = (void *)((uintptr_t)(param_1->field_0x4));
   uVar4 = call_two_helpers_and_return_104b45ba();
-  *(uint32_t *)(iVar5 + 0x74) = uVar4;
-  iVar5 = *(int *)(param_1 + 4);
+  *(uint32_t *)((char*)puVar5 + 0x74) = uVar4;
+  puVar5 = (void *)((uintptr_t)(param_1->field_0x4));
   uVar4 = call_two_helpers_and_return_104b45d0();
-  *(uint32_t *)(iVar5 + 0x78) = uVar4;
-  iVar5 = *(int *)(param_1 + 4);
+  *(uint32_t *)((char*)puVar5 + 0x78) = uVar4;
+  puVar5 = (void *)((uintptr_t)(param_1->field_0x4));
   uVar4 = call_two_helpers_and_return_104b45e6();
-  *(uint32_t *)(iVar5 + 0x7c) = uVar4;
-  if (*(int *)(param_1 + 4) == 0) {
-    iVar5 = 0;
+  *(uint32_t *)((char*)puVar5 + 0x7c) = uVar4;
+  if (param_1->field_0x4 == 0) {
+    puVar5 = (void *)0x0;
   }
   else {
-    iVar5 = *(int *)(param_1 + 4) + 0x40;
+    puVar5 = (void *)((uintptr_t)(param_1->field_0x4 + 0x40));
   }
-  dispatch_two_param_to_two_objects(uVar1,iVar5);
+  dispatch_two_param_to_two_objects((uint32_t)(uVar1),(uint32_t)(puVar5));
   return 1;
 }

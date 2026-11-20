@@ -6,9 +6,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invert_byte_at_offset_0x127(void *param_1)
+void invert_byte_at_offset_0x127(cls_105a0828 *param_1)
 
 {
-  **(byte **)((int)param_1 + 0x118) = *(byte *)((int)param_1 + 0x127) ^ 0xff;
+  *(byte *)param_1->field_0x118 = param_1->field_0x127 ^ 0xff;
   return;
 }

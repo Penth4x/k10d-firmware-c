@@ -17,32 +17,32 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_event_to_object_103a4926(int *param_1,int param_2,uint32_t param_3)
+void dispatch_event_to_object_103a4926(cls_10564c80 *param_1,int param_2,uint32_t param_3)
 
 {
-  char cVar1;
-  bool bVar2;
-  uint32_t uVar3;
-  int iVar4;
+  uint32_t uVar1;
+  int iVar2;
+  void *puVar3;
+  bool bVar4;
   
-  dispatch_event_0x29_via_vtable(param_1,param_2,param_3);
-  uVar3 = 0;
-  if (*(char *)((int)param_1 + 0x65) != '\0') {
+  dispatch_event_0x29_via_vtable((cls_105643d0 *)param_1,param_2,param_3);
+  uVar1 = 0;
+  if (param_1->field_0x65 != '\0') {
     if (param_2 == 0x11) {
-      uVar3 = 0x1120009;
-      bVar2 = false;
+      uVar1 = 0x1120009;
+      bVar4 = false;
     }
     else {
       if (param_2 == 0xc) {
-        uVar3 = 0x1120009;
-        iVar4 = *param_1;
+        uVar1 = 0x1120009;
+        puVar3 = (void *)param_1->field_0x0;
         goto LAB_103a4a2a;
       }
-      bVar2 = true;
+      bVar4 = true;
     }
     goto LAB_103a4a26;
   }
-  if (*(char *)(param_1 + 0x19) == '\0') {
+  if (param_1->field_0x64 == '\0') {
     switch(param_2) {
     default:
       goto LAB_103a4a24;
@@ -51,51 +51,53 @@ void dispatch_event_to_object_103a4926(int *param_1,int param_2,uint32_t param_3
     case 0x19:
     case 0x1a:
     case 0x2c:
-      uVar3 = 0x1120004;
-      bVar2 = false;
+      uVar1 = 0x1120004;
+      bVar4 = false;
       break;
     case 0xc:
-      uVar3 = 0x1120009;
-      bVar2 = false;
+      uVar1 = 0x1120009;
+      bVar4 = false;
       break;
     case 0xd:
     case 0xe:
     case 0xf:
     case 0x10:
-      if (*(char *)(param_1 + 0x14) != '\x01') goto LAB_103a4a24;
-      iVar4 = *(int *)param_1[0xb];
-      (**(code **)(iVar4 + 0x14))(param_1[0xb] + (int)*(short *)(iVar4 + 0x10),0x1120065,0);
+      if (*(char *)&param_1->field_0x50 != '\x01') goto LAB_103a4a24;
+      iVar2 = *(int *)&param_1->field_0x2c;
+      (((vtbl_entry*)(iVar2))[2].fn)
+                ((int)param_1->field_0x2c + (int)((vtbl_entry*)(iVar2))[2].adj,0x1120065,0);
       adjust_exposure_value_counter(param_1,param_2);
       draw_viewfinder_crosshair(param_1);
       register_menu_item_on_state_match(param_1);
-      bVar2 = true;
+      bVar4 = true;
       break;
     case 0x11:
       dispatch_event_with_timeout_103a5214(param_1);
-      bVar2 = true;
+      bVar4 = true;
       break;
     case 0x27:
     case 0x28:
-      iVar4 = *(int *)param_1[0xb];
-      (**(code **)(iVar4 + 0x14))(param_1[0xb] + (int)*(short *)(iVar4 + 0x10),0x1120065,0);
-      cVar1 = *(char *)(param_1 + 0x14);
-      *(bool *)(param_1 + 0x14) = cVar1 != '\x01';
-      set_setting_from_probe_result(param_1[10],cVar1 != '\x01');
+      iVar2 = *(int *)&param_1->field_0x2c;
+      (((vtbl_entry*)(iVar2))[2].fn)
+                ((int)param_1->field_0x2c + (int)((vtbl_entry*)(iVar2))[2].adj,0x1120065,0);
+      bVar4 = *(char *)&param_1->field_0x50 != '\x01';
+      *(bool *)&param_1->field_0x50 = bVar4;
+      set_setting_from_probe_result(param_1->field_0x28,bVar4);
       register_seven_menu_items(param_1);
       register_menu_items_and_update_view(param_1);
-      bVar2 = true;
+      bVar4 = true;
     }
   }
   else {
 LAB_103a4a24:
-    bVar2 = true;
+    bVar4 = true;
   }
 LAB_103a4a26:
-  if (bVar2) {
+  if (bVar4) {
     return;
   }
-  iVar4 = *param_1;
+  puVar3 = (void *)param_1->field_0x0;
 LAB_103a4a2a:
-  (**(code **)(iVar4 + 0x74))((int)*(short *)(iVar4 + 0x70) + (int)param_1,uVar3,0);
+  (((vtbl_entry*)(puVar3))[14].fn)((int)&param_1->field_0x0 + (int)((vtbl_entry*)(puVar3))[14].adj,uVar1,0);
   return;
 }

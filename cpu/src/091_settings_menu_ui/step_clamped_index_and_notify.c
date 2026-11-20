@@ -26,8 +26,8 @@ void step_clamped_index_and_notify(void *param_1,int param_2,uint param_3)
   int iVar5;
   
   iVar5 = **(int **)((int)param_1 + 0x2c);
-  (**(code **)(iVar5 + 0x14))
-            ((int)*(int **)((int)param_1 + 0x2c) + (int)*(short *)(iVar5 + 0x10),0x1120065,0);
+  (((vtbl_entry*)(iVar5))[2].fn)
+            ((int)*(int **)((int)param_1 + 0x2c) + (int)((vtbl_entry*)(iVar5))[2].adj,0x1120065,0);
   iVar5 = (param_3 >> 1) + 1;
   if (*(char *)((int)param_1 + 0x59) == '\0') {
     iVar1 = find_byte_in_buffer_10408282((int)param_1,(uint)*(byte *)((int)param_1 + 0x5b));
@@ -79,12 +79,12 @@ void step_clamped_index_and_notify(void *param_1,int param_2,uint param_3)
                *(uint8_t *)((int)param_1 + 0x5a));
   iVar1 = (int)param_1 + 8;
   iVar5 = menu_item_register(iVar1);
-  (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
   iVar5 = menu_item_register(iVar1);
-  (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),0);
   if (*(byte *)((int)param_1 + 0x5b) == 0x58) {
     iVar5 = menu_item_register(iVar1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
   }
   else {
     pbVar3 = (byte *)select_and_copy_rodata_entry(*(uint32_t *)((int)param_1 + 0x28),
@@ -92,10 +92,10 @@ void step_clamped_index_and_notify(void *param_1,int param_2,uint param_3)
     pvVar4 = (void *)menu_item_register(iVar1);
     glyph_draw(pvVar4,pbVar3);
     iVar5 = menu_item_register(iVar1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(iVar5 + *(short *)(*(int *)(iVar5 + 0xc) + 8),1);
   }
   iVar5 = **(int **)((int)param_1 + 0x2c);
-  (**(code **)(iVar5 + 0x14))
-            ((int)*(int **)((int)param_1 + 0x2c) + (int)*(short *)(iVar5 + 0x10),0x1120075,0);
+  (((vtbl_entry*)(iVar5))[2].fn)
+            ((int)*(int **)((int)param_1 + 0x2c) + (int)((vtbl_entry*)(iVar5))[2].adj,0x1120075,0);
   return;
 }

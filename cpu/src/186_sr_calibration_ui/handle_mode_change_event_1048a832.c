@@ -14,17 +14,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * handle_mode_change_event_1048a832(uint32_t *param_1,int param_2)
+cls_105b3a84 * handle_mode_change_event_1048a832(cls_105b3a84 *param_1,int param_2)
 
 {
   if (param_2 == 2) {
-    if (*(char *)(param_1 + 0x1a) != '\0') {
-      param_1 = (uint32_t *)0x0;
+    if (param_1->field_0x68 != '\0') {
+      param_1 = (cls_105b3a84 *)0x0;
     }
   }
   else if (param_2 == 1) {
-    *(uint8_t *)((int)param_1 + 0x31) = 1;
-    (*(code *)0x10470040/*ROM*/)(*param_1);
+    param_1->field_0x31 = 1;
+    (*(code *)0x10470040/*ROM*/)(param_1->field_0x0);
   }
   return param_1;
 }

@@ -19,63 +19,64 @@
 /* WARNING: Instruction at (ram,0x103d2bc6) overlaps instruction at (ram,0x103d2bc4)
     */
 
-int dispatch_mode_change_event_103d2ad8(int param_1,int param_2)
+cls_105960c0 * dispatch_mode_change_event_103d2ad8(cls_105960c0 *param_1,int param_2)
 
 {
   int iVar1;
   int extraout_r4;
   int iVar2;
+  cls_105960c0 *pcVar3;
   
-  *(int *)(param_1 + 0x14) = param_2;
-  iVar2 = param_1;
+  param_1->field_0x14 = param_2;
+  pcVar3 = param_1;
   if (param_2 == 0x11) {
-    if (*(int *)(param_1 + 0x18) == 0x193000e) {
+    if (param_1->field_0x18 == 0x193000e) {
       iVar1 = get_or_init_singleton_104aa272();
       iVar1 = *(int *)(iVar1 + 8);
       send_command_and_wait_ack(iVar1);
       if (extraout_r4 != 0) {
         iVar2 = query_class_state_value_104aa82c(iVar1);
-        if ((iVar2 == 4) || (iVar2 = dispatch_class_state_two_or_three(iVar1), iVar2 == 4)) {
-          iVar2 = get_or_create_singleton_object_1050b118();
-          for (iVar2 = get_field_at_offset_0x28(iVar2); iVar2 != 0; iVar2 = get_field_at_offset_0x28(iVar2)) {
+        if ((iVar2 == 4) || (iVar1 = dispatch_class_state_two_or_three(iVar1), iVar1 == 4)) {
+          iVar1 = get_or_create_singleton_object_1050b118();
+          for (iVar1 = get_field_at_offset_0x28(iVar1); iVar1 != 0; iVar1 = get_field_at_offset_0x28(iVar1)) {
             check_kernel_call_success_10459fea();
-            iVar2 = get_or_create_singleton_object_1050b118();
+            iVar1 = get_or_create_singleton_object_1050b118();
           }
-          *(uint8_t *)(param_1 + 0x22) = 0xdc;
-          iVar2 = 0;
+          param_1->field_0x22 = 0xdc;
+          pcVar3 = (cls_105960c0 *)0x0;
         }
         else {
-          iVar2 = get_or_init_sram_object_10422da6();
+          pcVar3 = (cls_105960c0 *)get_or_init_sram_object_10422da6();
         }
       }
     }
-    else if (*(int *)(param_1 + 0x18) == 0x1930011) {
-      iVar2 = init_singleton_object_103cc008();
+    else if (param_1->field_0x18 == 0x1930011) {
+      pcVar3 = (cls_105960c0 *)init_singleton_object_103cc008();
     }
   }
-  if (*(int *)(param_1 + 0x14) == 0xc) {
-    iVar2 = init_singleton_object_103cc008();
+  if (param_1->field_0x14 == 0xc) {
+    pcVar3 = (cls_105960c0 *)init_singleton_object_103cc008();
   }
-  iVar1 = *(int *)(param_1 + 0x14);
+  iVar1 = param_1->field_0x14;
   if ((((iVar1 == 7) || (iVar1 == 0)) || (iVar1 == 1)) || (iVar1 == 3)) {
-    *(uint8_t *)(param_1 + 0x22) = 0x8c;
-    iVar2 = 0;
+    param_1->field_0x22 = 0x8c;
+    pcVar3 = (cls_105960c0 *)0x0;
   }
-  if ((*(int *)(param_1 + 0x14) == 0x19) || (*(int *)(param_1 + 0x14) == 9)) {
-    *(uint8_t *)(param_1 + 0x22) = 0x50;
-    iVar2 = 0;
+  if ((param_1->field_0x14 == 0x19) || (param_1->field_0x14 == 9)) {
+    param_1->field_0x22 = 0x50;
+    pcVar3 = (cls_105960c0 *)0x0;
   }
-  if (*(int *)(param_1 + 0x14) == 0x18) {
-    *(uint8_t *)(param_1 + 0x22) = 0xb4;
-    iVar2 = 0;
+  if (param_1->field_0x14 == 0x18) {
+    param_1->field_0x22 = 0xb4;
+    pcVar3 = (cls_105960c0 *)0x0;
   }
-  if (*(int *)(param_1 + 0x14) == 0x2c) {
-    *(uint8_t *)(param_1 + 0x22) = 0x8c;
-    iVar2 = 0;
+  if (param_1->field_0x14 == 0x2c) {
+    param_1->field_0x22 = 0x8c;
+    pcVar3 = (cls_105960c0 *)0x0;
   }
-  if (*(int *)(param_1 + 0x14) == 10) {
-    *(uint8_t *)(param_1 + 0x22) = 200;
-    iVar2 = 0;
+  if (param_1->field_0x14 == 10) {
+    param_1->field_0x22 = 200;
+    pcVar3 = (cls_105960c0 *)0x0;
   }
-  return iVar2;
+  return pcVar3;
 }

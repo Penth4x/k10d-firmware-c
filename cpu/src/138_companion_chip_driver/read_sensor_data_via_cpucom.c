@@ -57,12 +57,12 @@ int read_sensor_data_via_cpucom(int *param_1,void *param_2,int *param_3)
         }
         uStack_a = (uint8_t)(uVar9 >> 8);
         uStack_9 = (uint8_t)uVar9;
-        (**(code **)(*param_1 + 0x54))((int)*(short *)(*param_1 + 0x50) + (int)param_1,&uStack_e,6);
-        cpucom_msg_set_cmd((void *)param_1[6],DAT_105a72fc/*ROM*/);
+        (((vtbl_entry*)(*param_1))[10].fn)((int)((vtbl_entry*)(*param_1))[10].adj + (int)param_1,&uStack_e,6);
+        cpucom_msg_set_cmd((void*)(param_1[6]),DAT_105a72fc/*ROM*/);
         cpucom_resp_set_insize((void *)param_1[6],(uint)DAT_105a72fd/*ROM*/);
         pvVar6 = (void *)param_1[6];
-        pvVar3 = (void *)(**(code **)(*param_1 + 0x6c))
-                                   ((int)*(short *)(*param_1 + 0x68) + (int)param_1);
+        pvVar3 = (void *)(((vtbl_entry*)(*param_1))[13].fn)
+                                   ((int)((vtbl_entry*)(*param_1))[13].adj + (int)param_1);
         set_ptr_if_field_is_null(pvVar6,pvVar3);
         set_object_field_at_offset_0x14((void *)param_1[6],param_1 + 1);
         write_word_at_offset_16((void *)param_1[6],0x1050001);
@@ -76,16 +76,16 @@ int read_sensor_data_via_cpucom(int *param_1,void *param_2,int *param_3)
           iVar7 = iStack_38;
           if (2 < iVar10) {
             do {
-              uVar5 = (**(code **)(*param_1 + 0x3c))
-                                ((int)*(short *)(*param_1 + 0x38) + (int)param_1,
+              uVar5 = (((vtbl_entry*)(*param_1))[7].fn)
+                                ((int)((vtbl_entry*)(*param_1))[7].adj + (int)param_1,
                                  DAT_105a72fd/*ROM*/ + cVar8,0xff);
               *(uint8_t *)(iVar2 + iVar7) = uVar5;
-              uVar5 = (**(code **)(*param_1 + 0x3c))
-                                ((int)*(short *)(*param_1 + 0x38) + (int)param_1,
+              uVar5 = (((vtbl_entry*)(*param_1))[7].fn)
+                                ((int)((vtbl_entry*)(*param_1))[7].adj + (int)param_1,
                                  DAT_105a72fd/*ROM*/ + cVar8 + '\x01',0xff);
               *(uint8_t *)(iVar2 + iVar7 + 1) = uVar5;
-              uVar5 = (**(code **)(*param_1 + 0x3c))
-                                ((int)*(short *)(*param_1 + 0x38) + (int)param_1,
+              uVar5 = (((vtbl_entry*)(*param_1))[7].fn)
+                                ((int)((vtbl_entry*)(*param_1))[7].adj + (int)param_1,
                                  DAT_105a72fd/*ROM*/ + cVar8 + '\x02',0xff);
               cVar8 = cVar8 + '\x03';
               *(uint8_t *)(iVar2 + iVar7 + 2) = uVar5;
@@ -94,8 +94,8 @@ int read_sensor_data_via_cpucom(int *param_1,void *param_2,int *param_3)
             } while (-1 < iVar10);
           }
           for (iVar10 = iVar10 + 2; -1 < iVar10; iVar10 = iVar10 + -1) {
-            uVar5 = (**(code **)(*param_1 + 0x3c))
-                              ((int)*(short *)(*param_1 + 0x38) + (int)param_1,DAT_105a72fd/*ROM*/ + cVar8,
+            uVar5 = (((vtbl_entry*)(*param_1))[7].fn)
+                              ((int)((vtbl_entry*)(*param_1))[7].adj + (int)param_1,DAT_105a72fd/*ROM*/ + cVar8,
                                0xff);
             cVar8 = cVar8 + '\x01';
             *(uint8_t *)(iVar2 + iVar7) = uVar5;

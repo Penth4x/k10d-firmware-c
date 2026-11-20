@@ -13,17 +13,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_event_to_object_10492252(void *param_1,void *param_2)
+uint32_t dispatch_event_to_object_10492252(cls_105b4254 *param_1,void *param_2)
 
 {
   int iVar1;
   
-  iVar1 = *(int *)((int)param_1 + 0x10);
+  iVar1 = param_1->field_0x10;
   if (iVar1 != 0) {
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0x9c))
-              (*(short *)(*(int *)(iVar1 + 0xc) + 0x98) + iVar1,param_2);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[19].fn)
+              (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[19].adj + iVar1,param_2);
   }
-  iVar1 = *(int *)(*(int *)((int)param_1 + 0xc) + 8);
-  (**(code **)(iVar1 + 0x24))(*(int *)((int)param_1 + 0xc) + (int)*(short *)(iVar1 + 0x20),param_2);
+  iVar1 = *(int *)(param_1->field_0xc + 8);
+  (((vtbl_entry*)(iVar1))[4].fn)(param_1->field_0xc + (int)((vtbl_entry*)(iVar1))[4].adj,param_2);
   return 1;
 }

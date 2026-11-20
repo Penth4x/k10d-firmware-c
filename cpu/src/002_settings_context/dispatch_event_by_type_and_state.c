@@ -22,7 +22,7 @@
 
 /* WARNING: Type propagation algorithm not settling */
 
-int dispatch_event_by_type_and_state(int *param_1,int *param_2)
+uint32_t dispatch_event_by_type_and_state(cls_105575b0 *param_1,int *param_2)
 
 {
   int iVar1;
@@ -30,23 +30,24 @@ int dispatch_event_by_type_and_state(int *param_1,int *param_2)
   uint32_t uVar3;
   int iVar4;
   
-  param_1[6] = (int)param_1;
+  param_1->field_0x18 = (uint32_t)(param_1);
   check_and_update_object_state((void *)__frv_reg_unset(4));
   iVar1 = *param_2;
   if (((iVar1 == 1) || (iVar1 == 2)) || (iVar1 != 4)) goto LAB_10363492;
-  iVar1 = param_1[0x81];
+  iVar1 = param_1->field_0x204;
   if (iVar1 != 0) {
     if (iVar1 == 1) {
       if (param_2[1] == 0xc) {
-        init_object_and_call_virtual_slot_10364ba6(param_1);
+        init_object_and_call_virtual_slot_10364ba6((void*)(param_1));
         goto LAB_10363492;
       }
       if (param_2[1] != 0x11) goto LAB_10363492;
-      iVar4 = param_1[0x83];
-      iVar1 = *(int *)param_1[0x1c];
-      iVar1 = (**(code **)(iVar1 + 0x10c))(param_1[0x1c] + (int)*(short *)(iVar1 + 0x108));
-      *(bool *)(param_1 + 0x88) = iVar4 == iVar1;
-      iVar1 = process_event_and_update_state_103652c6(param_1);
+      iVar4 = param_1->field_0x20c;
+      iVar1 = *(int *)param_1->field_0x70;
+      iVar1 = (((vtbl_entry*)(iVar1))[33].fn)
+                        ((int)param_1->field_0x70 + (int)((vtbl_entry*)(iVar1))[33].adj);
+      param_1->field_0x220 = iVar4 == iVar1;
+      iVar1 = process_event_and_update_state_103652c6((int *)param_1);
       goto joined_r0x103633e6;
     }
     if (iVar1 == 2) {
@@ -57,7 +58,7 @@ int dispatch_event_by_type_and_state(int *param_1,int *param_2)
         goto LAB_10363492;
       }
       if (iVar1 != 0x11) goto LAB_10363492;
-      iVar1 = process_short_value_change(param_1);
+      iVar1 = process_short_value_change((void*)(param_1));
       goto joined_r0x103633e6;
     }
     if (iVar1 != 3) {
@@ -69,7 +70,7 @@ int dispatch_event_by_type_and_state(int *param_1,int *param_2)
       goto LAB_10363492;
     }
     if (param_2[1] != 0x11) goto LAB_10363492;
-    iVar1 = process_sensor_readout_cycle_10363d4c(param_1);
+    uVar2 = (uint32_t)(process_sensor_readout_cycle_10363d4c(param_1));
     goto LAB_10363490;
   }
   switch(param_2[1]) {
@@ -103,7 +104,7 @@ code_r0x1036347c:
   case 0x24:
     break;
   case 0xc:
-    *(uint8_t *)((int)param_1 + 0x15) = 1;
+    param_1->field_0x15 = 1;
     break;
   case 0xd:
     iVar1 = dispatch_event_by_type_103642ca(param_1,3);
@@ -118,15 +119,15 @@ code_r0x1036347c:
     iVar1 = dispatch_event_by_type_103642ca(param_1,0);
     goto joined_r0x103633e6;
   case 0x11:
-    iVar1 = process_short_value_change(param_1);
+    iVar1 = process_short_value_change((void*)(param_1));
 joined_r0x10363314:
     if (iVar1 != 0) break;
     goto LAB_1036342e;
   case 0x18:
-    set_flags_and_call_virtual_slot(param_1);
+    set_flags_and_call_virtual_slot((void*)(param_1));
     break;
   case 0x19:
-    if (*(short *)((int)param_1 + 0x21e) != 0) {
+    if (param_1->field_0x21e != 0) {
       set_state_and_init_subobject(param_1);
     }
     break;
@@ -141,9 +142,9 @@ LAB_1036342e:
       uVar2 = get_or_create_singleton_object_1036c796();
       uVar3 = 1;
 LAB_10363280:
-      iVar1 = read_array_element_bounded(uVar2,uVar3);
+      uVar2 = read_array_element_bounded(uVar2,uVar3);
 LAB_10363490:
-      param_1[6] = iVar1;
+      param_1->field_0x18 = uVar2;
     }
     break;
   case 0x27:
@@ -153,16 +154,16 @@ LAB_10363490:
   default:
   }
 LAB_10363492:
-  if (param_1[0x81] == 0) {
-    if (*(char *)((int)param_1 + 0x15) != '\0') {
+  if (param_1->field_0x204 == 0) {
+    if (param_1->field_0x15 != '\0') {
       uVar2 = get_or_create_singleton_object_1036c796();
-      iVar1 = read_array_element_bounded(uVar2,3);
-      param_1[6] = iVar1;
+      uVar2 = read_array_element_bounded(uVar2,3);
+      param_1->field_0x18 = uVar2;
     }
   }
   else {
-    *(uint8_t *)(param_1 + 5) = 0;
-    *(uint8_t *)((int)param_1 + 0x15) = 0;
+    param_1->field_0x14 = 0;
+    param_1->field_0x15 = 0;
   }
-  return param_1[6];
+  return param_1->field_0x18;
 }

@@ -122,7 +122,7 @@ void build_and_send_command_packet_10504730(int param_1,void *param_2,uint32_t p
   uStack_c = 0;
   uStack_60 = param_3;
   eventflag_clr_flg(puVar1,1);
-  build_and_send_structured_packet(*(uint32_t *)(param_1 + 0x24),0,(void *)(param_1 + 4),&uStack_74);
+  build_and_send_structured_packet((int)(*(uint32_t *)(param_1 + 0x24)),(int)(0),(void *)(param_1 + 4),(uint32_t *)(&uStack_74));
   eventflag_wai_flg(puVar1,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,1);
   configure_timer_channel_state(*(uint32_t *)(param_1 + 0x24),0);

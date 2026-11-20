@@ -22,7 +22,7 @@ void destroy_object_and_free_members(int param_1)
     if (iVar3 != 0) {
       iVar2 = *(int *)(*(int *)(param_1 + 8) + uVar1 * 4);
       iVar5 = *(int *)(iVar2 + 0x18);
-      (**(code **)(iVar5 + 0xc))(iVar2 + *(short *)(iVar5 + 8),3);
+      (((vtbl_entry*)(iVar5))[1].fn)(iVar2 + *(short *)(iVar5 + 8),3);
     }
     *(uint32_t *)(*(int *)(param_1 + 8) + uVar1 * 4) = 0;
     for (uVar1 = uVar4; uVar1 != 0; uVar1 = uVar1 - 1 & 0xff) {
@@ -37,12 +37,12 @@ void destroy_object_and_free_members(int param_1)
   *(uint32_t *)(param_1 + 8) = 0;
   iVar3 = *(int *)(param_1 + 0x10);
   if (iVar3 != 0) {
-    (**(code **)(*(int *)(iVar3 + 0x18) + 0xc))(*(short *)(*(int *)(iVar3 + 0x18) + 8) + iVar3,3);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0x18)))[1].fn)(*(short *)(*(int *)(iVar3 + 0x18) + 8) + iVar3,3);
   }
   *(uint32_t *)(param_1 + 0x10) = 0;
   iVar3 = *(int *)(param_1 + 0xc);
   if (iVar3 != 0) {
-    (**(code **)(*(int *)(iVar3 + 0x18) + 0xc))(*(short *)(*(int *)(iVar3 + 0x18) + 8) + iVar3,3);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0x18)))[1].fn)(*(short *)(*(int *)(iVar3 + 0x18) + 8) + iVar3,3);
   }
   *(uint32_t *)(param_1 + 0xc) = 0;
   heap_free_2(*(int *)(param_1 + 4));

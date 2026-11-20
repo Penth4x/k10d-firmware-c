@@ -23,8 +23,8 @@ uint32_t allocate_and_init_buffer_1041820a(int param_1,int param_2)
       uVar3 = 0;
     }
     else {
-      (**(code **)(*(int *)(param_2 + 0x8d4) + 0x3c))
-                (*(short *)(*(int *)(param_2 + 0x8d4) + 0x38) + param_2,iVar2);
+      (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[7].fn)
+                (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[7].adj + param_2,iVar2);
       uVar3 = 1;
     }
   }

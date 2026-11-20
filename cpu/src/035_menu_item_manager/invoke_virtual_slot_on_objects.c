@@ -13,54 +13,54 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_on_objects(int param_1)
+void invoke_virtual_slot_on_objects(cls_105592e8 *param_1)
 
 {
   int iVar1;
   int iVar2;
   
   iVar2 = 0;
-  if (0 < *(int *)(param_1 + 0x6c)) {
+  if (0 < (int)param_1->field_0x6c) {
     do {
-      iVar1 = menu_item_register(param_1);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-      *(uint8_t *)(param_1 + 0x44 + iVar2) = 0;
+      iVar1 = menu_item_register((int)param_1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+      (&param_1->field_0x44)[iVar2] = 0;
       iVar2 = iVar2 + 1;
-    } while (iVar2 < *(int *)(param_1 + 0x6c));
+    } while (iVar2 < (int)param_1->field_0x6c);
   }
   iVar2 = 0;
-  if (0 < *(int *)(param_1 + 0x6c)) {
+  if (0 < (int)param_1->field_0x6c) {
     do {
-      iVar1 = menu_item_register(param_1);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+      iVar1 = menu_item_register((int)param_1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
       iVar2 = iVar2 + 1;
-    } while (iVar2 < *(int *)(param_1 + 0x6c));
+    } while (iVar2 < (int)param_1->field_0x6c);
   }
   iVar2 = 0;
-  if (0 < *(int *)(param_1 + 0x6c)) {
+  if (0 < (int)param_1->field_0x6c) {
     do {
-      iVar1 = menu_item_register(param_1);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+      iVar1 = menu_item_register((int)param_1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
       iVar2 = iVar2 + 1;
-    } while (iVar2 < *(int *)(param_1 + 0x6c));
+    } while (iVar2 < (int)param_1->field_0x6c);
   }
-  iVar2 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
-  iVar2 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
-  iVar2 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
-  iVar2 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
-  iVar2 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
-  iVar2 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
-  iVar2 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
-  iVar2 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
-  iVar2 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  iVar2 = menu_item_register((int)param_1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  iVar2 = menu_item_register((int)param_1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  iVar2 = menu_item_register((int)param_1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  iVar2 = menu_item_register((int)param_1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  iVar2 = menu_item_register((int)param_1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  iVar2 = menu_item_register((int)param_1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  iVar2 = menu_item_register((int)param_1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  iVar2 = menu_item_register((int)param_1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  iVar2 = menu_item_register((int)param_1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
   return;
 }

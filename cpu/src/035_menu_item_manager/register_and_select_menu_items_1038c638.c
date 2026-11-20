@@ -50,61 +50,61 @@ void register_and_select_menu_items_1038c638(int param_1,uint32_t param_2,int pa
   void *pvVar29;
   
   iVar1 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(*(short *)(*(int *)(iVar1 + 0xc) + 8) + iVar1,0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar1 + 0xc) + 8) + iVar1,0);
   iVar2 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(*(short *)(*(int *)(iVar2 + 0xc) + 8) + iVar2,0);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar2 + 0xc) + 8) + iVar2,0);
   iVar3 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,0);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,0);
   iVar4 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,0);
+  (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,0);
   iVar5 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(*(short *)(*(int *)(iVar5 + 0xc) + 8) + iVar5,0);
+  (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar5 + 0xc) + 8) + iVar5,0);
   iVar6 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar6 + 0xc) + 0xc))(*(short *)(*(int *)(iVar6 + 0xc) + 8) + iVar6,0);
+  (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar6 + 0xc) + 8) + iVar6,0);
   iVar7 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar7 + 0xc) + 0xc))(*(short *)(*(int *)(iVar7 + 0xc) + 8) + iVar7,0);
+  (((vtbl_entry*)(*(int *)(iVar7 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar7 + 0xc) + 8) + iVar7,0);
   iVar8 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar8 + 0xc) + 0xc))(*(short *)(*(int *)(iVar8 + 0xc) + 8) + iVar8,0);
+  (((vtbl_entry*)(*(int *)(iVar8 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar8 + 0xc) + 8) + iVar8,0);
   iVar9 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar9 + 0xc) + 0xc))(*(short *)(*(int *)(iVar9 + 0xc) + 8) + iVar9,0);
+  (((vtbl_entry*)(*(int *)(iVar9 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar9 + 0xc) + 8) + iVar9,0);
   iVar10 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar10 + 0xc) + 0xc))(*(short *)(*(int *)(iVar10 + 0xc) + 8) + iVar10,0);
+  (((vtbl_entry*)(*(int *)(iVar10 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar10 + 0xc) + 8) + iVar10,0);
   iVar11 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar11 + 0xc) + 0xc))(*(short *)(*(int *)(iVar11 + 0xc) + 8) + iVar11,0);
+  (((vtbl_entry*)(*(int *)(iVar11 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar11 + 0xc) + 8) + iVar11,0);
   iVar12 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar12 + 0xc) + 0xc))(*(short *)(*(int *)(iVar12 + 0xc) + 8) + iVar12,0);
+  (((vtbl_entry*)(*(int *)(iVar12 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar12 + 0xc) + 8) + iVar12,0);
   iVar13 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar13 + 0xc) + 0xc))(*(short *)(*(int *)(iVar13 + 0xc) + 8) + iVar13,0);
+  (((vtbl_entry*)(*(int *)(iVar13 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar13 + 0xc) + 8) + iVar13,0);
   iVar14 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar14 + 0xc) + 0xc))(*(short *)(*(int *)(iVar14 + 0xc) + 8) + iVar14,0);
+  (((vtbl_entry*)(*(int *)(iVar14 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar14 + 0xc) + 8) + iVar14,0);
   iVar15 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar15 + 0xc) + 0xc))(*(short *)(*(int *)(iVar15 + 0xc) + 8) + iVar15,0);
+  (((vtbl_entry*)(*(int *)(iVar15 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar15 + 0xc) + 8) + iVar15,0);
   iVar16 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar16 + 0xc) + 0xc))(*(short *)(*(int *)(iVar16 + 0xc) + 8) + iVar16,0);
+  (((vtbl_entry*)(*(int *)(iVar16 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar16 + 0xc) + 8) + iVar16,0);
   iVar17 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar17 + 0xc) + 0xc))(*(short *)(*(int *)(iVar17 + 0xc) + 8) + iVar17,0);
+  (((vtbl_entry*)(*(int *)(iVar17 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar17 + 0xc) + 8) + iVar17,0);
   iVar18 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar18 + 0xc) + 0xc))(*(short *)(*(int *)(iVar18 + 0xc) + 8) + iVar18,0);
+  (((vtbl_entry*)(*(int *)(iVar18 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar18 + 0xc) + 8) + iVar18,0);
   iVar19 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar19 + 0xc) + 0xc))(*(short *)(*(int *)(iVar19 + 0xc) + 8) + iVar19,0);
+  (((vtbl_entry*)(*(int *)(iVar19 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar19 + 0xc) + 8) + iVar19,0);
   iVar20 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar20 + 0xc) + 0xc))(*(short *)(*(int *)(iVar20 + 0xc) + 8) + iVar20,0);
+  (((vtbl_entry*)(*(int *)(iVar20 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar20 + 0xc) + 8) + iVar20,0);
   iVar21 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar21 + 0xc) + 0xc))(*(short *)(*(int *)(iVar21 + 0xc) + 8) + iVar21,0);
+  (((vtbl_entry*)(*(int *)(iVar21 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar21 + 0xc) + 8) + iVar21,0);
   iVar22 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar22 + 0xc) + 0xc))(*(short *)(*(int *)(iVar22 + 0xc) + 8) + iVar22,0);
+  (((vtbl_entry*)(*(int *)(iVar22 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar22 + 0xc) + 8) + iVar22,0);
   iVar23 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar23 + 0xc) + 0xc))(*(short *)(*(int *)(iVar23 + 0xc) + 8) + iVar23,0);
+  (((vtbl_entry*)(*(int *)(iVar23 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar23 + 0xc) + 8) + iVar23,0);
   iVar24 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar24 + 0xc) + 0xc))(iVar24 + *(short *)(*(int *)(iVar24 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar24 + 0xc)))[1].fn)(iVar24 + *(short *)(*(int *)(iVar24 + 0xc) + 8),0);
   iVar25 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar25 + 0xc) + 0xc))(*(short *)(*(int *)(iVar25 + 0xc) + 8) + iVar25,0);
+  (((vtbl_entry*)(*(int *)(iVar25 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar25 + 0xc) + 8) + iVar25,0);
   iVar26 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar26 + 0xc) + 0xc))(*(short *)(*(int *)(iVar26 + 0xc) + 8) + iVar26,0);
+  (((vtbl_entry*)(*(int *)(iVar26 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar26 + 0xc) + 8) + iVar26,0);
   iVar27 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar27 + 0xc) + 0xc))(*(short *)(*(int *)(iVar27 + 0xc) + 8) + iVar27,0);
+  (((vtbl_entry*)(*(int *)(iVar27 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar27 + 0xc) + 8) + iVar27,0);
   iVar28 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar28 + 0xc) + 0xc))(*(short *)(*(int *)(iVar28 + 0xc) + 8) + iVar28,0);
+  (((vtbl_entry*)(*(int *)(iVar28 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar28 + 0xc) + 8) + iVar28,0);
   iVar24 = 0;
   switch(param_2) {
   case 0:
@@ -180,25 +180,25 @@ void register_and_select_menu_items_1038c638(int param_1,uint32_t param_2,int pa
     iVar24 = iVar23;
   }
   if (iVar24 != 0) {
-    (**(code **)(*(int *)(iVar24 + 0xc) + 0xc))(*(short *)(*(int *)(iVar24 + 0xc) + 8) + iVar24,1);
-    forward_two_args_to_helper_10493bf8((void *)iVar24,param_5);
+    (((vtbl_entry*)(*(int *)(iVar24 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar24 + 0xc) + 8) + iVar24,1);
+    forward_two_args_to_helper_10493bf8((int *)(iVar24),(uint8_t)(param_5));
   }
   if (param_3 == 1) {
-    (**(code **)(*(int *)(iVar25 + 0xc) + 0xc))(*(short *)(*(int *)(iVar25 + 0xc) + 8) + iVar25,1);
-    (**(code **)(*(int *)(iVar26 + 0xc) + 0xc))(*(short *)(*(int *)(iVar26 + 0xc) + 8) + iVar26,1);
+    (((vtbl_entry*)(*(int *)(iVar25 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar25 + 0xc) + 8) + iVar25,1);
+    (((vtbl_entry*)(*(int *)(iVar26 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar26 + 0xc) + 8) + iVar26,1);
   }
   else if (param_3 == 2) {
-    (**(code **)(*(int *)(iVar27 + 0xc) + 0xc))(*(short *)(*(int *)(iVar27 + 0xc) + 8) + iVar27,1);
-    (**(code **)(*(int *)(iVar28 + 0xc) + 0xc))(*(short *)(*(int *)(iVar28 + 0xc) + 8) + iVar28,1);
+    (((vtbl_entry*)(*(int *)(iVar27 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar27 + 0xc) + 8) + iVar27,1);
+    (((vtbl_entry*)(*(int *)(iVar28 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar28 + 0xc) + 8) + iVar28,1);
   }
   pvVar29 = (void *)menu_item_register(param_1);
   init_object_with_hash_and_flag(pvVar29,0);
   if (param_4 == 0) {
-    (**(code **)(*(int *)((int)pvVar29 + 0xc) + 0xc))
+    (((vtbl_entry*)(*(int *)((int)pvVar29 + 0xc)))[1].fn)
               ((int)*(short *)(*(int *)((int)pvVar29 + 0xc) + 8) + (int)pvVar29,0);
   }
   else {
-    (**(code **)(*(int *)((int)pvVar29 + 0xc) + 0xc))
+    (((vtbl_entry*)(*(int *)((int)pvVar29 + 0xc)))[1].fn)
               ((int)*(short *)(*(int *)((int)pvVar29 + 0xc) + 8) + (int)pvVar29,1);
   }
   return;

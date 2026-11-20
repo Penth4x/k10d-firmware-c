@@ -43,6 +43,6 @@ void read_two_shorts_from_param2_10372684(void *param_1,void *param_2)
     uStack_1a = (short)uVar1;
     free_heap_if_flagged_1045c402(auStack_18,2);
   }
-  copy_buffer_and_dispatch_event_10404858((int)param_1 + 0x20,(uint)bVar2,&uStack_28);
+  copy_buffer_and_dispatch_event_10404858((cls_10598538 *)((int)param_1 + 0x20),(uint)bVar2,&uStack_28);
   return;
 }

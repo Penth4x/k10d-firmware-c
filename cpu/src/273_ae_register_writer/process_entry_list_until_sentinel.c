@@ -23,7 +23,7 @@ void process_entry_list_until_sentinel(int param_1,void *param_2)
   int iVar2;
   int iVar3;
   
-  if (param_2 != (void *)0x0) {
+  if (param_2 != 0) {
     iVar3 = *(int *)((int)param_2 + 0x20);
     iVar2 = *(int *)((int)param_2 + 0x24);
     sVar1 = *(short *)(iVar3 + iVar2 * 2);

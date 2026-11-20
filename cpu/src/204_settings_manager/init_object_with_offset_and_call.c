@@ -14,17 +14,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool init_object_with_offset_and_call(int param_1)
+bool init_object_with_offset_and_call(cls_105b5834 *param_1)
 
 {
   int iVar1;
   int iVar2;
   
-  iVar1 = *(int *)(param_1 + 4);
+  iVar1 = param_1->field_0x4;
   if (iVar1 != 0) {
-    *(int *)(param_1 + 0x10) = iVar1 + 0xf4;
+    param_1->field_0x10 = iVar1 + 0xf4;
     iVar2 = compute_struct_array_offset(iVar1,1);
-    *(int *)(param_1 + 0x14) = iVar2;
+    param_1->field_0x14 = iVar2;
   }
   return iVar1 != 0;
 }

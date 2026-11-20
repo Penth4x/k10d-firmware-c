@@ -84,10 +84,10 @@ bool render_display_layer_content(void *param_1,int param_2,int param_3)
   bVar3 = call_helper_with_temp_object((int)param_1,(void *)(iVar6 + (int)param_1),&iStack_c);
   if ((bVar3) &&
      (iVar7 = **(int **)((int)param_1 + 0x248),
-     iVar6 = (**(code **)(iVar7 + 0x2c))
-                       ((int)*(int **)((int)param_1 + 0x248) + (int)*(short *)(iVar7 + 0x28),
+     iVar6 = (((vtbl_entry*)(iVar7))[5].fn)
+                       ((int)*(int **)((int)param_1 + 0x248) + (int)((vtbl_entry*)(iVar7))[5].adj,
                         (void *)(iVar6 + (int)param_1),1,&uStack_10), iVar6 != 0)) {
-    zero_and_fill_sram_buffers((int)param_1);
+    zero_and_fill_sram_buffers((uint32_t)(param_1));
     sr_state_machine(*(int *)((int)param_1 + 0x24c),_DAT_800042c8/*SDRAM*/,_DAT_800042c4/*SDRAM*/);
     display_output_enable(*(uint32_t *)((int)param_1 + 0x24c));
     uVar4 = _DAT_800042d0/*SDRAM*/ + 1;
@@ -95,26 +95,26 @@ bool render_display_layer_content(void *param_1,int param_2,int param_3)
     forward_params_to_helper_1046a5be(param_1,1,(uint)uVar4,pbStack_68,*(uint16_t *)(puVar8 + 2));
     uVar4 = _DAT_800042d0/*SDRAM*/ + 1;
     *(uint16_t *)(puVar8 + 2) = 3;
-    forward_params_to_helper_1046a5be(param_1,2,(uint)uVar4,(byte *)&DAT_105a84f4/*ROM*/,*(uint16_t *)(puVar8 + 2));
+    forward_params_to_helper_1046a5be(param_1,2,(uint)uVar4,(void*)(&DAT_105a84f4/*ROM*/),*(uint16_t *)(puVar8 + 2));
     iVar6 = **(int **)((int)param_1 + 0x248);
-    iVar6 = (**(code **)(iVar6 + 0x3c))
-                      ((int)*(int **)((int)param_1 + 0x248) + (int)*(short *)(iVar6 + 0x38),
+    iVar6 = (((vtbl_entry*)(iVar6))[7].fn)
+                      ((int)*(int **)((int)param_1 + 0x248) + (int)((vtbl_entry*)(iVar6))[7].adj,
                        uStack_10,iStack_60 * 2 + param_3,iStack_c);
     uVar4 = _DAT_800042d0/*SDRAM*/ + 1;
     if (iVar6 == 0) {
-      pbVar5 = (byte *)&DAT_105a8514/*ROM*/;
+      pbVar5 = (void*)(&DAT_105a8514/*ROM*/);
       uVar2 = 4;
     }
     else {
-      pbVar5 = (byte *)&DAT_105a8500/*ROM*/;
+      pbVar5 = (void*)(&DAT_105a8500/*ROM*/);
       uVar2 = 6;
     }
     bVar1 = iVar6 != 0;
     *(uint16_t *)(puVar8 + 2) = uVar2;
     forward_params_to_helper_1046a5be(param_1,2,(uint)uVar4,pbVar5,*(uint16_t *)(puVar8 + 2));
     iVar6 = **(int **)((int)param_1 + 0x248);
-    (**(code **)(iVar6 + 0x34))
-              ((int)*(int **)((int)param_1 + 0x248) + (int)*(short *)(iVar6 + 0x30),uStack_10);
+    (((vtbl_entry*)(iVar6))[6].fn)
+              ((int)*(int **)((int)param_1 + 0x248) + (int)((vtbl_entry*)(iVar6))[6].adj,uStack_10);
   }
   if (iStack_64 == iStack_c) {
     if (bVar1) {

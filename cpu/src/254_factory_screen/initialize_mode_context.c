@@ -376,9 +376,9 @@ LAB_104e9e46:
     write_two_words_to_struct_10513bca(pvVar7,9,0x13,0);
   }
   set_object_field_0x20((int)param_2,(void *)(param_1 + 0x3c));
-  (**(code **)(param_2[0x235] + 0x74))((int)*(short *)(param_2[0x235] + 0x70) + (int)param_2,4);
-  (**(code **)(param_2[0x235] + 0x54))
-            ((int)*(short *)(param_2[0x235] + 0x50) + (int)param_2,param_2[0x15]);
+  (((vtbl_entry*)(param_2[0x235]))[14].fn)((int)((vtbl_entry*)(param_2[0x235]))[14].adj + (int)param_2,4);
+  (((vtbl_entry*)(param_2[0x235]))[10].fn)
+            ((int)((vtbl_entry*)(param_2[0x235]))[10].adj + (int)param_2,param_2[0x15]);
   puVar6 = (uint32_t *)(param_1 + 0x188);
   *(int **)(param_1 + 0x180) = param_2;
   eventflag_clr_flg(puVar6,0x10);

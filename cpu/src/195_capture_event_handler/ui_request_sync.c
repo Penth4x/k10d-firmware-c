@@ -47,13 +47,13 @@ void ui_request_sync(int param_1,int param_2)
     iVar1 = 0;
   }
   else {
-    alloc_zeroed_ui_record((void *)iVar1);
+    alloc_zeroed_ui_record((uint32_t *)(iVar1));
   }
   store_value_at_offset_8_10491ee2(iVar1,uVar3);
   set_object_field_at_offset_4_10491ed6(iVar1,(void *)(param_1 + 8));
   call_kernel_with_short_id((uint32_t *)0x80048f28/*SDRAM*/);
   set_flag_at_offset_0x21(*(uint32_t *)(param_1 + 0x18));
-  eventflag_clr_flg((uint32_t *)0x80048f20/*SDRAM*/,param_2);
+  eventflag_clr_flg((uint32_t *)(0x80048f20/*SDRAM*/),(uint)(param_2));
   if ((param_2 == 2) || (param_2 == 0x10)) {
     uVar3 = 1;
   }
@@ -63,7 +63,7 @@ void ui_request_sync(int param_1,int param_2)
   read_ui_state_field(*(uint32_t *)(param_1 + 0x18),iVar1,uVar3);
   uStack_c = 0;
   eventflag_wai_flg((uint32_t *)0x80048f20/*SDRAM*/,param_2,&uStack_c,_DAT_105a2af0/*ROM*/);
-  eventflag_clr_flg((uint32_t *)0x80048f20/*SDRAM*/,param_2);
+  eventflag_clr_flg((uint32_t *)(0x80048f20/*SDRAM*/),(uint)(param_2));
   check_kernel_call_success_10459d88((uint32_t *)0x80048f28/*SDRAM*/);
   return;
 }

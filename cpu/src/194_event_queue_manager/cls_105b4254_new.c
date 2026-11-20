@@ -18,9 +18,9 @@ uint32_t * cls_105b4254_new(uint32_t *param_1)
   
   if ((param_1 != (uint32_t *)0x0) ||
      (param_1 = (uint32_t *)heap_alloc((void *)0x20), param_1 != (uint32_t *)0x0)) {
-    cls_105b51ec_new(param_1);
+    cls_105b51ec_new((void *)param_1);
     cls_1059e4e0_new(param_1 + 1);
-    cls_1059e458_new(param_1 + 2);
+    cls_1059e458_new((void *)(param_1 + 2));
     *param_1 = (uint32_t)&DAT_105b4254/*ROM*/;
     param_1[1] = (uint32_t)&DAT_105b42b4/*ROM*/;
     param_1[2] = (uint32_t)&DAT_105b42dc/*ROM*/;

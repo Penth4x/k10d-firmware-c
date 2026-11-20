@@ -11,20 +11,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-int cls_105a04cc_new(uint32_t *param_1,uint32_t *param_2)
+/* WARNING: Struct "cls_105a04cc": ignoring multiple overlapping fields */
+
+int cls_105a04cc_new(cls_105a04cc *param_1,uint32_t *param_2)
 
 {
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x28), param_1 != (uint32_t *)0x0)) {
-    cls_105a0648_new(param_1);
-    param_1[1] = 0x105a04cc/*ROM*/;
-    param_1[2] = 0x105a054c/*ROM*/;
-    param_1[4] = *param_2;
-    param_1[5] = param_2[1];
-    param_1[6] = param_2[2];
-    param_1[7] = param_2[3];
-    param_1[8] = param_2[5];
-    param_1[9] = param_2[4];
+  if ((param_1 != (cls_105a04cc *)0x0) || (param_1 = (cls_105a04cc *)heap_alloc((void *)0x28), param_1 != (cls_105a04cc *)0x0)) {
+    cls_105a0648_new((cls_105a0648 *)param_1);
+    param_1->field_0x4 = 0x105a04cc/*ROM*/;
+    ((uint32_t *)&(param_1->field_0x8))[0] = (uint32_t)((void *)0x105a054c/*ROM*/);
+    ((uint32_t *)&(param_1->field_0x8))[2] = (uint32_t)((void *)*param_2);
+    ((uint32_t *)&(param_1->field_0x8))[3] = (uint32_t)((void *)param_2[1]);
+    param_1->field_0x18 = param_2[2];
+    param_1->field_0x1c = param_2[3];
+    param_1->field_0x20 = param_2[5];
+    param_1->field_0x24 = param_2[4];
     store_value_if_valid(param_1,param_2[6]);
     init_object_field_via_helper((int)param_1,param_2[7]);
   }

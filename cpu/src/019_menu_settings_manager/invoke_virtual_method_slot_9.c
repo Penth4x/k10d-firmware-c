@@ -23,12 +23,12 @@ uint32_t invoke_virtual_method_slot_9(int *param_1)
   
   iVar2 = *param_1;
   if (*(char *)(param_1 + 4) != '\0') {
-    (**(code **)(iVar2 + 0x5c))((int)*(short *)(iVar2 + 0x58) + (int)param_1);
-    (**(code **)(*param_1 + 100))((int)*(short *)(*param_1 + 0x60) + (int)param_1);
-    (**(code **)(*param_1 + 0x6c))((int)*(short *)(*param_1 + 0x68) + (int)param_1);
+    (((vtbl_entry*)(iVar2))[11].fn)((int)((vtbl_entry*)(iVar2))[11].adj + (int)param_1);
+    (((vtbl_entry*)(*param_1))[12].fn)((int)((vtbl_entry*)(*param_1))[12].adj + (int)param_1);
+    (((vtbl_entry*)(*param_1))[13].fn)((int)((vtbl_entry*)(*param_1))[13].adj + (int)param_1);
     *(uint8_t *)(param_1 + 4) = 0;
     iVar2 = *param_1;
   }
-  uVar1 = (**(code **)(iVar2 + 0x4c))((int)*(short *)(iVar2 + 0x48) + (int)param_1);
+  uVar1 = (((vtbl_entry*)(iVar2))[9].fn)((int)((vtbl_entry*)(iVar2))[9].adj + (int)param_1);
   return uVar1;
 }

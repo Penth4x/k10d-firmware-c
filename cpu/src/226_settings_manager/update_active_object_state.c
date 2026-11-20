@@ -85,7 +85,7 @@ LAB_104c016e:
       *(uint32_t *)(param_1 + 0x22c) = param_5;
       *(uint32_t *)(*(int *)(param_1 + 0xfd94) + 0x2f8) = param_5;
       if (param_2 == 0) {
-        iVar3 = (int)copy_struct_fields_to_offset_104c2310(*(uint32_t *)(param_1 + 0xfd94));
+        iVar3 = (uintptr_t)(copy_struct_fields_to_offset_104c2310(*(uint32_t *)(param_1 + 0xfd94)));
         *(uint32_t *)(iVar3 + 0x1b0) = 0;
         pvVar4 = (void *)copy_struct_fields_to_offset_104c2310(*(uint32_t *)(param_1 + 0xfd94));
         bVar6 = invoke_object_method_and_check_flag_104bf9c0(param_1,pvVar4);
@@ -93,9 +93,9 @@ LAB_104c016e:
       }
       else {
         set_pointer_and_clear_flag((int *)(param_1 + 4),(void *)param_2);
-        iVar3 = (int)copy_struct_fields_to_offset_104c2310(*(uint32_t *)(param_1 + 0xfd94));
+        iVar3 = (uintptr_t)(copy_struct_fields_to_offset_104c2310(*(uint32_t *)(param_1 + 0xfd94)));
         *(uint32_t *)(iVar3 + 0x1b0) = 0;
-        uVar2 = (uint32_t)copy_struct_fields_to_offset_104c2310(*(uint32_t *)(param_1 + 0xfd94));
+        uVar2 = (uintptr_t)(copy_struct_fields_to_offset_104c2310(*(uint32_t *)(param_1 + 0xfd94)));
         iVar3 = invoke_virtual_method_on_object_104bfa34(param_1,param_1,uVar2);
         uVar7 = 0;
         if (iVar3 != 0) {

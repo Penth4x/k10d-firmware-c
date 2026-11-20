@@ -65,7 +65,7 @@ int compare_two_memory_blocks(int param_1)
   uVar1 = *(uint32_t *)(iVar2 + 4);
   auStack_10[0] = 0;
   uStack_c = 0;
-  call_single_helper_1046cadc(uVar1,(uint)auStack_10);
+  call_single_helper_1046cadc((uint32_t)(uVar1),(uint32_t)(auStack_10));
   pvVar8 = (void *)0x100000;
   pvVar11 = pvVar6;
   iVar2 = split_copy_by_alignment(uVar5,(uint)pvVar4,(uint)pvVar6,0x100000);

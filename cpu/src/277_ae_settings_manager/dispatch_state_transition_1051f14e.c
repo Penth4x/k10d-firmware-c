@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int dispatch_state_transition_1051f14e(uint32_t *param_1,int param_2,int *param_3)
+int dispatch_state_transition_1051f14e(cls_105d6e14 *param_1,int param_2,int *param_3)
 
 {
   int iVar1;
@@ -18,14 +18,14 @@ int dispatch_state_transition_1051f14e(uint32_t *param_1,int param_2,int *param_
     }
     return 0;
   }
-  iVar2 = param_1[0x11];
+  iVar2 = param_1->field_0x44;
   iVar1 = advance_state_on_virtual_ok((int)param_1,param_3);
   if (iVar1 == 0) {
     iVar1 = advance_state_on_virtual_event((int)param_1,param_3);
     if (iVar1 == 0) {
-      iVar1 = (**(code **)(*param_3 + 0x24))((int)*(short *)(*param_3 + 0x20) + (int)param_3,0x15);
+      iVar1 = (((vtbl_entry*)(*param_3))[4].fn)((int)((vtbl_entry*)(*param_3))[4].adj + (int)param_3,0x15);
       if (iVar1 == 0) {
-        iVar1 = (**(code **)(*param_3 + 0x24))((int)*(short *)(*param_3 + 0x20) + (int)param_3,0x17)
+        iVar1 = (((vtbl_entry*)(*param_3))[4].fn)((int)((vtbl_entry*)(*param_3))[4].adj + (int)param_3,0x17)
         ;
         if (iVar1 == 0) {
           return (int)param_1;
@@ -44,7 +44,7 @@ int dispatch_state_transition_1051f14e(uint32_t *param_1,int param_2,int *param_
         *(uint32_t *)(iVar1 + 0x44) = 2;
         return iVar1;
       }
-      param_1[0x11] = iVar2 + 1;
+      param_1->field_0x44 = iVar2 + 1;
     }
   }
   else {
@@ -53,8 +53,8 @@ int dispatch_state_transition_1051f14e(uint32_t *param_1,int param_2,int *param_
       *(uint32_t *)(iVar1 + 0x44) = 6;
       return iVar1;
     }
-    param_1[0x11] = iVar2 + -1;
+    param_1->field_0x44 = iVar2 + -1;
   }
-  iVar1 = dispatch_mode_transition_sequence(param_1,__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  iVar1 = (uint32_t)(dispatch_mode_transition_sequence((void*)(param_1),__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7)));
   return iVar1;
 }

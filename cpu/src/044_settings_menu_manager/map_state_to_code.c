@@ -6,15 +6,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t map_state_to_code(int param_1)
+uint32_t map_state_to_code(cls_1056482c *param_1)
 
 {
   int iVar1;
   uint32_t uVar2;
   
-  iVar1 = get_setting_by_mode_flag_104f147e(*(uint32_t *)(param_1 + 0x28),0);
+  iVar1 = get_setting_by_mode_flag_104f147e(param_1->field_0x28,0);
   uVar2 = 0;
-  if ((*(char *)(param_1 + 0x40) == '\x1c') && (iVar1 == 1)) {
+  if ((param_1->field_0x40 == '\x1c') && (iVar1 == 1)) {
     uVar2 = 0x2020001;
   }
   else {

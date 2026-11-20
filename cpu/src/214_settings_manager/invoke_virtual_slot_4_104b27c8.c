@@ -22,7 +22,7 @@ uint32_t invoke_virtual_slot_4_104b27c8(int param_1)
   int iVar2;
   
   iVar2 = **(int **)(param_1 + 0x14);
-  uVar1 = (**(code **)(iVar2 + 0x24))
-                    ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar2 + 0x20));
+  uVar1 = (((vtbl_entry*)(iVar2))[4].fn)
+                    ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar2))[4].adj);
   return uVar1;
 }

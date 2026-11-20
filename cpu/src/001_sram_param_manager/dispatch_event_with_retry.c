@@ -42,7 +42,7 @@ void dispatch_event_with_retry(uint param_1,uint param_2)
   if (bVar3) {
     iVar2 = 0;
     do {
-      iVar1 = poll_status_and_dispatch((void *)auStack_a);
+      iVar1 = poll_status_and_dispatch(auStack_a);
       if (iVar1 == 0) {
         return;
       }

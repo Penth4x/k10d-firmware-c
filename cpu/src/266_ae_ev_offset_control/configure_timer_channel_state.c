@@ -43,6 +43,6 @@ void configure_timer_channel_state(int param_1,int param_2)
     update_camera_state_flags(pvVar1,4,uVar2 & 0xfffffffd);
     iVar3 = 0x38;
   }
-  delete_signal_semaphore((void *)(iVar3 + param_1));
+  delete_signal_semaphore((int *)(iVar3 + param_1));
   return;
 }

@@ -42,7 +42,7 @@ void dispatch_state_change_event_1036fda4(int *param_1)
     else {
       uStack_8c = read_struct_field_at_index_104c2890((void *)0x80015b24/*SDRAM*/,0);
     }
-    alloc_and_zero_struct_104bb416((void *)auStack_84);
+    alloc_and_zero_struct_104bb416(auStack_84);
     uVar2 = return_first_word_1045c514(param_1 + 0x2a);
     uVar3 = read_struct_field_at_offset_4(param_1 + 0x2a);
     copy_two_words_from_param2((int)auStack_28,-0x7ffea510);
@@ -56,16 +56,16 @@ void dispatch_state_change_event_1036fda4(int *param_1)
     free_heap_if_flagged_1045c402(auStack_18,2);
     free_heap_if_flagged_1045c402(auStack_28,2);
     transform_and_store_value(auStack_84,uStack_8c);
-    reset_object_fields_and_call_base((void *)0x80015d04/*SDRAM*/);
+    reset_object_fields_and_call_base((cls_105b9458 *)0x80015d04/*SDRAM*/);
     *puVar6 = 3;
     retry_virtual_call_until_success_1036f0fe((int)param_1,(int)auStack_84,0x80015af0/*SDRAM*/,-0x7ffea2fc,*puVar6);
     destroy_five_member_objects(auStack_84,2);
   }
-  (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1);
+  (((vtbl_entry*)(*param_1))[8].fn)((int)((vtbl_entry*)(*param_1))[8].adj + (int)param_1);
   if (iVar1 != param_1[0xb]) {
     release_object_at_offset_0x2c_1036f2b4(param_1);
   }
-  iVar1 = check_setting_0x72_enabled((void *)0x800158d4/*SDRAM*/);
+  iVar1 = check_setting_0x72_enabled((int *)(0x800158d4/*SDRAM*/));
   dispatch_event_with_state_check_1036f384(param_1,iVar1);
   return;
 }

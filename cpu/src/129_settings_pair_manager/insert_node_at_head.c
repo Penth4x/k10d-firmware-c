@@ -23,8 +23,8 @@ bool insert_node_at_head(void *param_1,uint32_t *param_2,int *param_3)
   int *piVar3;
   
   iVar2 = **(int **)((int)param_1 + 4);
-  piVar1 = (int *)(**(code **)(iVar2 + 0x14))
-                            ((int)*(int **)((int)param_1 + 4) + (int)*(short *)(iVar2 + 0x10));
+  piVar1 = (int *)(((vtbl_entry*)(iVar2))[2].fn)
+                            ((int)*(int **)((int)param_1 + 4) + (int)((vtbl_entry*)(iVar2))[2].adj);
   if (piVar1 != (int *)0x0) {
     piVar1[2] = *param_3;
     piVar3 = (int *)*param_2;

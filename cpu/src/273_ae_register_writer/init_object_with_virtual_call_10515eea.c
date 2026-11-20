@@ -17,8 +17,8 @@
 void init_object_with_virtual_call_10515eea(int param_1,void *param_2)
 
 {
-  (**(code **)(*(int *)((int)param_2 + 0x8d4) + 0x14c))
-            ((int)*(short *)(*(int *)((int)param_2 + 0x8d4) + 0x148) + (int)param_2);
+  (((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[41].fn)
+            ((int)((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[41].adj + (int)param_2);
   *(uint32_t *)((int)param_2 + 0x10) = 0x1180001;
   *(int *)((int)param_2 + 8) = param_1 + 4;
   *(uint32_t *)((int)param_2 + 0xc) = *(uint32_t *)((int)param_2 + 0x83c);

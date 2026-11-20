@@ -20,7 +20,7 @@ uint32_t release_lens_update_context_1053d0ac(int param_1)
   void *pvVar1;
   
   pvVar1 = *(void **)(param_1 + 0x68);
-  if (pvVar1 != (void *)0x0) {
+  if (pvVar1 != 0) {
     release_heap_block_1047f9bc(*(void **)((int)pvVar1 + 0xc));
     release_heap_block_1047f9bc(*(void **)((int)pvVar1 + 0x1c));
     release_heap_block_1047f9bc(*(void **)((int)pvVar1 + 0x24));

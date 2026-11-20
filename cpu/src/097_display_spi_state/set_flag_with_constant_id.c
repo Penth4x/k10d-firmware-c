@@ -12,7 +12,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_flag_with_constant_id(uint32_t param_1,int param_2)
+void set_flag_with_constant_id(cls_1059be70 *param_1,int param_2)
 
 {
   uint32_t uVar1;
@@ -21,6 +21,6 @@ void set_flag_with_constant_id(uint32_t param_1,int param_2)
   if (param_2 == 0) {
     uVar1 = 0;
   }
-  send_two_word_pair_over_ch2(param_1,0x1428,uVar1,1);
+  send_two_word_pair_over_ch2((uint32_t)param_1,0x1428,uVar1,1);
   return;
 }

@@ -11,7 +11,7 @@
 void release_lens_update_buffer(void)
 
 {
-  if (_DAT_800149fc/*SDRAM*/ != (void *)0x0) {
+  if (_DAT_800149fc/*SDRAM*/ != 0) {
     iterate_lens_update_entries();
     release_heap_block_1047f9bc(_DAT_800149fc/*SDRAM*/);
     _DAT_800149fc/*SDRAM*/ = (void *)0x0;

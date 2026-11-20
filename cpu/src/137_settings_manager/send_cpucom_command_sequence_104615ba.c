@@ -27,10 +27,10 @@ int send_cpucom_command_sequence_104615ba(int *param_1,void *param_2)
   bVar2 = set_pointer_and_clear_flag(param_1 + 7,param_2);
   iVar3 = 0;
   if (bVar2) {
-    cpucom_msg_set_cmd((void *)param_1[6],DAT_105a71f6/*ROM*/);
+    cpucom_msg_set_cmd((void*)(param_1[6]),DAT_105a71f6/*ROM*/);
     cpucom_resp_set_insize((void *)param_1[6],(uint)DAT_105a71f7/*ROM*/);
     pvVar4 = (void *)param_1[6];
-    pvVar1 = (void *)(**(code **)(*param_1 + 0x6c))((int)*(short *)(*param_1 + 0x68) + (int)param_1)
+    pvVar1 = (void *)(((vtbl_entry*)(*param_1))[13].fn)((int)((vtbl_entry*)(*param_1))[13].adj + (int)param_1)
     ;
     set_ptr_if_field_is_null(pvVar4,pvVar1);
     set_object_field_at_offset_0x14((void *)param_1[6],param_2);

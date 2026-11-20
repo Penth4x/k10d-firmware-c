@@ -18,7 +18,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void * init_object_and_schedule_delay(void *param_1)
+cls_10562d94 * init_object_and_schedule_delay(cls_10562d94 *param_1)
 
 {
   int iVar1;
@@ -27,8 +27,8 @@ void * init_object_and_schedule_delay(void *param_1)
   uint32_t uStack_10;
   uint32_t uStack_c;
   
-  *(int *)((int)param_1 + 4) = (int)param_1 + 8;
-  if (*(char *)((int)param_1 + 0x3c) == '\0') {
+  param_1->field_0x4 = (uintptr_t)(&param_1->field_0x8);
+  if (param_1->field_0x3c == '\0') {
     iVar1 = get_value_from_object();
     add_offset_to_pointer_104df392(iVar1);
     return_r4_passthrough_104d800e();
@@ -48,8 +48,8 @@ void * init_object_and_schedule_delay(void *param_1)
   else {
     call_subroutine_with_offset_args((int)param_1);
   }
-  *(uint8_t *)((int)param_1 + 0x3d) = 0;
-  *(uint8_t *)((int)param_1 + 0x3e) = 0;
+  param_1->field_0x3d = 0;
+  param_1->field_0x3e = 0;
   forward_param_to_helper_10394ad8(param_1,500);
   call_helper_with_object_and_field_10395a26((int)param_1);
   return param_1;

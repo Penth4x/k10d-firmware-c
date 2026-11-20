@@ -16,7 +16,7 @@
 uint32_t call_two_helpers_with_struct_fields_1044a87e(void *param_1)
 
 {
-  set_object_flag_bit2_1044ad88(*(uint32_t *)((int)param_1 + 0x110),*(uint8_t *)((int)param_1 + 0xf8));
+  set_object_flag_bit2_1044ad88((uint32_t *)(*(uint32_t *)((int)param_1 + 0x110)),(int)(*(uint8_t *)((int)param_1 + 0xf8)));
   update_object_field_with_guard(param_1,*(uint *)((int)param_1 + 0xec));
   return 1;
 }

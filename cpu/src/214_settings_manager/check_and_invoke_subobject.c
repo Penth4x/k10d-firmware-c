@@ -15,21 +15,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t check_and_invoke_subobject(int param_1)
+uint32_t check_and_invoke_subobject(cls_105b7f68 *param_1)
 
 {
   int iVar1;
   uint32_t uVar2;
   
-  iVar1 = eventflag_clr_flg((void *)(*(uint32_t *)(param_1 + 0x44)),0xffffffff);
+  iVar1 = eventflag_clr_flg((void*)(param_1->field_0x44),0xffffffff);
   if (iVar1 == 0) {
     uVar2 = 0;
   }
   else {
-    iVar1 = *(int *)(param_1 + 0x24);
+    iVar1 = param_1->field_0x24;
     if ((iVar1 != 0) &&
-       (iVar1 = (**(code **)(*(int *)(iVar1 + 4) + 0x1c))
-                          (*(short *)(*(int *)(iVar1 + 4) + 0x18) + iVar1,0), iVar1 == 0)) {
+       (iVar1 = (((vtbl_entry*)(*(int *)(iVar1 + 4)))[3].fn)
+                          (((vtbl_entry*)(*(int *)(iVar1 + 4)))[3].adj + iVar1,0), iVar1 == 0)) {
       return 0;
     }
     uVar2 = 1;

@@ -6,12 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_14_on_event_103abfda(int *param_1,int param_2)
+void invoke_virtual_slot_14_on_event_103abfda(cls_10565770 *param_1,int param_2)
 
 {
   (*(code *)0x1039fe1a/*ROM*/)();
   if ((param_2 == 0x17) || (param_2 == 0x1a)) {
-    (**(code **)(*param_1 + 0x74))((int)*(short *)(*param_1 + 0x70) + (int)param_1,0x1120004,0);
+    (((vtbl_entry*)(param_1->field_0x0))[14].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[14].adj,0x1120004,0);
   }
   return;
 }

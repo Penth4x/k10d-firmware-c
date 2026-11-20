@@ -34,7 +34,7 @@ uint32_t validate_and_lock_task_slot(int param_1)
     }
     else {
       if (*(int *)(iVar2 + -0x18) != iVar2 + -0x18) {
-        insert_into_timeout_queue_10011644(iVar2 + -0x18);
+        insert_into_timeout_queue_10011644((int *)(iVar2 + -0x18));
         iVar3 = DAT_10011cf0/*ROM*/ + iVar3;
         *(int *)(iVar3 + -0x18) = iVar3 + -0x18;
       }

@@ -39,7 +39,7 @@ uint64_t process_buffer_with_status_check(char *param_1,void *param_2)
   void *pvStack_18;
   
   puVar4 = (uint32_t *)auStack_5c;
-  if (param_2 == (void *)0x0) {
+  if (param_2 == 0) {
     iVar2 = 0;
     iVar3 = -0x16;
   }

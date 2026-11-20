@@ -15,11 +15,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void clear_flag_and_call_two_helpers_104dfbc0(void *param_1)
+void clear_flag_and_call_two_helpers_104dfbc0(cls_105bc1c4 *param_1)
 
 {
-  *(uint32_t *)((int)param_1 + 0x44) = 0;
-  copy_field_and_clear_offset(*(uint32_t *)((int)param_1 + 0x38));
+  param_1->field_0x44 = 0;
+  copy_field_and_clear_offset(param_1->field_0x38);
   invoke_virtual_method_on_nested_object_104dfc4c(param_1);
   return;
 }

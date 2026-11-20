@@ -14,7 +14,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t get_setting_option_index(int param_1,int param_2)
+uint32_t get_setting_option_index(cls_10596bf0 *param_1,int param_2)
 
 {
   uint32_t uVar1;
@@ -30,7 +30,7 @@ uint32_t get_setting_option_index(int param_1,int param_2)
     auStack_1c[2] = 0x1a60014;
     auStack_1c[3] = 0x1a60019;
     auStack_1c[4] = 0x1a6001e;
-    uVar3 = setting_get(*(int *)(param_1 + 8),0xce);
+    uVar3 = setting_get(param_1->field_0x8,0xce);
     iVar2 = 0xff;
     if (bRam10596be8 == uVar3) {
       iVar2 = 0;

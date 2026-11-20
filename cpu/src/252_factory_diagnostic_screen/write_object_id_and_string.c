@@ -23,9 +23,9 @@ int write_object_id_and_string(int param_1,int param_2)
   int iVar2;
   
   iVar2 = *(int *)(*(int *)(param_1 + 0x10) + 0x18);
-  iVar2 = (**(code **)(iVar2 + 0x5c))(*(int *)(param_1 + 0x10) + (int)*(short *)(iVar2 + 0x58));
+  iVar2 = (((vtbl_entry*)(iVar2))[11].fn)(*(int *)(param_1 + 0x10) + (int)((vtbl_entry*)(iVar2))[11].adj);
   *(uint8_t *)(param_2 + iVar2) = 0x5c;
-  iVar1 = (**(code **)(*(int *)(param_1 + 0x18) + 0x34))
-                    (*(short *)(*(int *)(param_1 + 0x18) + 0x30) + param_1,param_2 + iVar2 + 1);
+  iVar1 = (((vtbl_entry*)(*(int *)(param_1 + 0x18)))[6].fn)
+                    (((vtbl_entry*)(*(int *)(param_1 + 0x18)))[6].adj + param_1,param_2 + iVar2 + 1);
   return iVar2 + iVar1 + 1;
 }

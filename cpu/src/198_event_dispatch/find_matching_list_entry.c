@@ -14,17 +14,17 @@ int * find_matching_list_entry(int param_1)
   int *piVar3;
   int iVar4;
   
-  uVar1 = (**(code **)(*(int *)(param_1 + 0xc) + 0x8c))
-                    (*(short *)(*(int *)(param_1 + 0xc) + 0x88) + param_1);
+  uVar1 = (((vtbl_entry*)(*(int *)(param_1 + 0xc)))[17].fn)
+                    (((vtbl_entry*)(*(int *)(param_1 + 0xc)))[17].adj + param_1);
   iVar2 = invoke_virtual_slot_two_1049467c(param_1,uVar1);
   piVar3 = *(int **)(param_1 + 0x48);
   if (piVar3 != *(int **)(param_1 + 0x4c)) {
     do {
       iVar4 = *(int *)(*piVar3 + 0xc);
-      iVar4 = (**(code **)(iVar4 + 0x8c))(*piVar3 + (int)*(short *)(iVar4 + 0x88));
+      iVar4 = (((vtbl_entry*)(iVar4))[17].fn)(*piVar3 + (int)((vtbl_entry*)(iVar4))[17].adj);
       if ((iVar4 == iVar2) &&
          (iVar4 = *(int *)(*piVar3 + 0xc),
-         iVar4 = (**(code **)(iVar4 + 0x6c))(*piVar3 + (int)*(short *)(iVar4 + 0x68)), iVar4 != 0))
+         iVar4 = (((vtbl_entry*)(iVar4))[13].fn)(*piVar3 + (int)((vtbl_entry*)(iVar4))[13].adj), iVar4 != 0))
       break;
       piVar3 = piVar3 + 1;
     } while (piVar3 != *(int **)(param_1 + 0x4c));
@@ -33,7 +33,7 @@ int * find_matching_list_entry(int param_1)
      (piVar3 = *(int **)(param_1 + 0x48), piVar3 != *(int **)(param_1 + 0x4c))) {
     do {
       iVar2 = *(int *)(*piVar3 + 0xc);
-      iVar2 = (**(code **)(iVar2 + 0x6c))(*piVar3 + (int)*(short *)(iVar2 + 0x68));
+      iVar2 = (((vtbl_entry*)(iVar2))[13].fn)(*piVar3 + (int)((vtbl_entry*)(iVar2))[13].adj);
       if (iVar2 != 0) break;
       piVar3 = piVar3 + 1;
     } while (piVar3 != *(int **)(param_1 + 0x4c));

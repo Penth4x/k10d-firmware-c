@@ -7,23 +7,23 @@
  * summary:
  *   The function reads a pointer from offset 0x18 of the object. It calls
  *   test_high_bit_of_first_word to check the state of this resource; if non-zero, it calls
- *   FUN_1045453e to reset or release it. Finally, it calls set_object_flag_bits_0x110 with
- *   the resource pointer and zero arguments, likely performing final cleanup or
- *   deallocation. The function always returns 1.
+ *   set_bit15_of_first_word to reset or release it. Finally, it calls
+ *   set_object_flag_bits_0x110 with the resource pointer and zero arguments, likely
+ *   performing final cleanup or deallocation. The function always returns 1.
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t release_object_resource(void *param_1)
+uint32_t release_object_resource(cls_105d5370 *param_1)
 
 {
   int iVar1;
   
-  iVar1 = test_high_bit_of_first_word((void *)(*(uint32_t *)((int)param_1 + 0x18)));
+  iVar1 = test_high_bit_of_first_word((void *)param_1->field_0x18);
   if (iVar1 != 0) {
-    (*(code *)0x1045453e/*ROM*/)(*(uint32_t *)((int)param_1 + 0x18),0);
+    (*(code *)0x1045453e/*ROM*/)(param_1->field_0x18,0);
   }
-  set_object_flag_bits_0x110((void *)(*(uint32_t *)((int)param_1 + 0x18)),0,0);
+  set_object_flag_bits_0x110((void *)param_1->field_0x18,0,0);
   return 1;
 }

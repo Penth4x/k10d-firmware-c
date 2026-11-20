@@ -16,12 +16,12 @@ uint32_t read_and_store_buffer_data(int param_1)
   
   uStack_c = 0;
   (*(code *)0x104b5942/*ROM*/)(*(uint32_t *)(param_1 + 0x5c));
-  iVar1 = query_object_via_virtual_call_104b56da((void *)(*(uint32_t *)(param_1 + 0x60)),&uStack_c);
+  iVar1 = query_object_via_virtual_call_104b56da((int *)(*(uint32_t *)(param_1 + 0x60)),(uint32_t *)(&uStack_c));
   if (uStack_c < 0x4e21) {
     if (iVar1 != 0) {
       uVar2 = heap_alloc_2(uStack_c + 1);
       *(uint32_t *)(param_1 + 0x6c) = uVar2;
-      uVar2 = invoke_virtual_write_and_cleanup((void *)(*(uint32_t *)(param_1 + 0x60)),uVar2,uStack_c);
+      uVar2 = invoke_virtual_write_and_cleanup((int *)(*(uint32_t *)(param_1 + 0x60)),(int)(uVar2),(int)(uStack_c));
       (*(code *)0x104b5c4e/*ROM*/)
                 (*(uint32_t *)(param_1 + 0x5c),*(uint32_t *)(param_1 + 0x6c),uStack_c);
       parse_colon_delimited_fields(*(uint32_t *)(param_1 + 0x5c));

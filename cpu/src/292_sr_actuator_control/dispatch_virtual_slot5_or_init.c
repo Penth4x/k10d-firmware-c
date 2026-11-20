@@ -15,7 +15,8 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint dispatch_virtual_slot5_or_init(int *param_1,int param_2,uint32_t param_3,int param_4,uint32_t param_5)
+uint dispatch_virtual_slot5_or_init(cls_1061e470 *param_1,int param_2,uint32_t param_3,int param_4,
+                 uint32_t param_5)
 
 {
   int iVar1;
@@ -27,7 +28,8 @@ uint dispatch_virtual_slot5_or_init(int *param_1,int param_2,uint32_t param_3,in
   
   puVar4 = (uint32_t *)auStack_20;
   uVar3 = 0;
-  iVar1 = (**(code **)(*param_1 + 0x2c))((int)*(short *)(*param_1 + 0x28) + (int)param_1);
+  iVar1 = (((vtbl_entry*)(param_1->field_0x0))[5].fn)
+                    ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[5].adj);
   if (iVar1 == 0) {
     iVar1 = check_event_code_validity(param_1,param_2);
     if (iVar1 != 0) {

@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int alloc_two_object_array(void *param_1,uint16_t param_2,uint16_t param_3)
+int alloc_two_object_array(void *param_1,ushort param_2,uint16_t param_3)
 
 {
   int iVar1;
@@ -14,7 +14,7 @@ int alloc_two_object_array(void *param_1,uint16_t param_2,uint16_t param_3)
   uint uVar3;
   int iVar4;
   uintptr_t sp;
-  uint16_t auStack_c [2];
+  ushort auStack_c [2];
   
   iVar1 = heap_alloc_2(8);
   auStack_c[0] = param_2;
@@ -22,7 +22,7 @@ int alloc_two_object_array(void *param_1,uint16_t param_2,uint16_t param_3)
   uVar3 = 0;
   do {
     iVar4 = uVar3 * 4;
-    uVar2 = (uint32_t)(uintptr_t)cls_105d7118_new(0,auStack_c[uVar3]);
+    uVar2 = (uint32_t)cls_105d7118_new((cls_105d7118 *)0x0,(uint)auStack_c[uVar3]);
     uVar3 = uVar3 + 1 & 0xff;
     *(uint32_t *)(iVar1 + iVar4) = uVar2;
   } while (uVar3 < 2);

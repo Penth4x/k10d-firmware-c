@@ -11,42 +11,42 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_105fa8e4_new(uint32_t *param_1)
+void cls_105fa8e4_new(cls_105fa8e4 *param_1)
 
 {
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x5c), param_1 != (uint32_t *)0x0)) {
-    param_1[0x16] = (uint32_t)&DAT_105fa8e4/*ROM*/;
-    *param_1 = 0x2000;
-    param_1[1] = 0x2000;
-    param_1[2] = 0x2000;
-    param_1[3] = 0x2000;
-    *(uint16_t *)(param_1 + 4) = 0x2000;
-    *(uint16_t *)((int)param_1 + 0x12) = 0x2000;
-    *(uint16_t *)(param_1 + 5) = 0x2000;
-    *(uint16_t *)((int)param_1 + 0x16) = 0x2000;
-    param_1[6] = 0x2000;
-    param_1[7] = 0x2000;
-    param_1[8] = 0x2000;
-    param_1[9] = 0x2000;
-    *(uint16_t *)(param_1 + 10) = 0x2000;
-    *(uint16_t *)((int)param_1 + 0x2a) = 0x2000;
-    *(uint16_t *)(param_1 + 0xb) = 0x2000;
-    *(uint16_t *)((int)param_1 + 0x2e) = 0x2000;
-    param_1[0xc] = 0x2000;
-    param_1[0xd] = 0x2000;
-    param_1[0xe] = 0x2000;
-    param_1[0xf] = 0x2000;
-    param_1[0x10] = 0x2000;
-    *(uint16_t *)(param_1 + 0x11) = 0x2000;
-    *(uint16_t *)((int)param_1 + 0x46) = 0x2000;
-    *(uint16_t *)(param_1 + 0x12) = 0x2000;
-    *(uint16_t *)((int)param_1 + 0x4a) = 0x2000;
-    *(uint16_t *)(param_1 + 0x13) = 0x2000;
-    *(uint16_t *)((int)param_1 + 0x4e) = 0x2000;
-    *(uint16_t *)(param_1 + 0x14) = 0x2000;
-    *(uint16_t *)((int)param_1 + 0x52) = 0x2000;
-    *(uint16_t *)(param_1 + 0x15) = 0x2000;
+  if ((param_1 != (cls_105fa8e4 *)0x0) ||
+     (param_1 = (cls_105fa8e4 *)heap_alloc((void *)0x5c), param_1 != (cls_105fa8e4 *)0x0)) {
+    param_1->field_0x58 = (uintptr_t)(&DAT_105fa8e4/*ROM*/);
+    param_1->field_0x0 = 0x2000;
+    param_1->field_0x4 = 0x2000;
+    param_1->field_0x8 = 0x2000;
+    param_1->field_0xc = 0x2000;
+    param_1->field_0x10 = 0x2000;
+    param_1->field_0x12 = 0x2000;
+    param_1->field_0x14 = 0x2000;
+    param_1->field_0x16 = 0x2000;
+    param_1->field_0x18 = 0x2000;
+    param_1->field_0x1c = 0x2000;
+    param_1->field_0x20 = 0x2000;
+    param_1->field_0x24 = 0x2000;
+    param_1->field_0x28 = 0x2000;
+    param_1->field_0x2a = 0x2000;
+    param_1->field_0x2c = 0x2000;
+    param_1->field_0x2e = 0x2000;
+    param_1->field_0x30 = 0x2000;
+    param_1->field_0x34 = 0x2000;
+    param_1->field_0x38 = 0x2000;
+    param_1->field_0x3c = 0x2000;
+    param_1->field_0x40 = 0x2000;
+    param_1->field_0x44 = 0x2000;
+    param_1->field_0x46 = 0x2000;
+    param_1->field_0x48 = 0x2000;
+    param_1->field_0x4a = 0x2000;
+    param_1->field_0x4c = 0x2000;
+    param_1->field_0x4e = 0x2000;
+    param_1->field_0x50 = 0x2000;
+    param_1->field_0x52 = 0x2000;
+    param_1->field_0x54 = 0x2000;
   }
   return;
 }

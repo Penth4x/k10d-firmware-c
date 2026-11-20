@@ -18,7 +18,7 @@
 /* WARNING: Instruction at (ram,0x103f5910) overlaps instruction at (ram,0x103f590e)
     */
 
-void build_menu_items_for_mode_103f58f2(int *param_1,int param_2)
+void build_menu_items_for_mode_103f58f2(cls_10597c80 *param_1,int param_2)
 
 {
   short sVar1;
@@ -32,221 +32,155 @@ void build_menu_items_for_mode_103f58f2(int *param_1,int param_2)
   uint32_t auStack_10 [2];
   
   if (param_2 == 0x18d000c) {
-    param_1[6] = 0x18d000c;
-    setting_set(param_1[2],0x96,0);
-    uVar2 = setting_get(param_1[2],0xa7);
-    *(char *)(param_1 + 9) = (char)uVar2;
-    update_object_fields_and_dispatch(param_1,*(uint8_t *)((int)param_1 + 0x22));
-    iVar3 = menu_item_register(*param_1);
+    param_1->field_0x18 = 0x18d000c;
+    setting_set(param_1->field_0x8,0x96,0);
+    uVar2 = setting_get(param_1->field_0x8,0xa7);
+    param_1->field_0x24 = (char)uVar2;
+    update_object_fields_and_dispatch(param_1,param_1->field_0x22);
+    iVar3 = menu_item_register((int)param_1->field_0x0);
     iVar4 = *(int *)(iVar3 + 0xc);
     sVar1 = *(short *)(iVar4 + 0x10);
-    uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_28,
-                         *(ushort *)((uint)*(byte *)((int)param_1 + 0x22) * 4 + 0x10597e7c/*ROM*/) - 0x18,
-                         *(ushort *)
-                          (((uint)*(byte *)((int)param_1 + 0x22) * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18);
-    (**(code **)(iVar4 + 0x14))(sVar1 + iVar3,uVar2);
+    uVar2 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_28, *(ushort *)((uint)(byte)param_1->field_0x22 * 4 + 0x10597e7c/*ROM*/) - 0x18, *(ushort *)(((uint)(byte)param_1->field_0x22 * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18));
+    (((vtbl_entry*)(iVar4))[2].fn)(sVar1 + iVar3,uVar2);
     free_heap_block_if_flagged_1045bc54(auStack_28,2);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
-    iVar3 = menu_item_register(*param_1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
+    iVar3 = menu_item_register((int)param_1->field_0x0);
     iVar4 = *(int *)(iVar3 + 0xc);
     sVar1 = *(short *)(iVar4 + 0x10);
-    uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_28,
-                         *(ushort *)((uint)*(byte *)((int)param_1 + 0x22) * 4 + 0x10597e7c/*ROM*/) - 0x18,
-                         *(ushort *)
-                          (((uint)*(byte *)((int)param_1 + 0x22) * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18);
-    (**(code **)(iVar4 + 0x14))(sVar1 + iVar3,uVar2);
+    uVar2 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_28, *(ushort *)((uint)(byte)param_1->field_0x22 * 4 + 0x10597e7c/*ROM*/) - 0x18, *(ushort *)(((uint)(byte)param_1->field_0x22 * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18));
+    (((vtbl_entry*)(iVar4))[2].fn)(sVar1 + iVar3,uVar2);
     free_heap_block_if_flagged_1045bc54(auStack_28,2);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
-    iVar3 = menu_item_register(*param_1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
+    iVar3 = menu_item_register((int)param_1->field_0x0);
     iVar4 = *(int *)(iVar3 + 0xc);
     sVar1 = *(short *)(iVar4 + 0x10);
-    uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_28,
-                         *(ushort *)((uint)*(byte *)((int)param_1 + 0x23) * 4 + 0x10597e7c/*ROM*/) - 0x18,
-                         *(ushort *)
-                          (((uint)*(byte *)((int)param_1 + 0x23) * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18);
-    (**(code **)(iVar4 + 0x14))(sVar1 + iVar3,uVar2);
+    uVar2 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_28, *(ushort *)((uint)(byte)param_1->field_0x23 * 4 + 0x10597e7c/*ROM*/) - 0x18, *(ushort *)(((uint)(byte)param_1->field_0x23 * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18));
+    (((vtbl_entry*)(iVar4))[2].fn)(sVar1 + iVar3,uVar2);
     free_heap_block_if_flagged_1045bc54(auStack_28,2);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
-    iVar3 = menu_item_register(*param_1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
+    iVar3 = menu_item_register((int)param_1->field_0x0);
     iVar4 = *(int *)(iVar3 + 0xc);
     sVar1 = *(short *)(iVar4 + 0x10);
-    uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_28,
-                         *(ushort *)((uint)*(byte *)((int)param_1 + 0x23) * 4 + 0x10597e7c/*ROM*/) - 0x18,
-                         *(ushort *)
-                          (((uint)*(byte *)((int)param_1 + 0x23) * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18);
-    (**(code **)(iVar4 + 0x14))(sVar1 + iVar3,uVar2);
+    uVar2 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_28, *(ushort *)((uint)(byte)param_1->field_0x23 * 4 + 0x10597e7c/*ROM*/) - 0x18, *(ushort *)(((uint)(byte)param_1->field_0x23 * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18));
+    (((vtbl_entry*)(iVar4))[2].fn)(sVar1 + iVar3,uVar2);
     free_heap_block_if_flagged_1045bc54(auStack_28,2);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
-    iVar3 = menu_item_register(*param_1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
+    iVar3 = menu_item_register((int)param_1->field_0x0);
     iVar4 = *(int *)(iVar3 + 0xc);
     sVar1 = *(short *)(iVar4 + 0x10);
-    uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_28,
-                         *(ushort *)((uint)*(byte *)((int)param_1 + 0x22) * 4 + 0x10597e7c/*ROM*/) - 0x18,
-                         *(ushort *)
-                          (((uint)*(byte *)((int)param_1 + 0x22) * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18);
-    (**(code **)(iVar4 + 0x14))(sVar1 + iVar3,uVar2);
+    uVar2 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_28, *(ushort *)((uint)(byte)param_1->field_0x22 * 4 + 0x10597e7c/*ROM*/) - 0x18, *(ushort *)(((uint)(byte)param_1->field_0x22 * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18));
+    (((vtbl_entry*)(iVar4))[2].fn)(sVar1 + iVar3,uVar2);
     free_heap_block_if_flagged_1045bc54(auStack_28,2);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
-    iVar3 = menu_item_register(*param_1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
+    iVar3 = menu_item_register((int)param_1->field_0x0);
     iVar4 = *(int *)(iVar3 + 0xc);
     sVar1 = *(short *)(iVar4 + 0x10);
-    uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_28,
-                         *(ushort *)((uint)*(byte *)((int)param_1 + 0x23) * 4 + 0x10597e7c/*ROM*/) - 0x18,
-                         *(ushort *)
-                          (((uint)*(byte *)((int)param_1 + 0x23) * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18);
-    (**(code **)(iVar4 + 0x14))(sVar1 + iVar3,uVar2);
+    uVar2 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_28, *(ushort *)((uint)(byte)param_1->field_0x23 * 4 + 0x10597e7c/*ROM*/) - 0x18, *(ushort *)(((uint)(byte)param_1->field_0x23 * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18));
+    (((vtbl_entry*)(iVar4))[2].fn)(sVar1 + iVar3,uVar2);
     free_heap_block_if_flagged_1045bc54(auStack_28,2);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
   }
   else {
-    param_1[6] = param_2;
+    param_1->field_0x18 = param_2;
     if (param_2 == 0x18d000d) {
-      setting_set(param_1[2],0x96,1);
-      uVar2 = setting_get(param_1[2],0xa8);
-      *(char *)(param_1 + 9) = (char)uVar2;
-      update_object_fields_and_dispatch(param_1,*(uint8_t *)((int)param_1 + 0x23));
-      iVar3 = menu_item_register(*param_1);
+      setting_set(param_1->field_0x8,0x96,1);
+      uVar2 = setting_get(param_1->field_0x8,0xa8);
+      param_1->field_0x24 = (char)uVar2;
+      update_object_fields_and_dispatch(param_1,param_1->field_0x23);
+      iVar3 = menu_item_register((int)param_1->field_0x0);
       iVar4 = *(int *)(iVar3 + 0xc);
       sVar1 = *(short *)(iVar4 + 0x10);
-      uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_20,
-                           *(ushort *)((uint)*(byte *)((int)param_1 + 0x23) * 4 + 0x10597e7c/*ROM*/) - 0x18
-                           ,*(ushort *)
-                             (((uint)*(byte *)((int)param_1 + 0x23) * 2 + 1) * 2 + 0x10597e7c/*ROM*/) -
-                            0x18);
-      (**(code **)(iVar4 + 0x14))(sVar1 + iVar3,uVar2);
+      uVar2 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_20, *(ushort *)((uint)(byte)param_1->field_0x23 * 4 + 0x10597e7c/*ROM*/) - 0x18, *(ushort *)(((uint)(byte)param_1->field_0x23 * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18));
+      (((vtbl_entry*)(iVar4))[2].fn)(sVar1 + iVar3,uVar2);
       free_heap_block_if_flagged_1045bc54(auStack_20,2);
-      (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
-      iVar4 = menu_item_register(*param_1);
+      (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
+      iVar4 = menu_item_register((int)param_1->field_0x0);
       iVar3 = *(int *)(iVar4 + 0xc);
       sVar1 = *(short *)(iVar3 + 0x10);
-      uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_20,
-                           *(ushort *)((uint)*(byte *)((int)param_1 + 0x22) * 4 + 0x10597e7c/*ROM*/) - 0x18
-                           ,*(ushort *)
-                             (((uint)*(byte *)((int)param_1 + 0x22) * 2 + 1) * 2 + 0x10597e7c/*ROM*/) -
-                            0x18);
-      (**(code **)(iVar3 + 0x14))(sVar1 + iVar4,uVar2);
+      uVar2 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_20, *(ushort *)((uint)(byte)param_1->field_0x22 * 4 + 0x10597e7c/*ROM*/) - 0x18, *(ushort *)(((uint)(byte)param_1->field_0x22 * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18));
+      (((vtbl_entry*)(iVar3))[2].fn)(sVar1 + iVar4,uVar2);
       free_heap_block_if_flagged_1045bc54(auStack_20,2);
-      (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),0);
-      iVar4 = menu_item_register(*param_1);
+      (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),0);
+      iVar4 = menu_item_register((int)param_1->field_0x0);
       iVar3 = *(int *)(iVar4 + 0xc);
       sVar1 = *(short *)(iVar3 + 0x10);
-      uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_20,
-                           *(ushort *)((uint)*(byte *)((int)param_1 + 0x22) * 4 + 0x10597e7c/*ROM*/) - 0x18
-                           ,*(ushort *)
-                             (((uint)*(byte *)((int)param_1 + 0x22) * 2 + 1) * 2 + 0x10597e7c/*ROM*/) -
-                            0x18);
-      (**(code **)(iVar3 + 0x14))(sVar1 + iVar4,uVar2);
+      uVar2 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_20, *(ushort *)((uint)(byte)param_1->field_0x22 * 4 + 0x10597e7c/*ROM*/) - 0x18, *(ushort *)(((uint)(byte)param_1->field_0x22 * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18));
+      (((vtbl_entry*)(iVar3))[2].fn)(sVar1 + iVar4,uVar2);
       free_heap_block_if_flagged_1045bc54(auStack_20,2);
-      (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
-      iVar4 = menu_item_register(*param_1);
+      (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
+      iVar4 = menu_item_register((int)param_1->field_0x0);
       iVar3 = *(int *)(iVar4 + 0xc);
       sVar1 = *(short *)(iVar3 + 0x10);
-      uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_20,
-                           *(ushort *)((uint)*(byte *)((int)param_1 + 0x23) * 4 + 0x10597e7c/*ROM*/) - 0x18
-                           ,*(ushort *)
-                             (((uint)*(byte *)((int)param_1 + 0x23) * 2 + 1) * 2 + 0x10597e7c/*ROM*/) -
-                            0x18);
-      (**(code **)(iVar3 + 0x14))(sVar1 + iVar4,uVar2);
+      uVar2 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_20, *(ushort *)((uint)(byte)param_1->field_0x23 * 4 + 0x10597e7c/*ROM*/) - 0x18, *(ushort *)(((uint)(byte)param_1->field_0x23 * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18));
+      (((vtbl_entry*)(iVar3))[2].fn)(sVar1 + iVar4,uVar2);
       free_heap_block_if_flagged_1045bc54(auStack_20,2);
-      (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
     }
     else if (param_2 == 0x18d0010) {
-      iVar3 = menu_item_register(*param_1);
+      iVar3 = menu_item_register((int)param_1->field_0x0);
       iVar4 = *(int *)(iVar3 + 0xc);
       sVar1 = *(short *)(iVar4 + 0x10);
-      uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_18,
-                           *(ushort *)((uint)*(byte *)((int)param_1 + 0x23) * 4 + 0x10597e7c/*ROM*/) - 0x18
-                           ,*(ushort *)
-                             (((uint)*(byte *)((int)param_1 + 0x23) * 2 + 1) * 2 + 0x10597e7c/*ROM*/) -
-                            0x18);
-      (**(code **)(iVar4 + 0x14))(sVar1 + iVar3,uVar2);
+      uVar2 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_18, *(ushort *)((uint)(byte)param_1->field_0x23 * 4 + 0x10597e7c/*ROM*/) - 0x18, *(ushort *)(((uint)(byte)param_1->field_0x23 * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18));
+      (((vtbl_entry*)(iVar4))[2].fn)(sVar1 + iVar3,uVar2);
       free_heap_block_if_flagged_1045bc54(auStack_18,2);
-      (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
-      iVar4 = menu_item_register(*param_1);
+      (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
+      iVar4 = menu_item_register((int)param_1->field_0x0);
       iVar3 = *(int *)(iVar4 + 0xc);
       sVar1 = *(short *)(iVar3 + 0x10);
-      uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_18,
-                           *(ushort *)((uint)*(byte *)((int)param_1 + 0x22) * 4 + 0x10597e7c/*ROM*/) - 0x18
-                           ,*(ushort *)
-                             (((uint)*(byte *)((int)param_1 + 0x22) * 2 + 1) * 2 + 0x10597e7c/*ROM*/) -
-                            0x18);
-      (**(code **)(iVar3 + 0x14))(sVar1 + iVar4,uVar2);
+      uVar2 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_18, *(ushort *)((uint)(byte)param_1->field_0x22 * 4 + 0x10597e7c/*ROM*/) - 0x18, *(ushort *)(((uint)(byte)param_1->field_0x22 * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18));
+      (((vtbl_entry*)(iVar3))[2].fn)(sVar1 + iVar4,uVar2);
       free_heap_block_if_flagged_1045bc54(auStack_18,2);
-      (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),0);
-      iVar4 = menu_item_register(*param_1);
+      (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),0);
+      iVar4 = menu_item_register((int)param_1->field_0x0);
       iVar3 = *(int *)(iVar4 + 0xc);
       sVar1 = *(short *)(iVar3 + 0x10);
-      uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_18,
-                           *(ushort *)((uint)*(byte *)((int)param_1 + 0x22) * 4 + 0x10597e7c/*ROM*/) - 0x18
-                           ,*(ushort *)
-                             (((uint)*(byte *)((int)param_1 + 0x22) * 2 + 1) * 2 + 0x10597e7c/*ROM*/) -
-                            0x18);
-      (**(code **)(iVar3 + 0x14))(sVar1 + iVar4,uVar2);
+      uVar2 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_18, *(ushort *)((uint)(byte)param_1->field_0x22 * 4 + 0x10597e7c/*ROM*/) - 0x18, *(ushort *)(((uint)(byte)param_1->field_0x22 * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18));
+      (((vtbl_entry*)(iVar3))[2].fn)(sVar1 + iVar4,uVar2);
       free_heap_block_if_flagged_1045bc54(auStack_18,2);
-      (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
-      iVar4 = menu_item_register(*param_1);
+      (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
+      iVar4 = menu_item_register((int)param_1->field_0x0);
       iVar3 = *(int *)(iVar4 + 0xc);
       sVar1 = *(short *)(iVar3 + 0x10);
-      uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_18,
-                           *(ushort *)((uint)*(byte *)((int)param_1 + 0x23) * 4 + 0x10597e7c/*ROM*/) - 0x18
-                           ,*(ushort *)
-                             (((uint)*(byte *)((int)param_1 + 0x23) * 2 + 1) * 2 + 0x10597e7c/*ROM*/) -
-                            0x18);
-      (**(code **)(iVar3 + 0x14))(sVar1 + iVar4,uVar2);
+      uVar2 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_18, *(ushort *)((uint)(byte)param_1->field_0x23 * 4 + 0x10597e7c/*ROM*/) - 0x18, *(ushort *)(((uint)(byte)param_1->field_0x23 * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18));
+      (((vtbl_entry*)(iVar3))[2].fn)(sVar1 + iVar4,uVar2);
       free_heap_block_if_flagged_1045bc54(auStack_18,2);
-      (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
-      uVar2 = setting_get(param_1[2],0xa8);
-      *(char *)(param_1 + 9) = (char)uVar2;
-      update_object_fields_and_dispatch(param_1,*(uint8_t *)((int)param_1 + 0x23));
+      (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
+      uVar2 = setting_get(param_1->field_0x8,0xa8);
+      param_1->field_0x24 = (char)uVar2;
+      update_object_fields_and_dispatch(param_1,param_1->field_0x23);
     }
     else if (param_2 == 0x18d005b) {
-      iVar3 = menu_item_register(*param_1);
+      iVar3 = menu_item_register((int)param_1->field_0x0);
       iVar4 = *(int *)(iVar3 + 0xc);
       sVar1 = *(short *)(iVar4 + 0x10);
-      uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_10,
-                           *(ushort *)((uint)*(byte *)((int)param_1 + 0x23) * 4 + 0x10597e7c/*ROM*/) - 0x18
-                           ,*(ushort *)
-                             (((uint)*(byte *)((int)param_1 + 0x23) * 2 + 1) * 2 + 0x10597e7c/*ROM*/) -
-                            0x18);
-      (**(code **)(iVar4 + 0x14))(sVar1 + iVar3,uVar2);
+      uVar2 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_10, *(ushort *)((uint)(byte)param_1->field_0x23 * 4 + 0x10597e7c/*ROM*/) - 0x18, *(ushort *)(((uint)(byte)param_1->field_0x23 * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18));
+      (((vtbl_entry*)(iVar4))[2].fn)(sVar1 + iVar3,uVar2);
       free_heap_block_if_flagged_1045bc54(auStack_10,2);
-      (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
-      iVar4 = menu_item_register(*param_1);
+      (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
+      iVar4 = menu_item_register((int)param_1->field_0x0);
       iVar3 = *(int *)(iVar4 + 0xc);
       sVar1 = *(short *)(iVar3 + 0x10);
-      uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_10,
-                           *(ushort *)((uint)*(byte *)((int)param_1 + 0x22) * 4 + 0x10597e7c/*ROM*/) - 0x18
-                           ,*(ushort *)
-                             (((uint)*(byte *)((int)param_1 + 0x22) * 2 + 1) * 2 + 0x10597e7c/*ROM*/) -
-                            0x18);
-      (**(code **)(iVar3 + 0x14))(sVar1 + iVar4,uVar2);
+      uVar2 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_10, *(ushort *)((uint)(byte)param_1->field_0x22 * 4 + 0x10597e7c/*ROM*/) - 0x18, *(ushort *)(((uint)(byte)param_1->field_0x22 * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18));
+      (((vtbl_entry*)(iVar3))[2].fn)(sVar1 + iVar4,uVar2);
       free_heap_block_if_flagged_1045bc54(auStack_10,2);
-      (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),0);
-      iVar4 = menu_item_register(*param_1);
+      (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),0);
+      iVar4 = menu_item_register((int)param_1->field_0x0);
       iVar3 = *(int *)(iVar4 + 0xc);
       sVar1 = *(short *)(iVar3 + 0x10);
-      uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_10,
-                           *(ushort *)((uint)*(byte *)((int)param_1 + 0x22) * 4 + 0x10597e7c/*ROM*/) - 0x18
-                           ,*(ushort *)
-                             (((uint)*(byte *)((int)param_1 + 0x22) * 2 + 1) * 2 + 0x10597e7c/*ROM*/) -
-                            0x18);
-      (**(code **)(iVar3 + 0x14))(sVar1 + iVar4,uVar2);
+      uVar2 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_10, *(ushort *)((uint)(byte)param_1->field_0x22 * 4 + 0x10597e7c/*ROM*/) - 0x18, *(ushort *)(((uint)(byte)param_1->field_0x22 * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18));
+      (((vtbl_entry*)(iVar3))[2].fn)(sVar1 + iVar4,uVar2);
       free_heap_block_if_flagged_1045bc54(auStack_10,2);
-      (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
-      iVar4 = menu_item_register(*param_1);
+      (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
+      iVar4 = menu_item_register((int)param_1->field_0x0);
       iVar3 = *(int *)(iVar4 + 0xc);
       sVar1 = *(short *)(iVar3 + 0x10);
-      uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_10,
-                           *(ushort *)((uint)*(byte *)((int)param_1 + 0x23) * 4 + 0x10597e7c/*ROM*/) - 0x18
-                           ,*(ushort *)
-                             (((uint)*(byte *)((int)param_1 + 0x23) * 2 + 1) * 2 + 0x10597e7c/*ROM*/) -
-                            0x18);
-      (**(code **)(iVar3 + 0x14))(sVar1 + iVar4,uVar2);
+      uVar2 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_10, *(ushort *)((uint)(byte)param_1->field_0x23 * 4 + 0x10597e7c/*ROM*/) - 0x18, *(ushort *)(((uint)(byte)param_1->field_0x23 * 2 + 1) * 2 + 0x10597e7c/*ROM*/) - 0x18));
+      (((vtbl_entry*)(iVar3))[2].fn)(sVar1 + iVar4,uVar2);
       free_heap_block_if_flagged_1045bc54(auStack_10,2);
-      (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
-      uVar2 = setting_get(param_1[2],0xa7);
-      *(char *)(param_1 + 9) = (char)uVar2;
-      update_object_fields_and_dispatch(param_1,*(uint8_t *)((int)param_1 + 0x22));
+      (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
+      uVar2 = setting_get(param_1->field_0x8,0xa7);
+      param_1->field_0x24 = (char)uVar2;
+      update_object_fields_and_dispatch(param_1,param_1->field_0x22);
     }
   }
   return;

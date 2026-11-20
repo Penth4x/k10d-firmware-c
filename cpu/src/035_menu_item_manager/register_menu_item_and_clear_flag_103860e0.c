@@ -15,15 +15,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-void register_menu_item_and_clear_flag_103860e0(int param_1,int param_2)
+void register_menu_item_and_clear_flag_103860e0(cls_105592e8 *param_1,int param_2)
 
 {
   int iVar1;
   
-  iVar1 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
-  iVar1 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
-  *(uint8_t *)(param_1 + 0x44 + param_2) = 0;
+  iVar1 = menu_item_register((int)param_1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  iVar1 = menu_item_register((int)param_1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  (&param_1->field_0x44)[param_2] = 0;
   return;
 }

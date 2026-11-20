@@ -56,15 +56,15 @@ void telemetry_cluster_B_handler_0(void)
   iVar6 = *(int *)(caller_r8 + 0x7f8);
   iVar7 = *piVar5;
   *(uint32_t *)(caller_r14 + -0x30) = 0x18;
-  uVar3 = (**(code **)(iVar7 + 0x1c))((int)piVar5 + (int)*(short *)(iVar7 + 0x18),0xe);
+  uVar3 = (((vtbl_entry*)(iVar7))[3].fn)((int)piVar5 + (int)((vtbl_entry*)(iVar7))[3].adj,0xe);
   *(uint8_t *)(iVar6 + 0x118) = uVar3;
   piVar5 = (int *)(*(int *)(caller_r14 + -0x34) + 0x7c);
   iVar6 = *(int *)(caller_r8 + 0x7f8);
   psVar8 = (short *)(*piVar5 + *(int *)(caller_r14 + -0x30));
   uVar3 = (**(code **)(psVar8 + 2))((int)piVar5 + (int)*psVar8,3);
   *(uint8_t *)(iVar6 + 0x119) = uVar3;
-  cVar4 = (**(code **)(**(int **)(caller_r14 + -0x34) + 0x14))
-                    ((int)*(short *)(**(int **)(caller_r14 + -0x34) + 0x10) +
+  cVar4 = (((vtbl_entry*)(**(int **)(caller_r14 + -0x34)))[2].fn)
+                    ((int)((vtbl_entry*)(**(int **)(caller_r14 + -0x34)))[2].adj +
                      *(int *)(caller_r14 + -0x34),0);
   if ((cVar4 == '\t') || (cVar4 == '\f')) {
     *(uint32_t *)(*(int *)(caller_r8 + 0x7f8) + 0x100) = 0;

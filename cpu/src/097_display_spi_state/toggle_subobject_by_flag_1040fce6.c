@@ -14,14 +14,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void toggle_subobject_by_flag_1040fce6(int param_1,int param_2)
+void toggle_subobject_by_flag_1040fce6(cls_1059be70 *param_1,int param_2)
 
 {
   if (param_2 == 0) {
-    clear_flag_with_notify(*(void **)(param_1 + 0x54));
+    clear_flag_with_notify((char*)(param_1) ->field_0x54);
   }
   else {
-    set_flag_with_notify(*(void **)(param_1 + 0x54));
+    set_flag_with_notify((char*)(param_1) ->field_0x54);
   }
   return;
 }

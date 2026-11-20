@@ -33,13 +33,13 @@ void dispatch_virtual_call_with_params_104a1fe6(int param_1,int param_2)
   puVar8 = auStack_28;
   uVar1 = *(uint32_t *)(param_1 + 0x2c);
   iVar6 = **(int **)(param_1 + 0x14);
-  uVar2 = (**(code **)(iVar6 + 0x14))
-                    ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar6 + 0x10),2);
+  uVar2 = (((vtbl_entry*)(iVar6))[2].fn)
+                    ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar6))[2].adj,2);
   iVar6 = check_mode_or_query_flag(param_1);
   bVar4 = settings_getter(*(int *)(param_1 + 0x24),0xb2);
   iVar7 = **(int **)(param_1 + 0xc);
-  uVar5 = (**(code **)(iVar7 + 0x14))
-                    ((int)*(int **)(param_1 + 0xc) + (int)*(short *)(iVar7 + 0x10),0);
+  uVar5 = (((vtbl_entry*)(iVar7))[2].fn)
+                    ((int)*(int **)(param_1 + 0xc) + (int)((vtbl_entry*)(iVar7))[2].adj,0);
   puVar8[3] = uVar5;
   uVar3 = lookup_two_byte_table_entry_1045a6c0(uVar1,uVar2 & 0xff,iVar6,(uint)bVar4,puVar8[3]);
   write_word_to_dynamic_array(param_2,0,uVar3);

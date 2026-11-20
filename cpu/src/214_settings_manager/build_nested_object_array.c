@@ -45,8 +45,8 @@ build_nested_object_array(void *param_1,int param_2,int param_3,uint16_t *param_
       uVar6 = uVar6 + 1 & 0xff;
     } while ((int)uVar6 < param_2);
   }
-  *puVar7 = puVar1;
-  uVar2 = allocate_pixel_buffer_struct((uint32_t *)0x0,(short)param_3,1,param_2,(uint16_t *)*puVar7);
+  *puVar7 = (uintptr_t)(puVar1);
+  uVar2 = (uintptr_t)(allocate_pixel_buffer_struct((uint32_t *)0x0,(short)param_3,1,param_2,(uint16_t *)*puVar7));
   iVar3 = heap_alloc_2(param_3 << 2);
   uStack_14 = 0;
   puStack_24 = puVar1;
@@ -55,7 +55,7 @@ build_nested_object_array(void *param_1,int param_2,int param_3,uint16_t *param_
       uVar6 = 0;
       if (0 < param_3) {
         do {
-          iVar4 = cls_105d6d30_new((void *)0x0,(uint16_t *)*param_6,(uint)(byte)*param_5);
+          iVar4 = cls_105d6d30_new((cls_105d6d30 *)0x0,(uint16_t *)*param_6,(uint)(byte)*param_5);
           *(int *)(iVar3 + uVar6 * 4) = iVar4;
           (*(code *)0x105207b2/*ROM*/)(uVar2,iVar4,uVar6,*puStack_24);
           param_6 = param_6 + 1;

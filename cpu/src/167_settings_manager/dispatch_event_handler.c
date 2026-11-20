@@ -35,8 +35,8 @@ void dispatch_event_handler(void *param_1,void *param_2)
         (*pcVar1)(iVar2);
         piVar3 = *(int **)(*(int *)((int)param_1 + 0x70) + 8);
         iVar2 = *piVar3;
-        (**(code **)(iVar2 + 0x14))
-                  ((int)piVar3 + (int)*(short *)(iVar2 + 0x10),*(uint32_t *)(iVar4 + 0x105aa744/*ROM*/),
+        (((vtbl_entry*)(iVar2))[2].fn)
+                  ((int)piVar3 + (int)((vtbl_entry*)(iVar2))[2].adj,*(uint32_t *)(iVar4 + 0x105aa744/*ROM*/),
                    piVar5);
         if (*piVar5 == 1) {
           set_mode_flag_from_state(param_1);

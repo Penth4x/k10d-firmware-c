@@ -23,6 +23,6 @@ void invoke_virtual_method_with_zero(uint32_t param_x0)
   
   pvVar1 = (void *)get_or_init_sram_buffer_104277bc();
   iVar2 = read_table_entry_field(pvVar1,0xb8);
-  (**(code **)(*(int *)(iVar2 + 4) + 0x7c))(iVar2 + *(short *)(*(int *)(iVar2 + 4) + 0x78),0);
+  (((vtbl_entry*)(*(int *)(iVar2 + 4)))[15].fn)(iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 4)))[15].adj,0);
   return;
 }

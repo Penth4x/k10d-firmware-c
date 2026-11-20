@@ -52,11 +52,11 @@ LAB_104050b6:
   }
 LAB_104050ba:
   pbVar4 = (byte *)(iVar3 * 7 + -0x7ffe31ac);
-  format_string_to_buffer_10545140(pbVar4,(void *)&DAT_10598608/*ROM*/,param_3,param_4);
+  format_string_to_buffer_10545140(pbVar4,&DAT_10598608/*ROM*/,param_3,param_4);
   pvVar2 = (void *)0x0;
   if ((((iVar3 == 0) || (iVar3 == 1)) || (iVar3 == 2)) || (iVar3 == 3)) {
     pvVar2 = (void *)menu_item_register(param_1);
-    bVar5 = pvVar2 == (void *)0x0;
+    bVar5 = pvVar2 == 0;
   }
   else {
     bVar5 = true;

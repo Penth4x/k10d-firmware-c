@@ -16,6 +16,6 @@
 void call_slot2_on_offset4(int param_1)
 
 {
-  dispatch_single_subobj(param_1 + 4);
+  dispatch_single_subobj((void *)(param_1 + 4));
   return;
 }

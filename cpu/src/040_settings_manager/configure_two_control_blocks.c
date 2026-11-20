@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void configure_two_control_blocks(void *param_1,uint32_t param_2,void *param_3,void *param_4)
+void configure_two_control_blocks(cls_10563114 *param_1,uint32_t param_2,void *param_3,void *param_4)
 
 {
   void *pvVar1;

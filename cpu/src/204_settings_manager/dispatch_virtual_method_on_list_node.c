@@ -35,7 +35,7 @@ void dispatch_virtual_method_on_list_node(int param_1)
   }
   iVar2 = *(int *)(param_1 + 0x24 + iVar4);
   iVar4 = *(int *)(iVar2 + 0x10);
-  iVar2 = (**(code **)(iVar4 + 0x2c))(iVar2 + *(short *)(iVar4 + 0x28),piVar5);
+  iVar2 = (((vtbl_entry*)(iVar4))[5].fn)(iVar2 + ((vtbl_entry*)(iVar4))[5].adj,piVar5);
   if (iVar2 == 0) {
     if (*(char *)(param_1 + 0x50) == '\0') {
       *puVar3 = 1;

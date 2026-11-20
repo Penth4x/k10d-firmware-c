@@ -16,29 +16,29 @@
 #include "globals.h"
 #include "funcs.h"
 
-void toggle_object_subsystem_state(int param_1,int param_2)
+void toggle_object_subsystem_state(cls_1059be70 *param_1,int param_2)
 
 {
   if (param_2 == 0) {
-    *(uint8_t *)(param_1 + 0x7d) = 0;
-    clear_flag_with_notify(*(void **)(param_1 + 0x3c));
+    param_1->field_0x7d = 0;
+    clear_flag_with_notify((char*)(param_1) ->field_0x3c);
     check_kernel_call_success_10459fea();
-    clear_flag_with_notify(*(void **)(param_1 + 0x60));
-    clear_flag3_with_notify(*(void **)(param_1 + 0x60));
+    clear_flag_with_notify((char*)(param_1) ->field_0x60);
+    clear_flag3_with_notify((char*)(param_1) ->field_0x60);
     check_kernel_call_success_10459fea();
-    clear_flag_with_notify(*(void **)(param_1 + 0x40));
-    if (*(char *)(param_1 + 0xbf) != '\0') {
+    clear_flag_with_notify((char*)(param_1) ->field_0x40);
+    if (param_1->field_0xbf != '\0') {
       check_kernel_call_success_10459fea();
-      clear_flag_with_notify(*(void **)(param_1 + 0x58));
+      clear_flag_with_notify((char*)(param_1) ->field_0x58);
     }
   }
-  else if (*(char *)(param_1 + 0x7d) == '\0') {
-    *(uint8_t *)(param_1 + 0x7d) = 1;
-    if (*(char *)(param_1 + 0xbf) != '\0') {
-      set_flag_with_notify(*(void **)(param_1 + 0x58));
+  else if (param_1->field_0x7d == '\0') {
+    param_1->field_0x7d = 1;
+    if (param_1->field_0xbf != '\0') {
+      set_flag_with_notify((char*)(param_1) ->field_0x58);
       check_kernel_call_success_10459fea();
     }
-    set_flag_with_notify(*(void **)(param_1 + 0x40));
+    set_flag_with_notify((char*)(param_1) ->field_0x40);
   }
   return;
 }

@@ -14,6 +14,6 @@ uint32_t invoke_virtual_slot_1(int *param_1,uint32_t param_2,int param_3)
   
   param_1[3] = param_3;
   iVar2 = *(int *)*param_1;
-  uVar1 = (**(code **)(iVar2 + 0xc))(*param_1 + (int)*(short *)(iVar2 + 8));
+  uVar1 = (((vtbl_entry*)(iVar2))[1].fn)(*param_1 + (int)*(short *)(iVar2 + 8));
   return uVar1;
 }

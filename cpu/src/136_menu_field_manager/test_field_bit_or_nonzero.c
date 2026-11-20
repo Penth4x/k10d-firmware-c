@@ -17,24 +17,24 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-uint32_t test_field_bit_or_nonzero(void *param_1,int param_2)
+uint32_t test_field_bit_or_nonzero(cls_105a6eac *param_1,int param_2)
 
 {
   uint32_t uVar1;
   
   if (param_2 == 0x1b) {
     uVar1 = 0;
-    if ((((*(char *)((int)param_1 + _DAT_105a6650/*ROM*/ + 4) != '\0') ||
-         (*(char *)((int)param_1 + _DAT_105a6648/*ROM*/ + 4) != '\0')) ||
-        (*(char *)((int)param_1 + _DAT_105a6640/*ROM*/ + 4) != '\0')) ||
-       (*(char *)((int)param_1 + _DAT_105a6638/*ROM*/ + 4) != '\0')) {
+    if (((((&param_1->field_0x4)[_DAT_105a6650/*ROM*/] != '\0') ||
+         ((&param_1->field_0x4)[_DAT_105a6648/*ROM*/] != '\0')) ||
+        ((&param_1->field_0x4)[_DAT_105a6640/*ROM*/] != '\0')) ||
+       ((&param_1->field_0x4)[_DAT_105a6638/*ROM*/] != '\0')) {
       uVar1 = 1;
     }
   }
   else {
     uVar1 = 1;
-    if ((*(byte *)((int)param_1 + *(int *)(&DAT_105a6638/*ROM*/ + param_2 * 8) + 4) &
-        (&DAT_105a663c/*ROM*/)[param_2 * 8]) == 0) {
+    if (((&param_1->field_0x4)[*(int *)(&DAT_105a6638/*ROM*/ + param_2 * 8)] & (&DAT_105a663c/*ROM*/)[param_2 * 8]
+        ) == 0) {
       uVar1 = 0;
     }
   }

@@ -24,9 +24,9 @@ void init_object_with_two_timers(int param_1,uint8_t param_2)
   reset_struct_fields_and_zero_tail(param_1);
   *(uint8_t *)(param_1 + 0xfd99) = 1;
   if (*(char *)(param_1 + 0x88c) != '\0') {
-    release_object_heap_blocks_1047e1ec(param_1 + 0x874);
+    release_object_heap_blocks_1047e1ec((cls_105aae94 *)(param_1 + 0x874));
   }
-  iVar1 = allocate_dual_buffers_for_object((void *)(param_1 + 0x874),0,1000);
+  iVar1 = allocate_dual_buffers_for_object((cls_105aae94 *)(param_1 + 0x874),0,1000);
   if (iVar1 == 0) {
     *(uint8_t *)(param_1 + 0x88c) = 0;
   }
@@ -34,9 +34,9 @@ void init_object_with_two_timers(int param_1,uint8_t param_2)
     *(uint8_t *)(param_1 + 0x88c) = 1;
   }
   if (*(char *)(param_1 + 0x8a8) != '\0') {
-    release_object_heap_blocks_1047e1ec(param_1 + 0x890);
+    release_object_heap_blocks_1047e1ec((cls_105aae94 *)(param_1 + 0x890));
   }
-  iVar1 = allocate_dual_buffers_for_object((void *)(param_1 + 0x890),0,10000);
+  iVar1 = allocate_dual_buffers_for_object((cls_105aae94 *)(param_1 + 0x890),0,10000);
   if (iVar1 == 0) {
     *(uint8_t *)(param_1 + 0x8a8) = 0;
   }

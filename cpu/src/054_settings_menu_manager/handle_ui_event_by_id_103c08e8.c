@@ -15,27 +15,27 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t handle_ui_event_by_id_103c08e8(int *param_1,int param_2)
+uint32_t handle_ui_event_by_id_103c08e8(cls_10594f8c *param_1,int param_2)
 
 {
   uint uVar1;
   uint uVar2;
   uint32_t uVar3;
   
-  if (*(char *)((int)param_1 + 0x36) != '\0') {
+  if (param_1->field_0x36 != '\0') {
     uVar1 = get_setting_by_index((int)param_1,5);
     uVar2 = get_setting_by_index((int)param_1,0x47);
     uVar3 = get_setting_by_index((int)param_1,0xb);
     if (param_2 == 0x10036) {
-      if (*(char *)((int)param_1 + 0x25) == '\0') {
-        *(uint8_t *)((int)param_1 + 0x37) = 1;
+      if (param_1->field_0x25 == '\0') {
+        param_1->field_0x37 = 1;
       }
       else {
-        *(uint8_t *)((int)param_1 + 0x37) = 0;
+        param_1->field_0x37 = 0;
       }
     }
     else if ((0x10036 < param_2) && (param_2 == 0x1160002)) {
-      switch(param_1[7]) {
+      switch(param_1->field_0x1c) {
       case 0x1020014:
       case 0x1020015:
         uVar1 = (uint)DAT_10594f70/*ROM*/;

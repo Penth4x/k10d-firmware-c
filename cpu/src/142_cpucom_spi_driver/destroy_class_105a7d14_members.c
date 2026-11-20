@@ -35,14 +35,14 @@ void destroy_class_105a7d14_members(void *param_1)
   clear_flag_with_notify(*(void **)((int)param_1 + 0x10));
   set_flag2_with_notify(*(void **)((int)param_1 + 0x10));
   iVar1 = *(int *)(*(int *)((int)param_1 + 0x14) + 4);
-  (**(code **)(iVar1 + 100))(*(int *)((int)param_1 + 0x14) + (int)*(short *)(iVar1 + 0x60));
+  (((vtbl_entry*)(iVar1))[12].fn)(*(int *)((int)param_1 + 0x14) + (int)((vtbl_entry*)(iVar1))[12].adj);
   clear_flag_if_active(*(void **)((int)param_1 + 0x14));
   iVar1 = *(int *)(*(int *)((int)param_1 + 0x14) + 4);
-  (**(code **)(iVar1 + 0x4c))(*(int *)((int)param_1 + 0x14) + (int)*(short *)(iVar1 + 0x48));
+  (((vtbl_entry*)(iVar1))[9].fn)(*(int *)((int)param_1 + 0x14) + (int)((vtbl_entry*)(iVar1))[9].adj);
   iVar1 = *(int *)(*(int *)((int)param_1 + 0x14) + 4);
-  (**(code **)(iVar1 + 0x84))(*(int *)((int)param_1 + 0x14) + (int)*(short *)(iVar1 + 0x80));
+  (((vtbl_entry*)(iVar1))[16].fn)(*(int *)((int)param_1 + 0x14) + (int)((vtbl_entry*)(iVar1))[16].adj);
   iVar1 = *(int *)(*(int *)((int)param_1 + 0x18) + 4);
-  (**(code **)(iVar1 + 0x2c))(*(int *)((int)param_1 + 0x18) + (int)*(short *)(iVar1 + 0x28));
+  (((vtbl_entry*)(iVar1))[5].fn)(*(int *)((int)param_1 + 0x18) + (int)((vtbl_entry*)(iVar1))[5].adj);
   check_kernel_call_success_10459d88(*(uint32_t **)((int)param_1 + 0x24));
   return;
 }

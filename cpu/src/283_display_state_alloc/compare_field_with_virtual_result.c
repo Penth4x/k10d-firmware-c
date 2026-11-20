@@ -13,7 +13,7 @@ bool compare_field_with_virtual_result(int param_1)
   int iVar2;
   
   iVar2 = *(int *)(param_1 + 4);
-  iVar1 = (**(code **)(*(int *)(param_1 + 0x208) + 0x1c))
-                    (*(short *)(*(int *)(param_1 + 0x208) + 0x18) + param_1);
+  iVar1 = (((vtbl_entry*)(*(int *)(param_1 + 0x208)))[3].fn)
+                    (((vtbl_entry*)(*(int *)(param_1 + 0x208)))[3].adj + param_1);
   return iVar2 == iVar1;
 }

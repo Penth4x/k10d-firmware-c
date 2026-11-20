@@ -75,7 +75,7 @@ uint32_t allocate_kernel_memory_block(uint param_1,uint32_t *param_2)
     puStack_10 = puStack_10 + 1;
     *(uint *)(uVar6 + (int)puStack_10) = *(uint *)(uVar6 + (int)puStack_10) | 0x40000000;
     uVar4 = 1;
-    *param_2 = (uint32_t)puStack_10;
+    *param_2 = (uintptr_t)(puStack_10);
   }
   else {
     uVar4 = 0;

@@ -42,8 +42,8 @@ uint map_keycode_to_index(uint32_t param_1,uint param_2)
   uVar1 = negate_signed_integer(param_2);
   uVar1 = compute_float_division(uVar1,0x3ea3d70a);
   convert_signed_byte_to_unsigned(uVar1);
-  uVar1 = build_lens_update_packet_10544cd0(extraout_r4,(void *)extraout_r5);
-  uVar2 = build_lens_update_packet_10544cd0(0x40000000,(void *)0);
+  uVar1 = build_lens_update_packet_10544cd0((uint)(extraout_r4),(void *)(extraout_r5));
+  uVar2 = build_lens_update_packet_10544cd0(0x40000000,0);
   uVar4 = multiply_fixed_point_values_105445a2(uVar1,extraout_r5_00,uVar2,extraout_r5_01);
   uVar1 = encode_float32_to_fixed_point((uint)((ulonglong)uVar4 >> 0x20),(uint)uVar4);
   uVar3 = compare_signed_fixed_point(uVar1,0x3f800000);

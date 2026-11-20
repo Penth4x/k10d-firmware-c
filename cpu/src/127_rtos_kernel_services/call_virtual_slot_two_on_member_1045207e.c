@@ -14,9 +14,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_virtual_slot_two_on_member_1045207e(int param_1)
+void call_virtual_slot_two_on_member_1045207e(cls_105a2388 *param_1)
 
 {
-  dispatch_single_subobj(param_1 + 8);
+  dispatch_single_subobj((cls_1059e408 *)&param_1->field_0x8);
   return;
 }

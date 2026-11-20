@@ -8,7 +8,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void set_mode_flags_by_event(void *param_1,int *param_2)
+void set_mode_flags_by_event(cls_10557b38 *param_1,int *param_2)
 
 {
   int iVar1;
@@ -18,32 +18,32 @@ void set_mode_flags_by_event(void *param_1,int *param_2)
   if (*param_2 == 5) {
     iVar1 = param_2[1];
     if (iVar1 == 0x10) {
-      *(uint8_t *)((int)param_1 + 0x2b5) = 1;
-      *(uint8_t *)((int)param_1 + 0x2b1) = 0;
-      *(uint8_t *)((int)param_1 + 0x2b9) = 1;
+      param_1->field_0x2b5 = 1;
+      param_1->field_0x2b1 = 0;
+      param_1->field_0x2b9 = 1;
     }
     else if (iVar1 == 0xf) {
-      *(uint8_t *)((int)param_1 + 0x2b6) = 1;
-      *(uint8_t *)((int)param_1 + 0x2b2) = 0;
-      *(uint8_t *)((int)param_1 + 0x2ba) = 1;
+      param_1->field_0x2b6 = 1;
+      param_1->field_0x2b2 = 0;
+      param_1->field_0x2ba = 1;
     }
     else if (iVar1 == 0xe) {
-      *(uint8_t *)((int)param_1 + 0x2b7) = 1;
-      *(uint8_t *)((int)param_1 + 0x2b3) = 0;
-      *(uint8_t *)((int)param_1 + 699) = 1;
+      param_1->field_0x2b7 = 1;
+      param_1->field_0x2b3 = 0;
+      param_1->field_0x2bb = 1;
     }
     else if (iVar1 == 0xd) {
-      *(uint8_t *)((int)param_1 + 0x2b8) = 1;
-      *(uint8_t *)((int)param_1 + 0x2b4) = 0;
-      *(uint8_t *)((int)param_1 + 700) = 1;
+      param_1->field_0x2b8 = 1;
+      param_1->field_0x2b4 = 0;
+      param_1->field_0x2bc = 1;
     }
     else if (iVar1 == 6) {
-      *(uint8_t *)((int)param_1 + 0x2bd) = 0;
-      *(uint8_t *)((int)param_1 + 0x2bf) = 1;
+      param_1->field_0x2bd = 0;
+      param_1->field_0x2bf = 1;
     }
     else if (iVar1 == 0x12) {
-      *(uint8_t *)((int)param_1 + 0x2be) = 0;
-      *(uint8_t *)((int)param_1 + 0x2c0) = 1;
+      param_1->field_0x2be = 0;
+      param_1->field_0x2c0 = 1;
     }
   }
   else if (*param_2 == 4) {

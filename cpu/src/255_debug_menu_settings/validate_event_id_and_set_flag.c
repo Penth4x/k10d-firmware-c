@@ -18,7 +18,7 @@
 /* WARNING: Instruction at (ram,0x104efa16) overlaps instruction at (ram,0x104efa14)
     */
 
-uint32_t validate_event_id_and_set_flag(int param_1,int param_2)
+uint32_t validate_event_id_and_set_flag(cls_105c2e90 *param_1,int param_2)
 
 {
   if (param_2 != 0xa0015) {
@@ -114,6 +114,6 @@ uint32_t validate_event_id_and_set_flag(int param_1,int param_2)
     }
   }
 code_r0x104efcf8:
-  set_flg_obj((uint32_t *)(param_1 + 0x28));
+  set_flg_obj(&param_1->field_0x28);
   return 0;
 }

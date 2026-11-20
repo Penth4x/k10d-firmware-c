@@ -15,16 +15,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_with_two_ids_10413058(void *param_1)
+uint32_t init_object_with_two_ids_10413058(cls_1059c10c *param_1)
 
 {
   uint32_t uVar1;
   
   uVar1 = get_or_create_singleton_object_1050b118();
-  *(uint32_t *)((int)param_1 + 0x78) = uVar1;
-  *(int *)((int)param_1 + 0x6c) = (int)param_1 + 4;
-  *(int *)((int)param_1 + 0x70) = (int)param_1 + 0x40;
-  copy_fields_into_linked_object((void *)((int)param_1 + 0x60));
-  dispatch_mode_event_request((void *)((int)param_1 + 0x60),0x130005);
+  param_1->field_0x78 = uVar1;
+  param_1->field_0x6c = (int)&param_1->field_0x4;
+  param_1->field_0x70 = (int)&param_1->field_0x40;
+  copy_fields_into_linked_object(&param_1->field_0x60);
+  dispatch_mode_event_request((cls_105c2050 *)&param_1->field_0x60,0x130005);
   return 1;
 }

@@ -27,8 +27,8 @@ void query_and_map_state_code(int param_1,void *param_2)
   uVar2 = 1;
   if (cVar1 == '\0') {
     iVar3 = **(int **)(param_1 + 0x10);
-    iVar3 = (**(code **)(iVar3 + 0x14))
-                      ((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar3 + 0x10),0x2c);
+    iVar3 = (((vtbl_entry*)(iVar3))[2].fn)
+                      ((int)*(int **)(param_1 + 0x10) + (int)((vtbl_entry*)(iVar3))[2].adj,0x2c);
     if (iVar3 == 0) {
       uVar2 = 1;
     }

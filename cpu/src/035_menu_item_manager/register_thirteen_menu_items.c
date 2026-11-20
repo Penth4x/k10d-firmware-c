@@ -18,7 +18,7 @@
 /* WARNING: Instruction at (ram,0x10382fac) overlaps instruction at (ram,0x10382faa)
     */
 
-void register_thirteen_menu_items(int param_1,int param_2)
+void register_thirteen_menu_items(cls_10558fd4 *param_1,int param_2)
 
 {
   int iVar1;
@@ -35,36 +35,36 @@ void register_thirteen_menu_items(int param_1,int param_2)
   int iVar12;
   int iVar13;
   
-  iVar1 = menu_item_register(param_1);
-  iVar2 = menu_item_register(param_1);
-  iVar3 = menu_item_register(param_1);
-  iVar4 = menu_item_register(param_1);
-  iVar5 = menu_item_register(param_1);
-  iVar6 = menu_item_register(param_1);
-  iVar7 = menu_item_register(param_1);
-  iVar8 = menu_item_register(param_1);
-  iVar9 = menu_item_register(param_1);
-  iVar10 = menu_item_register(param_1);
-  iVar11 = menu_item_register(param_1);
-  iVar12 = menu_item_register(param_1);
-  iVar13 = menu_item_register(param_1);
+  iVar1 = menu_item_register((int)param_1);
+  iVar2 = menu_item_register((int)param_1);
+  iVar3 = menu_item_register((int)param_1);
+  iVar4 = menu_item_register((int)param_1);
+  iVar5 = menu_item_register((int)param_1);
+  iVar6 = menu_item_register((int)param_1);
+  iVar7 = menu_item_register((int)param_1);
+  iVar8 = menu_item_register((int)param_1);
+  iVar9 = menu_item_register((int)param_1);
+  iVar10 = menu_item_register((int)param_1);
+  iVar11 = menu_item_register((int)param_1);
+  iVar12 = menu_item_register((int)param_1);
+  iVar13 = menu_item_register((int)param_1);
   if (param_2 == 0) {
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(*(short *)(*(int *)(iVar1 + 0xc) + 8) + iVar1,1);
-    (**(code **)(*(int *)(iVar13 + 0xc) + 0xc))(*(short *)(*(int *)(iVar13 + 0xc) + 8) + iVar13,0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar1 + 0xc) + 8) + iVar1,1);
+    (((vtbl_entry*)(*(int *)(iVar13 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar13 + 0xc) + 8) + iVar13,0);
   }
   else {
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(*(short *)(*(int *)(iVar2 + 0xc) + 8) + iVar2,0);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,0);
-    (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,0);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(*(short *)(*(int *)(iVar5 + 0xc) + 8) + iVar5,0);
-    (**(code **)(*(int *)(iVar6 + 0xc) + 0xc))(*(short *)(*(int *)(iVar6 + 0xc) + 8) + iVar6,0);
-    (**(code **)(*(int *)(iVar7 + 0xc) + 0xc))(*(short *)(*(int *)(iVar7 + 0xc) + 8) + iVar7,0);
-    (**(code **)(*(int *)(iVar8 + 0xc) + 0xc))(*(short *)(*(int *)(iVar8 + 0xc) + 8) + iVar8,0);
-    (**(code **)(*(int *)(iVar9 + 0xc) + 0xc))(*(short *)(*(int *)(iVar9 + 0xc) + 8) + iVar9,0);
-    (**(code **)(*(int *)(iVar10 + 0xc) + 0xc))(*(short *)(*(int *)(iVar10 + 0xc) + 8) + iVar10,0);
-    (**(code **)(*(int *)(iVar11 + 0xc) + 0xc))(*(short *)(*(int *)(iVar11 + 0xc) + 8) + iVar11,0);
-    (**(code **)(*(int *)(iVar12 + 0xc) + 0xc))(*(short *)(*(int *)(iVar12 + 0xc) + 8) + iVar12,0);
-    (**(code **)(*(int *)(iVar13 + 0xc) + 0xc))(*(short *)(*(int *)(iVar13 + 0xc) + 8) + iVar13,1);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar2 + 0xc) + 8) + iVar2,0);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,0);
+    (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,0);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar5 + 0xc) + 8) + iVar5,0);
+    (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar6 + 0xc) + 8) + iVar6,0);
+    (((vtbl_entry*)(*(int *)(iVar7 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar7 + 0xc) + 8) + iVar7,0);
+    (((vtbl_entry*)(*(int *)(iVar8 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar8 + 0xc) + 8) + iVar8,0);
+    (((vtbl_entry*)(*(int *)(iVar9 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar9 + 0xc) + 8) + iVar9,0);
+    (((vtbl_entry*)(*(int *)(iVar10 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar10 + 0xc) + 8) + iVar10,0);
+    (((vtbl_entry*)(*(int *)(iVar11 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar11 + 0xc) + 8) + iVar11,0);
+    (((vtbl_entry*)(*(int *)(iVar12 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar12 + 0xc) + 8) + iVar12,0);
+    (((vtbl_entry*)(*(int *)(iVar13 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar13 + 0xc) + 8) + iVar13,1);
   }
   return;
 }

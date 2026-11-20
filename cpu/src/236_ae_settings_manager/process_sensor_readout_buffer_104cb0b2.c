@@ -24,12 +24,12 @@
 void process_sensor_readout_buffer_104cb0b2(int param_1)
 
 {
-  uint8_t *puVar1;
+  cls_105b9458 *pcVar1;
   int iVar2;
   uint32_t uVar3;
   uint uVar4;
   uint uVar5;
-  uint8_t *puVar6;
+  cls_105b9458 *pcVar6;
   int iVar7;
   uintptr_t sp;
   int *piVar8;
@@ -38,9 +38,9 @@ void process_sensor_readout_buffer_104cb0b2(int param_1)
   uint8_t auStack_6c0 [4];
   uint32_t uStack_6bc;
   uint8_t auStack_6b8 [8];
-  uint8_t auStack_6b0 [532];
-  uint8_t auStack_49c [532];
-  uint8_t auStack_288 [532];
+  cls_105b9458 cStack_6b0;
+  cls_105b9458 cStack_49c;
+  cls_105b9458 cStack_288;
   uint8_t auStack_74 [44];
   int iStack_48;
   uint32_t uStack_1c;
@@ -49,28 +49,28 @@ void process_sensor_readout_buffer_104cb0b2(int param_1)
   uint8_t auStack_10 [8];
   
   piVar8 = (int *)auStack_704;
-  cls_105b9458_new((void *)auStack_6b0);
-  cls_105b9458_new((void *)auStack_49c);
-  cls_105b9458_new((void *)auStack_288);
-  puVar1 = *(uint8_t **)(param_1 + 100);
-  if (puVar1 == (uint8_t *)0x0) {
-    puVar1 = auStack_6b0;
+  cls_105b9458_new(&cStack_6b0);
+  cls_105b9458_new(&cStack_49c);
+  cls_105b9458_new(&cStack_288);
+  pcVar1 = *(cls_105b9458 **)(param_1 + 100);
+  if (pcVar1 == (cls_105b9458 *)0x0) {
+    pcVar1 = &cStack_6b0;
   }
-  puVar6 = *(uint8_t **)(param_1 + 0x60);
-  if (puVar6 == (uint8_t *)0x0) {
-    puVar6 = auStack_49c;
+  pcVar6 = *(cls_105b9458 **)(param_1 + 0x60);
+  if (pcVar6 == (cls_105b9458 *)0x0) {
+    pcVar6 = &cStack_49c;
   }
-  propagate_state_to_three_objects(param_1,puVar1,puVar6,*(int *)(param_1 + 0x5c));
-  iVar2 = process_sensor_readout_request_104c50e4(param_1,puVar1);
+  propagate_state_to_three_objects(param_1,pcVar1,pcVar6,*(int *)(param_1 + 0x5c));
+  iVar2 = process_sensor_readout_request_104c50e4(param_1,pcVar1);
   iVar2 = set_object_state_and_notify(param_1,iVar2,0xc0001,6);
   if (iVar2 == 0) goto code_r0x104cb3be;
-  uVar3 = dispatch_param_based_on_flag(param_1,puVar1,puVar6);
+  uVar3 = dispatch_param_based_on_flag(param_1,pcVar1,pcVar6);
   iVar2 = set_object_state_and_notify(param_1,uVar3,0xc0001,7);
   if (iVar2 == 0) goto code_r0x104cb3be;
-  alloc_and_zero_struct_104bb416((void *)auStack_74);
+  alloc_and_zero_struct_104bb416(auStack_74);
   uVar4 = return_first_word_1045c514((uint32_t *)(param_1 + 0x54));
   uVar5 = read_struct_field_at_offset_4((uint32_t *)(param_1 + 0x54));
-  copy_two_words_from_param2((int)auStack_18,(int)puVar6);
+  copy_two_words_from_param2((int)auStack_18,(int)pcVar6);
   iVar2 = 8;
   do {
     iVar7 = iVar2 + -4;
@@ -79,7 +79,7 @@ void process_sensor_readout_buffer_104cb0b2(int param_1)
   } while (iVar7 != 0);
   uStack_6c4 = return_first_word_1045c514((uint32_t *)auStack_6c0);
   uStack_6c4 = uStack_6c4 & 0xffff;
-  copy_two_words_from_param2((int)auStack_10,(int)puVar6);
+  copy_two_words_from_param2((int)auStack_10,(int)pcVar6);
   iVar2 = 8;
   do {
     iVar7 = iVar2 + -4;
@@ -97,26 +97,26 @@ void process_sensor_readout_buffer_104cb0b2(int param_1)
     uVar3 = 5;
   }
   else {
-    uVar3 = read_struct_field_at_index_104c2890(puVar6 + 0x34,0);
+    uVar3 = read_struct_field_at_index_104c2890(&pcVar6->field_0x34,0);
   }
   transform_and_store_value(auStack_74,uVar3);
   copy_structured_record_104bbb28(auStack_6b8,auStack_74);
-  copy_two_words_from_param2((int)auStack_6c0,(int)puVar6);
-  iVar2 = compare_two_int_pairs((void *)auStack_6b8,(void *)auStack_6c0);
+  copy_two_words_from_param2((int)auStack_6c0,(int)pcVar6);
+  iVar2 = compare_two_int_pairs(auStack_6b8,auStack_6c0);
   free_heap_if_flagged_1045c402(auStack_6c0,2);
   free_heap_if_flagged_1045c402(auStack_6b8,2);
   if (iVar2 == 0) {
     *piVar8 = *(uint32_t *)(param_1 + 0x68);
-    iVar2 = dispatch_exposure_mode_handler(param_1,auStack_74,(int)puVar6,(int)auStack_288,*piVar8);
+    iVar2 = dispatch_exposure_mode_handler(param_1,auStack_74,(int)pcVar6,(int)&cStack_288,*piVar8);
     iVar2 = set_object_state_and_notify(param_1,iVar2,0xc0001,8);
     if (iVar2 != 0) {
-      puVar6 = auStack_288;
+      pcVar6 = &cStack_288;
       goto LAB_104cb384;
     }
   }
   else {
 LAB_104cb384:
-    iVar2 = compare_two_structs_by_mode(param_1,iStack_48,puVar6,*(void **)(param_1 + 0x5c));
+    iVar2 = compare_two_structs_by_mode(param_1,iStack_48,pcVar6,*(void **)(param_1 + 0x5c));
     iVar2 = set_object_state_and_notify(param_1,iVar2,0xc0001,9);
     if (iVar2 != 0) {
       *(uint32_t *)(param_1 + 0x214) = 1;
@@ -125,8 +125,8 @@ LAB_104cb384:
   }
   destroy_five_member_objects(auStack_74,2);
 code_r0x104cb3be:
-  cls_105b9458_delete(auStack_288,2);
-  cls_105b9458_delete(auStack_49c,2);
-  cls_105b9458_delete(auStack_6b0,2);
+  cls_105b9458_delete(&cStack_288,2);
+  cls_105b9458_delete(&cStack_49c,2);
+  cls_105b9458_delete(&cStack_6b0,2);
   return;
 }

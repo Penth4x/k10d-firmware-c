@@ -38,8 +38,8 @@ uint32_t process_buffer_state_transition_104dfc94(void *param_1)
         select_and_run_mode_handler(*(uint32_t *)((int)param_1 + 0x34),*(uint32_t *)((int)param_1 + 0x50),
                      &uStack_c);
         iVar2 = *(int *)(*(int *)((int)param_1 + 0x4c) + 0xc);
-        uStack_c = (**(code **)(iVar2 + 0x34))
-                             (*(int *)((int)param_1 + 0x4c) + (int)*(short *)(iVar2 + 0x30),
+        uStack_c = (((vtbl_entry*)(iVar2))[6].fn)
+                             (*(int *)((int)param_1 + 0x4c) + (int)((vtbl_entry*)(iVar2))[6].adj,
                               *(uint32_t *)((int)param_1 + 0x50));
         *(uint32_t *)((int)param_1 + 0x28) = uStack_c;
         *(uint32_t *)(*(int *)((int)param_1 + 0x2c) + 0x34) = 1;
@@ -59,7 +59,7 @@ uint32_t process_buffer_state_transition_104dfc94(void *param_1)
         if (iVar2 == 0) {
           return 9;
         }
-        iVar2 = advance_state_machine((void *)(*(uint32_t *)((int)param_1 + 0x4c)),
+        iVar2 = advance_state_machine((void*)(*(uint32_t *)((int)param_1 + 0x4c)),
                              *(uint32_t *)((int)param_1 + 0x28));
         if (iVar2 == 0) {
           (*(code *)0x104dfafa/*ROM*/)(param_1,0x2009);

@@ -17,23 +17,23 @@
 #include "globals.h"
 #include "funcs.h"
 
-void iterate_and_call_virtual_method(int param_1,uint32_t param_2)
+void iterate_and_call_virtual_method(cls_105b4dac *param_1,int param_2)
 
 {
   int iVar1;
   int *piVar2;
   
   iVar1 = (*(code *)0x10493dc4/*ROM*/)();
-  if (((iVar1 == 0) && (iVar1 = iterate_virtual_handlers(param_1,param_2), iVar1 == 0)) &&
-     (piVar2 = *(int **)(param_1 + 0x48), piVar2 != *(int **)(param_1 + 0x4c))) {
+  if (((iVar1 == 0) && (iVar1 = (uint32_t)(iterate_virtual_handlers((cls_105b48dc *)param_1,param_2)), iVar1 == 0)) &&
+     (piVar2 = *(int **)&param_1->field_0x48, (uint32_t)(piVar2) != param_1->field_0x4c)) {
     do {
       iVar1 = *(int *)(*piVar2 + 0xc);
-      iVar1 = (**(code **)(iVar1 + 0xcc))(*piVar2 + (int)*(short *)(iVar1 + 200),param_2);
+      iVar1 = (((vtbl_entry*)(iVar1))[25].fn)(*piVar2 + (int)*(short *)(iVar1 + 200),param_2);
       if (iVar1 != 0) {
         return;
       }
       piVar2 = piVar2 + 1;
-    } while (piVar2 != *(int **)(param_1 + 0x4c));
+    } while ((uint32_t)(piVar2) != param_1->field_0x4c);
   }
   return;
 }

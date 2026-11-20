@@ -14,13 +14,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_if_flag_clear(int param_1)
+void init_object_if_flag_clear(cls_105b4dac *param_1)
 
 {
-  if (*(char *)(param_1 + 0xac) == '\0') {
-    activate_object_list_items(param_1);
-    initialize_object_and_invoke_callback(param_1);
-    *(uint8_t *)(param_1 + 0xac) = 1;
+  if (param_1->field_0xac == '\0') {
+    activate_object_list_items((cls_105b4ad4 *)param_1);
+    initialize_object_and_invoke_callback((cls_105b44b4 *)param_1);
+    param_1->field_0xac = 1;
   }
   return;
 }

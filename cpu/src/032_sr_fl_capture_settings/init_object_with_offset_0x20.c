@@ -10,7 +10,7 @@ void init_object_with_offset_0x20(void *param_1)
 
 {
   call_helper_on_struct_field_1036c46c();
-  compute_and_send_two_point_offsets_10403366((int)param_1 + 0x20);
-  call_helper_on_struct_field_1036c41a(param_1,(void *)((int)param_1 + 0x20),1);
+  compute_and_send_two_point_offsets_10403366((cls_10598538 *)((int)param_1 + 0x20));
+  call_helper_on_struct_field_1036c41a(param_1,(cls_10598538 *)((int)param_1 + 0x20),1);
   return;
 }

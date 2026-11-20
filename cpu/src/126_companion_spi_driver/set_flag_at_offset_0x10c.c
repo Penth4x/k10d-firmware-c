@@ -6,9 +6,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t set_flag_at_offset_0x10c(int param_1)
+uint32_t set_flag_at_offset_0x10c(cls_105a0920 *param_1)
 
 {
-  forward_three_args_to_helper_10459d64((void *)(param_1 + 0x10c),1,0x1f);
+  forward_three_args_to_helper_10459d64(&param_1->field_0x10c,1,0x1f);
   return 1;
 }

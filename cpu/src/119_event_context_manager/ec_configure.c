@@ -15,30 +15,30 @@
 #include "globals.h"
 #include "funcs.h"
 
-void ec_configure(void *param_1)
+void ec_configure(cls_1059f284 *param_1)
 
 {
   int *piVar1;
   
-  piVar1 = *(int **)((int)param_1 + 0x2c);
+  piVar1 = (int *)param_1->field_0x2c;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1,0);
+    (((vtbl_entry*)(*piVar1))[3].fn)((void *)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1),0);
   }
-  piVar1 = *(int **)((int)param_1 + 4);
+  piVar1 = (int *)param_1->field_0x4;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1,0);
+    (((vtbl_entry*)(*piVar1))[3].fn)((void *)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1),0);
   }
-  piVar1 = *(int **)((int)param_1 + 0x30);
+  piVar1 = (int *)param_1->field_0x30;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1,0);
+    (((vtbl_entry*)(*piVar1))[3].fn)((void *)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1),0);
   }
-  piVar1 = *(int **)((int)param_1 + 0x38);
+  piVar1 = (int *)param_1->field_0x38;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1,0);
+    (((vtbl_entry*)(*piVar1))[3].fn)((void *)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1),0);
   }
-  piVar1 = *(int **)((int)param_1 + 0x3c);
+  piVar1 = (int *)param_1->field_0x3c;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1,0);
+    (((vtbl_entry*)(*piVar1))[3].fn)((void *)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1),0);
   }
   return;
 }

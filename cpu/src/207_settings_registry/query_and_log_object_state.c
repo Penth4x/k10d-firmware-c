@@ -26,7 +26,7 @@ bool query_and_log_object_state(int param_1,int *param_2)
   int iVar2;
   void *puStack_c;
   
-  iVar1 = (**(code **)(*param_2 + 0x44))((int)*(short *)(*param_2 + 0x40) + (int)param_2);
+  iVar1 = (((vtbl_entry*)(*param_2))[8].fn)((int)((vtbl_entry*)(*param_2))[8].adj + (int)param_2);
   if (iVar1 == 0) {
     puStack_c = &DAT_105b5ad8/*ROM*/;
   }
@@ -36,21 +36,21 @@ bool query_and_log_object_state(int param_1,int *param_2)
   iVar1 = *param_2;
   iVar2 = (int)*(short *)(iVar1 + 0x10) + (int)param_2;
   if (*(char *)(param_1 + 0xc) == '\0') {
-    (**(code **)(iVar1 + 0x14))(iVar2,0x105b5ac4/*ROM*/,*(uint32_t *)_DAT_80049080/*SDRAM*/,*(uint32_t *)(param_1 + 8));
-    (**(code **)(*param_2 + 0x14))
-              ((int)*(short *)(*param_2 + 0x10) + (int)param_2,puStack_c,2,
+    (((vtbl_entry*)(iVar1))[2].fn)(iVar2,0x105b5ac4/*ROM*/,*(uint32_t *)_DAT_80049080/*SDRAM*/,*(uint32_t *)(param_1 + 8));
+    (((vtbl_entry*)(*param_2))[2].fn)
+              ((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,puStack_c,2,
                *(int *)(param_1 + 8) + (uint)(ushort)((uint32_t *)_DAT_80049080)/*SDRAM*/[3]);
     iVar1 = *param_2;
   }
   else {
-    (**(code **)(iVar1 + 0x14))
+    (((vtbl_entry*)(iVar1))[2].fn)
               (iVar2,*(uint32_t *)(_DAT_80049080/*SDRAM*/ + 10),((uint32_t *)_DAT_80049080)/*SDRAM*/[5],
                *(uint32_t *)(param_1 + 8));
-    (**(code **)(*param_2 + 0x14))
-              ((int)*(short *)(*param_2 + 0x10) + (int)param_2,puStack_c,2,
+    (((vtbl_entry*)(*param_2))[2].fn)
+              ((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,puStack_c,2,
                *(int *)(param_1 + 8) + (uint)(ushort)((uint32_t *)_DAT_80049080)/*SDRAM*/[8]);
     iVar1 = *param_2;
   }
-  iVar1 = (**(code **)(iVar1 + 0x4c))((int)*(short *)(iVar1 + 0x48) + (int)param_2);
+  iVar1 = (((vtbl_entry*)(iVar1))[9].fn)((int)((vtbl_entry*)(iVar1))[9].adj + (int)param_2);
   return iVar1 == 0;
 }

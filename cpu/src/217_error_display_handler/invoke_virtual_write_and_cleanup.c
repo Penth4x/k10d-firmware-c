@@ -16,24 +16,24 @@ uint32_t invoke_virtual_write_and_cleanup(int *param_1,int param_2,int param_3)
   
   uStack_c = 0;
   iVar2 = *(int *)*param_1;
-  iVar2 = (**(code **)(iVar2 + 0x2c))
-                    (*param_1 + (int)*(short *)(iVar2 + 0x28),param_1 + 1,1,&uStack_c);
+  iVar2 = (((vtbl_entry*)(iVar2))[5].fn)
+                    (*param_1 + (int)((vtbl_entry*)(iVar2))[5].adj,param_1 + 1,1,&uStack_c);
   if (iVar2 == 0) {
     uVar1 = 0;
   }
   else {
     iVar2 = *(int *)*param_1;
-    iVar2 = (**(code **)(iVar2 + 0x3c))
-                      (*param_1 + (int)*(short *)(iVar2 + 0x38),uStack_c,param_2,param_3);
+    iVar2 = (((vtbl_entry*)(iVar2))[7].fn)
+                      (*param_1 + (int)((vtbl_entry*)(iVar2))[7].adj,uStack_c,param_2,param_3);
     if (iVar2 == 0) {
       iVar2 = *(int *)*param_1;
-      (**(code **)(iVar2 + 0x34))(*param_1 + (int)*(short *)(iVar2 + 0x30),uStack_c);
+      (((vtbl_entry*)(iVar2))[6].fn)(*param_1 + (int)((vtbl_entry*)(iVar2))[6].adj,uStack_c);
       uVar1 = 0;
     }
     else {
       *(uint8_t *)(param_2 + param_3) = 0;
       iVar2 = *(int *)*param_1;
-      (**(code **)(iVar2 + 0x34))(*param_1 + (int)*(short *)(iVar2 + 0x30),uStack_c);
+      (((vtbl_entry*)(iVar2))[6].fn)(*param_1 + (int)((vtbl_entry*)(iVar2))[6].adj,uStack_c);
       uVar1 = 1;
     }
   }

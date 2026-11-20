@@ -30,8 +30,7 @@ uint32_t modset_tokenise(uint32_t *param_1,uint8_t *param_2)
   uintptr_t sp;
   char *pcStack_5c;
   uint32_t uStack_58;
-  uint8_t auStack_48 [16];
-  int iStack_38;
+  cls_105ab468 cStack_48;
   uint8_t uStack_27;
   uint8_t uStack_26;
   uint8_t uStack_25;
@@ -66,25 +65,25 @@ uint32_t modset_tokenise(uint32_t *param_1,uint8_t *param_2)
   (*(code *)0x10486a2c/*ROM*/)(param_1,0x105b2fc8/*ROM*/,pvVar6,0xf);
   iVar7 = get_or_create_camera_object();
   piVar9 = *(int **)(iVar7 + 0xc);
-  cls_105ab468_new(auStack_48);
-  iVar7 = call_with_offset_lock_1048101c(piVar9,pvVar6,auStack_48);
+  cls_105ab468_new(&cStack_48);
+  iVar7 = call_with_offset_lock_1048101c(piVar9,pvVar6,&cStack_48);
   if (iVar7 == 0) {
     uStack_58 = 0;
   }
   else {
     uStack_c = 0;
-    iVar7 = (**(code **)(*piVar9 + 0x2c))
-                      ((int)*(short *)(*piVar9 + 0x28) + (int)piVar9,pvVar6,1,&uStack_c);
+    iVar7 = (((vtbl_entry*)(*piVar9))[5].fn)
+                      ((int)((vtbl_entry*)(*piVar9))[5].adj + (int)piVar9,pvVar6,1,&uStack_c);
     if (iVar7 == 0) {
       uStack_58 = 0;
     }
     else {
-      pcVar8 = (char *)heap_alloc_2(iStack_38 + 1);
-      uStack_58 = (**(code **)(*piVar9 + 0x3c))
-                            ((int)*(short *)(*piVar9 + 0x38) + (int)piVar9,uStack_c,pcVar8,iStack_38
-                            );
-      (**(code **)(*piVar9 + 0x34))((int)*(short *)(*piVar9 + 0x30) + (int)piVar9,uStack_c);
-      pcVar8[iStack_38] = '\0';
+      pcVar8 = (char *)heap_alloc_2(cStack_48.field_0x10 + 1);
+      uStack_58 = (((vtbl_entry*)(*piVar9))[7].fn)
+                            ((int)((vtbl_entry*)(*piVar9))[7].adj + (int)piVar9,uStack_c,pcVar8,
+                             cStack_48.field_0x10);
+      (((vtbl_entry*)(*piVar9))[6].fn)((int)((vtbl_entry*)(*piVar9))[6].adj + (int)piVar9,uStack_c);
+      pcVar8[cStack_48.field_0x10] = '\0';
       uStack_27 = 0;
       pcStack_5c = pcVar8;
       uStack_26 = uStack_27;
@@ -131,7 +130,7 @@ uint32_t modset_tokenise(uint32_t *param_1,uint8_t *param_2)
               cVar1 = pcVar4[iVar3];
             }
             if (bVar2) {
-              match_service_token(param_1,(void *)iVar5,param_2);
+              match_service_token(param_1,(void*)(iVar5),param_2);
               bVar2 = false;
             }
             iVar7 = iVar7 + iVar10;
@@ -148,6 +147,6 @@ uint32_t modset_tokenise(uint32_t *param_1,uint8_t *param_2)
   heap_free_2((int)pcVar4);
   heap_free_2(iVar5);
   heap_free_2((int)pvVar6);
-  cls_105ab468_delete(auStack_48,2);
+  cls_105ab468_delete(&cStack_48,2);
   return uStack_58;
 }

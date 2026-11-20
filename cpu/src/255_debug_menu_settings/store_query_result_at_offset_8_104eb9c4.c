@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t store_query_result_at_offset_8_104eb9c4(void *param_1)
+uint32_t store_query_result_at_offset_8_104eb9c4(cls_105c2720 *param_1)
 
 {
   void *pvVar1;
@@ -23,6 +23,6 @@ uint32_t store_query_result_at_offset_8_104eb9c4(void *param_1)
   
   pvVar1 = (void *)get_or_init_sram_buffer_104277bc();
   uVar2 = read_table_entry_field(pvVar1,0xba);
-  *(uint32_t *)((int)param_1 + 8) = uVar2;
+  param_1->field_0x8 = uVar2;
   return 1;
 }

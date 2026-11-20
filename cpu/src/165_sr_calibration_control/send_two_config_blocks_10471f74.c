@@ -27,14 +27,14 @@ void send_two_config_blocks_10471f74(int param_1)
   uint8_t auStackY_20 [2];
   
   puVar3 = auStackY_20;
-  dispatch_actuator_drive_command(param_1,4,2,(void *)&DAT_105a9c54/*ROM*/,6,0xff,'\0');
+  dispatch_actuator_drive_command(param_1,4,2,&DAT_105a9c54/*ROM*/,6,0xff,'\0');
   iVar1 = get_or_create_singleton_object_10470d84();
   uVar2 = check_flag_at_offset_0x14(*(uint32_t *)(iVar1 + 4));
   wait_for_state_two_with_optional_delay(param_1,uVar2);
   *(uint16_t *)(puVar3 + 2) = 6;
   *(uint16_t *)(puVar3 + 6) = 0xff;
   puVar3[0xb] = 0;
-  dispatch_actuator_drive_command(param_1,4,2,(void *)&DAT_105a9c68/*ROM*/,*(uint16_t *)(puVar3 + 2),*(uint16_t *)(puVar3 + 6),
+  dispatch_actuator_drive_command(param_1,4,2,&DAT_105a9c68/*ROM*/,*(uint16_t *)(puVar3 + 2),*(uint16_t *)(puVar3 + 6),
                puVar3[0xb]);
   return;
 }

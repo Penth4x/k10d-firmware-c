@@ -14,14 +14,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void reset_six_config_slots(int param_1, uint32_t param_x1, uint32_t param_x2)
+void reset_six_config_slots(cls_105d5428 *param_1)
 
 {
-  (*(code *)0x10450cfe/*ROM*/)(*(int *)(param_1 + 8) + 0x13,0);
-  (*(code *)0x10450d4a/*ROM*/)(*(int *)(param_1 + 8) + 0x13,0);
-  (*(code *)0x10450d96/*ROM*/)(*(int *)(param_1 + 8) + 0x13,0);
-  (*(code *)0x10450de2/*ROM*/)(*(int *)(param_1 + 8) + 0x13,1);
-  (*(code *)0x10450e2e/*ROM*/)(*(int *)(param_1 + 8) + 0x13,0,0);
-  (*(code *)0x10450e88/*ROM*/)(*(int *)(param_1 + 8) + 0x13,0x80,0x80);
+  (*(code *)0x10450cfe/*ROM*/)(param_1->field_0x8 + 0x13,0);
+  (*(code *)0x10450d4a/*ROM*/)(param_1->field_0x8 + 0x13,0);
+  (*(code *)0x10450d96/*ROM*/)(param_1->field_0x8 + 0x13,0);
+  (*(code *)0x10450de2/*ROM*/)(param_1->field_0x8 + 0x13,1);
+  (*(code *)0x10450e2e/*ROM*/)(param_1->field_0x8 + 0x13,0,0);
+  (*(code *)0x10450e88/*ROM*/)(param_1->field_0x8 + 0x13,0x80,0x80);
   return;
 }

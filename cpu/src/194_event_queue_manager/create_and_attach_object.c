@@ -15,9 +15,9 @@ uint32_t create_and_attach_object(int param_1,uint32_t param_2,uint32_t param_3,
   
   uVar1 = get_ui_root_object();
   uVar1 = (*(code *)0x1052affe/*ROM*/)(uVar1,param_2,param_3,param_4);
-  iVar2 = (int)cls_105b41d0_new((uint32_t *)0x0);
-  (**(code **)(*(int *)(iVar2 + 8) + 0x14))(*(short *)(*(int *)(iVar2 + 8) + 0x10) + iVar2,uVar1);
+  iVar2 = (uintptr_t)(cls_105b41d0_new((cls_105b41d0 *)0x0));
+  (((vtbl_entry*)(*(int *)(iVar2 + 8)))[2].fn)(((vtbl_entry*)(*(int *)(iVar2 + 8)))[2].adj + iVar2,uVar1);
   iVar3 = *(int *)(*(int *)(param_1 + 0xc) + 8);
-  (**(code **)(iVar3 + 0x44))(*(int *)(param_1 + 0xc) + (int)*(short *)(iVar3 + 0x40),iVar2);
+  (((vtbl_entry*)(iVar3))[8].fn)(*(int *)(param_1 + 0xc) + (int)((vtbl_entry*)(iVar3))[8].adj,iVar2);
   return uVar1;
 }

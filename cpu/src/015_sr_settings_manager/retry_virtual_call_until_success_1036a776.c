@@ -18,8 +18,8 @@ int retry_virtual_call_until_success_1036a776(int param_1,int param_2,uint32_t p
   piVar3 = (int *)auStack_24;
   iVar2 = 0;
   do {
-    (**(code **)(*(int *)(param_4 + 0x14) + 0x14))
-              (*(short *)(*(int *)(param_4 + 0x14) + 0x10) + param_4);
+    (((vtbl_entry*)(*(int *)(param_4 + 0x14)))[2].fn)
+              (((vtbl_entry*)(*(int *)(param_4 + 0x14)))[2].adj + param_4);
     *piVar3 = param_5;
     iVar1 = call_handler_with_two_args((void *)param_1,param_2,param_3,param_4,*piVar3);
     if (iVar1 != 3) break;

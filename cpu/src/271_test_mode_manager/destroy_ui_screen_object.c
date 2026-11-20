@@ -107,7 +107,7 @@ void destroy_ui_screen_object(int param_1,uint param_2)
     }
     if (*(int *)(param_1 + 0x838) != 0) {
       iVar1 = *(int *)(*(int *)(param_1 + 0x838) + 0x58);
-      (**(code **)(iVar1 + 0xc))(*(int *)(param_1 + 0x838) + (int)*(short *)(iVar1 + 8),3);
+      (((vtbl_entry*)(iVar1))[1].fn)(*(int *)(param_1 + 0x838) + (int)*(short *)(iVar1 + 8),3);
     }
     if (*(int *)(param_1 + 0x83c) != 0) {
       heap_free(*(int *)(param_1 + 0x83c));

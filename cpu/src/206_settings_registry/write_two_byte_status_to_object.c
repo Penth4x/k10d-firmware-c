@@ -22,7 +22,7 @@ uint32_t write_two_byte_status_to_object(int param_1,int *param_2)
   int iVar1;
   void *puVar2;
   
-  iVar1 = (**(code **)(*param_2 + 0x44))((int)*(short *)(*param_2 + 0x40) + (int)param_2);
+  iVar1 = (((vtbl_entry*)(*param_2))[8].fn)((int)((vtbl_entry*)(*param_2))[8].adj + (int)param_2);
   if (iVar1 == 0) {
     puVar2 = &DAT_105b5ad8/*ROM*/;
     iVar1 = *param_2;
@@ -31,8 +31,8 @@ uint32_t write_two_byte_status_to_object(int param_1,int *param_2)
     puVar2 = &DAT_105b5ad6/*ROM*/;
     iVar1 = *param_2;
   }
-  (**(code **)(iVar1 + 0x14))((int)*(short *)(iVar1 + 0x10) + (int)param_2,puVar2,2,0);
-  (**(code **)(*param_2 + 0x1c))((int)*(short *)(*param_2 + 0x18) + (int)param_2,&DAT_105b5acc/*ROM*/,1,2);
-  (**(code **)(*param_2 + 0x24))((int)*(short *)(*param_2 + 0x20) + (int)param_2,param_1 + 4,1,4);
+  (((vtbl_entry*)(iVar1))[2].fn)((int)((vtbl_entry*)(iVar1))[2].adj + (int)param_2,puVar2,2,0);
+  (((vtbl_entry*)(*param_2))[3].fn)((int)((vtbl_entry*)(*param_2))[3].adj + (int)param_2,&DAT_105b5acc/*ROM*/,1,2);
+  (((vtbl_entry*)(*param_2))[4].fn)((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,param_1 + 4,1,4);
   return 1;
 }

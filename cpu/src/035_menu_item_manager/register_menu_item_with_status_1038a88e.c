@@ -36,8 +36,8 @@ void register_menu_item_with_status_1038a88e(int param_1,int param_2,uint param_
   uVar4 = param_4;
   iVar1 = menu_item_register(param_1);
   pvVar2 = (void *)menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(*(short *)(*(int *)(iVar1 + 0xc) + 8) + iVar1,0);
-  (**(code **)(*(int *)((int)pvVar2 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar1 + 0xc) + 8) + iVar1,0);
+  (((vtbl_entry*)(*(int *)((int)pvVar2 + 0xc)))[1].fn)
             ((int)*(short *)(*(int *)((int)pvVar2 + 0xc) + 8) + (int)pvVar2,0);
   alloc_one_byte_if_null_10409cf6(&uStack_9);
   uVar3 = compute_pair_difference_10409fb6(&uStack_9,param_3,param_4);
@@ -72,8 +72,8 @@ void register_menu_item_with_status_1038a88e(int param_1,int param_2,uint param_
   }
   format_string_to_buffer_10545140((uint8_t *)0x800197c8/*SDRAM*/,pcVar5,(void *)((ulonglong)uVar10 >> 0x20),(void *)uVar10);
   if (param_2 == 2) {
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(*(short *)(*(int *)(iVar1 + 0xc) + 8) + iVar1,1);
-    (**(code **)(*(int *)((int)pvVar2 + 0xc) + 0xc))
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar1 + 0xc) + 8) + iVar1,1);
+    (((vtbl_entry*)(*(int *)((int)pvVar2 + 0xc)))[1].fn)
               ((int)*(short *)(*(int *)((int)pvVar2 + 0xc) + 8) + (int)pvVar2,1);
     glyph_draw(pvVar2,(byte *)0x800197c8/*SDRAM*/);
     set_struct_fields_and_flag(pvVar2,0x60,2);

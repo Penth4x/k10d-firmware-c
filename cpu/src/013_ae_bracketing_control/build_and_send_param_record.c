@@ -37,7 +37,7 @@ void build_and_send_param_record(int param_1)
   uStack_1c = (short)uVar1;
   uVar1 = read_struct_field_at_offset_4(auStack_18);
   uStack_1a = (short)uVar1;
-  register_menu_item_entry_10381d32(param_1 + 0x6c,*(int *)(param_1 + 0x13c),&uStack_28);
+  register_menu_item_entry_10381d32((cls_10558e74 *)(param_1 + 0x6c),*(int *)(param_1 + 0x13c),&uStack_28);
   free_heap_if_flagged_1045c402(auStack_18,2);
   return;
 }

@@ -21,7 +21,7 @@ uint32_t get_sysparam_store_instance(void)
 {
   if (_DAT_8005b1d0/*SDRAM*/ == 0) {
     _DAT_8005b1d0/*SDRAM*/ = 1;
-    cls_1062112c_new((void *)0x8005b160/*SDRAM*/);
+    cls_1062112c_new((cls_1062112c *)0x8005b160/*SDRAM*/);
     prepend_to_singly_linked_list((void *)0x80014908/*SDRAM*/);
   }
   return 0x8005b160/*SDRAM*/;

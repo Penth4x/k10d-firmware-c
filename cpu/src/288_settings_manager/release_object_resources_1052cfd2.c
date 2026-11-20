@@ -30,7 +30,7 @@ void release_object_resources_1052cfd2(int param_1)
   mempool_release_block(pvVar1,*(void **)(param_1 + 0x1fc));
   pvVar1 = (void *)get_system_heap();
   mempool_release_block(pvVar1,*(void **)(param_1 + 0x200));
-  release_heap_block_and_clear_104bcd58((void *)(param_1 + 0x1dc));
+  release_heap_block_and_clear_104bcd58((cls_105b934c *)(param_1 + 0x1dc));
   *(uint32_t *)(param_1 + 500) = 0;
   *(uint32_t *)(param_1 + 0x250) = 0;
   *(uint32_t *)(param_1 + 0x1f8) = 0;

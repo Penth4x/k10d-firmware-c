@@ -124,17 +124,17 @@ void telemetry_dump_ae(void)
   *(uint32_t *)(caller_r14 + -0xc) = 1;
   do {
     piVar5 = (int *)(*(int *)(caller_r14 + -0x3c) + 0xb0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3 + 1);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 1);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3 + 2);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 2);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)piVar5 + (int)*(short *)(*piVar5 + 0x10),iVar3 + 3);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)piVar5 + (int)((vtbl_entry*)(*piVar5))[2].adj,iVar3 + 3);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
     iVar3 = iVar3 + 4;
     iVar2 = *(int *)(caller_r14 + -0xc) + -1;
@@ -147,7 +147,7 @@ void telemetry_dump_ae(void)
     piVar5 = (int *)(*(int *)(caller_r14 + -0x3c) + 0xb0);
     iVar7 = *piVar5;
     *(uint32_t *)(caller_r14 + -0x38) = 0x10;
-    pvVar4 = (void *)(**(code **)(iVar7 + 0x14))((int)*(short *)(iVar7 + 0x10) + (int)piVar5,iVar2);
+    pvVar4 = (void *)(((vtbl_entry*)(iVar7))[2].fn)((int)((vtbl_entry*)(iVar7))[2].adj + (int)piVar5,iVar2);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
     psVar6 = (short *)(*piVar5 + *(int *)(caller_r14 + -0x38));
     pvVar4 = (void *)(**(code **)(psVar6 + 2))((int)*psVar6 + (int)piVar5,iVar2 + 1);
@@ -169,13 +169,13 @@ void telemetry_dump_ae(void)
   *(uint32_t *)(caller_r14 + -0x24) = 1;
   do {
     piVar5 = (int *)(*(int *)(caller_r14 + -0x3c) + 0xc4);
-    (**(code **)(*piVar5 + 0x14))((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3);
+    (((vtbl_entry*)(*piVar5))[2].fn)((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3);
     copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
-    (**(code **)(*piVar5 + 0x14))((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3 + 1);
+    (((vtbl_entry*)(*piVar5))[2].fn)((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 1);
     copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
-    (**(code **)(*piVar5 + 0x14))((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3 + 2);
+    (((vtbl_entry*)(*piVar5))[2].fn)((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 2);
     copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
-    (**(code **)(*piVar5 + 0x14))((int)piVar5 + (int)*(short *)(*piVar5 + 0x10),iVar3 + 3);
+    (((vtbl_entry*)(*piVar5))[2].fn)((int)piVar5 + (int)((vtbl_entry*)(*piVar5))[2].adj,iVar3 + 3);
     copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
     iVar3 = iVar3 + 4;
     iVar2 = *(int *)(caller_r14 + -0x24) + -1;
@@ -186,20 +186,20 @@ void telemetry_dump_ae(void)
   *(uint32_t *)(caller_r14 + -0x20) = 1;
   do {
     piVar5 = (int *)(*(int *)(caller_r14 + -0x3c) + 0xc4);
-    (**(code **)(*piVar5 + 0x14))
-              ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,*(uint32_t *)(caller_r14 + -0x40));
+    (((vtbl_entry*)(*piVar5))[2].fn)
+              ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,*(uint32_t *)(caller_r14 + -0x40));
     copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
     *(int *)(caller_r14 + -0x40) = *(int *)(caller_r14 + -0x40) + 1;
-    (**(code **)(*piVar5 + 0x14))
-              ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,*(uint32_t *)(caller_r14 + -0x40));
+    (((vtbl_entry*)(*piVar5))[2].fn)
+              ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,*(uint32_t *)(caller_r14 + -0x40));
     copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
     *(int *)(caller_r14 + -0x40) = *(int *)(caller_r14 + -0x40) + 1;
-    (**(code **)(*piVar5 + 0x14))
-              ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,*(uint32_t *)(caller_r14 + -0x40));
+    (((vtbl_entry*)(*piVar5))[2].fn)
+              ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,*(uint32_t *)(caller_r14 + -0x40));
     copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
     *(int *)(caller_r14 + -0x40) = *(int *)(caller_r14 + -0x40) + 1;
-    (**(code **)(*piVar5 + 0x14))
-              ((int)piVar5 + (int)*(short *)(*piVar5 + 0x10),*(uint32_t *)(caller_r14 + -0x40));
+    (((vtbl_entry*)(*piVar5))[2].fn)
+              ((int)piVar5 + (int)((vtbl_entry*)(*piVar5))[2].adj,*(uint32_t *)(caller_r14 + -0x40));
     copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
     *(int *)(caller_r14 + -0x40) = *(int *)(caller_r14 + -0x40) + 1;
     iVar3 = *(int *)(caller_r14 + -0x20) + -1;
@@ -213,17 +213,17 @@ void telemetry_dump_ae(void)
   *(uint32_t *)(caller_r14 + -0x1c) = 1;
   do {
     piVar5 = (int *)(*(int *)(caller_r14 + -0x3c) + 0xd8);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3 + 1);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 1);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3 + 2);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 2);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)piVar5 + (int)*(short *)(*piVar5 + 0x10),iVar3 + 3);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)piVar5 + (int)((vtbl_entry*)(*piVar5))[2].adj,iVar3 + 3);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
     iVar3 = iVar3 + 4;
     iVar2 = *(int *)(caller_r14 + -0x1c) + -1;
@@ -234,17 +234,17 @@ void telemetry_dump_ae(void)
   *(uint32_t *)(caller_r14 + -0x18) = 1;
   do {
     piVar5 = (int *)(*(int *)(caller_r14 + -0x3c) + 0xd8);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3 + 1);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 1);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3 + 2);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 2);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)piVar5 + (int)*(short *)(*piVar5 + 0x10),iVar3 + 3);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)piVar5 + (int)((vtbl_entry*)(*piVar5))[2].adj,iVar3 + 3);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
     iVar3 = iVar3 + 4;
     iVar2 = *(int *)(caller_r14 + -0x18) + -1;
@@ -258,17 +258,17 @@ void telemetry_dump_ae(void)
   *(uint32_t *)(caller_r14 + -0x28) = 1;
   do {
     piVar5 = (int *)(*(int *)(caller_r14 + -0x3c) + 0x140);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3 + 1);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 1);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3 + 2);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 2);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)piVar5 + (int)*(short *)(*piVar5 + 0x10),iVar3 + 3);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)piVar5 + (int)((vtbl_entry*)(*piVar5))[2].adj,iVar3 + 3);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
     iVar3 = iVar3 + 4;
     iVar2 = *(int *)(caller_r14 + -0x28) + -1;
@@ -279,17 +279,17 @@ void telemetry_dump_ae(void)
   *(uint32_t *)(caller_r14 + -0x2c) = 1;
   do {
     piVar5 = (int *)(*(int *)(caller_r14 + -0x3c) + 0x140);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3 + 1);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 1);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3 + 2);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 2);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)piVar5 + (int)*(short *)(*piVar5 + 0x10),iVar3 + 3);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)piVar5 + (int)((vtbl_entry*)(*piVar5))[2].adj,iVar3 + 3);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
     iVar3 = iVar3 + 4;
     iVar2 = *(int *)(caller_r14 + -0x2c) + -1;
@@ -300,17 +300,17 @@ void telemetry_dump_ae(void)
   *(uint32_t *)(caller_r14 + -0x30) = 1;
   do {
     piVar5 = (int *)(*(int *)(caller_r14 + -0x3c) + 0x140);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3 + 1);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 1);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3 + 2);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 2);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)piVar5 + (int)*(short *)(*piVar5 + 0x10),iVar3 + 3);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)piVar5 + (int)((vtbl_entry*)(*piVar5))[2].adj,iVar3 + 3);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
     iVar3 = iVar3 + 4;
     iVar2 = *(int *)(caller_r14 + -0x30) + -1;
@@ -321,23 +321,23 @@ void telemetry_dump_ae(void)
   *(uint32_t *)(caller_r14 + -0x34) = 1;
   do {
     piVar5 = (int *)(*(int *)(caller_r14 + -0x3c) + 0x140);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,
                                 *(uint32_t *)(caller_r14 + -0x44));
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
     *(int *)(caller_r14 + -0x44) = *(int *)(caller_r14 + -0x44) + 1;
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,
                                 *(uint32_t *)(caller_r14 + -0x44));
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
     *(int *)(caller_r14 + -0x44) = *(int *)(caller_r14 + -0x44) + 1;
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,
                                 *(uint32_t *)(caller_r14 + -0x44));
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
     *(int *)(caller_r14 + -0x44) = *(int *)(caller_r14 + -0x44) + 1;
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)piVar5 + (int)*(short *)(*piVar5 + 0x10),
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)piVar5 + (int)((vtbl_entry*)(*piVar5))[2].adj,
                                 *(uint32_t *)(caller_r14 + -0x44));
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
     *(int *)(caller_r14 + -0x44) = *(int *)(caller_r14 + -0x44) + 1;
@@ -352,17 +352,17 @@ void telemetry_dump_ae(void)
   *(uint32_t *)(caller_r14 + -0x14) = 1;
   do {
     piVar5 = (int *)(*(int *)(caller_r14 + -0x3c) + 0x11c);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3 + 1);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 1);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3 + 2);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 2);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)piVar5 + (int)*(short *)(*piVar5 + 0x10),iVar3 + 3);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)piVar5 + (int)((vtbl_entry*)(*piVar5))[2].adj,iVar3 + 3);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
     iVar3 = iVar3 + 4;
     iVar2 = *(int *)(caller_r14 + -0x14) + -1;
@@ -373,17 +373,17 @@ void telemetry_dump_ae(void)
   *(uint32_t *)(caller_r14 + -0x10) = 1;
   do {
     piVar5 = (int *)(*(int *)(caller_r14 + -0x3c) + 0x11c);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3 + 1);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 1);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,iVar3 + 2);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 2);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
-    pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))
-                               ((int)piVar5 + (int)*(short *)(*piVar5 + 0x10),iVar3 + 3);
+    pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)
+                               ((int)piVar5 + (int)((vtbl_entry*)(*piVar5))[2].adj,iVar3 + 3);
     parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
     iVar3 = iVar3 + 4;
     iVar2 = *(int *)(caller_r14 + -0x10) + -1;
@@ -393,31 +393,31 @@ void telemetry_dump_ae(void)
   append_bytes_to_ring_buffer(caller_r8,0x105d8eec/*ROM*/,0);
   append_bytes_to_ring_buffer(caller_r8,0x105d8f04/*ROM*/,0);
   iVar3 = *(int *)(caller_r14 + -0x3c) + 0x4b0;
-  pvVar4 = (void *)invoke_virtual_slot_two_1045d4b0(iVar3);
+  pvVar4 = (void *)invoke_virtual_slot_two_1045d4b0((void*)(iVar3));
   parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
   append_newline_to_buffer(caller_r8,0);
   append_bytes_to_ring_buffer(caller_r8,0x105d8f0c/*ROM*/,0);
-  pvVar4 = (void *)invoke_virtual_slot_two_1045d4ce(iVar3);
+  pvVar4 = (void *)invoke_virtual_slot_two_1045d4ce((void*)(iVar3));
   parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
   append_newline_to_buffer(caller_r8,0);
   append_bytes_to_ring_buffer(caller_r8,0x105d8f20/*ROM*/,0);
-  pvVar4 = (void *)invoke_virtual_slot_two_1045d4ec(iVar3);
+  pvVar4 = (void *)invoke_virtual_slot_two_1045d4ec((void*)(iVar3));
   parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
   append_newline_to_buffer(caller_r8,0);
   append_bytes_to_ring_buffer(caller_r8,0x105d8f34/*ROM*/,0);
-  pvVar4 = (void *)call_virtual_slot_two_1045d50a(iVar3);
+  pvVar4 = (void *)call_virtual_slot_two_1045d50a((void*)(iVar3));
   parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
   append_newline_to_buffer(caller_r8,0);
   append_bytes_to_ring_buffer(caller_r8,0x105d8f48/*ROM*/,0);
-  pvVar4 = (void *)call_virtual_slot_two_1045d528(iVar3);
+  pvVar4 = (void *)call_virtual_slot_two_1045d528((void*)(iVar3));
   parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
   append_newline_to_buffer(caller_r8,0);
   append_bytes_to_ring_buffer(caller_r8,0x105d8f5c/*ROM*/,0);
-  pvVar4 = (void *)invoke_virtual_slot_two_1045d546(iVar3);
+  pvVar4 = (void *)invoke_virtual_slot_two_1045d546((void*)(iVar3));
   parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
   append_newline_to_buffer(caller_r8,0);
   append_bytes_to_ring_buffer(caller_r8,0x105d8f70/*ROM*/,0);
-  pvVar4 = (void *)invoke_virtual_slot_two_1045d564(iVar3);
+  pvVar4 = (void *)invoke_virtual_slot_two_1045d564((void*)(iVar3));
   parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
   append_newline_to_buffer(caller_r8,0);
   append_bytes_to_ring_buffer(caller_r8,0x105d8f84/*ROM*/,0);
@@ -429,17 +429,17 @@ void telemetry_dump_ae(void)
   append_bytes_to_ring_buffer(caller_r8,0x105d8fc4/*ROM*/,0);
   piVar5 = (int *)(*(int *)(caller_r14 + -0x3c) + 0x9c);
   iVar3 = *piVar5;
-  pvVar4 = (void *)(**(code **)(iVar3 + 0x14))((int)piVar5 + (int)*(short *)(iVar3 + 0x10),0);
+  pvVar4 = (void *)(((vtbl_entry*)(iVar3))[2].fn)((int)piVar5 + (int)((vtbl_entry*)(iVar3))[2].adj,0);
   parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
   append_newline_to_buffer(caller_r8,0);
   append_bytes_to_ring_buffer(caller_r8,0x105d8fd0/*ROM*/,0);
   append_bytes_to_ring_buffer(caller_r8,0x105d8fe0/*ROM*/,0);
   piVar5 = (int *)(*(int *)(caller_r14 + -0x3c) + 0x4bc);
-  pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))((int)*(short *)(*piVar5 + 0x10) + (int)piVar5,0);
+  pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,0);
   parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
   append_newline_to_buffer(caller_r8,0);
   append_bytes_to_ring_buffer(caller_r8,0x105d8fec/*ROM*/,0);
-  pvVar4 = (void *)(**(code **)(*piVar5 + 0x14))((int)piVar5 + (int)*(short *)(*piVar5 + 0x10),8);
+  pvVar4 = (void *)(((vtbl_entry*)(*piVar5))[2].fn)((int)piVar5 + (int)((vtbl_entry*)(*piVar5))[2].adj,8);
   parse_and_store_buffered_records(caller_r8,pvVar4,1,0);
   append_newline_to_buffer(caller_r8,0);
   return;

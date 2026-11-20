@@ -26,7 +26,7 @@ uint32_t * wait_for_flag_after_command(uint32_t *param_1)
   if (param_1[0x1b] != 0) {
     uVar2 = 0;
   }
-  run_sensor_readout_sequence(*param_1,uVar2,1,(uint8_t *)__frv_reg_unset(7));
+  run_sensor_readout_sequence((int)(*param_1),(uint8_t *)(uVar2),(int)(1),(uint8_t *)__frv_reg_unset(7));
   cVar1 = *(char *)((int)param_1 + 0x31);
   while (cVar1 == '\0') {
     check_kernel_call_success_10459fea();

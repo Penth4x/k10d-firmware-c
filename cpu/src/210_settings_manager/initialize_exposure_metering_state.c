@@ -49,7 +49,7 @@ uint32_t initialize_exposure_metering_state(byte *param_1)
   do {
     iVar6 = *(int *)(param_1 + 4);
     iVar5 = uVar4 * 4;
-    uVar2 = cls_105b709c_new(0,uVar4);
+    uVar2 = (uint32_t)(cls_105b709c_new((cls_105b709c *)0x0,uVar4));
     uVar4 = uVar4 + 1 & 0xff;
     *(uint32_t *)(iVar6 + iVar5) = uVar2;
   } while (uVar4 < 2);
@@ -59,7 +59,7 @@ uint32_t initialize_exposure_metering_state(byte *param_1)
   do {
     iVar6 = *(int *)(param_1 + 8);
     iVar5 = uVar4 * 4;
-    uVar2 = cls_105b709c_new(0,uVar4 + 2 & 0xff);
+    uVar2 = (uint32_t)(cls_105b709c_new((cls_105b709c *)0x0,uVar4 + 2 & 0xff));
     uVar4 = uVar4 + 1 & 0xff;
     *(uint32_t *)(iVar6 + iVar5) = uVar2;
   } while (uVar4 < 3);
@@ -69,7 +69,7 @@ uint32_t initialize_exposure_metering_state(byte *param_1)
   do {
     iVar6 = *(int *)(param_1 + 0xc);
     iVar5 = uVar4 * 4;
-    uVar2 = cls_105b703c_new(0,uVar4);
+    uVar2 = (uint32_t)(cls_105b703c_new((cls_105b703c *)0x0,uVar4));
     uVar4 = uVar4 + 1 & 0xff;
     *(uint32_t *)(iVar6 + iVar5) = uVar2;
   } while (uVar4 < 2);
@@ -79,7 +79,7 @@ uint32_t initialize_exposure_metering_state(byte *param_1)
   do {
     iVar6 = *(int *)(param_1 + 0x10);
     iVar5 = uVar4 * 4;
-    uVar2 = cls_105b703c_new(0,uVar4 + 2 & 0xff);
+    uVar2 = (uint32_t)(cls_105b703c_new((cls_105b703c *)0x0,uVar4 + 2 & 0xff));
     uVar4 = uVar4 + 1 & 0xff;
     *(uint32_t *)(iVar6 + iVar5) = uVar2;
   } while (uVar4 < 3);
@@ -89,7 +89,7 @@ uint32_t initialize_exposure_metering_state(byte *param_1)
   do {
     iVar6 = *(int *)(param_1 + 0x14);
     iVar5 = uVar4 * 4;
-    uVar2 = cls_105b719c_new(0,uVar4);
+    uVar2 = (uint32_t)(cls_105b719c_new((cls_105b719c *)0x0,uVar4));
     uVar4 = uVar4 + 1 & 0xff;
     *(uint32_t *)(iVar6 + iVar5) = uVar2;
   } while (uVar4 < 2);
@@ -99,11 +99,11 @@ uint32_t initialize_exposure_metering_state(byte *param_1)
   do {
     iVar6 = *(int *)(param_1 + 0x18);
     iVar5 = uVar4 * 4;
-    uVar2 = cls_105b719c_new(0,uVar4 + 2 & 0xff);
+    uVar2 = (uint32_t)(cls_105b719c_new((cls_105b719c *)0x0,uVar4 + 2 & 0xff));
     uVar4 = uVar4 + 1 & 0xff;
     *(uint32_t *)(iVar6 + iVar5) = uVar2;
   } while (uVar4 < 3);
-  uVar2 = build_parameter_table_entry((uint32_t *)0x0,2,1);
+  uVar2 = (uint32_t)(build_parameter_table_entry((uint32_t *)0x0,2,1));
   *(uint32_t *)(param_1 + 0x1c) = uVar2;
   uVar2 = heap_alloc_2((uint)*param_1 << 2);
   *(uint32_t *)(param_1 + 0x20) = uVar2;
@@ -121,8 +121,8 @@ uint32_t initialize_exposure_metering_state(byte *param_1)
   uVar4 = 0;
   *puVar8 = **(uint32_t **)(param_1 + 0x14);
   puVar8[1] = 2;
-  puVar8[2] = puVar7;
-  uVar1 = cls_106210ec_new((uint32_t *)0x0,0,uVar1,uVar2,*puVar8,puVar8[1],puVar8[2]);
+  puVar8[2] = (uint32_t)(puVar7);
+  uVar1 = (uint32_t)(cls_106210ec_new((cls_106210ec *)0x0,0,uVar1,uVar2,*puVar8,puVar8[1],puVar8[2]));
   if (*param_1 != 0) {
     do {
       iVar5 = uVar4 * 4;
@@ -136,8 +136,8 @@ uint32_t initialize_exposure_metering_state(byte *param_1)
         uVar3 = *(uint32_t *)(*(int *)(param_1 + 0xc) + iVar5);
         *puVar8 = *(uint32_t *)(*(int *)(param_1 + 0x14) + iVar5);
         puVar8[1] = 2;
-        puVar8[2] = puVar7;
-        uVar2 = cls_105b7288_new((uint32_t *)0x0,uVar4,uVar2,uVar3,*puVar8,puVar8[1],puVar8[2]);
+        puVar8[2] = (uint32_t)(puVar7);
+        uVar2 = (uint32_t)(cls_105b7288_new((cls_105b7288 *)0x0,uVar4,uVar2,uVar3,*puVar8,puVar8[1],puVar8[2]));
         *(uint32_t *)(iVar6 + iVar5) = uVar2;
       }
       *(uint32_t *)(*(int *)(param_1 + 0x24) + iVar5) = 0;
@@ -147,8 +147,8 @@ uint32_t initialize_exposure_metering_state(byte *param_1)
         uVar3 = *(uint32_t *)(*(int *)(param_1 + 0x10) + iVar5);
         *puVar8 = *(uint32_t *)(*(int *)(param_1 + 0x18) + iVar5);
         puVar8[1] = 2;
-        puVar8[2] = puVar7;
-        uVar2 = cls_105b72e0_new((uint32_t *)0x0,uVar4,uVar2,uVar3,*puVar8,puVar8[1],puVar8[2]);
+        puVar8[2] = (uint32_t)(puVar7);
+        uVar2 = (uint32_t)(cls_105b72e0_new((cls_105b72e0 *)0x0,uVar4,uVar2,uVar3,*puVar8,puVar8[1],puVar8[2]));
         *(uint32_t *)(iVar6 + iVar5) = uVar2;
       }
       uVar4 = uVar4 + 1 & 0xff;
@@ -157,10 +157,10 @@ uint32_t initialize_exposure_metering_state(byte *param_1)
   }
   *(uint32_t *)(*(int *)(*(int *)(param_1 + 0x20) + 4) + 0x20) = *(uint32_t *)(param_1 + 0x1c);
   *(uint32_t *)(*(int *)(*(int *)(param_1 + 0x24) + 4) + 0x20) = *(uint32_t *)(param_1 + 0x1c);
-  iVar5 = cls_105b71d4_new((uint32_t *)0x0,2,3);
+  iVar5 = cls_105b71d4_new((cls_105b71d4 *)0x0,2,3);
   *(int *)(param_1 + 0x28) = iVar5;
-  iVar5 = (**(code **)(*(int *)(iVar5 + 4) + 0x14))
-                    (iVar5 + *(short *)(*(int *)(iVar5 + 4) + 0x10),0);
+  iVar5 = (((vtbl_entry*)(*(int *)(iVar5 + 4)))[2].fn)
+                    (iVar5 + ((vtbl_entry*)(*(int *)(iVar5 + 4)))[2].adj,0);
   if (iVar5 == 0) {
     uVar1 = 0;
   }
@@ -179,7 +179,7 @@ uint32_t initialize_exposure_metering_state(byte *param_1)
       *(uint32_t *)(*(int *)(*(int *)(param_1 + 0x28) + 0x20) + iVar5) =
            *(uint32_t *)(*(int *)(param_1 + 0x24) + iVar5);
     } while (uVar4 < 3);
-    iVar5 = store_value_if_valid(*(uint32_t *)(param_1 + 0x28),0xaa);
+    iVar5 = store_value_if_valid((void*)(*(uint32_t *)(param_1 + 0x28)),0xaa);
     if (iVar5 == 0) {
       uVar1 = 0;
     }

@@ -16,7 +16,8 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_virtual_slot5_with_branch(int *param_1,uint32_t param_2,uint32_t param_3,int param_4,uint32_t param_5)
+void dispatch_virtual_slot5_with_branch(cls_105d6484 *param_1,uint32_t param_2,uint32_t param_3,int param_4,
+                 uint32_t param_5)
 
 {
   int iVar1;
@@ -25,7 +26,8 @@ void dispatch_virtual_slot5_with_branch(int *param_1,uint32_t param_2,uint32_t p
   uint8_t auStack_18 [4];
   
   puVar2 = (uint32_t *)auStack_18;
-  iVar1 = (**(code **)(*param_1 + 0x2c))((int)*(short *)(*param_1 + 0x28) + (int)param_1);
+  iVar1 = (((vtbl_entry*)(param_1->field_0x0))[5].fn)
+                    ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[5].adj);
   if (iVar1 == 0) {
     *puVar2 = param_5;
     construct_object_with_vtable((uint16_t *)0x0,(short)param_2,(short)param_3,param_4,*puVar2);

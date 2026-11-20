@@ -17,7 +17,7 @@ void iterate_and_invoke_virtual_method(int param_1)
     do {
       iVar1 = *piVar2;
       if (iVar1 != 0) {
-        (**(code **)(*(int *)(iVar1 + 0x10) + 0xc))
+        (((vtbl_entry*)(*(int *)(iVar1 + 0x10)))[1].fn)
                   (*(short *)(*(int *)(iVar1 + 0x10) + 8) + iVar1,3);
       }
       piVar2 = piVar2 + 1;

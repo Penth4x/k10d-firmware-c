@@ -18,7 +18,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int update_setting_0x9d_on_event(int param_1,int param_2,int param_3)
+cls_10595e74 * update_setting_0x9d_on_event(cls_10595e74 *param_1,int param_2,int param_3)
 
 {
   int iVar1;
@@ -26,17 +26,17 @@ int update_setting_0x9d_on_event(int param_1,int param_2,int param_3)
   
   iVar1 = get_or_create_singleton_object_104bb22a();
   uVar2 = *(uint32_t *)(iVar1 + 4);
-  *(int *)(param_1 + 0x14) = param_3;
+  param_1->field_0x14 = param_3;
   if (param_2 == 0x192001a) {
     if ((param_3 == 0x11) || (param_3 == 0xe)) {
-      setting_set(*(int *)(param_1 + 8),0x9d,(uint)*(byte *)(param_1 + 0x20));
-      acquire_lock_and_process_event(uVar2,*(uint8_t *)(param_1 + 0x20));
+      setting_set(param_1->field_0x8,0x9d,(uint)(byte)param_1->field_0x20);
+      acquire_lock_and_process_event(uVar2,param_1->field_0x20);
       check_kernel_call_success_10459fea();
     }
     else if ((((param_3 == 7) || (param_3 == 0)) || (param_3 == 1)) || (param_3 == 3)) {
-      setting_set(*(int *)(param_1 + 8),0x9d,(uint)*(byte *)(param_1 + 0x20));
-      *(uint8_t *)(param_1 + 0x22) = 0x8c;
-      param_1 = 0;
+      setting_set(param_1->field_0x8,0x9d,(uint)(byte)param_1->field_0x20);
+      param_1->field_0x22 = 0x8c;
+      param_1 = (cls_10595e74 *)0x0;
     }
   }
   return param_1;

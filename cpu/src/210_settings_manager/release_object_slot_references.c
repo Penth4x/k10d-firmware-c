@@ -13,7 +13,7 @@ void release_object_slot_references(int param_1)
   
   iVar1 = *(int *)(param_1 + 0x28);
   if (iVar1 != 0) {
-    (**(code **)(*(int *)(iVar1 + 4) + 0xc))(*(short *)(*(int *)(iVar1 + 4) + 8) + iVar1,3);
+    (((vtbl_entry*)(*(int *)(iVar1 + 4)))[1].fn)(*(short *)(*(int *)(iVar1 + 4) + 8) + iVar1,3);
   }
   if (*(int *)(param_1 + 0x18) != 0) {
     invoke_virtual_slot_on_array_104abf48(param_1,*(int *)(param_1 + 0x18),3);

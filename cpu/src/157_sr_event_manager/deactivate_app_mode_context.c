@@ -32,7 +32,7 @@ void deactivate_app_mode_context(int param_1)
   write_pattern_to_offset_0x10(*(int *)(param_1 + 0x1c),0);
   debug_flag_writer_0x14(*(int *)(param_1 + 0x1c),0);
   iVar2 = **(int **)(param_1 + 0x18);
-  (**(code **)(iVar2 + 0x24))((int)*(int **)(param_1 + 0x18) + (int)*(short *)(iVar2 + 0x20),0);
+  (((vtbl_entry*)(iVar2))[4].fn)((int)*(int **)(param_1 + 0x18) + (int)((vtbl_entry*)(iVar2))[4].adj,0);
   invoke_virtual_slot_13_104835f0(*(uint32_t *)(param_1 + 0x14));
   iVar2 = get_or_create_singleton_object_10485138();
   write_structured_data_blocks(*(void **)(iVar2 + 0x24));

@@ -25,15 +25,15 @@ uint32_t initialize_subobject_and_invoke_slot2(void *param_1)
   uintptr_t sp;
   int aiStack_10 [2];
   
-  uVar1 = (uint32_t)cls_105aa8bc_new(0);
+  uVar1 = (uint32_t)(cls_105aa8bc_new(0));
   *(uint32_t *)((int)param_1 + 4) = uVar1;
   init_pair_zero_minus_one(aiStack_10);
   iVar2 = get_or_create_sram_object_104816ee();
   aiStack_10[0] = forward_second_field_call(*(void **)(iVar2 + 0xc));
   aiStack_10[1] = 0;
   iVar2 = **(int **)((int)param_1 + 4);
-  uVar1 = (**(code **)(iVar2 + 0x14))
-                    ((int)*(int **)((int)param_1 + 4) + (int)*(short *)(iVar2 + 0x10),aiStack_10);
+  uVar1 = (((vtbl_entry*)(iVar2))[2].fn)
+                    ((int)*(int **)((int)param_1 + 4) + (int)((vtbl_entry*)(iVar2))[2].adj,aiStack_10);
   free_if_flag_set_1047c8f8(aiStack_10,2);
   return uVar1;
 }

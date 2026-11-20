@@ -17,7 +17,7 @@ int poll_virtual_method_until_nonzero(int *param_1)
     if (0xf < uVar2) {
       return -1;
     }
-    iVar1 = (**(code **)(*param_1 + 0x1c))((int)*(short *)(*param_1 + 0x18) + (int)param_1);
+    iVar1 = (((vtbl_entry*)(*param_1))[3].fn)((int)((vtbl_entry*)(*param_1))[3].adj + (int)param_1);
     if (iVar1 != 0) break;
     uVar2 = param_1[2] + 1;
     param_1[2] = uVar2;

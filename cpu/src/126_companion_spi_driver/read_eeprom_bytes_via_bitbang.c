@@ -7,10 +7,10 @@
  * summary:
  *   The function initializes a device handle (param_1 + 0x10) with a series of setup calls,
  *   then enters a loop to read 16 bytes (0x10) into the buffer pointed to by param_2. It
- *   uses helper functions (serdev_clear_ready, dev2_ready, FUN_1043fcdc) to perform the
- *   bit-banged read operations, checking for data readiness and handling potential retries.
- *   The final two bytes of the buffer are copied to offsets 0x34 and 0x35 of the object.
- *   The return value indicates success (0) or failure (1).
+ *   uses helper functions (serdev_clear_ready, dev2_ready, dev2_recv) to perform the bit-
+ *   banged read operations, checking for data readiness and handling potential retries. The
+ *   final two bytes of the buffer are copied to offsets 0x34 and 0x35 of the object. The
+ *   return value indicates success (0) or failure (1).
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"

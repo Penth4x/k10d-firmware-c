@@ -12,17 +12,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * alloc_and_construct_object(uint32_t param_x0)
+cls_105b47b4 * alloc_and_construct_object(uint32_t param_x0)
 
 {
-  uint32_t *puVar1;
+  cls_105b47b4 *pcVar1;
   
-  puVar1 = (uint32_t *)heap_alloc((void *)0x68);
-  if (puVar1 == (uint32_t *)0x0) {
-    puVar1 = (uint32_t *)0x0;
+  pcVar1 = (cls_105b47b4 *)heap_alloc((void *)0x68);
+  if (pcVar1 == (cls_105b47b4 *)0x0) {
+    pcVar1 = (cls_105b47b4 *)0x0;
   }
   else {
-    cls_105b47b4_new(puVar1);
+    cls_105b47b4_new(pcVar1);
   }
-  return puVar1;
+  return pcVar1;
 }

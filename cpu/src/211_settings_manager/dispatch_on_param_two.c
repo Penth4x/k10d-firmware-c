@@ -14,14 +14,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_on_param_two(int param_1,int param_2,uint32_t param_3)
+uint32_t dispatch_on_param_two(cls_105b72e0 *param_1,int param_2,uint32_t param_3)
 
 {
   if (param_2 == 0) {
-    wait_for_flag_clear_with_timeout(param_1);
+    wait_for_flag_clear_with_timeout((uint32_t)param_1);
   }
   else {
-    update_object_state_and_dispatch_104ac69a(param_1,param_3);
+    update_object_state_and_dispatch_104ac69a((uint32_t)param_1,param_3);
   }
-  return *(uint32_t *)(param_1 + 0x34);
+  return param_1->field_0x34;
 }

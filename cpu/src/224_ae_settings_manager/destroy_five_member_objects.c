@@ -17,7 +17,7 @@
 void destroy_five_member_objects(void *param_1,uint param_2)
 
 {
-  if (param_1 != (void *)0x0) {
+  if (param_1 != 0) {
     free_heap_if_flagged_1045c402((void *)((int)param_1 + 0x20),2);
     free_heap_if_flagged_1045c402((void *)((int)param_1 + 0x18),2);
     free_heap_if_flagged_1045c402((void *)((int)param_1 + 0x10),2);

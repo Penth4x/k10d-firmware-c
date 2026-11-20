@@ -15,12 +15,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_virtual_slot_two_then_helper_10440460(int param_1)
+uint32_t call_virtual_slot_two_then_helper_10440460(cls_105a0b0c *param_1)
 
 {
   uint32_t uVar1;
   
-  uVar1 = dispatch_single_subobj(param_1 + 8);
-  clear_bit_10_of_word_at_offset_0x20(param_1);
+  uVar1 = dispatch_single_subobj((cls_1059e408 *)&param_1->field_0x8);
+  clear_bit_10_of_word_at_offset_0x20((uint32_t)param_1);
   return uVar1;
 }

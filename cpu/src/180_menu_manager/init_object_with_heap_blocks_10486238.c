@@ -45,15 +45,15 @@ LAB_104862c0:
     call_helper_with_0x50000(param_1,0);
   }
   else {
-    iVar3 = (**(code **)(*(int *)(iVar4 + 0x48) + 0x1c))
-                      (*(short *)(*(int *)(iVar4 + 0x48) + 0x18) + iVar4);
+    iVar3 = (((vtbl_entry*)(*(int *)(iVar4 + 0x48)))[3].fn)
+                      (((vtbl_entry*)(*(int *)(iVar4 + 0x48)))[3].adj + iVar4);
     while (*(int *)(param_1 + 0x54) = iVar3, iVar3 != iVar4) {
-      (**(code **)(*(int *)(iVar4 + 0x48) + 0x24))
-                (*(short *)(*(int *)(iVar4 + 0x48) + 0x20) + iVar4);
+      (((vtbl_entry*)(*(int *)(iVar4 + 0x48)))[4].fn)
+                (((vtbl_entry*)(*(int *)(iVar4 + 0x48)))[4].adj + iVar4);
       iVar4 = *(int *)(param_1 + 0x54);
       if (iVar4 == 0) goto LAB_10486322;
-      iVar3 = (**(code **)(*(int *)(iVar4 + 0x48) + 0x1c))
-                        (*(short *)(*(int *)(iVar4 + 0x48) + 0x18) + iVar4);
+      iVar3 = (((vtbl_entry*)(*(int *)(iVar4 + 0x48)))[3].fn)
+                        (((vtbl_entry*)(*(int *)(iVar4 + 0x48)))[3].adj + iVar4);
     }
     *(uint8_t *)(param_1 + 0x9c) = 1;
 LAB_10486322:

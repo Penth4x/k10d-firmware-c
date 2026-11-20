@@ -40,6 +40,6 @@ void imgp_b_program_and_start_104fe680(int param_1,void *param_2,uint32_t *param
   *(uint16_t *)(param_1 + 0x84) = 0x20;
   *(uint32_t *)(param_1 + 0x88) = 0xffffffff;
   *(uint32_t *)(param_1 + 0x8c) = 0xffffffff;
-  imgp_a_program_and_start(param_1,(uint32_t *)(param_1 + 100));
+  imgp_a_program_and_start_104fe398(param_1,(uint32_t *)(param_1 + 100));
   return;
 }

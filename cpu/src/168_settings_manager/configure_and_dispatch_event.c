@@ -26,10 +26,10 @@ uint8_t configure_and_dispatch_event(int param_1,uint16_t *param_2,uint32_t para
   int iVar2;
   int iVar3;
   uintptr_t sp;
-  uint8_t auStack_28 [32];
+  cls_105ab468 cStack_28;
   
   uVar1 = 0;
-  cls_105ab468_new(auStack_28);
+  cls_105ab468_new(&cStack_28);
   iVar2 = call_subroutine_with_offset_c_10477e8c(*(int *)(param_1 + 0x50));
   if (iVar2 != 0) {
     if ((uint16_t *)(param_1 + 0x90) != param_2) {
@@ -44,16 +44,16 @@ uint8_t configure_and_dispatch_event(int param_1,uint16_t *param_2,uint32_t para
       param_4[3] = iVar2;
       param_4[4] = 0x10000;
       iVar3 = **(int **)(param_1 + 0x60);
-      (**(code **)(iVar3 + 0x3c))
-                ((int)*(int **)(param_1 + 0x60) + (int)*(short *)(iVar3 + 0x38),param_1 + 0x20,
+      (((vtbl_entry*)(iVar3))[7].fn)
+                ((int)*(int **)(param_1 + 0x60) + (int)((vtbl_entry*)(iVar3))[7].adj,param_1 + 0x20,
                  param_4);
       eventflag_wai_flg((uint32_t *)(param_1 + 0x24),1,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg((uint32_t *)(param_1 + 0x24),1);
       decrement_counter_on_success(*(int *)(param_1 + 0x50));
-      release_heap_block_1047c598(param_1,(void *)iVar2);
+      release_heap_block_1047c598((uint32_t)(param_1),(void *)(iVar2));
       uVar1 = *(uint8_t *)(param_1 + 0x6c);
     }
   }
-  cls_105ab468_delete(auStack_28,2);
+  cls_105ab468_delete(&cStack_28,2);
   return uVar1;
 }

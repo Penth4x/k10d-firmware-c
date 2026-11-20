@@ -6,13 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void clear_five_word_fields(int param_1)
+void clear_five_word_fields(cls_105d6608 *param_1)
 
 {
-  *(uint32_t *)(param_1 + 0x58) = 0;
-  *(uint32_t *)(param_1 + 0x5c) = 0;
-  *(uint32_t *)(param_1 + 0x60) = 0;
-  *(uint32_t *)(param_1 + 100) = 0;
-  *(uint32_t *)(param_1 + 0x68) = 0;
+  param_1->field_0x58 = 0;
+  param_1->field_0x5c = 0;
+  param_1->field_0x60 = 0;
+  param_1->field_0x64 = 0;
+  param_1->field_0x68 = 0;
   return;
 }

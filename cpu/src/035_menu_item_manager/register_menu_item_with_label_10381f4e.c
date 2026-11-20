@@ -16,23 +16,23 @@
 #include "globals.h"
 #include "funcs.h"
 
-void register_menu_item_with_label_10381f4e(int param_1,int param_2)
+void register_menu_item_with_label_10381f4e(cls_10558e74 *param_1,int param_2)
 
 {
   void *pvVar1;
   
-  *(int *)(param_1 + 0x5c) = param_2;
-  pvVar1 = (void *)menu_item_register(param_1);
-  if (*(char *)(param_1 + 0x6c + param_2 * 9) == '\0') {
-    (**(code **)(*(int *)((int)pvVar1 + 0xc) + 0xc))
+  param_1->field_0x5c = param_2;
+  pvVar1 = (void *)menu_item_register((int)param_1);
+  if ((&param_1->field_0x6c)[param_2 * 9] == '\0') {
+    (((vtbl_entry*)(*(int *)((int)pvVar1 + 0xc)))[1].fn)
               ((int)*(short *)(*(int *)((int)pvVar1 + 0xc) + 8) + (int)pvVar1,0);
   }
   else {
-    glyph_draw(pvVar1,(byte *)(param_1 + 0x6c + param_2 * 9));
-    (**(code **)(*(int *)((int)pvVar1 + 0xc) + 0xc))
+    glyph_draw(pvVar1,&param_1->field_0x6c + param_2 * 9);
+    (((vtbl_entry*)(*(int *)((int)pvVar1 + 0xc)))[1].fn)
               ((int)*(short *)(*(int *)((int)pvVar1 + 0xc) + 8) + (int)pvVar1,1);
   }
-  register_menu_item_with_split_1038206e(param_1);
-  empty_stub_1038226a(param_1);
+  register_menu_item_with_split_1038206e((int)(param_1));
+  empty_stub_1038226a((uint32_t)(param_1));
   return;
 }

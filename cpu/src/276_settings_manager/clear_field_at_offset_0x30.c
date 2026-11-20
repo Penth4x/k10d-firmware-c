@@ -6,9 +6,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void clear_field_at_offset_0x30(int param_1)
+void clear_field_at_offset_0x30(cls_105d6c88 *param_1)
 
 {
-  *(uint32_t *)(param_1 + 0x30) = 0;
+  param_1->field_0x30 = 0;
   return;
 }

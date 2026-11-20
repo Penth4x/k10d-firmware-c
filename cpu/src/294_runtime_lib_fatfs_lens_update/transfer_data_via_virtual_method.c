@@ -26,7 +26,7 @@ int transfer_data_via_virtual_method(int param_1,int param_2,uint param_3,int pa
     if (param_3 < *puVar2) {
       uVar5 = param_3;
     }
-    iVar4 = (**(int (**)(uint32_t,int,uint,int))(param_1 + 0x5c))(*(uint32_t *)(param_1 + 0x60),param_2,uVar5,param_4);
+    iVar4 = (((vtbl_entry*)(param_1))[11].fn)(*(uint32_t *)(param_1 + 0x60),param_2,uVar5,param_4);
     if (iVar4 != 0) break;
     param_2 = param_2 + uVar5;
     param_4 = param_4 + uVar5 * iVar1;

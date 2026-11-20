@@ -11,9 +11,9 @@ uint32_t get_or_init_sram_object_104daf88(void)
 {
   if (iRam80059e78 == 0) {
     iRam80059e78 = 1;
-    cls_105bb0b8_new((void*)0x80059d80/*SDRAM*/);
+    cls_105bb0b8_new((cls_105bb0b8 *)0x80059d80/*SDRAM*/);
     uRam80059d9c = 0x105ba298/*ROM*/;
-    prepend_to_singly_linked_list((void*)0x80010864/*SDRAM*/);
+    prepend_to_singly_linked_list((void *)0x80010864/*SDRAM*/);
   }
   return 0x80059d80/*SDRAM*/;
 }

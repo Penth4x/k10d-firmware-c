@@ -14,7 +14,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_two_helpers_on_object_10367a3c(void *param_1)
+void call_two_helpers_on_object_10367a3c(cls_105579a8 *param_1)
 
 {
   write_second_field_of_struct(param_1,1);

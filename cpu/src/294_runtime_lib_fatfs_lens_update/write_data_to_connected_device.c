@@ -69,7 +69,7 @@ int write_data_to_connected_device(uint32_t param_1)
   
   piVar9 = (int *)auStack_a4;
   iStack_48 = 0;
-  if ((in_stack_00000010 == (void *)0x0) || (in_stack_00000018 == (int *)0x0)) {
+  if ((in_stack_00000010 == 0) || (in_stack_00000018 == (int *)0x0)) {
     return -0x16;
   }
   *in_stack_00000018 = 0;
@@ -319,7 +319,7 @@ LAB_10542112:
       piStack_38[4] = uStack_54;
       piStack_38[6] = uStack_8c;
     }
-    call_single_helper_1047f97e((int)&iStack_84);
+    call_single_helper_1047f97e((uint32_t)(&iStack_84));
     *(ushort *)((int)piStack_38 + 0xe) =
          (ushort)(iStack_84 / 2) | (ushort)(iStack_80 << 5) | (ushort)(iStack_7c << 0xb);
     *(ushort *)(piStack_38 + 3) = (sStack_72 + 1) * 0x20 | uStack_76 | (sStack_6e + -0x50) * 0x200;

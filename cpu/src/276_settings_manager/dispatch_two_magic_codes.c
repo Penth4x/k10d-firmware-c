@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_two_magic_codes(uint32_t param_1,ushort *param_2,uint *param_3,uint32_t param_4)
+uint32_t dispatch_two_magic_codes(cls_105d6ce0 *param_1,ushort *param_2,uint *param_3,uint32_t param_4)
 
 {
   uint32_t uVar1;
@@ -29,7 +29,7 @@ uint32_t dispatch_two_magic_codes(uint32_t param_1,ushort *param_2,uint *param_3
     uVar1 = 1;
   }
   else {
-    uVar1 = dispatch_command_by_id_1051c540(param_1,param_2,param_3,param_4);
+    uVar1 = dispatch_command_by_id_1051c540((cls_105d6c2c *)param_1,param_2,param_3,param_4);
   }
   return uVar1;
 }

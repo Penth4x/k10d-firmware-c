@@ -31,7 +31,7 @@ void populate_sixteen_ui_fields(int param_1,uint32_t param_2,uint32_t param_3,vo
     uVar2 = heap_alloc_2(iVar1 << 1);
     *(uint32_t *)(param_1 + 0x2d0) = uVar2;
   }
-  extract_sixteen_shorts_from_object(*(uint32_t *)(param_1 + 0x28),(void *)(uint)*(uint32_t *)(param_1 + 0x2d0));
+  extract_sixteen_shorts_from_object((int)(*(uint32_t *)(param_1 + 0x28)),(uint16_t *)(*(uint32_t *)(param_1 + 0x2d0)));
   format_string_to_buffer_10545140((byte *)(param_1 + 0x22d),(char *)0x1059a574/*ROM*/,
                (void *)(uint)**(ushort **)(param_1 + 0x2d0),param_4);
   format_string_to_buffer_10545140((byte *)(param_1 + 0x237),(char *)0x1059a57c/*ROM*/,
@@ -98,6 +98,6 @@ void populate_sixteen_ui_fields(int param_1,uint32_t param_2,uint32_t param_3,vo
   pvVar3 = (void *)menu_item_register(iVar1);
   glyph_draw(pvVar3,(byte *)(param_1 + 0x2c3));
   iVar1 = menu_item_register(iVar1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   return;
 }

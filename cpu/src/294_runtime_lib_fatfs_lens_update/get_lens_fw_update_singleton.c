@@ -21,7 +21,7 @@ uint32_t get_lens_fw_update_singleton(void)
 {
   if (_DAT_8005b230/*SDRAM*/ == 0) {
     _DAT_8005b230/*SDRAM*/ = 1;
-    cls_10621c8c_new((uint32_t *)0x8005b1e0/*SDRAM*/);
+    cls_10621c8c_new((cls_10621c8c *)0x8005b1e0/*SDRAM*/);
     prepend_to_singly_linked_list((void *)0x8001495c/*SDRAM*/);
   }
   return 0x8005b1e0/*SDRAM*/;

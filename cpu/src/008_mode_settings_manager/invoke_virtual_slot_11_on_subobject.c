@@ -12,10 +12,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_11_on_subobject(int param_1)
+void invoke_virtual_slot_11_on_subobject(cls_105579a8 *param_1)
 
 {
-  (**(code **)(*(int *)(param_1 + 0x18) + 0x4c))
-            (param_1 + 0x18 + (int)*(short *)(*(int *)(param_1 + 0x18) + 0x48));
+  (((vtbl_entry*)(param_1->field_0x18))[9].fn)
+            ((int)&param_1->field_0x18 + (int)((vtbl_entry*)(param_1->field_0x18))[9].adj);
   return;
 }

@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t conditional_combine_two_values(uint32_t param_1)
+cls_10599c24 * conditional_combine_two_values(cls_10599c24 *param_1)
 
 {
   int iVar1;
@@ -27,8 +27,8 @@ uint32_t conditional_combine_two_values(uint32_t param_1)
   if (iVar1 != 0) {
     forward_param_to_helper_1036b8fe(0);
     uVar2 = get_or_create_singleton_object_1036c796();
-    uVar3 = read_field_at_offset_100(param_1);
-    param_1 = read_array_element_bounded(uVar2,uVar3);
+    uVar3 = read_field_at_offset_100((uint32_t)(param_1));
+    param_1 = (cls_10599c24 *)read_array_element_bounded(uVar2,uVar3);
   }
   return param_1;
 }

@@ -18,13 +18,13 @@
 uint32_t initialize_subobject_at_offset_0x1c(void *param_1)
 
 {
-  uint32_t *uVar1;
+  uint32_t uVar1;
   int iVar2;
   
-  uVar1 = cls_105c2120_new(0);
-  *(uint32_t *)((int)param_1 + 0x1c) = (uint32_t)uVar1;
-  store_value_if_valid(uVar1,0xcd);
+  uVar1 = (uintptr_t)(cls_105c2120_new((cls_105c2120 *)0x0));
+  *(uint32_t *)((int)param_1 + 0x1c) = uVar1;
+  store_value_if_valid((int *)(uVar1),(int)(0xcd));
   iVar2 = *(int *)(*(int *)((int)param_1 + 0x1c) + 4);
-  (**(code **)(iVar2 + 0x14))(*(int *)((int)param_1 + 0x1c) + (int)*(short *)(iVar2 + 0x10),0);
+  (((vtbl_entry*)(iVar2))[2].fn)(*(int *)((int)param_1 + 0x1c) + (int)((vtbl_entry*)(iVar2))[2].adj,0);
   return 1;
 }

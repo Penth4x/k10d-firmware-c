@@ -35,9 +35,9 @@ uint32_t app_screen_create_all(int param_1,int param_2)
     if (*(char *)(param_1 + 0x3d) == '\0') {
       *(uint8_t *)(param_1 + 0x3d) = 1;
       uVar1 = get_or_create_singleton_104ce316();
-      invoke_three_virtual_methods(param_1,(void *)uVar1);
+      invoke_three_virtual_methods((uint32_t)(param_1),(int *)(uVar1));
       uVar1 = get_or_create_singleton_object_104b43d6();
-      invoke_three_virtual_methods(param_1,(void *)uVar1);
+      invoke_three_virtual_methods((uint32_t)(param_1),(int *)(uVar1));
     }
     app_screen_factory_by_mode(param_1,0,0);
     app_screen_factory_by_mode(param_1,1,0);
@@ -45,7 +45,7 @@ uint32_t app_screen_create_all(int param_1,int param_2)
     app_screen_factory_by_mode(param_1,3,0);
     app_screen_factory_by_mode(param_1,4,0);
     iVar2 = get_or_init_singleton_object_104b50ec();
-    invoke_three_virtual_methods(param_1,(void *)iVar2);
+    invoke_three_virtual_methods((uint32_t)(param_1),(int *)(iVar2));
     pvVar5 = *(void **)(iVar2 + 4);
     if (*(int *)(param_1 + 0x28) == 0) {
       pvVar4 = (void *)0x0;
@@ -56,7 +56,7 @@ uint32_t app_screen_create_all(int param_1,int param_2)
     set_pointer_if_null(pvVar5,pvVar4);
     *(void **)(param_1 + 0x20) = pvVar5;
     uVar1 = get_or_create_singleton_object_104df02a();
-    invoke_three_virtual_methods(param_1,(void *)uVar1);
+    invoke_three_virtual_methods((uint32_t)(param_1),(int *)(uVar1));
     pvVar5 = (void *)read_field_at_offset_four_104df156(uVar1);
     if (*(int *)(param_1 + 0x28) == 0) {
       pvVar4 = (void *)0x0;
@@ -65,11 +65,11 @@ uint32_t app_screen_create_all(int param_1,int param_2)
       pvVar4 = (void *)(*(int *)(param_1 + 0x28) + 4);
     }
     set_pointer_if_null(pvVar5,pvVar4);
-    *puVar6 = (uint32_t)pvVar5;
+    *puVar6 = (uintptr_t)(pvVar5);
     *(void **)(param_1 + 0x1c) = pvVar5;
     if (*(char *)(param_1 + 0x3c) == '\0') {
       uVar1 = initialize_singleton_object_1042d920();
-      uVar3 = invoke_three_virtual_methods(param_1,(void *)uVar1);
+      uVar3 = invoke_three_virtual_methods((uint32_t)(param_1),(int *)(uVar1));
       *(uint8_t *)(param_1 + 0x3c) = uVar3;
     }
     release_up_to_nine_pointers(param_1,1,(void *)0x0);

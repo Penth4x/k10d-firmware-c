@@ -36,8 +36,8 @@ uint32_t set_object_state_and_notify(int param_1,int param_2,uint32_t param_3,ui
       *(uint32_t *)(param_1 + 0x214) = param_4;
       *(uint32_t *)(param_1 + 0x210) = param_3;
       iVar2 = **(int **)(param_1 + 0x1c);
-      (**(code **)(iVar2 + 0x14))
-                ((int)*(int **)(param_1 + 0x1c) + (int)*(short *)(iVar2 + 0x10),param_3,param_4);
+      (((vtbl_entry*)(iVar2))[2].fn)
+                ((int)*(int **)(param_1 + 0x1c) + (int)((vtbl_entry*)(iVar2))[2].adj,param_3,param_4);
       uVar1 = 1;
     }
   }

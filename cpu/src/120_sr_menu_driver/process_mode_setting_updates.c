@@ -32,7 +32,7 @@ void process_mode_setting_updates(int param_1,int param_2)
   uintptr_t sp;
   int *piVar11;
   uint8_t local_54 [12];
-  uint32_t auStack_28 [7];
+  cls_105a6d8c acStack_28 [7];
   byte bStack_c;
   byte bStack_b;
   byte bStack_a;
@@ -40,16 +40,16 @@ void process_mode_setting_updates(int param_1,int param_2)
   
   piVar11 = (int *)local_54;
   if (param_2 == 0) {
-    cls_105a6d8c_new(auStack_28);
-    copy_status_block_bytes(*(int *)(param_1 + 0x30),auStack_28);
-    uVar4 = extract_field_from_struct_1045ff0e((int)auStack_28,0);
+    cls_105a6d8c_new(acStack_28);
+    copy_status_block_bytes(*(int *)(param_1 + 0x30),acStack_28);
+    uVar4 = extract_field_from_struct_1045ff0e(acStack_28,0);
     uVar4 = uVar4 & 0xff;
     if (((uVar4 != 0xf) && (uVar4 != 0xd)) && (uVar4 != 0xe)) {
-      uVar4 = extract_field_from_struct_1045ff0e((int)auStack_28,0x2b);
-      uVar5 = extract_field_from_struct_1045ff0e((int)auStack_28,0xb);
-      iVar6 = extract_field_from_struct_1045ff0e((int)auStack_28,3);
-      iVar7 = extract_field_from_struct_1045ff0e((int)auStack_28,0x29);
-      iVar8 = check_field_bit_or_string(auStack_28,0x2a);
+      uVar4 = extract_field_from_struct_1045ff0e(acStack_28,0x2b);
+      uVar5 = extract_field_from_struct_1045ff0e(acStack_28,0xb);
+      iVar6 = extract_field_from_struct_1045ff0e(acStack_28,3);
+      iVar7 = extract_field_from_struct_1045ff0e(acStack_28,0x29);
+      iVar8 = check_field_bit_or_string(acStack_28,0x2a);
       if (iVar8 == 0) {
         uVar5 = uVar5 & 0xff;
       }
@@ -67,7 +67,7 @@ void process_mode_setting_updates(int param_1,int param_2)
         puVar10[4] = 1;
       }
     }
-    cls_105a6d8c_delete(auStack_28,2);
+    cls_105a6d8c_delete(acStack_28,2);
   }
   else {
     bStack_b = 0;

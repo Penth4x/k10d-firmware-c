@@ -24,7 +24,7 @@ uint32_t validate_and_copy_string(uint32_t *param_1,char *param_2)
   void *pvVar4;
   
   pvVar4 = (void *)*param_1;
-  if ((((pvVar4 == (void *)0x0) || (iVar3 = param_1[1], iVar3 == 0)) || (param_2 == (char *)0x0)) ||
+  if ((((pvVar4 == 0) || (iVar3 = param_1[1], iVar3 == 0)) || (param_2 == (char *)0x0)) ||
      (iVar2 = count_string_bytes(param_2), iVar2 != iVar3)) {
     uVar1 = 0;
   }

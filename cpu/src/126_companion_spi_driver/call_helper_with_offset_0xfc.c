@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_offset_0xfc(int param_1)
+void call_helper_with_offset_0xfc(cls_105a1a84 *param_1)
 
 {
-  heap_free_2(*(int *)(param_1 + 0xfc));
+  heap_free_2(param_1->field_0xfc);
   return;
 }

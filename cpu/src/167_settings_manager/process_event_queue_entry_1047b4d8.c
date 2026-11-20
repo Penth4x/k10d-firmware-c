@@ -42,7 +42,7 @@ void process_event_queue_entry_1047b4d8(int param_1)
       }
       else {
         *(uint8_t *)(iVar3 + 0x18) = 0;
-        send_struct_via_handler(param_1,(void *)(iVar3 + 8),*(uint32_t *)(iVar3 + 4));
+        send_struct_via_handler((int)(param_1),(uint16_t *)(iVar3 + 8),(uint32_t)(*(uint32_t *)(iVar3 + 4)));
       }
       *(uint32_t *)(param_1 + 0x34) = 0;
     }

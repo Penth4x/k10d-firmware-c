@@ -32,7 +32,7 @@ uint32_t allocate_and_bind_object_104751dc(int param_1,void *param_2,int param_3
   if (iVar1 != 0) {
     iVar1 = get_bounded_array_element((int *)(param_1 + 0xc));
     if (iVar1 == 0) {
-      iVar1 = (int)construct_cls_105aa3ec(0);
+      iVar1 = (uintptr_t)(construct_cls_105aa3ec(0));
       write_bytes_and_clear_flag(iVar1,param_2);
       set_flag_and_call_on_zero(iVar1,1);
       record_sample_index_in_buffer((int *)(param_1 + 0xc),uStack_a,iVar1);

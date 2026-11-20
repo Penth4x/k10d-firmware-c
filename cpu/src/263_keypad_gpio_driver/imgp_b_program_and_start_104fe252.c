@@ -14,26 +14,28 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t imgp_b_program_and_start_104fe252(void *param_1)
+/* WARNING: Struct "cls_105d48e4": ignoring multiple overlapping fields */
+
+uint32_t imgp_b_program_and_start_104fe252(cls_105d48e4 *param_1)
 
 {
   void *pvVar1;
-  uint32_t uVar2;
-  int iVar3;
+  void *puVar2;
+  uint32_t uVar3;
+  int iVar4;
   
   pvVar1 = (void *)get_or_init_sram_buffer_104277bc();
-  uVar2 = read_table_entry_field(pvVar1,0xbd);
-  *(uint32_t *)((int)param_1 + 0xc) = uVar2;
-  uVar2 = read_table_entry_field(pvVar1,0xbe);
-  *(uint32_t *)((int)param_1 + 0x10) = uVar2;
-  uVar2 = read_table_entry_field(pvVar1,0xbf);
-  *(uint32_t *)((int)param_1 + 0x14) = uVar2;
-  iVar3 = *(int *)(*(int *)((int)param_1 + 0x18) + 4);
-  (**(code **)(iVar3 + 0x1c))
-            (*(int *)((int)param_1 + 0x18) + 4 + (int)*(short *)(iVar3 + 0x18),(int)param_1 + 4,
-             &SUB_80000002);
-  forward_three_args_to_helper_10459edc((void *)((int)param_1 + 0x20),1,1);
-  forward_three_args_to_helper_10459edc((void *)((int)param_1 + 0x38),1,1);
-  forward_three_args_to_helper_10459edc((void *)((int)param_1 + 0x50),1,1);
+  puVar2 = (void *)read_table_entry_field(pvVar1,0xbd);
+  ((uint32_t *)&(param_1->field_0x4))[2] = (uint32_t)(puVar2);
+  puVar2 = (void *)read_table_entry_field(pvVar1,0xbe);
+  ((uint32_t *)&(param_1->field_0x4))[3] = (uint32_t)(puVar2);
+  uVar3 = read_table_entry_field(pvVar1,0xbf);
+  param_1->field_0x14 = uVar3;
+  iVar4 = *(int *)(param_1->field_0x18 + 4);
+  (((vtbl_entry*)(iVar4))[3].fn)
+            (param_1->field_0x18 + 4 + (int)((vtbl_entry*)(iVar4))[3].adj,&param_1->field_0x4, &SUB_80000002);
+  forward_three_args_to_helper_10459edc(&((uint32_t *)&(param_1->field_0x1c))[1],1,1);
+  forward_three_args_to_helper_10459edc(&((uint32_t *)&(param_1->field_0x34))[1],1,1);
+  forward_three_args_to_helper_10459edc(&((uint32_t *)&(param_1->field_0x4c))[1],1,1);
   return 1;
 }

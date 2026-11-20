@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_single_helper_on_object_104e17c8(uint32_t *param_1)
+void call_single_helper_on_object_104e17c8(cls_10621600 *param_1)
 
 {
-  copy_field_and_clear_offset(*param_1);
+  copy_field_and_clear_offset(param_1->field_0x0);
   return;
 }

@@ -16,38 +16,39 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_with_timer_and_vcalls_103a47f4(int *param_1)
+void init_object_with_timer_and_vcalls_103a47f4(cls_10564c80 *param_1)
 
 {
   uint uVar1;
   uint32_t uVar2;
   int iVar3;
-  int *piVar4;
+  uint8_t *puVar4;
   
   empty_stub_function_103b76f0();
   empty_noop_stub_103b76f2();
-  if (*(char *)(param_1 + 1) == '\0') {
-    (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1,0);
+  if (param_1->field_0x4 == '\0') {
+    (((vtbl_entry*)(param_1->field_0x0))[8].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[8].adj,0);
   }
-  *(uint8_t *)((int)param_1 + 0x65) = 0;
-  *(uint8_t *)((int)param_1 + 0x66) = 0;
-  param_1[0xd] = 180000;
-  uVar1 = check_object_property_43(param_1[10]);
-  *(char *)((int)param_1 + 0x67) = (char)uVar1;
-  *(uint8_t *)(param_1 + 0x19) = 1;
-  uVar2 = get_setting_by_probe_result(param_1[10]);
-  *(char *)(param_1 + 0x14) = (char)uVar2;
-  *(uint16_t *)(param_1 + 0x18) = 0x43b;
-  *(uint16_t *)((int)param_1 + 0x62) = 0x861;
+  param_1->field_0x65 = '\0';
+  param_1->field_0x66 = 0;
+  param_1->field_0x34 = 180000;
+  uVar1 = check_object_property_43(param_1->field_0x28);
+  param_1->field_0x67 = (byte)uVar1;
+  param_1->field_0x64 = 1;
+  uVar2 = get_setting_by_probe_result(param_1->field_0x28);
+  *(char *)&param_1->field_0x50 = (char)uVar2;
+  param_1->field_0x60 = 0x43b;
+  param_1->field_0x62 = 0x861;
   register_seven_menu_items(param_1);
-  piVar4 = param_1 + 2;
-  iVar3 = menu_item_register((int)piVar4);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
+  puVar4 = &param_1->field5_0x8;
+  iVar3 = menu_item_register((int)puVar4);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
   register_menu_items_and_update_view(param_1);
   update_pair_object_state(param_1);
-  dispatch_event_to_object_10492252(piVar4,param_1);
-  request_ui_sync_and_set_flag(piVar4);
-  iVar3 = *(int *)param_1[0xb];
-  (**(code **)(iVar3 + 0x14))(param_1[0xb] + (int)*(short *)(iVar3 + 0x10),0x1120075,0);
+  dispatch_event_to_object_10492252((cls_105b4254 *)puVar4,param_1);
+  request_ui_sync_and_set_flag((cls_105b4254 *)puVar4);
+  iVar3 = *(uint32_t *)(param_1->field_0x2c);
+  (((vtbl_entry*)(iVar3))[2].fn)((int)param_1->field_0x2c + (int)((vtbl_entry*)(iVar3))[2].adj,0x1120075,0);
   return;
 }

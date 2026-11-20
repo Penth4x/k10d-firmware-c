@@ -35,8 +35,8 @@ void update_cached_value_and_notify(int param_1,int param_2)
     } while (uVar1 < *(byte *)(param_1 + 0x38));
   }
   iVar2 = **(int **)(param_1 + 0x2c);
-  (**(code **)(iVar2 + 0x3c))
-            ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar2 + 0x38),
+  (((vtbl_entry*)(iVar2))[7].fn)
+            ((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar2))[7].adj,
              *(uint32_t *)(param_1 + 0x20));
   return;
 }

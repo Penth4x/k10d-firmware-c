@@ -21,7 +21,7 @@
     */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void dispatch_event_flags_loop(int param_1)
+void dispatch_event_flags_loop(cls_10564150 *param_1)
 
 {
   int *piVar1;
@@ -49,160 +49,159 @@ void dispatch_event_flags_loop(int param_1)
   uStack_c = 0;
   do {
     puVar8 = &uStack_c;
-    pvVar9 = _DAT_105a2af0/*ROM*/;
-    eventflag_wai_flg((uint32_t *)(param_1 + 0xcc),0xfffffdff,puVar8,(int)_DAT_105a2af0/*ROM*/);
-    eventflag_clr_flg((uint32_t *)(param_1 + 0xcc),uStack_c);
-    *(uint8_t *)(param_1 + 0x40) = 0;
-    *(uint32_t *)(param_1 + 0x3c) = 0;
+    pvVar9 = (void*)(_DAT_105a2af0/*ROM*/);
+    eventflag_wai_flg(&param_1->field_0xcc,0xfffffdff,puVar8,(int)_DAT_105a2af0/*ROM*/);
+    eventflag_clr_flg(&param_1->field_0xcc,uStack_c);
+    param_1->field_0x40 = 0;
+    param_1->field_0x3c = 0;
     if ((uStack_c & 0x400) != 0) {
-      iVar3 = check_object_flag_at_offset_0x14(*(uint32_t *)(param_1 + 0xbc));
+      iVar3 = check_object_flag_at_offset_0x14(param_1->field_0xbc);
       if (iVar3 != 0) {
-        set_flag_at_offset_0x10(*(uint32_t *)(param_1 + 0xbc),0);
+        set_flag_at_offset_0x10(param_1->field_0xbc,0);
       }
-      uVar4 = check_state_mismatch(*(uint32_t *)(param_1 + 0xbc));
+      uVar4 = check_state_mismatch(param_1->field_0xbc);
       if (uVar4 == 0) {
         iVar10 = 0;
-        while ((*(char *)(param_1 + 0xd8) == '\0' && (*(char *)(param_1 + 0xd9) == '\0'))) {
+        while ((param_1->field_0xd8 == '\0' && (param_1->field_0xd9 == '\0'))) {
           bVar6 = check_kernel_call_success_10459fea();
           uVar4 = (uint)bVar6;
           iVar10 = iVar10 + 1;
-          if ((100 < iVar10) || (uVar4 = check_state_mismatch(*(uint32_t *)(param_1 + 0xbc)), uVar4 != 0))
-          break;
+          if ((100 < iVar10) || (uVar4 = check_state_mismatch(param_1->field_0xbc), uVar4 != 0)) break;
         }
       }
       if (iVar3 != 0) {
-        uVar4 = set_flag_at_offset_0x10(*(uint32_t *)(param_1 + 0xbc),1);
+        set_flag_at_offset_0x10(param_1->field_0xbc,1);
       }
-      empty_stub_function_103b76f0(uVar4);
+      empty_stub_function_103b76f0();
       empty_noop_stub_103b76f2();
-      piVar1 = *(int **)(param_1 + 0x38);
+      piVar1 = (int *)param_1->field_0x38;
       if (piVar1 != (int *)0x0) {
-        (**(code **)(*piVar1 + 0x94))((int)*(short *)(*piVar1 + 0x90) + (int)piVar1);
+        (((vtbl_entry*)(*piVar1))[18].fn)((int)((vtbl_entry*)(*piVar1))[18].adj + (int)piVar1);
       }
     }
     if ((uStack_c & 0x80) != 0) {
-      invoke_virtual_if_flag_set_1039f220(param_1);
+      invoke_virtual_if_flag_set_1039f220((uint32_t)(param_1));
     }
     if ((uStack_c & 0x10) != 0) {
-      clear_flag_and_reset_state(param_1);
-      piVar1 = *(int **)(param_1 + 0x38);
+      clear_flag_and_reset_state((uint32_t)(param_1));
+      piVar1 = (int *)param_1->field_0x38;
       if (piVar1 != (int *)0x0) {
-        (**(code **)(*piVar1 + 0x5c))((int)*(short *)(*piVar1 + 0x58) + (int)piVar1,0);
+        (((vtbl_entry*)(*piVar1))[11].fn)((int)((vtbl_entry*)(*piVar1))[11].adj + (int)piVar1,0);
       }
     }
     if ((uStack_c & 8) != 0) {
-      invoke_virtual_slot_two_1039f3a8(param_1);
-      if (*(int *)(param_1 + 0x44) != 0) {
-        *(uint8_t *)(param_1 + 0x40) = 1;
-        uVar5 = (*(code *)0x1039efe6/*ROM*/)(param_1,*(uint32_t *)(param_1 + 0x44));
-        *(uint32_t *)(param_1 + 0x3c) = uVar5;
-        *(uint32_t *)(param_1 + 0x44) = 0;
+      invoke_virtual_slot_two_1039f3a8((uint32_t)(param_1));
+      if (param_1->field_0x44 != 0) {
+        param_1->field_0x40 = 1;
+        uVar5 = (*(code *)0x1039efe6/*ROM*/)(param_1,param_1->field_0x44);
+        param_1->field_0x3c = uVar5;
+        param_1->field_0x44 = 0;
       }
-      if (*(int *)(param_1 + 0x5c) != 0) {
-        *(uint8_t *)(param_1 + 0x40) = 1;
-        uVar5 = (*(code *)0x1039f06e/*ROM*/)(param_1,*(uint32_t *)(param_1 + 0x5c));
-        *(uint32_t *)(param_1 + 0x3c) = uVar5;
-        *(uint32_t *)(param_1 + 0x5c) = 0;
+      if (param_1->field_0x5c != 0) {
+        param_1->field_0x40 = 1;
+        uVar5 = (*(code *)0x1039f06e/*ROM*/)(param_1,param_1->field_0x5c);
+        param_1->field_0x3c = uVar5;
+        param_1->field_0x5c = 0;
       }
     }
     if ((uStack_c & 0x20) != 0) {
-      dispatch_virtual_event_with_state_check(param_1);
+      dispatch_virtual_event_with_state_check((uint32_t)(param_1));
     }
     if (((((uStack_c & 0x4000) != 0) && ((uStack_c & 0xffff0000) == 0)) &&
-        (*(char *)(param_1 + 0x40) == '\0')) &&
-       (cVar7 = read_byte_at_offset_0x65(*(int *)(param_1 + 0x78)), cVar7 == '\0')) {
-      dispatch_pending_state_action(param_1);
+        (param_1->field_0x40 == '\0')) && (cVar7 = read_byte_at_offset_0x65(param_1->field_0x78), cVar7 == '\0')
+       ) {
+      dispatch_pending_state_action((uint32_t)(param_1));
     }
     if ((uStack_c & 0x8000000) != 0) {
-      if (*(int *)(param_1 + 0x38) == *(int *)(param_1 + 0x60)) {
-        *(uint8_t *)(param_1 + 0x40) = 1;
-        *(uint32_t *)(param_1 + 0x3c) = *(uint32_t *)(param_1 + 0x8c);
+      if (param_1->field_0x38 == param_1->field_0x60) {
+        param_1->field_0x40 = 1;
+        param_1->field_0x3c = param_1->field_0x8c;
       }
       else {
-        iVar3 = *(int *)(param_1 + 0x48);
+        iVar3 = param_1->field_0x48;
         if (((iVar3 == 10) || (iVar3 == 100)) || (iVar3 == 9)) {
-          *(uint8_t *)(param_1 + 0x40) = 1;
-          *(uint32_t *)(param_1 + 0x3c) = *(uint32_t *)(param_1 + 0x8c);
+          param_1->field_0x40 = 1;
+          param_1->field_0x3c = param_1->field_0x8c;
         }
-        else if (*(int *)(param_1 + 0x38) == *(int *)(param_1 + 100)) {
+        else if (param_1->field_0x38 == param_1->field_0x64) {
           uStack_c = uStack_c & 0xf7ffffff;
         }
       }
-      if (*(int *)(param_1 + 200) == 9) {
-        *(uint32_t *)(param_1 + 200) = 0;
+      if (param_1->field_0xc8 == 9) {
+        param_1->field_0xc8 = 0;
       }
     }
-    if (((uStack_c & 0xffff0000) != 0) || (uVar5 = 0, *(char *)(param_1 + 0x40) != '\0')) {
-      if (*(char *)(param_1 + 0x40) == '\0') {
+    if (((uStack_c & 0xffff0000) != 0) || (uVar5 = 0, param_1->field_0x40 != '\0')) {
+      if (param_1->field_0x40 == '\0') {
         uVar5 = (*(code *)0x1039f06e/*ROM*/)(param_1);
-        dispatch_state_transition_1039ed80(param_1,uVar5);
+        dispatch_state_transition_1039ed80((uint32_t)(param_1),(void*)(uVar5));
         uVar5 = extraout_r5_00;
       }
       else {
-        dispatch_state_transition_1039ed80(param_1,*(uint32_t *)(param_1 + 0x3c));
+        dispatch_state_transition_1039ed80((uint32_t)(param_1),(void*)(param_1->field_0x3c));
         uVar5 = extraout_r5;
       }
     }
     if ((uStack_c & 1) != 0) {
-      dispatch_virtual_event_0x1170001(param_1);
+      dispatch_virtual_event_0x1170001((uint32_t)(param_1));
       uVar5 = extraout_r5_01;
     }
     if ((uStack_c & 2) != 0) {
-      reset_object_and_notify_slot(param_1);
-      *(uint8_t *)(param_1 + 0xc0) = 0;
-      *(uint8_t *)(param_1 + 0xc1) = 0;
+      reset_object_and_notify_slot((uint32_t)(param_1));
+      param_1->field_0xc0 = 0;
+      param_1->field_0xc1 = 0;
       uVar5 = extraout_r5_02;
     }
     if ((uStack_c & 4) != 0) {
-      update_object_from_pointer(param_1);
+      update_object_from_pointer((uint32_t)(param_1));
       uVar5 = extraout_r5_03;
     }
     if ((uStack_c & 0x40) != 0) {
-      invoke_virtual_slot_two_with_flag(param_1);
+      invoke_virtual_slot_two_with_flag((uint32_t)(param_1));
       uVar5 = extraout_r5_04;
     }
-    if (((uStack_c & 0x100) != 0) && (piVar1 = *(int **)(param_1 + 0x38), piVar1 != (int *)0x0)) {
-      (**(code **)(*piVar1 + 0x5c))
-                ((int)*(short *)(*piVar1 + 0x58) + (int)piVar1,*(uint8_t *)(param_1 + 0xd5));
+    if (((uStack_c & 0x100) != 0) && (piVar1 = (int *)param_1->field_0x38, piVar1 != (int *)0x0)) {
+      (((vtbl_entry*)(*piVar1))[11].fn)
+                ((int)((vtbl_entry*)(*piVar1))[11].adj + (int)piVar1,param_1->field_0xd5);
       uVar5 = extraout_r5_05;
     }
     if ((uStack_c & 0x800) != 0) {
-      if (*(int *)(param_1 + 0x38) == *(int *)(param_1 + 0x94)) {
+      if (param_1->field_0x38 == param_1->field_0x94) {
         dispatch_mode_by_state_id(__frv_reg_unset(4));
         uVar5 = extraout_r5_06;
       }
       else {
-        check_kernel_object_id_valid(*(int *)(param_1 + 0x94) + 0x40);
+        check_kernel_object_id_valid((void*)(param_1->field_0x94 + 0x40));
         uVar5 = extraout_r5_07;
       }
     }
     if ((uStack_c & 0x1000) != 0) {
-      pvVar2 = *(void **)(param_1 + 0x80);
-      if (*(void **)(param_1 + 0x38) == pvVar2) {
+      pvVar2 = (char*)(param_1) ->field_0x80;
+      if ((char*)(param_1) ->field_0x38 == pvVar2) {
         invoke_virtual_slot_and_dispatch(pvVar2,uVar5,puVar8,pvVar9);
       }
       else {
-        check_kernel_object_id_valid((int)pvVar2 + 0x40);
+        check_kernel_object_id_valid((void*)((int)pvVar2 + 0x40));
       }
     }
     if ((uStack_c & 0x8000) != 0) {
-      if (*(int *)(param_1 + 0x38) == *(int *)(param_1 + 0x84)) {
+      if (param_1->field_0x38 == param_1->field_0x84) {
         check_and_dispatch_state_change_103ac0ee((int *)__frv_reg_unset(4));
       }
       else {
-        check_kernel_object_id_valid(*(int *)(param_1 + 0x84) + 0x40);
+        check_kernel_object_id_valid((void*)(param_1->field_0x84 + 0x40));
       }
     }
     if (((uStack_c & 0x2000) != 0) &&
-       (piVar1 = *(int **)(param_1 + 100), *(int **)(param_1 + 0x38) == piVar1)) {
-      (**(code **)(*piVar1 + 0x6c))((int)*(short *)(*piVar1 + 0x68) + (int)piVar1);
-      write_two_config_values(*(uint32_t *)(param_1 + 100));
+       (piVar1 = (int *)param_1->field_0x64, (int *)param_1->field_0x38 == piVar1)) {
+      (((vtbl_entry*)(*piVar1))[13].fn)((int)((vtbl_entry*)(*piVar1))[13].adj + (int)piVar1);
+      write_two_config_values(param_1->field_0x64);
     }
-    if (*(char *)(param_1 + 0xd8) != '\0') {
-      iVar3 = **(int **)(param_1 + 0x30);
-      (**(code **)(iVar3 + 0x14))
-                ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar3 + 0x10),0x1170004,0);
-      *(uint8_t *)(param_1 + 0xd8) = 0;
+    if (param_1->field_0xd8 != '\0') {
+      iVar3 = *(int *)param_1->field_0x30;
+      (((vtbl_entry*)(iVar3))[2].fn)
+                ((int)param_1->field_0x30 + (int)((vtbl_entry*)(iVar3))[2].adj,0x1170004,0);
+      param_1->field_0xd8 = 0;
     }
   } while( true );
 }

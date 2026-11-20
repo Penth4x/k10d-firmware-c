@@ -20,9 +20,9 @@
 uint32_t read_field_from_param_offset(void *param_1)
 
 {
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,0x20);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(0x20));
   init_object_with_two_ids_104c46ce(_DAT_8000439c/*SDRAM*/,param_1);
   eventflag_wai_flg((uint32_t *)0x80018088/*SDRAM*/,0x20,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,0x20);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(0x20));
   return *(uint32_t *)((int)param_1 + 8);
 }

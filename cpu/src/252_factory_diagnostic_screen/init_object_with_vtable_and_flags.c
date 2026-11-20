@@ -18,7 +18,7 @@
 void init_object_with_vtable_and_flags(void *param_1,uint param_2)
 
 {
-  if (param_1 != (void *)0x0) {
+  if (param_1 != 0) {
     *(uint32_t *)((int)param_1 + 0x18) = 0x105c03c8/*ROM*/;
     if (*(int *)((int)param_1 + 4) != 0) {
       release_heap_block_104e6378((void *)__frv_reg_unset(4));

@@ -40,6 +40,6 @@ void copy_setting_into_buffer(int param_1)
     *(uint32_t *)((int)&uStack_28 + iVar1) = *(uint32_t *)((int)auStack_24 + iVar1 + -0x20);
     iVar1 = iVar3;
   } while (iVar3 != 0);
-  process_event_queue_entry_103fe55a((void *)uVar2,auStack_24);
+  process_event_queue_entry_103fe55a((uint32_t *)(uVar2),(uint32_t *)(auStack_24));
   return;
 }

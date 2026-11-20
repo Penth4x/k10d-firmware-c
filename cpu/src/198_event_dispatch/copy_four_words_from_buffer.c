@@ -26,7 +26,7 @@ void copy_four_words_from_buffer(uint32_t param_1,int *param_2,uint32_t param_3,
   uint8_t auStack_28 [32];
   
   iVar1 = *(int *)(*param_2 + 0x20);
-  (**(code **)(iVar1 + 0x1c))(auStack_38,*param_2 + (int)*(short *)(iVar1 + 0x18));
+  (((vtbl_entry*)(iVar1))[3].fn)(auStack_38,*param_2 + (int)((vtbl_entry*)(iVar1))[3].adj);
   copy_four_words_from_source_1045bfe8(auStack_28,auStack_38);
   destroy_text_widget(auStack_38,2);
   iVar1 = 8;

@@ -20,9 +20,9 @@
 uint32_t dispatch_event_and_return_field(void *param_1,uint32_t param_2)
 
 {
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,2);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(2));
   init_object_with_three_fields_104c4608(_DAT_8000439c/*SDRAM*/,(int)param_1,param_2);
   eventflag_wai_flg((uint32_t *)0x80018088/*SDRAM*/,2,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,2);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(2));
   return *(uint32_t *)((int)param_1 + 8);
 }

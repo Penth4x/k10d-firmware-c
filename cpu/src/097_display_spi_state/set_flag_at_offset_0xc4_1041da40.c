@@ -6,9 +6,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_flag_at_offset_0xc4_1041da40(int param_1)
+void set_flag_at_offset_0xc4_1041da40(cls_1059d1d8 *param_1)
 
 {
-  set_flg_obj((uint32_t *)(param_1 + 0xc4));
+  set_flg_obj((void *)&param_1->field_0xc4);
   return;
 }

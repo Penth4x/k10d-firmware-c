@@ -6,17 +6,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-int alloc_and_init_0x14_object(uint32_t param_x0)
+cls_1061e4c0 * alloc_and_init_0x14_object(uint32_t param_x0)
 
 {
-  int iVar1;
+  cls_1061e4c0 *pcVar1;
   
-  iVar1 = heap_alloc((void *)0x14);
-  if (iVar1 == 0) {
-    iVar1 = 0;
+  pcVar1 = (cls_1061e4c0 *)heap_alloc((void *)0x14);
+  if (pcVar1 == (cls_1061e4c0 *)0x0) {
+    pcVar1 = (cls_1061e4c0 *)0x0;
   }
   else {
-    cls_1061e4c0_new((void *)iVar1);
+    cls_1061e4c0_new(pcVar1);
   }
-  return iVar1;
+  return pcVar1;
 }

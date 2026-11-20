@@ -18,23 +18,23 @@ int compute_conditional_offset(void *param_1,int param_2,int param_3,int param_4
   int iVar6;
   int iVar7;
   uintptr_t sp;
-  uint32_t uStack_c;
+  cls_1059e05c cStack_c;
   
   iVar3 = get_or_create_camera_object();
   iVar5 = **(int **)(iVar3 + 8);
-  iVar4 = (**(code **)(iVar5 + 0x34))((int)*(int **)(iVar3 + 8) + (int)*(short *)(iVar5 + 0x30),0);
+  iVar4 = (((vtbl_entry*)(iVar5))[6].fn)((int)*(int **)(iVar3 + 8) + (int)((vtbl_entry*)(iVar5))[6].adj,0);
   iVar3 = get_or_create_camera_object();
   iVar5 = **(int **)(iVar3 + 8);
-  iVar3 = (**(code **)(iVar5 + 0x34))((int)*(int **)(iVar3 + 8) + (int)*(short *)(iVar5 + 0x30),1);
+  iVar3 = (((vtbl_entry*)(iVar5))[6].fn)((int)*(int **)(iVar3 + 8) + (int)((vtbl_entry*)(iVar5))[6].adj,1);
   iVar5 = get_or_create_camera_object();
   iVar6 = **(int **)(iVar5 + 8);
-  iVar6 = (**(code **)(iVar6 + 0x34))((int)*(int **)(iVar5 + 8) + (int)*(short *)(iVar6 + 0x30),2);
+  iVar6 = (((vtbl_entry*)(iVar6))[6].fn)((int)*(int **)(iVar5 + 8) + (int)((vtbl_entry*)(iVar6))[6].adj,2);
   iVar5 = get_or_create_camera_object();
   iVar7 = **(int **)(iVar5 + 8);
-  iVar5 = (**(code **)(iVar7 + 0x34))((int)*(int **)(iVar5 + 8) + (int)*(short *)(iVar7 + 0x30),3);
-  cls_1059e05c_new(&uStack_c);
-  lookup_table_entry(&uStack_c,param_4,(uint)param_5);
-  iVar7 = lookup_table_value_minus_offset(&uStack_c,param_4,(uint)param_5);
+  iVar5 = (((vtbl_entry*)(iVar7))[6].fn)((int)*(int **)(iVar5 + 8) + (int)((vtbl_entry*)(iVar7))[6].adj,3);
+  cls_1059e05c_new(&cStack_c);
+  lookup_table_entry(&cStack_c,param_4,(uint)param_5);
+  iVar7 = lookup_table_value_minus_offset(&cStack_c,param_4,(uint)param_5);
   if (param_6 == '\0') {
     iVar3 = iVar4;
   }
@@ -70,6 +70,6 @@ LAB_10529c68:
   if (bVar2) {
     iVar3 = iVar3 + iVar5;
   }
-  virtual_destructor_free_104266ce(&uStack_c,2);
+  virtual_destructor_free_104266ce((void*)(&cStack_c),2);
   return iVar3;
 }

@@ -15,6 +15,6 @@
 void call_init_with_sram_address_104389c4(void)
 
 {
-  write_fill_pattern_word_104388a8((void*)0x8001eba0/*SDRAM*/, __frv_reg_unset(5));
+  write_fill_pattern_word_104388a8((void *)0x8001eba0/*SDRAM*/, __frv_reg_unset(5));
   return;
 }

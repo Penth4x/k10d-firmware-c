@@ -23,7 +23,7 @@ int validate_and_dispatch_lens_write(void *param_1,uint param_2,uint32_t *param_
   int iStack_18;
   
   *param_4 = 0x10;
-  if ((void *)*param_3 == (void *)0x0) {
+  if ((void *)*param_3 == 0) {
     iVar1 = -999;
   }
   else if (*(uint *)((int)param_1 + 0x1c) < param_2) {

@@ -25,7 +25,7 @@ uint32_t set_value_if_valid(int *param_1,int param_2)
   
   uVar3 = 0;
   pvVar1 = (void *)get_or_init_sram_buffer_104277bc();
-  if ((pvVar1 != (void *)0x0) && (iVar2 = register_entry_in_table(pvVar1,param_2,param_1), iVar2 != 0)) {
+  if ((pvVar1 != 0) && (iVar2 = register_entry_in_table(pvVar1,param_2,param_1), iVar2 != 0)) {
     *param_1 = param_2;
     uVar3 = 1;
   }

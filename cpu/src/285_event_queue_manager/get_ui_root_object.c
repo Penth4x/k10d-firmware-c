@@ -21,7 +21,7 @@ uint32_t get_ui_root_object(void)
 {
   if (_DAT_8005a800/*SDRAM*/ == 0) {
     _DAT_8005a800/*SDRAM*/ = 1;
-    cls_105f9ab0_new((void *)0x8005a3e8/*SDRAM*/);
+    cls_105f9ab0_new((cls_105f9ab0 *)0x8005a3e8/*SDRAM*/);
     prepend_to_singly_linked_list((void *)0x800135e4/*SDRAM*/);
   }
   return 0x8005a3e8/*SDRAM*/;

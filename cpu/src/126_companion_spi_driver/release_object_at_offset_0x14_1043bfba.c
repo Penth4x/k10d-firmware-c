@@ -17,7 +17,7 @@
 void release_object_at_offset_0x14_1043bfba(int param_1)
 
 {
-  if (*(void **)(param_1 + 0x14) != (void *)0x0) {
+  if (*(void **)(param_1 + 0x14) != 0) {
     clear_flag3_with_notify(*(void **)(param_1 + 0x14));
   }
   return;

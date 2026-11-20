@@ -13,12 +13,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_3_on_member_103b94ec(int param_1)
+void invoke_virtual_slot_3_on_member_103b94ec(cls_10594e04 *param_1)
 
 {
   int iVar1;
   
-  iVar1 = **(int **)(param_1 + 4);
-  (**(code **)(iVar1 + 0x1c))((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar1 + 0x18),0);
+  iVar1 = *(int *)param_1->field_0x4;
+  (((vtbl_entry*)(iVar1))[3].fn)((int)param_1->field_0x4 + (int)((vtbl_entry*)(iVar1))[3].adj,0);
   return;
 }

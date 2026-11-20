@@ -6,15 +6,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_flag_and_invoke_virtual_slot_104aa1f4(int param_1)
+void set_flag_and_invoke_virtual_slot_104aa1f4(cls_105b6d94 *param_1)
 
 {
   int *piVar1;
   
-  *(uint8_t *)(param_1 + 0x18) = 1;
-  piVar1 = *(int **)(param_1 + 0x2c);
+  param_1->field_0x18 = 1;
+  piVar1 = (int *)(param_1->field_0x2c);
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1,0xd0003,0);
+    (((vtbl_entry*)(*piVar1))[3].fn)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1,0xd0003,0);
   }
   return;
 }

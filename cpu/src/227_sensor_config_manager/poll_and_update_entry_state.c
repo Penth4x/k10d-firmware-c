@@ -40,7 +40,7 @@ uint32_t poll_and_update_entry_state(int param_1,void *param_2)
   *(uint8_t *)(iVar3 + 0x30) = 0;
   *(int *)(param_1 + 0xfd94) = param_1 + 0xebac + *(int *)(param_1 + 0x8d0) * 0x2fc + iVar5 * 0x2fc;
   iVar3 = find_first_active_entry((int)param_2,iVar5);
-  copy_and_dispatch_param_block(param_1,(void *)iVar3);
+  copy_and_dispatch_param_block((int)(param_1),(uint32_t *)(iVar3));
   iVar3 = find_first_active_entry((int)param_2,iVar5);
   uVar1 = read_struct_field_0x2c(param_1);
   *(uint32_t *)(iVar3 + 0x2c) = uVar1;

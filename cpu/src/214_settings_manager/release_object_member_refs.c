@@ -25,22 +25,22 @@ void release_object_member_refs(int *param_1)
   
   piVar1 = (int *)param_1[0xb];
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+    (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
   }
   param_1[0xb] = 0;
   piVar1 = (int *)param_1[10];
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+    (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
   }
   param_1[10] = 0;
   piVar1 = (int *)param_1[9];
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+    (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
   }
   param_1[9] = 0;
   piVar1 = (int *)param_1[0x12];
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+    (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
   }
   param_1[0x12] = 0;
   free_heap_block_if_flagged_104b4186(param_1[8],3);
@@ -49,17 +49,17 @@ void release_object_member_refs(int *param_1)
   param_1[7] = 0;
   piVar1 = (int *)param_1[0x11];
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+    (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
   }
   param_1[0x11] = 0;
   piVar1 = (int *)param_1[0x10];
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+    (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
   }
   param_1[0x10] = 0;
   piVar1 = (int *)param_1[0xf];
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+    (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
   }
   param_1[0xf] = 0;
   heap_free_2(param_1[0xe]);
@@ -68,7 +68,7 @@ void release_object_member_refs(int *param_1)
     iVar3 = (uVar2 - 1) * 4;
     piVar1 = *(int **)(param_1[0xd] + iVar3);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+      (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
     }
     uVar2 = uVar2 - 1 & 0xff;
     *(uint32_t *)(param_1[0xd] + iVar3) = 0;
@@ -80,7 +80,7 @@ void release_object_member_refs(int *param_1)
     iVar3 = (uVar2 - 1) * 4;
     piVar1 = *(int **)(param_1[4] + iVar3);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+      (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
     }
     uVar2 = uVar2 - 1 & 0xff;
     *(uint32_t *)(param_1[4] + iVar3) = 0;
@@ -92,7 +92,7 @@ void release_object_member_refs(int *param_1)
     iVar3 = (uVar2 - 1) * 4;
     piVar1 = *(int **)(param_1[3] + iVar3);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+      (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
     }
     uVar2 = uVar2 - 1 & 0xff;
     *(uint32_t *)(param_1[3] + iVar3) = 0;
@@ -104,7 +104,7 @@ void release_object_member_refs(int *param_1)
     iVar3 = (uVar2 - 1) * 4;
     piVar1 = *(int **)(param_1[2] + iVar3);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+      (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
     }
     uVar2 = uVar2 - 1 & 0xff;
     *(uint32_t *)(param_1[2] + iVar3) = 0;
@@ -116,7 +116,7 @@ void release_object_member_refs(int *param_1)
     iVar3 = (uVar2 - 1) * 4;
     piVar1 = *(int **)(*param_1 + iVar3);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+      (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
     }
     uVar2 = uVar2 - 1 & 0xff;
     *(uint32_t *)(*param_1 + iVar3) = 0;
@@ -128,7 +128,7 @@ void release_object_member_refs(int *param_1)
     iVar3 = (uVar2 - 1) * 4;
     piVar1 = *(int **)(param_1[1] + iVar3);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+      (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
     }
     uVar2 = uVar2 - 1 & 0xff;
     *(uint32_t *)(param_1[1] + iVar3) = 0;

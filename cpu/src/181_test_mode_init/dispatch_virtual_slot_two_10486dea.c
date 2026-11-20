@@ -17,37 +17,38 @@
 #include "globals.h"
 #include "funcs.h"
 
-int dispatch_virtual_slot_two_10486dea(int param_1,int param_2,uint32_t param_3)
+cls_105b2f20 * dispatch_virtual_slot_two_10486dea(cls_105b2f20 *param_1,int param_2,uint32_t param_3)
 
 {
-  int iVar1;
-  int iVar2;
-  int iVar3;
+  int *piVar1;
+  int *piVar2;
+  cls_105b2f20 *pcVar3;
+  int iVar4;
   
-  iVar2 = param_1;
+  pcVar3 = param_1;
   if (param_2 == 2) {
-    iVar3 = **(int **)(param_1 + 0x54);
-    iVar3 = (**(code **)(iVar3 + 0x14))
-                      ((int)*(int **)(param_1 + 0x54) + (int)*(short *)(iVar3 + 0x10),param_3);
-    *(int *)(param_1 + 0x54) = iVar3;
-    iVar1 = get_or_create_singleton_object_10489a38();
-    if (iVar3 == iVar1) {
-      iVar2 = get_or_create_singleton_object_104882d0();
-      *(uint32_t *)(iVar2 + 0x44) = 2;
+    iVar4 = *(uint32_t*)(param_1->field_0x54);
+    piVar1 = (int *)(((vtbl_entry*)(iVar4))[2].fn)
+                              ((int)param_1->field_0x54 + (int)((vtbl_entry*)(iVar4))[2].adj,param_3);
+    param_1->field_0x54 = (uint32_t)(piVar1);
+    piVar2 = (int *)get_or_create_singleton_object_10489a38();
+    if (piVar1 == piVar2) {
+      pcVar3 = (cls_105b2f20 *)get_or_create_singleton_object_104882d0();
+      pcVar3->field_0x44 = 2;
     }
     else {
-      iVar1 = *(int *)(param_1 + 0x54);
-      iVar3 = get_or_create_sram_object_104899a6();
-      if (iVar1 == iVar3) {
-        iVar2 = 0;
+      piVar2 = (void*)(param_1->field_0x54);
+      piVar1 = (int *)get_or_create_sram_object_104899a6();
+      if (piVar2 == piVar1) {
+        pcVar3 = (cls_105b2f20 *)0x0;
       }
     }
   }
   else if (param_2 == 1) {
-    iVar2 = 0;
+    pcVar3 = (cls_105b2f20 *)0x0;
   }
-  if (*(char *)(param_1 + 0x58) != '\0') {
-    iVar2 = 0;
+  if (param_1->field_0x58 != '\0') {
+    pcVar3 = (cls_105b2f20 *)0x0;
   }
-  return iVar2;
+  return pcVar3;
 }

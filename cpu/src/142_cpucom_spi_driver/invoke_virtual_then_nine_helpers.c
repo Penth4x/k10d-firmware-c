@@ -25,7 +25,7 @@ void invoke_virtual_then_nine_helpers(int param_1)
   int iVar1;
   
   iVar1 = *(int *)(*(int *)(param_1 + 0x14) + 4);
-  (**(code **)(iVar1 + 100))(*(int *)(param_1 + 0x14) + (int)*(short *)(iVar1 + 0x60));
+  (((vtbl_entry*)(iVar1))[12].fn)(*(int *)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar1))[12].adj);
   invoke_object_method_at_offset_0x14(*(void **)(param_1 + 0xc));
   call_subobject_method_at_offset_0x14_10440724(*(void **)(param_1 + 0xc));
   call_helper_on_field_0x18_1044080e(*(void **)(param_1 + 0xc));

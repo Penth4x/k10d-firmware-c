@@ -25,16 +25,16 @@ void configure_menu_item_visibility(void *param_1)
   
   iVar3 = (int)param_1 + 8;
   iVar2 = menu_item_register(iVar3);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
   if ((*(char *)((int)param_1 + 0x48) != '\n') &&
      (iVar2 = query_object_property_via_temp_104f2570(*(uint32_t *)((int)param_1 + 0x28)), iVar2 != 0)) {
     iVar2 = menu_item_register(iVar3);
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   }
   if ((*(char *)((int)param_1 + 0x48) != '\x1c') &&
      (iVar2 = check_object_property_15(*(uint32_t *)((int)param_1 + 0x28)), iVar2 != 0)) {
     iVar2 = menu_item_register(iVar3);
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   }
   if (*(char *)((int)param_1 + 0x48) == '\n') {
     return;
@@ -58,6 +58,6 @@ void configure_menu_item_visibility(void *param_1)
   }
 LAB_103b227e:
   iVar2 = menu_item_register(iVar3);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   return;
 }

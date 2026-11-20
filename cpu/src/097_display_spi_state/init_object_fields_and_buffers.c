@@ -19,19 +19,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_fields_and_buffers(void *param_1)
+uint32_t init_object_fields_and_buffers(cls_1059c10c *param_1)
 
 {
   int iVar1;
   
   iVar1 = get_or_create_singleton_object_10485138();
-  *(uint32_t *)((int)param_1 + 0x7c) = *(uint32_t *)(iVar1 + 8);
-  alloc_pool_and_init_task((int *)((int)param_1 + 0x1c),0xc,0x2000,4);
-  wait_flg_obj((void *)((int)param_1 + 0x1538),0);
-  wait_flg_obj((void *)((int)param_1 + 0x1540),0);
-  wait_flg_obj((void *)((int)param_1 + 0x1548),0);
-  forward_three_args_to_helper_10459d64((void *)((int)param_1 + 0x1550),1,0x1f);
-  forward_three_args_to_helper_10459d64((void *)((int)param_1 + 0x1558),1,0x1f);
-  set_field_and_call_helper_1050b06c((void *)((int)param_1 + 0x14bc),0x1e);
+  param_1->field_0x7c = *(uint32_t *)(iVar1 + 8);
+  alloc_pool_and_init_task(&param_1->field_0x1c,0xc,0x2000,4);
+  wait_flg_obj(&param_1[1].field_0x580,0);
+  wait_flg_obj(&param_1[1].field_0x588,0);
+  wait_flg_obj(&param_1[1].field_0x590,0);
+  forward_three_args_to_helper_10459d64(&param_1[1].field_0x598,1,0x1f);
+  forward_three_args_to_helper_10459d64(&param_1[1].field_0x5a0,1,0x1f);
+  set_field_and_call_helper_1050b06c(&param_1[1].field_0x504,0x1e);
   return 1;
 }

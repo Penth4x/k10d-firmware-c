@@ -26,14 +26,14 @@ void dispatch_virtual_call_and_store_result(int param_1,int param_2)
   
   uVar2 = 0;
   iVar4 = **(int **)(param_1 + 0x10);
-  iVar4 = (**(code **)(iVar4 + 0x14))
-                    ((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar4 + 0x10),0);
+  iVar4 = (((vtbl_entry*)(iVar4))[2].fn)
+                    ((int)*(int **)(param_1 + 0x10) + (int)((vtbl_entry*)(iVar4))[2].adj,0);
   if (iVar4 != 3) {
     uVar3 = *(uint32_t *)(param_1 + 0x50);
     uVar2 = query_object_slot_three_104a6a48(param_1);
     iVar4 = **(int **)(param_1 + 0x14);
-    uVar1 = (**(code **)(iVar4 + 0x14))
-                      ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar4 + 0x10),0x17);
+    uVar1 = (((vtbl_entry*)(iVar4))[2].fn)
+                      ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar4))[2].adj,0x17);
     uVar2 = lookup_exposure_compensation_table(uVar3,uVar2,uVar1);
   }
   write_to_dynamic_array(param_2,0,uVar2);

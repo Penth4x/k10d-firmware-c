@@ -22,24 +22,24 @@ uint32_t configure_two_object_pairs(uint32_t param_1,int *param_2)
 {
   int iVar1;
   uintptr_t sp;
-  uint8_t auStack_48 [32];
-  uint8_t auStack_28 [32];
+  cls_105bb0b8 cStack_48;
+  cls_105bb0b8 cStack_28;
   
-  cls_105bb0b8_new((void *)auStack_48);
-  iVar1 = retry_operation_until_success_104de540(param_2,(void *)auStack_48);
-  if (((iVar1 != 0) && (iVar1 = trim_buffer_by_byte_value((void *)auStack_48,0x3f,0), iVar1 != 0)) &&
-     (iVar1 = trim_buffer_by_byte_value((void *)auStack_48,0x3f,1), iVar1 != 0)) {
-    cls_105bb0b8_new((void *)auStack_28);
-    iVar1 = scan_buffer_for_matching_bytes((void *)auStack_48,(void *)auStack_28);
-    if (((iVar1 != 0) && (iVar1 = validate_and_copy_string((void *)auStack_28,(void *)0x105ba378/*ROM*/), iVar1 != 0)) &&
-       ((iVar1 = scan_buffer_for_matching_bytes((void *)auStack_48,(void *)auStack_28), iVar1 != 0 &&
-        (iVar1 = validate_and_copy_string((void *)auStack_28,(void *)0x105ba37c/*ROM*/), iVar1 != 0)))) {
-      reset_vtable_and_free_if_flagged_104ddfe6((void *)auStack_28,2);
-      reset_vtable_and_free_if_flagged_104ddfe6((void *)auStack_48,2);
+  cls_105bb0b8_new(&cStack_48);
+  iVar1 = retry_operation_until_success_104de540(param_2,&cStack_48);
+  if (((iVar1 != 0) && (iVar1 = trim_buffer_by_byte_value(&cStack_48,0x3f,0), iVar1 != 0)) &&
+     (iVar1 = trim_buffer_by_byte_value(&cStack_48,0x3f,1), iVar1 != 0)) {
+    cls_105bb0b8_new(&cStack_28);
+    iVar1 = scan_buffer_for_matching_bytes(&cStack_48,&cStack_28);
+    if (((iVar1 != 0) && (iVar1 = validate_and_copy_string((uint32_t *)(&cStack_28),(char *)(0x105ba378/*ROM*/)), iVar1 != 0)) &&
+       ((iVar1 = scan_buffer_for_matching_bytes(&cStack_48,&cStack_28), iVar1 != 0 &&
+        (iVar1 = validate_and_copy_string((uint32_t *)(&cStack_28),(char *)(0x105ba37c/*ROM*/)), iVar1 != 0)))) {
+      reset_vtable_and_free_if_flagged_104ddfe6(&cStack_28,2);
+      reset_vtable_and_free_if_flagged_104ddfe6(&cStack_48,2);
       return 1;
     }
-    reset_vtable_and_free_if_flagged_104ddfe6((void *)auStack_28,2);
+    reset_vtable_and_free_if_flagged_104ddfe6(&cStack_28,2);
   }
-  reset_vtable_and_free_if_flagged_104ddfe6((void *)auStack_48,2);
+  reset_vtable_and_free_if_flagged_104ddfe6(&cStack_48,2);
   return 0;
 }

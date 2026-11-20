@@ -22,7 +22,7 @@ void format_and_register_menu_item_1038ac7e(int param_1,void *param_2,uint32_t p
   void *pvVar1;
   char *pcVar2;
   
-  if (param_2 == (void *)0x0) {
+  if (param_2 == 0) {
     pcVar2 = (char *)0x10559958/*ROM*/;
   }
   else if (param_2 < (void *)0x2710) {

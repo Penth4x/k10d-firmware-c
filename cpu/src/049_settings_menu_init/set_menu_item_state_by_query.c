@@ -21,7 +21,7 @@ void set_menu_item_state_by_query(void *param_1)
   int iVar2;
   
   iVar2 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
   iVar2 = query_object_byte_at_offset(*(uint32_t *)((int)param_1 + 0x28));
   if (iVar2 == 0) {
     bVar1 = false;
@@ -38,6 +38,6 @@ void set_menu_item_state_by_query(void *param_1)
   }
 LAB_103b1152:
   iVar2 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   return;
 }

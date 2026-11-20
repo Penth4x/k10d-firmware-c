@@ -14,13 +14,14 @@
 /* WARNING: Instruction at (ram,0x104b0792) overlaps instruction at (ram,0x104b0790)
     */
 
-int cls_105b7e14_new(void *param_1,uint32_t param_2,uint32_t param_3,uint32_t param_4,
+int cls_105b7e14_new(cls_105b7e14 *param_1,uint32_t param_2,uint32_t param_3,uint32_t param_4,
                     uint8_t param_5,int param_6,int param_7,uint32_t param_8,int param_9)
 
 {
-  if ((param_1 != (void *)0x0) || (param_1 = (void *)heap_alloc((void *)0xc), param_1 != (void *)0x0)) {
-    cls_105b7e2c_new(param_1,0x12,1);
-    *(uint32_t *)((int)param_1 + 8) = 0x105b7e14/*ROM*/;
+  if ((param_1 != (cls_105b7e14 *)0x0) ||
+     (param_1 = (cls_105b7e14 *)heap_alloc((void *)0xc), param_1 != (cls_105b7e14 *)0x0)) {
+    cls_105b7e2c_new((cls_105b7e2c *)param_1,0x12,1);
+    ((cls_105b7e2c *)param_1)->field_0x8 = 0x105b7e14/*ROM*/;
     insert_element_at_index(param_1,uRam105f9c0a,2,1);
     set_byte_in_buffer_if_in_range(param_1,0,4);
     set_byte_in_buffer_if_in_range(param_1,0,5);

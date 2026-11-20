@@ -14,11 +14,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void store_two_fields_and_call_helper(int param_1,int param_2,uint32_t param_3)
+void store_two_fields_and_call_helper(cls_105b5834 *param_1,int param_2,uint32_t param_3)
 
 {
-  *(uint32_t *)(param_1 + 4) = param_3;
-  *(int *)(param_1 + 0xc) = param_2;
-  traverse_tree_with_virtual_handlers(param_1 + 4,*(uint32_t *)(param_2 + 4),0,0);
+  param_1->field_0x4 = param_3;
+  param_1->field_0xc = param_2;
+  traverse_tree_with_virtual_handlers((uint32_t)&param_1->field_0x4,*(uint32_t *)(param_2 + 4),0,0);
   return;
 }

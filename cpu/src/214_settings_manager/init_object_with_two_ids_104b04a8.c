@@ -15,9 +15,9 @@ void init_object_with_two_ids_104b04a8(void *param_1)
   
   iVar1 = get_or_create_singleton_object_1046c502();
   uVar3 = *(uint32_t *)(iVar1 + 4);
-  uVar2 = alloc_and_zero_struct_1046c686((uint32_t *)0x0);
+  uVar2 = (uint32_t)alloc_and_zero_struct_1046c686((uint32_t *)0x0);
   *(uint32_t *)((int)param_1 + 4) = uVar2;
-  iVar1 = cls_105d8b38_new(0);
+  iVar1 = (int)cls_105d8b38_new(0);
   *(int *)((int)param_1 + 8) = iVar1;
   *(uint32_t *)(iVar1 + 8) = *(uint32_t *)((int)param_1 + 4);
   *(uint32_t *)(*(int *)((int)param_1 + 8) + 0x10) = uVar3;

@@ -16,18 +16,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_two_virtual_methods_and_update_flags(int param_1)
+void invoke_two_virtual_methods_and_update_flags(cls_1059d1d8 *param_1)
 
 {
   uint uVar1;
   void *pvVar2;
   int iVar3;
   
-  iVar3 = *(int *)(*(int *)(param_1 + 0x2c) + 4);
-  (**(code **)(iVar3 + 0x2c))(*(int *)(param_1 + 0x2c) + (int)*(short *)(iVar3 + 0x28),0);
-  iVar3 = *(int *)(*(int *)(param_1 + 0x2c) + 4);
-  (**(code **)(iVar3 + 0x34))(*(int *)(param_1 + 0x2c) + (int)*(short *)(iVar3 + 0x30),0);
-  pvVar2 = *(void **)(param_1 + 0x44);
+  iVar3 = *(int *)(param_1->field_0x2c + 4);
+  (((vtbl_entry*)(iVar3))[5].fn)(param_1->field_0x2c + (int)((vtbl_entry*)(iVar3))[5].adj,0);
+  iVar3 = *(int *)(param_1->field_0x2c + 4);
+  (((vtbl_entry*)(iVar3))[6].fn)(param_1->field_0x2c + (int)((vtbl_entry*)(iVar3))[6].adj,0);
+  pvVar2 = (char*)(param_1) ->field_0x44;
   uVar1 = read_bounded_array_element_1051d696(pvVar2,0);
   update_camera_state_flags(pvVar2,0,uVar1 & 0xfffd);
   return;

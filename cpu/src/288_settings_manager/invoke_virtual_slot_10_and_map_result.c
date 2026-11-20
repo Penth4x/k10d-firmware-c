@@ -20,8 +20,8 @@ uint32_t invoke_virtual_slot_10_and_map_result(void *param_1)
   int iVar2;
   
   iVar2 = **(int **)((int)param_1 + 4);
-  iVar2 = (**(code **)(iVar2 + 0x6c))
-                    ((int)*(int **)((int)param_1 + 4) + (int)*(short *)(iVar2 + 0x68));
+  iVar2 = (((vtbl_entry*)(iVar2))[13].fn)
+                    ((int)*(int **)((int)param_1 + 4) + (int)((vtbl_entry*)(iVar2))[13].adj);
   if (iVar2 == 1) {
     uVar1 = 0x2001;
   }

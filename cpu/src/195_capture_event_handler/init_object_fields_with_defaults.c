@@ -17,12 +17,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_fields_with_defaults(int param_1)
+uint32_t init_object_fields_with_defaults(cls_105b432c *param_1)
 
 {
-  alloc_pool_and_init_task((int *)(param_1 + 4),0x10,0x1000,4);
-  forward_three_args_to_helper_10459d64((void *)(param_1 + 0x24),1,0x1f);
-  forward_three_args_to_helper_10459edc((void *)(param_1 + 0x2c),1,1);
-  forward_three_args_to_helper_10459edc((void *)(param_1 + 0x34),1,1);
+  alloc_pool_and_init_task((int *)&param_1->field_0x4,0x10,0x1000,4);
+  forward_three_args_to_helper_10459d64(&param_1->field_0x24,1,0x1f);
+  forward_three_args_to_helper_10459edc(&param_1->field_0x2c,1,1);
+  forward_three_args_to_helper_10459edc(&param_1->field_0x34,1,1);
   return 1;
 }

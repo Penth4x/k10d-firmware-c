@@ -9,8 +9,8 @@
 void configure_object_with_five_params(void *param_1,uint32_t param_2,uint32_t param_3,int param_4,byte param_5)
 
 {
-  (**(code **)(*(int *)((int)param_1 + 4) + 0x2c))
-            ((int)*(short *)(*(int *)((int)param_1 + 4) + 0x28) + (int)param_1);
+  (((vtbl_entry*)(*(int *)((int)param_1 + 4)))[5].fn)
+            ((int)((vtbl_entry*)(*(int *)((int)param_1 + 4)))[5].adj + (int)param_1);
   call_helper_with_0x1000(param_1,0x1000);
   **(uint32_t **)((int)param_1 + 0x1c) = param_2;
   call_helper_with_0x1000(param_1,0);

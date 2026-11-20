@@ -6,51 +6,51 @@
 #include "globals.h"
 #include "funcs.h"
 
-void destroy_derived_object_members(int param_1)
+void destroy_derived_object_members(cls_105a18b4 *param_1)
 
 {
-  int iVar1;
-  int *piVar2;
-  void *pvVar3;
+  void **ppuVar1;
+  void *puVar2;
+  int iVar3;
   
-  piVar2 = (int *)(param_1 + 4);
-  (**(code **)(*(int *)(*piVar2 + 4) + 0x24))
-            (*piVar2 + (int)*(short *)(*(int *)(*piVar2 + 4) + 0x20));
-  if (*piVar2 != 0) {
-    (**(code **)(*(int *)(*piVar2 + 4) + 0xc))
-              (*piVar2 + (int)*(short *)(*(int *)(*piVar2 + 4) + 8),3);
+  ppuVar1 = &param_1->field_0x4;
+  (((vtbl_entry*)(*(int *)((char*)*ppuVar1 + 4)))[4].fn)((char*)*ppuVar1 + ((vtbl_entry*)(*(int *)((char*)*ppuVar1 + 4)))[4].adj)
+  ;
+  if (*ppuVar1 != 0) {
+    (((vtbl_entry*)(*(int *)((char*)*ppuVar1 + 4)))[1].fn)((char*)*ppuVar1 + *(short *)(*(int *)((char*)*ppuVar1 + 4) + 8),3)
+    ;
   }
-  pvVar3 = *(void **)(param_1 + 0xc);
-  if (pvVar3 != (void *)0x0) {
-    cls_105a2be0_delete(pvVar3,2);
-    heap_free((int)pvVar3);
+  puVar2 = (void *)((uintptr_t)(param_1->field_0xc));
+  if (puVar2 != 0) {
+    cls_105a2be0_delete(puVar2,2);
+    heap_free((int)puVar2);
   }
-  *(uint32_t *)(param_1 + 4) = 0;
-  *(uint32_t *)(param_1 + 0xc) = 0;
-  iVar1 = *(int *)(*(int *)(param_1 + 8) + 4);
-  (**(code **)(iVar1 + 0x24))(*(int *)(param_1 + 8) + (int)*(short *)(iVar1 + 0x20));
-  if (*(int *)(param_1 + 8) != 0) {
-    iVar1 = *(int *)(*(int *)(param_1 + 8) + 4);
-    (**(code **)(iVar1 + 0xc))(*(int *)(param_1 + 8) + (int)*(short *)(iVar1 + 8),3);
+  param_1->field_0x4 = (uintptr_t)((void *)0x0);
+  param_1->field_0xc = (uintptr_t)((void *)0x0);
+  (((vtbl_entry*)(*(int *)(param_1->field_0x8 + 4)))[4].fn)
+            (param_1->field_0x8 + ((vtbl_entry*)(*(int *)(param_1->field_0x8 + 4)))[4].adj);
+  if (param_1->field_0x8 != 0) {
+    (((vtbl_entry*)(*(int *)(param_1->field_0x8 + 4)))[1].fn)
+              (param_1->field_0x8 + *(short *)(*(int *)(param_1->field_0x8 + 4) + 8),3);
   }
-  pvVar3 = *(void **)(param_1 + 0x10);
-  if (pvVar3 != (void *)0x0) {
-    cls_105a2be0_delete(pvVar3,2);
-    heap_free((int)pvVar3);
+  puVar2 = (void *)((uintptr_t)(param_1->field_0x10));
+  if (puVar2 != 0) {
+    cls_105a2be0_delete(puVar2,2);
+    heap_free((int)puVar2);
   }
-  *(uint32_t *)(param_1 + 8) = 0;
-  *(uint32_t *)(param_1 + 0x10) = 0;
-  if (*(int *)(param_1 + 0x14) != 0) {
-    iVar1 = *(int *)(*(int *)(param_1 + 0x14) + 4);
-    (**(code **)(iVar1 + 0xc))(*(int *)(param_1 + 0x14) + (int)*(short *)(iVar1 + 8),3);
+  param_1->field_0x8 = (uintptr_t)((void *)0x0);
+  param_1->field_0x10 = (uintptr_t)((void *)0x0);
+  if (param_1->field_0x14 != 0) {
+    iVar3 = *(int *)(param_1->field_0x14 + 4);
+    (((vtbl_entry*)(iVar3))[1].fn)(param_1->field_0x14 + *(short *)(iVar3 + 8),3);
   }
-  if (*(int *)(param_1 + 0x18) != 0) {
-    iVar1 = *(int *)(*(int *)(param_1 + 0x18) + 4);
-    (**(code **)(iVar1 + 0xc))(*(int *)(param_1 + 0x18) + (int)*(short *)(iVar1 + 8),3);
+  if (param_1->field_0x18 != 0) {
+    iVar3 = *(int *)(param_1->field_0x18 + 4);
+    (((vtbl_entry*)(iVar3))[1].fn)(param_1->field_0x18 + *(short *)(iVar3 + 8),3);
   }
-  if (*(int *)(param_1 + 0x1c) != 0) {
-    iVar1 = *(int *)(*(int *)(param_1 + 0x1c) + 4);
-    (**(code **)(iVar1 + 0xc))(*(int *)(param_1 + 0x1c) + (int)*(short *)(iVar1 + 8),3);
+  if (param_1->field_0x1c != 0) {
+    iVar3 = *(int *)(param_1->field_0x1c + 4);
+    (((vtbl_entry*)(iVar3))[1].fn)(param_1->field_0x1c + *(short *)(iVar3 + 8),3);
   }
   return;
 }

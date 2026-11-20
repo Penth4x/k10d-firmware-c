@@ -15,13 +15,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_with_four_helpers_10513fda(void *param_1)
+/* WARNING: Struct "cls_105d624c": ignoring overlapping field "field_0x14" */
+
+uint32_t init_object_with_four_helpers_10513fda(cls_105d624c *param_1)
 
 {
-  alloc_pool_and_init_task((int *)((int)param_1 + 0x14),0xd,0x1000,4);
-  wait_flg_obj((void *)((int)param_1 + 0x34c),0);
-  forward_three_args_to_helper_10459d64((void *)((int)param_1 + 0x344),1,0x1f);
-  create_message_box_104594ea((int *)((int)param_1 + 0x28),5);
-  *(uint32_t *)((int)param_1 + 0x298) = 1;
+  alloc_pool_and_init_task((int *)&((uint32_t *)&(param_1->field_0xc))[2],0xd,0x1000,4);
+  wait_flg_obj(&param_1->field_0x34c,0);
+  forward_three_args_to_helper_10459d64(&param_1->field_0x344,1,0x1f);
+  create_message_box_104594ea(&param_1->field_0x28,5);
+  param_1->field_0x298 = 1;
   return 1;
 }

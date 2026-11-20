@@ -117,7 +117,7 @@ int transfer_buffer_in_chunks_10542f3e(uint32_t param_1,uint *param_2)
       if ((extraout_r4_00 < 0) || (uVar4 != 0)) break;
     }
     else {
-      iVar5 = compute_lens_fw_offset((void *)in_stack_00000010,(void *)iVar6,param_2,&uStack_c);
+      iVar5 = compute_lens_fw_offset((void *)(in_stack_00000010),(void *)(iVar6),(int *)(param_2),(uint *)(&uStack_c));
       uVar4 = uVar4 - uStack_c * uStack_14;
       iVar6 = iVar6 + uStack_c * uStack_14;
       if (iVar5 < 0) {

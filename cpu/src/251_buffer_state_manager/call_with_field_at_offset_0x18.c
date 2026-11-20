@@ -17,6 +17,6 @@
 void call_with_field_at_offset_0x18(int param_1)
 
 {
-  build_and_send_packet(*(uint32_t *)(param_1 + 0x18));
+  build_and_send_packet((void *)(*(uint32_t *)(param_1 + 0x18)));
   return;
 }

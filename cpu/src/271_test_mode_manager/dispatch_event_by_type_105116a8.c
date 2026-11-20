@@ -81,7 +81,7 @@ void dispatch_event_by_type_105116a8(int param_1,void *param_2,uint32_t param_3,
     break;
   default:
     puVar2 = auStack_58;
-    format_string_to_buffer_10545140(puVar2,(void *)&DAT_105d5fd8/*ROM*/,param_2,param_4);
+    format_string_to_buffer_10545140(puVar2,&DAT_105d5fd8/*ROM*/,param_2,param_4);
     *(uint32_t *)(*(int *)(param_1 + 0x818) + 4) = *(uint32_t *)(param_1 + 0xdc);
     **(uint32_t **)(param_1 + 0x818) = *(uint32_t *)(param_1 + 0x134);
   }

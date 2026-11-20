@@ -41,7 +41,7 @@ int allocate_lens_fw_segment(void *param_1,uint *param_2,uint param_3,uint param
     uVar3 = *puVar5;
     if ((uVar3 <= param_3) && (param_3 < puVar5[1] + uVar3)) {
       param_2[4] = (uVar1 + *puVar5) - param_3;
-      iVar2 = split_lens_fw_block(puVar5,param_3,param_4);
+      iVar2 = (uintptr_t)(split_lens_fw_block(puVar5,param_3,param_4));
       *param_5 = iVar2;
       *(int *)(*param_5 + 0x10) = *(int *)(*param_5 + 0x10) + 1;
       return 0;

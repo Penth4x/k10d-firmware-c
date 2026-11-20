@@ -18,6 +18,6 @@ void call_two_helpers_with_params_10485e6c(uint32_t param_1,uint32_t param_2,voi
 
 {
   store_two_word_pair(__frv_reg_unset(4), __frv_reg_unset(5));
-  build_and_apply_two_stage_update(param_3,param_4,param_5,param_6);
+  build_and_apply_two_stage_update((void *)(param_3),(char *)(param_4),(uint32_t)(param_5),(void *)(param_6));
   return;
 }

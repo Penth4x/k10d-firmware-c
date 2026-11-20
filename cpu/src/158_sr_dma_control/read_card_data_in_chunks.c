@@ -41,8 +41,8 @@ int read_card_data_in_chunks(int param_1,void *param_2)
   iVar1 = get_or_create_camera_object();
   piVar5 = *(int **)(iVar1 + 0xc);
   uStack_c = 0;
-  iVar2 = (**(code **)(*piVar5 + 0x2c))
-                    ((int)*(short *)(*piVar5 + 0x28) + (int)piVar5,param_2,0,&uStack_c);
+  iVar2 = (((vtbl_entry*)(*piVar5))[5].fn)
+                    ((int)((vtbl_entry*)(*piVar5))[5].adj + (int)piVar5,param_2,0,&uStack_c);
   iVar1 = 0;
   if (iVar2 != 0) {
     reset_subobject_at_offset_0x2c_104706a0(param_1);
@@ -56,21 +56,21 @@ int read_card_data_in_chunks(int param_1,void *param_2)
       iVar1 = dispatch_event_with_timeout_1046f01e(param_1,&iStack_18);
       iVar6 = *piVar5;
       if (iVar1 == 0) goto LAB_1046ef52;
-      (**(code **)(iVar6 + 0x44))((int)*(short *)(iVar6 + 0x40) + (int)piVar5,uStack_c,iVar2,0x4000)
+      (((vtbl_entry*)(iVar6))[8].fn)((int)((vtbl_entry*)(iVar6))[8].adj + (int)piVar5,uStack_c,iVar2,0x4000)
       ;
       iVar3 = iVar3 + 0x4000;
       iVar4 = iVar4 + 1;
     } while (iVar4 < 0x10);
     iVar6 = *piVar5;
 LAB_1046ef52:
-    (**(code **)(iVar6 + 0x34))((int)*(short *)(iVar6 + 0x30) + (int)piVar5,uStack_c);
+    (((vtbl_entry*)(iVar6))[6].fn)((int)((vtbl_entry*)(iVar6))[6].adj + (int)piVar5,uStack_c);
     heap_free_2(iVar2);
     reset_subobject_at_offset_0x2c_104706b2(param_1);
   }
   if (iVar1 == 0) {
     *(uint16_t *)(puVar7 + 2) = 7;
     *(uint16_t *)(puVar7 + 6) = 0xff;
-    sr_dma_command(param_1,5,3,&DAT_105a95cc/*ROM*/,*(uint16_t *)(puVar7 + 2),*(uint16_t *)(puVar7 + 6)
+    sr_dma_command(param_1,5,3,(void*)(&DAT_105a95cc/*ROM*/),*(uint16_t *)(puVar7 + 2),*(uint16_t *)(puVar7 + 6)
                   );
   }
   return iVar1;

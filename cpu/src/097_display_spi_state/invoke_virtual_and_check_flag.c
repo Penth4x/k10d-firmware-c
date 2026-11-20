@@ -23,7 +23,7 @@ void invoke_virtual_and_check_flag(int param_1)
   
   if (*(int *)(param_1 + 0x88) != 0) {
     iVar1 = *(int *)(*(int *)(param_1 + 0x88) + 0x8d4);
-    (**(code **)(iVar1 + 0x7c))(*(int *)(param_1 + 0x88) + (int)*(short *)(iVar1 + 0x78));
+    (((vtbl_entry*)(iVar1))[15].fn)(*(int *)(param_1 + 0x88) + (int)((vtbl_entry*)(iVar1))[15].adj);
   }
   iVar1 = test_mode_config_singleton();
   if (*(char *)(iVar1 + 5) != '\0') {

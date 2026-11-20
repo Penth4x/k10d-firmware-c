@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t copy_string_to_heap_field(int param_1)
+uint32_t copy_string_to_heap_field(cls_105d6608 *param_1)
 
 {
   int iVar1;
@@ -14,23 +14,23 @@ uint32_t copy_string_to_heap_field(int param_1)
   int iVar3;
   int iVar4;
   
-  uVar2 = populate_ui_text_fields(__frv_reg_unset(4));
-  iVar3 = count_string_bytes((char *)(param_1 + 0x2c));
+  uVar2 = populate_ui_text_fields((cls_105d6ce0 *)param_1);
+  iVar3 = count_string_bytes((char *)&param_1->field_0x2c);
   if (0 < iVar3) {
     iVar1 = iVar3 + -1;
     do {
-      if (*(char *)(param_1 + 0x2c + iVar1) != ' ') break;
+      if ((&param_1->field_0x2c)[iVar1] != ' ') break;
       iVar1 = iVar1 + -1;
       iVar3 = iVar3 + -1;
     } while (-1 < iVar1);
   }
   iVar4 = heap_alloc_2(iVar3 + 1);
-  *(int *)(param_1 + 0x70) = iVar4;
+  param_1->field_0x70 = iVar4;
   iVar1 = iVar3;
   while (iVar1 != 0) {
     iVar1 = iVar1 + -1;
-    *(char *)(iVar1 + iVar4) = ((char *)(param_1 + 0x2c))[iVar1];
+    *(uint8_t *)(iVar1 + iVar4) = (&param_1->field_0x2c)[iVar1];
   }
-  *(uint8_t *)(*(int *)(param_1 + 0x70) + iVar3) = 0;
+  *(uint8_t *)(param_1->field_0x70 + iVar3) = 0;
   return uVar2;
 }

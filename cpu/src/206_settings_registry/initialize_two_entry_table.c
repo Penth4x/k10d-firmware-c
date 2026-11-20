@@ -27,17 +27,17 @@ void initialize_two_entry_table(int param_1)
   
   uVar2 = heap_alloc_2(0xc6);
   *(uint32_t *)(param_1 + 0x68) = uVar2;
-  write_two_byte_value_104a7246(param_1,(void *)uVar2,2,1);
+  write_two_byte_value_104a7246((uint32_t)(param_1),(uint8_t *)(uVar2),(int)(2),(int)(1));
   iVar5 = 2;
   uVar1 = 0;
   do {
-    write_two_byte_value_104a7246(param_1,(void *)(*(int *)(param_1 + 0x68) + iVar5),8,1);
+    write_two_byte_value_104a7246((uint32_t)(param_1),(uint8_t *)(*(int *)(param_1 + 0x68) + iVar5),(int)(8),(int)(1));
     iVar3 = get_field_from_struct_at_offset(param_1,uVar1);
     iVar5 = iVar5 + 2;
     if (iVar3 != 0) {
       uVar4 = 0;
       do {
-        write_two_byte_value_104a7246(param_1,(void *)(*(int *)(param_1 + 0x68) + iVar5),*(uint16_t *)(iVar3 + uVar4 * 2),1);
+        write_two_byte_value_104a7246((uint32_t)(param_1),(uint8_t *)(*(int *)(param_1 + 0x68) + iVar5),(int)(*(uint16_t *)(iVar3 + uVar4 * 2)),(int)(1));
         uVar4 = uVar4 + 1 & 0xffff;
         iVar5 = iVar5 + 2;
       } while (uVar4 < 0x30);

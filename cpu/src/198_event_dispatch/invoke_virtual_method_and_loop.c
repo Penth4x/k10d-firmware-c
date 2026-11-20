@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int invoke_virtual_method_and_loop(int param_1,uint32_t param_2)
+int invoke_virtual_method_and_loop(cls_105b4dac *param_1,uint32_t param_2)
 
 {
   int iVar1;
@@ -24,23 +24,23 @@ int invoke_virtual_method_and_loop(int param_1,uint32_t param_2)
   
   iVar2 = 0;
   uRam80010500 = param_2;
-  if ((((*(int **)(param_1 + 0x60) != (int *)0x0) &&
-       (iVar1 = **(int **)(param_1 + 0x60), iVar1 != 0)) &&
-      (iVar2 = (**(code **)(*(int *)(iVar1 + 0xc) + 0xa4))
-                         (*(short *)(*(int *)(iVar1 + 0xc) + 0xa0) + iVar1,param_2), iVar2 == 0)) &&
-     (*(char *)(param_1 + 100) != '\0')) {
-    iVar2 = **(int **)(param_1 + 0x60);
+  if (((((int *)param_1->field_0x60 != (int *)0x0) &&
+       (iVar1 = *(int *)param_1->field_0x60, iVar1 != 0)) &&
+      (iVar2 = (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[20].fn)
+                         (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[20].adj + iVar1,param_2), iVar2 == 0)) &&
+     (param_1->field_0x64 != '\0')) {
+    iVar2 = *(int *)param_1->field_0x60;
     do {
-      iVar2 = (**(code **)(*(int *)(iVar2 + 0xc) + 0xd4))
-                        (*(short *)(*(int *)(iVar2 + 0xc) + 0xd0) + iVar2,uRam80010500);
-      iVar1 = search_range_for_value(param_1,iVar2);
+      iVar2 = (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[26].fn)
+                        (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[26].adj + iVar2,uRam80010500);
+      iVar1 = search_range_for_value((uint32_t)(param_1),iVar2);
       if (iVar1 == 0) {
         return 0;
       }
-      iVar1 = (**(code **)(*(int *)(iVar2 + 0xc) + 0x7c))
-                        (*(short *)(*(int *)(iVar2 + 0xc) + 0x78) + iVar2);
+      iVar1 = (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[15].fn)
+                        (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[15].adj + iVar2);
     } while (iVar1 == 0);
-    remove_entry_from_list(param_1,iVar2);
+    remove_entry_from_list((uint32_t)(param_1),iVar2);
     iVar2 = 1;
   }
   return iVar2;

@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void write_sensor_frame_data(int param_1,int param_2,int param_3)
+void write_sensor_frame_data(cls_105c2a58 *param_1,int param_2,int param_3)
 
 {
   int iVar1;
@@ -24,10 +24,9 @@ void write_sensor_frame_data(int param_1,int param_2,int param_3)
   short sStack_c;
   short sStack_a;
   
-  (*(code *)0x1044e7ee/*ROM*/)(*(uint32_t *)(param_1 + 8),1);
+  (*(code *)0x1044e7ee/*ROM*/)(param_1->field_0x8,1);
   iVar4 = param_2 * 2;
-  (*(code *)0x1044e838/*ROM*/)
-            (*(uint32_t *)(param_1 + 8),*(uint16_t *)(*(int *)(param_3 + 0x20) + iVar4));
+  (*(code *)0x1044e838/*ROM*/)(param_1->field_0x8,*(uint16_t *)(*(int *)(param_3 + 0x20) + iVar4));
   iVar5 = param_2 * 4;
   psVar6 = *(short **)(*(int *)(param_3 + 0x1c) + iVar5);
   sStack_14 = *psVar6 << 2;
@@ -36,12 +35,10 @@ void write_sensor_frame_data(int param_1,int param_2,int param_3)
   sStack_e = psVar6[3] << 2;
   sStack_c = psVar6[4] << 2;
   sStack_a = psVar6[5] << 2;
-  (*(code *)0x1044e870/*ROM*/)(*(uint32_t *)(param_1 + 8),&sStack_14);
-  (*(code *)0x1044e930/*ROM*/)(*(uint32_t *)(param_1 + 8),*(uint16_t *)(*(int *)(param_3 + 8) + iVar4))
-  ;
-  (*(code *)0x1044e96e/*ROM*/)
-            (*(uint32_t *)(param_1 + 8),*(uint16_t *)(*(int *)(param_3 + 0x10) + iVar4));
-  puVar2 = (uint16_t *)(*(code *)0x1044ef6a/*ROM*/)(*(uint32_t *)(param_1 + 8));
+  (*(code *)0x1044e870/*ROM*/)(param_1->field_0x8,&sStack_14);
+  (*(code *)0x1044e930/*ROM*/)(param_1->field_0x8,*(uint16_t *)(*(int *)(param_3 + 8) + iVar4));
+  (*(code *)0x1044e96e/*ROM*/)(param_1->field_0x8,*(uint16_t *)(*(int *)(param_3 + 0x10) + iVar4));
+  puVar2 = (uint16_t *)(*(code *)0x1044ef6a/*ROM*/)(param_1->field_0x8);
   iVar1 = 0x1ff;
   iVar4 = *(int *)(*(int *)(param_3 + 4) + iVar5);
   iVar7 = 0;
@@ -54,7 +51,7 @@ void write_sensor_frame_data(int param_1,int param_2,int param_3)
     iVar1 = iVar1 + -1;
     iVar7 = iVar7 + 8;
   } while (-1 < iVar1);
-  puVar2 = (uint16_t *)(*(code *)0x1044ef72/*ROM*/)(*(uint32_t *)(param_1 + 8));
+  puVar2 = (uint16_t *)(*(code *)0x1044ef72/*ROM*/)(param_1->field_0x8);
   iVar1 = 0x1ff;
   iVar4 = *(int *)(*(int *)(param_3 + 0xc) + iVar5);
   iVar5 = 0;
@@ -67,7 +64,7 @@ void write_sensor_frame_data(int param_1,int param_2,int param_3)
     iVar1 = iVar1 + -1;
     iVar5 = iVar5 + 8;
   } while (-1 < iVar1);
-  uVar3 = (*(code *)0x1044ef7a/*ROM*/)(*(uint32_t *)(param_1 + 8));
+  uVar3 = (*(code *)0x1044ef7a/*ROM*/)(param_1->field_0x8);
   (*(code *)0x1052fd72/*ROM*/)(param_3,param_2,uVar3);
   return;
 }

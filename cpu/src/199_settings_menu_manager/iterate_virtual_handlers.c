@@ -15,25 +15,27 @@
 #include "globals.h"
 #include "funcs.h"
 
-int iterate_virtual_handlers(int param_1,int param_2)
+cls_105b48dc * iterate_virtual_handlers(cls_105b48dc *param_1,int param_2)
 
 {
-  int *piVar1;
-  int iVar2;
+  cls_105b48dc *pcVar1;
+  int *piVar2;
+  int iVar3;
   
-  if ((*(int *)(param_1 + 4) == param_2) && (param_1 != 0)) {
+  if ((param_1->field_0x4 == param_2) && (param_1 != (cls_105b48dc *)0x0)) {
     return param_1;
   }
-  piVar1 = *(int **)(param_1 + 0x18);
-  if (piVar1 != *(int **)(param_1 + 0x1c)) {
+  piVar2 = (void*)(param_1->field11_0x18);
+  if ((uint32_t)(piVar2) != param_1->field_0x1c) {
     do {
-      iVar2 = *(int *)(*piVar1 + 0xc);
-      iVar2 = (**(code **)(iVar2 + 0xcc))(*piVar1 + (int)*(short *)(iVar2 + 200),param_2);
-      if (iVar2 != 0) {
-        return iVar2;
+      iVar3 = *(int *)(*piVar2 + 0xc);
+      pcVar1 = (cls_105b48dc *)
+               (((vtbl_entry*)(iVar3))[25].fn)(*piVar2 + (int)*(short *)(iVar3 + 200),param_2);
+      if (pcVar1 != (cls_105b48dc *)0x0) {
+        return pcVar1;
       }
-      piVar1 = piVar1 + 1;
-    } while (piVar1 != *(int **)(param_1 + 0x1c));
+      piVar2 = piVar2 + 1;
+    } while ((uint32_t)(piVar2) != param_1->field_0x1c);
   }
-  return 0;
+  return (cls_105b48dc *)0x0;
 }

@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t get_setting_index_by_id_103d188a(int param_1,int param_2)
+uint32_t get_setting_index_by_id_103d188a(cls_10595f9c *param_1,int param_2)
 
 {
   int iVar1;
@@ -16,7 +16,7 @@ uint32_t get_setting_index_by_id_103d188a(int param_1,int param_2)
   uint32_t auStack_30 [10];
   
   if (param_2 == 0x18b0012) {
-    uVar2 = setting_get(*(int *)(param_1 + 8),0x91);
+    uVar2 = setting_get(param_1->field_0x8,0x91);
     iVar1 = 0xff;
     if (bRam10595f98 == uVar2) {
       iVar1 = 0;
@@ -27,7 +27,7 @@ uint32_t get_setting_index_by_id_103d188a(int param_1,int param_2)
     cVar3 = -0x28;
   }
   else if (param_2 == 0x18b0018) {
-    uVar2 = setting_get(*(int *)(param_1 + 8),0x92);
+    uVar2 = setting_get(param_1->field_0x8,0x92);
     iVar1 = 0xff;
     if (bRam10595f98 == uVar2) {
       iVar1 = 0;
@@ -38,7 +38,7 @@ uint32_t get_setting_index_by_id_103d188a(int param_1,int param_2)
     cVar3 = -0x20;
   }
   else if (param_2 == 0x18b001e) {
-    uVar2 = setting_get(*(int *)(param_1 + 8),0x93);
+    uVar2 = setting_get(param_1->field_0x8,0x93);
     iVar1 = 0xff;
     if (bRam10595f98 == uVar2) {
       iVar1 = 0;
@@ -49,7 +49,7 @@ uint32_t get_setting_index_by_id_103d188a(int param_1,int param_2)
     cVar3 = -0x18;
   }
   else if (param_2 == 0x18b0024) {
-    uVar2 = setting_get(*(int *)(param_1 + 8),0x94);
+    uVar2 = setting_get(param_1->field_0x8,0x94);
     iVar1 = 0xff;
     if (bRam10595f98 == uVar2) {
       iVar1 = 0;
@@ -63,7 +63,7 @@ uint32_t get_setting_index_by_id_103d188a(int param_1,int param_2)
     if (param_2 != 0x18b002a) {
       return 0x18b000d;
     }
-    uVar2 = setting_get(*(int *)(param_1 + 8),0x95);
+    uVar2 = setting_get(param_1->field_0x8,0x95);
     iVar1 = 0xff;
     if (bRam10595f98 == uVar2) {
       iVar1 = 0;

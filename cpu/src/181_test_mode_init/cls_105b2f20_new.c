@@ -11,21 +11,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-int cls_105b2f20_new(uint32_t *param_1)
+int cls_105b2f20_new(cls_105b2f20 *param_1)
 
 {
-  uint32_t uVar1;
+  int *piVar1;
   
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x5c), param_1 != (uint32_t *)0x0)) {
-    cls_105b2e98_new(param_1);
-    cls_105a2a8c_new(param_1 + 0x13);
-    param_1[0x12] = (uint32_t)&DAT_105b2f20/*ROM*/;
-    param_1[0x14] = (uint32_t)&DAT_105b2f50/*ROM*/;
-    *(uint8_t *)(param_1 + 0x16) = 0;
-    uVar1 = get_or_init_singleton_104895da();
-    param_1[0x15] = uVar1;
-    create_kernel_object(param_1 + 0x13);
+  if ((param_1 != (cls_105b2f20 *)0x0) ||
+     (param_1 = (cls_105b2f20 *)heap_alloc((void *)0x5c), param_1 != (cls_105b2f20 *)0x0)) {
+    cls_105b2e98_new((cls_105b2e98 *)param_1);
+    cls_105a2a8c_new((cls_105a2a8c *)&param_1->field_0x4c);
+    param_1->field_0x48 = (uint32_t)&DAT_105b2f20/*ROM*/;
+    param_1->field_0x50 = (uint32_t)&DAT_105b2f50/*ROM*/;
+    param_1->field_0x58 = '\0';
+    piVar1 = (int *)get_or_init_singleton_104895da();
+    param_1->field_0x54 = (uint32_t)piVar1;
+    create_kernel_object(&param_1->field_0x4c);
   }
   return (int)param_1;
 }

@@ -66,7 +66,7 @@ bool match_verb_in_table(int param_1,int param_2)
     } while (*(int *)(param_1 + 0xa0 + iVar7) != -1);
   }
   if (!bVar6) {
-    cmd_error_report((void *)(*(uint32_t *)(param_1 + 4)),0x90);
+    cmd_error_report((uint32_t *)(*(uint32_t *)(param_1 + 4)),(uint32_t)(0x90));
   }
   return bVar6;
 }

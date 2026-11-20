@@ -43,7 +43,7 @@ uint32_t adjust_exposure_parameter(void *param_1,int param_2)
       cVar2 = *(char *)((int)param_1 + 0x55) + -1;
 LAB_10366ee2:
       *(char *)((int)param_1 + 0x55) = cVar2;
-      set_setting_0x79((void *)0x800158d4/*SDRAM*/,cVar2);
+      set_setting_0x79((int *)(0x800158d4/*SDRAM*/),(uint32_t)(cVar2));
       return 1;
     case 3:
       if (*(char *)((int)param_1 + 0x57) == '\0') {
@@ -52,7 +52,7 @@ LAB_10366ee2:
       cVar2 = *(char *)((int)param_1 + 0x57) + -1;
 LAB_10366f06:
       *(char *)((int)param_1 + 0x57) = cVar2;
-      set_setting_0x7b((void *)0x800158d4/*SDRAM*/,cVar2);
+      set_setting_0x7b((int *)(0x800158d4/*SDRAM*/),(uint32_t)(cVar2));
       return 1;
     case 4:
       if (*(char *)((int)param_1 + 0x58) == '\0') {
@@ -61,7 +61,7 @@ LAB_10366f06:
       cVar2 = *(char *)((int)param_1 + 0x58) + -1;
 LAB_10366f2a:
       *(char *)((int)param_1 + 0x58) = cVar2;
-      set_setting_0x7c((void *)0x800158d4/*SDRAM*/,cVar2);
+      set_setting_0x7c((int *)(0x800158d4/*SDRAM*/),(uint32_t)(cVar2));
       return 1;
     case 5:
       if (*(char *)((int)param_1 + 0x59) == '\0') {
@@ -70,7 +70,7 @@ LAB_10366f2a:
       cVar2 = *(char *)((int)param_1 + 0x59) + -1;
 LAB_10366f50:
       *(char *)((int)param_1 + 0x59) = cVar2;
-      set_setting_0x7d((void *)0x800158d4/*SDRAM*/,cVar2);
+      set_setting_0x7d((int *)(0x800158d4/*SDRAM*/),(uint32_t)(cVar2));
       return 1;
     case 6:
       if (*(char *)((int)param_1 + 0x5a) == '\0') {
@@ -79,7 +79,7 @@ LAB_10366f50:
       cVar2 = *(char *)((int)param_1 + 0x5a) + -1;
 LAB_10366f76:
       *(char *)((int)param_1 + 0x5a) = cVar2;
-      set_setting_0x7e((void *)0x800158d4/*SDRAM*/,cVar2);
+      set_setting_0x7e((int *)(0x800158d4/*SDRAM*/),(uint32_t)(cVar2));
       uVar1 = 1;
     default:
       goto switchD_10366f9e_default;
@@ -128,7 +128,7 @@ LAB_10366f76:
     }
   }
   *(char *)((int)param_1 + 0x54) = cVar2;
-  set_setting_0x78((void *)0x800158d4/*SDRAM*/,cVar2);
+  set_setting_0x78((int *)(0x800158d4/*SDRAM*/),(uint32_t)(cVar2));
   uVar1 = 1;
 switchD_10366f9e_default:
   return uVar1;

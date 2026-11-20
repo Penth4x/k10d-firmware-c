@@ -18,8 +18,8 @@ int cls_10621d20_new(uint32_t *param_1)
      (param_1 = (uint32_t *)heap_alloc((void *)0x78), param_1 != (uint32_t *)0x0)) {
     cls_105b2e98_new(param_1);
     cls_1059e478_new(param_1 + 0x13);
-    param_1[0x12] = (uint32_t)&DAT_10621d20;
-    param_1[0x13] = (uint32_t)&DAT_10621d50;
+    param_1[0x12] = (uintptr_t)(&DAT_10621d20);
+    param_1[0x13] = (uintptr_t)(&DAT_10621d50);
     *(uint8_t *)(param_1 + 0x14) = 0;
     param_1[0x15] = 0;
     *(uint8_t *)(param_1 + 0x1b) = 0;

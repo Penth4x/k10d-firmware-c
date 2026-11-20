@@ -6,9 +6,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void post_input_event(int param_1)
+void post_input_event(cls_105992d4 *param_1,uint32_t param_2)
 
 {
-  ui_post_input((void *)(param_1 + 8), __frv_reg_unset(5));
+  ui_post_input((cls_105b4254 *)&param_1->field_0x8,param_2);
   return;
 }

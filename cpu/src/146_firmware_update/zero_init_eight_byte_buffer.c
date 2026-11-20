@@ -21,7 +21,7 @@ void zero_init_eight_byte_buffer(void *param_1)
   int iVar1;
   int iVar2;
   
-  if ((param_1 != (void *)0x0) || (param_1 = (void *)heap_alloc((void *)8), param_1 != (void *)0x0)) {
+  if ((param_1 != 0) || (param_1 = (void *)heap_alloc((void *)8), param_1 != 0)) {
     iVar1 = 0;
     iVar2 = 1;
     do {

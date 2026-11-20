@@ -50,8 +50,8 @@ void update_sr_state_machine(int param_1)
     }
     else {
       if (*(char *)(param_1 + 0x36) != '\0') {
-        call_single_helper_with_param_104436e2(*(uint32_t *)(param_1 + 0xc));
-        call_helper_with_zero_104436a0(*(uint32_t *)(param_1 + 0xc));
+        call_single_helper_with_param_104436e2((void *)(*(uint32_t *)(param_1 + 0xc)));
+        call_helper_with_zero_104436a0((void *)(*(uint32_t *)(param_1 + 0xc)));
         dispatch_on_flag_param(*(void **)(param_1 + 0xc),0);
         check_kernel_call_success_10459fea();
       }

@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int sum_virtual_method_results(uint32_t *param_1)
+int sum_virtual_method_results(cls_105f9250 *param_1)
 
 {
   int iVar1;
@@ -17,16 +17,16 @@ int sum_virtual_method_results(uint32_t *param_1)
   
   iVar3 = 0;
   iVar4 = 0;
-  if (0 < (int)param_1[0x83]) {
+  if (0 < (int)param_1->field_0x20c) {
     iVar2 = 0;
     do {
-      iVar1 = *(int *)((int)param_1 + iVar2 + 0x214);
+      iVar1 = *(int *)((int)&param_1[1].field_0x0 + iVar2);
       iVar5 = *(int *)(iVar1 + 0x208);
-      iVar1 = (**(code **)(iVar5 + 0x5c))(iVar1 + *(short *)(iVar5 + 0x58),*param_1);
+      iVar1 = (((vtbl_entry*)(iVar5))[11].fn)(iVar1 + ((vtbl_entry*)(iVar5))[11].adj,param_1->field_0x0);
       iVar2 = iVar2 + 4;
       iVar4 = iVar1 + iVar4;
       iVar3 = iVar3 + 1;
-    } while (iVar3 < (int)param_1[0x83]);
+    } while (iVar3 < (int)param_1->field_0x20c);
   }
   return iVar4;
 }

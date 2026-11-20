@@ -19,8 +19,8 @@
 void init_object_with_vtable_call(int param_1,void *param_2)
 
 {
-  (**(code **)(*(int *)((int)param_2 + 0x8d4) + 0xf4))
-            ((int)*(short *)(*(int *)((int)param_2 + 0x8d4) + 0xf0) + (int)param_2);
+  (((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[30].fn)
+            ((int)((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[30].adj + (int)param_2);
   *(uint32_t *)((int)param_2 + 0x10) = 0xc00003;
   *(int *)((int)param_2 + 8) = param_1 + 4;
   *(uint32_t *)((int)param_2 + 0xc) = *(uint32_t *)((int)param_2 + 0x800);

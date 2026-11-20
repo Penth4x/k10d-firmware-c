@@ -6,10 +6,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t store_value_and_set_flag_104b4a0a(int param_1,uint32_t param_2)
+/* WARNING: Struct "cls_105b8354": ignoring overlapping field "field_0x8" */
+
+uint32_t store_value_and_set_flag_104b4a0a(cls_105b8354 *param_1,uint32_t param_2)
 
 {
-  *(uint32_t *)(param_1 + 0x54) = param_2;
-  set_flg_obj((uint32_t *)(param_1 + 100));
+  param_1->field_0x54 = param_2;
+  set_flg_obj((uint32_t *)&param_1->field_0x64);
   return 1;
 }

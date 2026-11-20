@@ -28,7 +28,7 @@ dispatch_event_with_payload_1036b92c(void *param_1,uint32_t param_2,void *param_
   uint8_t local_34 [24];
   
   puVar1 = (uint32_t *)local_34;
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,1);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(1));
   *puVar1 = param_4;
   puVar1[1] = param_5;
   puVar1[2] = param_6;
@@ -38,6 +38,6 @@ dispatch_event_with_payload_1036b92c(void *param_1,uint32_t param_2,void *param_
   init_object_with_params_104c45a0(_DAT_8000439c/*SDRAM*/,param_1,param_2,(int)param_3,*puVar1,puVar1[1],puVar1[2],puVar1[3],
                puVar1[4],*(uint8_t *)((int)puVar1 + 0x17));
   eventflag_wai_flg((uint32_t *)0x80018088/*SDRAM*/,1,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,1);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(1));
   return *(uint32_t *)((int)param_1 + 8);
 }

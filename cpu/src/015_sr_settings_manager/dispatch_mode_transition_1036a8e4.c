@@ -20,12 +20,12 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void * dispatch_mode_transition_1036a8e4(void *param_1,int *param_2)
+cls_10557ba8 * dispatch_mode_transition_1036a8e4(cls_10557ba8 *param_1,int *param_2)
 
 {
   int iVar1;
   uint32_t uVar2;
-  void *pvVar3;
+  cls_10557ba8 *pcVar3;
   uint32_t uVar4;
   
   if ((*param_2 == 4) || (*param_2 == 5)) {
@@ -80,6 +80,6 @@ void * dispatch_mode_transition_1036a8e4(void *param_1,int *param_2)
     uVar2 = get_or_create_singleton_object_1036c796();
     uVar4 = 2;
   }
-  pvVar3 = (void *)read_array_element_bounded(uVar2,uVar4);
-  return pvVar3;
+  pcVar3 = (cls_10557ba8 *)read_array_element_bounded(uVar2,uVar4);
+  return pcVar3;
 }

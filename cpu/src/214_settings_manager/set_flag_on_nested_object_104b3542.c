@@ -6,9 +6,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_flag_on_nested_object_104b3542(int param_1)
+void set_flag_on_nested_object_104b3542(cls_105b7f68 *param_1)
 
 {
-  set_flg_obj(*(uint32_t **)(param_1 + 0x44));
+  set_flg_obj((void *)param_1->field_0x44);
   return;
 }

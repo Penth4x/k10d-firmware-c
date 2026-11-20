@@ -17,31 +17,31 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t initialize_object_with_size_check(int param_1,int param_2)
+uint32_t initialize_object_with_size_check(cls_105ab6c0 *param_1,int param_2)
 
 {
   uint16_t uVar2;
   uint32_t uVar1;
   uint8_t uVar3;
   
-  *(uint32_t *)(param_1 + 0xc) = *(uint32_t *)(param_2 + 8);
+  param_1->field_0xc = *(uint32_t *)(param_2 + 8);
   uVar2 = map_size_to_shift_value(__frv_reg_unset(4), __frv_reg_unset(5));
-  *(uint16_t *)(param_1 + 0x10) = uVar2;
-  uVar2 = map_size_to_shift_amount(param_1,*(uint32_t *)(param_1 + 0xc));
-  *(uint16_t *)(param_1 + 0x12) = uVar2;
-  if (*(uint *)(param_1 + 0xc) < 0x4000001) {
-    uVar3 = select_size_class_by_threshold(param_1, __frv_reg_unset(5));
-    *(uint8_t *)(param_1 + 0x1c) = uVar3;
-    if (*(uint *)(param_1 + 0xc) < 0x400001) {
+  param_1->field_0x10 = uVar2;
+  uVar2 = map_size_to_shift_amount((uint32_t)(param_1),(uint)(param_1->field_0xc));
+  param_1->field_0x12 = uVar2;
+  if ((uint)param_1->field_0xc < 0x4000001) {
+    uVar3 = select_size_class_by_threshold((uint32_t)(param_1), (uint)(__frv_reg_unset(5)));
+    param_1->field_0x1c = uVar3;
+    if ((uint)param_1->field_0xc < 0x400001) {
       compute_exposure_step_index(__frv_reg_unset(4));
-      *(uint16_t *)(param_1 + 0x1e) = 1;
-      *(uint8_t *)(param_1 + 0x20) = 2;
-      *(uint16_t *)(param_1 + 0x22) = 0x200;
+      param_1->field_0x1e = 1;
+      param_1->field_0x20 = 2;
+      param_1->field_0x22 = 0x200;
     }
     else {
-      compute_windowed_offset(param_1);
-      *(uint16_t *)(param_1 + 0x22) = 0;
-      *(uint8_t *)(param_1 + 0x20) = 2;
+      compute_windowed_offset((int)(param_1));
+      param_1->field_0x22 = 0;
+      param_1->field_0x20 = 2;
     }
     uVar1 = 1;
   }

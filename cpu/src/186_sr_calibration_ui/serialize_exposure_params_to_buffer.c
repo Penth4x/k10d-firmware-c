@@ -92,43 +92,36 @@ int * serialize_exposure_params_to_buffer(int *param_1)
     *(uint16_t *)(puVar17 + 2) = 7;
     *(uint16_t *)(puVar17 + 6) = 0xff;
     puVar17[0xb] = 0;
-    build_and_dispatch_draw_params((int)param_1,uVar8 & 0xffff,0,(void *)0x105b39e0/*ROM*/,*(uint16_t *)(puVar17 + 2),
-                 *(uint16_t *)(puVar17 + 6),puVar17[0xb]);
+    build_and_dispatch_draw_params((int)param_1,(uint32_t)(uVar8 & 0xffff),(uint32_t)(0),(byte *)(0x105b39e0/*ROM*/),(uint16_t)(*(uint16_t *)(puVar17 + 2)), (uint16_t)(*(uint16_t *)(puVar17 + 6)),(char)(puVar17[0xb]));
     uVar14 = uVar14 + 1;
     iVar15 = iVar15 + 4;
   } while (uVar14 < 5);
   *(uint16_t *)(puVar17 + 2) = 7;
   *(uint16_t *)(puVar17 + 6) = 0xff;
   puVar17[0xb] = 0;
-  build_and_dispatch_draw_params((int)param_1,uVar1 & 0xffff,0,(void *)0x105b39e4/*ROM*/,*(uint16_t *)(puVar17 + 2),
-               *(uint16_t *)(puVar17 + 6),puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,(uint32_t)(uVar1 & 0xffff),(uint32_t)(0),(byte *)(0x105b39e4/*ROM*/),(uint16_t)(*(uint16_t *)(puVar17 + 2)), (uint16_t)(*(uint16_t *)(puVar17 + 6)),(char)(puVar17[0xb]));
   *(uint16_t *)(puVar17 + 2) = 7;
   *(uint16_t *)(puVar17 + 6) = 0xff;
   puVar17[0xb] = 0;
-  build_and_dispatch_draw_params((int)param_1,3,0x12,(void *)0x105b39e8/*ROM*/,*(uint16_t *)(puVar17 + 2),
-               *(uint16_t *)(puVar17 + 6),puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,(uint32_t)(3),(uint32_t)(0x12),(byte *)(0x105b39e8/*ROM*/),(uint16_t)(*(uint16_t *)(puVar17 + 2)), (uint16_t)(*(uint16_t *)(puVar17 + 6)),(char)(puVar17[0xb]));
   *(uint16_t *)(puVar17 + 2) = 7;
   *(uint16_t *)(puVar17 + 6) = 0xff;
   puVar17[0xb] = 0;
-  build_and_dispatch_draw_params((int)param_1,3,0x15U - iVar2 & 0xffff,(void *)0x105b39f0/*ROM*/,*(uint16_t *)(puVar17 + 2),
-               *(uint16_t *)(puVar17 + 6),puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,(uint32_t)(3),(uint32_t)(0x15U - iVar2 & 0xffff),(byte *)(0x105b39f0/*ROM*/),(uint16_t)(*(uint16_t *)(puVar17 + 2)), (uint16_t)(*(uint16_t *)(puVar17 + 6)),(char)(puVar17[0xb]));
   *(uint16_t *)(puVar17 + 2) = 7;
   *(uint16_t *)(puVar17 + 6) = 0xff;
   puVar17[0xb] = 0;
-  build_and_dispatch_draw_params((int)param_1,5,0x12,(void *)0x105b39f4/*ROM*/,*(uint16_t *)(puVar17 + 2),
-               *(uint16_t *)(puVar17 + 6),puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,(uint32_t)(5),(uint32_t)(0x12),(byte *)(0x105b39f4/*ROM*/),(uint16_t)(*(uint16_t *)(puVar17 + 2)), (uint16_t)(*(uint16_t *)(puVar17 + 6)),(char)(puVar17[0xb]));
   *(uint16_t *)(puVar17 + 2) = 7;
   *(uint16_t *)(puVar17 + 6) = 0xff;
   puVar17[0xb] = 0;
-  build_and_dispatch_draw_params((int)param_1,5,0x15U - iVar3 & 0xffff,(void *)0x105b39fc/*ROM*/,*(uint16_t *)(puVar17 + 2),
-               *(uint16_t *)(puVar17 + 6),puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,(uint32_t)(5),(uint32_t)(0x15U - iVar3 & 0xffff),(byte *)(0x105b39fc/*ROM*/),(uint16_t)(*(uint16_t *)(puVar17 + 2)), (uint16_t)(*(uint16_t *)(puVar17 + 6)),(char)(puVar17[0xb]));
   *(uint16_t *)(puVar17 + 2) = 0;
   *(uint16_t *)(puVar17 + 6) = 0xff;
   pvVar11 = (void *)0x105b3a00/*ROM*/;
   puVar17[0xb] = 0;
   pvVar9 = (void *)0x5;
-  build_and_dispatch_draw_params((int)param_1,1,5,(void *)0x105b3a00/*ROM*/,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6)
-               ,puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,(uint32_t)(1),(uint32_t)(5),(byte *)(0x105b3a00/*ROM*/),(uint16_t)(*(uint16_t *)(puVar17 + 2)),(uint16_t)(*(uint16_t *)(puVar17 + 6)),(char)(puVar17[0xb]));
   format_string_to_buffer_10545140(auStack_58,(char *)0x105b3a14/*ROM*/,pvVar9,pvVar11);
   iVar15 = uVar1 * 2;
   puVar4 = (uint8_t *)(iVar15 + 0x105b2dc8/*ROM*/);
@@ -137,8 +130,7 @@ int * serialize_exposure_params_to_buffer(int *param_1)
   *(uint16_t *)(puVar17 + 6) = uVar10;
   puVar17[0xb] = 0;
   puVar12 = auStack_58;
-  build_and_dispatch_draw_params((int)param_1,2,2,auStack_58,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6)
-               ,puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,2,2,auStack_58,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6) ,puVar17[0xb]);
   format_string_to_buffer_10545140(auStack_58,(char *)0x105b3a1c/*ROM*/,(void *)param_1[0x1c],puVar12);
   puVar12 = auStack_58;
   if (uVar1 == 2) {
@@ -153,8 +145,7 @@ int * serialize_exposure_params_to_buffer(int *param_1)
   *(uint16_t *)(puVar17 + 2) = 7;
   *(uint16_t *)(puVar17 + 6) = uVar10;
   puVar17[0xb] = 0;
-  build_and_dispatch_draw_params((int)param_1,2,0x12,puVar12,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6)
-               ,puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,2,0x12,puVar12,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6) ,puVar17[0xb]);
   format_string_to_buffer_10545140(auStack_58,(char *)0x105b3a24/*ROM*/,(void *)param_1[0x1b],puVar12);
   puVar12 = auStack_58;
   if (uVar1 == 2) {
@@ -169,8 +160,7 @@ int * serialize_exposure_params_to_buffer(int *param_1)
   *(uint16_t *)(puVar17 + 2) = 7;
   *(uint16_t *)(puVar17 + 6) = uVar10;
   puVar17[0xb] = 0;
-  build_and_dispatch_draw_params((int)param_1,2,0x13,puVar12,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6)
-               ,puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,2,0x13,puVar12,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6) ,puVar17[0xb]);
   format_string_to_buffer_10545140(auStack_58,(char *)0x105b3a2c/*ROM*/,(void *)param_1[0x1a],puVar12);
   puVar12 = auStack_58;
   if (uVar1 == 2) {
@@ -185,8 +175,7 @@ int * serialize_exposure_params_to_buffer(int *param_1)
   *(uint16_t *)(puVar17 + 2) = 7;
   *(uint16_t *)(puVar17 + 6) = uVar10;
   puVar17[0xb] = 0;
-  build_and_dispatch_draw_params((int)param_1,2,0x14,puVar12,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6)
-               ,puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,2,0x14,puVar12,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6) ,puVar17[0xb]);
   format_string_to_buffer_10545140(auStack_58,(char *)0x105b3a34/*ROM*/,(void *)param_1[0x19],puVar12);
   puVar12 = auStack_58;
   if (uVar1 == 2) {
@@ -202,16 +191,14 @@ int * serialize_exposure_params_to_buffer(int *param_1)
   *(uint16_t *)(puVar17 + 6) = uVar10;
   puVar17[0xb] = 0;
   pvVar9 = (void *)0x15;
-  build_and_dispatch_draw_params((int)param_1,2,0x15,puVar12,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6)
-               ,puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,2,0x15,puVar12,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6) ,puVar17[0xb]);
   format_string_to_buffer_10545140(auStack_58,(char *)0x105b3a3c/*ROM*/,pvVar9,puVar12);
   uVar10 = *(uint16_t *)(&DAT_105b2e18/*ROM*/ + iVar15);
   *(uint16_t *)(puVar17 + 2) = 7;
   *(uint16_t *)(puVar17 + 6) = uVar10;
   puVar17[0xb] = 0;
   puVar12 = auStack_58;
-  build_and_dispatch_draw_params((int)param_1,4,2,auStack_58,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6)
-               ,puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,4,2,auStack_58,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6) ,puVar17[0xb]);
   format_string_to_buffer_10545140(auStack_58,(char *)0x105b3a44/*ROM*/,(void *)param_1[0x20],puVar12);
   puVar12 = auStack_58;
   if (uVar1 == 4) {
@@ -225,8 +212,7 @@ int * serialize_exposure_params_to_buffer(int *param_1)
   *(uint16_t *)(puVar17 + 2) = 7;
   *(uint16_t *)(puVar17 + 6) = uVar10;
   puVar17[0xb] = 0;
-  build_and_dispatch_draw_params((int)param_1,4,0x12,puVar12,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6)
-               ,puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,4,0x12,puVar12,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6) ,puVar17[0xb]);
   format_string_to_buffer_10545140(auStack_58,(char *)0x105b3a4c/*ROM*/,(void *)param_1[0x1f],puVar12);
   puVar12 = auStack_58;
   if (uVar1 == 4) {
@@ -238,8 +224,7 @@ int * serialize_exposure_params_to_buffer(int *param_1)
   *(uint16_t *)(puVar17 + 2) = 7;
   *(uint16_t *)(puVar17 + 6) = uVar10;
   puVar17[0xb] = 0;
-  build_and_dispatch_draw_params((int)param_1,4,0x13,puVar12,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6)
-               ,puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,4,0x13,puVar12,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6) ,puVar17[0xb]);
   format_string_to_buffer_10545140(auStack_58,(char *)0x105b3a54/*ROM*/,(void *)param_1[0x1e],puVar12);
   puVar12 = auStack_58;
   if (uVar1 == 4) {
@@ -251,8 +236,7 @@ int * serialize_exposure_params_to_buffer(int *param_1)
   *(uint16_t *)(puVar17 + 2) = 7;
   *(uint16_t *)(puVar17 + 6) = uVar10;
   puVar17[0xb] = 0;
-  build_and_dispatch_draw_params((int)param_1,4,0x14,puVar12,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6)
-               ,puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,4,0x14,puVar12,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6) ,puVar17[0xb]);
   format_string_to_buffer_10545140(auStack_58,(char *)0x105b3a5c/*ROM*/,(void *)param_1[0x1d],puVar12);
   if (uVar1 == 4) {
     uVar10 = auStack_78[iVar3];
@@ -263,30 +247,25 @@ int * serialize_exposure_params_to_buffer(int *param_1)
   *(uint16_t *)(puVar17 + 2) = 7;
   *(uint16_t *)(puVar17 + 6) = uVar10;
   puVar17[0xb] = 0;
-  build_and_dispatch_draw_params((int)param_1,4,0x15,auStack_58,*(uint16_t *)(puVar17 + 2),
-               *(uint16_t *)(puVar17 + 6),puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,4,0x15,auStack_58,*(uint16_t *)(puVar17 + 2), *(uint16_t *)(puVar17 + 6),puVar17[0xb]);
   uVar10 = *(uint16_t *)(&DAT_105b2e40/*ROM*/ + iVar15);
   *(uint16_t *)(puVar17 + 2) = 7;
   *(uint16_t *)(puVar17 + 6) = uVar10;
   puVar17[0xb] = 0;
-  build_and_dispatch_draw_params((int)param_1,6,2,(void *)0x105b3a64/*ROM*/,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6)
-               ,puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,(uint32_t)(6),(uint32_t)(2),(byte *)(0x105b3a64/*ROM*/),(uint16_t)(*(uint16_t *)(puVar17 + 2)),(uint16_t)(*(uint16_t *)(puVar17 + 6)),(char)(puVar17[0xb]));
   uVar10 = *(uint16_t *)(&DAT_105b2e54/*ROM*/ + iVar15);
   *(uint16_t *)(puVar17 + 2) = 7;
   *(uint16_t *)(puVar17 + 6) = uVar10;
   puVar17[0xb] = 0;
-  build_and_dispatch_draw_params((int)param_1,7,2,(void *)0x105b3a6c/*ROM*/,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6)
-               ,puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,(uint32_t)(7),(uint32_t)(2),(byte *)(0x105b3a6c/*ROM*/),(uint16_t)(*(uint16_t *)(puVar17 + 2)),(uint16_t)(*(uint16_t *)(puVar17 + 6)),(char)(puVar17[0xb]));
   *(uint16_t *)(puVar17 + 2) = 7;
   *(uint16_t *)(puVar17 + 6) = 1;
   puVar17[0xb] = 0;
-  build_and_dispatch_draw_params((int)param_1,8,2,(void *)0x105b3a74/*ROM*/,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6)
-               ,puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,(uint32_t)(8),(uint32_t)(2),(byte *)(0x105b3a74/*ROM*/),(uint16_t)(*(uint16_t *)(puVar17 + 2)),(uint16_t)(*(uint16_t *)(puVar17 + 6)),(char)(puVar17[0xb]));
   *(uint16_t *)(puVar17 + 2) = 7;
   *(uint16_t *)(puVar17 + 6) = 0xff;
   puVar17[0xb] = 0;
-  build_and_dispatch_draw_params((int)param_1,8,8,(void *)0x105b3a7c/*ROM*/,*(uint16_t *)(puVar17 + 2),*(uint16_t *)(puVar17 + 6)
-               ,puVar17[0xb]);
+  build_and_dispatch_draw_params((int)param_1,(uint32_t)(8),(uint32_t)(8),(byte *)(0x105b3a7c/*ROM*/),(uint16_t)(*(uint16_t *)(puVar17 + 2)),(uint16_t)(*(uint16_t *)(puVar17 + 6)),(char)(puVar17[0xb]));
   clear_flag_at_offset_0x58_1048a71a(param_1);
   return param_1;
 }

@@ -22,7 +22,7 @@ void initialize_object_with_virtual_call_10446cb4(void *param_1)
   uint32_t uStack_10;
   uint32_t uStack_c;
   
-  uVar1 = cls_105c1218_new(0);
+  uVar1 = (uintptr_t)(cls_105c1218_new((cls_105c1218 *)0x0));
   *(uint32_t *)((int)param_1 + 0x18) = uVar1;
   uStack_2c = 0xd60;
   uStack_28 = 0xd62;
@@ -34,7 +34,7 @@ void initialize_object_with_virtual_call_10446cb4(void *param_1)
   uStack_10 = 0xd78;
   uStack_c = 0xd7c;
   iVar2 = *(int *)(*(int *)((int)param_1 + 0x18) + 4);
-  (**(code **)(iVar2 + 0x14))
-            (*(int *)((int)param_1 + 0x18) + (int)*(short *)(iVar2 + 0x10),&uStack_2c);
+  (((vtbl_entry*)(iVar2))[2].fn)
+            (*(int *)((int)param_1 + 0x18) + (int)((vtbl_entry*)(iVar2))[2].adj,&uStack_2c);
   return;
 }

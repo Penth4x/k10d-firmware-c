@@ -1,6 +1,7 @@
 #ifndef FRV_GLOBALS_H
 #define FRV_GLOBALS_H
 #include <stdint.h>
+#include "structs.h"
 extern byte DAT_00000001;
 extern uint32_t _DAT_00000001;
 extern byte DAT_00000002;

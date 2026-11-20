@@ -14,9 +14,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_subroutine_on_field(int param_1)
+uint32_t call_subroutine_on_field(cls_105c1150 *param_1)
 
 {
-  append_char_to_buffer(*(uint32_t *)(param_1 + 4),(char *)__frv_reg_unset(5));
+  append_char_to_buffer((int *)(param_1->field_0x4),(char *)__frv_reg_unset(5));
   return 1;
 }

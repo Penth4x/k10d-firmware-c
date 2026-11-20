@@ -25,7 +25,7 @@ void copy_status_block_bytes(int param_1,void *param_2)
   
   call_kernel_with_short_id((uint32_t *)(param_1 + 0xa4));
   iVar1 = *(int *)(param_1 + 0x70);
-  empty_stub_1045dd00((int)param_2,iVar1);
+  empty_stub_1045dd00((uint32_t)(param_2),(uint32_t)(iVar1));
   iVar3 = 0x17;
   do {
     iVar2 = iVar3 + -1;

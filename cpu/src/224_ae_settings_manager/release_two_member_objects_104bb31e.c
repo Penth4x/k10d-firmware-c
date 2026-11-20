@@ -15,28 +15,28 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_two_member_objects_104bb31e(void *param_1)
+void release_two_member_objects_104bb31e(cls_105b931c *param_1)
 
 {
   int *piVar1;
   
-  piVar1 = *(int **)((int)param_1 + 4);
+  piVar1 = (int *)param_1->field_0x4;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0x24))((int)*(short *)(*piVar1 + 0x20) + (int)piVar1);
-    piVar1 = *(int **)((int)param_1 + 4);
+    (((vtbl_entry*)(*piVar1))[4].fn)((void *)((int)((vtbl_entry*)(*piVar1))[4].adj + (int)piVar1));
+    piVar1 = (int *)param_1->field_0x4;
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+      (((vtbl_entry*)(*piVar1))[1].fn)((void *)((int)*(short *)(*piVar1 + 8) + (int)piVar1),3);
     }
   }
-  *(uint32_t *)((int)param_1 + 4) = 0;
-  piVar1 = *(int **)((int)param_1 + 8);
+  param_1->field_0x4 = (uintptr_t)((void *)0x0);
+  piVar1 = (int *)param_1->field_0x8;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0x24))((int)*(short *)(*piVar1 + 0x20) + (int)piVar1);
-    piVar1 = *(int **)((int)param_1 + 8);
+    (((vtbl_entry*)(*piVar1))[4].fn)((void *)((int)((vtbl_entry*)(*piVar1))[4].adj + (int)piVar1));
+    piVar1 = (int *)param_1->field_0x8;
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+      (((vtbl_entry*)(*piVar1))[1].fn)((void *)((int)*(short *)(*piVar1 + 8) + (int)piVar1),3);
     }
   }
-  *(uint32_t *)((int)param_1 + 8) = 0;
+  param_1->field_0x8 = (uintptr_t)((void *)0x0);
   return;
 }

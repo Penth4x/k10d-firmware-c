@@ -20,34 +20,28 @@ uint32_t search_byte_in_buffer(int *param_1,uint param_2,uint *param_3)
 {
   uint uVar1;
   uintptr_t sp;
-  int iStack_28;
-  uint uStack_24;
-  int iStack_20;
-  int iStack_1c;
-  uint8_t uStack_18;
-  int iStack_14;
-  int iStack_10;
+  cls_105bb0b8 cStack_28;
   
-  cls_105bb0b8_new(&iStack_28);
-  iStack_28 = *param_1;
-  uStack_24 = param_1[1];
-  iStack_20 = param_1[2];
-  iStack_1c = param_1[3];
-  uStack_18 = *(uint8_t *)(param_1 + 4);
-  iStack_14 = param_1[5];
-  iStack_10 = param_1[6];
+  cls_105bb0b8_new(&cStack_28);
+  cStack_28.field_0x0 = *param_1;
+  cStack_28.field_0x4 = param_1[1];
+  cStack_28.field_0x8 = param_1[2];
+  cStack_28.field_0xc = param_1[3];
+  cStack_28.field_0x10 = *(uint8_t *)(param_1 + 4);
+  cStack_28.field_0x14 = param_1[5];
+  cStack_28.field_0x18 = param_1[6];
   uVar1 = param_1[2];
-  if (uVar1 < uStack_24) {
+  if (uVar1 < cStack_28.field_0x4) {
     do {
       if (*(byte *)(*param_1 + uVar1) == param_2) {
         *param_3 = uVar1;
         param_1[2] = uVar1 + 1;
-        reset_vtable_and_free_if_flagged_104ddfe6(&iStack_28,2);
+        reset_vtable_and_free_if_flagged_104ddfe6(&cStack_28,2);
         return 1;
       }
       uVar1 = uVar1 + 1;
-    } while (uVar1 < uStack_24);
+    } while (uVar1 < cStack_28.field_0x4);
   }
-  reset_vtable_and_free_if_flagged_104ddfe6(&iStack_28,2);
+  reset_vtable_and_free_if_flagged_104ddfe6(&cStack_28,2);
   return 0;
 }

@@ -6,10 +6,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void branch_on_short_field_0x28(int param_1)
+void branch_on_short_field_0x28(cls_105aaebc *param_1)
 
 {
-  if (*(short *)(param_1 + 0x28) == 0x20) {
+  if (param_1->field_0x28 == 0x20) {
     build_and_validate_config((int *)__frv_reg_unset(4),__frv_reg_unset(5));
   }
   else {

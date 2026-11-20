@@ -36,8 +36,8 @@ void dispatch_mode_update_request_1038b660(uint32_t param_1,int param_2,uint32_t
   alloc_two_word_pair_1045bc2e(puVar5,0,0);
   switch(auStack_4c[0]) {
   case 0:
-    (**(code **)(*(int *)(param_2 + 0xc) + 0xec))
-              (*(short *)(*(int *)(param_2 + 0xc) + 0xe8) + param_2,6);
+    (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[29].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[29].adj + param_2,6);
     iVar2 = read_first_word_1045bd4c(param_3);
     iVar3 = get_second_word_of_struct(param_3);
     store_two_words_to_memory(puVar5,iVar2 + 0x36,iVar3 + 0x18);
@@ -50,11 +50,11 @@ void dispatch_mode_update_request_1038b660(uint32_t param_1,int param_2,uint32_t
       iVar2 = iVar6;
     } while (iVar6 != 0);
     puVar4 = local_40;
-    (**(code **)(iVar3 + 0x14))(sVar1 + param_2,puVar4);
+    (((vtbl_entry*)(iVar3))[2].fn)(sVar1 + param_2,puVar4);
     break;
   case 1:
-    (**(code **)(*(int *)(param_2 + 0xc) + 0xec))
-              (*(short *)(*(int *)(param_2 + 0xc) + 0xe8) + param_2,6);
+    (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[29].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[29].adj + param_2,6);
     iVar2 = read_first_word_1045bd4c(param_3);
     iVar3 = get_second_word_of_struct(param_3);
     store_two_words_to_memory(puVar5,iVar2 + 0x42,iVar3 + 0x18);
@@ -67,11 +67,11 @@ void dispatch_mode_update_request_1038b660(uint32_t param_1,int param_2,uint32_t
       iVar2 = iVar6;
     } while (iVar6 != 0);
     puVar4 = local_38;
-    (**(code **)(iVar3 + 0x14))(sVar1 + param_2,puVar4);
+    (((vtbl_entry*)(iVar3))[2].fn)(sVar1 + param_2,puVar4);
     break;
   case 2:
-    (**(code **)(*(int *)(param_2 + 0xc) + 0xec))
-              (*(short *)(*(int *)(param_2 + 0xc) + 0xe8) + param_2,6);
+    (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[29].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[29].adj + param_2,6);
     iVar2 = read_first_word_1045bd4c(param_3);
     iVar3 = get_second_word_of_struct(param_3);
     store_two_words_to_memory(puVar5,iVar2 + 0x4e,iVar3 + 0x18);
@@ -84,11 +84,11 @@ void dispatch_mode_update_request_1038b660(uint32_t param_1,int param_2,uint32_t
       iVar2 = iVar6;
     } while (iVar6 != 0);
     puVar4 = local_30;
-    (**(code **)(iVar3 + 0x14))(sVar1 + param_2,puVar4);
+    (((vtbl_entry*)(iVar3))[2].fn)(sVar1 + param_2,puVar4);
     break;
   case 3:
-    (**(code **)(*(int *)(param_2 + 0xc) + 0xec))
-              (*(short *)(*(int *)(param_2 + 0xc) + 0xe8) + param_2,2);
+    (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[29].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[29].adj + param_2,2);
     iVar2 = read_first_word_1045bd4c(param_3);
     iVar3 = get_second_word_of_struct(param_3);
     store_two_words_to_memory(puVar5,iVar2 + 0x5a,iVar3 + 0x18);
@@ -101,11 +101,11 @@ void dispatch_mode_update_request_1038b660(uint32_t param_1,int param_2,uint32_t
       iVar2 = iVar6;
     } while (iVar6 != 0);
     puVar4 = local_28;
-    (**(code **)(iVar3 + 0x14))(sVar1 + param_2,puVar4);
+    (((vtbl_entry*)(iVar3))[2].fn)(sVar1 + param_2,puVar4);
     break;
   case 4:
-    (**(code **)(*(int *)(param_2 + 0xc) + 0xec))
-              (*(short *)(*(int *)(param_2 + 0xc) + 0xe8) + param_2,6);
+    (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[29].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[29].adj + param_2,6);
     iVar2 = read_first_word_1045bd4c(param_3);
     iVar3 = get_second_word_of_struct(param_3);
     store_two_words_to_memory(puVar5,iVar2 + 0x66,iVar3 + 0x18);
@@ -118,11 +118,11 @@ void dispatch_mode_update_request_1038b660(uint32_t param_1,int param_2,uint32_t
       iVar2 = iVar6;
     } while (iVar6 != 0);
     puVar4 = local_20;
-    (**(code **)(iVar3 + 0x14))(sVar1 + param_2,puVar4);
+    (((vtbl_entry*)(iVar3))[2].fn)(sVar1 + param_2,puVar4);
     break;
   case 5:
-    (**(code **)(*(int *)(param_2 + 0xc) + 0xec))
-              (*(short *)(*(int *)(param_2 + 0xc) + 0xe8) + param_2,6);
+    (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[29].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[29].adj + param_2,6);
     iVar2 = read_first_word_1045bd4c(param_3);
     iVar3 = get_second_word_of_struct(param_3);
     store_two_words_to_memory(puVar5,iVar2 + 0x72,iVar3 + 0x18);
@@ -135,11 +135,11 @@ void dispatch_mode_update_request_1038b660(uint32_t param_1,int param_2,uint32_t
       iVar2 = iVar6;
     } while (iVar6 != 0);
     puVar4 = local_18;
-    (**(code **)(iVar3 + 0x14))(sVar1 + param_2,puVar4);
+    (((vtbl_entry*)(iVar3))[2].fn)(sVar1 + param_2,puVar4);
     break;
   case 6:
-    (**(code **)(*(int *)(param_2 + 0xc) + 0xec))
-              (*(short *)(*(int *)(param_2 + 0xc) + 0xe8) + param_2,6);
+    (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[29].fn)
+              (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[29].adj + param_2,6);
     iVar2 = read_first_word_1045bd4c(param_3);
     iVar3 = get_second_word_of_struct(param_3);
     store_two_words_to_memory(puVar5,iVar2 + 0x7e,iVar3 + 0x18);
@@ -152,10 +152,10 @@ void dispatch_mode_update_request_1038b660(uint32_t param_1,int param_2,uint32_t
       iVar2 = iVar6;
     } while (iVar6 != 0);
     puVar4 = local_10;
-    (**(code **)(iVar3 + 0x14))(sVar1 + param_2,puVar4);
+    (((vtbl_entry*)(iVar3))[2].fn)(sVar1 + param_2,puVar4);
     break;
   default:
-    (**(code **)(*(int *)(param_2 + 0xc) + 0xc))
+    (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[1].fn)
               (*(short *)(*(int *)(param_2 + 0xc) + 8) + param_2,0);
     goto LAB_1038ba0c;
   }

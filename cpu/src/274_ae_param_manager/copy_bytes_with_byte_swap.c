@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t copy_bytes_with_byte_swap(int param_1,uint16_t *param_2,int param_3,int param_4)
+uint32_t copy_bytes_with_byte_swap(cls_105d677c *param_1,uint16_t *param_2,int param_3,int param_4)
 
 {
   uint16_t *puVar1;
@@ -25,24 +25,24 @@ uint32_t copy_bytes_with_byte_swap(int param_1,uint16_t *param_2,int param_3,int
   uint32_t uStack_c;
   
   uStack_c = 0;
-  iVar3 = *(int *)(param_1 + 0x1c) + param_4 + *(int *)(param_1 + 0x24);
-  iVar2 = allocate_buffer_segment(param_1,iVar3,param_3 << 1);
+  iVar3 = param_1->field_0x1c + param_4 + param_1->field_0x24;
+  iVar2 = allocate_buffer_segment((int)(param_1),(uint)(iVar3),(uint)(param_3 << 1));
   if (iVar2 != 0) {
-    puVar1 = (uint16_t *)(*(int *)(param_1 + 4) + (iVar3 - *(int *)(param_1 + 0xc)));
-    if (*(char *)(param_1 + 0x20) == '\0') {
+    puVar1 = (uint16_t *)(param_1->field_0x4 + (iVar3 - param_1->field_0xc));
+    if (param_1->field_0x20 == '\0') {
       if (param_3 != 0) {
-        param_3 = param_3 + -3;
-        if (2 < param_3) {
+        iVar2 = param_3 + -3;
+        if (2 < iVar2) {
           do {
             *param_2 = CONCAT11(*(uint8_t *)((int)puVar1 + 1),*(uint8_t *)puVar1);
             param_2[1] = CONCAT11(*(uint8_t *)((int)puVar1 + 3),*(uint8_t *)(puVar1 + 1));
             param_2[2] = CONCAT11(*(uint8_t *)((int)puVar1 + 5),*(uint8_t *)(puVar1 + 2));
             param_2 = param_2 + 3;
-            param_3 = param_3 + -3;
+            iVar2 = iVar2 + -3;
             puVar1 = puVar1 + 3;
-          } while (-1 < param_3);
+          } while (-1 < iVar2);
         }
-        for (param_3 = param_3 + 2; -1 < param_3; param_3 = param_3 + -1) {
+        for (iVar2 = iVar2 + 2; -1 < iVar2; iVar2 = iVar2 + -1) {
           *param_2 = CONCAT11(*(uint8_t *)((int)puVar1 + 1),*(uint8_t *)puVar1);
           param_2 = param_2 + 1;
           puVar1 = puVar1 + 1;
@@ -50,18 +50,18 @@ uint32_t copy_bytes_with_byte_swap(int param_1,uint16_t *param_2,int param_3,int
       }
     }
     else if (param_3 != 0) {
-      param_3 = param_3 + -3;
-      if (2 < param_3) {
+      iVar2 = param_3 + -3;
+      if (2 < iVar2) {
         do {
           *param_2 = *puVar1;
           param_2[1] = puVar1[1];
           param_2[2] = puVar1[2];
           param_2 = param_2 + 3;
-          param_3 = param_3 + -3;
+          iVar2 = iVar2 + -3;
           puVar1 = puVar1 + 3;
-        } while (-1 < param_3);
+        } while (-1 < iVar2);
       }
-      for (param_3 = param_3 + 2; -1 < param_3; param_3 = param_3 + -1) {
+      for (iVar2 = iVar2 + 2; -1 < iVar2; iVar2 = iVar2 + -1) {
         *param_2 = *puVar1;
         param_2 = param_2 + 1;
         puVar1 = puVar1 + 1;

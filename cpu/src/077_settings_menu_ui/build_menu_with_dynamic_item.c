@@ -28,9 +28,9 @@ void build_menu_with_dynamic_item(int *param_1)
   
   uVar2 = menu_item_register(*param_1);
   psVar3 = (short *)((int)param_1 + 0x2a);
-  menu_list_build((void *)uVar2,psVar3,2,0);
+  menu_list_build((int *)(uVar2),(uint16_t *)(psVar3),(uint8_t)(2),(uint8_t)(0));
   uVar2 = menu_item_register(*param_1);
-  menu_list_build((void *)uVar2,(void *)(param_1 + 0xb),2,0);
+  menu_list_build((int *)(uVar2),(uint16_t *)(param_1 + 0xb),(uint8_t)(2),(uint8_t)(0));
   uVar1 = *(ushort *)((int)param_1 + 0x2a);
   if (uVar1 == 0) {
     sStack_c = 0xc;
@@ -48,8 +48,8 @@ void build_menu_with_dynamic_item(int *param_1)
     uVar2 = menu_item_register(*param_1);
     psVar3 = &sStack_a;
   }
-  menu_list_build((void *)uVar2,psVar3,2,0);
+  menu_list_build((int *)(uVar2),(uint16_t *)(psVar3),(uint8_t)(2),(uint8_t)(0));
   uVar2 = menu_item_register(*param_1);
-  menu_list_build((void *)uVar2,(void *)(param_1 + 0xb),2,0);
+  menu_list_build((int *)(uVar2),(uint16_t *)(param_1 + 0xb),(uint8_t)(2),(uint8_t)(0));
   return;
 }

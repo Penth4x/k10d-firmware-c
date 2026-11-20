@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t build_and_verify_buffer_header(int *param_1,uint8_t *param_2)
+uint32_t build_and_verify_buffer_header(cls_105aaebc *param_1,uint8_t *param_2)
 
 {
   short sVar1;
@@ -27,9 +27,9 @@ uint32_t build_and_verify_buffer_header(int *param_1,uint8_t *param_2)
   int iVar6;
   
   fill_byte_array(param_2,0,0x200);
-  iVar3 = param_1[9];
-  iVar4 = param_1[5] + (uint)*(ushort *)((int)param_1 + 0x1e);
-  sVar1 = *(short *)(param_1 + 10);
+  iVar4 = param_1->field_0x14 + (uint)param_1->field_0x1e;
+  iVar3 = param_1->field_0x24 + iVar4;
+  sVar1 = param_1->field_0x28;
   if (sVar1 == 0xc) {
     *param_2 = 0xf8;
     param_2[1] = 0xff;
@@ -62,16 +62,16 @@ uint32_t build_and_verify_buffer_header(int *param_1,uint8_t *param_2)
   }
   param_2[iVar6] = uVar2;
 LAB_1047eda4:
-  iVar6 = call_virtual_slot_6_and_helper(param_1,iVar4,1);
+  iVar6 = call_virtual_slot_6_and_helper((int *)param_1,iVar4,1);
   uVar5 = 0;
   if (iVar6 != 0) {
-    iVar6 = (**(code **)(param_1[0xc] + 0x1c))
-                      ((int)*(short *)(param_1[0xc] + 0x18) + (int)param_1,iVar4 + 1,param_1[9] + -1
-                      );
-    if (((iVar6 != 0) && (iVar6 = call_virtual_slot_6_and_helper(param_1,iVar3 + iVar4,1), iVar6 != 0)) &&
-       (iVar3 = (**(code **)(param_1[0xc] + 0x1c))
-                          ((int)*(short *)(param_1[0xc] + 0x18) + (int)param_1,iVar3 + iVar4 + 1,
-                           param_1[9] + -1), iVar3 != 0)) {
+    iVar4 = (((vtbl_entry*)(param_1->field_0x30))[3].fn)
+                      ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x30))[3].adj,
+                       iVar4 + 1,param_1->field_0x24 + -1);
+    if (((iVar4 != 0) && (iVar4 = call_virtual_slot_6_and_helper((int *)param_1,iVar3,1), iVar4 != 0)) &&
+       (iVar3 = (((vtbl_entry*)(param_1->field_0x30))[3].fn)
+                          ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x30))[3].adj,
+                           iVar3 + 1,param_1->field_0x24 + -1), iVar3 != 0)) {
       uVar5 = 1;
     }
   }

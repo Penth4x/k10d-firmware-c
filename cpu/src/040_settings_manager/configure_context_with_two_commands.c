@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void configure_context_with_two_commands(void *param_1,uint32_t param_2,void *param_3,void *param_4)
+void configure_context_with_two_commands(cls_10563694 *param_1,uint32_t param_2,void *param_3,void *param_4)
 
 {
   void *pvVar1;

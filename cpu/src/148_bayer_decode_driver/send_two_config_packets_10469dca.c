@@ -32,15 +32,15 @@ void send_two_config_packets_10469dca(void *param_1,int param_2)
   puVar4 = auStackY_14;
   uVar2 = (uint)(ushort)(_DAT_800042d0/*SDRAM*/ + 1);
   if (param_2 == 1) {
-    forward_params_to_helper_1046a5be(param_1,(uint)*(ushort *)((int)param_1 + 0x262),uVar2,(byte *)&DAT_105a8474/*ROM*/,4);
+    forward_params_to_helper_1046a5be(param_1,(uint)*(ushort *)((int)param_1 + 0x262),uVar2,&DAT_105a8474/*ROM*/,4);
     uVar1 = (uint)(ushort)(*(short *)((int)param_1 + 0x262) + 1);
     uVar2 = (uint)(ushort)(_DAT_800042d0/*SDRAM*/ + 1);
-    pbVar3 = (byte *)&DAT_105a848c/*ROM*/;
+    pbVar3 = &DAT_105a848c/*ROM*/;
     *(uint16_t *)(puVar4 + 2) = 4;
     puVar5 = puVar4;
   }
   else {
-    pbVar3 = (byte *)&DAT_105a84a4/*ROM*/;
+    pbVar3 = &DAT_105a84a4/*ROM*/;
     uVar1 = 9;
   }
   forward_params_to_helper_1046a5be(param_1,uVar1,uVar2,pbVar3,*(uint16_t *)(puVar5 + 2));

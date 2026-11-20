@@ -11,50 +11,53 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_1059d1d8_new(uint32_t *param_1)
+cls_1059cbf0 * cls_1059d1d8_new(cls_1059d1d8 *param_1)
 
 {
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0xf8), param_1 != (uint32_t *)0x0)) {
-    cls_1059cbf0_new(param_1);
-    cls_105a2a8c_new(param_1 + 0x24);
-    *param_1 = 0x1059d1d8/*ROM*/;
-    param_1[1] = 0x1059d2d0/*ROM*/;
-    param_1[2] = 0x1059d2f0/*ROM*/;
-    param_1[8] = 0x1059d318/*ROM*/;
-    param_1[0x25] = 0x1059d330/*ROM*/;
-    *(uint8_t *)(param_1 + 0x26) = 0;
-    param_1[0x27] = 0;
-    *(uint8_t *)(param_1 + 0x28) = 0;
-    *(uint8_t *)((int)param_1 + 0xa1) = 0;
-    *(uint8_t *)((int)param_1 + 0xa2) = 0;
-    *(uint8_t *)((int)param_1 + 0xa3) = 0;
-    *(uint8_t *)(param_1 + 0x29) = 0;
-    *(uint8_t *)((int)param_1 + 0xa5) = 0;
-    *(uint8_t *)((int)param_1 + 0xa6) = 0;
-    *(uint8_t *)((int)param_1 + 0xa7) = 0;
-    *(uint8_t *)(param_1 + 0x2a) = 0;
-    *(uint8_t *)((int)param_1 + 0xa9) = 0;
-    *(uint8_t *)((int)param_1 + 0xaa) = 0;
-    *(uint8_t *)((int)param_1 + 0xab) = 0;
-    *(uint16_t *)(param_1 + 0x2b) = 0;
-    *(uint16_t *)((int)param_1 + 0xae) = 0;
-    *(uint16_t *)(param_1 + 0x2c) = 0;
-    *(uint16_t *)((int)param_1 + 0xb2) = 0;
-    *(uint16_t *)(param_1 + 0x2d) = 0;
-    param_1[0x2e] = 2;
-    *(uint8_t *)(param_1 + 0x30) = 0;
-    cls_105a2af8_new(param_1 + 0x31);
-    cls_105a2af8_new(param_1 + 0x33);
-    param_1[0x35] = 0;
-    param_1[0x36] = 0;
-    param_1[0x37] = 0;
-    param_1[0x38] = 0;
-    param_1[0x39] = 0;
-    param_1[0x3a] = 0;
-    param_1[0x3b] = 0;
-    param_1[0x3c] = 0;
-    param_1[0x3d] = 0;
+  if ((param_1 != (cls_1059d1d8 *)0x0) ||
+     (param_1 = (cls_1059d1d8 *)heap_alloc((void *)0xf8), (cls_1059cbf0 *)param_1 != (cls_1059cbf0 *)0x0)) {
+    cls_1059cbf0_new((cls_1059cbf0 *)param_1);
+    cls_105a2a8c_new((cls_105a2a8c *)&((cls_1059cbf0 *)param_1)->field72_0x90);
+    ((cls_1059cbf0 *)param_1)->field_0x0 = (uintptr_t)((void *)0x1059d1d8/*ROM*/);
+    ((cls_1059cbf0 *)param_1)->field_0x4 = 0x1059d2d0/*ROM*/;
+    ((cls_1059cbf0 *)param_1)->field_0x8 = 0x1059d2f0/*ROM*/;
+    ((cls_1059cbf0 *)param_1)->field_0x20 = 0x1059d318/*ROM*/;
+    ((cls_1059cbf0 *)param_1)->field76_0x94 = 0x1059d330/*ROM*/;
+    ((cls_1059cbf0 *)param_1)->field77_0x98 = 0;
+    ((cls_1059cbf0 *)param_1)->field81_0x9c = 0;
+    ((cls_1059cbf0 *)param_1)->field82_0xa0 = 0;
+    ((cls_1059cbf0 *)param_1)->field83_0xa1 = 0;
+    ((cls_1059cbf0 *)param_1)->field84_0xa2 = 0;
+    ((cls_1059cbf0 *)param_1)->field85_0xa3 = 0;
+    ((cls_1059cbf0 *)param_1)->field86_0xa4 = 0;
+    ((cls_1059cbf0 *)param_1)->field87_0xa5 = 0;
+    ((cls_1059cbf0 *)param_1)->field88_0xa6 = 0;
+    ((cls_1059cbf0 *)param_1)->field89_0xa7 = 0;
+    ((cls_1059cbf0 *)param_1)->field90_0xa8 = 0;
+    ((cls_1059cbf0 *)param_1)->field91_0xa9 = 0;
+    ((cls_1059cbf0 *)param_1)->field92_0xaa = 0;
+    ((cls_1059cbf0 *)param_1)->field93_0xab = 0;
+    ((cls_1059cbf0 *)param_1)->field94_0xac = 0;
+    ((cls_1059cbf0 *)param_1)->field95_0xae = 0;
+    ((cls_1059cbf0 *)param_1)->field96_0xb0 = 0;
+    ((cls_1059cbf0 *)param_1)->field97_0xb2 = 0;
+    ((cls_1059cbf0 *)param_1)->field98_0xb4 = 0;
+    ((cls_1059cbf0 *)param_1)->field101_0xb8 = 2;
+    ((cls_1059cbf0 *)param_1)->field106_0xc0 = 0;
+    cls_105a2af8_new((cls_105a2af8 *)&((cls_1059cbf0 *)param_1)->field110_0xc4);
+    cls_105a2af8_new((cls_105a2af8 *)&((cls_1059cbf0 *)param_1)->field115_0xcc);
+    ((cls_1059cbf0 *)param_1)->field120_0xd4 = 0;
+    ((cls_1059cbf0 *)param_1)->field121_0xd8 = 0;
+    ((cls_1059cbf0 *)param_1)->field122_0xdc = 0;
+    ((cls_1059cbf0 *)param_1)->field123_0xe0 = 0;
+    ((cls_1059cbf0 *)param_1)->field124_0xe4 = 0;
+    ((cls_1059cbf0 *)param_1)->field125_0xe8 = 0;
+    ((cls_1059cbf0 *)param_1)->field126_0xec = 0;
+    ((cls_1059cbf0 *)param_1)->field127_0xed = 0;
+    ((cls_1059cbf0 *)param_1)->field128_0xee = 0;
+    ((cls_1059cbf0 *)param_1)->field129_0xef = 0;
+    ((cls_1059cbf0 *)param_1)->field130_0xf0 = 0;
+    ((cls_1059cbf0 *)param_1)->field131_0xf4 = 0;
   }
-  return param_1;
+  return (cls_1059cbf0 *)param_1;
 }

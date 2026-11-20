@@ -12,8 +12,8 @@ uint32_t invoke_virtual_then_check_helper(int param_1,uint32_t param_2)
   int iVar1;
   uint32_t uVar2;
   
-  iVar1 = (**(code **)(*(int *)(param_1 + 0x2b18) + 0x5c))
-                    (*(short *)(*(int *)(param_1 + 0x2b18) + 0x58) + param_1,param_2,0x105ba1a8/*ROM*/);
+  iVar1 = (((vtbl_entry*)(*(int *)(param_1 + 0x2b18)))[11].fn)
+                    (((vtbl_entry*)(*(int *)(param_1 + 0x2b18)))[11].adj + param_1,param_2,0x105ba1a8/*ROM*/);
   if (iVar1 == 0) {
     uVar2 = 0;
   }

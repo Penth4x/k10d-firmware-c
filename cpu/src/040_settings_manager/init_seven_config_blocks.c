@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_seven_config_blocks(void *param_1,uint32_t param_2,void *param_3,void *param_4)
+void init_seven_config_blocks(cls_105634f0 *param_1,uint32_t param_2,void *param_3,void *param_4)
 
 {
   void *pvVar1;
@@ -53,14 +53,14 @@ void init_seven_config_blocks(void *param_1,uint32_t param_2,void *param_3,void 
                ,piVar3[2],*(short *)((int)piVar3 + 0xe));
   *piVar3 = 0x11;
   iVar2 = allocate_and_init_2d_buffer_1039c664((int)param_1,(int)pvVar1,(void *)0x5070006,0x12,*piVar3);
-  *(int *)((int)param_1 + 0x24) = iVar2;
+  param_1->field_0x24 = iVar2;
   *piVar3 = 0x11;
   *(uint8_t *)((int)piVar3 + 7) = 1;
   piVar3[2] = 0;
   piVar3[3] = 0;
   iVar2 = allocate_and_init_object_entry((int)param_1,(int)pvVar1,(void *)0x5070007,0x15,*piVar3,
                        *(uint8_t *)((int)piVar3 + 7),piVar3[2],*(short *)((int)piVar3 + 0xe));
-  *(int *)((int)param_1 + 0x28) = iVar2;
+  param_1->field_0x28 = iVar2;
   set_object_field_at_offset_0x10(param_1,pvVar1);
   return;
 }

@@ -36,7 +36,7 @@ uint32_t initialize_0x80_byte_record(void *param_1,void *param_2,uint32_t param_
     uVar4 = 0;
     iVar5 = 0;
     do {
-      pcVar3 = (char *)(_DAT_80014980/*SDRAM*/ + iVar5);
+      pcVar3 = (char *)((char*)_DAT_80014980/*SDRAM*/ + iVar5);
       *param_4 = (int)pcVar3;
       if (*pcVar3 == '\x01') {
         iVar2 = compare_null_terminated_strings(param_1,pcVar3 + 1);
@@ -54,12 +54,12 @@ uint32_t initialize_0x80_byte_record(void *param_1,void *param_2,uint32_t param_
       uVar1 = 0xfffffd9e;
     }
     else {
-      *param_4 = (int)(_DAT_80014980/*SDRAM*/ + uVar6 * 0x80);
+      *param_4 = (uintptr_t)((char*)_DAT_80014980/*SDRAM*/ + uVar6 * 0x80);
       copy_null_terminated_string((void *)(*param_4 + 1),param_1);
       *(short *)(*param_4 + 10) = (short)uVar6;
       memcpy_bytes((void *)(*param_4 + 0x58),param_2,8);
       *(uint32_t *)(*param_4 + 0x60) = param_3;
-      uVar1 = run_sequential_update_steps((void *)(*param_4));
+      uVar1 = run_sequential_update_steps((char *)(*param_4));
     }
   }
   return uVar1;

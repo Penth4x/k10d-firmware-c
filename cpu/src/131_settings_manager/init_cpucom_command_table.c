@@ -32,7 +32,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a6abc_new((void *)iVar3);
+    cls_105a6abc_new((cls_105a6abc *)(iVar3));
   }
   *(int *)((int)param_1 + 0x48) = iVar3;
   iVar3 = heap_alloc((void *)0x10);
@@ -40,7 +40,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a6b04_new((void *)iVar3);
+    cls_105a6b04_new((cls_105a6b04 *)(iVar3));
   }
   *(int *)((int)param_1 + 0x4c) = iVar3;
   iVar3 = heap_alloc((void *)8);
@@ -48,7 +48,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a6b4c_new((void *)iVar3);
+    cls_105a6b4c_new((cls_105a6b4c *)(iVar3));
   }
   *(int *)((int)param_1 + 0x50) = iVar3;
   iVar3 = heap_alloc((void *)0x24);
@@ -56,7 +56,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a6b94_new((void *)iVar3);
+    cls_105a6b94_new((cls_105a6b94 *)(iVar3));
   }
   *(int *)((int)param_1 + 0x54) = iVar3;
   iVar3 = heap_alloc((void *)0x24);
@@ -64,7 +64,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a6bdc_new((void *)iVar3);
+    cls_105a6bdc_new((cls_105a6bdc *)(iVar3));
   }
   *(int *)((int)param_1 + 0x58) = iVar3;
   iVar3 = heap_alloc((void *)0x24);
@@ -72,7 +72,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a6c24_new((void *)iVar3);
+    cls_105a6c24_new((cls_105a6c24 *)(iVar3));
   }
   *(int *)((int)param_1 + 0x5c) = iVar3;
   iVar3 = heap_alloc((void *)0x24);
@@ -80,7 +80,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a6c6c_new((void *)iVar3);
+    cls_105a6c6c_new((cls_105a6c6c *)(iVar3));
   }
   *(int *)((int)param_1 + 0x60) = iVar3;
   iVar3 = heap_alloc((void *)8);
@@ -88,7 +88,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a6cb4_new((void *)iVar3);
+    cls_105a6cb4_new((cls_105a6cb4 *)(iVar3));
   }
   *(int *)((int)param_1 + 100) = iVar3;
   iVar3 = heap_alloc((void *)0x4c);
@@ -96,7 +96,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a6cfc_new((void *)iVar3);
+    cls_105a6cfc_new((cls_105a6cfc *)(iVar3));
   }
   *(int *)((int)param_1 + 0x68) = iVar3;
   iVar3 = heap_alloc((void *)0x14);
@@ -104,7 +104,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a6d44_new((void *)iVar3);
+    cls_105a6d44_new((cls_105a6d44 *)(iVar3));
   }
   *(int *)((int)param_1 + 0x6c) = iVar3;
   puVar2 = (uint32_t *)heap_alloc((void *)0x1c);
@@ -120,7 +120,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a6dd4_new((void *)iVar3);
+    cls_105a6dd4_new((cls_105a6dd4 *)(iVar3));
   }
   *(int *)((int)param_1 + 0x74) = iVar3;
   iVar3 = heap_alloc((void *)0x14);
@@ -128,7 +128,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a6e1c_new((void *)iVar3);
+    cls_105a6e1c_new((cls_105a6e1c *)(iVar3));
   }
   *(int *)((int)param_1 + 0x78) = iVar3;
   iVar3 = heap_alloc((void *)8);
@@ -136,7 +136,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a6e64_new((void *)iVar3);
+    cls_105a6e64_new((cls_105a6e64 *)(iVar3));
   }
   *(int *)((int)param_1 + 0x7c) = iVar3;
   iVar3 = heap_alloc((void *)8);
@@ -144,7 +144,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a6eac_new((void *)iVar3);
+    cls_105a6eac_new((cls_105a6eac *)(iVar3));
   }
   *(int *)((int)param_1 + 0x80) = iVar3;
   iVar3 = heap_alloc((void *)0x20);
@@ -152,7 +152,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a6ef4_new((void *)iVar3);
+    cls_105a6ef4_new((cls_105a6ef4 *)(iVar3));
   }
   *(int *)((int)param_1 + 0x84) = iVar3;
   iVar3 = heap_alloc((void *)8);
@@ -160,7 +160,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a6f3c_new((void *)iVar3);
+    cls_105a6f3c_new((cls_105a6f3c *)(iVar3));
   }
   *(int *)((int)param_1 + 0x88) = iVar3;
   iVar3 = heap_alloc((void *)0xc);
@@ -168,7 +168,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a6f84_new((void *)iVar3);
+    cls_105a6f84_new((cls_105a6f84 *)(iVar3));
   }
   *(int *)((int)param_1 + 0x8c) = iVar3;
   iVar3 = heap_alloc((void *)8);
@@ -176,7 +176,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a6fcc_new((void *)iVar3);
+    cls_105a6fcc_new((cls_105a6fcc *)(iVar3));
   }
   *(int *)((int)param_1 + 0x90) = iVar3;
   iVar3 = heap_alloc((void *)0xc);
@@ -184,7 +184,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a7014_new((void *)iVar3);
+    cls_105a7014_new((cls_105a7014 *)(iVar3));
   }
   *(int *)((int)param_1 + 0x94) = iVar3;
   iVar3 = heap_alloc((void *)0x10);
@@ -192,7 +192,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a705c_new((void *)iVar3);
+    cls_105a705c_new((cls_105a705c *)(iVar3));
   }
   *(int *)((int)param_1 + 0x98) = iVar3;
   iVar3 = heap_alloc((void *)8);
@@ -200,7 +200,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a70a4_new((void *)iVar3);
+    cls_105a70a4_new((cls_105a70a4 *)(iVar3));
   }
   *(int *)((int)param_1 + 0x9c) = iVar3;
   iVar3 = heap_alloc((void *)0xc);
@@ -208,7 +208,7 @@ uint32_t init_cpucom_command_table(void *param_1)
     iVar3 = 0;
   }
   else {
-    cls_105a70ec_new((void *)iVar3);
+    cls_105a70ec_new((cls_105a70ec *)(iVar3));
   }
   *(int *)((int)param_1 + 0xa0) = iVar3;
   return uVar1;

@@ -41,7 +41,7 @@ bool initialize_sensor_object_from_config(int param_1,int param_2,int param_3,in
     bVar10 = false;
     goto LAB_1050d02a;
   }
-  (**(code **)(puVar1[0x235] + 0x14))((int)*(short *)(puVar1[0x235] + 0x10) + (int)puVar1,param_3);
+  (((vtbl_entry*)(puVar1[0x235]))[2].fn)((int)((vtbl_entry*)(puVar1[0x235]))[2].adj + (int)puVar1,param_3);
   piVar6 = puVar1 + 0x52;
   test_mode_state_reset(piVar6);
   if (param_5 != 0) {
@@ -51,86 +51,86 @@ bool initialize_sensor_object_from_config(int param_1,int param_2,int param_3,in
       *(uint32_t *)(iVar7 + (int)(puVar1 + 0xab)) = *(uint32_t *)(iVar7 + param_5 + 0x164);
     } while (iVar7 != 0);
     field_setter((int)(puVar1 + 0xab),0x51,0);
-    empty_noop_stub_1050d3b0((int)piVar6,param_5);
+    empty_noop_stub_1050d3b0((uint32_t)(piVar6),param_5);
     iVar7 = 0x17;
     do {
       iVar8 = iVar7 + -1;
       *(uint8_t *)((int)puVar1 + iVar7 + 0x14b) = *(uint8_t *)(iVar8 + param_5 + 4);
       iVar7 = iVar8;
     } while (iVar8 != 0);
-    empty_noop_stub_1050d3b0((int)(puVar1 + 0x59),param_5 + 0x1c);
+    empty_noop_stub_1050d3b0((uint32_t)(puVar1 + 0x59),param_5 + 0x1c);
     iVar7 = 0x10;
     do {
       iVar8 = iVar7 + -1;
       *(uint8_t *)((int)puVar1 + iVar7 + 0x167) = *(uint8_t *)(iVar8 + param_5 + 0x20);
       iVar7 = iVar8;
     } while (iVar8 != 0);
-    empty_noop_stub_1050d3b0((int)(puVar1 + 0x5e),param_5 + 0x30);
+    empty_noop_stub_1050d3b0((uint32_t)(puVar1 + 0x5e),param_5 + 0x30);
     iVar7 = 0x45;
     do {
       iVar8 = iVar7 + -1;
       *(uint8_t *)((int)puVar1 + iVar7 + 0x17b) = *(uint8_t *)(iVar8 + param_5 + 0x34);
       iVar7 = iVar8;
     } while (iVar8 != 0);
-    empty_noop_stub_1050d3b0((int)(puVar1 + 0x71),param_5 + 0x7c);
+    empty_noop_stub_1050d3b0((uint32_t)(puVar1 + 0x71),param_5 + 0x7c);
     iVar7 = 0x1b;
     do {
       iVar8 = iVar7 + -1;
       *(uint8_t *)((int)puVar1 + iVar7 + 0x1c7) = *(uint8_t *)(iVar8 + param_5 + 0x80);
       iVar7 = iVar8;
     } while (iVar8 != 0);
-    empty_noop_stub_1050d3b0((int)(puVar1 + 0x79),param_5 + 0x9c);
+    empty_noop_stub_1050d3b0((uint32_t)(puVar1 + 0x79),param_5 + 0x9c);
     *(uint8_t *)(puVar1 + 0x7a) = *(uint8_t *)(param_5 + 0xa0);
-    empty_noop_stub_1050d3b0((int)(puVar1 + 0x7b),param_5 + 0xa4);
+    empty_noop_stub_1050d3b0((uint32_t)(puVar1 + 0x7b),param_5 + 0xa4);
     iVar7 = 8;
     do {
       iVar8 = iVar7 + -1;
       *(uint8_t *)((int)puVar1 + iVar7 + 0x1ef) = *(uint8_t *)(iVar8 + param_5 + 0xa8);
       iVar7 = iVar8;
     } while (iVar8 != 0);
-    empty_noop_stub_1050d3b0((int)(puVar1 + 0x7e),param_5 + 0xb0);
+    empty_noop_stub_1050d3b0((uint32_t)(puVar1 + 0x7e),param_5 + 0xb0);
     iVar7 = 0x10;
     do {
       iVar8 = iVar7 + -1;
       *(uint8_t *)((int)puVar1 + iVar7 + 0x1fb) = *(uint8_t *)(iVar8 + param_5 + 0xb4);
       iVar7 = iVar8;
     } while (iVar8 != 0);
-    empty_noop_stub_1050d3b0((int)(puVar1 + 0x83),param_5 + 0xc4);
+    empty_noop_stub_1050d3b0((uint32_t)(puVar1 + 0x83),param_5 + 0xc4);
     iVar7 = 0x10;
     do {
       iVar8 = iVar7 + -1;
       *(uint8_t *)((int)puVar1 + iVar7 + 0x20f) = *(uint8_t *)(iVar8 + param_5 + 200);
       iVar7 = iVar8;
     } while (iVar8 != 0);
-    empty_noop_stub_1050d3b0((int)(puVar1 + 0x88),param_5 + 0xd8);
+    empty_noop_stub_1050d3b0((uint32_t)(puVar1 + 0x88),param_5 + 0xd8);
     iVar7 = 0x10;
     do {
       iVar8 = iVar7 + -1;
       *(uint8_t *)((int)puVar1 + iVar7 + 0x223) = *(uint8_t *)(iVar8 + param_5 + 0xdc);
       iVar7 = iVar8;
     } while (iVar8 != 0);
-    empty_noop_stub_1050d3b0((int)(puVar1 + 0x8d),param_5 + 0xec);
+    empty_noop_stub_1050d3b0((uint32_t)(puVar1 + 0x8d),param_5 + 0xec);
     iVar7 = 0xc;
     do {
       iVar8 = iVar7 + -1;
       *(uint8_t *)((int)puVar1 + iVar7 + 0x237) = *(uint8_t *)(iVar8 + param_5 + 0xf0);
       iVar7 = iVar8;
     } while (iVar8 != 0);
-    empty_noop_stub_1050d3b0((int)(puVar1 + 0x95),param_5 + 0x10c);
+    empty_noop_stub_1050d3b0((uint32_t)(puVar1 + 0x95),param_5 + 0x10c);
     iVar7 = 4;
     do {
       iVar8 = iVar7 + -1;
       *(uint8_t *)((int)puVar1 + iVar7 + 599) = *(uint8_t *)(iVar8 + param_5 + 0x110);
       iVar7 = iVar8;
     } while (iVar8 != 0);
-    empty_noop_stub_1050d3b0((int)(puVar1 + 0x17e),param_5 + 0x4b0);
+    empty_noop_stub_1050d3b0((uint32_t)(puVar1 + 0x17e),param_5 + 0x4b0);
     iVar7 = 6;
     do {
       iVar8 = iVar7 + -1;
       *(uint8_t *)((int)puVar1 + iVar7 + 0x5fb) = *(uint8_t *)(iVar8 + param_5 + 0x4b4);
       iVar7 = iVar8;
     } while (iVar8 != 0);
-    empty_noop_stub_1050d3b0((int)(puVar1 + 0x181),param_5 + 0x4bc);
+    empty_noop_stub_1050d3b0((uint32_t)(puVar1 + 0x181),param_5 + 0x4bc);
     iVar7 = 4;
     do {
       iVar8 = iVar7 + -1;
@@ -145,28 +145,28 @@ bool initialize_sensor_object_from_config(int param_1,int param_2,int param_3,in
       iVar9 = iVar9 + -4;
       *(uint32_t *)(iVar9 + iVar8) = *(uint32_t *)(iVar9 + iVar7);
     } while (iVar9 != 0);
-    empty_noop_stub_1050d3b0((int)(puVar1 + 0x97),param_5 + 0x114);
+    empty_noop_stub_1050d3b0((uint32_t)(puVar1 + 0x97),param_5 + 0x114);
     iVar7 = 4;
     do {
       iVar8 = iVar7 + -1;
       *(uint8_t *)((int)puVar1 + iVar7 + 0x25f) = *(uint8_t *)(iVar8 + param_5 + 0x118);
       iVar7 = iVar8;
     } while (iVar8 != 0);
-    empty_noop_stub_1050d3b0((int)(puVar1 + 0x99),param_5 + 0x11c);
+    empty_noop_stub_1050d3b0((uint32_t)(puVar1 + 0x99),param_5 + 0x11c);
     iVar7 = 0x20;
     do {
       iVar8 = iVar7 + -1;
       *(uint8_t *)((int)puVar1 + iVar7 + 0x267) = *(uint8_t *)(iVar8 + param_5 + 0x120);
       iVar7 = iVar8;
     } while (iVar8 != 0);
-    empty_noop_stub_1050d3b0((int)(puVar1 + 0xa2),param_5 + 0x140);
+    empty_noop_stub_1050d3b0((uint32_t)(puVar1 + 0xa2),param_5 + 0x140);
     iVar7 = 0x20;
     do {
       iVar8 = iVar7 + -1;
       *(uint8_t *)((int)puVar1 + iVar7 + 0x28b) = *(uint8_t *)(iVar8 + param_5 + 0x144);
       iVar7 = iVar8;
     } while (iVar8 != 0);
-    empty_noop_stub_1050d3b0((int)(puVar1 + 0x91),param_5 + 0xfc);
+    empty_noop_stub_1050d3b0((uint32_t)(puVar1 + 0x91),param_5 + 0xfc);
     iVar7 = 9;
     do {
       iVar8 = iVar7 + -1;
@@ -286,7 +286,7 @@ bool initialize_sensor_object_from_config(int param_1,int param_2,int param_3,in
     uVar3 = settings_getter(iVar7,0x31);
     field_setter((int)puVar5,0x31,uVar3);
   }
-  (**(code **)(puVar1[0x235] + 0x74))((int)*(short *)(puVar1[0x235] + 0x70) + (int)puVar1,4);
+  (((vtbl_entry*)(puVar1[0x235]))[14].fn)((int)((vtbl_entry*)(puVar1[0x235]))[14].adj + (int)puVar1,4);
   cVar4 = settings_getter((int)(puVar1 + 0xab),0xd);
   if (((cVar4 == '\t') || (cVar4 == '\n')) || (cVar4 == '\v')) {
     *(uint16_t *)puVar1[0x183] = *(uint16_t *)(*(int *)(param_5 + 0x4c4) + 8);
@@ -294,7 +294,7 @@ bool initialize_sensor_object_from_config(int param_1,int param_2,int param_3,in
     *(uint16_t *)(puVar1[0x183] + 4) = *(uint16_t *)(*(int *)(param_5 + 0x4c4) + 0xc);
     *(uint16_t *)(puVar1[0x183] + 6) = *(uint16_t *)(*(int *)(param_5 + 0x4c4) + 0xe);
   }
-  iVar7 = (**(code **)(*piVar6 + 0x1c))((int)*(short *)(*piVar6 + 0x18) + (int)piVar6,0x10);
+  iVar7 = (((vtbl_entry*)(*piVar6))[3].fn)((int)((vtbl_entry*)(*piVar6))[3].adj + (int)piVar6,0x10);
   if (iVar7 == 0) {
     write_two_words_to_struct_10513bca(*(void **)(param_1 + 0x7c),1,8,6);
     write_two_words_to_struct_10513bca(*(void **)(param_1 + 0x74),1,8,6);
@@ -313,7 +313,7 @@ bool initialize_sensor_object_from_config(int param_1,int param_2,int param_3,in
   }
   bVar10 = false;
   if (param_2 == 0) {
-    (**(code **)(puVar1[0x235] + 0x14))((int)*(short *)(puVar1[0x235] + 0x10) + (int)puVar1,param_3)
+    (((vtbl_entry*)(puVar1[0x235]))[2].fn)((int)((vtbl_entry*)(puVar1[0x235]))[2].adj + (int)puVar1,param_3)
     ;
     iVar7 = 0x70;
 LAB_1050cf78:
@@ -321,28 +321,28 @@ LAB_1050cf78:
   }
   else {
     if (param_2 == 1) {
-      (**(code **)(puVar1[0x235] + 0x14))
-                ((int)*(short *)(puVar1[0x235] + 0x10) + (int)puVar1,param_3);
+      (((vtbl_entry*)(puVar1[0x235]))[2].fn)
+                ((int)((vtbl_entry*)(puVar1[0x235]))[2].adj + (int)puVar1,param_3);
       pvVar2 = (void *)get_system_heap();
       iVar7 = mempool_get_block(pvVar2,(void *)puVar1[0x1c],0);
       bVar10 = iVar7 == 0;
       if (!bVar10) {
-        (**(code **)(puVar1[0x235] + 0x54))((int)*(short *)(puVar1[0x235] + 0x50) + (int)puVar1);
+        (((vtbl_entry*)(puVar1[0x235]))[10].fn)((int)((vtbl_entry*)(puVar1[0x235]))[10].adj + (int)puVar1);
       }
       iVar7 = 0x78;
       goto LAB_1050cf78;
     }
     if ((param_2 == 4) || (param_2 == 2)) {
-      (**(code **)(puVar1[0x235] + 0x14))((int)*(short *)(puVar1[0x235] + 0x10) + (int)puVar1,0);
-      (**(code **)(puVar1[0x235] + 0x24))
-                ((int)*(short *)(puVar1[0x235] + 0x20) + (int)puVar1,param_3 + -0x600);
+      (((vtbl_entry*)(puVar1[0x235]))[2].fn)((int)((vtbl_entry*)(puVar1[0x235]))[2].adj + (int)puVar1,0);
+      (((vtbl_entry*)(puVar1[0x235]))[4].fn)
+                ((int)((vtbl_entry*)(puVar1[0x235]))[4].adj + (int)puVar1,param_3 + -0x600);
       iVar7 = 0x74;
       goto LAB_1050cf78;
     }
     if ((param_2 == 5) || (param_2 == 3)) {
-      (**(code **)(puVar1[0x235] + 0x14))((int)*(short *)(puVar1[0x235] + 0x10) + (int)puVar1,0);
-      (**(code **)(puVar1[0x235] + 0x24))
-                ((int)*(short *)(puVar1[0x235] + 0x20) + (int)puVar1,param_3 + -0x600);
+      (((vtbl_entry*)(puVar1[0x235]))[2].fn)((int)((vtbl_entry*)(puVar1[0x235]))[2].adj + (int)puVar1,0);
+      (((vtbl_entry*)(puVar1[0x235]))[4].fn)
+                ((int)((vtbl_entry*)(puVar1[0x235]))[4].adj + (int)puVar1,param_3 + -0x600);
       pvVar2 = (void *)get_system_heap();
       iVar7 = mempool_get_block(pvVar2,(void *)puVar1[0x1c],0);
       if (iVar7 == 0) {
@@ -350,8 +350,8 @@ LAB_1050cf78:
         iVar7 = 0x7c;
       }
       else {
-        (**(code **)(puVar1[0x235] + 0x54))
-                  ((int)*(short *)(puVar1[0x235] + 0x50) + (int)puVar1,iVar7);
+        (((vtbl_entry*)(puVar1[0x235]))[10].fn)
+                  ((int)((vtbl_entry*)(puVar1[0x235]))[10].adj + (int)puVar1,iVar7);
         iVar7 = 0x7c;
       }
       goto LAB_1050cf78;

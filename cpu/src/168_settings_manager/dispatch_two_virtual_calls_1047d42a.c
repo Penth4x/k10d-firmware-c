@@ -14,14 +14,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_two_virtual_calls_1047d42a(void *param_1,uint32_t param_2,int param_3)
+void dispatch_two_virtual_calls_1047d42a(cls_105aac00 *param_1,uint32_t param_2,int param_3)
 
 {
   int *piVar1;
   
   piVar1 = (int *)read_field_at_offset_0xc(param_1);
-  (**(code **)(*piVar1 + 0x8c))((int)piVar1 + (int)*(short *)(*piVar1 + 0x88),param_2,param_3);
+  (((vtbl_entry*)(*piVar1))[17].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[17].adj,param_2,param_3);
   piVar1 = (int *)get_next_node_pointer(param_1,param_3);
-  (**(code **)(*piVar1 + 0x84))((int)piVar1 + (int)*(short *)(*piVar1 + 0x80),param_2,param_3);
+  (((vtbl_entry*)(*piVar1))[16].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[16].adj,param_2,param_3);
   return;
 }

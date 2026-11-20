@@ -16,14 +16,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_event_if_below_threshold(void *param_1,uint param_2,int param_3,int param_4)
+/* WARNING: Struct "cls_105a05a0": ignoring multiple overlapping fields */
+
+uint32_t dispatch_event_if_below_threshold(cls_105a05a0 *param_1,uint param_2,int param_3,int param_4)
 
 {
   if (param_2 < 0x1fc668) {
-    (**(code **)(*(int *)((int)param_1 + 4) + 0x2c))
-              ((int)*(short *)(*(int *)((int)param_1 + 4) + 0x28) + (int)param_1);
+    (((vtbl_entry*)(param_1->field_0x4))[5].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x4))[5].adj);
     update_status_word_bits_1043c816(param_1,0x1802,0xffff);
-    **(int **)((int)param_1 + 0x1c) = (param_2 & 0xffff) * 0x80e + -1;
+    *(uint *)param_1->field_0x1c = (param_2 & 0xffff) * 0x80e + -1;
     update_status_word_bits_1043c816(param_1,0,0x1000);
     set_flag_with_default(param_1,param_4);
     clear_or_set_flag_18(param_1,param_3);

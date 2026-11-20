@@ -52,8 +52,8 @@ int update_array_flags_via_virtual_call(int param_1)
       if (cVar5 != '\0') {
         iVar4 = find_first_active_entry(*(int *)(param_1 + 0x8d0) * 0xb34 + iVar2,iVar4);
         iVar9 = **(int **)(param_1 + 0x48);
-        uVar6 = (**(code **)(iVar9 + 0x14))
-                          ((int)*(int **)(param_1 + 0x48) + (int)*(short *)(iVar9 + 0x10));
+        uVar6 = (((vtbl_entry*)(iVar9))[2].fn)
+                          ((int)*(int **)(param_1 + 0x48) + (int)((vtbl_entry*)(iVar9))[2].adj);
         *(uint8_t *)(iVar4 + 0x28) = uVar6;
       }
       iVar4 = iVar8 + 1;
@@ -64,8 +64,8 @@ int update_array_flags_via_virtual_call(int param_1)
       if (cVar5 != '\0') {
         iVar4 = find_first_active_entry(*(int *)(param_1 + 0x8d0) * 0xb34 + iVar2,iVar4);
         iVar9 = **(int **)(param_1 + 0x48);
-        uVar6 = (**(code **)(iVar9 + 0x14))
-                          ((int)*(int **)(param_1 + 0x48) + (int)*(short *)(iVar9 + 0x10));
+        uVar6 = (((vtbl_entry*)(iVar9))[2].fn)
+                          ((int)*(int **)(param_1 + 0x48) + (int)((vtbl_entry*)(iVar9))[2].adj);
         *(uint8_t *)(iVar4 + 0x28) = uVar6;
       }
       iVar4 = iVar8 + 2;
@@ -76,8 +76,8 @@ int update_array_flags_via_virtual_call(int param_1)
       if (cVar5 != '\0') {
         iVar4 = find_first_active_entry(*(int *)(param_1 + 0x8d0) * 0xb34 + iVar2,iVar4);
         iVar2 = **(int **)(param_1 + 0x48);
-        uVar6 = (**(code **)(iVar2 + 0x14))
-                          ((int)*(int **)(param_1 + 0x48) + (int)*(short *)(iVar2 + 0x10));
+        uVar6 = (((vtbl_entry*)(iVar2))[2].fn)
+                          ((int)*(int **)(param_1 + 0x48) + (int)((vtbl_entry*)(iVar2))[2].adj);
         *(uint8_t *)(iVar4 + 0x28) = uVar6;
       }
       iVar8 = iVar8 + 3;

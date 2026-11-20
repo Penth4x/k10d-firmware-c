@@ -39,23 +39,23 @@ int * sibling_item_register(int *param_1,uint32_t param_2,uint32_t param_3,void 
     trigger_sr_cal_transfer_104867c0((int)param_1);
     if (uVar2 == 2) {
       write_card_data_in_chunks(*param_1,&DAT_105b3680/*ROM*/);
-      pvVar3 = (void *)get_kernel_object_id(&uStack_9);
+      pvVar3 = (void *)get_kernel_object_id((uint32_t)(&uStack_9));
       format_string_to_buffer_10545140(auStack_5c,&DAT_105b3690/*ROM*/,pvVar3,param_4);
       iVar5 = verify_card_data_integrity(*param_1,(int)auStack_5c,1);
     }
     else if (uVar2 == 3) {
-      pvVar3 = (void *)get_kernel_object_id(&uStack_9);
+      pvVar3 = (void *)get_kernel_object_id((uint32_t)(&uStack_9));
       format_string_to_buffer_10545140(auStack_5c,&DAT_105b36a0/*ROM*/,pvVar3,param_4);
       iVar5 = write_card_data_in_chunks(*param_1,auStack_5c);
     }
     else if (uVar2 == 5) {
-      pvVar3 = (void *)get_kernel_object_id(&uStack_9);
+      pvVar3 = (void *)get_kernel_object_id((uint32_t)(&uStack_9));
       format_string_to_buffer_10545140(auStack_5c,&DAT_105b36b0/*ROM*/,pvVar3,param_4);
       iVar5 = read_card_data_in_chunks(*param_1,auStack_5c);
     }
     else {
       if (uVar2 != 6) goto LAB_104892a0;
-      pvVar3 = (void *)get_kernel_object_id(&uStack_9);
+      pvVar3 = (void *)get_kernel_object_id((uint32_t)(&uStack_9));
       format_string_to_buffer_10545140(auStack_5c,&DAT_105b36c4/*ROM*/,pvVar3,param_4);
       iVar5 = write_data_to_cf_card(*param_1,auStack_5c);
     }

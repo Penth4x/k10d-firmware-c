@@ -18,7 +18,7 @@
 void destructor_cls_105b6d0c(void *param_1,uint param_2)
 
 {
-  if (param_1 != (void *)0x0) {
+  if (param_1 != 0) {
     *(uint32_t *)((int)param_1 + 0x10) = 0x105b6d0c/*ROM*/;
     heap_free_2(*(int *)((int)param_1 + 0x14));
     release_object_and_free_payload(param_1,0);

@@ -24,14 +24,13 @@ bool process_sensor_readout_request_104c8f5e(int param_1)
   uintptr_t sp;
   int *piVar10;
   uint8_t auStack_260 [20];
-  uint8_t auStack_22c [16];
-  int iStack_21c;
+  cls_105b9458 cStack_22c;
   uint32_t auStack_18 [2];
   int iStack_10;
   uint uStack_c;
   
   piVar10 = (int *)auStack_260;
-  cls_105b9458_new((uint32_t *)__frv_reg_unset(4));
+  cls_105b9458_new(&cStack_22c);
   copy_large_struct((uint32_t *)(*(int *)(param_1 + 0xbc) + 0x34),*(uint32_t **)(param_1 + 0xd8));
   *(uint32_t *)(*(int *)(param_1 + 0xbc) + 0x18) = 2;
   *(uint8_t *)(*(int *)(param_1 + 0xbc) + 0x210) = 0;
@@ -39,23 +38,23 @@ bool process_sensor_readout_request_104c8f5e(int param_1)
   if (cVar4 == '\0') {
     *(uint32_t *)(param_1 + 0x214) = 0;
 LAB_104c91d8:
-    cls_105b9458_delete(auStack_22c,2);
+    cls_105b9458_delete(&cStack_22c,2);
     return false;
   }
   uVar1 = (*(code *)0x104c287e/*ROM*/)(*(uint32_t *)(param_1 + 0xd8),2);
-  iVar2 = init_buffer_with_pool_alloc((void *)auStack_22c,uVar1);
+  iVar2 = init_buffer_with_pool_alloc(&cStack_22c,uVar1);
   if (iVar2 == 0) {
     uVar1 = 3;
-    if (iStack_21c != 2) {
+    if (cStack_22c.field_0x10 != 2) {
       uVar1 = 0;
     }
     *(uint32_t *)(param_1 + 0x214) = uVar1;
     goto LAB_104c91d8;
   }
-  eventflag_clr_flg((void *)(param_1 + 0x34),0xffffffff);
+  eventflag_clr_flg((uint32_t *)(param_1 + 0x34),(uint)(0xffffffff));
   iVar2 = *(int *)(param_1 + 0x48);
-  uVar3 = get_aligned_next_pointer((int)auStack_22c);
-  uVar1 = (*(code *)0x104bcd52/*ROM*/)(auStack_22c);
+  uVar3 = get_aligned_next_pointer((int)&cStack_22c);
+  uVar1 = (*(code *)0x104bcd52/*ROM*/)(&cStack_22c);
   uVar8 = *(uint32_t *)(*(int *)(param_1 + 0xd8) + 8);
   *piVar10 = uVar1;
   piVar10[1] = uVar8;
@@ -89,8 +88,8 @@ LAB_104c91d8:
   alloc_and_zero_two_words_1045c3bc(auStack_18);
   iStack_10 = 1;
   uVar8 = *(uint32_t *)(param_1 + 0x4c);
-  uVar3 = get_aligned_next_pointer((int)auStack_22c);
-  uVar1 = (*(code *)0x104bcd52/*ROM*/)(auStack_22c);
+  uVar3 = get_aligned_next_pointer((int)&cStack_22c);
+  uVar1 = (*(code *)0x104bcd52/*ROM*/)(&cStack_22c);
   *piVar10 = (int)&iStack_10;
   bVar5 = init_struct_and_call_two_helpers(uVar8,uVar3,uVar1,auStack_18,(uint32_t *)*piVar10);
   bVar6 = false;
@@ -107,8 +106,8 @@ LAB_104c91d8:
       goto LAB_104c91d8;
     }
     uVar7 = *(uint32_t *)(param_1 + 0x4c);
-    uVar3 = get_aligned_next_pointer((int)auStack_22c);
-    uVar8 = (*(code *)0x104bcd52/*ROM*/)(auStack_22c);
+    uVar3 = get_aligned_next_pointer((int)&cStack_22c);
+    uVar8 = (*(code *)0x104bcd52/*ROM*/)(&cStack_22c);
     iVar2 = *(int *)(param_1 + 0xbc);
     uVar1 = *(uint32_t *)(iVar2 + 0x24);
     uVar9 = *(uint32_t *)(iVar2 + 0x28);
@@ -132,6 +131,6 @@ LAB_104c91d8:
 LAB_104c9268:
   *(bool *)(*(int *)(param_1 + 0xbc) + 0x210) = bVar6;
   free_heap_if_flagged_1045c402(auStack_18,2);
-  cls_105b9458_delete(auStack_22c,2);
+  cls_105b9458_delete(&cStack_22c,2);
   return bVar6;
 }

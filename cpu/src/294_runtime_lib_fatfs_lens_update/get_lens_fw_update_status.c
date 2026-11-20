@@ -14,11 +14,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t get_lens_fw_update_status(void)
+int get_lens_fw_update_status(void)
 
 {
-  uint32_t uVar1;
+  int r4_in;
+  int iVar1;
+  int r5_in;
+  int r6_in;
+  void *r7_in;
   
-  uVar1 = alloc_and_init_lens_fw_buffer();
-  return uVar1;
+  iVar1 = alloc_and_init_lens_fw_buffer(r4_in,r5_in,r6_in,r7_in,(void *)0x0,0);
+  return iVar1;
 }

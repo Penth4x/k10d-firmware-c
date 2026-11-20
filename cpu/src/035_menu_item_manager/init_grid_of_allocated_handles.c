@@ -21,7 +21,7 @@
 /* WARNING: Instruction at (ram,0x10386ce4) overlaps instruction at (ram,0x10386ce2)
     */
 
-void init_grid_of_allocated_handles(void *param_1,uint32_t param_2,void *param_3,void *param_4)
+void init_grid_of_allocated_handles(cls_10559448 *param_1,uint32_t param_2,void *param_3,void *param_4)
 
 {
   int iVar1;
@@ -85,224 +85,204 @@ void init_grid_of_allocated_handles(void *param_1,uint32_t param_2,void *param_3
   int aiStack_2c [9];
   
   puVar20 = &stack0xfffffff8;
-  *(uint32_t *)((int)param_1 + 0x68) = 0x20;
-  *(uint32_t *)((int)param_1 + 0x6c) = 0x18;
-  *(uint32_t *)((int)param_1 + 0x70) = 0xc0;
-  *(uint32_t *)((int)param_1 + 0x74) = 0x80;
-  *(uint32_t *)((int)param_1 + 0x78) = 0x20;
-  *(uint32_t *)((int)param_1 + 0x7c) = 0;
-  *(uint32_t *)((int)param_1 + 0x80) = 3;
-  *(uint32_t *)((int)param_1 + 0x84) = 3;
-  *(uint32_t *)((int)param_1 + 0x88) = 9;
-  iterate_range_and_call_match(*(void **)((int)param_1 + 0x24),(uint *)0x1055f220/*ROM*/,param_3,param_4);
-  pvVar3 = (void *)app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),(void *)0x30c0000,0,0);
-  pvVar4 = (void *)app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),(void *)0x30c0001,0,0);
+  param_1->field_0x68 = 0x20;
+  param_1->field_0x6c = 0x18;
+  param_1->field_0x70 = 0xc0;
+  param_1->field_0x74 = 0x80;
+  param_1->field_0x78 = 0x20;
+  param_1->field_0x7c = 0;
+  param_1->field_0x80 = 3;
+  *(uint32_t *)&param_1->field_0x84 = 3;
+  param_1->field_0x88 = 9;
+  iterate_range_and_call_match((char*)(param_1) ->field_0x24,(uint *)0x1055f220/*ROM*/,param_3,param_4);
+  pvVar3 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30c0000,(void *)(0),(void *)(0));
+  pvVar4 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30c0001,(void *)(0),(void *)(0));
   iVar16 = 0;
-  if (0 < *(int *)((int)param_1 + 0x88)) {
+  if (0 < (int)param_1->field_0x88) {
     iStack_1b8 = 0x30c0002;
     puVar17 = puVar20;
     do {
-      uVar5 = app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),iStack_1b8,
-                           *(int *)((int)param_1 + 0x68) +
-                           *(int *)((int)param_1 + 0x70) * (iVar16 % *(int *)((int)param_1 + 0x84))
-                           & 0xffff,*(int *)((int)param_1 + 0x6c) +
-                                    *(int *)((int)param_1 + 0x74) *
-                                    (iVar16 / *(int *)((int)param_1 + 0x84)) & 0xffff);
+      uVar5 = (uint32_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)(iStack_1b8), (void *)(param_1->field_0x68 + param_1->field_0x70 * (iVar16 % *(int *)&param_1->field_0x84) & 0xffff), (void *)(param_1->field_0x6c + param_1->field_0x74 * (iVar16 / *(int *)&param_1->field_0x84) & 0xffff)));
       *(uint32_t *)(puVar17 + -0x144) = uVar5;
       puVar17 = puVar17 + 4;
       iStack_1b8 = iStack_1b8 + 1;
       iVar16 = iVar16 + 1;
-    } while (iVar16 < *(int *)((int)param_1 + 0x88));
+    } while (iVar16 < (int)param_1->field_0x88);
   }
   iVar16 = 0;
-  if (0 < *(int *)((int)param_1 + 0x88)) {
+  if (0 < (int)param_1->field_0x88) {
     iVar18 = 0x30c000b;
     puVar17 = puVar20;
     do {
-      uVar5 = app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),iVar18,0,0);
+      uVar5 = (uint32_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)(iVar18),(void *)(0),(void *)(0)));
       *(uint32_t *)(puVar17 + -0x120) = uVar5;
       iVar18 = iVar18 + 1;
       iVar16 = iVar16 + 1;
       puVar17 = puVar17 + 4;
-    } while (iVar16 < *(int *)((int)param_1 + 0x88));
+    } while (iVar16 < (int)param_1->field_0x88);
   }
   iVar16 = 0;
   puVar17 = puVar20;
-  if (0 < *(int *)((int)param_1 + 0x88)) {
+  if (0 < (int)param_1->field_0x88) {
     do {
       write_field_at_offset_0x10(*(uint32_t *)(puVar17 + -0x120),*(uint32_t *)(puVar17 + -0x144));
       iVar16 = iVar16 + 1;
       puVar17 = puVar17 + 4;
-    } while (iVar16 < *(int *)((int)param_1 + 0x88));
+    } while (iVar16 < (int)param_1->field_0x88);
   }
   iVar16 = 0;
-  if (0 < *(int *)((int)param_1 + 0x88)) {
+  if (0 < (int)param_1->field_0x88) {
     iStack_1b4 = 0x30c0014;
     puVar17 = puVar20;
     do {
-      uVar5 = app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),iStack_1b4,0,0);
+      uVar5 = (uint32_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)(iStack_1b4),(void *)(0),(void *)(0)));
       *(uint32_t *)(puVar17 + -0xfc) = uVar5;
       puVar17 = puVar17 + 4;
       iStack_1b4 = iStack_1b4 + 1;
       iVar16 = iVar16 + 1;
-    } while (iVar16 < *(int *)((int)param_1 + 0x88));
+    } while (iVar16 < (int)param_1->field_0x88);
   }
   iVar16 = 0;
   puVar17 = puVar20;
-  if (0 < *(int *)((int)param_1 + 0x88)) {
+  if (0 < (int)param_1->field_0x88) {
     do {
       write_field_at_offset_0x48(*(void **)(puVar17 + -0xfc),*(uint32_t *)(puVar17 + -0x120));
       iVar16 = iVar16 + 1;
       puVar17 = puVar17 + 4;
-    } while (iVar16 < *(int *)((int)param_1 + 0x88));
+    } while (iVar16 < (int)param_1->field_0x88);
   }
   iVar16 = 0;
-  if (0 < *(int *)((int)param_1 + 0x88)) {
+  if (0 < (int)param_1->field_0x88) {
     iVar18 = 0x30c001d;
     puStack_1d0 = puVar20;
     do {
-      uVar5 = app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),iVar18,
-                           *(int *)((int)param_1 + 0x68) +
-                           *(int *)((int)param_1 + 0x70) * (iVar16 % *(int *)((int)param_1 + 0x84))
-                           & 0xffff,*(int *)((int)param_1 + 0x6c) +
-                                    *(int *)((int)param_1 + 0x74) *
-                                    (iVar16 / *(int *)((int)param_1 + 0x84)) & 0xffff);
+      uVar5 = (uint32_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)(iVar18), (void *)(param_1->field_0x68 + param_1->field_0x70 * (iVar16 % *(int *)&param_1->field_0x84) & 0xffff), (void *)(param_1->field_0x6c + param_1->field_0x74 * (iVar16 / *(int *)&param_1->field_0x84) & 0xffff)));
       *(uint32_t *)(puStack_1d0 + -0xd8) = uVar5;
       puStack_1d0 = puStack_1d0 + 4;
       iVar16 = iVar16 + 1;
       iVar18 = iVar18 + 1;
-    } while (iVar16 < *(int *)((int)param_1 + 0x88));
+    } while (iVar16 < (int)param_1->field_0x88);
   }
   iVar16 = 0;
-  if (0 < *(int *)((int)param_1 + 0x88)) {
+  if (0 < (int)param_1->field_0x88) {
     iVar18 = 0x30c0026;
     puVar17 = puVar20;
     do {
-      uVar5 = app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),iVar18,0,0);
+      uVar5 = (uint32_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)(iVar18),(void *)(0),(void *)(0)));
       *(uint32_t *)(puVar17 + -0xb4) = uVar5;
       iVar18 = iVar18 + 1;
       iVar16 = iVar16 + 1;
       puVar17 = puVar17 + 4;
-    } while (iVar16 < *(int *)((int)param_1 + 0x88));
+    } while (iVar16 < (int)param_1->field_0x88);
   }
   iVar16 = 0;
   puVar17 = puVar20;
-  if (0 < *(int *)((int)param_1 + 0x88)) {
+  if (0 < (int)param_1->field_0x88) {
     do {
       write_field_at_offset_0x10(*(uint32_t *)(puVar17 + -0xb4),*(uint32_t *)(puVar17 + -0xd8));
       iVar16 = iVar16 + 1;
       puVar17 = puVar17 + 4;
-    } while (iVar16 < *(int *)((int)param_1 + 0x88));
+    } while (iVar16 < (int)param_1->field_0x88);
   }
-  iVar16 = *(int *)((int)param_1 + 0x70);
-  iVar21 = *(int *)((int)param_1 + 0x78);
-  iVar18 = *(int *)((int)param_1 + 0x68);
-  iVar1 = *(int *)((int)param_1 + 0x74);
-  iVar22 = *(int *)((int)param_1 + 0x7c);
-  iVar2 = *(int *)((int)param_1 + 0x6c);
+  iVar16 = param_1->field_0x70;
+  iVar21 = param_1->field_0x78;
+  iVar18 = param_1->field_0x68;
+  iVar1 = param_1->field_0x74;
+  iVar22 = param_1->field_0x7c;
+  iVar2 = param_1->field_0x6c;
   iVar19 = 0;
-  if (0 < *(int *)((int)param_1 + 0x88)) {
+  if (0 < (int)param_1->field_0x88) {
     iStack_198 = 0x30c002f;
     puStack_1cc = puVar20;
     do {
-      uVar5 = app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),iStack_198,
-                           *(int *)((int)param_1 + 0x70) * (iVar19 % *(int *)((int)param_1 + 0x84))
-                           + iVar18 + (iVar16 - iVar21) / 2 + -0x18 & 0xffff,
-                           *(int *)((int)param_1 + 0x74) * (iVar19 / *(int *)((int)param_1 + 0x84))
-                           + iVar2 + (iVar1 - iVar22) / 2 + -0x18 & 0xffff);
+      uVar5 = (uint32_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)(iStack_198), (void *)(param_1->field_0x70 * (iVar19 % *(int *)&param_1->field_0x84) + iVar18 + (iVar16 - iVar21) / 2 + -0x18 & 0xffff), (void *)(param_1->field_0x74 * (iVar19 / *(int *)&param_1->field_0x84) + iVar2 + (iVar1 - iVar22) / 2 + -0x18 & 0xffff)));
       *(uint32_t *)(puStack_1cc + -0x90) = uVar5;
       iStack_198 = iStack_198 + 1;
       iVar19 = iVar19 + 1;
       puStack_1cc = puStack_1cc + 4;
-    } while (iVar19 < *(int *)((int)param_1 + 0x88));
+    } while (iVar19 < (int)param_1->field_0x88);
   }
   iStack_1c0 = 0;
-  if (0 < *(int *)((int)param_1 + 0x88)) {
+  if (0 < (int)param_1->field_0x88) {
     iStack_1a0 = 0x30c0038;
     puStack_1dc = puVar20;
     do {
-      uVar5 = app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),iStack_1a0,0,0);
+      uVar5 = (uint32_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)(iStack_1a0),(void *)(0),(void *)(0)));
       *(uint32_t *)(puStack_1dc + -0x6c) = uVar5;
       iStack_1c0 = iStack_1c0 + 1;
       iStack_1a0 = iStack_1a0 + 1;
       puStack_1dc = puStack_1dc + 4;
-    } while (iStack_1c0 < *(int *)((int)param_1 + 0x88));
+    } while (iStack_1c0 < (int)param_1->field_0x88);
   }
   iVar16 = 0;
   puStack_1ac = puVar20;
-  if (0 < *(int *)((int)param_1 + 0x88)) {
+  if (0 < (int)param_1->field_0x88) {
     do {
       write_field_at_offset_0x10(*(uint32_t *)(puStack_1ac + -0x6c),*(uint32_t *)(puStack_1ac + -0x90));
       iVar16 = iVar16 + 1;
       puStack_1ac = puStack_1ac + 4;
-    } while (iVar16 < *(int *)((int)param_1 + 0x88));
+    } while (iVar16 < (int)param_1->field_0x88);
   }
   iStack_19c = 0;
-  if (0 < *(int *)((int)param_1 + 0x88)) {
+  if (0 < (int)param_1->field_0x88) {
     iStack_1e0 = 0x30c0041;
     puStack_1a4 = puVar20;
     do {
-      uVar5 = app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),iStack_1e0,0,0);
+      uVar5 = (uint32_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)(iStack_1e0),(void *)(0),(void *)(0)));
       *(uint32_t *)(puStack_1a4 + -0x48) = uVar5;
       iStack_19c = iStack_19c + 1;
       iStack_1e0 = iStack_1e0 + 1;
       puStack_1a4 = puStack_1a4 + 4;
-    } while (iStack_19c < *(int *)((int)param_1 + 0x88));
+    } while (iStack_19c < (int)param_1->field_0x88);
   }
   iStack_18c = 0;
   puVar17 = puVar20;
-  if (0 < *(int *)((int)param_1 + 0x88)) {
+  if (0 < (int)param_1->field_0x88) {
     do {
       write_field_at_offset_0x48(*(void **)(puVar17 + -0x48),*(uint32_t *)(puVar17 + -0x6c));
       iStack_18c = iStack_18c + 1;
       puVar17 = puVar17 + 4;
-    } while (iStack_18c < *(int *)((int)param_1 + 0x88));
+    } while (iStack_18c < (int)param_1->field_0x88);
   }
   iStack_1e4 = 0;
-  if (0 < *(int *)((int)param_1 + 0x88)) {
+  if (0 < (int)param_1->field_0x88) {
     iStack_1c8 = 0x30c004a;
     puStack_1bc = puVar20;
     do {
-      uVar5 = app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),iStack_1c8,
-                           *(int *)((int)param_1 + 0x68) +
-                           *(int *)((int)param_1 + 0x70) *
-                           (iStack_1e4 % *(int *)((int)param_1 + 0x84)) & 0xffff,
-                           *(int *)((int)param_1 + 0x6c) +
-                           *(int *)((int)param_1 + 0x74) *
-                           (iStack_1e4 / *(int *)((int)param_1 + 0x84)) & 0xffff);
+      uVar5 = (uint32_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)(iStack_1c8), (void *)(param_1->field_0x68 + param_1->field_0x70 * (iStack_1e4 % *(int *)&param_1->field_0x84) & 0xffff),(void *)(param_1->field_0x6c + param_1->field_0x74 * (iStack_1e4 / *(int *)&param_1->field_0x84) & 0xffff)));
       *(uint32_t *)(puStack_1bc + -0x24) = uVar5;
-      call_helper_and_set_flag_104cf6c8(uVar5,8);
+      call_helper_and_set_flag_104cf6c8((int *)(uVar5),(uint16_t)(8));
       iStack_1e4 = iStack_1e4 + 1;
       iStack_1c8 = iStack_1c8 + 1;
       puStack_1bc = puStack_1bc + 4;
-    } while (iStack_1e4 < *(int *)((int)param_1 + 0x88));
+    } while (iStack_1e4 < (int)param_1->field_0x88);
   }
-  pvVar6 = (void *)app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),(void *)0x30c0053,(void *)0x250,(void *)0x18);
-  pvVar7 = (void *)app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),(void *)0x30c0054,0,0);
-  pvVar8 = (void *)app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),(void *)0x30c0055,0,0);
-  pvVar9 = (void *)app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),(void *)0x30c0056,0,0);
-  pvVar10 = (void *)app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),(void *)0x30c0057,(void *)0x20,(void *)0x198);
-  pvVar11 = (void *)app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),(void *)0x30c0058,(void *)0x68,(void *)0x198);
-  pvVar12 = (void *)app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),(void *)0x30c0059,(void *)0x1a0,(void *)0x198);
-  pvVar13 = (void *)app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),(void *)0x30c005a,(void *)0x1e8,(void *)0x198);
+  pvVar6 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30c0053,(void *)0x250,(void *)0x18);
+  pvVar7 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30c0054,(void *)(0),(void *)(0));
+  pvVar8 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30c0055,(void *)(0),(void *)(0));
+  pvVar9 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30c0056,(void *)(0),(void *)(0));
+  pvVar10 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30c0057,(void *)0x20,(void *)0x198);
+  pvVar11 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30c0058,(void *)0x68,(void *)0x198);
+  pvVar12 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30c0059,(void *)0x1a0,(void *)0x198);
+  pvVar13 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30c005a,(void *)0x1e8,(void *)0x198);
   puVar17 = &DAT_00000200;
   pvVar15 = (void *)0x198;
-  pvVar14 = (void *)app_obj_factory(*(uint32_t *)((int)param_1 + 0x24),(void *)0x30c005b,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar14 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30c005b,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
   iterate_and_remove_list_entry(pvVar3,pvVar4,puVar17,pvVar15);
   iVar16 = 0;
   puVar17 = puVar20;
-  if (0 < *(int *)((int)param_1 + 0x88)) {
+  if (0 < (int)param_1->field_0x88) {
     do {
       iVar18 = *(int *)(puVar17 + -0x24);
       invoke_virtual_then_call_helper_10494188(*(int *)(puVar17 + -0xfc),iVar18);
       invoke_virtual_then_call_helper_10494188(*(int *)(puVar17 + -0x48),iVar18);
       iVar16 = iVar16 + 1;
       puVar17 = puVar17 + 4;
-    } while (iVar16 < *(int *)((int)param_1 + 0x88));
+    } while (iVar16 < (int)param_1->field_0x88);
   }
   iStack_1c4 = 0;
   puVar17 = puVar20;
-  if (0 < *(int *)((int)param_1 + 0x88)) {
+  if (0 < (int)param_1->field_0x88) {
     do {
       iVar18 = *(int *)(puVar17 + -0xfc);
       iVar16 = *(int *)(puVar17 + -0x48);
@@ -312,7 +292,7 @@ void init_grid_of_allocated_handles(void *param_1,uint32_t param_2,void *param_3
       graph_link_nextprev(iVar18,iVar16,0xe,pvVar15);
       iStack_1c4 = iStack_1c4 + 1;
       puVar17 = puVar17 + 4;
-    } while (iStack_1c4 < *(int *)((int)param_1 + 0x88));
+    } while (iStack_1c4 < (int)param_1->field_0x88);
   }
   graph_link_nextprev(aiStack_50[0],aiStack_104[3],0xf,pvVar15);
   graph_link_nextprev(aiStack_50[0],aiStack_104[1],0xd,pvVar15);
@@ -345,29 +325,29 @@ void init_grid_of_allocated_handles(void *param_1,uint32_t param_2,void *param_3
   graph_link_nextprev(iStack_30,iStack_e8,0xe,pvVar15);
   iStack_1b0 = 0;
   puVar17 = puVar20;
-  if (0 < *(int *)((int)param_1 + 0x88)) {
+  if (0 < (int)param_1->field_0x88) {
     do {
       iterate_and_remove_list_entry(pvVar3,*(void **)(puVar17 + -0xfc),pvVar4,pvVar15);
       iStack_1b0 = iStack_1b0 + 1;
       puVar17 = puVar17 + 4;
-    } while (iStack_1b0 < *(int *)((int)param_1 + 0x88));
+    } while (iStack_1b0 < (int)param_1->field_0x88);
   }
   iVar16 = 0;
   puVar17 = puVar20;
-  if (0 < *(int *)((int)param_1 + 0x88)) {
+  if (0 < (int)param_1->field_0x88) {
     do {
       iterate_and_remove_list_entry(pvVar3,*(void **)(puVar17 + -0xb4),pvVar4,pvVar15);
       iVar16 = iVar16 + 1;
       puVar17 = puVar17 + 4;
-    } while (iVar16 < *(int *)((int)param_1 + 0x88));
+    } while (iVar16 < (int)param_1->field_0x88);
   }
   iVar16 = 0;
-  if (0 < *(int *)((int)param_1 + 0x88)) {
+  if (0 < (int)param_1->field_0x88) {
     do {
       iterate_and_remove_list_entry(pvVar3,*(void **)(puVar20 + -0x48),pvVar4,pvVar15);
       iVar16 = iVar16 + 1;
       puVar20 = puVar20 + 4;
-    } while (iVar16 < *(int *)((int)param_1 + 0x88));
+    } while (iVar16 < (int)param_1->field_0x88);
   }
   iterate_and_remove_list_entry(pvVar3,pvVar6,pvVar4,pvVar15);
   iterate_and_remove_list_entry(pvVar3,pvVar7,pvVar4,pvVar15);

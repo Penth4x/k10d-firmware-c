@@ -33,7 +33,7 @@ uint32_t allocate_and_init_subobject_1041792e(int param_1)
     *(uint32_t *)(param_1 + 0x84) = *(uint32_t *)(param_1 + 0x14f8);
   }
   if (*(int *)(param_1 + 0x84) == 0) {
-    uVar1 = (uint32_t)(uintptr_t)alloc_first_ring_entry(*(uint32_t *)(param_1 + 0x54),param_1 + 0x40);
+    uVar1 = (uintptr_t)(alloc_first_ring_entry(*(uint32_t *)(param_1 + 0x54),param_1 + 0x40));
     *(uint32_t *)(param_1 + 0x84) = uVar1;
   }
   if (*(int *)(param_1 + 0x84) == 0) {
@@ -43,18 +43,18 @@ uint32_t allocate_and_init_subobject_1041792e(int param_1)
   if (*(int *)(*(int *)(param_1 + 0x84) + 0x34) == 0) {
     pvVar2 = (void *)get_system_heap();
     pvVar2 = (void *)mempool_get_block(pvVar2,*(void **)(*(int *)(param_1 + 0x84) + 0x60),0);
-    if (pvVar2 != (void *)0x0) {
+    if (pvVar2 != 0) {
       pvVar3 = (void *)get_system_heap();
       iVar4 = mempool_get_block(pvVar3,*(void **)(*(int *)(param_1 + 0x84) + 0x74),0);
       if (iVar4 != 0) {
         iVar6 = *(int *)(*(int *)(param_1 + 0x84) + 0x8d4);
-        (**(code **)(iVar6 + 0x14))(*(int *)(param_1 + 0x84) + (int)*(short *)(iVar6 + 0x10),pvVar2)
+        (((vtbl_entry*)(iVar6))[2].fn)(*(int *)(param_1 + 0x84) + (int)((vtbl_entry*)(iVar6))[2].adj,pvVar2)
         ;
         iVar6 = *(int *)(*(int *)(param_1 + 0x84) + 0x8d4);
-        (**(code **)(iVar6 + 0x54))(*(int *)(param_1 + 0x84) + (int)*(short *)(iVar6 + 0x50),iVar4);
+        (((vtbl_entry*)(iVar6))[10].fn)(*(int *)(param_1 + 0x84) + (int)((vtbl_entry*)(iVar6))[10].adj,iVar4);
         iVar4 = *(int *)(*(int *)(param_1 + 0x84) + 0x8d4);
-        (**(code **)(iVar4 + 0x5c))
-                  (*(int *)(param_1 + 0x84) + (int)*(short *)(iVar4 + 0x58),
+        (((vtbl_entry*)(iVar4))[11].fn)
+                  (*(int *)(param_1 + 0x84) + (int)((vtbl_entry*)(iVar4))[11].adj,
                    *(uint32_t *)(param_1 + 0x98));
         uVar5 = 1;
         goto LAB_10417a4e;

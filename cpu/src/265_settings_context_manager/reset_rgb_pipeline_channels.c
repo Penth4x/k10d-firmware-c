@@ -16,59 +16,59 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t reset_rgb_pipeline_channels(void *param_1)
+uint32_t reset_rgb_pipeline_channels(cls_105d4d68 *param_1)
 
 {
   int iVar1;
   int iVar2;
   int iVar3;
   
-  iVar1 = test_high_bit_of_first_word((void *)(*(uint32_t *)((int)param_1 + 0x20)));
+  iVar1 = test_high_bit_of_first_word((uint32_t *)(param_1->field_0x20));
   if (iVar1 != 0) {
-    (*(code *)0x1045453e/*ROM*/)(*(uint32_t *)((int)param_1 + 0x20),0);
+    (*(code *)0x1045453e/*ROM*/)(param_1->field_0x20,0);
   }
-  iVar1 = test_high_bit_of_first_word((void *)(*(uint32_t *)((int)param_1 + 0x24)));
+  iVar1 = test_high_bit_of_first_word((uint32_t *)(param_1->field_0x24));
   if (iVar1 != 0) {
-    (*(code *)0x1045453e/*ROM*/)(*(uint32_t *)((int)param_1 + 0x24),0);
+    (*(code *)0x1045453e/*ROM*/)(param_1->field_0x24,0);
   }
-  set_flag_bit_8_in_object_field((void *)(*(uint32_t *)((int)param_1 + 0x1c)),0);
-  set_flag_bit_8_in_object_field((void *)(*(uint32_t *)((int)param_1 + 0x20)),0);
-  set_flag_bit_8_in_object_field((void *)(*(uint32_t *)((int)param_1 + 0x24)),0);
-  iVar3 = *(int *)((int)param_1 + 0x1c) + 0x14;
-  iVar2 = *(int *)((int)param_1 + 0x20) + 0x14;
-  iVar1 = *(int *)((int)param_1 + 0x24) + 0x14;
-  write_masked_word_to_object_offset_10456320((void *)iVar3,0);
-  write_masked_field_to_object_1045633e((void *)iVar3,0);
-  write_masked_word_to_object_offset_10456320((void *)iVar2,0);
-  write_masked_field_to_object_1045633e((void *)iVar2,0);
-  write_masked_word_to_object_offset_10456320((void *)iVar1,0);
-  write_masked_field_to_object_1045633e((void *)iVar1,0);
-  write_masked_word_to_object_offset_1045635c((void *)iVar3,0);
-  write_masked_field_to_object_1045637a((void *)iVar3,0);
-  write_masked_word_to_object_offset_1045635c((void *)iVar2,0);
-  write_masked_field_to_object_1045637a((void *)iVar2,0);
-  write_masked_word_to_object_offset_1045635c((void *)iVar1,0);
-  write_masked_field_to_object_1045637a((void *)iVar1,0);
-  write_masked_word_to_object_offset_10456398((void *)iVar3,0);
-  write_masked_word_to_object_offset_104563b6((void *)iVar3,0);
-  write_masked_word_to_object_offset_10456398((void *)iVar2,0);
-  write_masked_word_to_object_offset_104563b6((void *)iVar2,0);
-  write_masked_word_to_object_offset_10456398((void *)iVar1,0);
-  write_masked_word_to_object_offset_104563b6((void *)iVar1,0);
-  set_flag_bit3_in_object_field((void *)(*(uint32_t *)((int)param_1 + 0x1c)),0);
-  set_object_flag_bit2_10454a2c((void *)(*(uint32_t *)((int)param_1 + 0x1c)),0);
-  set_object_flag_bit1((void *)(*(uint32_t *)((int)param_1 + 0x1c)),0);
-  set_object_flag_bit0((void *)(*(uint32_t *)((int)param_1 + 0x1c)),0);
-  update_14bit_saturation_field((void *)(*(uint32_t *)((int)param_1 + 0x1c)),0x3fff);
-  set_flag_bit3_in_object_field((void *)(*(uint32_t *)((int)param_1 + 0x20)),0);
-  set_object_flag_bit2_10454a2c((void *)(*(uint32_t *)((int)param_1 + 0x20)),0);
-  set_object_flag_bit1((void *)(*(uint32_t *)((int)param_1 + 0x20)),0);
-  set_object_flag_bit0((void *)(*(uint32_t *)((int)param_1 + 0x20)),0);
-  update_14bit_saturation_field((void *)(*(uint32_t *)((int)param_1 + 0x20)),0x3fff);
-  set_flag_bit3_in_object_field((void *)(*(uint32_t *)((int)param_1 + 0x24)),0);
-  set_object_flag_bit2_10454a2c((void *)(*(uint32_t *)((int)param_1 + 0x24)),0);
-  set_object_flag_bit1((void *)(*(uint32_t *)((int)param_1 + 0x24)),0);
-  set_object_flag_bit0((void *)(*(uint32_t *)((int)param_1 + 0x24)),0);
-  update_14bit_saturation_field((void *)(*(uint32_t *)((int)param_1 + 0x24)),0x3fff);
+  set_flag_bit_8_in_object_field((int *)(param_1->field_0x1c),(int)(0));
+  set_flag_bit_8_in_object_field((int *)(param_1->field_0x20),(int)(0));
+  set_flag_bit_8_in_object_field((int *)(param_1->field_0x24),(int)(0));
+  iVar3 = param_1->field_0x1c + 0x14;
+  iVar2 = param_1->field_0x20 + 0x14;
+  iVar1 = param_1->field_0x24 + 0x14;
+  write_masked_word_to_object_offset_10456320((int *)(iVar3),(ushort)(0));
+  write_masked_field_to_object_1045633e((int *)(iVar3),(ushort)(0));
+  write_masked_word_to_object_offset_10456320((int *)(iVar2),(ushort)(0));
+  write_masked_field_to_object_1045633e((int *)(iVar2),(ushort)(0));
+  write_masked_word_to_object_offset_10456320((int *)(iVar1),(ushort)(0));
+  write_masked_field_to_object_1045633e((int *)(iVar1),(ushort)(0));
+  write_masked_word_to_object_offset_1045635c((int *)(iVar3),(ushort)(0));
+  write_masked_field_to_object_1045637a((int *)(iVar3),(ushort)(0));
+  write_masked_word_to_object_offset_1045635c((int *)(iVar2),(ushort)(0));
+  write_masked_field_to_object_1045637a((int *)(iVar2),(ushort)(0));
+  write_masked_word_to_object_offset_1045635c((int *)(iVar1),(ushort)(0));
+  write_masked_field_to_object_1045637a((int *)(iVar1),(ushort)(0));
+  write_masked_word_to_object_offset_10456398((int *)(iVar3),(ushort)(0));
+  write_masked_word_to_object_offset_104563b6((int *)(iVar3),(ushort)(0));
+  write_masked_word_to_object_offset_10456398((int *)(iVar2),(ushort)(0));
+  write_masked_word_to_object_offset_104563b6((int *)(iVar2),(ushort)(0));
+  write_masked_word_to_object_offset_10456398((int *)(iVar1),(ushort)(0));
+  write_masked_word_to_object_offset_104563b6((int *)(iVar1),(ushort)(0));
+  set_flag_bit3_in_object_field((int *)(param_1->field_0x1c),(int)(0));
+  set_object_flag_bit2_10454a2c((int *)(param_1->field_0x1c),(int)(0));
+  set_object_flag_bit1((int *)(param_1->field_0x1c),(int)(0));
+  set_object_flag_bit0((int *)(param_1->field_0x1c),(int)(0));
+  update_14bit_saturation_field((int *)(param_1->field_0x1c),(ushort)(0x3fff));
+  set_flag_bit3_in_object_field((int *)(param_1->field_0x20),(int)(0));
+  set_object_flag_bit2_10454a2c((int *)(param_1->field_0x20),(int)(0));
+  set_object_flag_bit1((int *)(param_1->field_0x20),(int)(0));
+  set_object_flag_bit0((int *)(param_1->field_0x20),(int)(0));
+  update_14bit_saturation_field((int *)(param_1->field_0x20),(ushort)(0x3fff));
+  set_flag_bit3_in_object_field((int *)(param_1->field_0x24),(int)(0));
+  set_object_flag_bit2_10454a2c((int *)(param_1->field_0x24),(int)(0));
+  set_object_flag_bit1((int *)(param_1->field_0x24),(int)(0));
+  set_object_flag_bit0((int *)(param_1->field_0x24),(int)(0));
+  update_14bit_saturation_field((int *)(param_1->field_0x24),(ushort)(0x3fff));
   return 1;
 }

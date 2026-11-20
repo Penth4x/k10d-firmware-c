@@ -19,7 +19,7 @@
 void dispatch_virtual_slot_six(int param_1,void *param_2)
 
 {
-  dispatch_actuator_drive_command(param_1,5,2,(void *)0x105a9b5c/*ROM*/,6,0xff,'\0');
+  dispatch_actuator_drive_command((int)(param_1),(uint32_t)(5),(uint32_t)(2),(byte *)(0x105a9b5c/*ROM*/),(uint16_t)(6),(uint16_t)(0xff),(char)('\0'));
   switch ((uintptr_t)param_2) {
   case 0x0:
     release_object_at_offset_0x2c_104718e2(param_1);

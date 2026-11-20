@@ -26,8 +26,8 @@ validate_and_lookup_pair(uint32_t param_1,int param_2,uint param_3,int param_4,u
   uint32_t uVar4;
   
   uVar4 = 1;
-  cVar2 = (**(code **)(*param_7 + 0x14))((int)*(short *)(*param_7 + 0x10) + (int)param_7,7);
-  cVar3 = (**(code **)(*param_7 + 0x14))((int)param_7 + (int)*(short *)(*param_7 + 0x10),9);
+  cVar2 = (((vtbl_entry*)(*param_7))[2].fn)((int)((vtbl_entry*)(*param_7))[2].adj + (int)param_7,7);
+  cVar3 = (((vtbl_entry*)(*param_7))[2].fn)((int)param_7 + (int)((vtbl_entry*)(*param_7))[2].adj,9);
   iVar1 = (param_2 + -0x1b) * 4 + (param_3 & 0xffff) * 0x228;
   *param_5 = *(uint16_t *)(&DAT_105a39ec/*ROM*/ + iVar1);
   *param_6 = *(uint16_t *)(&DAT_105a39ee/*ROM*/ + iVar1);

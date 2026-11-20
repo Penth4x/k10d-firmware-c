@@ -35,7 +35,7 @@ int construct_object_from_two_buffers(void *param_1,void *param_2,uint32_t param
     *(uint32_t *)((int)auStack_20 + iVar1 + 0xc) = *(uint32_t *)(iVar2 + (int)param_4);
     iVar1 = iVar2;
   } while (iVar2 != 0);
-  iVar1 = cls_105b4dac_new((uint32_t *)0x0,auStack_20,(uint8_t)param_3,auStack_20 + 4);
+  iVar1 = cls_105b4dac_new((cls_105b4dac *)0x0,auStack_20,(uint8_t)param_3,auStack_20 + 4);
   free_heap_block_if_flagged_1045bc54(auStack_20 + 4,2);
   destroy_text_widget(auStack_20,2);
   return iVar1;

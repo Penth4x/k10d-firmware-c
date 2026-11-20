@@ -15,13 +15,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_on_mode_index_10498c3c(uint32_t param_1,uint32_t param_2,int param_3,uint32_t param_4)
+uint32_t dispatch_on_mode_index_10498c3c(cls_105b55fc *param_1,uint32_t param_2,int param_3,uint32_t param_4)
 
 {
   uint32_t uVar1;
   
   if (param_3 == 0) {
-    uVar1 = dispatch_on_mode_index_10498c7e(param_1,param_2,param_4);
+    uVar1 = dispatch_on_mode_index_10498c7e((uint32_t)(param_1),(uint32_t)(param_2),(int)(param_4));
   }
   else if (param_3 == 1) {
     uVar1 = dispatch_event_by_type_10498d6a(__frv_reg_unset(4),(ushort *)__frv_reg_unset(5),__frv_reg_unset(6));

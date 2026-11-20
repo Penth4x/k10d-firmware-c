@@ -14,14 +14,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool release_object_if_allocated_1047e45e(int *param_1)
+bool release_object_if_allocated_1047e45e(cls_105aaebc *param_1)
 
 {
   void *pvVar1;
   
-  pvVar1 = (void *)*param_1;
-  if (pvVar1 != (void *)0x0) {
-    fill_byte_array(pvVar1,0,param_1[1]);
+  pvVar1 = (char*)(param_1) ->field_0x0;
+  if (pvVar1 != 0) {
+    fill_byte_array(pvVar1,0,param_1->field_0x4);
   }
-  return pvVar1 != (void *)0x0;
+  return pvVar1 != 0;
 }

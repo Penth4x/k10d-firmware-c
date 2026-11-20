@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void allocate_and_init_subobject_10490d2e(void *param_1,uint32_t param_2)
+void allocate_and_init_subobject_10490d2e(cls_105b4094 *param_1,uint32_t param_2)
 
 {
   int *piVar1;
@@ -27,7 +27,8 @@ void allocate_and_init_subobject_10490d2e(void *param_1,uint32_t param_2)
   else {
     cls_105b3fbc_new(piVar1);
   }
-  *(int **)((int)param_1 + 4) = piVar1;
-  (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1,param_2);
+  param_1->field_0x4 = (uintptr_t)((void *)piVar1);
+  (((vtbl_entry*)(*piVar1))[3].fn)
+            ((void *)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1),param_2);
   return;
 }

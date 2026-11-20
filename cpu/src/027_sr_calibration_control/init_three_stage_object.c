@@ -44,7 +44,7 @@ void init_three_stage_object(int *param_1)
     }
   }
   dispatch_event_with_state_check_1036f384(param_1,0);
-  (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1);
+  (((vtbl_entry*)(*param_1))[8].fn)((int)((vtbl_entry*)(*param_1))[8].adj + (int)param_1);
   request_ui_sync_code_4((void *)param_1[0xb]);
   return;
 }

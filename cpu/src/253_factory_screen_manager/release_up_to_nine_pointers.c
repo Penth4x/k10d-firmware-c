@@ -19,7 +19,7 @@ void release_up_to_nine_pointers(int param_1,int param_2,void *param_3)
 
 {
   if (param_2 == 0) {
-    if (param_3 != (void *)0x0) {
+    if (param_3 != 0) {
       call_helper_with_offset_and_flag_104279d4((int)param_3 + 8);
     }
   }

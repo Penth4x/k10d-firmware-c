@@ -18,26 +18,26 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_subobject_references(void *param_1)
+void release_subobject_references(cls_105d436c *param_1)
 
 {
   int *piVar1;
   
   piVar1 = (int *)get_or_create_sram_object_104ecffc();
-  (**(code **)(*piVar1 + 0x2c))((int)piVar1 + (int)*(short *)(*piVar1 + 0x28));
-  kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 4) + 8));
-  kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 0x6c) + 0x10));
-  kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 0xc) + 8));
-  kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 0x3c) + 8));
-  kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 0x20) + 8));
-  kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 0x4c) + 8));
-  kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 0x18) + 8));
-  kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 100) + 8));
-  kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 0x34) + 8));
-  kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 0x44) + 8));
-  kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 0x50) + 8));
-  kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 0x54) + 8));
-  kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 0x68) + 8));
-  kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 0x7c) + 4));
+  (((vtbl_entry*)(*piVar1))[5].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[5].adj);
+  kernel_diag_taskstack((int *)(param_1->field_0x4 + 8));
+  kernel_diag_taskstack((int *)(param_1->field_0x6c + 0x10));
+  kernel_diag_taskstack((int *)(param_1->field_0xc + 8));
+  kernel_diag_taskstack((int *)(param_1->field_0x3c + 8));
+  kernel_diag_taskstack((int *)(param_1->field_0x20 + 8));
+  kernel_diag_taskstack((int *)(param_1->field_0x4c + 8));
+  kernel_diag_taskstack((int *)(param_1->field_0x18 + 8));
+  kernel_diag_taskstack((int *)(param_1->field_0x64 + 8));
+  kernel_diag_taskstack((int *)(param_1->field_0x34 + 8));
+  kernel_diag_taskstack((int *)(param_1->field_0x44 + 8));
+  kernel_diag_taskstack((int *)(param_1->field_0x50 + 8));
+  kernel_diag_taskstack((int *)(param_1->field_0x54 + 8));
+  kernel_diag_taskstack((int *)(param_1->field_0x68 + 8));
+  kernel_diag_taskstack((int *)(param_1->field_0x7c + 4));
   return;
 }

@@ -89,7 +89,7 @@ uint32_t process_three_item_groups(int param_1,void *param_2)
         *(int *)(param_1 + 0xfd94) =
              param_1 + 0xebac + *(int *)(param_1 + 0x8d0) * 0x2fc + iVar1 * 0x2fc;
         iVar2 = find_first_active_entry((int)param_2,iVar1);
-        iVar2 = copy_and_dispatch_param_block(param_1,(void *)iVar2);
+        iVar2 = copy_and_dispatch_param_block((int)(param_1),(uint32_t *)(iVar2));
         if (iVar2 == 0) {
           uStack_14 = 0;
         }
@@ -108,7 +108,7 @@ uint32_t process_three_item_groups(int param_1,void *param_2)
         *(int *)(param_1 + 0xfd94) =
              param_1 + 0xebac + *(int *)(param_1 + 0x8d0) * 0x2fc + iVar1 * 0x2fc;
         iVar2 = find_first_active_entry((int)param_2,iVar1);
-        iVar2 = copy_and_dispatch_param_block(param_1,(void *)iVar2);
+        iVar2 = copy_and_dispatch_param_block((int)(param_1),(uint32_t *)(iVar2));
         if (iVar2 == 0) {
           uStack_14 = 0;
         }
@@ -127,7 +127,7 @@ uint32_t process_three_item_groups(int param_1,void *param_2)
         *(int *)(param_1 + 0xfd94) =
              param_1 + 0xebac + *(int *)(param_1 + 0x8d0) * 0x2fc + iVar1 * 0x2fc;
         iVar2 = find_first_active_entry((int)param_2,iVar1);
-        iVar2 = copy_and_dispatch_param_block(param_1,(void *)iVar2);
+        iVar2 = copy_and_dispatch_param_block((int)(param_1),(uint32_t *)(iVar2));
         if (iVar2 == 0) {
           uStack_14 = 0;
         }

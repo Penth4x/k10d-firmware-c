@@ -15,12 +15,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-int initialize_object_with_four_helpers_10489112(int *param_1)
+int initialize_object_with_four_helpers_10489112(cls_105b3658 *param_1)
 
 {
   set_two_fields_to_four((int)param_1);
   enable_display_output(param_1);
   clear_flag_at_offset_0x50_104894f6(param_1);
-  sibling_item_register(param_1,__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  sibling_item_register((void *)param_1,__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
   return (int)param_1;
 }

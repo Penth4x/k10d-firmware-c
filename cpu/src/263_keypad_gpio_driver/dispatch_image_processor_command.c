@@ -20,7 +20,7 @@
     */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void dispatch_image_processor_command(int param_1,int *param_2)
+void dispatch_image_processor_command(cls_105d49dc *param_1,int *param_2)
 
 {
   uint32_t uVar1;
@@ -70,32 +70,32 @@ void dispatch_image_processor_command(int param_1,int *param_2)
       uVar5 = puVar7[6];
       uVar8 = puVar7[7];
       if (*(char *)(puVar7 + 8) != '\0') {
-        adjust_image_processor_gain_104ffb94(param_1,*puVar7,puVar7[4]);
+        adjust_image_processor_gain_104ffb94((int)(param_1),(int)(*puVar7),(uint32_t *)(puVar7[4]));
       }
       iVar6 = *(int *)*param_2;
-      (**(code **)(iVar6 + 0x14))(*param_2 + (int)*(short *)(iVar6 + 0x10),0xc00004,param_2[3]);
+      (((vtbl_entry*)(iVar6))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar6))[2].adj,0xc00004,param_2[3]);
       if (*(char *)((int)puVar7 + 0x23) != '\0') {
-        adjust_image_processor_gain_104ffb94(param_1,uVar3,uVar8);
+        adjust_image_processor_gain_104ffb94((int)(param_1),(int)(uVar3),(uint32_t *)(uVar8));
       }
       iVar6 = *(int *)*param_2;
-      (**(code **)(iVar6 + 0x14))(*param_2 + (int)*(short *)(iVar6 + 0x10),0xc00008,param_2[3]);
+      (((vtbl_entry*)(iVar6))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar6))[2].adj,0xc00008,param_2[3]);
       if (*(char *)((int)puVar7 + 0x21) != '\0') {
-        adjust_image_processor_gain_104ffb94(param_1,uVar1,uVar4);
+        adjust_image_processor_gain_104ffb94((int)(param_1),(int)(uVar1),(uint32_t *)(uVar4));
       }
       iVar6 = *(int *)*param_2;
-      (**(code **)(iVar6 + 0x14))(*param_2 + (int)*(short *)(iVar6 + 0x10),0xc00005,param_2[3]);
+      (((vtbl_entry*)(iVar6))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar6))[2].adj,0xc00005,param_2[3]);
       if (*(char *)((int)puVar7 + 0x22) != '\0') {
-        adjust_image_processor_gain_104ffb94(param_1,uVar2,uVar5);
+        adjust_image_processor_gain_104ffb94((int)(param_1),(int)(uVar2),(uint32_t *)(uVar5));
       }
       iVar6 = *(int *)*param_2;
-      (**(code **)(iVar6 + 0x14))(*param_2 + (int)*(short *)(iVar6 + 0x10),0xc00003,param_2[3]);
+      (((vtbl_entry*)(iVar6))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar6))[2].adj,0xc00003,param_2[3]);
     }
     else if (iVar6 == 0xc00001) {
       iVar6 = param_2[1];
-      adjust_image_processor_gain_104ff85c(param_1,iVar6);
-      *(uint32_t *)(iVar6 + 0x2c) = *(uint32_t *)(param_1 + 0x24);
+      adjust_image_processor_gain_104ff85c((int)(param_1),(uint32_t *)(iVar6));
+      *(uint32_t *)(iVar6 + 0x2c) = param_1->field_0x24;
       iVar6 = *(int *)*param_2;
-      (**(code **)(iVar6 + 0x14))(*param_2 + (int)*(short *)(iVar6 + 0x10),0xc00001,param_2[3]);
+      (((vtbl_entry*)(iVar6))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar6))[2].adj,0xc00001,param_2[3]);
     }
     else if (iVar6 == 0xc00002) {
       puVar7 = (uint32_t *)param_2[1];
@@ -113,17 +113,17 @@ void dispatch_image_processor_command(int param_1,int *param_2)
                         (param_1,*(uint16_t *)(puVar7 + 5),*(uint16_t *)((int)puVar7 + 0x16),
                          puVar7[8]);
       if (iVar6 == 0) {
-        puVar9 = (uint32_t *)(param_1 + 0x3c);
+        puVar9 = &param_1->field_0x3c;
         eventflag_clr_flg(puVar9,1);
-        init_object_and_dispatch_mode(*(int *)(param_1 + 0x30),param_1 + 4,&uStack_5c);
+        init_object_and_dispatch_mode(param_1->field_0x30,(int)&param_1->field_0x4,&uStack_5c);
         eventflag_wai_flg(puVar9,1,&uStack_14,_DAT_105a2af0/*ROM*/);
         eventflag_clr_flg(puVar9,1);
-        iVar6 = (*(code *)0x104fff62/*ROM*/)(param_1,*(uint32_t *)(param_1 + 0x28));
+        iVar6 = (*(code *)0x104fff62/*ROM*/)(param_1,param_1->field_0x28);
       }
       puVar7[7] = iVar6;
-      reset_object_fields_and_call_vtable(*(uint32_t *)(param_1 + 0x30));
+      reset_object_fields_and_call_vtable(param_1->field_0x30);
       iVar6 = *(int *)*param_2;
-      (**(code **)(iVar6 + 0x14))(*param_2 + (int)*(short *)(iVar6 + 0x10),0xc00002,param_2[3]);
+      (((vtbl_entry*)(iVar6))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar6))[2].adj,0xc00002,param_2[3]);
     }
     else if (iVar6 == 0xc00004) {
       puVar9 = (uint32_t *)param_2[1];
@@ -137,17 +137,17 @@ void dispatch_image_processor_command(int param_1,int *param_2)
       uStack_38 = *puVar9;
       uStack_24 = *(uint16_t *)(puVar9 + 5);
       uStack_22 = *(uint16_t *)((int)puVar9 + 0x16);
-      puVar7 = (uint32_t *)(param_1 + 0x3c);
+      puVar7 = &param_1->field_0x3c;
       eventflag_clr_flg(puVar7,1);
-      configure_sensor_readout_sequence(*(uint32_t *)(param_1 + 0x30),param_1 + 4,&uStack_38);
+      configure_sensor_readout_sequence(param_1->field_0x30,&param_1->field_0x4,&uStack_38);
       eventflag_wai_flg(puVar7,1,&uStack_14,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar7,1);
-      uVar1 = func_0x104fff62(param_1,*(uint32_t *)(param_1 + 0x28));
+      uVar1 = clamp_index_to_fifteen_104fff62((uint32_t)(param_1),(int)(param_1->field_0x28));
       puVar9[7] = uVar1;
       uStack_c = 0;
       iStack_10 = 3;
       uStack_a = uStack_c;
-      (*(code *)0x1050166a/*ROM*/)(*(uint32_t *)(param_1 + 0x30),&uStack_c,&uStack_a,&iStack_10);
+      (*(code *)0x1050166a/*ROM*/)(param_1->field_0x30,&uStack_c,&uStack_a,&iStack_10);
       *(uint16_t *)(puVar9 + 5) = uStack_c;
       *(uint16_t *)((int)puVar9 + 0x16) = uStack_a;
       if (iStack_10 == 1) {
@@ -167,7 +167,7 @@ void dispatch_image_processor_command(int param_1,int *param_2)
       }
       reset_object_fields_and_call_vtable(__frv_reg_unset(4));
       iVar6 = *(int *)*param_2;
-      (**(code **)(iVar6 + 0x14))(*param_2 + (int)*(short *)(iVar6 + 0x10),0xc00006,param_2[3]);
+      (((vtbl_entry*)(iVar6))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar6))[2].adj,0xc00006,param_2[3]);
     }
   }
   return;

@@ -20,11 +20,11 @@
 /* WARNING: Instruction at (ram,0x103949b8) overlaps instruction at (ram,0x103949b6)
     */
 
-void * dispatch_state_transition_10394958(void *param_1, int *param_2, uint32_t param_x2)
+cls_10563098 * dispatch_state_transition_10394958(cls_10563098 *param_1,int *param_2)
 
 {
   int iVar1;
-  void *pvVar2;
+  cls_10563098 *pcVar2;
   uintptr_t sp;
   int iStack_c;
   
@@ -36,15 +36,15 @@ void * dispatch_state_transition_10394958(void *param_1, int *param_2, uint32_t 
     return param_1;
   }
   iStack_c = -1;
-  iVar1 = check_and_set_flag_103948aa(param_1);
+  iVar1 = check_and_set_flag_103948aa((uint32_t)(param_1));
   if (iVar1 == 0) {
     iVar1 = map_status_code_to_output(param_1,&iStack_c);
     if (iVar1 == 0) {
       return param_1;
     }
     if ((iStack_c == 10) || (iVar1 = iStack_c, iStack_c == 9)) {
-      pvVar2 = (void *)create_and_configure_object_10393b98(iStack_c,param_1,2000);
-      return pvVar2;
+      pcVar2 = (cls_10563098 *)create_and_configure_object_10393b98(iStack_c,param_1,2000);
+      return pcVar2;
     }
   }
   else {
@@ -52,11 +52,11 @@ void * dispatch_state_transition_10394958(void *param_1, int *param_2, uint32_t 
     add_offset_to_pointer_104df392(iVar1);
     iVar1 = process_34_entry_sequence(__frv_reg_unset(4));
     if (iVar1 != 0) {
-      pvVar2 = (void *)call_helper_with_param(param_1);
-      return pvVar2;
+      pcVar2 = (cls_10563098 *)call_helper_with_param(param_1);
+      return pcVar2;
     }
     iVar1 = 0;
   }
-  pvVar2 = (void *)create_and_configure_object_10393b48(iVar1,0,param_1);
-  return pvVar2;
+  pcVar2 = (cls_10563098 *)create_and_configure_object_10393b48(iVar1,0,param_1);
+  return pcVar2;
 }

@@ -6,12 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-int dispatch_event_by_type_and_code_10393954(int *param_1,int *param_2)
+uint32_t dispatch_event_by_type_and_code_10393954(cls_105629a8 *param_1,int *param_2)
 
 {
   int iVar1;
+  uint32_t uVar2;
   
-  param_1[0xd] = (int)param_1;
+  param_1->field_0x34 = (uint32_t)(param_1);
   iVar1 = *param_2;
   if (iVar1 == 3) {
     if (param_2[1] == 0x11) {
@@ -22,12 +23,13 @@ int dispatch_event_by_type_and_code_10393954(int *param_1,int *param_2)
     }
   }
   else if (iVar1 == 7) {
-    iVar1 = get_or_create_singleton_object_10396af8();
-    param_1[0xd] = iVar1;
+    uVar2 = get_or_create_singleton_object_10396af8();
+    param_1->field_0x34 = uVar2;
   }
   else if (iVar1 == 8) {
-    iVar1 = (**(code **)(*param_1 + 0x6c))((int)*(short *)(*param_1 + 0x68) + (int)param_1,0,0);
-    param_1[0xd] = iVar1;
+    uVar2 = (((vtbl_entry*)(param_1->field_0x0))[13].fn)
+                      ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[13].adj,0,0);
+    param_1->field_0x34 = uVar2;
   }
-  return param_1[0xd];
+  return param_1->field_0x34;
 }

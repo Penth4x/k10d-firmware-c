@@ -33,7 +33,7 @@ void run_sensor_readout_sequence(int param_1,uint8_t *param_2,int param_3,uint8_
   uint8_t *puVar8;
   uint8_t auStack_84 [8];
   uint8_t auStack_60 [80];
-  uint8_t auStack_10 [8];
+  cls_105a6eac cStack_10;
   
   puVar8 = auStack_84;
   iVar3 = get_or_create_singleton_object_104bb22a();
@@ -43,11 +43,11 @@ void run_sensor_readout_sequence(int param_1,uint8_t *param_2,int param_3,uint8_
   release_context_two_fields(*(void **)(param_1 + 0x38));
   release_three_sub_objects(*(uint32_t *)(param_1 + 0x38));
   configure_object_subsystem(param_1,0);
-  cls_105a6eac_new((uint32_t *)__frv_reg_unset(4));
+  cls_105a6eac_new(&cStack_10);
   if (*(char *)(param_1 + 0x10) == '\0') {
     do {
-      copy_four_bytes_from_struct_field_1045e59a(*(int *)(param_1 + 0x30),auStack_10);
-      iVar3 = test_field_bit_or_nonzero(auStack_10,4);
+      copy_four_bytes_from_struct_field_1045e59a(*(int *)(param_1 + 0x30),&cStack_10);
+      iVar3 = test_field_bit_or_nonzero(&cStack_10,4);
       if (iVar3 != 0) break;
       check_kernel_call_success_10459fea();
     } while (*(char *)(param_1 + 0x10) == '\0');
@@ -56,7 +56,7 @@ void run_sensor_readout_sequence(int param_1,uint8_t *param_2,int param_3,uint8_
     param_4 = (uint8_t *)0x105a95d8/*ROM*/;
     *(uint16_t *)(puVar8 + 2) = 7;
     *(uint16_t *)(puVar8 + 6) = 0xff;
-    sr_dma_command(param_1,2,5,0x105a95d8/*ROM*/,*(uint16_t *)(puVar8 + 2),*(uint16_t *)(puVar8 + 6));
+    sr_dma_command((int)(param_1),(uint32_t)(2),(uint32_t)(5),(byte *)(0x105a95d8/*ROM*/),(uint16_t)(*(uint16_t *)(puVar8 + 2)),(uint16_t)(*(uint16_t *)(puVar8 + 6)));
   }
   bVar2 = 0 < (int)param_2;
   pvVar6 = (void *)0x0;
@@ -81,7 +81,7 @@ void run_sensor_readout_sequence(int param_1,uint8_t *param_2,int param_3,uint8_
       }
       release_three_sub_objects(*(uint32_t *)(param_1 + 0x38));
       if (bVar2) {
-        dispatch_mode_transition_104b7cd0(uVar4,param_1 + 4,0);
+        dispatch_mode_transition_104b7cd0((int)(uVar4),(void *)(param_1 + 4),(int)(0));
       }
       iVar3 = check_transaction_context_flag(*(int *)(param_1 + 0x38));
       if (iVar3 != 0) {
@@ -139,10 +139,10 @@ void run_sensor_readout_sequence(int param_1,uint8_t *param_2,int param_3,uint8_
   if (param_3 != 0) {
     *(uint16_t *)(puVar8 + 2) = 2;
     *(uint16_t *)(puVar8 + 6) = 0xff;
-    sr_dma_command(param_1,6,8,0x105a95f8/*ROM*/,*(uint16_t *)(puVar8 + 2),*(uint16_t *)(puVar8 + 6));
+    sr_dma_command((int)(param_1),(uint32_t)(6),(uint32_t)(8),(byte *)(0x105a95f8/*ROM*/),(uint16_t)(*(uint16_t *)(puVar8 + 2)),(uint16_t)(*(uint16_t *)(puVar8 + 6)));
   }
   *(uint8_t *)(param_1 + 0x10) = 0;
   forward_event_to_subobject(param_1,0);
-  cls_105a6eac_delete(auStack_10,2);
+  cls_105a6eac_delete(&cStack_10,2);
   return;
 }

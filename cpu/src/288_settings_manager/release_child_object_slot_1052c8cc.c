@@ -14,15 +14,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_child_object_slot_1052c8cc(int param_1)
+void release_child_object_slot_1052c8cc(cls_105fa6ac *param_1)
 
 {
   int *piVar1;
   
-  piVar1 = *(int **)(param_1 + 8);
+  piVar1 = (int *)param_1->field_0x8;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1,0);
-    *(uint32_t *)(param_1 + 8) = 0;
+    (((vtbl_entry*)(*piVar1))[3].fn)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1,0);
+    param_1->field_0x8 = 0;
   }
   return;
 }

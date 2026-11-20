@@ -29,8 +29,8 @@ void iterate_and_process_range_items(int param_1)
     do {
       piVar1 = (int *)read_bounded_array_element_10477358(param_1 + 0xc,uVar3 & 0xffff);
       if ((piVar1 != (int *)0x0) && (iVar2 = invoke_virtual_slot_4_10477064(piVar1), iVar2 == 0)) {
-        (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
-        decrement_index_and_update_bounds((int *)(param_1 + 0xc),uVar3 & 0xffff);
+        (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+        decrement_index_and_update_bounds((int *)(param_1 + 0xc),(uint)(uVar3 & 0xffff));
       }
       uVar3 = uVar3 + 1;
     } while ((int)uVar3 <= (int)(uint)*(ushort *)(param_1 + 0x12));

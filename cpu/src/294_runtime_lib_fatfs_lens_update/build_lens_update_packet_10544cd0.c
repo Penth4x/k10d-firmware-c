@@ -60,9 +60,9 @@ uint build_lens_update_packet_10544cd0(uint param_1,void *param_2)
   uint32_t uStack_8;
   uint uStack_4;
   
-  uStack_8 = (uStack_8 & ~(0xffffULL << 0)) | ((((uint64_t)((short)(param_1 >> 0x10))) & 0xffffULL) << 0);
+  uStack_8 = (uStack_8 & ~(((uint64_t)0xffff) << 0)) | ((((uint64_t)((short)(param_1 >> 0x10))) & ((uint64_t)0xffff)) << 0);
   uVar1 = (uint)((uint16_t)((uint64_t)(uStack_8) >> 0));
-  uStack_8 = (uStack_8 & ~(0xffffULL << 16)) | ((((uint64_t)((uint16_t)param_1)) & 0xffffULL) << 16);
+  uStack_8 = (uStack_8 & ~(((uint64_t)0xffff) << 16)) | ((((uint64_t)((uint16_t)param_1)) & ((uint64_t)0xffff)) << 16);
   if ((uVar1 & 0x7ff0) == 0x7ff0) {
     uStack_8 = param_1;
     if ((int)uVar1 < 1) {
@@ -86,7 +86,7 @@ uint build_lens_update_packet_10544cd0(uint param_1,void *param_2)
     cVar6 = '\0';
     compute_lens_fw_block_offset_10544502(uStack_8,param_2,DAT_106221f4);
     if (cVar6 == '\x01') {
-      uStack_8 = (uStack_8 & ~(0xffffULL << 16)) | ((((uint64_t)((uint16_t)(param_1 & 0xfffff))) & 0xffffULL) << 16);
+      uStack_8 = (uStack_8 & ~(((uint64_t)0xffff) << 16)) | ((((uint64_t)((uint16_t)(param_1 & 0xfffff))) & ((uint64_t)0xffff)) << 16);
       uStack_8 = CONCAT22(((uint16_t)((uint64_t)(uStack_8) >> 0)) + 0x10,((uint16_t)((uint64_t)(uStack_8) >> 16)));
     }
     else {

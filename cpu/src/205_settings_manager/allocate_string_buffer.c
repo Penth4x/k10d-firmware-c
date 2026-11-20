@@ -33,7 +33,7 @@ uint16_t * allocate_string_buffer(uint16_t *param_1)
     param_1[3] = 4;
     param_1[4] = 6;
     heap_alloc_one_byte_1045926e((int)&uStack_9);
-    pcVar2 = (char *)return_pentax_string_ptr((int)&uStack_9);
+    pcVar2 = (char *)return_pentax_string_ptr((uint32_t)(&uStack_9));
     iVar3 = count_string_bytes(pcVar2);
     uVar4 = (iVar3 + 1U & 0xffff) + 3;
     param_1[5] = (ushort)uVar4 & 0xfffc;
@@ -41,8 +41,8 @@ uint16_t * allocate_string_buffer(uint16_t *param_1)
     *(void **)(param_1 + 10) = pvVar5;
     fill_byte_array(pvVar5,0x20,(uint)(ushort)param_1[5]);
     iVar7 = *(int *)(param_1 + 10);
-    iVar6 = (int)(uintptr_t)return_pentax_string_ptr((int)&uStack_9);
-    pcVar2 = (char *)return_pentax_string_ptr((int)&uStack_9);
+    iVar6 = (uintptr_t)(return_pentax_string_ptr((uint32_t)(&uStack_9)));
+    pcVar2 = (char *)return_pentax_string_ptr((uint32_t)(&uStack_9));
     iVar3 = count_string_bytes(pcVar2);
     while (iVar3 != 0) {
       iVar3 = iVar3 + -1;

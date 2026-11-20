@@ -8,7 +8,7 @@
  *   The function takes a pointer to a structure and performs extensive initialization. It
  *   sets numerous fields to zero, initializes specific 16-bit fields to 0x100 (256), and
  *   sets a field at offset 0x692 to 3. It also calls two other functions,
- *   zero_struct_tail_fields and copy_struct_fields_0x10_to_0x30, to initialize sub-
+ *   zero_eight_words_at_offsets and copy_four_words_from_offset_0x10, to initialize sub-
  *   structures at offsets 0x52 and 0x220 respectively. The structure appears to be a
  *   complex state object, possibly related to a specific subsystem, but the exact role is
  *   not determinable from the code alone.
@@ -24,7 +24,7 @@ void test_mode_state_init(uint32_t *param_1)
   int iVar2;
   
                     /* Test mode state object initializer. Zeros most fields, sets defaults (0x100
-                       for some ushort fields), calls FUN_10506998 + FUN_104f48e4 for sub-objects.
+                       for some ushort fields), calls (char*)FUN_10506998 + FUN_104f48e4 for sub-objects.
                         */
   *param_1 = 0;
   param_1[7] = 0;
@@ -128,8 +128,8 @@ void test_mode_state_init(uint32_t *param_1)
   *(uint16_t *)((int)param_1 + 0x8ce) = 0x100;
   *(uint16_t *)(param_1 + 0x234) = 0x100;
   *(uint16_t *)((int)param_1 + 0x8d2) = 0x100;
-  zero_struct_tail_fields(param_1 + 0x52);
-  copy_struct_fields_0x10_to_0x30(param_1 + 0x220);
+  zero_eight_words_at_offsets(param_1 + 0x52);
+  copy_four_words_from_offset_0x10(param_1 + 0x220);
   *(uint8_t *)(param_1 + 0x231) = 0;
   *(uint8_t *)((int)param_1 + 0x8c5) = 0;
   *(uint8_t *)(param_1[0x1fe] + 0xc0) = 0;

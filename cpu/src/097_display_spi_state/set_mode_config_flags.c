@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_mode_config_flags(int param_1,int param_2)
+void set_mode_config_flags(cls_1059be70 *param_1,int param_2)
 
 {
   uint16_t uVar1;
@@ -26,24 +26,24 @@ void set_mode_config_flags(int param_1,int param_2)
   uint uVar4;
   uint uVar5;
   
-  if (*(char *)(param_1 + 0xbd) == '\0') {
+  if (param_1->field_0xbd == '\0') {
     if (param_2 == 0) {
-      *(uint16_t *)(param_1 + 0xca) = 0x6100;
+      param_1->field_0xca = 0x6100;
       uVar5 = 0x720;
       uVar4 = 0x20;
     }
     else if (param_2 == 1) {
-      *(uint16_t *)(param_1 + 0xca) = 0x7100;
+      param_1->field_0xca = 0x7100;
       uVar5 = 0x723;
       uVar4 = 0x23;
     }
     else if (param_2 == 2) {
-      *(uint16_t *)(param_1 + 0xca) = 0x8100;
+      param_1->field_0xca = 0x8100;
       uVar5 = 0x727;
       uVar4 = 0x27;
     }
     else {
-      *(uint16_t *)(param_1 + 0xca) = 0x6100;
+      param_1->field_0xca = 0x6100;
       uVar4 = 0x20;
       uVar5 = 0x720;
     }
@@ -69,17 +69,17 @@ void set_mode_config_flags(int param_1,int param_2)
       uVar4 = 0x81;
       uVar5 = 0x3881;
     }
-    *(uint16_t *)(param_1 + 0xca) = uVar1;
+    param_1->field_0xca = uVar1;
     uVar2 = get_sysparam_store_instance();
-    iVar3 = get_sysparam_store_byte((void *)uVar2,0xe);
+    iVar3 = get_sysparam_store_byte((uint8_t *)(uVar2),(uint32_t)(0xe));
     if (iVar3 != 0) {
       uVar4 = uVar4 | 0x200;
       uVar5 = uVar5 | 0x200;
     }
-    if (*(char *)(param_1 + 199) != '\0') {
-      *(ushort *)(param_1 + 0xca) = *(ushort *)(param_1 + 0xca) | 0x10;
+    if (param_1->field_0xc7 != '\0') {
+      param_1->field_0xca = param_1->field_0xca | 0x10;
     }
   }
-  send_two_byte_pairs_over_ch2(param_1,0x44,uVar4,uVar5);
+  send_two_byte_pairs_over_ch2((int)(param_1),(uint32_t)(0x44),(int)(uVar4),(int)(uVar5));
   return;
 }

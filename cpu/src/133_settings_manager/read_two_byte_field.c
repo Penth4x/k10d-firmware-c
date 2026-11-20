@@ -6,12 +6,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-int read_two_byte_field(void *param_1)
+int read_two_byte_field(cls_105a6b4c *param_1)
 
 {
   ushort uVar1;
   
-  uVar1 = pack_two_byte_value_10496952(param_1,(ushort)*(byte *)((int)param_1 + 5),
-                       (ushort)*(byte *)((int)param_1 + 4));
+  uVar1 = pack_two_byte_value_10496952(param_1,(ushort)(byte)param_1->field_0x5,(ushort)(byte)param_1->field_0x4);
   return (int)(short)uVar1;
 }

@@ -12,8 +12,8 @@ void invoke_virtual_method_on_object_10419afe(int param_1,void *param_2)
   int iVar1;
   
   iVar1 = **(int **)(param_1 + 0x4c);
-  (**(code **)(iVar1 + 0x5c))
-            ((int)*(int **)(param_1 + 0x4c) + (int)*(short *)(iVar1 + 0x58),param_2,(int)param_2 + 4
+  (((vtbl_entry*)(iVar1))[11].fn)
+            ((int)*(int **)(param_1 + 0x4c) + (int)((vtbl_entry*)(iVar1))[11].adj,param_2,(int)param_2 + 4
              ,(int)param_2 + 8);
   return;
 }

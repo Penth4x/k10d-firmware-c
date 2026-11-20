@@ -6,8 +6,8 @@
 #include "globals.h"
 #include "funcs.h"
 
-byte read_byte_and_mask_1045f872(void *param_1,int param_2,byte param_3)
+byte read_byte_and_mask_1045f872(cls_105a6bdc *param_1,int param_2,byte param_3)
 
 {
-  return *(byte *)((int)param_1 + param_2 + 4) & param_3;
+  return *(byte *)((int)&param_1[1].field_0x0 + param_2) & param_3;
 }

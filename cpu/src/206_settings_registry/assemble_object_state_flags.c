@@ -23,19 +23,19 @@ void assemble_object_state_flags(int param_1,int param_2)
   
   uVar1 = 0;
   iVar2 = **(int **)(param_1 + 0x18);
-  iVar2 = (**(code **)(iVar2 + 0x1c))
-                    ((int)*(int **)(param_1 + 0x18) + (int)*(short *)(iVar2 + 0x18),4);
+  iVar2 = (((vtbl_entry*)(iVar2))[3].fn)
+                    ((int)*(int **)(param_1 + 0x18) + (int)((vtbl_entry*)(iVar2))[3].adj,4);
   if ((iVar2 == 0) &&
      (iVar2 = **(int **)(param_1 + 0x18),
-     iVar2 = (**(code **)(iVar2 + 0x14))
-                       ((int)*(int **)(param_1 + 0x18) + (int)*(short *)(iVar2 + 0x10),10),
+     iVar2 = (((vtbl_entry*)(iVar2))[2].fn)
+                       ((int)*(int **)(param_1 + 0x18) + (int)((vtbl_entry*)(iVar2))[2].adj,10),
      iVar2 == 0)) {
     uVar1 = 0x10;
   }
   else {
     iVar2 = **(int **)(param_1 + 0x18);
-    iVar2 = (**(code **)(iVar2 + 0x14))
-                      ((int)*(int **)(param_1 + 0x18) + (int)*(short *)(iVar2 + 0x10),6);
+    iVar2 = (((vtbl_entry*)(iVar2))[2].fn)
+                      ((int)*(int **)(param_1 + 0x18) + (int)((vtbl_entry*)(iVar2))[2].adj,6);
     switch(iVar2) {
     case 0:
     case 1:
@@ -58,8 +58,8 @@ void assemble_object_state_flags(int param_1,int param_2)
       uVar1 = uVar1 | 0x40;
     }
     iVar2 = **(int **)(param_1 + 0x18);
-    iVar2 = (**(code **)(iVar2 + 0x1c))
-                      ((int)*(int **)(param_1 + 0x18) + (int)*(short *)(iVar2 + 0x18),3);
+    iVar2 = (((vtbl_entry*)(iVar2))[3].fn)
+                      ((int)*(int **)(param_1 + 0x18) + (int)((vtbl_entry*)(iVar2))[3].adj,3);
     if (iVar2 != 0) {
       uVar1 = uVar1 | 1;
     }

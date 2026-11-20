@@ -15,8 +15,8 @@ void copy_stack_buffer_to_memory_104e77d8(uint32_t param_1,int param_2,uint32_t 
   uint8_t auStack_10 [8];
   int iVar2;
   
-  (**(code **)(*(int *)(param_2 + 0x1c) + 0x1c))
-            (auStack_10,param_2 + 0x10 + (int)*(short *)(*(int *)(param_2 + 0x1c) + 0x18));
+  (((vtbl_entry*)(*(int *)(param_2 + 0x1c)))[3].fn)
+            (auStack_10,param_2 + 0x10 + (int)((vtbl_entry*)(*(int *)(param_2 + 0x1c)))[3].adj);
   iVar2 = 8;
   do {
     iVar1 = iVar2 + -4;

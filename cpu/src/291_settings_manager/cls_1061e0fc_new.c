@@ -17,7 +17,7 @@ uint32_t * cls_1061e0fc_new(uint32_t *param_1)
   if ((param_1 != (uint32_t *)0x0) ||
      (param_1 = (uint32_t *)heap_alloc((void *)0x24), param_1 != (uint32_t *)0x0)) {
     cls_1059e4e0_new(param_1);
-    cls_105a2b50_new(param_1 + 1);
+    cls_105a2b50_new((void *)(param_1 + 1));
     *param_1 = 0x1061e0fc;
     param_1[5] = 0x1061e12c;
     param_1[8] = 0;

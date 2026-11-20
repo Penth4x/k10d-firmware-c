@@ -24,7 +24,7 @@ void register_two_menu_items_1037fa96(int param_1,uint16_t param_2,uint16_t para
   uRam800044be = param_3;
   uVar1 = menu_item_register(param_1);
   uVar2 = menu_item_register(param_1);
-  menu_list_build((void*)uVar1,(void*)0x800044bc/*SDRAM*/,3,0);
-  menu_list_build((void*)uVar2,(void*)0x800044be/*SDRAM*/,4,0);
+  menu_list_build((void *)uVar1,(void *)0x800044bc/*SDRAM*/,3,0);
+  menu_list_build((void *)uVar2,(void *)0x800044be/*SDRAM*/,4,0);
   return;
 }

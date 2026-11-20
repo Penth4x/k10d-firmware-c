@@ -23,12 +23,12 @@ void query_object_and_report_result(int param_1,int param_2)
   
   uVar1 = 0;
   iVar3 = **(int **)(param_1 + 0x10);
-  iVar3 = (**(code **)(iVar3 + 0x14))
-                    ((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar3 + 0x10),1);
+  iVar3 = (((vtbl_entry*)(iVar3))[2].fn)
+                    ((int)*(int **)(param_1 + 0x10) + (int)((vtbl_entry*)(iVar3))[2].adj,1);
   if (iVar3 != 0) {
     iVar3 = **(int **)(param_1 + 0x10);
-    uVar2 = (**(code **)(iVar3 + 0x14))
-                      ((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar3 + 0x10),0xc);
+    uVar2 = (((vtbl_entry*)(iVar3))[2].fn)
+                      ((int)*(int **)(param_1 + 0x10) + (int)((vtbl_entry*)(iVar3))[2].adj,0xc);
     uVar1 = classify_heap_alloc_result(*(uint32_t *)(param_1 + 0x2c),uVar2);
   }
   write_word_to_dynamic_array(param_2,0,uVar1);

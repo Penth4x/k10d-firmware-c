@@ -11,31 +11,31 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_105a0a54_new(uint32_t *param_1)
+cls_1059e380 * cls_105a0a54_new(cls_105a0a54 *param_1)
 
 {
   int iVar1;
   int iVar2;
   int iVar3;
   
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x50), param_1 != (uint32_t *)0x0)) {
-    cls_1059e380_new(param_1);
-    *param_1 = 0x105a0a54/*ROM*/;
-    cls_105a2be0_new(param_1 + 0xe);
-    cls_105a2be0_new(param_1 + 0x10);
-    cls_105a2be0_new(param_1 + 0x12);
+  if ((param_1 != (cls_105a0a54 *)0x0) ||
+     (param_1 = (cls_105a0a54 *)heap_alloc((void *)0x50), (cls_1059e380 *)param_1 != (cls_1059e380 *)0x0)) {
+    cls_1059e380_new((cls_1059e380 *)param_1);
+    ((cls_1059e380 *)param_1)->field_0x0 = (uintptr_t)((void *)0x105a0a54/*ROM*/);
+    cls_105a2be0_new((cls_105a2be0 *)&((cls_1059e380 *)param_1)->field14_0x38);
+    cls_105a2be0_new((cls_105a2be0 *)&((cls_1059e380 *)param_1)->field16_0x40);
+    cls_105a2be0_new((cls_105a2be0 *)&((cls_1059e380 *)param_1)->field21_0x48);
     iVar3 = 3;
     iVar1 = 0;
     do {
       iVar2 = iVar1;
-      *(uint32_t *)((int)param_1 + iVar2 + 4) = 0;
-      *(uint32_t *)((int)param_1 + iVar2 + 8) = 0;
-      *(uint32_t *)((int)param_1 + iVar2 + 0xc) = 0;
+      *(uint32_t *)((int)&((cls_1059e380 *)param_1)->field1_0x4 + iVar2) = 0;
+      *(uint32_t *)((int)&((cls_1059e380 *)param_1)->field2_0x8 + iVar2) = 0;
+      *(uint32_t *)((int)&((cls_1059e380 *)param_1)->field3_0xc + iVar2) = 0;
       iVar3 = iVar3 + -1;
       iVar1 = iVar2 + 0xc;
     } while (-1 < iVar3);
-    *(uint32_t *)((int)param_1 + iVar2 + 0x10) = 0;
+    *(uint32_t *)((int)&((cls_1059e380 *)param_1)->field4_0x10 + iVar2) = 0;
   }
-  return param_1;
+  return (cls_1059e380 *)param_1;
 }

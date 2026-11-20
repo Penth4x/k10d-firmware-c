@@ -23,8 +23,8 @@ void dispatch_virtual_then_call_helper(uint32_t param_1,uint32_t param_2,int par
   uintptr_t sp;
   uint32_t auStack_18 [4];
   
-  (**(code **)(*(int *)(param_3 + 0xc) + 0x1c))
-            (auStack_18,*(short *)(*(int *)(param_3 + 0xc) + 0x18) + param_3);
+  (((vtbl_entry*)(*(int *)(param_3 + 0xc)))[3].fn)
+            (auStack_18,((vtbl_entry*)(*(int *)(param_3 + 0xc)))[3].adj + param_3);
   uVar1 = read_first_word_1045bd4c(auStack_18);
   compute_delta_and_call_virtuals(param_1,param_2,uVar1);
   free_heap_block_if_flagged_1045bc54(auStack_18,2);

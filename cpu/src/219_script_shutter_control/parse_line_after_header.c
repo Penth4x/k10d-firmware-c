@@ -107,6 +107,6 @@ uint parse_line_after_header(uint32_t *param_1,char *param_2,uint32_t param_3,vo
       uVar7 = uVar7 + 1;
     } while (uVar7 < (uint)param_1[3]);
   }
-  cmd_error_report((void *)param_1[1],0x90);
+  cmd_error_report((uint32_t *)(param_1[1]),(uint32_t)(0x90));
   return 0;
 }

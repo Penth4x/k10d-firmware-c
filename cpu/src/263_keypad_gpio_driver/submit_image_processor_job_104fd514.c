@@ -42,7 +42,7 @@ void submit_image_processor_job_104fd514(int param_1,uint32_t *param_2)
   uStack_e = *(uint16_t *)((int)param_2 + 0xe);
   puVar1 = (uint32_t *)(param_1 + 0x2c);
   eventflag_clr_flg(puVar1,1);
-  imgp_b_program_and_start_104fe680(*(uint32_t *)(param_1 + 0x24),(void *)(param_1 + 4),&uStack_1c);
+  imgp_b_program_and_start_104fe680((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(param_1 + 4),(uint32_t *)(&uStack_1c));
   eventflag_wai_flg(puVar1,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,1);
   imgp_a_stop_and_reset(*(uint32_t *)(param_1 + 0x24));

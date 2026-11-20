@@ -18,7 +18,7 @@ void dispatch_event_or_fallback(int param_1,int *param_2)
   }
   else {
     iVar1 = *(int *)*param_2;
-    (**(code **)(iVar1 + 0x14))(*param_2 + (int)*(short *)(iVar1 + 0x10),0xf00005,param_2);
+    (((vtbl_entry*)(iVar1))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar1))[2].adj,0xf00005,param_2);
   }
   return;
 }

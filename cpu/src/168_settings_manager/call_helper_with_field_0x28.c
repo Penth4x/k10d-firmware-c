@@ -6,9 +6,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_field_0x28(int param_1)
+void call_helper_with_field_0x28(cls_105aaa50 *param_1)
 
 {
-  set_flag_and_call_helper_10482dbc(*(uint32_t *)(param_1 + 0x28));
+  set_flag_and_call_helper_10482dbc(param_1->field_0x28);
   return;
 }

@@ -11,7 +11,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_105f9250_delete(int param_1,uint param_2)
+void cls_105f9250_delete(cls_105f9250 *param_1,uint param_2)
 
 {
   uintptr_t sp;
@@ -20,8 +20,8 @@ void cls_105f9250_delete(int param_1,uint param_2)
   uint32_t uStack_14;
   
   puVar1 = &uStack_18;
-  if (param_1 != 0) {
-    *(void **)(param_1 + 0x208) = &DAT_105f91c0/*ROM*/;
+  if (param_1 != (cls_105f9250 *)0x0) {
+    param_1->field_0x208 = (uint8_t)&DAT_105f91c0/*ROM*/;
     uStack_18 = 0;
     uStack_14 = 0;
     lens_fw_update_teardown();
@@ -29,7 +29,7 @@ void cls_105f9250_delete(int param_1,uint param_2)
     puVar1[1] = 0;
     lens_fw_update_teardown();
     if ((param_2 & 1) != 0) {
-      heap_free(param_1);
+      heap_free((int)param_1);
     }
   }
   return;

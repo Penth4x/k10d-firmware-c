@@ -22,7 +22,7 @@ void dispatch_virtual_slot_two_104df936(int *param_1,uint16_t param_2,uint32_t p
   int iVar1;
   
   iVar1 = *(int *)(param_1[4] + 0x40);
-  (**(code **)(iVar1 + 0x34))(param_1[4] + (int)*(short *)(iVar1 + 0x30),param_3);
+  (((vtbl_entry*)(iVar1))[6].fn)(param_1[4] + (int)((vtbl_entry*)(iVar1))[6].adj,param_3);
   *(uint16_t *)(param_1[4] + 4) = param_2;
   *(uint32_t *)(param_1[4] + 8) = *(uint32_t *)(*param_1 + 8);
   *(uint32_t *)(param_1[4] + 0xc) = *(uint32_t *)(*param_1 + 0xc);

@@ -43,7 +43,7 @@ uint32_t check_dimension_fit(uint32_t param_1,int param_2)
     select_two_parameter_values_by_index(pvVar1,0,&uStack_14,&uStack_12);
     select_two_parameter_values_by_index(pvVar1,1,&uStack_10,&uStack_e);
     select_two_parameter_values_by_index(pvVar1,2,&uStack_c,&uStack_a);
-    if (pvVar1 != (void *)0x0) {
+    if (pvVar1 != 0) {
       heap_free((int)pvVar1);
     }
     uVar2 = return_first_word_1045c514((uint32_t *)(param_2 + 0x2c));

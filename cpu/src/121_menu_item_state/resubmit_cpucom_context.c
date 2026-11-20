@@ -9,6 +9,6 @@
 void resubmit_cpucom_context(int param_1)
 
 {
-  cpucom_ctx_resubmit(*(uint32_t *)(param_1 + 0x1c),param_1 + 4);
+  cpucom_ctx_resubmit((int *)(*(uint32_t *)(param_1 + 0x1c)),(void *)(param_1 + 4));
   return;
 }

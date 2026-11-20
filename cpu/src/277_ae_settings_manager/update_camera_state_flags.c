@@ -44,7 +44,7 @@ void update_camera_state_flags(void *param_1,int param_2,uint param_3)
          ((uint)*(ushort *)((int)param_1 + 0x68) != (param_3 & 0xffff))) {
         *(char *)((int)param_1 + 0x6a) = (char)uVar1;
         *(short *)((int)param_1 + 0x68) = (short)param_3;
-        alloc_and_zero_small_struct_104bb18e((void *)auStack_12);
+        alloc_and_zero_small_struct_104bb18e(auStack_12);
         (*(code *)0x104bb1da/*ROM*/)(auStack_12,*(uint16_t *)((int)param_1 + 0x68));
         uVar3 = 2;
         if ((param_3 & 0x80000000/*SDRAM*/) == 0) {
@@ -68,14 +68,14 @@ void update_camera_state_flags(void *param_1,int param_2,uint param_3)
       else {
         iVar2 = initialize_singleton_object_1045d6a0();
       }
-      write_object_field_byte((void *)(*(uint32_t *)(iVar2 + 8)),0x15,!bVar4);
+      write_object_field_byte((int *)(*(uint32_t *)(iVar2 + 8)),(int)(0x15),(uint)(!bVar4));
       if ((param_3 & 4) == 0) {
         iVar2 = initialize_singleton_object_1045d6a0();
-        write_object_field_byte((void *)(*(uint32_t *)(iVar2 + 8)),8,0);
+        write_object_field_byte((int *)(*(uint32_t *)(iVar2 + 8)),(int)(8),(uint)(0));
       }
       else {
         iVar2 = initialize_singleton_object_1045d6a0();
-        write_object_field_byte((void *)(*(uint32_t *)(iVar2 + 8)),8,1);
+        write_object_field_byte((int *)(*(uint32_t *)(iVar2 + 8)),(int)(8),(uint)(1));
       }
     }
     if (param_2 == 0x18) {
@@ -91,7 +91,7 @@ void update_camera_state_flags(void *param_1,int param_2,uint param_3)
         iVar2 = initialize_singleton_object_1045d6a0();
         uVar3 = 1;
       }
-      write_object_field_byte((void *)(*(uint32_t *)(iVar2 + 8)),0x17,uVar3);
+      write_object_field_byte((int *)(*(uint32_t *)(iVar2 + 8)),(int)(0x17),(uint)(uVar3));
       bVar4 = (param_3 & 4) == 0;
       if (bVar4) {
         iVar2 = initialize_singleton_object_1045d6a0();
@@ -99,7 +99,7 @@ void update_camera_state_flags(void *param_1,int param_2,uint param_3)
       else {
         iVar2 = initialize_singleton_object_1045d6a0();
       }
-      write_object_field_byte((void *)(*(uint32_t *)(iVar2 + 8)),0xd,!bVar4);
+      write_object_field_byte((int *)(*(uint32_t *)(iVar2 + 8)),(int)(0xd),(uint)(!bVar4));
       bVar4 = (param_3 & 8) == 0;
       if (bVar4) {
         iVar2 = initialize_singleton_object_1045d6a0();
@@ -107,14 +107,14 @@ void update_camera_state_flags(void *param_1,int param_2,uint param_3)
       else {
         iVar2 = initialize_singleton_object_1045d6a0();
       }
-      write_object_field_byte((void *)(*(uint32_t *)(iVar2 + 8)),0xc,!bVar4);
+      write_object_field_byte((int *)(*(uint32_t *)(iVar2 + 8)),(int)(0xc),(uint)(!bVar4));
       if ((param_3 & 0x10) == 0) {
         iVar2 = initialize_singleton_object_1045d6a0();
-        write_object_field_byte((void *)(*(uint32_t *)(iVar2 + 8)),0xb,0);
+        write_object_field_byte((int *)(*(uint32_t *)(iVar2 + 8)),(int)(0xb),(uint)(0));
       }
       else {
         iVar2 = initialize_singleton_object_1045d6a0();
-        write_object_field_byte((void *)(*(uint32_t *)(iVar2 + 8)),0xb,1);
+        write_object_field_byte((int *)(*(uint32_t *)(iVar2 + 8)),(int)(0xb),(uint)(1));
       }
     }
   }

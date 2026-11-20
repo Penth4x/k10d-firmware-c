@@ -21,8 +21,8 @@ void invoke_virtual_method_on_subobject_1047cf4e(int param_1)
   int iVar1;
   
   iVar1 = **(int **)(param_1 + 0x28);
-  iVar1 = (**(code **)(iVar1 + 0x34))
-                    ((int)*(int **)(param_1 + 0x28) + (int)*(short *)(iVar1 + 0x30),
+  iVar1 = (((vtbl_entry*)(iVar1))[6].fn)
+                    ((int)*(int **)(param_1 + 0x28) + (int)((vtbl_entry*)(iVar1))[6].adj,
                      *(uint32_t *)**(uint32_t **)(*(int *)(param_1 + 0x40) + 0xc));
   if (iVar1 == 0) {
     *(uint32_t *)(param_1 + 0x2c) = 1;

@@ -20,11 +20,11 @@ uint query_object_via_temp_buffer_104f1ec2(int param_1)
 {
   uint uVar1;
   uintptr_t sp;
-  uint8_t auStack_1c [20];
+  cls_105a6abc acStack_1c [5];
   
-  cls_105a6abc_new((void *)auStack_1c);
-  copy_buffer_with_lock_1045e22a(*(int *)(param_1 + 8),auStack_1c);
-  uVar1 = extract_bitfield_from_byte_array(auStack_1c,1);
-  cls_105a6abc_delete((void *)auStack_1c,2);
+  cls_105a6abc_new(acStack_1c);
+  copy_buffer_with_lock_1045e22a(*(int *)(param_1 + 8),acStack_1c);
+  uVar1 = extract_bitfield_from_byte_array(acStack_1c,1);
+  cls_105a6abc_delete(acStack_1c,2);
   return uVar1 & 0xff;
 }

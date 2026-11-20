@@ -17,12 +17,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void reset_object_state_flags(uint32_t param_1)
+void reset_object_state_flags(cls_1059be70 *param_1)
 
 {
-  set_two_config_values(param_1,0);
-  configure_mode_parameter_table(param_1,1);
-  set_two_config_values(param_1,1);
-  send_two_byte_pairs_over_ch2(param_1,0x802,0,0);
+  set_two_config_values((uint)param_1,0);
+  configure_mode_parameter_table((uint)param_1,1);
+  set_two_config_values((uint)param_1,1);
+  send_two_byte_pairs_over_ch2((uint)param_1,0x802,0,0);
   return;
 }

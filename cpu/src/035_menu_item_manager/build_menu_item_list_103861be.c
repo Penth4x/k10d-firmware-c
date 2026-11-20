@@ -16,21 +16,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-void build_menu_item_list_103861be(int param_1,int param_2)
+void build_menu_item_list_103861be(cls_105592e8 *param_1,int param_2)
 
 {
   int iVar1;
   
-  *(int *)(param_1 + 0x30) = param_2;
-  iVar1 = menu_item_register(param_1);
-  menu_list_build((void *)iVar1,(void *)(param_1 + 0x34 + param_2 * 2),3,0);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
-  iVar1 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
-  iVar1 = menu_item_register(param_1);
-  menu_list_build((void *)iVar1,(void *)(param_1 + 0x3c + param_2 * 2),4,0);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
-  register_menu_item_with_split_1038636e(param_1);
-  invoke_virtual_slot_twice_1038656a(param_1);
+  param_1->field_0x30 = param_2;
+  iVar1 = menu_item_register((int)param_1);
+  menu_list_build((int *)(iVar1),(uint16_t *)(&param_1->field_0x34 + param_2 * 2),(uint8_t)(3),(uint8_t)(0));
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  iVar1 = menu_item_register((int)param_1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  iVar1 = menu_item_register((int)param_1);
+  menu_list_build((int *)(iVar1),(uint16_t *)(&param_1->field_0x3c + param_2),(uint8_t)(4),(uint8_t)(0));
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  register_menu_item_with_split_1038636e((int)(param_1));
+  invoke_virtual_slot_twice_1038656a((int)(param_1));
   return;
 }

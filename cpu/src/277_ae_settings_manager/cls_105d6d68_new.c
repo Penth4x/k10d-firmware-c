@@ -11,23 +11,23 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_105d6d68_new(uint32_t *param_1)
+cls_1059e408 * cls_105d6d68_new(cls_105d6d68 *param_1)
 
 {
   void *pvVar1;
-  int iVar2;
+  void *puVar2;
   
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x10), param_1 != (uint32_t *)0x0)) {
-    cls_1059e408_new(param_1);
-    *param_1 = 0x105d6d68/*ROM*/;
-    param_1[2] = 0;
-    param_1[3] = 0;
+  if ((param_1 != (cls_105d6d68 *)0x0) ||
+     (param_1 = (cls_105d6d68 *)heap_alloc((void *)0x10), (cls_1059e408 *)param_1 != (cls_1059e408 *)0x0)) {
+    cls_1059e408_new((cls_1059e408 *)param_1);
+    ((cls_1059e408 *)param_1)->field_0x0 = (uintptr_t)((void *)0x105d6d68/*ROM*/);
+    ((cls_1059e408 *)param_1)->field2_0x8 = (uintptr_t)((void *)0x0);
+    ((cls_1059e408 *)param_1)->field3_0xc = (uintptr_t)((void *)0x0);
     pvVar1 = (void *)get_or_init_sram_buffer_104277bc();
-    iVar2 = read_table_entry_field(pvVar1,0xb2);
-    param_1[2] = iVar2;
-    (**(code **)(*(int *)(iVar2 + 8) + 0x1c))
-              (iVar2 + 8 + (int)*(short *)(*(int *)(iVar2 + 8) + 0x18),param_1,0xb);
+    puVar2 = (void *)read_table_entry_field(pvVar1,0xb2);
+    ((cls_1059e408 *)param_1)->field2_0x8 = (uintptr_t)(puVar2);
+    (((vtbl_entry*)(*(int *)((char*)puVar2 + 8)))[3].fn)
+              ((char*)puVar2 + ((vtbl_entry*)(*(int *)((char*)puVar2 + 8)))[3].adj + 8,param_1,0xb);
   }
-  return param_1;
+  return (cls_1059e408 *)param_1;
 }

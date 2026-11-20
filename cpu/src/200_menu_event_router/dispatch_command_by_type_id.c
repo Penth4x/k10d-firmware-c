@@ -9,7 +9,7 @@
 /* WARNING: Instruction at (ram,0x10497d18) overlaps instruction at (ram,0x10497d16)
     */
 
-uint32_t dispatch_command_by_type_id(int param_1,uint32_t param_2,int param_3)
+uint32_t dispatch_command_by_type_id(cls_105b5524 *param_1,uint32_t param_2,int param_3)
 
 {
   uint8_t uVar1;
@@ -105,7 +105,7 @@ uint32_t dispatch_command_by_type_id(int param_1,uint32_t param_2,int param_3)
   puVar18 = auStack_140;
   uVar1 = *(uint8_t *)(param_3 + 0x859);
   set_struct_field_at_offset_4(param_3,0);
-  iVar7 = read_virtual_property_field(*(uint32_t *)(param_1 + 0xc),1);
+  iVar7 = read_virtual_property_field((int *)(param_1->field_0xc),(int)(1));
   bVar5 = false;
   if ((iVar7 == 2) || (iVar7 == 3)) {
     bVar5 = true;
@@ -116,7 +116,7 @@ uint32_t dispatch_command_by_type_id(int param_1,uint32_t param_2,int param_3)
   switch(uVar1) {
   case 0:
     set_struct_field_at_offset_4(param_3,0);
-    iVar7 = call_helper_with_fixed_args_10463146(*(int **)(param_1 + 8));
+    iVar7 = call_helper_with_fixed_args_10463146((int *)(param_1->field_0x8));
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
     }
@@ -129,7 +129,7 @@ uint32_t dispatch_command_by_type_id(int param_1,uint32_t param_2,int param_3)
     uVar14 = read_struct_field_at_index_1046c7ca(param_3,0);
     uVar12 = read_struct_field_at_index_1046c7ca(param_3,1);
     uVar13 = read_struct_field_at_index_1046c7ca(param_3,2);
-    iVar7 = call_helper_with_packed_args(*(int **)(param_1 + 8),uVar14 & 0xffff,uVar12 & 0xffff,uVar13 & 0xffff);
+    iVar7 = call_helper_with_packed_args((int *)(param_1->field_0x8),(uint32_t)(uVar14 & 0xffff),(uint32_t)(uVar12 & 0xffff),(uint32_t)(uVar13 & 0xffff));
     uStack_f8 = 0;
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
@@ -137,7 +137,7 @@ uint32_t dispatch_command_by_type_id(int param_1,uint32_t param_2,int param_3)
     break;
   case 2:
     set_struct_field_at_offset_4(param_3,0);
-    iVar7 = call_helper_with_four_args_1046318e(*(int **)(param_1 + 8));
+    iVar7 = call_helper_with_four_args_1046318e((int *)(param_1->field_0x8));
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
     }
@@ -158,25 +158,25 @@ uint32_t dispatch_command_by_type_id(int param_1,uint32_t param_2,int param_3)
       iVar17 = iVar17 + -1;
       iVar7 = iVar7 + 5;
     } while (-1 < iVar17);
-    iVar7 = call_helper_with_offset_and_size_10463566(*(int **)(param_1 + 8),(int)abStack_dc);
+    iVar7 = call_helper_with_offset_and_size_10463566((int *)(param_1->field_0x8),(int)abStack_dc);
     uStack_f8 = 0;
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
     }
     puVar18[3] = 0;
-    uVar14 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)abStack_dc[1],(uint)abStack_dc[0],0,puVar18[3]);
+    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)abStack_dc[1],(int)((uint)abStack_dc[0]),(int)(0),(byte)(puVar18[3]));
     write_word_to_struct_array(param_3,uVar14,0);
     puVar18[3] = 0;
-    uVar14 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)abStack_dc[3],(uint)abStack_dc[2],0,puVar18[3]);
+    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)abStack_dc[3],(int)((uint)abStack_dc[2]),(int)(0),(byte)(puVar18[3]));
     write_word_to_struct_array(param_3,uVar14,1);
     puVar18[3] = 0;
-    uVar14 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)abStack_dc[5],(uint)abStack_dc[4],0,puVar18[3]);
+    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)abStack_dc[5],(int)((uint)abStack_dc[4]),(int)(0),(byte)(puVar18[3]));
     write_word_to_struct_array(param_3,uVar14,2);
     puVar18[3] = 0;
-    uVar14 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)abStack_dc[7],(uint)abStack_dc[6],0,puVar18[3]);
+    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)abStack_dc[7],(int)((uint)abStack_dc[6]),(int)(0),(byte)(puVar18[3]));
     write_word_to_struct_array(param_3,uVar14,3);
     puVar18[3] = 0;
-    uVar14 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)bStack_d3,(uint)bStack_d4,0,puVar18[3]);
+    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)bStack_d3,(int)((uint)bStack_d4),(int)(0),(byte)(puVar18[3]));
     iStack_104 = 4;
     goto LAB_104980cc;
   case 4:
@@ -185,7 +185,7 @@ uint32_t dispatch_command_by_type_id(int param_1,uint32_t param_2,int param_3)
     uVar8 = read_struct_field_at_index_1046c7ca(param_3,1);
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,2);
     uVar10 = read_struct_field_at_index_1046c7ca(param_3,3);
-    piVar16 = *(int **)(param_1 + 8);
+    piVar16 = (int *)((uintptr_t)(param_1->field_0x8));
     puVar18[3] = (char)uVar10;
     pack_and_call_helper(piVar16,(char)uVar11,(char)uVar8,(char)uVar9,puVar18[3]);
     if (extraout_r4 == 0) {
@@ -197,7 +197,7 @@ uint32_t dispatch_command_by_type_id(int param_1,uint32_t param_2,int param_3)
     break;
   case 6:
     set_struct_field_at_offset_4(param_3,0);
-    iVar7 = call_helper_with_offset_and_zero_104631ca(*(int **)(param_1 + 8));
+    iVar7 = call_helper_with_offset_and_zero_104631ca((int *)(param_1->field_0x8));
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
     }
@@ -207,7 +207,7 @@ uint32_t dispatch_command_by_type_id(int param_1,uint32_t param_2,int param_3)
     break;
   case 8:
     set_struct_field_at_offset_4(param_3,0);
-    iVar7 = call_helper_with_four_args_104631e2(*(int **)(param_1 + 8));
+    iVar7 = call_helper_with_four_args_104631e2((int *)(param_1->field_0x8));
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
     }
@@ -217,7 +217,7 @@ uint32_t dispatch_command_by_type_id(int param_1,uint32_t param_2,int param_3)
     break;
   case 9:
     set_struct_field_at_offset_4(param_3,0);
-    iVar7 = call_helper_with_fixed_args_104631fa(*(int **)(param_1 + 8));
+    iVar7 = call_helper_with_fixed_args_104631fa((int *)(param_1->field_0x8));
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
     }
@@ -227,7 +227,7 @@ uint32_t dispatch_command_by_type_id(int param_1,uint32_t param_2,int param_3)
     break;
   case 10:
     set_struct_field_at_offset_4(param_3,0);
-    iVar7 = call_subroutine_with_fixed_args_10463212(*(int **)(param_1 + 8));
+    iVar7 = call_subroutine_with_fixed_args_10463212((int *)(param_1->field_0x8));
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
     }
@@ -276,7 +276,7 @@ uint32_t dispatch_command_by_type_id(int param_1,uint32_t param_2,int param_3)
     store_word_big_endian(auStack_5e,uVar11);
     uVar11 = read_struct_field_at_index_1046c7ca(param_3,0x12);
     store_word_at_offset_0x2a(auStack_5e,uVar11);
-    iVar7 = call_helper_with_two_params_1046357e(*(int **)(param_1 + 8),auStack_5e);
+    iVar7 = call_helper_with_two_params_1046357e((int *)(param_1->field_0x8),(void *)(auStack_5e));
     uStack_f8 = 0;
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
@@ -353,16 +353,16 @@ uint32_t dispatch_command_by_type_id(int param_1,uint32_t param_2,int param_3)
     uStack_b4 = (uint8_t)((uint)uVar11 >> 8);
     uVar11 = read_struct_field_at_index_1046c7ca(param_3,9);
     uStack_b3 = (char)uVar11;
-    iVar7 = call_helper_with_offset_and_length(*(int **)(param_1 + 8),auStack_d2,(int)&uStack_b2);
+    iVar7 = call_helper_with_offset_and_length((int *)(param_1->field_0x8),(void *)(auStack_d2),(int)&uStack_b2);
     uStack_f8 = 0;
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
     }
     puVar18[3] = uStack_b2;
-    uVar14 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)bStack_af,(uint)bStack_b0,(uint)bStack_b1,puVar18[3]);
+    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)bStack_af,(int)((uint)bStack_b0),(int)((uint)bStack_b1),(byte)(puVar18[3]));
     write_word_to_struct_array(param_3,uVar14,0);
     puVar18[3] = uStack_ae;
-    uVar14 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)bStack_ab,(uint)bStack_ac,(uint)bStack_ad,puVar18[3]);
+    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)bStack_ab,(int)((uint)bStack_ac),(int)((uint)bStack_ad),(byte)(puVar18[3]));
     iStack_104 = 1;
     goto LAB_104980cc;
   case 0xd:
@@ -423,7 +423,7 @@ uint32_t dispatch_command_by_type_id(int param_1,uint32_t param_2,int param_3)
     abStack_8c[0] = (byte)((uint)uVar11 >> 8);
     uVar11 = read_struct_field_at_index_1046c7ca(param_3,9);
     abStack_8c[1] = (char)uVar11;
-    iVar7 = call_helper_with_offset_and_size_104635c0(*(int **)(param_1 + 8),auStack_aa,(int)abStack_90);
+    iVar7 = call_helper_with_offset_and_size_104635c0((int *)(param_1->field_0x8),(void *)(auStack_aa),(int)abStack_90);
     uStack_f8 = 0;
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
@@ -447,19 +447,19 @@ uint32_t dispatch_command_by_type_id(int param_1,uint32_t param_2,int param_3)
       bVar3 = abStack_90[iStack_10c];
       bVar4 = abStack_90[iStack_108];
       puVar18[3] = abStack_90[iStack_114];
-      uVar14 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)bVar2,(uint)bVar3,(uint)bVar4,puVar18[3]);
+      uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)bVar2,(int)((uint)bVar3),(int)((uint)bVar4),(byte)(puVar18[3]));
       write_word_to_struct_array(param_3,uVar14,iStack_104);
       bVar2 = abStack_8c[iStack_110];
       bVar3 = abStack_8c[iStack_10c];
       bVar4 = abStack_8c[iStack_108];
       puVar18[3] = abStack_8c[iStack_114];
-      uVar14 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)bVar2,(uint)bVar3,(uint)bVar4,puVar18[3]);
+      uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)bVar2,(int)((uint)bVar3),(int)((uint)bVar4),(byte)(puVar18[3]));
       write_word_to_struct_array(param_3,uVar14,iStack_104 + 1);
       bVar2 = abStack_88[iStack_110];
       bVar3 = abStack_88[iStack_10c];
       bVar4 = abStack_88[iStack_108];
       puVar18[3] = abStack_88[iStack_114];
-      uVar14 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)bVar2,(uint)bVar3,(uint)bVar4,puVar18[3]);
+      uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)bVar2,(int)((uint)bVar3),(int)((uint)bVar4),(byte)(puVar18[3]));
       write_word_to_struct_array(param_3,uVar14,iStack_104 + 2);
       iStack_104 = iStack_104 + 3;
       iStack_100 = iStack_100 + -1;
@@ -472,7 +472,7 @@ uint32_t dispatch_command_by_type_id(int param_1,uint32_t param_2,int param_3)
     bVar3 = abStack_84[iStack_10c];
     bVar4 = abStack_84[iStack_108];
     puVar18[3] = abStack_84[iStack_114];
-    uVar14 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)bVar2,(uint)bVar3,(uint)bVar4,puVar18[3]);
+    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)bVar2,(int)((uint)bVar3),(int)((uint)bVar4),(byte)(puVar18[3]));
     goto LAB_104980cc;
   case 0xe:
     set_struct_field_at_offset_4(param_3,2);
@@ -492,21 +492,21 @@ uint32_t dispatch_command_by_type_id(int param_1,uint32_t param_2,int param_3)
     uStack_6e = (uint8_t)((uint)uVar11 >> 8);
     uVar11 = read_struct_field_at_index_1046c7ca(param_3,4);
     uStack_6d = (char)uVar11;
-    iVar7 = call_helper_with_offset_args_104635d6(*(int **)(param_1 + 8),&uStack_74,(int)&uStack_6c);
+    iVar7 = call_helper_with_offset_args_104635d6((int *)(param_1->field_0x8),(void *)(&uStack_74),(int)&uStack_6c);
     uStack_f8 = 0;
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
     }
     puVar18[3] = uStack_6c;
-    uVar14 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)bStack_69,(uint)bStack_6a,(uint)bStack_6b,puVar18[3]);
+    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)bStack_69,(int)((uint)bStack_6a),(int)((uint)bStack_6b),(byte)(puVar18[3]));
     write_word_to_struct_array(param_3,uVar14,0);
     puVar18[3] = uStack_68;
-    uVar14 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)bStack_65,(uint)bStack_66,(uint)bStack_67,puVar18[3]);
+    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)bStack_65,(int)((uint)bStack_66),(int)((uint)bStack_67),(byte)(puVar18[3]));
     iStack_104 = 1;
     goto LAB_104980cc;
   case 0xf:
     set_struct_field_at_offset_4(param_3,1);
-    piVar16 = *(int **)(param_1 + 8);
+    piVar16 = (int *)((uintptr_t)(param_1->field_0x8));
     uVar14 = read_struct_field_at_index_1046c7ca(param_3,0);
     iVar7 = call_helper_with_stack_param_104635ec(piVar16,uVar14 & 0xff,(int)&bStack_64);
     uStack_f8 = 0;
@@ -514,12 +514,12 @@ uint32_t dispatch_command_by_type_id(int param_1,uint32_t param_2,int param_3)
       uStack_f8 = 0x82;
     }
     puVar18[3] = 0;
-    uVar14 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)bStack_63,(uint)bStack_64,0,puVar18[3]);
+    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)bStack_63,(int)((uint)bStack_64),(int)(0),(byte)(puVar18[3]));
     iStack_104 = 0;
     goto LAB_104980cc;
   case 0x10:
     set_struct_field_at_offset_4(param_3,1);
-    piVar16 = *(int **)(param_1 + 8);
+    piVar16 = (int *)((uintptr_t)(param_1->field_0x8));
     uVar14 = read_struct_field_at_index_1046c7ca(param_3,0);
     iVar7 = call_helper_with_offset_args_10463608(piVar16,uVar14 & 0xff,(int)&bStack_62);
     uStack_f8 = 0;
@@ -527,14 +527,14 @@ uint32_t dispatch_command_by_type_id(int param_1,uint32_t param_2,int param_3)
       uStack_f8 = 0x82;
     }
     puVar18[3] = 0;
-    uVar14 = pack_four_bytes_big_endian_1042b9ee(param_1,(uint)bStack_61,(uint)bStack_62,0,puVar18[3]);
+    uVar14 = pack_four_bytes_big_endian_1042b9ee((uint32_t)(param_1),(uint)bStack_61,(int)((uint)bStack_62),(int)(0),(byte)(puVar18[3]));
     iStack_104 = 0;
 LAB_104980cc:
     write_word_to_struct_array(param_3,uVar14,iStack_104);
     break;
   case 0x12:
     set_struct_field_at_offset_4(param_3,0);
-    piVar16 = *(int **)(param_1 + 8);
+    piVar16 = (int *)((uintptr_t)(param_1->field_0x8));
     uVar14 = read_struct_field_at_index_1046c7ca(param_3,0);
     iVar7 = write_two_bytes_to_buffer(piVar16,uVar14 & 0xffff);
     if (iVar7 == 0) {
@@ -548,7 +548,7 @@ LAB_104980cc:
     set_struct_field_at_offset_4(param_3,0);
     uVar14 = read_struct_field_at_index_1046c7ca(param_3,0);
     uVar12 = read_struct_field_at_index_1046c7ca(param_3,1);
-    iVar7 = send_two_word_command(*(int **)(param_1 + 8),uVar14 & 0xffff,uVar12 & 0xffff);
+    iVar7 = send_two_word_command((int *)(param_1->field_0x8),(uint32_t)(uVar14 & 0xffff),(uint32_t)(uVar12 & 0xffff));
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
     }
@@ -561,7 +561,7 @@ LAB_104980cc:
     uVar14 = read_struct_field_at_index_1046c7ca(param_3,0);
     uVar12 = read_struct_field_at_index_1046c7ca(param_3,1);
     uVar13 = read_struct_field_at_index_1046c7ca(param_3,2);
-    iVar7 = pack_two_u16_into_buffer(*(int **)(param_1 + 8),uVar14 & 0xffff,uVar12 & 0xffff,uVar13 & 0xffff);
+    iVar7 = pack_two_u16_into_buffer((int *)(param_1->field_0x8),(uint32_t)(uVar14 & 0xffff),(uint32_t)(uVar12 & 0xffff),(uint32_t)(uVar13 & 0xffff));
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
     }
@@ -571,7 +571,7 @@ LAB_104980cc:
     break;
   case 0x15:
     set_struct_field_at_offset_4(param_3,0);
-    iVar7 = call_helper_with_53(*(int **)(param_1 + 8));
+    iVar7 = call_helper_with_53((int *)(param_1->field_0x8));
     uStack_f8 = 0;
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
@@ -579,7 +579,7 @@ LAB_104980cc:
     break;
   case 0x16:
     set_struct_field_at_offset_4(param_3,0);
-    iVar7 = call_helper_with_fixed_args_104632c0(*(int **)(param_1 + 8));
+    iVar7 = call_helper_with_fixed_args_104632c0((int *)(param_1->field_0x8));
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
     }
@@ -589,7 +589,7 @@ LAB_104980cc:
     break;
   case 0x17:
     set_struct_field_at_offset_4(param_3,0);
-    iVar7 = call_helper_with_fixed_args_104632d8(*(int **)(param_1 + 8));
+    iVar7 = call_helper_with_fixed_args_104632d8((int *)(param_1->field_0x8));
     uStack_f8 = 0;
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
@@ -614,7 +614,7 @@ LAB_104980cc:
     write_two_bytes_to_offset_0xc_10463836(auStack_18,uVar14 & 0xffff);
     uVar14 = read_struct_field_at_index_1046c7ca(param_3,7);
     write_two_bytes_to_offset_14_10463844(auStack_18,uVar14 & 0xffff);
-    iVar7 = call_helper_with_zeroed_flag(*(int **)(param_1 + 8));
+    iVar7 = call_helper_with_zeroed_flag((int *)(param_1->field_0x8));
     uStack_f8 = 0;
     if (iVar7 == 0) {
       uStack_f8 = 0x82;
@@ -623,7 +623,7 @@ LAB_104980cc:
     break;
   case 0x19:
     set_struct_field_at_offset_4(param_3,0);
-    piVar16 = *(int **)(param_1 + 8);
+    piVar16 = (int *)((uintptr_t)(param_1->field_0x8));
     uVar14 = read_struct_field_at_index_1046c7ca(param_3,0);
     iVar7 = call_helper_with_offset_args_10463316(piVar16,uVar14 & 0xff);
     uStack_f8 = 0;

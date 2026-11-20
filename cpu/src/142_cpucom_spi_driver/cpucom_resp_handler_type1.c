@@ -39,8 +39,8 @@ uint32_t cpucom_resp_handler_type1(int *param_1,uint8_t *param_2)
     }
     uVar5 = 1;
   }
-  uVar3 = (**(code **)(*param_1 + 0x84))((int)*(short *)(*param_1 + 0x80) + (int)param_1,uVar3);
+  uVar3 = (((vtbl_entry*)(*param_1))[16].fn)((int)((vtbl_entry*)(*param_1))[16].adj + (int)param_1,uVar3);
   release_context_at_offset_0x3c(param_1);
-  (**(code **)(*param_1 + 0x8c))((int)*(short *)(*param_1 + 0x88) + (int)param_1,uVar3,0);
+  (((vtbl_entry*)(*param_1))[17].fn)((int)((vtbl_entry*)(*param_1))[17].adj + (int)param_1,uVar3,0);
   return uVar5;
 }

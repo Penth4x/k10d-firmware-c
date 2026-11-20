@@ -31,8 +31,8 @@ void check_and_dispatch_state_change_103ac0ee(int *param_1)
     empty_stub_function_103b76f0();
     empty_noop_stub_103b76f2();
     iVar3 = *(int *)param_1[0xb];
-    (**(code **)(iVar3 + 0x14))(param_1[0xb] + (int)*(short *)(iVar3 + 0x10),0x1120077,0);
-    (**(code **)(*param_1 + 0x74))((int)*(short *)(*param_1 + 0x70) + (int)param_1,0x112000b,0);
+    (((vtbl_entry*)(iVar3))[2].fn)(param_1[0xb] + (int)((vtbl_entry*)(iVar3))[2].adj,0x1120077,0);
+    (((vtbl_entry*)(*param_1))[14].fn)((int)((vtbl_entry*)(*param_1))[14].adj + (int)param_1,0x112000b,0);
   }
   return;
 }

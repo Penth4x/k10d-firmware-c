@@ -26,7 +26,7 @@ void dispatch_mode_transition_10364bdc(void *param_1)
   uint extraout_r4;
   int iVar3;
   uint32_t uVar4;
-  void *pvVar6;
+  cls_10559218 *pcVar6;
   uintptr_t sp;
   uint32_t *puVar7;
   uint8_t local_54 [8];
@@ -62,7 +62,7 @@ void dispatch_mode_transition_10364bdc(void *param_1)
           puVar7[1] = 0x800158dc/*SDRAM*/;
           iVar3 = retry_operation_five_times_10364f94((int)param_1,2,(void *)0x80018058/*SDRAM*/,0x80015d04/*SDRAM*/,*puVar7,puVar7[1]);
           if (iVar3 == 0) {
-            invoke_virtual_slot2_on_three_objects((int)param_1);
+            invoke_virtual_slot2_on_three_objects((uint32_t)(param_1));
           }
         }
       }
@@ -78,16 +78,16 @@ void dispatch_mode_transition_10364bdc(void *param_1)
       uVar4 = return_first_word_1045c514(auStack_18);
       uStack_1c = (short)uVar4;
       uVar4 = read_struct_field_at_offset_4(auStack_18);
-      pvVar6 = (void *)((int)param_1 + 0x1b4);
+      pcVar6 = (cls_10559218 *)((int)param_1 + 0x1b4);
       uStack_1a = (short)uVar4;
-      register_menu_item_with_data_10385198((int)pvVar6,1,&uStack_28);
+      register_menu_item_with_data_10385198(pcVar6,1,&uStack_28);
       iVar2 = read_array_element_at_offset(iVar2,extraout_r4);
       bVar5 = *(byte *)(iVar2 + 4);
-      iVar2 = read_table_entry_if_valid((void *)((int)param_1 + 0x224),uVar1);
-      set_menu_item_flags(pvVar6,(uint)bVar5,(uint)(iVar2 == 1));
+      iVar2 = read_table_entry_if_valid((int *)((int)param_1 + 0x224),(int)(uVar1));
+      set_menu_item_flags(pcVar6,(uint)bVar5,(uint)(iVar2 == 1));
       *(uint32_t *)((int)param_1 + 0x204) = 2;
       call_helper_on_struct_field_1036c46c();
-      call_helper_on_struct_field_1036c41a(param_1,pvVar6,1);
+      call_helper_on_struct_field_1036c41a(param_1,pcVar6,1);
       free_heap_if_flagged_1045c402(auStack_18,2);
     }
   }

@@ -26,13 +26,10 @@ uint32_t invoke_virtual_method_on_allocated_object(uint32_t param_1,int param_2,
   uint16_t uVar5;
   uint32_t uVar6;
   uintptr_t sp;
-  uint8_t auStack_1c [8];
-  uint32_t uStack_14;
-  uint32_t uStack_10;
-  uint32_t uStack_c;
+  cls_105b9aac cStack_1c;
   
   iVar3 = *(int *)(param_3 + 8);
-  iVar4 = find_entry_by_ushort_key(iVar3,0x112);
+  iVar4 = (uint32_t)(find_entry_by_ushort_key(iVar3,0x112));
   uVar6 = 0;
   if (iVar4 != 0) {
     iVar2 = *(int *)(param_2 + 0x2c);
@@ -50,16 +47,16 @@ uint32_t invoke_virtual_method_on_allocated_object(uint32_t param_1,int param_2,
       uVar5 = 3;
     }
     write_word_to_dynamic_array(iVar4,0,uVar5);
-    cls_105b9aac_new((uint32_t *)__frv_reg_unset(4));
-    (*(code *)0x104cfcd8/*ROM*/)(auStack_1c,*(uint8_t *)(param_3 + 0x10));
-    uStack_14 = *(uint32_t *)(*(int *)(param_2 + 4) + 0x10);
-    uStack_10 = **(uint32_t **)(param_2 + 4);
-    uStack_c = *(uint32_t *)(param_3 + 0x14);
+    cls_105b9aac_new(&cStack_1c);
+    (*(code *)0x104cfcd8/*ROM*/)(&cStack_1c,*(uint8_t *)(param_3 + 0x10));
+    cStack_1c.field_0x8 = *(uint32_t *)(*(int *)(param_2 + 4) + 0x10);
+    cStack_1c.field_0xc = **(uint32_t **)(param_2 + 4);
+    cStack_1c.field_0x10 = *(uint32_t *)(param_3 + 0x14);
     iVar2 = *(int *)(iVar4 + 0x10);
     sVar1 = *(short *)(iVar2 + 0x18);
     iVar3 = find_entry_by_id_in_table(iVar3,0x112);
-    uVar6 = (**(code **)(iVar2 + 0x1c))(sVar1 + iVar4,auStack_1c,iVar3);
-    cls_105b9aac_delete(auStack_1c,2);
+    uVar6 = (((vtbl_entry*)(iVar2))[3].fn)(sVar1 + iVar4,&cStack_1c,iVar3);
+    cls_105b9aac_delete(&cStack_1c,2);
   }
   return uVar6;
 }

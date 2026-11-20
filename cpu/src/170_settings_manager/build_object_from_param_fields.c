@@ -21,22 +21,22 @@ uint32_t build_object_from_param_fields(int *param_1,uint32_t param_2)
 {
   uint32_t uVar1;
   uintptr_t sp;
-  uint8_t auStack_10 [8];
+  cls_105aaf78 cStack_10;
   
-  cls_105aaf78_new(auStack_10,param_2);
-  initialize_derived_object_state(auStack_10);
-  (*(code *)0x1047f5e4/*ROM*/)(auStack_10,0x200);
-  (*(code *)0x1047f5f4/*ROM*/)(auStack_10,*(uint8_t *)(param_1 + 7));
-  (*(code *)0x1047f5fc/*ROM*/)(auStack_10,*(uint16_t *)((int)param_1 + 0x1e));
-  (*(code *)0x1047f60c/*ROM*/)(auStack_10,*(uint8_t *)(param_1 + 8));
-  (*(code *)0x1047f614/*ROM*/)(auStack_10,*(uint16_t *)((int)param_1 + 0x22));
-  (*(code *)0x1047f624/*ROM*/)(auStack_10,param_1[6]);
-  (*(code *)0x1047f690/*ROM*/)(auStack_10,param_1[9] & 0xffff);
-  (*(code *)0x1047f6a0/*ROM*/)(auStack_10,*(uint16_t *)(param_1 + 4));
-  (*(code *)0x1047f6b0/*ROM*/)(auStack_10,*(uint16_t *)((int)param_1 + 0x12));
-  (*(code *)0x1047f6c0/*ROM*/)(auStack_10,param_1[5]);
-  copy_eight_bytes_to_struct((void *)auStack_10,*(uint16_t *)(param_1 + 10));
+  cls_105aaf78_new(&cStack_10,param_2);
+  initialize_derived_object_state(&cStack_10);
+  (*(code *)0x1047f5e4/*ROM*/)(&cStack_10,0x200);
+  (*(code *)0x1047f5f4/*ROM*/)(&cStack_10,*(uint8_t *)(param_1 + 7));
+  (*(code *)0x1047f5fc/*ROM*/)(&cStack_10,*(uint16_t *)((int)param_1 + 0x1e));
+  (*(code *)0x1047f60c/*ROM*/)(&cStack_10,*(uint8_t *)(param_1 + 8));
+  (*(code *)0x1047f614/*ROM*/)(&cStack_10,*(uint16_t *)((int)param_1 + 0x22));
+  (*(code *)0x1047f624/*ROM*/)(&cStack_10,param_1[6]);
+  (*(code *)0x1047f690/*ROM*/)(&cStack_10,param_1[9] & 0xffff);
+  (*(code *)0x1047f6a0/*ROM*/)(&cStack_10,*(uint16_t *)(param_1 + 4));
+  (*(code *)0x1047f6b0/*ROM*/)(&cStack_10,*(uint16_t *)((int)param_1 + 0x12));
+  (*(code *)0x1047f6c0/*ROM*/)(&cStack_10,param_1[5]);
+  copy_eight_bytes_to_struct(&cStack_10,*(uint16_t *)(param_1 + 10));
   uVar1 = call_virtual_slot_6_and_helper(param_1,param_1[5],1);
-  cls_105aaf78_delete(auStack_10,2);
+  cls_105aaf78_delete(&cStack_10,2);
   return uVar1;
 }

@@ -6,10 +6,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_and_clear_offset_0x14(int param_1)
+void call_helper_and_clear_offset_0x14(cls_10599c24 *param_1)
 
 {
   empty_noop_stub_1040b790();
-  *(uint8_t *)(param_1 + 0x14) = 0;
+  param_1->field_0x14 = 0;
   return;
 }

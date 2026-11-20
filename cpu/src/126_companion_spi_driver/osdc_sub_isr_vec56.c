@@ -15,12 +15,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t osdc_sub_isr_vec56(int param_1)
+/* WARNING: Struct "cls_105a0cd0": ignoring multiple overlapping fields */
+
+uint32_t osdc_sub_isr_vec56(cls_105a0cd0 *param_1)
 
 {
   uint32_t uVar1;
   
-  uVar1 = dispatch_single_subobj(param_1 + 8);
-  clear_flag_in_object_field_10442118(param_1);
+  uVar1 = dispatch_single_subobj(&param_1->field_0x8);
+  clear_flag_in_object_field_10442118((int)(param_1));
   return uVar1;
 }

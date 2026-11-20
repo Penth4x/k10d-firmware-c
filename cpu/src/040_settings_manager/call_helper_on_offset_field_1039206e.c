@@ -13,9 +13,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_on_offset_field_1039206e(int param_1)
+void call_helper_on_offset_field_1039206e(cls_10562758 *param_1)
 
 {
-  init_object_with_seventeen_handles_10397862((void *)(param_1 + 0xc),__frv_reg_unset(5),(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  uint32_t r5_in;
+  void *r6_in;
+  void *r7_in;
+  
+  init_object_with_seventeen_handles_10397862((cls_105631d0 *)&param_1->field_0xc,r5_in,r6_in,r7_in);
   return;
 }

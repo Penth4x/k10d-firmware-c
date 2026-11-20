@@ -22,7 +22,7 @@ bool check_object_state_flag_1048001e(uint32_t param_x0, uint32_t param_x1)
 {
   int iVar1;
   
-  iVar1 = lookup_table_entry_by_index_10482026((void *)_DAT_80010030/*SDRAM*/);
-  iVar1 = (**(code **)(*(int *)(iVar1 + 4) + 0x54))(iVar1 + *(short *)(*(int *)(iVar1 + 4) + 0x50));
+  iVar1 = lookup_table_entry_by_index_10482026((void*)(_DAT_80010030/*SDRAM*/));
+  iVar1 = (((vtbl_entry*)(*(int *)(iVar1 + 4)))[10].fn)(iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 4)))[10].adj);
   return iVar1 == 0;
 }

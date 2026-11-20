@@ -50,7 +50,7 @@ int insert_list_node_by_name(void *param_1,int param_2,char *param_3)
   else {
     iVar6 = *(int *)((uint)*(ushort *)((int)param_1 + 10) * 8 + param_2 + 0xc);
   }
-  uStack_90 = (uStack_90 & ~(0xffULL << 16)) | ((((uint64_t)(0)) & 0xffULL) << 16);
+  uStack_90 = (uStack_90 & ~(((uint64_t)0xff) << 16)) | ((((uint64_t)(0)) & ((uint64_t)0xff)) << 16);
   pcVar2 = (char *)parse_delimited_token(param_3,(void *)((int)&uStack_90 + 2),&iStack_20,&iStack_1c);
   if (iStack_20 != 0) {
     for (pcVar3 = (char *)((int)&uStack_90 + 1); *pcVar3 == '\0'; pcVar3 = pcVar3 + -1) {
@@ -110,7 +110,7 @@ LAB_1053e884:
         uStack_6d = 0x10;
         iVar4 = allocate_and_link_event_node_105382e4((int)param_1,0x16,&iStack_10,auStack_8c);
         if (iVar4 != 0) {
-          free_linked_list_nodes((void *)iStack_18);
+          free_linked_list_nodes((void *)(iStack_18));
           return iVar4;
         }
         *(int *)((uint)*(ushort *)((int)param_1 + 10) * 8 + param_2 + 0xc) = iStack_14;
@@ -122,7 +122,7 @@ LAB_1053e884:
           *(int *)(iVar6 + 0x14) = iStack_18;
         }
       }
-      free_linked_list_nodes((void *)uStack_24);
+      free_linked_list_nodes((void *)(uStack_24));
       return 0;
     }
     if (iStack_1c == 0) {

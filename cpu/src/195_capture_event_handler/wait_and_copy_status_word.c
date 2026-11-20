@@ -30,7 +30,7 @@ void wait_and_copy_status_word(int param_1)
   uStack_c = 0;
   iVar1 = call_kernel_with_offset_arg(*(int *)(param_1 + 0x18) + 4);
   while (iVar1 != 0) {
-    destroy_virtual_object((void *)uStack_c,3);
+    destroy_virtual_object((int *)(uStack_c),(uint)(3));
     iVar1 = call_kernel_with_offset_arg(*(int *)(param_1 + 0x18) + 4);
   }
   do {

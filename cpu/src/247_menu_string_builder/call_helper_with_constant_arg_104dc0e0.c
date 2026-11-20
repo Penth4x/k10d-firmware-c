@@ -17,6 +17,6 @@
 void call_helper_with_constant_arg_104dc0e0(uint32_t param_1,int *param_2)
 
 {
-  append_string_to_buffer(param_2,0x105babbc/*ROM*/);
+  append_string_to_buffer((int *)(param_2),(char *)(0x105babbc/*ROM*/));
   return;
 }

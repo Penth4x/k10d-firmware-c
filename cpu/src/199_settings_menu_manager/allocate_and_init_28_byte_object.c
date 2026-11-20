@@ -17,7 +17,7 @@ uint32_t * allocate_and_init_28_byte_object(uint32_t *param_1)
   
   if ((param_1 != (uint32_t *)0x0) ||
      (param_1 = (uint32_t *)heap_alloc((void *)0x1c), param_1 != (uint32_t *)0x0)) {
-    cls_105a5c2c_new(param_1 + 1,0);
+    cls_105a5c2c_new((cls_105a5c2c *)(param_1 + 1),0);
     uVar1 = get_or_init_singleton_10491684();
     *param_1 = uVar1;
     iStack_c = 0x2e;

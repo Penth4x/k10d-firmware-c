@@ -36,36 +36,36 @@ bool compare_two_read_buffers(int param_1,void *param_2)
   uint32_t uStack_38;
   uint16_t uStack_34;
   int iStack_30;
-  uint8_t auStack_2c [16];
-  int iStack_1c;
+  cls_105ab468 cStack_2c;
   uint32_t uStack_c;
   
   puVar8 = auStackY_cc;
   uStack_34 = 0;
   uStack_38 = 0;
   iStack_30 = 0;
-  sr_dma_command(param_1,3,5,0x105a9558/*ROM*/,7,0xff);
+  sr_dma_command(param_1,3,5,(void*)(0x105a9558/*ROM*/),7,0xff);
   iVar1 = get_or_create_camera_object();
   piVar6 = *(int **)(iVar1 + 0xc);
-  cls_105ab468_new(auStack_2c);
-  iVar1 = call_with_offset_lock_1048101c(piVar6,param_2,auStack_2c);
+  cls_105ab468_new(&cStack_2c);
+  iVar1 = call_with_offset_lock_1048101c(piVar6,param_2,&cStack_2c);
   if (iVar1 == 0) {
     bVar4 = false;
   }
   else {
     uStack_c = 0;
-    iVar1 = (**(code **)(*piVar6 + 0x2c))
-                      ((int)*(short *)(*piVar6 + 0x28) + (int)piVar6,param_2,1,&uStack_c);
+    iVar1 = (((vtbl_entry*)(*piVar6))[5].fn)
+                      ((int)((vtbl_entry*)(*piVar6))[5].adj + (int)piVar6,param_2,1,&uStack_c);
     if (iVar1 == 0) {
       bVar4 = false;
     }
     else {
-      puVar2 = (uint8_t *)heap_alloc_2(iStack_1c + 1);
-      (**(code **)(*piVar6 + 0x3c))
-                ((int)*(short *)(*piVar6 + 0x38) + (int)piVar6,uStack_c,puVar2,iStack_1c);
-      (**(code **)(*piVar6 + 0x34))((int)*(short *)(*piVar6 + 0x30) + (int)piVar6,uStack_c);
+      puVar2 = (uint8_t *)heap_alloc_2(cStack_2c.field_0x10 + 1);
+      (((vtbl_entry*)(*piVar6))[7].fn)
+                ((int)((vtbl_entry*)(*piVar6))[7].adj + (int)piVar6,uStack_c,puVar2,cStack_2c.field_0x10)
+      ;
+      (((vtbl_entry*)(*piVar6))[6].fn)((int)((vtbl_entry*)(*piVar6))[6].adj + (int)piVar6,uStack_c);
       reset_subobject_at_offset_0x2c_104706a0(param_1);
-      puVar2[iStack_1c] = 0;
+      puVar2[cStack_2c.field_0x10] = 0;
       iVar1 = heap_alloc_2(0x800);
       uStack_38 = 0;
       uStack_34 = 0x800;
@@ -123,13 +123,13 @@ bool compare_two_read_buffers(int param_1,void *param_2)
       if (bVar4 != false) {
         *(uint16_t *)(puVar8 + 2) = 0;
         *(uint16_t *)(puVar8 + 6) = 0xff;
-        sr_dma_command(param_1,4,5,0x105a95b4/*ROM*/,*(uint16_t *)(puVar8 + 2),
+        sr_dma_command(param_1,4,5,(void*)(0x105a95b4/*ROM*/),*(uint16_t *)(puVar8 + 2),
                        *(uint16_t *)(puVar8 + 6));
       }
     }
   }
   check_kernel_call_success_10459fea();
   update_field_at_offset_0x20(param_1);
-  cls_105ab468_delete(auStack_2c,2);
+  cls_105ab468_delete(&cStack_2c,2);
   return bVar4;
 }

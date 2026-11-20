@@ -15,54 +15,54 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t initialize_object_state_1041ad18(void *param_1)
+uint32_t initialize_object_state_1041ad18(cls_1059cbf0 *param_1)
 
 {
   uint32_t uVar1;
   void *pvVar2;
-  int iVar3;
+  uint32_t *puVar3;
   int iVar4;
   
-  alloc_pool_and_init_task((int *)((int)param_1 + 0x10),10,0x2000,4);
+  alloc_pool_and_init_task(&param_1->field_0x10,10,0x2000,4);
   uVar1 = get_or_init_singleton_object_1051d40e();
-  *(uint32_t *)((int)param_1 + 0x44) = uVar1;
+  param_1->field_0x44 = uVar1;
   uVar1 = get_sysparam_store_instance();
-  *(uint32_t *)((int)param_1 + 0x48) = uVar1;
+  param_1->field_0x48 = uVar1;
   pvVar2 = (void *)get_or_init_sram_buffer_104277bc();
   uVar1 = read_table_entry_field(pvVar2,0xc1);
-  *(uint32_t *)((int)param_1 + 0x4c) = uVar1;
+  param_1->field_0x4c = uVar1;
   uVar1 = read_table_entry_field(pvVar2,0xb8);
-  *(uint32_t *)((int)param_1 + 0x2c) = uVar1;
-  iVar4 = *(int *)(*(int *)((int)param_1 + 0x24) + 4);
-  iVar3 = (int)param_1 + 8;
-  (**(code **)(iVar4 + 0x1c))
-            (*(int *)((int)param_1 + 0x24) + 4 + (int)*(short *)(iVar4 + 0x18),iVar3,0x80000003/*SDRAM*/);
-  iVar4 = *(int *)(*(int *)((int)param_1 + 0x24) + 4);
-  (**(code **)(iVar4 + 0x1c))
-            (*(int *)((int)param_1 + 0x24) + 4 + (int)*(short *)(iVar4 + 0x18),iVar3,0x80000004/*SDRAM*/);
-  iVar4 = *(int *)(*(int *)((int)param_1 + 0x24) + 4);
-  (**(code **)(iVar4 + 0x1c))
-            (*(int *)((int)param_1 + 0x24) + 4 + (int)*(short *)(iVar4 + 0x18),iVar3,0x80000005/*SDRAM*/);
-  iVar4 = *(int *)(*(int *)((int)param_1 + 0x24) + 4);
-  (**(code **)(iVar4 + 0x1c))
-            (*(int *)((int)param_1 + 0x24) + 4 + (int)*(short *)(iVar4 + 0x18),iVar3,0x80000006/*SDRAM*/);
-  iVar4 = *(int *)(*(int *)((int)param_1 + 0x24) + 4);
-  (**(code **)(iVar4 + 0x1c))
-            (*(int *)((int)param_1 + 0x24) + 4 + (int)*(short *)(iVar4 + 0x18),iVar3,0x80000008/*SDRAM*/);
-  iVar4 = *(int *)(*(int *)((int)param_1 + 0x24) + 4);
-  (**(code **)(iVar4 + 0x1c))
-            (*(int *)((int)param_1 + 0x24) + 4 + (int)*(short *)(iVar4 + 0x18),iVar3,0x80000009/*SDRAM*/);
-  iVar4 = *(int *)(*(int *)((int)param_1 + 0x24) + 4);
-  (**(code **)(iVar4 + 0x1c))
-            (*(int *)((int)param_1 + 0x24) + 4 + (int)*(short *)(iVar4 + 0x18),iVar3,0x8000000b/*SDRAM*/);
-  iVar4 = *(int *)(*(int *)((int)param_1 + 0x24) + 4);
-  (**(code **)(iVar4 + 0x1c))
-            (*(int *)((int)param_1 + 0x24) + 4 + (int)*(short *)(iVar4 + 0x18),iVar3,0x8000000c/*SDRAM*/);
-  iVar4 = *(int *)(*(int *)((int)param_1 + 0x24) + 4);
-  (**(code **)(iVar4 + 0x1c))
-            (*(int *)((int)param_1 + 0x24) + 4 + (int)*(short *)(iVar4 + 0x18),iVar3,0x8000001a/*SDRAM*/);
-  *(int *)(*(int *)((int)param_1 + 0x3c) + 0x10) = (int)param_1 + 4;
-  wait_flg_obj((void *)((int)param_1 + 0x7c),0);
-  wait_flg_obj((void *)((int)param_1 + 0x84),0);
+  param_1->field_0x2c = uVar1;
+  iVar4 = *(int *)(param_1->field_0x24 + 4);
+  puVar3 = &param_1->field_0x8;
+  (((vtbl_entry*)(iVar4))[3].fn)
+            (param_1->field_0x24 + 4 + (int)((vtbl_entry*)(iVar4))[3].adj,puVar3,0x80000003/*SDRAM*/);
+  iVar4 = *(int *)(param_1->field_0x24 + 4);
+  (((vtbl_entry*)(iVar4))[3].fn)
+            (param_1->field_0x24 + 4 + (int)((vtbl_entry*)(iVar4))[3].adj,puVar3,0x80000004/*SDRAM*/);
+  iVar4 = *(int *)(param_1->field_0x24 + 4);
+  (((vtbl_entry*)(iVar4))[3].fn)
+            (param_1->field_0x24 + 4 + (int)((vtbl_entry*)(iVar4))[3].adj,puVar3,0x80000005/*SDRAM*/);
+  iVar4 = *(int *)(param_1->field_0x24 + 4);
+  (((vtbl_entry*)(iVar4))[3].fn)
+            (param_1->field_0x24 + 4 + (int)((vtbl_entry*)(iVar4))[3].adj,puVar3,0x80000006/*SDRAM*/);
+  iVar4 = *(int *)(param_1->field_0x24 + 4);
+  (((vtbl_entry*)(iVar4))[3].fn)
+            (param_1->field_0x24 + 4 + (int)((vtbl_entry*)(iVar4))[3].adj,puVar3,0x80000008/*SDRAM*/);
+  iVar4 = *(int *)(param_1->field_0x24 + 4);
+  (((vtbl_entry*)(iVar4))[3].fn)
+            (param_1->field_0x24 + 4 + (int)((vtbl_entry*)(iVar4))[3].adj,puVar3,0x80000009/*SDRAM*/);
+  iVar4 = *(int *)(param_1->field_0x24 + 4);
+  (((vtbl_entry*)(iVar4))[3].fn)
+            (param_1->field_0x24 + 4 + (int)((vtbl_entry*)(iVar4))[3].adj,puVar3,0x8000000b/*SDRAM*/);
+  iVar4 = *(int *)(param_1->field_0x24 + 4);
+  (((vtbl_entry*)(iVar4))[3].fn)
+            (param_1->field_0x24 + 4 + (int)((vtbl_entry*)(iVar4))[3].adj,puVar3,0x8000000c/*SDRAM*/);
+  iVar4 = *(int *)(param_1->field_0x24 + 4);
+  (((vtbl_entry*)(iVar4))[3].fn)
+            (param_1->field_0x24 + 4 + (int)((vtbl_entry*)(iVar4))[3].adj,puVar3,0x8000001a/*SDRAM*/);
+  *(uint32_t **)(param_1->field_0x3c + 0x10) = &param_1->field_0x4;
+  wait_flg_obj(&param_1->field_0x7c,0);
+  wait_flg_obj(&param_1->field_0x84,0);
   return 1;
 }

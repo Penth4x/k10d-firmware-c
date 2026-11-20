@@ -26,7 +26,7 @@ void sync_object_state_via_virtual_call(void *param_1)
   int iVar4;
   
   iVar4 = **(int **)((int)param_1 + 0x70);
-  cVar1 = (**(code **)(iVar4 + 0xcc))
+  cVar1 = (((vtbl_entry*)(iVar4))[25].fn)
                     ((int)*(int **)((int)param_1 + 0x70) + (int)*(short *)(iVar4 + 200),
                      *(uint32_t *)((int)param_1 + 0x248));
   if (cVar1 != '\0') {

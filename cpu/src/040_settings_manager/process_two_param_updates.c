@@ -29,12 +29,12 @@ void process_two_param_updates(int param_1)
   uVar2 = return_r4_passthrough_104d800e();
   uVar2 = adjust_pointer_by_flag(uVar2,1);
   uVar3 = read_field_at_offset_eight_10393008(param_1);
-  iVar1 = check_param_against_three_values((void *)param_1,uVar3,uVar2);
+  iVar1 = check_param_against_three_values((void *)(param_1),(int)(uVar3),(uint32_t)(uVar2));
   if (iVar1 == 0) {
     call_helper_with_offset_10392ff8(param_1,0);
   }
   uVar3 = read_field_at_offset_eight_10393048(param_1);
-  iVar1 = check_param_against_two_values((void *)param_1,uVar3,uVar2);
+  iVar1 = check_param_against_two_values((void *)(param_1),(int)(uVar3),(uint32_t)(uVar2));
   if (iVar1 == 0) {
     call_helper_with_offset_arg_10393038(param_1,0);
   }

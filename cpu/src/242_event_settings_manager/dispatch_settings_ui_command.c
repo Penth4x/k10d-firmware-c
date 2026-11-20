@@ -8,7 +8,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-uint32_t dispatch_settings_ui_command(uint32_t *param_1,uint32_t param_2,uint32_t *param_3)
+uint32_t dispatch_settings_ui_command(cls_105b9bd0 *param_1,uint32_t param_2,uint32_t *param_3)
 
 {
   uint8_t uVar1;
@@ -41,7 +41,7 @@ uint32_t dispatch_settings_ui_command(uint32_t *param_1,uint32_t param_2,uint32_
   puVar17 = auStack_60;
   uVar1 = *(uint8_t *)((int)param_3 + 0x859);
   set_struct_field_at_offset_4((int)param_3,0);
-  iVar2 = read_virtual_property_field((void *)param_1[6],1);
+  iVar2 = read_virtual_property_field((int *)(param_1->field_0x18),(int)(1));
   bVar14 = false;
   if ((iVar2 == 2) || (iVar2 == 3)) {
     bVar14 = true;
@@ -54,7 +54,7 @@ uint32_t dispatch_settings_ui_command(uint32_t *param_1,uint32_t param_2,uint32_
     set_struct_field_at_offset_4((int)param_3,0);
     iVar2 = get_or_init_singleton_10433180();
     iVar2 = *(int *)(iVar2 + 4);
-    puVar15 = param_1 + 4;
+    puVar15 = &param_1->field_0x10;
     eventflag_clr_flg(puVar15,1);
     iVar2 = set_mode_flag_and_update_ctrl(iVar2,(int)puVar15,1,4);
     if (iVar2 != 0) {
@@ -68,63 +68,63 @@ uint32_t dispatch_settings_ui_command(uint32_t *param_1,uint32_t param_2,uint32_
     if (bVar14) {
       iVar2 = read_struct_field_at_index_1046c7ca((int)param_3,0);
       if (iVar2 == 0) {
-        uVar12 = param_1[2];
+        pvVar10 = (void *)((uintptr_t)(param_1->field_0x8));
         iVar2 = read_struct_field_at_index_1046c7ca((int)param_3,1);
-        first_run_set_flag_a(uVar12,iVar2 != 0);
+        first_run_set_flag_a((int)(pvVar10),(int)(iVar2 != 0));
         return 0;
       }
       if (iVar2 == 1) {
-        uVar12 = param_1[2];
+        pvVar10 = (void *)((uintptr_t)(param_1->field_0x8));
         iVar2 = read_struct_field_at_index_1046c7ca((int)param_3,1);
-        init_two_magic_fields_10484960(uVar12,iVar2 != 0);
+        init_two_magic_fields_10484960((int)(pvVar10),(int)(iVar2 != 0));
         return 0;
       }
       if (iVar2 == 2) {
-        uVar12 = param_1[2];
+        pvVar10 = (void *)((uintptr_t)(param_1->field_0x8));
         iVar2 = read_struct_field_at_index_1046c7ca((int)param_3,1);
-        first_run_set_flag_b(uVar12,iVar2 != 0);
+        first_run_set_flag_b((int)(pvVar10),(int)(iVar2 != 0));
         return 0;
       }
       if (iVar2 != 3) {
         return 0x83;
       }
-      uVar12 = param_1[2];
+      pvVar10 = (void *)((uintptr_t)(param_1->field_0x8));
       iVar2 = read_struct_field_at_index_1046c7ca((int)param_3,1);
-      init_two_magic_fields_104849d8(uVar12,iVar2 != 0);
+      init_two_magic_fields_104849d8((int)(pvVar10),(int)(iVar2 != 0));
       return 0;
     }
     break;
   case 2:
     set_struct_field_at_offset_4((int)param_3,1);
-    bVar14 = check_object_field_via_helper((void *)param_1[2]);
+    bVar14 = check_object_field_via_helper((void *)(param_1->field_0x8));
     if (bVar14) {
-      settings_refresh_working_copy((void *)param_1[2]);
+      settings_refresh_working_copy((void *)(param_1->field_0x8));
     }
     iVar2 = read_struct_field_at_index_1046c7ca((int)param_3,0);
     uVar9 = 0;
     if (iVar2 == 0) {
-      iVar2 = first_run_flag_a_done(param_1[2]);
+      iVar2 = first_run_flag_a_done((int)param_1->field_0x8);
       uVar12 = 1;
       if (iVar2 == 0) {
         uVar12 = 0;
       }
     }
     else if (iVar2 == 1) {
-      iVar2 = check_init_magic_at_offset_0x14(param_1[2]);
+      iVar2 = check_init_magic_at_offset_0x14((int)param_1->field_0x8);
       uVar12 = 1;
       if (iVar2 == 0) {
         uVar12 = 0;
       }
     }
     else if (iVar2 == 2) {
-      iVar2 = first_run_flag_b_done(param_1[2]);
+      iVar2 = first_run_flag_b_done((int)param_1->field_0x8);
       uVar12 = 1;
       if (iVar2 == 0) {
         uVar12 = 0;
       }
     }
     else if (iVar2 == 3) {
-      iVar2 = check_init_magic_at_offset_14(param_1[2]);
+      iVar2 = check_init_magic_at_offset_14((int)param_1->field_0x8);
       uVar12 = 1;
       if (iVar2 == 0) {
         uVar12 = 0;
@@ -139,19 +139,19 @@ uint32_t dispatch_settings_ui_command(uint32_t *param_1,uint32_t param_2,uint32_
     set_struct_field_at_offset_4((int)param_3,0);
     bVar14 = check_field_at_offset_0x18((int)param_1);
     if (bVar14) {
-      uVar12 = param_1[2];
+      pvVar10 = (void *)((uintptr_t)(param_1->field_0x8));
       iVar2 = read_struct_field_at_index_1046c7ca((int)param_3,0);
-      init_two_magic_fields_10484960(uVar12,iVar2 != 0);
+      init_two_magic_fields_10484960((int)(pvVar10),(int)(iVar2 != 0));
       return 0;
     }
     break;
   case 4:
     set_struct_field_at_offset_4((int)param_3,1);
-    bVar14 = check_object_field_via_helper((void *)param_1[2]);
+    bVar14 = check_object_field_via_helper((void *)(param_1->field_0x8));
     if (bVar14) {
-      settings_refresh_working_copy((void *)param_1[2]);
+      settings_refresh_working_copy((void *)(param_1->field_0x8));
     }
-    iVar2 = check_init_magic_at_offset_0x14(param_1[2]);
+    iVar2 = check_init_magic_at_offset_0x14((int)param_1->field_0x8);
     write_word_to_struct_array((int)param_3,(uint)(iVar2 != 0),0);
     return 0;
   case 5:
@@ -224,21 +224,21 @@ LAB_104d0da6:
     if (bVar14) {
       iVar2 = read_struct_field_at_index_1046c7ca((int)param_3,0);
       if (iVar2 == 0) {
-        apply_settings_update((void *)param_1[2]);
+        apply_settings_update((void *)(param_1->field_0x8));
         return 0;
       }
       if (iVar2 != 1) {
         if (iVar2 == 2) {
-          uVar9 = param_1[2];
+          pvVar10 = (void *)((uintptr_t)(param_1->field_0x8));
           uVar12 = read_struct_field_at_index_1046c7ca((int)param_3,1);
-          update_setting_and_refresh_copy_10485072((void *)uVar9,uVar12);
+          update_setting_and_refresh_copy_10485072(pvVar10,uVar12);
           return 0;
         }
         return 0x83;
       }
-      uVar9 = param_1[2];
+      pvVar10 = (void *)((uintptr_t)(param_1->field_0x8));
       uVar12 = read_struct_field_at_index_1046c7ca((int)param_3,1);
-      update_setting_and_refresh_copy_10485050((void *)uVar9,uVar12);
+      update_setting_and_refresh_copy_10485050(pvVar10,uVar12);
       return 0;
     }
     break;
@@ -284,7 +284,7 @@ LAB_104d0eca:
         *(char *)(iVar11 + iVar16) = (char)uVar12;
         iVar16 = iVar16 + 1;
       }
-      call_helper_on_two_pointers_10484c6c(param_1[2],iVar11,pvVar10,0);
+      call_helper_on_two_pointers_10484c6c((int)param_1->field_0x8,iVar11,pvVar10,0);
       heap_free_2(iVar11);
       return 0;
     }
@@ -295,15 +295,15 @@ LAB_104d0eca:
     iStack_3c = 7;
     iVar2 = 0xb0;
     do {
-      uVar12 = allocate_buffer_by_mode(param_1[2],iVar2,0);
+      uVar12 = allocate_buffer_by_mode(param_1->field_0x8,iVar2,0);
       write_word_to_struct_array((int)param_3,uVar12,iVar16);
-      uVar12 = allocate_buffer_by_mode(param_1[2],iVar2 + 1,0);
+      uVar12 = allocate_buffer_by_mode(param_1->field_0x8,iVar2 + 1,0);
       write_word_to_struct_array((int)param_3,uVar12,iVar16 + 1);
-      uVar12 = allocate_buffer_by_mode(param_1[2],iVar2 + 2,0);
+      uVar12 = allocate_buffer_by_mode(param_1->field_0x8,iVar2 + 2,0);
       write_word_to_struct_array((int)param_3,uVar12,iVar16 + 2);
-      uVar12 = allocate_buffer_by_mode(param_1[2],iVar2 + 3,0);
+      uVar12 = allocate_buffer_by_mode(param_1->field_0x8,iVar2 + 3,0);
       write_word_to_struct_array((int)param_3,uVar12,iVar16 + 3);
-      uVar12 = allocate_buffer_by_mode(param_1[2],iVar2 + 4,0);
+      uVar12 = allocate_buffer_by_mode(param_1->field_0x8,iVar2 + 4,0);
       write_word_to_struct_array((int)param_3,uVar12,iVar16 + 4);
       iVar16 = iVar16 + 5;
       iVar2 = iVar2 + 5;

@@ -6,9 +6,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_flag_one_104139c6(uint32_t param_1)
+void call_helper_with_flag_one_104139c6(cls_1059c10c *param_1)
 
 {
-  init_system_if_flag_set(param_1,1);
+  init_system_if_flag_set((uint32_t)(param_1),(int)(1));
   return;
 }

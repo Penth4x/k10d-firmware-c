@@ -15,30 +15,30 @@
 #include "globals.h"
 #include "funcs.h"
 
-void register_menu_item_for_state(int param_1,uint32_t param_2)
+void register_menu_item_for_state(cls_10565040 *param_1,uint32_t param_2)
 
 {
   int iVar1;
   
-  if ((*(int *)(param_1 + 0x40) == 5) || (*(int *)(param_1 + 0x40) != 4)) goto LAB_103a6c12;
+  if ((*(int *)&param_1->field_0x40 == 5) || (*(int *)&param_1->field_0x40 != 4)) goto LAB_103a6c12;
   switch(param_2) {
   case 0xd:
-    iVar1 = menu_item_register(param_1 + 8);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    iVar1 = menu_item_register((int)&param_1->field_0x8);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
     break;
   case 0xe:
-    iVar1 = menu_item_register(param_1 + 8);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    iVar1 = menu_item_register((int)&param_1->field_0x8);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
   default:
 LAB_103a6c12:
     break;
   case 0xf:
-    iVar1 = menu_item_register(param_1 + 8);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    iVar1 = menu_item_register((int)&param_1->field_0x8);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
     break;
   case 0x10:
-    iVar1 = menu_item_register(param_1 + 8);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    iVar1 = menu_item_register((int)&param_1->field_0x8);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
   }
   return;
 }

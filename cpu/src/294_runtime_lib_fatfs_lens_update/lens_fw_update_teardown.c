@@ -18,6 +18,12 @@
 void lens_fw_update_teardown(void)
 
 {
-  iterate_lens_fw_blocks();
+  int r4_in;
+  int r5_in;
+  int r6_in;
+  void *r7_in;
+  int in_stack_00000000;
+  
+  iterate_lens_fw_blocks(r4_in,r5_in,r6_in,r7_in,in_stack_00000000,0,0);
   return;
 }

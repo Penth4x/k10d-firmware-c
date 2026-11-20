@@ -23,11 +23,11 @@ void dispatch_mode_state_update_103ac814(void *param_1)
   
   iVar2 = (int)param_1 + 8;
   iVar1 = menu_item_register(iVar2);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
   iVar1 = menu_item_register(iVar2);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   iVar1 = menu_item_register(iVar2);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   iVar1 = get_setting_at_offset_0xbc(*(int *)((int)param_1 + 0x28));
   if (iVar1 == 2) {
     query_object_via_temp_buffer_104f1a6c(*(uint32_t *)((int)param_1 + 0x28));
@@ -38,7 +38,7 @@ void dispatch_mode_state_update_103ac814(void *param_1)
     get_setting_at_offset_0xbc(*(int *)((int)param_1 + 0x28));
   }
   iVar1 = menu_item_register(iVar2);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   switch(*(uint8_t *)((int)param_1 + 0x48)) {
   case 6:
     iVar1 = get_setting_199(*(int *)((int)param_1 + 0x28));
@@ -46,18 +46,18 @@ void dispatch_mode_state_update_103ac814(void *param_1)
       if ((*(char *)((int)param_1 + 0x4c) == '\0') &&
          ((*(char *)((int)param_1 + 0x4d) == '\0' && (*(char *)((int)param_1 + 0x4b) != '\0')))) {
         iVar1 = menu_item_register((int)param_1 + 8);
-        (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+        (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
       }
       else {
         iVar1 = menu_item_register(iVar2);
-        (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+        (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
         iVar1 = menu_item_register(iVar2);
-        (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+        (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
       }
     }
     else {
       iVar1 = menu_item_register(iVar2);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     }
     break;
   case 7:
@@ -81,41 +81,41 @@ void dispatch_mode_state_update_103ac814(void *param_1)
     iVar1 = get_setting_0xc4(*(int *)((int)param_1 + 0x28));
     if ((iVar1 == 0) || (iVar1 == 4)) {
       iVar1 = menu_item_register(iVar2);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
       iVar1 = menu_item_register(iVar2);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     }
     else if ((iVar1 == 1) || (iVar1 == 2)) {
       iVar1 = menu_item_register((int)param_1 + 8);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     }
     else if (iVar1 == 3) {
       iVar1 = menu_item_register((int)param_1 + 8);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     }
     else {
       iVar1 = menu_item_register((int)param_1 + 8);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     }
     break;
   case 10:
   case 0x1c:
     iVar1 = menu_item_register(iVar2);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     break;
   case 0xc:
     iVar1 = get_setting_0xc5(*(int *)((int)param_1 + 0x28));
     if (iVar1 == 0) {
       iVar1 = menu_item_register(iVar2);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     }
     else if ((iVar1 == 1) || (iVar1 == 2)) {
       iVar1 = menu_item_register(iVar2);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     }
     else {
       iVar1 = menu_item_register((int)param_1 + 8);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     }
     break;
   case 0xe:
@@ -124,18 +124,18 @@ void dispatch_mode_state_update_103ac814(void *param_1)
       if ((*(char *)((int)param_1 + 0x4c) == '\0') &&
          ((*(char *)((int)param_1 + 0x4d) == '\0' && (*(char *)((int)param_1 + 0x4b) != '\0')))) {
         iVar1 = menu_item_register((int)param_1 + 8);
-        (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+        (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
       }
       else {
         iVar1 = menu_item_register(iVar2);
-        (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+        (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
         iVar1 = menu_item_register(iVar2);
-        (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+        (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
       }
     }
     else {
       iVar1 = menu_item_register(iVar2);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     }
     break;
   case 0x16:
@@ -145,61 +145,61 @@ void dispatch_mode_state_update_103ac814(void *param_1)
       if (*(char *)((int)param_1 + 0x4d) == '\0') {
         if (*(char *)((int)param_1 + 0x4c) == '\0') {
           iVar1 = menu_item_register((int)param_1 + 8);
-          (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))
+          (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)
                     (iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
         }
         else {
           iVar1 = menu_item_register((int)param_1 + 8);
-          (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))
+          (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)
                     (iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
         }
       }
       else {
         iVar1 = menu_item_register(iVar2);
-        (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+        (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
       }
     }
     else if (iVar1 == 1) {
       if ((*(char *)((int)param_1 + 0x4d) == '\0') && (*(char *)((int)param_1 + 0x4c) == '\0')) {
         iVar1 = menu_item_register((int)param_1 + 8);
-        (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+        (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
       }
       else {
         iVar1 = menu_item_register((int)param_1 + 8);
-        (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+        (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
       }
     }
     else if (iVar1 == 2) {
       if (*(char *)((int)param_1 + 0x4d) == '\0') {
         if (*(char *)((int)param_1 + 0x4c) == '\0') {
           iVar1 = menu_item_register((int)param_1 + 8);
-          (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))
+          (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)
                     (iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
         }
         else {
           iVar1 = menu_item_register((int)param_1 + 8);
-          (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))
+          (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)
                     (iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
         }
       }
       else {
         iVar1 = menu_item_register((int)param_1 + 8);
-        (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+        (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
       }
     }
     else {
       iVar1 = menu_item_register((int)param_1 + 8);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     }
     break;
   case 0x18:
     if (*(char *)((int)param_1 + 0x4d) == '\0') {
       iVar1 = menu_item_register(iVar2);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     }
     else {
       iVar1 = menu_item_register(iVar2);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     }
     break;
   default:

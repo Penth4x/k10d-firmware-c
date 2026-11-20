@@ -15,19 +15,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool invoke_virtual_method_on_subobject_103a4bdc(int param_1)
+bool invoke_virtual_method_on_subobject_103a4bdc(cls_10564c80 *param_1)
 
 {
   int *piVar1;
   bool bVar2;
   
-  piVar1 = *(int **)(param_1 + 0x2c);
-  bVar2 = *(char *)(param_1 + 0x65) == '\0';
+  piVar1 = (int *)(param_1->field_0x2c);
+  bVar2 = param_1->field_0x65 == '\0';
   if (bVar2) {
-    (**(code **)(*piVar1 + 0x14))((int)piVar1 + (int)*(short *)(*piVar1 + 0x10),0x1120004,0);
+    (((vtbl_entry*)(*piVar1))[2].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[2].adj,0x1120004,0);
   }
   else {
-    (**(code **)(*piVar1 + 0x14))((int)piVar1 + (int)*(short *)(*piVar1 + 0x10),0x1120009);
+    (((vtbl_entry*)(*piVar1))[2].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[2].adj,0x1120009);
   }
   return bVar2;
 }

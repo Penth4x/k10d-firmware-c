@@ -17,6 +17,6 @@ void set_flag_based_on_param_10470714(int param_1,int param_2)
   else {
     uVar1 = 0x80;
   }
-  call_helper_with_offset_args_10463110(*(uint32_t *)(param_1 + 0x2c),uVar1);
+  call_helper_with_offset_args_10463110((void *)(*(uint32_t *)(param_1 + 0x2c)),uVar1);
   return;
 }

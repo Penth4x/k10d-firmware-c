@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void register_menu_item_and_update_1038d246(int param_1,int param_2,void *param_3)
+void register_menu_item_and_update_1038d246(cls_10559dac *param_1,int param_2,void *param_3)
 
 {
   uint32_t *puVar1;
@@ -30,13 +30,13 @@ void register_menu_item_and_update_1038d246(int param_1,int param_2,void *param_
     *(uint32_t *)(iVar3 + -0x7ffe6808) = *(uint32_t *)(iVar2 + (int)param_3);
     iVar3 = iVar2;
   } while (iVar2 != 0);
-  puVar1 = (uint32_t *)menu_item_register(param_1);
+  puVar1 = (uint32_t *)menu_item_register((int)param_1);
   if (param_2 == 0) {
-    (**(code **)(puVar1[3] + 0xc))((int)*(short *)(puVar1[3] + 8) + (int)puVar1,0);
+    (((vtbl_entry*)(puVar1[3]))[1].fn)((int)*(short *)(puVar1[3] + 8) + (int)puVar1,0);
   }
   else {
     call_helper_and_set_flag_10494b88(puVar1);
-    (**(code **)(puVar1[3] + 0xc))((int)*(short *)(puVar1[3] + 8) + (int)puVar1,1);
+    (((vtbl_entry*)(puVar1[3]))[1].fn)((int)*(short *)(puVar1[3] + 8) + (int)puVar1,1);
   }
   return;
 }

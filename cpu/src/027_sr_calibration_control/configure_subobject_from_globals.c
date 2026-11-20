@@ -59,10 +59,10 @@ LAB_1036f4ec:
   dispatch_virtual_call_on_object_1038e19e(iVar4,sRam80015f0c != 0);
   uVar3 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,0xb);
   uVar2 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,0xc);
-  format_and_log_error_code(iVar4,uVar3,(void *)uVar2);
+  format_and_log_error_code((int)(iVar4),(uint)(uVar3),(uint ***)(uVar2));
   uVar3 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,0xd);
   uVar2 = read_struct_field_at_index_104c2890((void *)0x80015d38/*SDRAM*/,0xe);
-  log_buffer_allocation_result(iVar4,uVar3,(void *)uVar2);
+  log_buffer_allocation_result((int)(iVar4),(uint)(uVar3),(void *)(uVar2));
   update_object_state_and_data((int)param_1);
   return;
 }

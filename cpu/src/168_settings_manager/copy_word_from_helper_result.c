@@ -13,12 +13,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t copy_word_from_helper_result(void *param_1)
+uint32_t copy_word_from_helper_result(cls_105aac00 *param_1)
 
 {
   int iVar1;
   
   iVar1 = initialize_singleton_object_1045d6a0();
-  *(uint32_t *)((int)param_1 + 0x14) = *(uint32_t *)(iVar1 + 8);
+  param_1->field_0x14 = *(uint32_t *)(iVar1 + 8);
   return 1;
 }

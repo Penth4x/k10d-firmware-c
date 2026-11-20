@@ -29,7 +29,7 @@ void dispatch_mode_transition_handler_104cbb46(int param_1)
   
   switch(*(uint32_t *)(param_1 + 0x90)) {
   case 0:
-    store_byte_to_pointer_1051e8c6((void *)(*(uint32_t *)(param_1 + 0x94)),*(uint8_t *)(*(int *)(param_1 + 0x48) + 0x88c));
+    store_byte_to_pointer_1051e8c6((uint8_t *)(*(uint32_t *)(param_1 + 0x94)),(uint8_t)(*(uint8_t *)(*(int *)(param_1 + 0x48) + 0x88c)));
     set_second_byte_of_struct(*(int *)(param_1 + 0x94),*(uint8_t *)(*(int *)(param_1 + 0x48) + 0xeb98));
     set_byte_at_offset_four(*(uint32_t *)(param_1 + 0x94),*(uint8_t *)(*(int *)(param_1 + 0x48) + 0xeb9e))
     ;

@@ -40,15 +40,15 @@ int copy_object_state_to_buffer(int param_1,uint16_t *param_2)
     *param_2 = uVar1;
     param_2[1] = uVar2;
     iVar6 = **(int **)(param_1 + 0x48);
-    uVar5 = (**(code **)(iVar6 + 0x14))
-                      ((int)*(int **)(param_1 + 0x48) + (int)*(short *)(iVar6 + 0x10));
+    uVar5 = (((vtbl_entry*)(iVar6))[2].fn)
+                      ((int)*(int **)(param_1 + 0x48) + (int)((vtbl_entry*)(iVar6))[2].adj);
     *(uint8_t *)(param_2 + 2) = uVar5;
     iVar6 = **(int **)(param_1 + 0x48);
-    for (iVar6 = (**(code **)(iVar6 + 0x24))
-                           ((int)*(int **)(param_1 + 0x48) + (int)*(short *)(iVar6 + 0x20));
+    for (iVar6 = (((vtbl_entry*)(iVar6))[4].fn)
+                           ((int)*(int **)(param_1 + 0x48) + (int)((vtbl_entry*)(iVar6))[4].adj);
         iVar6 != -1;
-        iVar6 = (**(code **)(iVar6 + 0x2c))
-                          ((int)*(int **)(param_1 + 0x48) + (int)*(short *)(iVar6 + 0x28))) {
+        iVar6 = (((vtbl_entry*)(iVar6))[5].fn)
+                          ((int)*(int **)(param_1 + 0x48) + (int)((vtbl_entry*)(iVar6))[5].adj)) {
       write_byte_at_offset_1051ed5c(param_2,iVar6,1);
       puVar4 = (uint32_t *)find_first_active_entry((int)param_2,iVar6);
       *puVar4 = *(uint32_t *)(param_1 + 0x8cc);

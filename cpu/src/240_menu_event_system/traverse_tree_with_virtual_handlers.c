@@ -34,13 +34,13 @@ uint traverse_tree_with_virtual_handlers(int param_1,int param_2,int param_3,uin
   
   puVar9 = (uint32_t *)local_28;
   uVar8 = 0;
-  iVar3 = (**(code **)(*(int *)(param_1 + 4) + 0x14))
-                    (*(short *)(*(int *)(param_1 + 4) + 0x10) + param_1);
+  iVar3 = (((vtbl_entry*)(*(int *)(param_1 + 4)))[2].fn)
+                    (((vtbl_entry*)(*(int *)(param_1 + 4)))[2].adj + param_1);
   if ((iVar3 != 0) && (param_2 != 0)) {
     puVar4 = (uint16_t *)peek_queue_head(param_2);
     while (puVar4 != (uint16_t *)0x0) {
-      iVar3 = (**(code **)(*(int *)(param_1 + 4) + 0x24))
-                        (*(short *)(*(int *)(param_1 + 4) + 0x20) + param_1,*puVar4);
+      iVar3 = (((vtbl_entry*)(*(int *)(param_1 + 4)))[4].fn)
+                        (((vtbl_entry*)(*(int *)(param_1 + 4)))[4].adj + param_1,*puVar4);
       if (iVar3 == 0) {
         sVar1 = *(short *)(*(int *)(param_1 + 4) + 0x18);
         pcVar2 = *(code **)(*(int *)(param_1 + 4) + 0x1c);

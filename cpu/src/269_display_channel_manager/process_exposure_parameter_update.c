@@ -135,7 +135,7 @@ int process_exposure_parameter_update(int param_1,int *param_2)
     uStack_10 = *(uint16_t *)((int)param_2 + 10);
     puVar3 = (uint32_t *)(param_1 + 0x28);
     eventflag_clr_flg(puVar3,1);
-    build_sensor_readout_params(*(uint32_t *)(param_1 + 0x24),0,(int *)(param_1 + 4),&uStack_48);
+    build_sensor_readout_params((int)(*(uint32_t *)(param_1 + 0x24)),(int)(0),(void *)(param_1 + 4),(int *)(&uStack_48));
     if (*(char *)(param_2 + 4) != '\0') {
       bVar6 = *piVar5 == 2;
       bVar7 = *piVar4 != 2;
@@ -197,7 +197,7 @@ int process_exposure_parameter_update(int param_1,int *param_2)
         uStack_10 = (uint16_t)uStack_8c;
         puVar2 = (uint32_t *)(param_1 + 0x28);
         eventflag_clr_flg(puVar2,2);
-        build_sensor_readout_params(*(uint32_t *)(param_1 + 0x24),1,(int *)(param_1 + 4),&uStack_48);
+        build_sensor_readout_params((int)(*(uint32_t *)(param_1 + 0x24)),(int)(1),(void *)(param_1 + 4),(int *)(&uStack_48));
         eventflag_wai_flg(puVar2,2,&uStack_c,_DAT_105a2af0/*ROM*/);
         eventflag_clr_flg(puVar2,2);
         configure_timer_channel_state(*(uint32_t *)(param_1 + 0x24),1);
@@ -205,7 +205,7 @@ int process_exposure_parameter_update(int param_1,int *param_2)
         iStack_38 = piVar4[3];
         uStack_26 = *(uint16_t *)(param_2 + 0xc);
         eventflag_clr_flg(puVar2,2);
-        build_sensor_readout_params(*(uint32_t *)(param_1 + 0x24),1,(int *)(param_1 + 4),&uStack_48);
+        build_sensor_readout_params((int)(*(uint32_t *)(param_1 + 0x24)),(int)(1),(void *)(param_1 + 4),(int *)(&uStack_48));
         eventflag_wai_flg(puVar2,2,&uStack_c,_DAT_105a2af0/*ROM*/);
         eventflag_clr_flg(puVar2,2);
         configure_timer_channel_state(*(uint32_t *)(param_1 + 0x24),1);

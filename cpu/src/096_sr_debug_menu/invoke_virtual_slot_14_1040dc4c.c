@@ -9,6 +9,6 @@
 void invoke_virtual_slot_14_1040dc4c(int *param_1)
 
 {
-  (**(code **)(*param_1 + 0x74))((int)*(short *)(*param_1 + 0x70) + (int)param_1,0x112000b,0);
+  (((vtbl_entry*)(*param_1))[14].fn)((int)((vtbl_entry*)(*param_1))[14].adj + (int)param_1,0x112000b,0);
   return;
 }

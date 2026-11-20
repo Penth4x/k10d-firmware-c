@@ -22,8 +22,8 @@ void dispatch_event_with_flags(int param_1,void *param_2)
   ushort uVar1;
   
   uVar1 = *(ushort *)(*(int *)((int)param_2 + 0x20) + 0xa0 + *(int *)((int)param_2 + 0x24) * 2);
-  (**(code **)(*(int *)((int)param_2 + 0x8d4) + 0xc4))
-            ((int)*(short *)(*(int *)((int)param_2 + 0x8d4) + 0xc0) + (int)param_2,(uVar1 & 1) != 0,
+  (((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[24].fn)
+            ((int)((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[24].adj + (int)param_2,(uVar1 & 1) != 0,
              (uVar1 & 2) != 0,(uVar1 & 4) != 0);
   *(uint32_t *)((int)param_2 + 0x10) = 0x600001;
   *(int *)((int)param_2 + 8) = param_1 + 4;

@@ -33,10 +33,10 @@ void dispatch_virtual_method_with_params(int param_1)
   
   puVar6 = auStack_44;
   iVar4 = *(int *)(**(int **)(param_1 + 0x60) + 0xc);
-  iVar1 = (**(code **)(iVar4 + 0x94))(**(int **)(param_1 + 0x60) + (int)*(short *)(iVar4 + 0x90));
+  iVar1 = (((vtbl_entry*)(iVar4))[18].fn)(**(int **)(param_1 + 0x60) + (int)((vtbl_entry*)(iVar4))[18].adj);
   aiStack_2c[0] = iVar1 + 4;
-  (**(code **)(*(int *)(iVar1 + 0x20) + 0x1c))
-            (aiStack_2c + 1,*(short *)(*(int *)(iVar1 + 0x20) + 0x18) + iVar1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0x20)))[3].fn)
+            (aiStack_2c + 1,((vtbl_entry*)(*(int *)(iVar1 + 0x20)))[3].adj + iVar1);
   iVar4 = 0x10;
   do {
     iVar5 = iVar4 + -4;

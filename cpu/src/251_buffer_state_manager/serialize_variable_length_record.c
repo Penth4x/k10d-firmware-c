@@ -90,6 +90,6 @@ int serialize_variable_length_record(void *param_1)
   iVar1 = iVar1 + 1;
   bounded_byte_copy(*(uint **)((int)param_1 + 0xc),pbRam80010a48 + 1,(uint)*pbRam80010a48 << 1,iVar1);
   iVar1 = iVar1 + (uint)*pbRam80010a48 * 2;
-  copy_bytes_if_flag_set(*(int *)((int)param_1 + 0xc),pvRam80010a4c,1,iVar1);
+  copy_bytes_if_flag_set((int)(*(int *)((int)param_1 + 0xc)),(void *)(pvRam80010a4c),(int)(1),(int)(iVar1));
   return iVar1 + 1;
 }

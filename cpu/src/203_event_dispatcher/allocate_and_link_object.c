@@ -24,7 +24,7 @@ int allocate_and_link_object(int param_1,int param_2)
   int iVar3;
   
   uVar1 = get_or_create_singleton_object_10516ff2();
-  iVar2 = call_virtual_method_if_flag_set((void *)(param_1 + 0x4c),(void *)(param_1 + 0x24),uVar1);
+  iVar2 = call_virtual_method_if_flag_set((char *)(param_1 + 0x4c),(int *)(param_1 + 0x24),(uint32_t)(uVar1));
   iVar3 = 0;
   if (iVar2 != 0) {
     *(int *)(param_2 + 8) = iVar2;

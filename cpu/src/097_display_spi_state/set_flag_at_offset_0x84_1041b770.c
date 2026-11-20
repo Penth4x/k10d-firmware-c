@@ -9,6 +9,6 @@
 void set_flag_at_offset_0x84_1041b770(void *param_1)
 
 {
-  eventflag_clr_flg((void *)((int)param_1 + 0x84),1);
+  eventflag_clr_flg((uint32_t *)((int)param_1 + 0x84),(uint)(1));
   return;
 }

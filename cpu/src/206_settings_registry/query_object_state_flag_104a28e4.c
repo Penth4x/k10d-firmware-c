@@ -12,7 +12,7 @@ bool query_object_state_flag_104a28e4(int param_1)
   int iVar1;
   
   iVar1 = **(int **)(param_1 + 0xc);
-  iVar1 = (**(code **)(iVar1 + 0x1c))
-                    ((int)*(int **)(param_1 + 0xc) + (int)*(short *)(iVar1 + 0x18),3);
+  iVar1 = (((vtbl_entry*)(iVar1))[3].fn)
+                    ((int)*(int **)(param_1 + 0xc) + (int)((vtbl_entry*)(iVar1))[3].adj,3);
   return iVar1 != 0;
 }

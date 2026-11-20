@@ -39,7 +39,7 @@ uint32_t build_substep_lens_query(void *param_1)
   uint32_t uStack_10;
   uint32_t uStack_c;
   
-  iVar1 = module_rd_byte0_nib((void *)((int)param_1 + 0x175));
+  iVar1 = module_rd_byte0_nib((byte *)((int)param_1 + 0x175));
   if ((0 < iVar1) && (*(char *)((int)param_1 + 0xf7) != '\0')) {
     uStack_48 = 0;
     uStack_44 = 0;

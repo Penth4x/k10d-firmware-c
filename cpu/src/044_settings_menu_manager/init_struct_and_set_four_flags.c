@@ -14,16 +14,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_struct_and_set_four_flags(int *param_1)
+void init_struct_and_set_four_flags(cls_10564530 *param_1)
 
 {
-  int *piVar1;
+  uint32_t *puVar1;
   
-  dispatch_object_teardown_1039fcfa(param_1,0);
-  piVar1 = param_1 + 2;
-  forward_params_to_helper_1049207a(piVar1,0x10,0x78);
-  forward_params_to_helper_1049207a(piVar1,0xf,0x78);
-  forward_params_to_helper_1049207a(piVar1,0xe,0x78);
-  forward_params_to_helper_1049207a(piVar1,0xd,0x78);
+  dispatch_object_teardown_1039fcfa((cls_105643d0 *)param_1);
+  puVar1 = &param_1->field5_0x8;
+  forward_params_to_helper_1049207a(puVar1,0x10,0x78);
+  forward_params_to_helper_1049207a(puVar1,0xf,0x78);
+  forward_params_to_helper_1049207a(puVar1,0xe,0x78);
+  forward_params_to_helper_1049207a(puVar1,0xd,0x78);
   return;
 }

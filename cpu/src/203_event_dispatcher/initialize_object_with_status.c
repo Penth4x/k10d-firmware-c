@@ -27,7 +27,7 @@ uint32_t initialize_object_with_status(int param_1,int param_2)
   iVar1 = check_three_byte_pair_conditions(__frv_reg_unset(4));
   if ((iVar1 != 0) && (iVar1 = process_event_queue_item_104994a2(param_1), iVar1 != 0)) {
     *(uint32_t *)(param_2 + 0x14) = 0xc;
-    uVar2 = read_byte_at_offset_0x20_1051b650(param_1 + 0x24);
+    uVar2 = read_byte_at_offset_0x20_1051b650((cls_105d677c *)(param_1 + 0x24));
     *(uint8_t *)(param_2 + 0x10) = uVar2;
     initialize_struct_fields_1049a69c(*(void **)(param_1 + 4));
     iVar1 = allocate_and_link_object(param_1,param_2);

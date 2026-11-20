@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t get_menu_item_by_setting(int *param_1,int param_2)
+uint32_t get_menu_item_by_setting(cls_10597214 *param_1,int param_2)
 
 {
   int iVar1;
@@ -33,16 +33,16 @@ uint32_t get_menu_item_by_setting(int *param_1,int param_2)
   uint32_t uStack_10;
   uint32_t uStack_c;
   
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
   if (param_2 == 0x185001c) {
     uStack_28 = 0x1850012;
     uStack_24 = 0x1850014;
     uStack_20 = 0x1850016;
     uStack_1c = 0x1850018;
-    uVar2 = setting_get(param_1[2],0x73);
+    uVar2 = setting_get(param_1->field_0x8,0x73);
     iVar1 = 0xff;
     if (bRam1059720c == uVar2) {
       iVar1 = 0;
@@ -61,7 +61,7 @@ uint32_t get_menu_item_by_setting(int *param_1,int param_2)
   else if (param_2 == 0x185001d) {
     uStack_18 = 0x1850020;
     uStack_14 = 0x185001f;
-    uVar2 = setting_get(param_1[2],0x74);
+    uVar2 = setting_get(param_1->field_0x8,0x74);
     iVar1 = 0xff;
     if (bRam10597210 == uVar2) {
       iVar1 = 0;
@@ -77,7 +77,7 @@ uint32_t get_menu_item_by_setting(int *param_1,int param_2)
     }
     uStack_10 = 0x1850026;
     uStack_c = 0x1850025;
-    uVar2 = setting_get(param_1[2],0x75);
+    uVar2 = setting_get(param_1->field_0x8,0x75);
     iVar1 = 0xff;
     if (bRam10597212 == uVar2) {
       iVar1 = 0;

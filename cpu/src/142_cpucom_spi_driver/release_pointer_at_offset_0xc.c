@@ -20,6 +20,6 @@ uint32_t release_pointer_at_offset_0xc(int param_1)
 {
   uint32_t uVar1;
   
-  uVar1 = call_subroutine_on_object_field(*(uint32_t *)(param_1 + 0xc));
+  uVar1 = ((uint32_t (*)(int))call_subroutine_on_object_field)(*(uint32_t *)(param_1 + 0xc));
   return uVar1;
 }

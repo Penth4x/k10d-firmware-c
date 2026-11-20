@@ -17,23 +17,24 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_object_reference(int param_1,int param_2)
+void release_object_reference(cls_105b9674 *param_1,int param_2)
 
 {
   int *piVar1;
   uint32_t uVar2;
   int iVar3;
   
-  *(int *)(param_1 + 100) = param_2;
+  param_1->field_0x64 = (uint32_t)((void *)param_2);
   uVar2 = 0;
   if (*(int *)(param_2 + 4) == 0) {
     uVar2 = 0x43000;
-    dispatch_virtual_method_on_allocated_object(param_1);
+    dispatch_virtual_method_on_allocated_object((int)(param_1));
   }
-  piVar1 = *(int **)(*(int *)(param_1 + 100) + 8);
+  piVar1 = *(int **)((int)param_1->field_0x64 + 8);
   iVar3 = *piVar1;
-  (**(code **)(iVar3 + 0x14))((int)piVar1 + (int)*(short *)(iVar3 + 0x10),uVar2,param_1 + 0x38);
-  free_object_if_flag_set_1052107a(*(void **)(param_1 + 100),3);
-  *(uint32_t *)(param_1 + 100) = 0;
+  (((vtbl_entry*)(iVar3))[2].fn)
+            ((int)piVar1 + (int)((vtbl_entry*)(iVar3))[2].adj,uVar2,&param_1->field_0x38);
+  free_object_if_flag_set_1052107a((void *)(param_1->field_0x64),(uint)(3));
+  param_1->field_0x64 = (uint32_t)((void *)0x0);
   return;
 }

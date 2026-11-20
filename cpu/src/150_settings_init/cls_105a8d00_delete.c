@@ -23,7 +23,7 @@ void cls_105a8d00_delete(uint32_t *param_1,uint param_2)
     cls_105a2bf8_delete(param_1 + 0x2e,2);
     reset_vtable_and_free_if_flagged_10428202(param_1 + 9,0);
     reset_vtable_and_free_if_flagged_10428182(param_1 + 8,0);
-    cls_105a2b50_delete(param_1 + 1,0);
+    cls_105a2b50_delete((void *)(param_1 + 1),0);
     reset_vtable_and_free_if_flagged_10428264(param_1,0);
     if ((param_2 & 1) != 0) {
       heap_free((int)param_1);

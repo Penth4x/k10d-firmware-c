@@ -37,7 +37,7 @@ void * process_sensor_readout_cycle_10363d4c(void *param_1)
     *(uint32_t *)((int)param_1 + 0x210) = 0x2e;
     *(uint8_t *)((int)param_1 + 0x16) = 1;
     while (iVar2 = register_and_activate_event((int)param_1), iVar2 == 0xb) {
-      uVar3 = get_sram_field_at_offset_0x3c(param_1);
+      uVar3 = get_sram_field_at_offset_0x3c((uint32_t)(param_1));
       register_menu_item_with_limit(0x80018060/*SDRAM*/,uVar3);
     }
     *(uint8_t *)((int)param_1 + 0x16) = 0;

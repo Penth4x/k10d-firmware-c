@@ -13,7 +13,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t query_two_state_index(int param_1,int param_2)
+uint32_t query_two_state_index(cls_10596154 *param_1,int param_2)
 
 {
   uint32_t uVar1;
@@ -26,7 +26,7 @@ uint32_t query_two_state_index(int param_1,int param_2)
   if (param_2 == 0x1a70014) {
     auStack_10[0] = 0x1a7000a;
     auStack_10[1] = 0x1a7000f;
-    uVar3 = get_setting_by_index(param_1,2);
+    uVar3 = get_setting_by_index((int)param_1,2);
     iVar2 = 0xff;
     if (bRam10596150 == uVar3) {
       iVar2 = 0;

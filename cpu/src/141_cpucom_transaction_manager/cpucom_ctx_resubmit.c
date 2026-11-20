@@ -21,9 +21,9 @@ int cpucom_ctx_resubmit(int *param_1,void *param_2)
   bVar2 = set_pointer_and_clear_flag(param_1 + 7,param_2);
   iVar3 = 0;
   if (bVar2) {
-    cpucom_msg_set_cmd((void *)param_1[6],DAT_105a78c0/*ROM*/);
+    cpucom_msg_set_cmd((void*)(param_1[6]),DAT_105a78c0/*ROM*/);
     cpucom_resp_set_insize((void *)param_1[6],(uint)DAT_105a78c1/*ROM*/);
-    iVar3 = (**(code **)(*param_1 + 0x6c))((int)*(short *)(*param_1 + 0x68) + (int)param_1);
+    iVar3 = (((vtbl_entry*)(*param_1))[13].fn)((int)((vtbl_entry*)(*param_1))[13].adj + (int)param_1);
     if (iVar3 != 0) {
       free_cpucom_context(param_1);
       uVar1 = (uint)DAT_105a78c1/*ROM*/;

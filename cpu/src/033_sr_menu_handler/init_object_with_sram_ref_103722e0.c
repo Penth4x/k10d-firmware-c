@@ -25,7 +25,7 @@ void init_object_with_sram_ref_103722e0(void *param_1,uint32_t param_2)
   puVar1[3] = 0;
   register_and_select_menu_items_1038c638(0x80018060/*SDRAM*/,param_2,1,0,puVar1[3]);
   call_helper_on_struct_field_1036c46c();
-  compute_and_send_two_value_pairs_1038c44c(0x80018060/*SDRAM*/);
+  compute_and_send_two_value_pairs_1038c44c((cls_10559b1c *)0x80018060/*SDRAM*/);
   call_helper_on_struct_field_1036c41a(param_1,(void *)0x80018060/*SDRAM*/,1);
   return;
 }

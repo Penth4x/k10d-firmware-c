@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_offset_and_constant(int *param_1)
+void call_helper_with_offset_and_constant(cls_105b76e8 *param_1)
 
 {
-  invoke_virtual_slot_two_104af0c8(param_1,(void *)param_1[9],0x12);
+  invoke_virtual_slot_two_104af0c8((void *)&param_1->field_0x0, (void *)param_1->field_0x24, 0x12);
   return;
 }

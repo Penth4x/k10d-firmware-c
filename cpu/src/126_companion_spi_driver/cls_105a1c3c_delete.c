@@ -11,18 +11,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_105a1c3c_delete(uint32_t *param_1,uint param_2)
+void cls_105a1c3c_delete(cls_105a1c3c *param_1,uint param_2)
 
 {
-  int iVar1;
+  void *puVar1;
   
-  if (param_1 != (uint32_t *)0x0) {
-    *param_1 = 0x105a1c3c/*ROM*/;
-    iVar1 = param_1[1];
-    if (iVar1 != 0) {
-      (**(code **)(*(int *)(iVar1 + 4) + 0xc))(*(short *)(*(int *)(iVar1 + 4) + 8) + iVar1,3);
+  if (param_1 != (cls_105a1c3c *)0x0) {
+    param_1->field_0x0 = (uintptr_t)((void *)0x105a1c3c/*ROM*/);
+    puVar1 = (void *)((uintptr_t)(param_1->field_0x4));
+    if (puVar1 != 0) {
+      (((vtbl_entry*)(*(int *)((char*)puVar1 + 4)))[1].fn)((char*)puVar1 + *(short *)(*(int *)((char*)puVar1 + 4) + 8),3);
     }
-    reset_vtable_and_free_if_owned_1042792a(param_1,0);
+    reset_vtable_and_free_if_owned_1042792a(&param_1->field_0x0,0);
     if ((param_2 & 1) != 0) {
       heap_free((int)param_1);
     }

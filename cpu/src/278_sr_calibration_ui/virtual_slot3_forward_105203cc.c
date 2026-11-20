@@ -13,11 +13,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void virtual_slot3_forward_105203cc(uint32_t param_1)
+void virtual_slot3_forward_105203cc(cls_105d70f0 *param_1)
 
 {
   uint32_t in_stack_00000000;
   
-  invoke_virtual_slot_8_and_store_ref(param_1,(void *)in_stack_00000000);
+  invoke_virtual_slot_8_and_store_ref((uint32_t)param_1,(void *)in_stack_00000000);
   return;
 }

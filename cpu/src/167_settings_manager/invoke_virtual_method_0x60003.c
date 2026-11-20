@@ -24,7 +24,7 @@ uint32_t invoke_virtual_method_0x60003(int param_1)
   *(uint32_t *)(param_1 + 0x74) = 3;
   *(int *)(param_1 + 0x7c) = *(int *)(param_1 + 0x7c) + 1;
   iVar2 = **(int **)(param_1 + 0x88);
-  uVar1 = (**(code **)(iVar2 + 0x14))
-                    ((int)*(int **)(param_1 + 0x88) + (int)*(short *)(iVar2 + 0x10),0x60003);
+  uVar1 = (((vtbl_entry*)(iVar2))[2].fn)
+                    ((int)*(int **)(param_1 + 0x88) + (int)((vtbl_entry*)(iVar2))[2].adj,0x60003);
   return uVar1;
 }

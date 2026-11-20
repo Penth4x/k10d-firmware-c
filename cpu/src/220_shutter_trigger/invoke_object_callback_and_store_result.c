@@ -25,13 +25,13 @@ bool invoke_object_callback_and_store_result(int param_1,uint32_t param_2,uint32
   uint32_t uStack_c;
   
   iVar1 = param_1 + 0x10;
-  zero_struct_fields_1046c7e8((void *)iVar1);
+  zero_struct_fields_1046c7e8((void*)(iVar1));
   *(uint8_t *)(param_1 + 0x868) = (uint8_t)param_2;
   *(uint8_t *)(param_1 + 0x869) = (uint8_t)param_3;
-  store_value_to_pointer_1046c7d4((void *)iVar1,*(uint32_t *)(param_1 + 0x870));
+  store_value_to_pointer_1046c7d4((void*)(iVar1),*(uint32_t *)(param_1 + 0x870));
   iVar2 = **(int **)(param_1 + 0xc);
-  iVar1 = (**(code **)(iVar2 + 0x2c))
-                    ((int)*(int **)(param_1 + 0xc) + (int)*(short *)(iVar2 + 0x28),param_1,iVar1);
+  iVar1 = (((vtbl_entry*)(iVar2))[5].fn)
+                    ((int)*(int **)(param_1 + 0xc) + (int)((vtbl_entry*)(iVar2))[5].adj,param_1,iVar1);
   if (iVar1 == 1) {
     uStack_c = 0;
     eventflag_wai_flg((uint32_t *)(param_1 + 4),0x3f,&uStack_c,_DAT_105a2af0/*ROM*/);

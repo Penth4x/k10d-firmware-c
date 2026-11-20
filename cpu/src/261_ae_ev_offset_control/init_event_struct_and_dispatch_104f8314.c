@@ -70,7 +70,7 @@ void init_event_struct_and_dispatch_104f8314(int param_1,uint32_t param_2,void *
   uStack_34 = param_4;
   uStack_32 = param_4;
   eventflag_clr_flg(puVar1,1);
-  build_and_send_param_struct_10505a10(*(uint32_t *)(param_1 + 0x28),0,(void *)(param_1 + 4),&uStack_44);
+  build_and_send_param_struct_10505a10((int)(*(uint32_t *)(param_1 + 0x28)),(int)(0),(void *)(param_1 + 4),(int *)(&uStack_44));
   eventflag_wai_flg(puVar1,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,1);
   configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),0);

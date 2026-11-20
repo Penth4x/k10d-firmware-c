@@ -24,7 +24,7 @@ void register_menu_item_and_set_state_103ad23e(void *param_1)
   
   iVar1 = menu_item_register((int)param_1 + 8);
   iVar2 = 0;
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
   iVar1 = call_helper_on_field_0x24(*(int *)((int)param_1 + 0x28));
   if (iVar1 == 4) {
     bVar3 = false;
@@ -47,6 +47,6 @@ void register_menu_item_and_set_state_103ad23e(void *param_1)
   }
 LAB_103ad2c2:
   iVar1 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   return;
 }

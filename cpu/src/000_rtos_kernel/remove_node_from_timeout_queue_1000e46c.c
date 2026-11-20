@@ -25,7 +25,7 @@ uint32_t remove_node_from_timeout_queue_1000e46c(int param_1)
     }
     else {
       if (*(int *)(iVar2 + -0x1c) != iVar2 + -0x1c) {
-        insert_into_timeout_queue_10011644(iVar2 + -0x1c);
+        insert_into_timeout_queue_10011644((int *)(iVar2 + -0x1c));
       }
       *(uint32_t *)(DAT_10011cf4/*ROM*/ + iVar1 + -0x1c) = 0;
       uVar3 = 0;

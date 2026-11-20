@@ -34,8 +34,8 @@ uint32_t process_event_with_callback_104742be(int param_1,uint32_t param_2)
   if (((iVar1 != 0) && (iStack_c == 0)) &&
      (piVar2 = (int *)call_helper_with_field_at_offset_8_10476864(*(int *)(param_1 + 8)), piVar2 != (int *)0x0)) {
     uVar4 = *(uint32_t *)(param_1 + 0x10);
-    uVar3 = (**(code **)(*piVar2 + 0x14))((int)*(short *)(*piVar2 + 0x10) + (int)piVar2);
-    copy_8_byte_block_if_valid(uVar4,(void *)uVar3);
+    uVar3 = (((vtbl_entry*)(*piVar2))[2].fn)((int)((vtbl_entry*)(*piVar2))[2].adj + (int)piVar2);
+    copy_8_byte_block_if_valid(uVar4,(void*)(uVar3));
     uVar4 = *(uint32_t *)(param_1 + 4);
     uVar3 = (*(code *)0x104779aa/*ROM*/)(*(uint32_t *)(param_1 + 0x10));
     iVar1 = call_handler_with_lock_10480ea2(uVar4,uVar3);

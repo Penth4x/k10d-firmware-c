@@ -24,8 +24,8 @@ bool invoke_virtual_method_0x62001(int param_1,uint16_t param_2,uint16_t param_3
   *(uint16_t *)(param_1 + 0x22) = param_3;
   piVar1 = *(int **)(*(int *)(param_1 + 0x18) + 0x14);
   iVar2 = *piVar1;
-  iVar2 = (**(code **)(iVar2 + 0x14))
-                    ((int)piVar1 + (int)*(short *)(iVar2 + 0x10),0x62001,
+  iVar2 = (((vtbl_entry*)(iVar2))[2].fn)
+                    ((int)piVar1 + (int)((vtbl_entry*)(iVar2))[2].adj,0x62001,
                      (uint16_t *)(param_1 + 0x20));
   return iVar2 == 0;
 }

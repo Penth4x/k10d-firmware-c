@@ -43,11 +43,11 @@ void dispatch_event_with_timeout_10435380(int param_1,int param_2,int param_3)
   }
   puVar3 = (uint32_t *)(param_1 + 0x38);
   eventflag_clr_flg(puVar3,0x40);
-  iVar1 = store_value_and_set_flag_104cf23a(*(uint32_t *)(param_1 + 0x60),param_1 + 4,uVar2);
+  iVar1 = store_value_and_set_flag_104cf23a((int)(*(uint32_t *)(param_1 + 0x60)),(void *)(param_1 + 4),(int)(uVar2));
   if ((iVar1 != 0) && (twai_flg_obj(puVar3,0x40,(void *)0x0,_DAT_105a2af0/*ROM*/), 0 < param_3)) {
     check_kernel_call_success_10459fea();
     eventflag_clr_flg(puVar3,0x40);
-    iVar1 = store_value_and_set_flag_104cf23a(*(uint32_t *)(param_1 + 0x60),param_1 + 4,0);
+    iVar1 = store_value_and_set_flag_104cf23a((int)(*(uint32_t *)(param_1 + 0x60)),(void *)(param_1 + 4),(int)(0));
     if (iVar1 != 0) {
       twai_flg_obj(puVar3,0x40,(void *)0x0,_DAT_105a2af0/*ROM*/);
     }

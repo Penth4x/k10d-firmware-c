@@ -17,21 +17,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_virtual_event_with_index(int param_1,uint32_t param_2)
+void dispatch_virtual_event_with_index(cls_1056482c *param_1,uint32_t param_2)
 
 {
   bool bVar1;
   uint32_t uVar2;
   int iVar3;
   
-  if (*(char *)(param_1 + 0x41) != '\0') {
+  if (param_1->field_0x41 != '\0') {
     return;
   }
-  iVar3 = **(int **)(param_1 + 0x2c);
-  (**(code **)(iVar3 + 0x14))
-            ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar3 + 0x10),0x1120065,0);
+  iVar3 = *(uint32_t *)(param_1->field_0x2c);
+  (((vtbl_entry*)(iVar3))[2].fn)((int)param_1->field_0x2c + (int)((vtbl_entry*)(iVar3))[2].adj,0x1120065,0);
   bVar1 = false;
-  *(uint32_t *)(param_1 + 0x30) = param_2;
+  param_1->field_0x30 = param_2;
   uVar2 = 0;
   switch(param_2) {
   case 0x2020001:
@@ -59,12 +58,12 @@ void dispatch_virtual_event_with_index(int param_1,uint32_t param_2)
 LAB_103a0f78:
   if (bVar1) {
 LAB_103a0f7c:
-    if ((*(char *)(param_1 + 0x42) == '\0') &&
-       (iVar3 = *(int *)(param_1 + 0x44) + 1, *(int *)(param_1 + 0x44) = iVar3, iVar3 == 2)) {
-      *(uint8_t *)(param_1 + 0x42) = 1;
+    if ((param_1->field_0x42 == '\0') &&
+       (iVar3 = param_1->field_0x44 + 1, param_1->field_0x44 = iVar3, iVar3 == 2)) {
+      param_1->field_0x42 = 1;
       call_helper_on_fetched_pointer();
     }
-    set_setting_based_on_flag_104f142e(*(uint32_t *)(param_1 + 0x28),uVar2);
+    set_setting_based_on_flag_104f142e(param_1->field_0x28,uVar2);
   }
   return;
 }

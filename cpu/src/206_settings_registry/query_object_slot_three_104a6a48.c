@@ -21,7 +21,7 @@ bool query_object_slot_three_104a6a48(int param_1)
   int iVar1;
   
   iVar1 = **(int **)(param_1 + 0x10);
-  iVar1 = (**(code **)(iVar1 + 0x1c))
-                    ((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar1 + 0x18),3);
+  iVar1 = (((vtbl_entry*)(iVar1))[3].fn)
+                    ((int)*(int **)(param_1 + 0x10) + (int)((vtbl_entry*)(iVar1))[3].adj,3);
   return iVar1 != 0;
 }

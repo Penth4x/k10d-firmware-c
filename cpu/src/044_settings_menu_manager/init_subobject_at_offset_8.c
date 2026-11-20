@@ -14,10 +14,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_subobject_at_offset_8(int param_1)
+void init_subobject_at_offset_8(cls_105992d4 *param_1)
 
 {
-  return_one_constant_1049229a((void *)(param_1 + 8),0);
-  store_two_values_at_offsets((void *)(param_1 + 8));
+  return_one_constant_1049229a((int)&param_1->field_0x8,0);
+  store_two_values_at_offsets((cls_105b4254 *)&param_1->field_0x8);
   return;
 }

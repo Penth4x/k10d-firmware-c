@@ -30,7 +30,7 @@ int validate_and_dispatch_lens_state(uint32_t param_1)
       if (*(short *)(*(int *)(iVar3 + 100) + 0xe) == 0) {
         if (((*(short *)((int)piStack_c + 6) == 0) || (piStack_c[2] != 0)) ||
            ((lens_fw_update_step_1053db22(iVar3), iVar2 = extraout_r4, extraout_r4 == 0 &&
-            (iVar2 = validate_and_swap_block_fields(iVar3,(int *)(*piStack_c + 0x10),piStack_c), iVar2 == 0)))) {
+            (iVar2 = validate_and_swap_block_fields((void *)(iVar3),(int *)(*piStack_c + 0x10),(void *)(piStack_c)), iVar2 == 0)))) {
           piVar4 = (int *)*piStack_c;
           uVar1 = *(uint16_t *)(piStack_c + 1);
           iVar2 = (*(code *)0x10538c98/*ROM*/)(param_1);

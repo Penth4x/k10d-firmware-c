@@ -56,7 +56,7 @@ int allocate_buffer_with_status(void *param_1,uint32_t *param_2,int param_3)
 LAB_1054541a:
   pvStack_18 = pvVar1;
   if (param_2 != (uint32_t *)0x0) {
-    *param_2 = pvStack_18;
+    *param_2 = (uintptr_t)(pvStack_18);
   }
   return iStack_1c;
 }

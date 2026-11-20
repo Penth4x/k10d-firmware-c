@@ -16,21 +16,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool init_object_with_three_offsets_1051afd6(int *param_1)
+bool init_object_with_three_offsets_1051afd6(cls_105d66dc *param_1)
 
 {
   int iVar1;
   int iVar2;
   
-  iVar1 = *param_1;
+  iVar1 = param_1->field_0x0;
   if (iVar1 != 0) {
-    param_1[2] = iVar1 + 0xf4;
+    param_1->field_0x8 = iVar1 + 0xf4;
     iVar2 = compute_struct_array_offset(iVar1,2);
-    param_1[3] = iVar2;
-    iVar2 = compute_struct_array_offset(*param_1,0);
-    param_1[4] = iVar2;
-    iVar2 = compute_struct_array_offset(*param_1,3);
-    param_1[5] = iVar2;
+    param_1->field_0xc = iVar2;
+    iVar2 = compute_struct_array_offset(param_1->field_0x0,0);
+    param_1->field_0x10 = iVar2;
+    iVar2 = compute_struct_array_offset(param_1->field_0x0,3);
+    param_1->field_0x14 = iVar2;
   }
   return iVar1 != 0;
 }

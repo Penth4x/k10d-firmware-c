@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void create_seven_channel_handles(void *param_1,uint32_t param_2,void *param_3,void *param_4)
+void create_seven_channel_handles(cls_10563750 *param_1,uint32_t param_2,void *param_3,void *param_4)
 
 {
   short sVar1;
@@ -39,52 +39,52 @@ void create_seven_channel_handles(void *param_1,uint32_t param_2,void *param_3,v
   pvVar2 = (void *)call_subroutine_with_offset_0x20((int)param_1,(void *)0x50a0000);
   *piVar7 = 1;
   iVar3 = allocate_and_init_2d_buffer_1039c664((int)param_1,(int)pvVar2,(void *)0x50a0001,1,*piVar7);
-  *(int *)((int)param_1 + 0x3c) = iVar3;
+  *(int *)&param_1->field_0x3c = iVar3;
   *piVar7 = 9;
   *(uint8_t *)((int)piVar7 + 7) = 1;
   piVar7[2] = 1;
   piVar7[3] = 0x18;
   iVar3 = allocate_and_init_object_entry((int)param_1,(int)pvVar2,(void *)0x50a0002,1,*piVar7,
                        *(uint8_t *)((int)piVar7 + 7),piVar7[2],*(short *)((int)piVar7 + 0xe));
-  *(int *)((int)param_1 + 0x24) = iVar3;
+  param_1->field_0x24 = iVar3;
   *piVar7 = 9;
   *(uint8_t *)((int)piVar7 + 7) = 1;
   piVar7[2] = 1;
   piVar7[3] = 0x18;
   iVar3 = allocate_and_init_object_entry((int)param_1,(int)pvVar2,(void *)0x50a0003,1,*piVar7,
                        *(uint8_t *)((int)piVar7 + 7),piVar7[2],*(short *)((int)piVar7 + 0xe));
-  *(int *)((int)param_1 + 0x28) = iVar3;
+  param_1->field_0x28 = iVar3;
   *piVar7 = 9;
   *(uint8_t *)((int)piVar7 + 7) = 1;
   piVar7[2] = 1;
   piVar7[3] = 0x18;
   iVar3 = allocate_and_init_object_entry((int)param_1,(int)pvVar2,(void *)0x50a0004,1,*piVar7,
                        *(uint8_t *)((int)piVar7 + 7),piVar7[2],*(short *)((int)piVar7 + 0xe));
-  *(int *)((int)param_1 + 0x2c) = iVar3;
+  param_1->field_0x2c = iVar3;
   *piVar7 = 9;
   *(uint8_t *)((int)piVar7 + 7) = 1;
   piVar7[2] = 1;
   piVar7[3] = 0x18;
   iVar3 = allocate_and_init_object_entry((int)param_1,(int)pvVar2,(void *)0x50a0005,1,*piVar7,
                        *(uint8_t *)((int)piVar7 + 7),piVar7[2],*(short *)((int)piVar7 + 0xe));
-  *(int *)((int)param_1 + 0x30) = iVar3;
+  param_1->field_0x30 = iVar3;
   *piVar7 = 9;
   *(uint8_t *)((int)piVar7 + 7) = 1;
   piVar7[2] = 1;
   piVar7[3] = 0x18;
   iVar3 = allocate_and_init_object_entry((int)param_1,(int)pvVar2,(void *)0x50a0006,1,*piVar7,
                        *(uint8_t *)((int)piVar7 + 7),piVar7[2],*(short *)((int)piVar7 + 0xe));
-  *(int *)((int)param_1 + 0x34) = iVar3;
+  *(int *)&param_1->field_0x34 = iVar3;
   *piVar7 = 8;
   iVar3 = allocate_and_init_2d_buffer_1039c664((int)param_1,(int)pvVar2,(void *)0x50a0007,0xb,*piVar7);
-  *(int *)((int)param_1 + 0x38) = iVar3;
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0x2c))
-            (&uStack_20,iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 0x28));
+  *(int *)&param_1->field_0x38 = iVar3;
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[5].fn)
+            (&uStack_20,iVar3 + ((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[5].adj);
   puStack_2c = auStack_1c + 1;
   iVar3 = return_first_word_1045c514(&uStack_20);
   iVar4 = read_struct_field_at_offset_4(&uStack_20);
   alloc_two_word_pair_1045bc2e(puStack_2c,(0x240U - iVar3 >> 1) + 0x20,(0x1b0U - iVar4 >> 1) + 0x18);
-  iVar5 = *(int *)((int)param_1 + 0x38);
+  iVar5 = *(int *)&param_1->field_0x38;
   iVar4 = *(int *)(iVar5 + 0xc);
   sVar1 = *(short *)(iVar4 + 0x10);
   iVar3 = 8;
@@ -93,15 +93,15 @@ void create_seven_channel_handles(void *param_1,uint32_t param_2,void *param_3,v
     *(uint32_t *)(auStack_28 + iVar3 + -4) = *(uint32_t *)((int)auStack_1c + iVar3);
     iVar3 = iVar6;
   } while (iVar6 != 0);
-  (**(code **)(iVar4 + 0x14))(iVar5 + sVar1,auStack_28);
+  (((vtbl_entry*)(iVar4))[2].fn)(iVar5 + sVar1,auStack_28);
   free_heap_block_if_flagged_1045bc54(auStack_28,2);
-  invoke_virtual_slot_two_1039ca9a(param_1,*(int *)((int)param_1 + 0x24),0);
-  invoke_virtual_slot_two_1039ca9a(param_1,*(int *)((int)param_1 + 0x28),0);
-  invoke_virtual_slot_two_1039ca9a(param_1,*(int *)((int)param_1 + 0x2c),0);
-  invoke_virtual_slot_two_1039ca9a(param_1,*(int *)((int)param_1 + 0x30),0);
-  invoke_virtual_slot_two_1039ca9a(param_1,*(int *)((int)param_1 + 0x34),0);
-  invoke_virtual_slot_two_1039ca9a(param_1,*(int *)((int)param_1 + 0x38),0);
-  invoke_virtual_slot_two_1039ca9a(param_1,*(int *)((int)param_1 + 0x3c),0);
+  invoke_virtual_slot_two_1039ca9a(param_1,param_1->field_0x24,0);
+  invoke_virtual_slot_two_1039ca9a(param_1,param_1->field_0x28,0);
+  invoke_virtual_slot_two_1039ca9a(param_1,param_1->field_0x2c,0);
+  invoke_virtual_slot_two_1039ca9a(param_1,param_1->field_0x30,0);
+  invoke_virtual_slot_two_1039ca9a(param_1,*(int *)&param_1->field_0x34,0);
+  invoke_virtual_slot_two_1039ca9a(param_1,*(int *)&param_1->field_0x38,0);
+  invoke_virtual_slot_two_1039ca9a(param_1,*(int *)&param_1->field_0x3c,0);
   set_object_field_at_offset_0x10(param_1,pvVar2);
   free_heap_block_if_flagged_1045bc54(puStack_2c,2);
   free_heap_if_flagged_1045c402(&uStack_20,2);

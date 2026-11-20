@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void free_object_at_offset_0x4c(int param_1)
+void free_object_at_offset_0x4c(cls_10596f7c *param_1)
 
 {
-  set_flag_and_store_byte_103b8a8e(*(uint32_t *)(param_1 + 0x4c),0x50);
+  set_flag_and_store_byte_103b8a8e(param_1->field_0x4c,0x50);
   return;
 }

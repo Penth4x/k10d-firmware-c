@@ -17,15 +17,15 @@ void insert_into_timeout_queue_1000fcd4(uint32_t *param_1)
   uint uVar2;
   uint uVar3;
   
-  if (_DAT_6a0036bc == (uint32_t *)&DAT_6a0036bc) {
-    *param_1 = (uint32_t)&DAT_6a0036bc;
-    param_1[1] = (uint32_t)&DAT_6a0036bc;
-    _DAT_6a0036bc = (uint32_t)param_1;
-    _DAT_6a0036c0 = (uint32_t)param_1;
+  if (_DAT_6a0036bc == (uint32_t)((uint32_t *)&DAT_6a0036bc)) {
+    *param_1 = (uintptr_t)(&DAT_6a0036bc);
+    param_1[1] = (uintptr_t)(&DAT_6a0036bc);
+    _DAT_6a0036bc = (uintptr_t)(param_1);
+    _DAT_6a0036c0 = (uintptr_t)(param_1);
   }
   else {
-    puVar1 = (uint32_t *)_DAT_6a0036bc;
-    if (_DAT_6a0036bc != (uint32_t)&DAT_6a0036bc) {
+    puVar1 = (uint32_t *)((uintptr_t)(_DAT_6a0036bc));
+    if (_DAT_6a0036bc != (uint32_t)((uint32_t *)&DAT_6a0036bc)) {
       uVar2 = param_1[2];
       do {
         uVar3 = puVar1[2];
@@ -38,10 +38,10 @@ void insert_into_timeout_queue_1000fcd4(uint32_t *param_1)
         puVar1 = (uint32_t *)*puVar1;
       } while (puVar1 != (uint32_t *)&DAT_6a0036bc);
     }
-    *param_1 = (uint32_t)puVar1;
+    *param_1 = (uintptr_t)(puVar1);
     param_1[1] = puVar1[1];
     *(uint32_t **)puVar1[1] = param_1;
-    puVar1[1] = (uint32_t)param_1;
+    puVar1[1] = (uintptr_t)(param_1);
   }
   return;
 }

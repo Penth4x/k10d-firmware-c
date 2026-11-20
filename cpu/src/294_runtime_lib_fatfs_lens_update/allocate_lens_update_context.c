@@ -28,7 +28,7 @@ uint32_t allocate_lens_update_context(void *param_1)
     uVar2 = 0xfffffff4;
   }
   else {
-    iVar3 = alloc_pool2_block(iVar4);
+    iVar3 = alloc_pool2_block((void *)(iVar4));
     puVar1[2] = iVar3;
     if (iVar3 == 0) {
       release_heap_block_1047f9bc(puVar1);

@@ -25,12 +25,12 @@ void glyph_draw(void *param_1,byte *param_2)
   int iVar3;
   void *pvVar4;
   
-  copy_first_field_to_second((int)param_1 + 0x18);
+  copy_first_field_to_second((uint32_t *)((int)param_1 + 0x18));
   if (param_2 != (byte *)0x0) {
     bVar1 = *param_2;
     while (uVar2 = (uint)bVar1, uVar2 != 0) {
       iVar3 = 0;
-      pvVar4 = _DAT_80048f7c/*SDRAM*/;
+      pvVar4 = (void *)((uintptr_t)(_DAT_80048f7c/*SDRAM*/));
       if (0x20 < uVar2) {
         do {
           iVar3 = iVar3 + 1;

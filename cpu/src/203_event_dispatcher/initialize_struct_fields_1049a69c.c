@@ -65,6 +65,6 @@ void initialize_struct_fields_1049a69c(void *param_1)
   *(uint32_t *)((int)param_1 + 0xe8) = 0;
   *(uint32_t *)((int)param_1 + 0xec) = 0;
   *(uint8_t *)((int)param_1 + 0xf0) = 0;
-  initialize_struct_defaults_1049b250((void *)((int)param_1 + 0xf4));
+  initialize_struct_defaults_1049b250((uint32_t *)((int)param_1 + 0xf4));
   return;
 }

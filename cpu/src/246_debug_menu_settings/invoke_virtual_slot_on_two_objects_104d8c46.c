@@ -21,10 +21,10 @@ void invoke_virtual_slot_on_two_objects_104d8c46(void *param_1,uint32_t param_2,
   int iVar1;
   
   iVar1 = get_or_create_singleton_object_104d8cbe();
-  (**(code **)(*(int *)(iVar1 + 0x1c) + 0x1c))
-            (iVar1 + *(short *)(*(int *)(iVar1 + 0x1c) + 0x18),param_2,param_3);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0x1c)))[3].fn)
+            (iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 0x1c)))[3].adj,param_2,param_3);
   iVar1 = get_or_create_singleton_object_104d8e3e();
-  (**(code **)(*(int *)(iVar1 + 0x1c) + 0x1c))
-            (iVar1 + *(short *)(*(int *)(iVar1 + 0x1c) + 0x18),param_2,param_3);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0x1c)))[3].fn)
+            (iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 0x1c)))[3].adj,param_2,param_3);
   return;
 }

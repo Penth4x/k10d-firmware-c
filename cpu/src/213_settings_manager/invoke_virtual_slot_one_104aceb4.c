@@ -14,9 +14,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t invoke_virtual_slot_one_104aceb4(void *param_1)
+uint32_t invoke_virtual_slot_one_104aceb4(cls_105b7418 *param_1)
 
 {
-  iterate_virtual_object_arrays(*(void **)((int)param_1 + 4));
+  iterate_virtual_object_arrays((void *)param_1->field_0x4);
   return 1;
 }

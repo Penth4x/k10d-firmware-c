@@ -30,16 +30,16 @@ uint32_t write_setting_pair_from_object(int param_1,short param_2,int param_3)
   uint32_t uVar6;
   int iVar7;
   uintptr_t sp;
-  uint32_t auStack_24 [7];
+  cls_105a6d8c acStack_24 [7];
   
   if (param_3 < 1) {
     uVar4 = 0x83;
   }
   else {
-    cls_105a6d8c_new(auStack_24);
-    copy_status_block_bytes(*(int *)(param_1 + 8),auStack_24);
-    iVar2 = extract_field_from_struct_1045ff0e((int)auStack_24,0x2b);
-    uVar3 = extract_field_from_struct_1045ff0e((int)auStack_24,3);
+    cls_105a6d8c_new(acStack_24);
+    copy_status_block_bytes(*(int *)(param_1 + 8),acStack_24);
+    iVar2 = extract_field_from_struct_1045ff0e(acStack_24,0x2b);
+    uVar3 = extract_field_from_struct_1045ff0e(acStack_24,3);
     uVar4 = get_or_init_heap_block();
     uVar5 = compute_complement_of_helper_result(uVar4,(int)param_2,(int)(short)param_3,uVar3 & 0xff);
     if (iVar2 < 1) {
@@ -60,7 +60,7 @@ uint32_t write_setting_pair_from_object(int param_1,short param_2,int param_3)
       uVar4 = map_mode_code_to_index_1045b126(uVar4,uVar5);
     }
     setting_set(iVar2,iVar7,uVar4);
-    cls_105a6d8c_delete(auStack_24,2);
+    cls_105a6d8c_delete(acStack_24,2);
     uVar4 = 0;
   }
   return uVar4;

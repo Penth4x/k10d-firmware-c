@@ -39,7 +39,7 @@ uint32_t configure_state_block_and_dispatch(int param_1,void *param_2,int param_
     }
   }
   *(uint32_t *)(param_1 + 0x498) = uVar1;
-  if (param_2 == (void *)0x0) {
+  if (param_2 == 0) {
     bVar2 = invoke_virtual_method_on_object_104bfb72(param_1,(void *)(param_1 + 0x48c));
     uVar1 = 0;
     if (bVar2) {

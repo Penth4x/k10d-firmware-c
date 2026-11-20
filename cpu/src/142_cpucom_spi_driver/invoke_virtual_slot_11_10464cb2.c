@@ -11,6 +11,6 @@ uint32_t invoke_virtual_slot_11_10464cb2(int *param_1)
 {
   uint32_t uVar1;
   
-  uVar1 = (**(code **)(*param_1 + 0x5c))((int)*(short *)(*param_1 + 0x58) + (int)param_1,4,0x1f);
+  uVar1 = (((vtbl_entry*)(*param_1))[11].fn)((int)((vtbl_entry*)(*param_1))[11].adj + (int)param_1,4,0x1f);
   return uVar1;
 }

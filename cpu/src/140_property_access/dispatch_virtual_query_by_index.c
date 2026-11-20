@@ -24,30 +24,30 @@ uint dispatch_virtual_query_by_index(int *param_1,int param_2)
   uint uVar1;
   
   if (param_2 == 0) {
-    uVar2 = (**(code **)(*param_1 + 0x5c))((int)*(short *)(*param_1 + 0x58) + (int)param_1,1,0xff);
-    sVar3 = (**(code **)(*param_1 + 0x5c))((int)*(short *)(*param_1 + 0x58) + (int)param_1,0,0xff);
+    uVar2 = (((vtbl_entry*)(*param_1))[11].fn)((int)((vtbl_entry*)(*param_1))[11].adj + (int)param_1,1,0xff);
+    sVar3 = (((vtbl_entry*)(*param_1))[11].fn)((int)((vtbl_entry*)(*param_1))[11].adj + (int)param_1,0,0xff);
   }
   else {
     if (param_2 == 1) {
-      uVar1 = (**(code **)(*param_1 + 0x5c))((int)*(short *)(*param_1 + 0x58) + (int)param_1,2,0xff)
+      uVar1 = (((vtbl_entry*)(*param_1))[11].fn)((int)((vtbl_entry*)(*param_1))[11].adj + (int)param_1,2,0xff)
       ;
       return uVar1;
     }
     if (param_2 != 2) {
       if (param_2 == 3) {
-        uVar1 = (**(code **)(*param_1 + 0x5c))
-                          ((int)*(short *)(*param_1 + 0x58) + (int)param_1,5,0xff);
+        uVar1 = (((vtbl_entry*)(*param_1))[11].fn)
+                          ((int)((vtbl_entry*)(*param_1))[11].adj + (int)param_1,5,0xff);
         return uVar1;
       }
       if (param_2 != 4) {
         return 0;
       }
-      uVar1 = (**(code **)(*param_1 + 0x5c))((int)*(short *)(*param_1 + 0x58) + (int)param_1,6,0xff)
+      uVar1 = (((vtbl_entry*)(*param_1))[11].fn)((int)((vtbl_entry*)(*param_1))[11].adj + (int)param_1,6,0xff)
       ;
       return uVar1;
     }
-    uVar2 = (**(code **)(*param_1 + 0x5c))((int)*(short *)(*param_1 + 0x58) + (int)param_1,4,0xff);
-    sVar3 = (**(code **)(*param_1 + 0x5c))((int)*(short *)(*param_1 + 0x58) + (int)param_1,3,0xff);
+    uVar2 = (((vtbl_entry*)(*param_1))[11].fn)((int)((vtbl_entry*)(*param_1))[11].adj + (int)param_1,4,0xff);
+    sVar3 = (((vtbl_entry*)(*param_1))[11].fn)((int)((vtbl_entry*)(*param_1))[11].adj + (int)param_1,3,0xff);
   }
   uVar2 = pack_two_byte_value_10465228(param_1,uVar2,sVar3);
   return (uint)uVar2;

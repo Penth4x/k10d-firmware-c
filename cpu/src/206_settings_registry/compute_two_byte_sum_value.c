@@ -27,11 +27,11 @@ void compute_two_byte_sum_value(int param_1,uint32_t *param_2)
   uVar4 = *(uint32_t *)(param_1 + 0x2c);
   uVar1 = query_object_state_flag_104a28e4(__frv_reg_unset(4));
   iVar5 = **(int **)(param_1 + 0x14);
-  cVar2 = (**(code **)(iVar5 + 0x14))
-                    ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar5 + 0x10),3);
+  cVar2 = (((vtbl_entry*)(iVar5))[2].fn)
+                    ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar5))[2].adj,3);
   iVar5 = **(int **)(param_1 + 0x14);
-  cVar3 = (**(code **)(iVar5 + 0x14))
-                    ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar5 + 0x10),4);
+  cVar3 = (((vtbl_entry*)(iVar5))[2].fn)
+                    ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar5))[2].adj,4);
   uVar1 = lookup_two_byte_table_entry_1045a89c(uVar4,uVar1,cVar2 + cVar3);
   *param_2 = uVar1;
   param_2[1] = 10;

@@ -14,10 +14,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_two_helpers_with_param_104ae028(int *param_1)
+void call_two_helpers_with_param_104ae028(cls_105b7698 *param_1)
 
 {
   invoke_virtual_slot_two_104ae2bc(__frv_reg_unset(4));
-  invoke_virtual_slot_3_104af0e6(param_1);
+  invoke_virtual_slot_3_104af0e6((void *)param_1);
   return;
 }

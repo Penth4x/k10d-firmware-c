@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t map_code_to_bitmask_and_call(uint32_t param_1,int param_2,int *param_3)
+uint32_t map_code_to_bitmask_and_call(cls_105b9674 *param_1,int param_2,int *param_3)
 
 {
   uint32_t uVar1;
@@ -26,6 +26,6 @@ uint32_t map_code_to_bitmask_and_call(uint32_t param_1,int param_2,int *param_3)
     }
     uVar1 = 8;
   }
-  uVar1 = set_flag_if_param2_zero_or_one(param_1,param_3,uVar1);
+  uVar1 = set_flag_if_param2_zero_or_one((int)param_1,param_3,uVar1);
   return uVar1;
 }

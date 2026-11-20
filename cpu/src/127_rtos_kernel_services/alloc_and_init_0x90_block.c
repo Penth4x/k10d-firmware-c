@@ -9,7 +9,7 @@
 int alloc_and_init_0x90_block(void *param_1)
 
 {
-  if ((param_1 != (void *)0x0) || (param_1 = (void *)heap_alloc((void *)0x90), param_1 != (void *)0x0)) {
+  if ((param_1 != 0) || (param_1 = (void *)heap_alloc((void *)0x90), param_1 != 0)) {
     *(uint32_t *)((int)param_1 + 0x8c) = 0;
     cpucom_txn_table_setup(param_1);
   }

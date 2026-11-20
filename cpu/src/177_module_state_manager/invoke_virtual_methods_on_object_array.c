@@ -30,63 +30,63 @@ int invoke_virtual_methods_on_object_array(void *param_1)
   uint32_t uVar7;
   int iStack_38;
   
-  dispatch_param_based_on_check(*(uint32_t *)((int)param_1 + 4),(void *)&DAT_10006000/*ROM*/);
+  dispatch_param_based_on_check(*(uint32_t *)((int)param_1 + 4),(void*)(&DAT_10006000/*ROM*/));
   iVar6 = 0;
   iStack_38 = 6;
   while( true ) {
     piVar1 = (int *)module_array_getter(param_1,iVar6);
     if (piVar1 != (int *)0x0) {
       uVar7 = *(uint32_t *)((int)param_1 + 4);
-      uVar2 = (**(code **)(*piVar1 + 0x4c))((int)*(short *)(*piVar1 + 0x48) + (int)piVar1);
-      uVar3 = (**(code **)(*piVar1 + 0x44))((int)*(short *)(*piVar1 + 0x40) + (int)piVar1);
-      uVar4 = (**(code **)(*piVar1 + 0x54))((int)*(short *)(*piVar1 + 0x50) + (int)piVar1);
-      copy_words_to_buffer(uVar7,(void *)uVar2,uVar3,uVar4);
+      uVar2 = (((vtbl_entry*)(*piVar1))[9].fn)((int)((vtbl_entry*)(*piVar1))[9].adj + (int)piVar1);
+      uVar3 = (((vtbl_entry*)(*piVar1))[8].fn)((int)((vtbl_entry*)(*piVar1))[8].adj + (int)piVar1);
+      uVar4 = (((vtbl_entry*)(*piVar1))[10].fn)((int)((vtbl_entry*)(*piVar1))[10].adj + (int)piVar1);
+      copy_words_to_buffer(uVar7,(void*)(uVar2),uVar3,uVar4);
     }
     piVar1 = (int *)module_array_getter(param_1,iVar6 + 1);
     if (piVar1 != (int *)0x0) {
       uVar7 = *(uint32_t *)((int)param_1 + 4);
-      uVar2 = (**(code **)(*piVar1 + 0x4c))((int)*(short *)(*piVar1 + 0x48) + (int)piVar1);
-      uVar3 = (**(code **)(*piVar1 + 0x44))((int)*(short *)(*piVar1 + 0x40) + (int)piVar1);
-      uVar4 = (**(code **)(*piVar1 + 0x54))((int)*(short *)(*piVar1 + 0x50) + (int)piVar1);
-      copy_words_to_buffer(uVar7,(void *)uVar2,uVar3,uVar4);
+      uVar2 = (((vtbl_entry*)(*piVar1))[9].fn)((int)((vtbl_entry*)(*piVar1))[9].adj + (int)piVar1);
+      uVar3 = (((vtbl_entry*)(*piVar1))[8].fn)((int)((vtbl_entry*)(*piVar1))[8].adj + (int)piVar1);
+      uVar4 = (((vtbl_entry*)(*piVar1))[10].fn)((int)((vtbl_entry*)(*piVar1))[10].adj + (int)piVar1);
+      copy_words_to_buffer(uVar7,(void*)(uVar2),uVar3,uVar4);
     }
     piVar1 = (int *)module_array_getter(param_1,iVar6 + 2);
     if (piVar1 != (int *)0x0) {
       uVar7 = *(uint32_t *)((int)param_1 + 4);
-      uVar2 = (**(code **)(*piVar1 + 0x4c))((int)*(short *)(*piVar1 + 0x48) + (int)piVar1);
-      uVar3 = (**(code **)(*piVar1 + 0x44))((int)*(short *)(*piVar1 + 0x40) + (int)piVar1);
-      uVar4 = (**(code **)(*piVar1 + 0x54))((int)*(short *)(*piVar1 + 0x50) + (int)piVar1);
-      copy_words_to_buffer(uVar7,(void *)uVar2,uVar3,uVar4);
+      uVar2 = (((vtbl_entry*)(*piVar1))[9].fn)((int)((vtbl_entry*)(*piVar1))[9].adj + (int)piVar1);
+      uVar3 = (((vtbl_entry*)(*piVar1))[8].fn)((int)((vtbl_entry*)(*piVar1))[8].adj + (int)piVar1);
+      uVar4 = (((vtbl_entry*)(*piVar1))[10].fn)((int)((vtbl_entry*)(*piVar1))[10].adj + (int)piVar1);
+      copy_words_to_buffer(uVar7,(void*)(uVar2),uVar3,uVar4);
     }
     piVar1 = (int *)module_array_getter(param_1,iVar6 + 3);
     if (piVar1 != (int *)0x0) {
       uVar7 = *(uint32_t *)((int)param_1 + 4);
-      uVar2 = (**(code **)(*piVar1 + 0x4c))((int)*(short *)(*piVar1 + 0x48) + (int)piVar1);
-      uVar3 = (**(code **)(*piVar1 + 0x44))((int)*(short *)(*piVar1 + 0x40) + (int)piVar1);
-      uVar4 = (**(code **)(*piVar1 + 0x54))((int)*(short *)(*piVar1 + 0x50) + (int)piVar1);
-      copy_words_to_buffer(uVar7,(void *)uVar2,uVar3,uVar4);
+      uVar2 = (((vtbl_entry*)(*piVar1))[9].fn)((int)((vtbl_entry*)(*piVar1))[9].adj + (int)piVar1);
+      uVar3 = (((vtbl_entry*)(*piVar1))[8].fn)((int)((vtbl_entry*)(*piVar1))[8].adj + (int)piVar1);
+      uVar4 = (((vtbl_entry*)(*piVar1))[10].fn)((int)((vtbl_entry*)(*piVar1))[10].adj + (int)piVar1);
+      copy_words_to_buffer(uVar7,(void*)(uVar2),uVar3,uVar4);
     }
     iStack_38 = iStack_38 + -1;
     if (iStack_38 < 0) break;
     iVar6 = iVar6 + 4;
   }
-  iVar6 = dispatch_param_with_fallback(*(uint32_t *)((int)param_1 + 4),(void *)&DAT_10006000/*ROM*/);
+  iVar6 = dispatch_param_with_fallback(*(uint32_t *)((int)param_1 + 4),(void*)(&DAT_10006000/*ROM*/));
   dispatch_param_based_on_check(*(uint32_t *)((int)param_1 + 4),(char *)0x107e0000);
   piVar1 = (int *)module_array_getter(param_1,0x1c);
   if (piVar1 != (int *)0x0) {
     uVar7 = *(uint32_t *)((int)param_1 + 4);
-    uVar2 = (**(code **)(*piVar1 + 0x4c))((int)*(short *)(*piVar1 + 0x48) + (int)piVar1);
-    uVar3 = (**(code **)(*piVar1 + 0x44))((int)*(short *)(*piVar1 + 0x40) + (int)piVar1);
-    uVar4 = (**(code **)(*piVar1 + 0x54))((int)*(short *)(*piVar1 + 0x50) + (int)piVar1);
-    copy_words_to_buffer(uVar7,(void *)uVar2,uVar3,uVar4);
+    uVar2 = (((vtbl_entry*)(*piVar1))[9].fn)((int)((vtbl_entry*)(*piVar1))[9].adj + (int)piVar1);
+    uVar3 = (((vtbl_entry*)(*piVar1))[8].fn)((int)((vtbl_entry*)(*piVar1))[8].adj + (int)piVar1);
+    uVar4 = (((vtbl_entry*)(*piVar1))[10].fn)((int)((vtbl_entry*)(*piVar1))[10].adj + (int)piVar1);
+    copy_words_to_buffer(uVar7,(void*)(uVar2),uVar3,uVar4);
   }
   piVar1 = (int *)module_array_getter(param_1,0x1d);
   if (piVar1 != (int *)0x0) {
     uVar7 = *(uint32_t *)((int)param_1 + 4);
-    uVar2 = (**(code **)(*piVar1 + 0x4c))((int)*(short *)(*piVar1 + 0x48) + (int)piVar1);
-    uVar3 = (**(code **)(*piVar1 + 0x44))((int)*(short *)(*piVar1 + 0x40) + (int)piVar1);
-    uVar4 = (**(code **)(*piVar1 + 0x54))((int)*(short *)(*piVar1 + 0x50) + (int)piVar1);
-    copy_words_to_buffer(uVar7,(void *)uVar2,uVar3,uVar4);
+    uVar2 = (((vtbl_entry*)(*piVar1))[9].fn)((int)((vtbl_entry*)(*piVar1))[9].adj + (int)piVar1);
+    uVar3 = (((vtbl_entry*)(*piVar1))[8].fn)((int)((vtbl_entry*)(*piVar1))[8].adj + (int)piVar1);
+    uVar4 = (((vtbl_entry*)(*piVar1))[10].fn)((int)((vtbl_entry*)(*piVar1))[10].adj + (int)piVar1);
+    copy_words_to_buffer(uVar7,(void*)(uVar2),uVar3,uVar4);
   }
   iVar5 = dispatch_param_with_fallback(*(uint32_t *)((int)param_1 + 4),(char *)0x107e0000);
   if (iVar5 < iVar6) {

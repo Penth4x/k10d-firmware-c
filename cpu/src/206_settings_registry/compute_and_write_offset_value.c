@@ -27,11 +27,11 @@ void compute_and_write_offset_value(int param_1,int param_2)
   uVar1 = *(uint32_t *)(param_1 + 0x50);
   uVar2 = query_object_slot_three_104a6a48(param_1);
   iVar6 = **(int **)(param_1 + 0x14);
-  cVar4 = (**(code **)(iVar6 + 0x14))
-                    ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar6 + 0x10),3);
+  cVar4 = (((vtbl_entry*)(iVar6))[2].fn)
+                    ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar6))[2].adj,3);
   iVar6 = **(int **)(param_1 + 0x14);
-  cVar5 = (**(code **)(iVar6 + 0x14))
-                    ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar6 + 0x10),4);
+  cVar5 = (((vtbl_entry*)(iVar6))[2].fn)
+                    ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar6))[2].adj,4);
   sVar3 = lookup_two_byte_table_entry_1045a89c(uVar1,uVar2,cVar4 + cVar5);
   write_word_to_dynamic_array(param_2,0,sVar3 + 0x32);
   return;

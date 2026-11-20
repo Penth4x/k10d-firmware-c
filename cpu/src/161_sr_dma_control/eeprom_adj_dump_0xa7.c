@@ -37,13 +37,13 @@ uint32_t eeprom_adj_dump_0xa7(uint32_t param_1,void *param_2)
     iVar4 = get_or_create_camera_object();
     piVar5 = *(int **)(iVar4 + 0xc);
     uStack_c = 0;
-    iVar4 = (**(code **)(*piVar5 + 0x2c))
-                      ((int)*(short *)(*piVar5 + 0x28) + (int)piVar5,param_2,0,&uStack_c);
+    iVar4 = (((vtbl_entry*)(*piVar5))[5].fn)
+                      ((int)((vtbl_entry*)(*piVar5))[5].adj + (int)piVar5,param_2,0,&uStack_c);
     uVar6 = 0;
     if (iVar4 != 0) {
-      uVar6 = (**(code **)(*piVar5 + 0x44))
-                        ((int)*(short *)(*piVar5 + 0x40) + (int)piVar5,uStack_c,iVar3,0x12000);
-      (**(code **)(*piVar5 + 0x34))((int)*(short *)(*piVar5 + 0x30) + (int)piVar5,uStack_c);
+      uVar6 = (((vtbl_entry*)(*piVar5))[8].fn)
+                        ((int)((vtbl_entry*)(*piVar5))[8].adj + (int)piVar5,uStack_c,iVar3,0x12000);
+      (((vtbl_entry*)(*piVar5))[6].fn)((int)((vtbl_entry*)(*piVar5))[6].adj + (int)piVar5,uStack_c);
     }
   }
   heap_free_2(iVar3);

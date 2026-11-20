@@ -81,7 +81,7 @@ void run_two_image_processor_passes(int param_1,int param_2)
   uStack_3c = uVar2;
   uStack_34 = uVar3;
   eventflag_clr_flg(puVar1,1);
-  imgp_c_program_and_start(*(uint32_t *)(param_1 + 0x24),(void *)(param_1 + 4),&uStack_4c);
+  imgp_c_program_and_start_104fe976((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(param_1 + 4),(int *)(&uStack_4c));
   eventflag_wai_flg(puVar1,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,1);
   imgp_c_start_and_ack(*(uint32_t *)(param_1 + 0x24));
@@ -108,7 +108,7 @@ void run_two_image_processor_passes(int param_1,int param_2)
   uStack_38 = uVar3;
   uStack_34 = uVar4;
   eventflag_clr_flg(puVar1,1);
-  imgp_c_program_and_start(*(uint32_t *)(param_1 + 0x24),(void *)(param_1 + 4),&uStack_4c);
+  imgp_c_program_and_start_104fe976((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(param_1 + 4),(int *)(&uStack_4c));
   eventflag_wai_flg(puVar1,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,1);
   imgp_c_start_and_ack(*(uint32_t *)(param_1 + 0x24));

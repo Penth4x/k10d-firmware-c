@@ -76,15 +76,15 @@ void compute_and_send_exposure_offsets(void *param_1,uint param_2,uint param_3)
   }
   if (*(char *)(*(int *)((int)param_1 + 0xf4) + 0x40) != '\0') {
     append_bytes_to_ring_buffer(*(int *)((int)param_1 + 0xf4),0x1059d404/*ROM*/,0);
-    copy_stream_bytes_into_struct(*(uint32_t *)((int)param_1 + 0xf4),(void *)iVar2,1,0);
-    copy_stream_bytes_into_struct(*(uint32_t *)((int)param_1 + 0xf4),(void *)iVar3,1,0);
+    copy_stream_bytes_into_struct((int)(*(uint32_t *)((int)param_1 + 0xf4)),(void *)(iVar2),(int)(1),(void *)(0));
+    copy_stream_bytes_into_struct((int)(*(uint32_t *)((int)param_1 + 0xf4)),(void *)(iVar3),(int)(1),(void *)(0));
     append_newline_to_buffer(*(int *)((int)param_1 + 0xf4),0);
     append_bytes_to_ring_buffer(*(int *)((int)param_1 + 0xf4),0x1059d414/*ROM*/,0);
-    copy_stream_bytes_into_struct(*(uint32_t *)((int)param_1 + 0xf4),(void *)*(uint16_t *)((int)param_1 + 0xb4),1,0);
+    copy_stream_bytes_into_struct((int)(*(uint32_t *)((int)param_1 + 0xf4)),(void *)(*(uint16_t *)((int)param_1 + 0xb4)),(int)(1),(void *)(0));
     append_newline_to_buffer(*(int *)((int)param_1 + 0xf4),0);
   }
   iVar6 = *(int *)(*(int *)((int)param_1 + 0x2c) + 4);
-  (**(code **)(iVar6 + 0x84))
-            (*(int *)((int)param_1 + 0x2c) + (int)*(short *)(iVar6 + 0x80),iVar2,iVar3);
+  (((vtbl_entry*)(iVar6))[16].fn)
+            (*(int *)((int)param_1 + 0x2c) + (int)((vtbl_entry*)(iVar6))[16].adj,iVar2,iVar3);
   return;
 }

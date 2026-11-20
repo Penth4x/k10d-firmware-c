@@ -23,22 +23,22 @@ uint32_t retry_virtual_call_with_timeout_10470784(int param_1)
   int iVar3;
   bool bVar4;
   uintptr_t sp;
-  uint8_t auStack_10 [8];
+  cls_105a6eac cStack_10;
   
   bVar4 = false;
   reset_subobject_at_offset_0x2c_104706a0(__frv_reg_unset(4));
   iVar3 = 0;
   do {
-    cls_105a6eac_new(auStack_10);
-    copy_four_bytes_from_struct_field_1045e59a(*(int *)(param_1 + 0x30),auStack_10);
-    iVar1 = test_field_bit_or_nonzero(auStack_10,8);
+    cls_105a6eac_new(&cStack_10);
+    copy_four_bytes_from_struct_field_1045e59a(*(int *)(param_1 + 0x30),&cStack_10);
+    iVar1 = test_field_bit_or_nonzero(&cStack_10,8);
     if (iVar1 != 0) {
-      cls_105a6eac_delete(auStack_10,2);
+      cls_105a6eac_delete(&cStack_10,2);
       bVar4 = true;
       break;
     }
     check_kernel_call_success_10459fea();
-    cls_105a6eac_delete(auStack_10,2);
+    cls_105a6eac_delete(&cStack_10,2);
     iVar3 = iVar3 + 1;
   } while (iVar3 < 0x40);
   uVar2 = 0;

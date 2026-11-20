@@ -13,10 +13,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_field_and_call_helper_10424356(uint32_t *param_1,uint16_t param_2)
+void set_field_and_call_helper_10424356(cls_1059ddb0 *param_1,uint16_t param_2)
 
 {
-  *(uint16_t *)(param_1 + 3) = param_2;
-  check_mode_transition_validity(param_1,0);
+  param_1->field_0xc = param_2;
+  check_mode_transition_validity(&param_1->field_0x0,0);
   return;
 }

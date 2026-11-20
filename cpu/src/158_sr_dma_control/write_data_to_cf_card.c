@@ -26,12 +26,12 @@ int write_data_to_cf_card(uint32_t param_1,void *param_2)
   iVar1 = get_or_create_camera_object();
   piVar2 = *(int **)(iVar1 + 0xc);
   uStack_c = 0;
-  iVar1 = (**(code **)(*piVar2 + 0x2c))
-                    ((int)*(short *)(*piVar2 + 0x28) + (int)piVar2,param_2,0,&uStack_c);
+  iVar1 = (((vtbl_entry*)(*piVar2))[5].fn)
+                    ((int)((vtbl_entry*)(*piVar2))[5].adj + (int)piVar2,param_2,0,&uStack_c);
   if (iVar1 != 0) {
-    (**(code **)(*piVar2 + 0x44))
-              ((int)*(short *)(*piVar2 + 0x40) + (int)piVar2,uStack_c,0x10000000/*ROM*/,0x800000);
-    (**(code **)(*piVar2 + 0x34))((int)*(short *)(*piVar2 + 0x30) + (int)piVar2,uStack_c);
+    (((vtbl_entry*)(*piVar2))[8].fn)
+              ((int)((vtbl_entry*)(*piVar2))[8].adj + (int)piVar2,uStack_c,0x10000000/*ROM*/,0x800000);
+    (((vtbl_entry*)(*piVar2))[6].fn)((int)((vtbl_entry*)(*piVar2))[6].adj + (int)piVar2,uStack_c);
   }
   return iVar1;
 }

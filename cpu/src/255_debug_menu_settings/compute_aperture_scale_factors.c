@@ -195,7 +195,7 @@ void compute_aperture_scale_factors(int param_1,ushort *param_2,int param_3,int 
   case 0xc:
   case 0xd:
   case 0xe:
-    scale_sensor_readings_by_gain(param_1 + 0x3128,aiStack_84,param_5);
+    scale_sensor_readings_by_gain((cls_105fa760 *)(param_1 + 0x3128),aiStack_84,param_5);
     goto LAB_104ee2f8;
   default:
   case 10:

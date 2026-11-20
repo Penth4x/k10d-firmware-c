@@ -6,14 +6,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_and_toggle_byte(void *param_1,uint32_t param_2,int param_3)
+void invoke_virtual_slot_and_toggle_byte(cls_105a0828 *param_1,uint32_t param_2,int param_3)
 
 {
-  (**(code **)(*(int *)((int)param_1 + 4) + 0x34))
-            ((int)*(short *)(*(int *)((int)param_1 + 4) + 0x30) + (int)param_1);
+  (((vtbl_entry*)(param_1->field_0x4))[6].fn)
+            ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x4))[6].adj);
   if (param_3 != 0) {
-    **(byte **)((int)param_1 + 0x118) = *(byte *)((int)param_1 + 0x127) ^ 0xff;
+    *(byte *)param_1->field_0x118 = param_1->field_0x127 ^ 0xff;
   }
-  update_byte_field_in_object(param_1,*(byte *)((int)param_1 + 0x126),*(byte *)((int)param_1 + 0x126));
+  update_byte_field_in_object(param_1,param_1->field_0x126,param_1->field_0x126);
   return;
 }

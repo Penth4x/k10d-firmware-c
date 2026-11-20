@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void reset_state_and_invoke_callback(int param_1)
+void reset_state_and_invoke_callback(cls_1055a304 *param_1)
 
 {
   short sVar1;
@@ -20,7 +20,7 @@ void reset_state_and_invoke_callback(int param_1)
   uRam80019848 = 6;
   uRam8001984c = 0;
   uRam80019850 = 0;
-  piVar2 = *(int **)(param_1 + 0x60);
+  piVar2 = (int *)param_1->field_0x60;
   if (piVar2 != (int *)0x0) {
     iVar3 = *piVar2;
     sVar1 = *(short *)(iVar3 + 0x20);
@@ -30,8 +30,8 @@ void reset_state_and_invoke_callback(int param_1)
       *(uint32_t *)(&stack0xffffffe8 + iVar5) = *(uint32_t *)(&DAT_80019844/*SDRAM*/ + iVar5);
       iVar5 = iVar4;
     } while (iVar4 != 0);
-    (**(code **)(iVar3 + 0x24))((int)sVar1 + (int)piVar2,auStack_14);
+    (((vtbl_entry*)(iVar3))[4].fn)((int)sVar1 + (int)piVar2,auStack_14);
   }
-  set_flg_obj((uint32_t *)(param_1 + 0x4c));
+  set_flg_obj(&param_1->field_0x4c);
   return;
 }

@@ -14,6 +14,8 @@
 #include "globals.h"
 #include "funcs.h"
 
+/* WARNING: Struct "cls_105d65d0": ignoring overlapping field "field_0x1e4" */
+
 uint32_t initialize_object_subcomponents_104a35a2(int param_1)
 
 {
@@ -25,18 +27,18 @@ uint32_t initialize_object_subcomponents_104a35a2(int param_1)
   uint32_t uStack_10;
   uint32_t uStack_c;
   
-  iVar1 = cls_105d6574_new(0);
-  iVar2 = cls_105d65d0_new((uint32_t *)0x0);
+  iVar1 = (uint32_t)(cls_105d6574_new((cls_105d6574 *)0x0));
+  iVar2 = cls_105d65d0_new((cls_105d65d0 *)0x0);
   *(int *)(param_1 + 0x14) = iVar1;
   *(int *)(param_1 + 0x2c) = iVar2;
   uStack_10 = *(uint32_t *)(param_1 + 0x38);
   uVar4 = 0;
   uStack_c = 0x30000;
-  iVar3 = (**(code **)(*(int *)(iVar1 + 0x1c) + 0x14))
-                    (*(short *)(*(int *)(iVar1 + 0x1c) + 0x10) + iVar1,&uStack_10);
+  iVar3 = (((vtbl_entry*)(*(int *)(iVar1 + 0x1c)))[2].fn)
+                    (((vtbl_entry*)(*(int *)(iVar1 + 0x1c)))[2].adj + iVar1,&uStack_10);
   if ((iVar3 != 0) &&
-     (iVar3 = (**(code **)(*(int *)(iVar2 + 8) + 0x14))
-                        (*(short *)(*(int *)(iVar2 + 8) + 0x10) + iVar2,0), iVar3 != 0)) {
+     (iVar3 = (((vtbl_entry*)(*(int *)(iVar2 + 8)))[2].fn)
+                        (((vtbl_entry*)(*(int *)(iVar2 + 8)))[2].adj + iVar2,0), iVar3 != 0)) {
     *(int *)(iVar1 + 0x20) = iVar2;
     uVar4 = 1;
   }

@@ -6,11 +6,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void store_param_and_call_two_helpers_10378024(int param_1,uint32_t param_2)
+void store_param_and_call_two_helpers_10378024(cls_105586cc *param_1,uint32_t param_2)
 
 {
-  *(uint32_t *)(param_1 + 0x30) = param_2;
+  param_1->field_0x30 = param_2;
   register_menu_item_with_split_1037830c(__frv_reg_unset(4));
-  register_six_menu_items_10378508(param_1);
+  register_six_menu_items_10378508((uint32_t)param_1);
   return;
 }

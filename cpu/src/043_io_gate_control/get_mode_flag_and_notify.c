@@ -47,8 +47,8 @@ LAB_1039ef46:
     else {
       uVar1 = 0x130065;
     }
-    (**(code **)(iVar3 + 0x1c))
-              ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar3 + 0x18),uVar1,0);
+    (((vtbl_entry*)(iVar3))[3].fn)
+              ((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar3))[3].adj,uVar1,0);
   }
   else {
     iVar3 = **(int **)(param_1 + 0x2c);
@@ -58,8 +58,8 @@ LAB_1039ef46:
     else {
       uVar1 = 0x130065;
     }
-    (**(code **)(iVar3 + 0x1c))
-              ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar3 + 0x18),uVar1,0);
+    (((vtbl_entry*)(iVar3))[3].fn)
+              ((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar3))[3].adj,uVar1,0);
   }
   *(uint32_t *)(param_1 + 0x4c) = 0;
   *(uint32_t *)(param_1 + 0x50) = 0;

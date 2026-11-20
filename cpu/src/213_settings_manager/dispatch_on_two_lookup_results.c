@@ -16,24 +16,24 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_on_two_lookup_results(int param_1,uint32_t param_2,uint32_t param_3,int *param_4)
+uint32_t dispatch_on_two_lookup_results(cls_105b77c0 *param_1,uint32_t param_2,uint32_t param_3,int *param_4)
 
 {
   uint32_t uVar1;
   uint32_t uVar2;
   int iVar3;
   
-  uVar1 = dispatch_virtual_slot_two_104af096(param_1,2,4);
-  uVar2 = dispatch_virtual_slot_two_104af096(param_1,7,2);
+  uVar1 = dispatch_virtual_slot_two_104af096((int)param_1,2,4);
+  uVar2 = dispatch_virtual_slot_two_104af096((int)param_1,7,2);
   iVar3 = dispatch_virtual_slot_8_104af5ca(param_4,uVar1,uVar2);
   if (iVar3 == 0) {
-    invoke_virtual_slot_two_104ae294((void *)param_1);
+    invoke_virtual_slot_two_104ae294(param_1);
   }
   else if (iVar3 == 9) {
-    invoke_virtual_slot_two_104ae3ac(param_1);
+    invoke_virtual_slot_two_104ae3ac((int)param_1);
   }
   else {
-    invoke_virtual_slot_two_104ae2e4((void *)param_1);
+    invoke_virtual_slot_two_104ae2e4(param_1);
   }
   return 0;
 }

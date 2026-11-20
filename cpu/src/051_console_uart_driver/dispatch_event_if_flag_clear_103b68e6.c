@@ -15,13 +15,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_event_if_flag_clear_103b68e6(int *param_1,int param_2)
+void dispatch_event_if_flag_clear_103b68e6(cls_10566724 *param_1,int param_2)
 
 {
-  if (*(char *)((int)param_1 + 0x57) == '\0') {
+  if (param_1->field_0x57 == '\0') {
     if (param_2 == 0x1a) {
-      *(uint8_t *)((int)param_1 + 0x57) = 1;
-      (**(code **)(*param_1 + 0x74))((int)*(short *)(*param_1 + 0x70) + (int)param_1,0x1120004,0);
+      param_1->field_0x57 = '\x01';
+      (((vtbl_entry*)(param_1->field_0x0))[14].fn)
+                ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[14].adj,0x1120004,0);
     }
     (*(code *)0x1039fe1a/*ROM*/)(param_1,param_2);
   }

@@ -23,19 +23,19 @@ void invoke_virtual_slot_two_on_four_objects_1036b766(void)
   uint32_t uStack_c;
   
   iVar1 = 0;
-  reset_object_fields_and_call_base((void *)0x800158dc/*SDRAM*/);
-  reset_object_fields_and_call_base((void *)0x80015af0/*SDRAM*/);
-  reset_object_fields_and_call_base((void *)0x80015d04/*SDRAM*/);
+  reset_object_fields_and_call_base((cls_105b9458 *)0x800158dc/*SDRAM*/);
+  reset_object_fields_and_call_base((cls_105b9458 *)0x80015af0/*SDRAM*/);
+  reset_object_fields_and_call_base((cls_105b9458 *)0x80015d04/*SDRAM*/);
   uStack_c = 3;
   do {
-    (**(code **)(*(int *)(iVar1 + -0x7ffea0d4) + 0x14))
-              (*(short *)(*(int *)(iVar1 + -0x7ffea0d4) + 0x10) + iVar1 + -0x7ffea0e8);
-    (**(code **)(*(int *)(iVar1 + -0x7ffe9ec0) + 0x14))
-              (*(short *)(*(int *)(iVar1 + -0x7ffe9ec0) + 0x10) + iVar1 + -0x7ffe9ed4);
-    (**(code **)(*(int *)(iVar1 + -0x7ffe9cac) + 0x14))
-              (*(short *)(*(int *)(iVar1 + -0x7ffe9cac) + 0x10) + iVar1 + -0x7ffe9cc0);
-    (**(code **)(*(int *)(iVar1 + -0x7ffe9a98) + 0x14))
-              (*(short *)(*(int *)(iVar1 + -0x7ffe9a98) + 0x10) + iVar1 + -0x7ffe9aac);
+    (((vtbl_entry*)(*(int *)(iVar1 + -0x7ffea0d4)))[2].fn)
+              (((vtbl_entry*)(*(int *)(iVar1 + -0x7ffea0d4)))[2].adj + iVar1 + -0x7ffea0e8);
+    (((vtbl_entry*)(*(int *)(iVar1 + -0x7ffe9ec0)))[2].fn)
+              (((vtbl_entry*)(*(int *)(iVar1 + -0x7ffe9ec0)))[2].adj + iVar1 + -0x7ffe9ed4);
+    (((vtbl_entry*)(*(int *)(iVar1 + -0x7ffe9cac)))[2].fn)
+              (((vtbl_entry*)(*(int *)(iVar1 + -0x7ffe9cac)))[2].adj + iVar1 + -0x7ffe9cc0);
+    (((vtbl_entry*)(*(int *)(iVar1 + -0x7ffe9a98)))[2].fn)
+              (((vtbl_entry*)(*(int *)(iVar1 + -0x7ffe9a98)))[2].adj + iVar1 + -0x7ffe9aac);
     iVar1 = iVar1 + 0x850;
     uStack_c = uStack_c + -1;
   } while (-1 < uStack_c);

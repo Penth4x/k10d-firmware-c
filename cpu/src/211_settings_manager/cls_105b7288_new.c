@@ -14,28 +14,28 @@
 /* WARNING: Instruction at (ram,0x104ac00c) overlaps instruction at (ram,0x104ac00a)
     */
 
-uint32_t *
-cls_105b7288_new(uint32_t *param_1,int param_2,uint32_t param_3,uint32_t param_4,
-                uint32_t param_5,uint32_t param_6,uint32_t param_7)
+cls_105b7288 *
+cls_105b7288_new(cls_105b7288 *param_1,int param_2,uint32_t param_3,uint32_t param_4,
+                uint32_t param_5,int param_6,int param_7)
 
 {
   int iVar1;
   
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x38), param_1 != (uint32_t *)0x0)) {
-    cls_105b7458_new(param_1,param_6,param_7);
-    *param_1 = 0x105b7288/*ROM*/;
+  if ((param_1 != (cls_105b7288 *)0x0) ||
+     (param_1 = (cls_105b7288 *)heap_alloc((void *)0x38), param_1 != (cls_105b7288 *)0x0)) {
+    cls_105b7458_new((cls_105b7458 *)param_1,param_6,param_7);
+    param_1->field_0x0 = 0x105b7288/*ROM*/;
     iVar1 = param_2 * 4;
-    param_1[4] = *(uint32_t *)(&DAT_800491a0/*SDRAM*/ + iVar1);
-    param_1[5] = param_3;
-    param_1[6] = param_4;
-    param_1[7] = param_5;
-    param_1[8] = 0;
-    param_1[9] = 0;
-    param_1[10] = *(uint32_t *)(iVar1 + 0x105b7280/*ROM*/);
-    param_1[0xb] = *(uint32_t *)(iVar1 + 0x105b7278/*ROM*/);
-    param_1[0xc] = *(uint32_t *)(iVar1 + 0x105b7280/*ROM*/);
-    param_1[0xd] = 0;
+    param_1->field_0x10 = *(uint32_t *)(&DAT_800491a0/*SDRAM*/ + iVar1);
+    param_1->field_0x14 = param_3;
+    param_1->field_0x18 = param_4;
+    param_1->field_0x1c = param_5;
+    param_1->field_0x20 = 0;
+    param_1->field_0x24 = 0;
+    param_1->field_0x28 = *(uint32_t *)(iVar1 + 0x105b7280/*ROM*/);
+    param_1->field_0x2c = *(uint32_t *)(iVar1 + 0x105b7278/*ROM*/);
+    param_1->field_0x30 = *(uint32_t *)(iVar1 + 0x105b7280/*ROM*/);
+    param_1->field_0x34 = 0;
   }
   return param_1;
 }

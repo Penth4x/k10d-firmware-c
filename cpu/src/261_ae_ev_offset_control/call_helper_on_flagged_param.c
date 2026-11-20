@@ -15,11 +15,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_helper_on_flagged_param(int param_1,int param_2,uint param_3)
+/* WARNING: Struct "cls_105d40b0": ignoring multiple overlapping fields */
+
+uint32_t call_helper_on_flagged_param(cls_105d40b0 *param_1,int param_2,uint param_3)
 
 {
   if ((param_2 == -0x7fffffeb) && ((param_3 & 0x80000015/*SDRAM*/) != 0)) {
-    invoke_virtual_slot_two_104272e4((void *)(param_1 + 0x14),0x10c0000,0);
+    invoke_virtual_slot_two_104272e4(&param_1->field_0x14,0x10c0000,0);
   }
   return 0;
 }

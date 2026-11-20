@@ -64,9 +64,9 @@ uint parse_numeric_expression(uint32_t *param_1,int param_2,char *param_3,void *
     else {
       iVar3 = 2;
     }
-    iVar3 = count_lens_fw_update_chars((byte *)(param_3 + param_2),(char *)(&DAT_105b88eb/*ROM*/ + iVar3 * 3),&uStack_c,param_4);
+    iVar3 = count_lens_fw_update_chars((byte *)(param_3 + param_2),&DAT_105b88eb/*ROM*/ + iVar3 * 3,&uStack_c,param_4);
     if (iVar3 == -1) {
-      cmd_error_report((void *)param_1[1],0x90);
+      cmd_error_report((uint32_t *)(param_1[1]),(uint32_t)(0x90));
     }
     bVar2 = param_3[param_2];
     if (((bVar2 < 0x66) && (0x2f < bVar2)) && ((bVar2 & 0xf) < 10)) {

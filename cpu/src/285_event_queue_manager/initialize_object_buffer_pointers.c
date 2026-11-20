@@ -18,40 +18,41 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t initialize_object_buffer_pointers(void *param_1)
+uint32_t initialize_object_buffer_pointers(cls_105f9a64 *param_1)
 
 {
   int iVar1;
   uint32_t uVar2;
-  int *piVar3;
-  bool bVar4;
-  void *pvVar5;
+  uint32_t *puVar3;
+  int *piVar4;
+  bool bVar5;
+  void *pvVar6;
   
   iVar1 = sr_driver_singleton();
-  pvVar5 = *(void **)(iVar1 + 4);
-  uVar2 = module_array_getter(pvVar5,0x1c);
-  module_array_getter(pvVar5,0x1d);
+  pvVar6 = *(void **)(iVar1 + 4);
+  uVar2 = module_array_getter(pvVar6,0x1c);
+  module_array_getter(pvVar6,0x1d);
   iVar1 = return_sram_address_10438862();
-  iVar1 = add_offset_to_pointer_1043860c(iVar1);
-  *(int *)((int)param_1 + 0x28) = iVar1;
-  *(int *)((int)param_1 + 0x24) = iVar1;
-  *(int *)((int)param_1 + 0x2c) = iVar1;
-  *(int *)((int)param_1 + 0x30) = iVar1 + 0x40;
-  *(int *)((int)param_1 + 0x34) = iVar1 + 0x2b40;
-  *(int *)((int)param_1 + 0x38) = iVar1 + 0x5640;
-  *(int *)((int)param_1 + 0x3c) = iVar1 + 0x8140;
-  piVar3 = (int *)return_sram_base_address(uVar2);
-  bVar4 = check_magic_value_104382e4(piVar3);
-  if (bVar4) {
+  puVar3 = (uint32_t *)add_offset_to_pointer_1043860c(iVar1);
+  param_1->field_0x28 = (int)puVar3;
+  param_1->field_0x24 = (int)puVar3;
+  param_1->field_0x2c = (uintptr_t)(puVar3);
+  param_1->field_0x30 = (int)(puVar3 + 0x10);
+  param_1->field_0x34 = (int)(puVar3 + 0xad0);
+  param_1->field_0x38 = (int)(puVar3 + 0x1590);
+  param_1->field_0x3c = (int)(puVar3 + 0x2050);
+  piVar4 = (int *)return_sram_base_address(uVar2);
+  bVar5 = check_magic_value_104382e4(piVar4);
+  if (bVar5) {
     return_sram_base_address(uVar2);
     iVar1 = read_offset_four_10438328(__frv_reg_unset(4));
     return_sram_base_address(uVar2);
     uVar2 = (*(code *)0x10438446/*ROM*/)();
     store_clamped_value_at_offset(param_1,iVar1,uVar2);
   }
-  piVar3 = (int *)return_sram_address_10438862();
-  bVar4 = check_magic_sentinel_104384a6(piVar3);
-  if (bVar4) {
+  piVar4 = (int *)return_sram_address_10438862();
+  bVar5 = check_magic_sentinel_104384a6(piVar4);
+  if (bVar5) {
     return_sram_address_10438862();
     iVar1 = read_offset_four_104384ea(__frv_reg_unset(4));
     return_sram_address_10438862();

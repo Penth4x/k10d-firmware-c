@@ -10,6 +10,6 @@ uint32_t clear_flag_and_call_helper_10482dda(void *param_1)
 
 {
   *(uint8_t *)((int)param_1 + 0x28) = 0;
-  eventflag_clr_flg((void *)((int)param_1 + 0x20),3);
+  eventflag_clr_flg((uint32_t *)((int)param_1 + 0x20),(uint)(3));
   return 1;
 }

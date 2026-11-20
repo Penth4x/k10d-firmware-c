@@ -12,14 +12,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool check_two_object_flags_10494892(int param_1)
+bool check_two_object_flags_10494892(cls_105b4ad4 *param_1)
 
 {
   int iVar1;
   int iVar2;
   
-  iVar2 = *(int *)(*(int *)(param_1 + 0x48) + 0xc);
-  iVar2 = (**(code **)(iVar2 + 0x4c))(*(int *)(param_1 + 0x48) + (int)*(short *)(iVar2 + 0x48));
-  iVar1 = any_item_predicate_true(param_1);
+  iVar2 = *(int *)(param_1->field_0x48 + 0xc);
+  iVar2 = (((vtbl_entry*)(iVar2))[9].fn)(param_1->field_0x48 + (int)((vtbl_entry*)(iVar2))[9].adj);
+  iVar1 = any_item_predicate_true((cls_105b48dc *)param_1);
   return iVar2 != 0 || iVar1 != 0;
 }

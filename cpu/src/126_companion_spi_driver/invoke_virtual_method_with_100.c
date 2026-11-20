@@ -12,6 +12,6 @@ void invoke_virtual_method_with_100(int param_1)
   int iVar1;
   
   iVar1 = *(int *)(*(int *)(param_1 + 0x10c) + 4);
-  (**(code **)(iVar1 + 0x34))(*(int *)(param_1 + 0x10c) + (int)*(short *)(iVar1 + 0x30),100);
+  (((vtbl_entry*)(iVar1))[6].fn)(*(int *)(param_1 + 0x10c) + (int)((vtbl_entry*)(iVar1))[6].adj,100);
   return;
 }

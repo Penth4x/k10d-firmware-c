@@ -14,17 +14,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_field_and_register_menu_items_1040b27c(int *param_1,int param_2)
+void set_field_and_register_menu_items_1040b27c(cls_10599b9c *param_1,int param_2)
 
 {
   int iVar1;
   
-  param_1[7] = param_2;
+  param_1->field_0x1c = param_2;
   if (param_2 == 0x1bb000a) {
-    iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-    iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
   }
   return;
 }

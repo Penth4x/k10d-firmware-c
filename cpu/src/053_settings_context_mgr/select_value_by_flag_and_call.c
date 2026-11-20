@@ -16,15 +16,15 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void select_value_by_flag_and_call(int param_1)
+void select_value_by_flag_and_call(cls_10594c54 *param_1)
 
 {
   uint32_t uVar1;
   
   uVar1 = 0xf0;
-  if (*(int *)(param_1 + 8) != _DAT_105bb5a4/*ROM*/) {
+  if (param_1->field_0x8 != _DAT_105bb5a4/*ROM*/) {
     uVar1 = 0x50;
   }
-  set_flag_and_store_byte_103b8a8e(param_1,uVar1);
+  set_flag_and_store_byte_103b8a8e((uint32_t)param_1,uVar1);
   return;
 }

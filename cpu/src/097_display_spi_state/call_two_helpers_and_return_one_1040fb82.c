@@ -14,7 +14,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_two_helpers_and_return_one_1040fb82(void *param_1)
+uint32_t call_two_helpers_and_return_one_1040fb82(cls_1059be70 *param_1)
 
 {
   release_subobject_triplets(param_1);

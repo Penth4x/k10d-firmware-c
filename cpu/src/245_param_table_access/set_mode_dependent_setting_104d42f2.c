@@ -23,12 +23,12 @@ uint32_t set_mode_dependent_setting_104d42f2(int param_1,int param_2,uint param_
   int iVar3;
   uintptr_t sp;
   uint32_t uStack_28;
-  uint32_t auStack_24 [7];
+  cls_105a6d8c acStack_24 [7];
   
   uStack_28 = 0;
-  cls_105a6d8c_new(auStack_24);
-  copy_status_block_bytes(*(int *)(param_1 + 8),auStack_24);
-  iVar1 = extract_field_from_struct_1045ff0e((int)auStack_24,0x2b);
+  cls_105a6d8c_new(acStack_24);
+  copy_status_block_bytes(*(int *)(param_1 + 8),acStack_24);
+  iVar1 = extract_field_from_struct_1045ff0e(acStack_24,0x2b);
   if (iVar1 < 1) {
     if (param_2 == 0) {
       iVar2 = *(int *)(param_1 + 0x14);
@@ -80,6 +80,6 @@ uint32_t set_mode_dependent_setting_104d42f2(int param_1,int param_2,uint param_
   }
   setting_set(iVar2,iVar1,param_3 & 0xff);
 LAB_104d43f2:
-  cls_105a6d8c_delete(auStack_24,2);
+  cls_105a6d8c_delete(acStack_24,2);
   return uStack_28;
 }

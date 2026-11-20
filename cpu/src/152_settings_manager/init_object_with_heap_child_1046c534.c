@@ -27,6 +27,6 @@ void init_object_with_heap_child_1046c534(void *param_1)
     cls_105a8d00_new(piVar1);
   }
   *(int **)((int)param_1 + 4) = piVar1;
-  (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,0);
+  (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1,0);
   return;
 }

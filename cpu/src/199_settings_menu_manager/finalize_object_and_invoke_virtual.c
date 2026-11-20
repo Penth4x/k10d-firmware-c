@@ -15,20 +15,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-void finalize_object_and_invoke_virtual(int param_1)
+void finalize_object_and_invoke_virtual(cls_105b4dac *param_1)
 
 {
   int *piVar1;
   int iVar2;
   
-  if (*(char *)(param_1 + 0xac) != '\0') {
-    iterate_and_dispatch_object_list(param_1);
-    *(uint8_t *)(param_1 + 0xac) = 0;
+  if (param_1->field_0xac != '\0') {
+    iterate_and_dispatch_object_list((cls_105b44b4 *)param_1);
+    param_1->field_0xac = 0;
   }
-  invoke_virtual_destroy_on_range(param_1);
-  piVar1 = (int *)find_matching_list_entry(param_1);
-  *(int **)(param_1 + 0x60) = piVar1;
+  invoke_virtual_destroy_on_range((cls_105b48dc *)param_1);
+  piVar1 = (int *)find_matching_list_entry((int)(param_1));
+  param_1->field_0x60 = (uintptr_t)(piVar1);
   iVar2 = *(int *)(*piVar1 + 0xc);
-  (**(code **)(iVar2 + 0x44))(*piVar1 + (int)*(short *)(iVar2 + 0x40));
+  (((vtbl_entry*)(iVar2))[8].fn)(*piVar1 + (int)((vtbl_entry*)(iVar2))[8].adj);
   return;
 }

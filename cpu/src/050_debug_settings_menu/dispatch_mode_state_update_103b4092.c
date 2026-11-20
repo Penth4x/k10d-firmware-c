@@ -47,75 +47,75 @@ void dispatch_mode_state_update_103b4092(void *param_1)
   }
   iVar4 = (int)param_1 + 8;
   iVar2 = menu_item_register(iVar4);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
   iVar2 = menu_item_register(iVar4);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
   iVar2 = menu_item_register(iVar4);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
   iVar2 = menu_item_register(iVar4);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
   iVar2 = get_setting_by_mode_flag_104f147e(*(uint32_t *)((int)param_1 + 0x28),0);
   bVar5 = iVar2 != 5;
   iVar2 = *(int *)((int)param_1 + 0x40);
   if (iVar2 == 0) {
     iVar2 = menu_item_register(iVar4);
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
     uVar3 = query_object_byte_property_104f1ab6(*(int *)((int)param_1 + 0x28));
     if (uVar3 == 10) {
       iVar2 = menu_item_register(iVar4);
-      (**(code **)(*(int *)(iVar2 + 0xc) + 0x74))
-                (iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 0x70),0);
+      (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].fn)
+                (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].adj,0);
       iVar2 = menu_item_register(iVar4);
-      (**(code **)(*(int *)(iVar2 + 0xc) + 0x74))
-                (iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 0x70),0);
+      (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].fn)
+                (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].adj,0);
     }
     else {
       iVar2 = menu_item_register(iVar4);
-      (**(code **)(*(int *)(iVar2 + 0xc) + 0x74))
-                (iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 0x70),bVar5);
+      (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].fn)
+                (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].adj,bVar5);
       iVar2 = menu_item_register(iVar4);
-      (**(code **)(*(int *)(iVar2 + 0xc) + 0x74))
-                (iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 0x70),1);
+      (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].fn)
+                (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].adj,1);
     }
   }
   else if (iVar2 == 1) {
     iVar2 = menu_item_register(iVar4);
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   }
   else if (iVar2 == 2) {
     iVar2 = menu_item_register(iVar4);
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
     uVar3 = query_object_byte_property_104f1ab6(*(int *)((int)param_1 + 0x28));
     if ((uVar3 == 0xb) || (uVar3 = query_object_byte_property_104f1ab6(*(int *)((int)param_1 + 0x28)), uVar3 == 0xc)) {
       iVar2 = menu_item_register(iVar4);
-      (**(code **)(*(int *)(iVar2 + 0xc) + 0x74))
-                (iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 0x70),0);
+      (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].fn)
+                (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].adj,0);
       iVar2 = menu_item_register(iVar4);
-      (**(code **)(*(int *)(iVar2 + 0xc) + 0x74))
-                (iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 0x70),0);
+      (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].fn)
+                (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].adj,0);
     }
     else {
       iVar2 = menu_item_register((int)param_1 + 8);
-      (**(code **)(*(int *)(iVar2 + 0xc) + 0x74))
-                (iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 0x70),bVar5);
+      (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].fn)
+                (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].adj,bVar5);
       iVar2 = menu_item_register((int)param_1 + 8);
-      (**(code **)(*(int *)(iVar2 + 0xc) + 0x74))
-                (iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 0x70),1);
+      (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].fn)
+                (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].adj,1);
     }
   }
   else if (iVar2 == 3) {
     iVar2 = menu_item_register(iVar4);
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
     uVar3 = query_object_byte_property_104f1ab6(*(int *)((int)param_1 + 0x28));
     if (uVar3 == 0x11) {
       iVar2 = menu_item_register((int)param_1 + 8);
-      (**(code **)(*(int *)(iVar2 + 0xc) + 0x74))
-                (iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 0x70),0);
+      (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].fn)
+                (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].adj,0);
     }
     else {
       iVar2 = menu_item_register((int)param_1 + 8);
-      (**(code **)(*(int *)(iVar2 + 0xc) + 0x74))
-                (iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 0x70),bVar5);
+      (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].fn)
+                (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].adj,bVar5);
     }
   }
   return;

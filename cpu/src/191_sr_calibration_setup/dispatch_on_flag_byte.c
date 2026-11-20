@@ -13,11 +13,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_on_flag_byte(int param_1)
+void dispatch_on_flag_byte(cls_105b3ea0 *param_1)
 
 {
-  if (*(int *)(param_1 + 4) != 0) {
-    if (*(char *)(param_1 + 0x18) == '\0') {
+  if (param_1->field_0x4 != 0) {
+    if (param_1->field_0x18 == '\0') {
       decode_rle_image_rows((ushort *)__frv_reg_unset(4));
     }
     else {

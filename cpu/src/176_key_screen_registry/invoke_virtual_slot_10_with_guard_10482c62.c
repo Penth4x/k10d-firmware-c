@@ -13,7 +13,7 @@ bool invoke_virtual_slot_10_with_guard_10482c62(int *param_1)
   bool bVar2;
   
   call_kernel_with_short_id(param_1 + 6);
-  iVar1 = (**(code **)(*param_1 + 0x54))((int)*(short *)(*param_1 + 0x50) + (int)param_1);
+  iVar1 = (((vtbl_entry*)(*param_1))[10].fn)((int)((vtbl_entry*)(*param_1))[10].adj + (int)param_1);
   bVar2 = false;
   if (iVar1 != 0) {
     set_two_fields_at_offset_0xc(param_1,0,0);

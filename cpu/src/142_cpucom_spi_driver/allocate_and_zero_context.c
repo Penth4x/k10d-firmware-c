@@ -12,7 +12,7 @@ void allocate_and_zero_context(void *param_1)
   int iVar1;
   int iVar2;
   
-  if ((param_1 != (void *)0x0) || (param_1 = (void *)heap_alloc((void *)0x404), param_1 != (void *)0x0)) {
+  if ((param_1 != 0) || (param_1 = (void *)heap_alloc((void *)0x404), param_1 != 0)) {
     iVar1 = 0;
     *(uint32_t *)((int)param_1 + 0x400) = 0;
     iVar2 = 0x3f;

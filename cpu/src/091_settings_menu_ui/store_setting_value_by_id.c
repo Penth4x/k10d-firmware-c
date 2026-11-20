@@ -15,15 +15,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-void store_setting_value_by_id(int param_1,int param_2)
+void store_setting_value_by_id(cls_105999ec *param_1,int param_2)
 
 {
-  *(int *)(param_1 + 0x18) = param_2;
+  param_1->field_0x18 = param_2;
   if (param_2 == 0x1ba000e) {
-    setting_set(*(int *)(param_1 + 8),0x72,(uint)bRam105999e8);
+    setting_set(param_1->field_0x8,0x72,(uint)bRam105999e8);
   }
   else if (param_2 == 0x1ba000d) {
-    setting_set(*(int *)(param_1 + 8),0x72,(uint)bRam105999e9);
+    setting_set(param_1->field_0x8,0x72,(uint)bRam105999e9);
   }
   return;
 }

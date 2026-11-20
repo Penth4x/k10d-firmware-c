@@ -15,24 +15,24 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t set_image_processor_param(int param_1,int param_2,uint32_t param_3)
+uint32_t set_image_processor_param(cls_105d49dc *param_1,int param_2,uint32_t param_3)
 
 {
   if (param_2 == 0xe00001) {
-    *(uint32_t *)(param_1 + 0x24) = param_3;
+    param_1->field_0x24 = param_3;
   }
   else if (param_2 == 0xe00003) {
-    *(uint32_t *)(param_1 + 0x28) = param_3;
+    param_1->field_0x28 = param_3;
   }
   else if (param_2 == 0xe00002) {
-    *(uint32_t *)(param_1 + 0x28) = 0;
+    param_1->field_0x28 = 0;
   }
   else {
     if (param_2 != 0xe00004) {
       return 0;
     }
-    *(uint32_t *)(param_1 + 0x28) = param_3;
+    param_1->field_0x28 = param_3;
   }
-  set_flg_obj((uint32_t *)(param_1 + 0x3c));
+  set_flg_obj(&param_1->field_0x3c);
   return 0;
 }

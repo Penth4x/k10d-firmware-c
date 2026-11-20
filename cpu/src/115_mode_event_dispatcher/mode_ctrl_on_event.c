@@ -22,7 +22,7 @@ uint32_t mode_ctrl_on_event(int param_1,int param_2,uint32_t *param_3)
   void *pvVar2;
   
   if (param_2 == 0xa0009) {
-    mode_ctrl_on_status_h(param_1);
+    mode_ctrl_on_status_h_10432030(param_1);
   }
   else if (param_2 < 0xa000a) {
     if (param_2 == 0x10001) {

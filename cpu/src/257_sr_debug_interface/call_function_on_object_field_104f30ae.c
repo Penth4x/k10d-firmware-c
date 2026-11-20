@@ -20,11 +20,11 @@ uint32_t call_function_on_object_field_104f30ae(int param_1)
 {
   uint32_t uVar1;
   uintptr_t sp;
-  uint8_t auStack_2c [36];
+  cls_105a6c24 acStack_2c [9];
   
-  cls_105a6c24_new((void *)auStack_2c);
-  copy_32_bytes_from_struct_field_1045e360(*(int *)(param_1 + 8),auStack_2c);
-  uVar1 = (*(code *)0x1045f990/*ROM*/)(auStack_2c);
-  cls_105a6c24_delete((void *)auStack_2c,2);
+  cls_105a6c24_new(acStack_2c);
+  copy_32_bytes_from_struct_field_1045e360(*(int *)(param_1 + 8),acStack_2c);
+  uVar1 = (*(code *)0x1045f990/*ROM*/)(acStack_2c);
+  cls_105a6c24_delete(acStack_2c,2);
   return uVar1;
 }

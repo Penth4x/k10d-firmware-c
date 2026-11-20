@@ -20,6 +20,6 @@ uint32_t call_subroutine_with_offset_0x60(int param_1)
 {
   uint32_t uVar1;
   
-  uVar1 = call_helper_with_two_args_104b55d8(*(uint32_t *)(param_1 + 0x60));
+  uVar1 = call_helper_with_two_args_104b55d8((void *)(uint32_t)(*(uint32_t *)(param_1 + 0x60)));
   return uVar1;
 }

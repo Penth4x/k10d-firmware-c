@@ -14,15 +14,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_struct_and_notify_1047cd1c(int param_1,uint32_t param_2,uint32_t param_3,uint32_t param_4)
+void init_struct_and_notify_1047cd1c(cls_105aaa50 *param_1,uint32_t param_2,uint32_t param_3,uint32_t param_4)
 
 {
-  int * iVar1;
+  int *pVar1;
   
-  iVar1 = alloc_dynamic_array_header(0,1);
-  *(uint32_t *)(iVar1 + 8) = param_2;
-  *(uint32_t *)(iVar1 + 4) = 2;
-  **(uint32_t **)(iVar1 + 0xc) = param_4;
-  reg_framework_send(param_1 + 8);
+  pVar1 = alloc_dynamic_array_header(0,1);
+  *(uint32_t *)((int)pVar1 + 8) = param_2;
+  *(uint32_t *)((int)pVar1 + 4) = 2;
+  **(uint32_t **)((int)pVar1 + 0xc) = param_4;
+  reg_framework_send((int)&param_1->field_0x8);
   return;
 }

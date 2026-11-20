@@ -48,7 +48,7 @@ uint32_t * cls_105a9068_new(uint32_t *param_1)
     param_1[0x15] = 0;
     iVar1 = sr_driver_singleton();
     pvVar2 = *(void **)(iVar1 + 4);
-    param_1[5] = (uint32_t)pvVar2;
+    param_1[5] = (uintptr_t)(pvVar2);
     uVar3 = module_array_getter(pvVar2,3);
     param_1[6] = uVar3;
     uVar3 = return_sram_address_10435ae4();
@@ -67,8 +67,8 @@ uint32_t * cls_105a9068_new(uint32_t *param_1)
     pvVar2 = (void *)get_or_init_sram_buffer_104277bc();
     iVar1 = read_table_entry_field(pvVar2,0x8d);
     param_1[0x13] = iVar1;
-    (**(code **)(*(int *)(iVar1 + 8) + 0x1c))
-              (iVar1 + 8 + (int)*(short *)(*(int *)(iVar1 + 8) + 0x18),param_1 + 2,0x2d);
+    (((vtbl_entry*)(*(int *)(iVar1 + 8)))[3].fn)
+              (iVar1 + 8 + (int)((vtbl_entry*)(*(int *)(iVar1 + 8)))[3].adj,param_1 + 2,0x2d);
     pvVar2 = (void *)get_or_init_sram_buffer_104277bc();
     uVar3 = read_table_entry_field(pvVar2,0x7e);
     param_1[0x15] = uVar3;

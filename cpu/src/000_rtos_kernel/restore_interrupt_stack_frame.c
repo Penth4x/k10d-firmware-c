@@ -35,8 +35,8 @@ void restore_interrupt_stack_frame(void)
   if ((*(char *)(caller_r10 * 0x44 + 0x6a001c0a) == '\0') &&
      (*(int *)(caller_r10 * 0x44 + 0x6a001c24) != 0)) {
     uStack_4 = in_stack_00000004 & 0xffffffef;
-    sp = (uintptr_t)&pcStack_8;
-    pcStack_8 = (code *)rtos_context_switch;
+    sp = (uintptr_t)((void *)&pcStack_8);
+    pcStack_8 = rtos_context_switch;
   }
   *DAT_10011c5c/*ROM*/ = 0;
   uVar3 = *(uint32_t *)((int)sp + 0x14);

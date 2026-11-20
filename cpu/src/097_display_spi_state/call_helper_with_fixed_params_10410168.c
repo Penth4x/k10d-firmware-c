@@ -12,9 +12,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_fixed_params_10410168(uint32_t param_1)
+void call_helper_with_fixed_params_10410168(cls_1059be70 *param_1)
 
 {
-  send_two_word_pair_over_ch2(param_1,0x1428,4,1);
+  send_two_word_pair_over_ch2((int)param_1,0x1428,4,1);
   return;
 }

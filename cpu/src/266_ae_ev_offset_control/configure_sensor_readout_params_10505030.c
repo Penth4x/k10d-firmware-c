@@ -222,9 +222,9 @@ switchD_1050506e_default:
   write_packed_nibble_word(iVar7,uVar1,uVar2,uVar3,*(ushort *)(puVar13 + 2));
   if ((param_4[0x1d] != 0) && (iVar12 - 2U < 6)) {
                     /* WARNING: Could not recover jumptable at 0x105053e8. Too many branches */
-    (**(code **)((iVar12 - 2U) * 4 + 0x105d5034/*ROM*/))();
+    (((vtbl_entry*)((iVar12 - 2U) * 4))[34318854].fn)();
     return;
   }
-  set_object_mode_flags(param_1,param_2,(int)param_3);
+  set_object_mode_flags((int)(param_1),(int)(param_2),(uint32_t)(param_3));
   return;
 }

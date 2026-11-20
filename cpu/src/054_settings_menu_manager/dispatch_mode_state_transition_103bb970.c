@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_mode_state_transition_103bb970(int *param_1,int param_2)
+uint32_t dispatch_mode_state_transition_103bb970(cls_10594e70 *param_1,int param_2)
 
 {
   uint uVar1;
@@ -33,27 +33,27 @@ uint32_t dispatch_mode_state_transition_103bb970(int *param_1,int param_2)
   uVar6 = 0;
   uVar3 = get_or_init_heap_block();
   if (param_2 == 0x101008a) {
-    if (*(char *)((int)param_1 + 0x35) == '\x03') {
+    if (param_1->field_0x35 == '\x03') {
       uVar6 = 0x1010074;
     }
     else {
       uVar6 = 0x101000f;
     }
-    iVar4 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
-    iVar4 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
+    iVar4 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
+    iVar4 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),1);
   }
-  iVar4 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),0);
-  iVar4 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),0);
+  iVar4 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),0);
+  iVar4 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(iVar4 + *(short *)(*(int *)(iVar4 + 0xc) + 8),0);
   if (param_2 == 0x1010033) {
-    *(uint8_t *)((int)param_1 + 0x37) = 0;
-    param_1[9] = 0;
+    param_1->field_0x37 = 0;
+    param_1->field_0x24 = 0;
     uVar6 = get_setting_by_index((int)param_1,0x48);
     iVar4 = map_mode_index_to_code_1045b524(uVar3,uVar6);
-    *(char *)(param_1 + 0xd) = (char)iVar4;
+    param_1->field_0x34 = (char)iVar4;
     if (iVar4 < 5) {
       uVar6 = 0x1010031;
     }
@@ -71,7 +71,7 @@ uint32_t dispatch_mode_state_transition_103bb970(int *param_1,int param_2)
     auStack_4c[6] = 0x1010027;
     auStack_4c[7] = 0x1010029;
     auStack_4c[8] = 0x101002b;
-    if (*(char *)((int)param_1 + 0x37) == '\0') {
+    if (param_1->field_0x37 == '\0') {
       uVar6 = get_setting_by_index((int)param_1,0x48);
       uVar5 = map_mode_index_to_code_1045b524(uVar3,uVar6);
       uVar2 = 0xff;
@@ -93,7 +93,7 @@ uint32_t dispatch_mode_state_transition_103bb970(int *param_1,int param_2)
       uVar6 = auStack_4c[uVar2];
     }
     else if (param_2 == 0x1010031) {
-      if (param_1[9] == 0x101002b) {
+      if (param_1->field_0x24 == 0x101002b) {
         uVar6 = 0x1010019;
       }
       else {
@@ -101,7 +101,7 @@ uint32_t dispatch_mode_state_transition_103bb970(int *param_1,int param_2)
       }
     }
     else if (param_2 == 0x1010032) {
-      if (param_1[9] == 0x1010019) {
+      if (param_1->field_0x24 == 0x1010019) {
         uVar6 = 0x101002b;
       }
       else {
@@ -173,8 +173,8 @@ uint32_t dispatch_mode_state_transition_103bb970(int *param_1,int param_2)
   else if (param_2 == 0x101005c) {
     iVar4 = get_setting_by_index((int)param_1,8);
     uVar3 = get_setting_by_index((int)param_1,(uint)(iVar4 != 0));
-    *(char *)(param_1 + 0xd) = (char)uVar3;
-    uVar6 = map_key_code_to_event_id(param_1,(uint)*(byte *)(param_1 + 0xd));
+    param_1->field_0x34 = (char)uVar3;
+    uVar6 = map_key_code_to_event_id(param_1,(uint)(byte)param_1->field_0x34);
   }
   else if (param_2 == 0x1010068) {
     iVar4 = get_setting_by_index((int)param_1,8);
@@ -185,8 +185,8 @@ uint32_t dispatch_mode_state_transition_103bb970(int *param_1,int param_2)
       iVar4 = 4;
     }
     uVar3 = get_setting_by_index((int)param_1,iVar4);
-    *(char *)(param_1 + 0xd) = (char)uVar3;
-    uVar6 = map_key_code_to_stack_index(param_1,(uint)*(byte *)(param_1 + 0xd));
+    param_1->field_0x34 = (char)uVar3;
+    uVar6 = map_key_code_to_stack_index(param_1,(uint)(byte)param_1->field_0x34);
   }
   else if (param_2 == 0x1010074) {
     iVar4 = get_setting_by_index((int)param_1,8);
@@ -197,8 +197,8 @@ uint32_t dispatch_mode_state_transition_103bb970(int *param_1,int param_2)
       iVar4 = 10;
     }
     uVar3 = get_setting_by_index((int)param_1,iVar4);
-    *(char *)(param_1 + 0xd) = (char)uVar3;
-    uVar6 = map_byte_to_seven_values(param_1,(uint)*(byte *)(param_1 + 0xd));
+    param_1->field_0x34 = (char)uVar3;
+    uVar6 = map_byte_to_seven_values(param_1,(uint)(byte)param_1->field_0x34);
   }
   return uVar6;
 }

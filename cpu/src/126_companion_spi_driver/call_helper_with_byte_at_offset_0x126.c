@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_byte_at_offset_0x126(void *param_1)
+void call_helper_with_byte_at_offset_0x126(cls_105a0828 *param_1)
 
 {
-  update_byte_field_in_object(param_1,0,*(byte *)((int)param_1 + 0x126));
+  update_byte_field_in_object(param_1,0,param_1->field_0x126);
   return;
 }

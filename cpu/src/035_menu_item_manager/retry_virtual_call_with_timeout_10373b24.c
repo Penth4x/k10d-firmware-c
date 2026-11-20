@@ -27,15 +27,15 @@ int retry_virtual_call_with_timeout_10373b24(int param_1,uint32_t param_2,void *
   piVar3 = (int *)auStack_44;
   iVar2 = 0;
   do {
-    (**(code **)(*(int *)(param_4 + 0x14) + 0x14))
-              (*(short *)(*(int *)(param_4 + 0x14) + 0x10) + param_4);
+    (((vtbl_entry*)(*(int *)(param_4 + 0x14)))[2].fn)
+              (((vtbl_entry*)(*(int *)(param_4 + 0x14)))[2].adj + param_4);
     if (param_5 != 0) {
-      (**(code **)(*(int *)(param_5 + 0x14) + 0x14))
-                (param_5 + *(short *)(*(int *)(param_5 + 0x14) + 0x10));
+      (((vtbl_entry*)(*(int *)(param_5 + 0x14)))[2].fn)
+                (param_5 + ((vtbl_entry*)(*(int *)(param_5 + 0x14)))[2].adj);
     }
     if (param_6 != 0) {
-      (**(code **)(*(int *)(param_6 + 0x14) + 0x14))
-                (param_6 + *(short *)(*(int *)(param_6 + 0x14) + 0x10));
+      (((vtbl_entry*)(*(int *)(param_6 + 0x14)))[2].fn)
+                (param_6 + ((vtbl_entry*)(*(int *)(param_6 + 0x14)))[2].adj);
     }
     *piVar3 = param_5;
     piVar3[1] = param_6;

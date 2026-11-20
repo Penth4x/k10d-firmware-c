@@ -17,7 +17,7 @@
 /* WARNING: Instruction at (ram,0x1051a0a0) overlaps instruction at (ram,0x1051a09e)
     */
 
-uint32_t dispatch_event_by_code_1051a08a(uint32_t param_1,ushort *param_2,uint *param_3,uint32_t param_4)
+uint32_t dispatch_event_by_code_1051a08a(cls_105d6608 *param_1,ushort *param_2,uint *param_3,uint32_t param_4)
 
 {
   ushort uVar1;
@@ -35,7 +35,7 @@ uint32_t dispatch_event_by_code_1051a08a(uint32_t param_1,ushort *param_2,uint *
     }
     if (uVar1 < 0xc615) {
       if (uVar1 == 0x828e) {
-        initialize_four_channel_state(param_1,param_2,0);
+        initialize_four_channel_state((uint32_t)(param_1),(void *)(param_2),(int)(0));
         return 1;
       }
       if (uVar1 < 0x828f) {
@@ -44,7 +44,7 @@ uint32_t dispatch_event_by_code_1051a08a(uint32_t param_1,ushort *param_2,uint *
           return 1;
         }
         if (uVar1 == 0x828d) {
-          set_two_flags_by_param(param_1,param_2,0);
+          set_two_flags_by_param((uint32_t)(param_1),(void *)(param_2),(int)(0));
           return 1;
         }
       }
@@ -156,6 +156,6 @@ uint32_t dispatch_event_by_code_1051a08a(uint32_t param_1,ushort *param_2,uint *
       }
     }
   }
-  uVar2 = dispatch_command_by_id_1051c540(param_1,param_2,param_3,param_4);
+  uVar2 = dispatch_command_by_id_1051c540((cls_105d6c2c *)param_1,param_2,param_3,param_4);
   return uVar2;
 }

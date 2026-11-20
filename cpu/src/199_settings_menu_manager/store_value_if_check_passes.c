@@ -14,15 +14,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-int store_value_if_check_passes(int param_1,uint32_t param_2)
+int store_value_if_check_passes(cls_105b4dac *param_1,uint32_t param_2)
 
 {
   int iVar1;
   
   iVar1 = (*(code *)0x1049460e/*ROM*/)();
   if (iVar1 != 0) {
-    *(uint32_t *)(param_1 + 0x7c) = param_2;
-    dispatch_virtual_event_callback(param_1);
+    param_1->field_0x7c = param_2;
+    dispatch_virtual_event_callback((int)param_1);
   }
   return iVar1;
 }

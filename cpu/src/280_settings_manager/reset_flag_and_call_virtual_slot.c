@@ -6,11 +6,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void reset_flag_and_call_virtual_slot(int param_1)
+void reset_flag_and_call_virtual_slot(cls_105d7b7c *param_1)
 
 {
-  *(uint8_t *)(param_1 + 0x14) = 0;
-  (**(code **)(*(int *)(param_1 + 0xc) + 0xb4))
-            (*(short *)(*(int *)(param_1 + 0xc) + 0xb0) + param_1);
+  *(uint8_t *)&param_1->field_0x14 = 0;
+  (((vtbl_entry*)(param_1->field_0xc))[22].fn)
+            ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0xc))[22].adj);
   return;
 }

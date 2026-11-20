@@ -15,13 +15,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_with_two_ids_104e2c9e(int *param_1,uint32_t param_2,int param_3)
+uint32_t init_object_with_two_ids_104e2c9e(cls_105bf240 *param_1,uint32_t param_2,int param_3)
 
 {
   int iVar1;
   uint32_t uVar2;
   
-  release_object_members(param_1);
+  release_object_members((int *)param_1);
   iVar1 = validate_sequence_counter(param_1);
   uVar2 = 9;
   if (iVar1 != 0) {

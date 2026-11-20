@@ -26,24 +26,24 @@ void write_three_field_groups(int *param_1)
   
   uVar1 = menu_item_register(*param_1);
   piVar4 = param_1 + 9;
-  menu_list_build((void *)uVar1,(void *)piVar4,4,0);
+  menu_list_build((int *)(uVar1),(uint16_t *)(piVar4),(uint8_t)(4),(uint8_t)(0));
   uVar1 = menu_item_register(*param_1);
   piVar3 = param_1 + 10;
-  menu_list_build((void *)uVar1,(void *)piVar3,2,0);
+  menu_list_build((int *)(uVar1),(uint16_t *)(piVar3),(uint8_t)(2),(uint8_t)(0));
   uVar1 = menu_item_register(*param_1);
   iVar2 = (int)param_1 + 0x26;
-  menu_list_build((void *)uVar1,(void *)iVar2,2,0);
+  menu_list_build((int *)(uVar1),(uint16_t *)(iVar2),(uint8_t)(2),(uint8_t)(0));
   uVar1 = menu_item_register(*param_1);
-  menu_list_build((void *)uVar1,(void *)piVar4,4,0);
+  menu_list_build((int *)(uVar1),(uint16_t *)(piVar4),(uint8_t)(4),(uint8_t)(0));
   uVar1 = menu_item_register(*param_1);
-  menu_list_build((void *)uVar1,(void *)piVar3,2,0);
+  menu_list_build((int *)(uVar1),(uint16_t *)(piVar3),(uint8_t)(2),(uint8_t)(0));
   uVar1 = menu_item_register(*param_1);
-  menu_list_build((void *)uVar1,(void *)iVar2,2,0);
+  menu_list_build((int *)(uVar1),(uint16_t *)(iVar2),(uint8_t)(2),(uint8_t)(0));
   uVar1 = menu_item_register(*param_1);
-  menu_list_build((void *)uVar1,(void *)piVar4,4,0);
+  menu_list_build((int *)(uVar1),(uint16_t *)(piVar4),(uint8_t)(4),(uint8_t)(0));
   uVar1 = menu_item_register(*param_1);
-  menu_list_build((void *)uVar1,(void *)piVar3,2,0);
+  menu_list_build((int *)(uVar1),(uint16_t *)(piVar3),(uint8_t)(2),(uint8_t)(0));
   uVar1 = menu_item_register(*param_1);
-  menu_list_build((void *)uVar1,(void *)iVar2,2,0);
+  menu_list_build((int *)(uVar1),(uint16_t *)(iVar2),(uint8_t)(2),(uint8_t)(0));
   return;
 }

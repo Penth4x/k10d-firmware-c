@@ -20,7 +20,7 @@ void settings_load_from_flash(void)
   iVar2 = 0x344;
   do {
     iVar1 = iVar2 + -4;
-    *(uint32_t *)(&DAT_8001ded8/*SDRAM*/ + iVar2) = *(uint32_t *)((int)&PTR_LAB_10003ffc + iVar2);
+    *(uint32_t *)(&DAT_8001ded8/*SDRAM*/ + iVar2) = *(uint32_t *)((int)(char*)&PTR_LAB_10003ffc + iVar2);
     iVar2 = iVar1;
   } while (iVar1 != 0);
   return;

@@ -9,7 +9,7 @@
 void invoke_virtual_slot_14_104e6148(void *param_1,void *param_2)
 
 {
-  (**(code **)(*(int *)((int)param_2 + 0x18) + 0x74))
-            ((int)*(short *)(*(int *)((int)param_2 + 0x18) + 0x70) + (int)param_2);
+  (((vtbl_entry*)(*(int *)((int)param_2 + 0x18)))[14].fn)
+            ((int)((vtbl_entry*)(*(int *)((int)param_2 + 0x18)))[14].adj + (int)param_2);
   return;
 }

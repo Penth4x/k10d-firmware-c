@@ -19,8 +19,8 @@ uint32_t process_event_flags(void *param_1)
   uVar1 = 0;
   *puVar4 = *puVar4 & (uVar3 & 0x18000000 ^ 0xffffffff) & 0x18000000;
   if ((uVar3 & 0x10000000/*ROM*/) != 0) {
-    iVar2 = (**(code **)(*(int *)((int)param_1 + 4) + 0x44))
-                      ((int)*(short *)(*(int *)((int)param_1 + 4) + 0x40) + (int)param_1);
+    iVar2 = (((vtbl_entry*)(*(int *)((int)param_1 + 4)))[8].fn)
+                      ((int)((vtbl_entry*)(*(int *)((int)param_1 + 4)))[8].adj + (int)param_1);
     clear_object_flags(param_1,iVar2);
     if (*(char *)((int)param_1 + 0x16) == '\0') {
       *(uint8_t *)((int)param_1 + 0x16) = 1;
@@ -34,8 +34,8 @@ uint32_t process_event_flags(void *param_1)
   }
   if ((uVar3 & 0x8000000) != 0) {
     iVar2 = *(int *)**(int **)((int)param_1 + 0x1c);
-    iVar2 = (**(code **)(iVar2 + 0x1c))
-                      (**(int **)((int)param_1 + 0x1c) + (int)*(short *)(iVar2 + 0x18));
+    iVar2 = (((vtbl_entry*)(iVar2))[3].fn)
+                      (**(int **)((int)param_1 + 0x1c) + (int)((vtbl_entry*)(iVar2))[3].adj);
     if (iVar2 != 0) {
       invoke_virtual_slot_7_104acd80(param_1);
     }

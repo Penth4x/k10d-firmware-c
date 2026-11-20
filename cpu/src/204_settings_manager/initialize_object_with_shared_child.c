@@ -23,14 +23,14 @@ void initialize_object_with_shared_child(int param_1)
   int iVar1;
   int iVar2;
   
-  iVar1 = cls_105b5628_new(0);
-  iVar2 = cls_105b55fc_new((uint32_t *)0x0);
+  iVar1 = (uintptr_t)(cls_105b5628_new((cls_105b5628 *)0x0));
+  iVar2 = cls_105b55fc_new((cls_105b55fc *)0x0);
   *(int *)(param_1 + 0x14) = iVar2;
   *(int *)(iVar1 + 0x14) = iVar2;
   *(uint32_t *)(iVar1 + 0x1c) = *(uint32_t *)(param_1 + 0x20);
   *(uint32_t *)(iVar1 + 0x18) = *(uint32_t *)(param_1 + 0x24);
   *(uint32_t *)(iVar1 + 0x20) = *(uint32_t *)(param_1 + 0x28);
-  (**(code **)(*(int *)(iVar1 + 0x10) + 0x14))(*(short *)(*(int *)(iVar1 + 0x10) + 0x10) + iVar1,0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0x10)))[2].fn)(((vtbl_entry*)(*(int *)(iVar1 + 0x10)))[2].adj + iVar1,0);
   *(int *)(param_1 + 8) = iVar1;
   return;
 }

@@ -26,36 +26,36 @@ void write_exposure_settings_from_object(int param_1,int param_2)
   uint uVar4;
   uintptr_t sp;
   uint uStack_68;
-  uint32_t auStack_64 [7];
-  uint8_t auStack_48 [64];
+  cls_105a6d8c acStack_64 [7];
+  cls_105a8a1c acStack_48 [16];
   
-  cls_105a6d8c_new(auStack_64);
-  copy_status_block_bytes(*(int *)(param_1 + 0x1c),auStack_64);
-  iVar1 = extract_field_from_struct_1045ff0e((int)auStack_64,0x2b);
+  cls_105a6d8c_new(acStack_64);
+  copy_status_block_bytes(*(int *)(param_1 + 0x1c),acStack_64);
+  iVar1 = extract_field_from_struct_1045ff0e(acStack_64,0x2b);
   if (iVar1 < 1) {
-    cls_105a8a1c_new((uint32_t *)auStack_48);
+    cls_105a8a1c_new(acStack_48);
     iVar2 = 0;
     iVar3 = get_or_create_singleton_object_1046be62();
-    copy_four_byte_blocks_reversed(*(int *)(iVar3 + 4),auStack_48);
-    uVar4 = extract_status_bitfield(auStack_48,0x2f);
+    copy_four_byte_blocks_reversed(*(int *)(iVar3 + 4),acStack_48);
+    uVar4 = extract_status_bitfield(acStack_48,0x2f);
     setting_set(param_2,uRam105b9064,uVar4 & 0xff);
-    cls_105a8a1c_delete((uint32_t *)auStack_48,2);
+    cls_105a8a1c_delete(acStack_48,2);
   }
   else {
     iVar2 = (iVar1 + -1) * 0x80;
   }
   uStack_68 = (uint)(iVar1 >= 1);
-  uVar4 = extract_field_from_struct_1045ff0e((int)auStack_64,0x31);
+  uVar4 = extract_field_from_struct_1045ff0e(acStack_64,0x31);
   iVar1 = uStack_68 * 4;
   setting_set(param_2,*(int *)(iVar1 + 0x105b906c/*ROM*/) + iVar2,uVar4 & 0xff);
-  uVar4 = extract_field_from_struct_1045ff0e((int)auStack_64,0xf);
+  uVar4 = extract_field_from_struct_1045ff0e(acStack_64,0xf);
   setting_set(param_2,*(int *)(iVar1 + 0x105b9074/*ROM*/) + iVar2,uVar4 & 0xff);
-  uVar4 = extract_field_from_struct_1045ff0e((int)auStack_64,0x11);
+  uVar4 = extract_field_from_struct_1045ff0e(acStack_64,0x11);
   setting_set(param_2,*(int *)(iVar1 + 0x105b907c/*ROM*/) + iVar2,uVar4 & 0xff);
-  uVar4 = extract_field_from_struct_1045ff0e((int)auStack_64,0x12);
+  uVar4 = extract_field_from_struct_1045ff0e(acStack_64,0x12);
   setting_set(param_2,*(int *)(iVar1 + 0x105b9084/*ROM*/) + iVar2,uVar4 & 0xff);
-  uVar4 = extract_field_from_struct_1045ff0e((int)auStack_64,0x30);
+  uVar4 = extract_field_from_struct_1045ff0e(acStack_64,0x30);
   setting_set(param_2,*(int *)(iVar1 + 0x105b908c/*ROM*/) + iVar2,uVar4 & 0xff);
-  cls_105a6d8c_delete(auStack_64,2);
+  cls_105a6d8c_delete(acStack_64,2);
   return;
 }

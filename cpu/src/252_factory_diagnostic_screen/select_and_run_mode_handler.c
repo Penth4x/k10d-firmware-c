@@ -34,17 +34,17 @@ uint32_t select_and_run_mode_handler(int param_1,int param_2,int *param_3)
   else {
     pvVar3 = *(void **)(param_2 + 0x224);
   }
-  iVar1 = compare_null_terminated_strings(pvVar3,(void *)pvRam80010bac);
+  iVar1 = compare_null_terminated_strings((void *)(pvVar3),(void *)(pvRam80010bac));
   if (iVar1 == 0) {
     iVar4 = 4;
   }
   else {
-    iVar1 = compare_null_terminated_strings(pvVar3,(void *)pvRam80010bb4);
+    iVar1 = compare_null_terminated_strings((void *)(pvVar3),(void *)(pvRam80010bb4));
     if (iVar1 == 0) {
       iVar4 = 6;
     }
     else {
-      iVar1 = compare_null_terminated_strings(pvVar3,(void *)_DAT_80010ba4/*SDRAM*/);
+      iVar1 = compare_null_terminated_strings((void *)(pvVar3),(void *)(_DAT_80010ba4/*SDRAM*/));
       if (iVar1 != 0) {
         uVar2 = 0;
         goto LAB_104e498c;

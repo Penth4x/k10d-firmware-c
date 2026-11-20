@@ -38,7 +38,7 @@ uint32_t cycle_mode_state_value(void *param_1,int param_2)
         uVar1 = 4;
       }
       *(char *)((int)param_1 + 0x56) = (char)uVar1;
-      set_setting_0x7a((void *)0x800158d4/*SDRAM*/,*(uint8_t *)((int)param_1 + 0x56));
+      set_setting_0x7a((int *)(0x800158d4/*SDRAM*/),(uint32_t)(*(uint8_t *)((int)param_1 + 0x56)));
       uVar1 = 1;
     }
   }
@@ -60,7 +60,7 @@ uint32_t cycle_mode_state_value(void *param_1,int param_2)
       uVar1 = 2;
     }
     *(char *)((int)param_1 + 0x56) = (char)uVar1;
-    set_setting_0x7a((void *)0x800158d4/*SDRAM*/,*(uint8_t *)((int)param_1 + 0x56));
+    set_setting_0x7a((int *)(0x800158d4/*SDRAM*/),(uint32_t)(*(uint8_t *)((int)param_1 + 0x56)));
     uVar1 = 1;
   }
   return uVar1;

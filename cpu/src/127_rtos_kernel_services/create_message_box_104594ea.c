@@ -34,10 +34,10 @@ int create_message_box_104594ea(int *param_1,int param_2)
   else {
     uStack_18 = 0;
     uStack_8 = 0;
-    pcStack_10 = (code *)call_virtual_slot_two_1045962a;
+    pcStack_10 = call_virtual_slot_two_1045962a;
     piStack_14 = param_1;
     iStack_c = param_2;
-    iVar1 = find_free_tcb_slot_1000d6e4((void *)&uStack_18);
+    iVar1 = find_free_tcb_slot_1000d6e4(&uStack_18);
     *param_1 = 0;
     if (iVar1 < 1) {
       if (iVar1 == 0) {

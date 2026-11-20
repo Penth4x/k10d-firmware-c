@@ -16,25 +16,25 @@
 #include "globals.h"
 #include "funcs.h"
 
-int menu_screen_activate(void *param_1,int param_2,int param_3,uint param_4)
+int menu_screen_activate(cls_105a1a84 *param_1,int param_2,int param_3,uint param_4)
 
 {
   int iVar1;
   
   iVar1 = 0;
-  if ((uint)(param_2 + param_3) <= *(uint *)((int)param_1 + 0x14)) {
-    if (*(char *)((int)param_1 + 0xdd) == '\0') {
-      *(uint32_t *)((int)param_1 + 0x120) = 6;
+  if ((uint)(param_2 + param_3) <= (uint)param_1->field_0x14) {
+    if (param_1->field_0xdd == '\0') {
+      param_1->field_0x120 = 6;
     }
     else {
-      *(uint32_t *)((int)param_1 + 0x120) = 0;
+      param_1->field_0x120 = 0;
       set_flag_and_notify_object(param_1,1);
-      write_masked_value_to_struct_offset_1044b396(*(void **)((int)param_1 + 0x110),0x1ff);
-      sdhc_set_block_size(*(void **)((int)param_1 + 0x110),0x200);
+      write_masked_value_to_struct_offset_1044b396((char*)(param_1) ->field_0x110,0x1ff);
+      sdhc_set_block_size((char*)(param_1) ->field_0x110,0x200);
       if (param_3 == 1) {
         iVar1 = dispatch_mode_based_on_flag(param_1,param_2,param_4);
       }
-      else if (*(uint *)((int)param_1 + 0x14) == param_2 + param_3) {
+      else if (param_1->field_0x14 == param_2 + param_3) {
         iVar1 = dispatch_two_phase_write((void *)__frv_reg_unset(4),__frv_reg_unset(5),__frv_reg_unset(6),__frv_reg_unset(7));
       }
       else {
@@ -42,7 +42,7 @@ int menu_screen_activate(void *param_1,int param_2,int param_3,uint param_4)
       }
       set_flag_and_notify_object(param_1,0);
       if (iVar1 == 0) {
-        *(uint32_t *)((int)param_1 + 0x120) = 1;
+        param_1->field_0x120 = 1;
       }
     }
   }

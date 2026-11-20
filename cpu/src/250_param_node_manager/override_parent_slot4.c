@@ -14,9 +14,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void override_parent_slot4(void *param_1)
+/* WARNING: Struct "cls_105bb314": ignoring overlapping field "field_0x8" */
+/* WARNING: Struct "cls_105bb0ec": ignoring overlapping field "field_0x8" */
+
+void override_parent_slot4(cls_105bb314 *param_1)
 
 {
-  release_slot4_object_ref(param_1);
+  release_slot4_object_ref((cls_105bb0ec *)param_1);
   return;
 }

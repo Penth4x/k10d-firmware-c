@@ -20,7 +20,7 @@ void allocate_and_init_struct_1047b0fc(int param_1,uint32_t param_2,uint32_t par
 {
   int iVar1;
   
-  iVar1 = alloc_dynamic_array_header(0,2);
+  iVar1 = (uintptr_t)(alloc_dynamic_array_header(0,2));
   *(uint32_t *)(iVar1 + 8) = param_2;
   *(uint32_t *)(iVar1 + 4) = 0x2000;
   **(uint32_t **)(iVar1 + 0xc) = param_4;

@@ -58,8 +58,8 @@ int process_entry_array_with_virtual_init(int param_1)
         if (cVar2 != '\0') {
           iVar1 = find_first_active_entry((int)pvVar6,iVar1);
           iVar8 = **(int **)(param_1 + 0x48);
-          uVar3 = (**(code **)(iVar8 + 0x14))
-                            ((int)*(int **)(param_1 + 0x48) + (int)*(short *)(iVar8 + 0x10));
+          uVar3 = (((vtbl_entry*)(iVar8))[2].fn)
+                            ((int)*(int **)(param_1 + 0x48) + (int)((vtbl_entry*)(iVar8))[2].adj);
           *(uint8_t *)(iVar1 + 0x28) = uVar3;
         }
         iVar1 = iVar5 + 1;
@@ -70,8 +70,8 @@ int process_entry_array_with_virtual_init(int param_1)
         if (cVar2 != '\0') {
           iVar1 = find_first_active_entry((int)pvVar6,iVar1);
           iVar8 = **(int **)(param_1 + 0x48);
-          uVar3 = (**(code **)(iVar8 + 0x14))
-                            ((int)*(int **)(param_1 + 0x48) + (int)*(short *)(iVar8 + 0x10));
+          uVar3 = (((vtbl_entry*)(iVar8))[2].fn)
+                            ((int)*(int **)(param_1 + 0x48) + (int)((vtbl_entry*)(iVar8))[2].adj);
           *(uint8_t *)(iVar1 + 0x28) = uVar3;
         }
         iVar1 = iVar5 + 2;
@@ -82,8 +82,8 @@ int process_entry_array_with_virtual_init(int param_1)
         if (cVar2 != '\0') {
           iVar1 = find_first_active_entry((int)pvVar6,iVar1);
           iVar8 = **(int **)(param_1 + 0x48);
-          uVar3 = (**(code **)(iVar8 + 0x14))
-                            ((int)*(int **)(param_1 + 0x48) + (int)*(short *)(iVar8 + 0x10));
+          uVar3 = (((vtbl_entry*)(iVar8))[2].fn)
+                            ((int)*(int **)(param_1 + 0x48) + (int)((vtbl_entry*)(iVar8))[2].adj);
           *(uint8_t *)(iVar1 + 0x28) = uVar3;
         }
         iVar5 = iVar5 + 3;

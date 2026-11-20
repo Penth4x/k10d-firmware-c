@@ -23,7 +23,7 @@ uint32_t init_virtual_slot_two_object(void *param_1)
   
   alloc_pool_and_init_task((int *)((int)param_1 + 4),8,0x1000,5);
   pvVar1 = (void *)heap_alloc((void *)0x18);
-  if (pvVar1 == (void *)0x0) {
+  if (pvVar1 == 0) {
     pvVar1 = (void *)0x0;
   }
   else {

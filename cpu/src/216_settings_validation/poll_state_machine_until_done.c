@@ -17,8 +17,9 @@
 #include "funcs.h"
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* WARNING: Struct "cls_105b8354": ignoring overlapping field "field_0x8" */
 
-void poll_state_machine_until_done(int param_1)
+void poll_state_machine_until_done(cls_105b8354 *param_1)
 
 {
   uint32_t extraout_r5;
@@ -29,23 +30,23 @@ void poll_state_machine_until_done(int param_1)
   uint uStack_c;
   
   uVar3 = 1;
-  init_object_with_heap_blocks_104b4b44(param_1,*(uint32_t *)(param_1 + 8));
+  init_object_with_heap_blocks_104b4b44((int)(param_1),(uint32_t)(((uint32_t *)&(param_1->field_0x4))[1]));
   uStack_c = 0;
   do {
     puVar1 = &uStack_c;
-    pvVar2 = _DAT_105a2af0/*ROM*/;
-    eventflag_wai_flg((uint32_t *)(param_1 + 100),7,&uStack_c,(int)_DAT_105a2af0/*ROM*/);
-    eventflag_clr_flg((uint32_t *)(param_1 + 100),uStack_c);
+    pvVar2 = (void *)((uintptr_t)(_DAT_105a2af0/*ROM*/));
+    eventflag_wai_flg((uint32_t *)&param_1->field_0x64,7,&uStack_c,(int)_DAT_105a2af0/*ROM*/);
+    eventflag_clr_flg(&param_1->field_0x64,uStack_c);
     if ((uStack_c & 1) != 0) break;
     if ((uStack_c & 2) == 0) {
       if ((uStack_c & 4) != 0) {
-        uVar3 = call_helper_with_two_offsets_104b50d2(param_1);
+        uVar3 = call_helper_with_two_offsets_104b50d2((int)(param_1));
       }
     }
     else {
-      uVar3 = dispatch_event_by_type_104b4d1c(param_1,extraout_r5,puVar1,pvVar2);
+      uVar3 = dispatch_event_by_type_104b4d1c((int)param_1,(uint32_t)(extraout_r5),(uint32_t)(puVar1),(void *)(pvVar2));
     }
   } while (uVar3 != 0);
-  release_object_resources_104b4bdc(param_1,0);
+  release_object_resources_104b4bdc((int)(param_1),(uint32_t)(0));
   return;
 }

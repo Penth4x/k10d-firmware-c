@@ -16,7 +16,7 @@ uint16_t * cls_105d6afc_new(uint16_t *param_1)
 {
   if ((param_1 != (uint16_t *)0x0) ||
      (param_1 = (uint16_t *)heap_alloc((void *)0x30), param_1 != (uint16_t *)0x0)) {
-    cls_105b3d9c_new(param_1);
+    cls_105b3d9c_new((void *)param_1);
     cls_1059e478_new((void *)(param_1 + 0x16));
     *(void **)(param_1 + 0x10) = &DAT_105d6afc/*ROM*/;
     *(void **)(param_1 + 0x16) = &DAT_105d6b3c/*ROM*/;

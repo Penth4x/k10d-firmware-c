@@ -30,7 +30,7 @@ void report_status_with_optional_lookup(int param_1,uint32_t param_2,uint32_t pa
   uint8_t auStack_a0 [12];
   int iStack_84;
   uint8_t auStack_7c [80];
-  uint8_t auStack_2c [35];
+  cls_105ab468 cStack_2c;
   uint8_t uStack_9;
   
   puVar4 = auStack_a0;
@@ -39,35 +39,35 @@ void report_status_with_optional_lookup(int param_1,uint32_t param_2,uint32_t pa
   iStack_84 = sd_file_lookup_locked(pvVar1,&DAT_105a9bb4/*ROM*/);
   if (iStack_84 != 0) {
     heap_alloc_one_byte_1045926e((int)&uStack_9);
-    pvVar3 = (void *)get_kernel_object_id((int)&uStack_9);
-    format_string_to_buffer_10545140(auStack_7c,(void *)&DAT_105a9bb8/*ROM*/,pvVar3,param_4);
-    cls_105ab468_new(auStack_2c);
-    iStack_84 = call_with_offset_lock_1048101c(pvVar1,auStack_7c,auStack_2c);
-    cls_105ab468_delete(auStack_2c,2);
+    pvVar3 = (void *)get_kernel_object_id((uint32_t)(&uStack_9));
+    format_string_to_buffer_10545140(auStack_7c,&DAT_105a9bb8/*ROM*/,pvVar3,param_4);
+    cls_105ab468_new(&cStack_2c);
+    iStack_84 = call_with_offset_lock_1048101c(pvVar1,auStack_7c,&cStack_2c);
+    cls_105ab468_delete(&cStack_2c,2);
     heap_free_if_flagged(&uStack_9,2);
   }
   *(uint16_t *)(puVar4 + 2) = 6;
   *(uint16_t *)(puVar4 + 6) = 0xff;
   puVar4[0xb] = 0;
-  dispatch_actuator_drive_command(param_1,4,2,(void *)&DAT_105a9bc8/*ROM*/,*(uint16_t *)(puVar4 + 2),*(uint16_t *)(puVar4 + 6),
+  dispatch_actuator_drive_command(param_1,4,2,&DAT_105a9bc8/*ROM*/,*(uint16_t *)(puVar4 + 2),*(uint16_t *)(puVar4 + 6),
                puVar4[0xb]);
   if (iStack_84 == 0) {
     *(uint16_t *)(puVar4 + 2) = 6;
     *(uint16_t *)(puVar4 + 6) = 0xff;
     puVar4[0xb] = 0;
-    dispatch_actuator_drive_command(param_1,5,2,(void *)&DAT_105a9bd8/*ROM*/,*(uint16_t *)(puVar4 + 2),*(uint16_t *)(puVar4 + 6),
+    dispatch_actuator_drive_command(param_1,5,2,&DAT_105a9bd8/*ROM*/,*(uint16_t *)(puVar4 + 2),*(uint16_t *)(puVar4 + 6),
                  puVar4[0xb]);
   }
   wait_for_state_two_with_optional_delay(param_1,iStack_84);
   *(uint16_t *)(puVar4 + 2) = 6;
   *(uint16_t *)(puVar4 + 6) = 0xff;
   puVar4[0xb] = 0;
-  dispatch_actuator_drive_command(param_1,4,2,(void *)&DAT_105a9bec/*ROM*/,*(uint16_t *)(puVar4 + 2),*(uint16_t *)(puVar4 + 6),
+  dispatch_actuator_drive_command(param_1,4,2,&DAT_105a9bec/*ROM*/,*(uint16_t *)(puVar4 + 2),*(uint16_t *)(puVar4 + 6),
                puVar4[0xb]);
   *(uint16_t *)(puVar4 + 2) = 6;
   *(uint16_t *)(puVar4 + 6) = 0xff;
   puVar4[0xb] = 0;
-  dispatch_actuator_drive_command(param_1,5,2,(void *)&DAT_105a9c00/*ROM*/,*(uint16_t *)(puVar4 + 2),*(uint16_t *)(puVar4 + 6),
+  dispatch_actuator_drive_command(param_1,5,2,&DAT_105a9c00/*ROM*/,*(uint16_t *)(puVar4 + 2),*(uint16_t *)(puVar4 + 6),
                puVar4[0xb]);
   return;
 }

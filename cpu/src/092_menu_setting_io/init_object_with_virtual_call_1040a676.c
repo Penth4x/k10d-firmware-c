@@ -24,11 +24,11 @@ uint8_t init_object_with_virtual_call_1040a676(int param_1)
   int iVar2;
   
   copy_two_bytes_from_helper(__frv_reg_unset(4));
-  allocate_struct_from_heap((void *)(param_1 + 0x48));
+  allocate_struct_from_heap((int *)(param_1 + 0x48));
   puVar1 = (uint32_t *)(param_1 + 0x18);
   eventflag_clr_flg(puVar1,0x80);
   iVar2 = **(int **)(param_1 + 0x2c);
-  (**(code **)(iVar2 + 0xcc))
+  (((vtbl_entry*)(iVar2))[25].fn)
             ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar2 + 200),param_1,0,param_1 + 0x48)
   ;
   eventflag_wai_flg(puVar1,0x80,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);

@@ -19,6 +19,6 @@ uint32_t invoke_virtual_slot_3_1045d494(int *param_1)
 {
   uint32_t uVar1;
   
-  uVar1 = (**(code **)(*param_1 + 0x1c))((int)*(short *)(*param_1 + 0x18) + (int)param_1,1);
+  uVar1 = (((vtbl_entry*)(*param_1))[3].fn)((int)((vtbl_entry*)(*param_1))[3].adj + (int)param_1,1);
   return uVar1;
 }

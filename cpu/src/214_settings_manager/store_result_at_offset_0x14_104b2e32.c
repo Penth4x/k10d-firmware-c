@@ -18,7 +18,7 @@ uint32_t store_result_at_offset_0x14_104b2e32(int param_1,uint32_t *param_2,uint
 {
   uint32_t uVar1;
   
-  uVar1 = copy_bytes_with_alignment((void *)(*(uint32_t *)(param_1 + 0x10)),param_2,param_3,0x200);
+  uVar1 = copy_bytes_with_alignment((void *)(uintptr_t)(*(uint32_t *)(param_1 + 0x10)),param_2,param_3,0x200);
   *(uint32_t *)(param_1 + 0x14) = uVar1;
   return 1;
 }

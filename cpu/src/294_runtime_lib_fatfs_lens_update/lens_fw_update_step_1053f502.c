@@ -22,7 +22,7 @@ int lens_fw_update_step_1053f502(void *param_1)
   uintptr_t sp;
   int iStack_c;
   
-  if (param_1 == (void *)0x0) {
+  if (param_1 == 0) {
     iVar1 = -0x16;
   }
   else {

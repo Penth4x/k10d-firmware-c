@@ -16,17 +16,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * construct_cls_105aa4c0(uint32_t *param_1)
+cls_105aae4c * construct_cls_105aa4c0(cls_105aae4c *param_1)
 
 {
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)allocate_heap_pool_block_10477182((void *)0x10), param_1 != (uint32_t *)0x0)) {
+  if ((param_1 != (cls_105aae4c *)0x0) ||
+     (param_1 = (cls_105aae4c *)allocate_heap_pool_block_10477182((void *)0x10), param_1 != (cls_105aae4c *)0x0)) {
     cls_105aae4c_new(param_1);
-    *param_1 = 0x105aa4c0/*ROM*/;
-    *(uint16_t *)(param_1 + 1) = 0;
-    *(uint16_t *)((int)param_1 + 6) = 0xffff;
-    param_1[2] = 0;
-    *(uint8_t *)(param_1 + 3) = 0;
+    param_1->field_0x0 = 0x105aa4c0/*ROM*/;
+    *(uint16_t *)&param_1[1].field_0x0 = 0;
+    *(uint16_t *)((int)&param_1[1].field_0x0 + 2) = 0xffff;
+    param_1[2].field_0x0 = 0;
+    *(uint8_t *)&param_1[3].field_0x0 = 0;
   }
   return param_1;
 }

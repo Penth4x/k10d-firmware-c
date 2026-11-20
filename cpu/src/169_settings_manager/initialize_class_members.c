@@ -19,26 +19,26 @@
 #include "globals.h"
 #include "funcs.h"
 
-void initialize_class_members(void *param_1)
+void initialize_class_members(cls_105aadb0 *param_1)
 
 {
   int *piVar1;
   int iVar2;
   
   piVar1 = (int *)get_or_create_sram_object_1047dd7a();
-  (**(code **)(*piVar1 + 0x14))((int)piVar1 + (int)*(short *)(*piVar1 + 0x10),0);
+  (((vtbl_entry*)(*piVar1))[2].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[2].adj,0);
   piVar1 = (int *)get_or_create_sram_object_10478100();
-  (**(code **)(*piVar1 + 0x14))((int)piVar1 + (int)*(short *)(*piVar1 + 0x10),0);
+  (((vtbl_entry*)(*piVar1))[2].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[2].adj,0);
   piVar1 = (int *)get_or_create_singleton_object_1047a73e();
-  (**(code **)(*piVar1 + 0x14))((int)piVar1 + (int)*(short *)(*piVar1 + 0x10),0);
+  (((vtbl_entry*)(*piVar1))[2].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[2].adj,0);
   piVar1 = (int *)get_or_create_singleton_object_1047c910();
-  (**(code **)(*piVar1 + 0x14))((int)piVar1 + (int)*(short *)(*piVar1 + 0x10),0);
+  (((vtbl_entry*)(*piVar1))[2].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[2].adj,0);
   piVar1 = (int *)get_or_create_singleton_object_1047d00a();
-  (**(code **)(*piVar1 + 0x14))((int)piVar1 + (int)*(short *)(*piVar1 + 0x10),0);
+  (((vtbl_entry*)(*piVar1))[2].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[2].adj,0);
   iVar2 = get_or_create_singleton_object_1047d00a();
-  *(uint32_t *)((int)param_1 + 8) = *(uint32_t *)(iVar2 + 4);
-  piVar1 = (int *)cls_105aac00_new(0);
-  *(int **)((int)param_1 + 4) = piVar1;
+  param_1->field_0x8 = (uintptr_t)(*(void **)(iVar2 + 4));
+  piVar1 = (int *)cls_105aac00_new((cls_105aac00 *)0x0);
+  param_1->field_0x4 = (uintptr_t)((void *)piVar1);
   iVar2 = get_or_create_singleton_object_1047c910();
   piVar1[2] = *(int *)(iVar2 + 4);
   iVar2 = get_or_create_singleton_object_1047d00a();
@@ -49,6 +49,6 @@ void initialize_class_members(void *param_1)
     iVar2 = *(int *)(iVar2 + 4) + 4;
   }
   piVar1[3] = iVar2;
-  (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,0);
+  (((vtbl_entry*)(*piVar1))[2].fn)((void *)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1),0);
   return;
 }

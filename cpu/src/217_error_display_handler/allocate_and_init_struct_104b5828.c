@@ -49,9 +49,9 @@ uint32_t * allocate_and_init_struct_104b5828(uint32_t *param_1,uint32_t param_2,
       iVar2 = iVar2 + -1;
       iVar1 = iVar1 + 5;
     } while (-1 < iVar2);
-    pvVar3 = (void *)get_kernel_object_id((int)&uStack_9);
+    pvVar3 = (void *)get_kernel_object_id((uint32_t)(&uStack_9));
     format_string_to_buffer_10545140((uint8_t *)puVar4,(char *)0x105b87dc/*ROM*/,pvVar3,param_4);
-    pvVar3 = (void *)get_kernel_object_id((int)&uStack_9);
+    pvVar3 = (void *)get_kernel_object_id((uint32_t)(&uStack_9));
     format_string_to_buffer_10545140((uint8_t *)(param_1 + 0x15),(char *)0x105b87ec/*ROM*/,pvVar3,param_4);
     heap_free_if_flagged(&uStack_9,2);
   }

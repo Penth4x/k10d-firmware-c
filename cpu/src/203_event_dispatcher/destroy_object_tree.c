@@ -34,7 +34,7 @@ void destroy_object_tree(void *param_1,int *param_2)
     puVar2 = (uint16_t *)peek_queue_head(iVar1);
     if (puVar2 != (uint16_t *)0x0) {
       do {
-        iVar1 = (**(code **)(*piVar4 + 0x2c))((int)*(short *)(*piVar4 + 0x28) + (int)piVar4,*puVar2)
+        iVar1 = (((vtbl_entry*)(*piVar4))[5].fn)((int)((vtbl_entry*)(*piVar4))[5].adj + (int)piVar4,*puVar2)
         ;
         if ((iVar1 != 0) && (uVar3 = 0, *(int *)(puVar2 + 2) != 0)) {
           do {
@@ -51,7 +51,7 @@ void destroy_object_tree(void *param_1,int *param_2)
     iterate_and_invoke_virtual_method(*param_2);
     iVar1 = *param_2;
     if (iVar1 != 0) {
-      (**(code **)(*(int *)(iVar1 + 0x34) + 0xc))(*(short *)(*(int *)(iVar1 + 0x34) + 8) + iVar1,3);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0x34)))[1].fn)(*(short *)(*(int *)(iVar1 + 0x34) + 8) + iVar1,3);
     }
     *param_2 = 0;
   }

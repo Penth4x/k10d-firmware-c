@@ -30,10 +30,10 @@ void register_three_menu_items_10404a44(void *param_1,uint16_t param_2,uint16_t 
   iVar1 = menu_item_register((int)param_1);
   iVar2 = menu_item_register((int)param_1);
   iVar3 = menu_item_register((int)param_1);
-  menu_list_build((void *)iVar1,(void *)&DAT_8000fb00/*SDRAM*/,3,0);
-  menu_list_build((void *)iVar3,(void *)&DAT_8000fb02/*SDRAM*/,4,0);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
+  menu_list_build((int *)(iVar1),(uint16_t *)(&DAT_8000fb00/*SDRAM*/),(uint8_t)(3),(uint8_t)(0));
+  menu_list_build((int *)(iVar3),(uint16_t *)(&DAT_8000fb02/*SDRAM*/),(uint8_t)(4),(uint8_t)(0));
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
   return;
 }

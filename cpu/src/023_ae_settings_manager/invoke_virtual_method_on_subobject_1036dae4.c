@@ -21,8 +21,8 @@ void invoke_virtual_method_on_subobject_1036dae4(int param_1)
   int iVar1;
   
   iVar1 = **(int **)(param_1 + 0x70);
-  (**(code **)(iVar1 + 0xdc))
-            ((int)*(int **)(param_1 + 0x70) + (int)*(short *)(iVar1 + 0xd8),
+  (((vtbl_entry*)(iVar1))[27].fn)
+            ((int)*(int **)(param_1 + 0x70) + (int)((vtbl_entry*)(iVar1))[27].adj,
              *(uint32_t *)(param_1 + 0x24c),*(uint16_t *)(param_1 + 0x250),
              *(uint16_t *)(param_1 + 0x252));
   return;

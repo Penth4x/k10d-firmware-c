@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint8_t dispatch_virtual_slot_5(void *param_1,int param_2)
+uint8_t dispatch_virtual_slot_5(cls_105b71d4 *param_1,int param_2)
 
 {
   uint uVar1;
@@ -26,33 +26,33 @@ uint8_t dispatch_virtual_slot_5(void *param_1,int param_2)
   uint8_t auStack_18 [4];
   
   puVar4 = (uint *)auStack_18;
-  iVar2 = (**(code **)(*(int *)((int)param_1 + 4) + 0x3c))
-                    ((int)*(short *)(*(int *)((int)param_1 + 4) + 0x38) + (int)param_1);
+  iVar2 = (((vtbl_entry*)(param_1->field_0x4))[7].fn)
+                    (&param_1->field_0x0 + ((vtbl_entry*)(param_1->field_0x4))[7].adj);
   if (iVar2 == 0) {
-    *(uint8_t *)((int)param_1 + 0x16) = 0;
-    **(uint **)((int)param_1 + 0x28) = **(uint **)((int)param_1 + 0x28) & 0xffffbfff;
-    **(uint **)((int)param_1 + 0x24) = **(uint **)((int)param_1 + 0x24) | 8;
-    puVar3 = *(uint **)((int)param_1 + 0x24);
+    param_1->field_0x16 = 0;
+    *(uint *)param_1->field_0x28 = *(uint *)param_1->field_0x28 & 0xffffbfff;
+    *(uint *)param_1->field_0x24 = *(uint *)param_1->field_0x24 | 8;
+    puVar3 = (uint *)param_1->field_0x24;
     *puVar4 = 0xffffffff;
     iVar2 = check_flag_match_in_array(param_1,puVar3,0,8,*puVar4);
     if (iVar2 != 0) {
-      **(uint **)((int)param_1 + 0x28) = **(uint **)((int)param_1 + 0x28) & 0xffffbfff;
-      puVar3 = *(uint **)((int)param_1 + 0x2c);
+      *(uint *)param_1->field_0x28 = *(uint *)param_1->field_0x28 & 0xffffbfff;
+      puVar3 = (uint *)param_1->field_0x2c;
       *puVar4 = 0xffffffff;
       iVar2 = check_flag_match_in_array(param_1,puVar3,0,0x8000,*puVar4);
       if (iVar2 != 0) {
-        uVar1 = **(uint **)((int)param_1 + 0x28) & 0xfffffffc;
+        uVar1 = *(uint *)param_1->field_0x28 & 0xfffffffc;
         if (param_2 == 1) {
           uVar1 = uVar1 | 1;
         }
-        **(uint **)((int)param_1 + 0x28) = uVar1;
-        (**(code **)(*(int *)((int)param_1 + 4) + 0x1c))
-                  ((int)*(short *)(*(int *)((int)param_1 + 4) + 0x18) + (int)param_1,0);
+        *(uint *)param_1->field_0x28 = uVar1;
+        (((vtbl_entry*)(param_1->field_0x4))[3].fn)
+                  (&param_1->field_0x0 + ((vtbl_entry*)(param_1->field_0x4))[3].adj,0);
         clear_object_flags(param_1,param_2);
-        *(uint8_t *)((int)param_1 + 0x17) = 1;
-        **(uint **)((int)param_1 + 0x28) = **(uint **)((int)param_1 + 0x28) & 0xffffffdf;
+        param_1->field_0x17 = 1;
+        *(uint *)param_1->field_0x28 = *(uint *)param_1->field_0x28 & 0xffffffdf;
       }
     }
   }
-  return *(uint8_t *)((int)param_1 + 0x17);
+  return param_1->field_0x17;
 }

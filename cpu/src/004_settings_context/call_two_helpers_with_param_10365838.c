@@ -6,10 +6,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_two_helpers_with_param_10365838(uint32_t param_1)
+void call_two_helpers_with_param_10365838(cls_105576e0 *param_1)
 
 {
   call_helper_on_struct_field_1036c4a8();
-  empty_stub_10365cb0(param_1);
+  empty_stub_10365cb0((uint32_t)(param_1));
   return;
 }

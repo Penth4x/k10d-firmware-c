@@ -24,9 +24,9 @@ uint32_t process_object_event_10476c66(int param_1,uint32_t param_2,int param_3)
         update_short_max_value(param_1,param_2);
       }
       if (piVar1 != (int *)0x0) {
-        (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+        (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
       }
-      decrement_index_and_update_bounds((int *)(param_1 + 0xc),param_2);
+      decrement_index_and_update_bounds((int *)(param_1 + 0xc),(uint)(param_2));
     }
     uVar4 = 1;
   }

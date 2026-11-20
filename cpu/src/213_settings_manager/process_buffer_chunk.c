@@ -6,27 +6,30 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t process_buffer_chunk(int *param_1)
+uint32_t process_buffer_chunk(cls_105b77e8 *param_1)
 
 {
-  int iVar1;
-  uint32_t uVar2;
-  int iVar3;
-  uint uVar4;
+  uint32_t *puVar1;
+  int iVar2;
+  uint32_t uVar3;
+  int iVar4;
+  uint uVar5;
   
-  if (param_1[9] != 0) {
-    uVar4 = (uint)param_1[9] / (uint)param_1[0xd];
-    iVar1 = dispatch_param5_status_handler(param_1,param_1[0xb],param_1[8],uVar4,(int *)param_1[10]);
-    param_1[0xb] = param_1[0xb] + uVar4;
-    iVar3 = param_1[0xc];
-    param_1[0xc] = iVar3 - uVar4;
-    uVar4 = (iVar3 - uVar4) * param_1[0xd];
-    if ((iVar1 != 0) && (uVar4 != 0)) {
-      if (uVar4 < (uint)param_1[9]) {
-        param_1[9] = uVar4;
+  if (param_1->field_0x24 != (uint32_t)((uint32_t *)0x0)) {
+    uVar5 = (uint)param_1->field_0x24 / (uint)param_1->field_0x34;
+    iVar2 = dispatch_param5_status_handler(param_1,param_1->field_0x2c,*(int *)&param_1->field_0x20,uVar5,
+                         (int *)param_1->field_0x28);
+    param_1->field_0x2c = (uintptr_t)((uint32_t *)((int)param_1->field_0x2c + uVar5));
+    iVar4 = param_1->field_0x30 - uVar5;
+    param_1->field_0x30 = iVar4;
+    puVar1 = (uint32_t *)(iVar4 * param_1->field_0x34);
+    if ((iVar2 != 0) && (puVar1 != (uint32_t *)0x0)) {
+      if ((uint32_t)(puVar1) < param_1->field_0x24) {
+        param_1->field_0x24 = (uintptr_t)(puVar1);
       }
-      uVar2 = invoke_virtual_slot_1(param_1,param_1[8],param_1[9]);
-      return uVar2;
+      uVar3 = invoke_virtual_slot_1((int *)param_1,*(uint32_t *)&param_1->field_0x20,
+                           (int)param_1->field_0x24);
+      return uVar3;
     }
   }
   zero_struct_fields_20_to_30_104aef4a(param_1);

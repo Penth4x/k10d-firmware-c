@@ -31,17 +31,17 @@ uint32_t populate_virtual_buffer_bytes(int *param_1)
   init_object_with_buffer(param_1);
   heap_alloc_one_byte_1045926e((int)&uStack_9);
   puVar1 = (uint8_t *)
-           (**(code **)(*param_1 + 0x6c))((int)*(short *)(*param_1 + 0x68) + (int)param_1);
+           (((vtbl_entry*)(*param_1))[13].fn)((int)((vtbl_entry*)(*param_1))[13].adj + (int)param_1);
   uVar2 = return_global_word_104592ce();
   *puVar1 = (char)((ushort)uVar2 >> 8);
   uVar2 = return_global_word_104592ce();
   puVar1[1] = (char)uVar2;
-  return_global_word_104592d8((int)&uStack_9);
+  return_global_word_104592d8((uint32_t)(&uStack_9));
   puVar1[2] = extraout_var;
-  uVar3 = return_global_word_104592d8((int)&uStack_9);
+  uVar3 = return_global_word_104592d8((uint32_t)(&uStack_9));
   puVar1[3] = uVar3;
-  cVar4 = get_ram_byte_at_10000068((int)&uStack_9);
-  bVar5 = get_ram_byte_at_10000069((int)&uStack_9);
+  cVar4 = get_ram_byte_at_10000068((uint32_t)(&uStack_9));
+  bVar5 = get_ram_byte_at_10000069((uint32_t)(&uStack_9));
   puVar1[4] = cVar4 << 5 | bVar5 & 0x1f;
   heap_free_if_flagged(&uStack_9,2);
   return 1;

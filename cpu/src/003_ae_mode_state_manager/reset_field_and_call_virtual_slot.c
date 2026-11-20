@@ -22,7 +22,7 @@ void reset_field_and_call_virtual_slot(void *param_1)
   
   *(uint32_t *)((int)param_1 + 0x204) = 0;
   iVar1 = **(int **)((int)param_1 + 0x70);
-  (**(code **)(iVar1 + 0xec))((int)*(int **)((int)param_1 + 0x70) + (int)*(short *)(iVar1 + 0xe8),0)
+  (((vtbl_entry*)(iVar1))[29].fn)((int)*(int **)((int)param_1 + 0x70) + (int)((vtbl_entry*)(iVar1))[29].adj,0)
   ;
   release_object_at_offset_0x70(param_1);
   return;

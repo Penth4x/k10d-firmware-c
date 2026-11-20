@@ -26,10 +26,10 @@ int invoke_virtual_and_check_result(uint32_t *param_1,int *param_2)
   uint8_t auStack_108 [256];
   
   fill_byte_array(auStack_108,0,0x100);
-  (**(code **)(param_1[6] + 0x5c))((int)*(short *)(param_1[6] + 0x58) + (int)param_1,auStack_108);
+  (((vtbl_entry*)(param_1[6]))[11].fn)((int)((vtbl_entry*)(param_1[6]))[11].adj + (int)param_1,auStack_108);
   iVar1 = call_with_offset_lock_10480e32((void *)param_1[2],auStack_108);
   if (iVar1 != 0) {
-    (**(code **)(*param_2 + 0x14))((int)*(short *)(*param_2 + 0x10) + (int)param_2,2,*param_1);
+    (((vtbl_entry*)(*param_2))[2].fn)((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,2,*param_1);
     *(uint8_t *)((int)param_1 + 0x17) = 1;
     check_node_in_linked_list(param_1);
   }

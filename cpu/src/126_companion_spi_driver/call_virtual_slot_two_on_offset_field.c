@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_virtual_slot_two_on_offset_field(int param_1)
+void call_virtual_slot_two_on_offset_field(cls_105a1f0c *param_1)
 
 {
-  dispatch_single_subobj(param_1 + 8);
+  dispatch_single_subobj((cls_1059e408 *)&param_1->field_0x8);
   return;
 }

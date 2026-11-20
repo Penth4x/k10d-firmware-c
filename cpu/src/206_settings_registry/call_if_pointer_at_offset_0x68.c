@@ -17,7 +17,7 @@
 void call_if_pointer_at_offset_0x68(int param_1,int param_2)
 
 {
-  if (*(void **)(param_1 + 0x68) != (void *)0x0) {
+  if (*(void **)(param_1 + 0x68) != 0) {
     copy_bytes_to_struct_field(param_2,*(void **)(param_1 + 0x68),0xc6);
   }
   return;

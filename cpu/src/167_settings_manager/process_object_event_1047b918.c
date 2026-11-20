@@ -18,7 +18,7 @@ void process_object_event_1047b918(int param_1)
   uint16_t uStack_18;
   uint16_t uStack_16;
   
-  iVar1 = check_six_char_pattern((void *)(param_1 + 0x48));
+  iVar1 = check_six_char_pattern((char *)(param_1 + 0x48));
   if (iVar1 != 0) {
     puVar2 = (uint16_t *)**(uint32_t **)(*(int *)(param_1 + 0x70) + 0xc);
     alloc_and_init_0x68_struct(&uStack_70);

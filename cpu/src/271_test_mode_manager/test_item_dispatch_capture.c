@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void test_item_dispatch(int param_1,uint32_t param_2)
+void test_item_dispatch_capture(int param_1,uint32_t param_2)
 
 {
   uint8_t uVar1;
@@ -55,7 +55,7 @@ void test_item_dispatch(int param_1,uint32_t param_2)
     break;
   case 4:
     uVar2 = test_mode_config_singleton();
-    exposure_cfg_loader(uVar2,(void *)(param_1 + 0x148),5);
+    exposure_cfg_loader(uVar2,(void*)(param_1 + 0x148),5);
     uVar1 = 1;
     *(uint8_t *)(param_1 + 0x6b8) = 1;
     goto LAB_1050ef36;
@@ -69,7 +69,7 @@ void test_item_dispatch(int param_1,uint32_t param_2)
     uVar2 = test_mode_config_singleton();
     uVar5 = 0;
   }
-  exposure_cfg_loader(uVar2,(void *)(param_1 + 0x148),uVar5);
+  exposure_cfg_loader(uVar2,(void*)(param_1 + 0x148),uVar5);
   uVar1 = *(uint8_t *)(param_1 + 0x6b8);
 LAB_1050ef36:
   *(uint8_t *)(param_1 + 0x654) = uVar1;
@@ -87,17 +87,17 @@ LAB_1050ef36:
   *(bool *)(param_1 + 0x695) = cVar4 == '\0';
   *(uint8_t *)(param_1 + 0x6a4) = 1;
   *(uint8_t *)(param_1 + 0x6a5) = 0;
-  (**(code **)(*(int *)(param_1 + 0x8d4) + 0x174))
-            (*(short *)(*(int *)(param_1 + 0x8d4) + 0x170) + param_1);
-  (**(code **)(*(int *)(param_1 + 0x8d4) + 0x164))
-            (*(short *)(*(int *)(param_1 + 0x8d4) + 0x160) + param_1);
-  (**(code **)(*(int *)(param_1 + 0x8d4) + 0x16c))
-            (*(short *)(*(int *)(param_1 + 0x8d4) + 0x168) + param_1);
-  (**(code **)(*(int *)(param_1 + 0x8d4) + 0x17c))
-            (*(short *)(*(int *)(param_1 + 0x8d4) + 0x178) + param_1);
-  (**(code **)(*(int *)(param_1 + 0x8d4) + 0x184))
-            (*(short *)(*(int *)(param_1 + 0x8d4) + 0x180) + param_1);
-  (**(code **)(*(int *)(param_1 + 0x8d4) + 0x194))
+  (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[46].fn)
+            (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[46].adj + param_1);
+  (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[44].fn)
+            (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[44].adj + param_1);
+  (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[45].fn)
+            (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[45].adj + param_1);
+  (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[47].fn)
+            (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[47].adj + param_1);
+  (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[48].fn)
+            (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[48].adj + param_1);
+  (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[50].fn)
             (*(short *)(*(int *)(param_1 + 0x8d4) + 400) + param_1);
   if ((*(char *)(param_1 + 0x2a) == '\0') && (*(char *)(param_1 + 0x2b) == '\x01')) {
     *(int *)(param_1 + 0x70) =
@@ -150,29 +150,29 @@ LAB_1050ef36:
     *(int *)(param_1 + 0x698) = *(int *)(param_1 + 0x698) + *(int *)(param_1 + 0x6a0);
   }
   iVar7 = *(int *)(param_1 + 0x25c);
-  iVar7 = (**(code **)(iVar7 + 0x1c))(param_1 + 0x25c + (int)*(short *)(iVar7 + 0x18),9);
+  iVar7 = (((vtbl_entry*)(iVar7))[3].fn)(param_1 + 0x25c + (int)((vtbl_entry*)(iVar7))[3].adj,9);
   if (iVar7 != 0) {
     *(uint32_t *)(param_1 + 0x698) = 0;
     *(uint32_t *)(param_1 + 0x69c) = 0;
     *(uint32_t *)(param_1 + 0x6a0) = 0;
   }
   if (*(char *)(param_1 + 0x6b8) == '\0') {
-    (**(code **)(*(int *)(param_1 + 0x8d4) + 0x8c))
-              (*(short *)(*(int *)(param_1 + 0x8d4) + 0x88) + param_1);
+    (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[17].fn)
+              (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[17].adj + param_1);
   }
   *(uint8_t *)(param_1 + 0x62e) = *(uint8_t *)(param_1 + 0x29);
   iVar7 = *(int *)(param_1 + 0x7f8);
   iVar6 = param_1 + 0x2ac;
-  uVar3 = read_two_byte_table_entry_104284cc(iVar6,0,0);
+  uVar3 = read_two_byte_from_struct(iVar6,0,0);
   *(uint16_t *)(iVar7 + 0x120) = uVar3;
   iVar7 = *(int *)(param_1 + 0x7f8);
-  uVar3 = read_two_byte_table_entry_104284cc(iVar6,0,2);
+  uVar3 = read_two_byte_from_struct(iVar6,0,2);
   *(uint16_t *)(iVar7 + 0x122) = uVar3;
   iVar7 = *(int *)(param_1 + 0x7f8);
-  uVar3 = read_two_byte_table_entry_104284cc(iVar6,0,3);
+  uVar3 = read_two_byte_from_struct(iVar6,0,3);
   *(uint16_t *)(iVar7 + 0x124) = uVar3;
   iVar7 = *(int *)(param_1 + 0x7f8);
-  uVar3 = read_two_byte_table_entry_104284cc(iVar6,0,1);
+  uVar3 = read_two_byte_from_struct(iVar6,0,1);
   *(uint16_t *)(iVar7 + 0x126) = uVar3;
   return;
 }

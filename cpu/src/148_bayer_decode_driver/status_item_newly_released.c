@@ -10,11 +10,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool status_item_newly_released(int param_1,uint32_t param_2)
+bool status_item_newly_released(cls_105a8a1c *param_1,uint32_t param_2)
 
 {
   int *piVar1;
   
   piVar1 = (int *)status_item_location(param_2);
-  return (*(byte *)(param_1 + 0x22 + *piVar1) & *(byte *)(piVar1 + 1)) != 0;
+  return (*(byte *)((int)&param_1[8].field_0x0 + *piVar1 + 2) & *(byte *)(piVar1 + 1)) != 0;
 }

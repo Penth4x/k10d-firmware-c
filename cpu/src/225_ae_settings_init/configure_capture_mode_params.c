@@ -25,7 +25,7 @@ configure_capture_mode_params(int param_1,uint32_t param_2,int param_3,uint32_t 
   uint16_t uVar2;
   int iVar3;
   int iVar4;
-  int iVar5;
+  cls_105aadf4 *pcVar5;
   uint32_t uVar6;
   
   iVar3 = init_buffer_with_size_0x10000(__frv_reg_unset(4));
@@ -58,14 +58,14 @@ configure_capture_mode_params(int param_1,uint32_t param_2,int param_3,uint32_t 
   copy_836_bytes(*(uint32_t *)(iVar3 + 0x14),param_1 + 0x528);
   iVar3 = get_or_create_singleton_object_1046d20c();
   collect_and_forward_object_state(*(uint32_t *)(iVar3 + 4),(uint16_t *)(param_1 + 0x86c));
-  iVar5 = param_1 + 0x350;
-  reset_object_state_fields_1047dd22(iVar5);
+  pcVar5 = (cls_105aadf4 *)(param_1 + 0x350);
+  reset_object_state_fields_1047dd22(pcVar5);
   *(int *)(param_1 + 0x470) = param_1 + 0x528;
   copy_eight_bytes_1045c584((uint16_t *)(param_1 + 0x474),(uint16_t *)(param_1 + 0x86c));
   *(uint32_t *)(param_1 + 0x35c) = *(uint32_t *)(param_1 + 0x34);
   iVar3 = read_struct_field_at_index_104c2890((void *)param_5,6);
   *(uint *)(param_1 + 0x354) = (uint)(iVar3 != 1);
-  iVar4 = invoke_object_method_and_check_flag_104bf6b6(param_1,iVar5);
+  iVar4 = invoke_object_method_and_check_flag_104bf6b6((int)(param_1),(uint32_t)(pcVar5));
   *(uint32_t *)(param_1 + 0x51c) = 0xffffffff;
   *(uint32_t *)(param_1 + 0x520) = 0xffffffff;
   *(uint32_t *)(param_1 + 0x524) = 0;
@@ -133,14 +133,14 @@ LAB_104beda6:
   *(int *)(param_1 + 0x524) = param_3;
 LAB_104bedc2:
   *(int *)(param_1 + 0x4f4) = param_1 + 0x230;
-  *(int *)(param_1 + 0x4f8) = iVar5;
+  *(cls_105aadf4 **)(param_1 + 0x4f8) = pcVar5;
   *(uint32_t *)(param_1 + 0x50c) = param_8;
   *(uint32_t *)(param_1 + 0x508) = param_7;
   *(uint32_t *)(param_1 + 0x504) = param_6;
   *(uint32_t *)(param_1 + 0x4fc) = *(uint32_t *)(param_1 + 0x8c4);
   *(uint32_t *)(param_1 + 0x500) = *(uint32_t *)(param_1 + 0x8c8);
   iVar3 = invoke_object_callback_and_check_flag(param_1, __frv_reg_unset(5));
-  invoke_virtual_method_on_object_104bf786(param_1,iVar5);
+  invoke_virtual_method_on_object_104bf786((int)(param_1),(uint32_t)(pcVar5));
 LAB_104bee08:
   invoke_virtual_method_on_object_104bf7ee(param_1,param_1 + 0x230);
 code_r0x104bee14:

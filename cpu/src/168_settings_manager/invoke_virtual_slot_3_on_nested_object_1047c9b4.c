@@ -14,12 +14,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_3_on_nested_object_1047c9b4(void *param_1)
+void invoke_virtual_slot_3_on_nested_object_1047c9b4(cls_105aa9dc *param_1)
 
 {
   int iVar1;
   
-  iVar1 = **(int **)((int)param_1 + 4);
-  (**(code **)(iVar1 + 0x1c))((int)*(int **)((int)param_1 + 4) + (int)*(short *)(iVar1 + 0x18),0);
+  iVar1 = *(int *)param_1->field_0x4;
+  (((vtbl_entry*)(iVar1))[3].fn)
+            ((void *)((int)param_1->field_0x4 + (int)((vtbl_entry*)(iVar1))[3].adj),0);
   return;
 }

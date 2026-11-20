@@ -37,7 +37,7 @@ void process_param_subobject(int param_1)
     uStack_1c = (short)uVar1;
     uVar1 = read_struct_field_at_offset_4(auStack_18);
     uStack_1a = (short)uVar1;
-    register_menu_item_with_data_1038f780(param_1 + 0x464,1,&uStack_28);
+    register_menu_item_with_data_1038f780((cls_1055a234 *)(param_1 + 0x464),1,&uStack_28);
     free_heap_if_flagged_1045c402(auStack_18,2);
   }
   return;

@@ -24,22 +24,22 @@ void dispatch_event_with_two_objects_104f1d3a(int param_1,uint param_2,int param
   uintptr_t sp;
   uint32_t *puVar3;
   uint8_t auStack_60 [12];
-  uint8_t auStack_3c [20];
-  uint8_t auStack_28 [32];
+  cls_105a6abc acStack_3c [5];
+  cls_105a6ef4 acStack_28 [8];
   
   puVar3 = (uint32_t *)auStack_60;
-  cls_105a6abc_new((void *)auStack_3c);
-  copy_buffer_with_lock_1045e22a(*(int *)(param_1 + 8),auStack_3c);
-  cls_105a6ef4_new((void *)auStack_28);
-  copy_27_bytes_to_buffer(*(int *)(param_1 + 8),auStack_28);
+  cls_105a6abc_new(acStack_3c);
+  copy_buffer_with_lock_1045e22a(*(int *)(param_1 + 8),acStack_3c);
+  cls_105a6ef4_new(acStack_28);
+  copy_27_bytes_to_buffer(*(int *)(param_1 + 8),acStack_28);
   uVar1 = get_or_init_heap_block();
-  uVar2 = extract_bitfield_from_byte_array(auStack_3c,0);
-  *puVar3 = (uint32_t)param_4;
+  uVar2 = extract_bitfield_from_byte_array(acStack_3c,0);
+  *puVar3 = (uintptr_t)(param_4);
   puVar3[1] = param_5;
-  puVar3[2] = (uint32_t)auStack_28;
+  puVar3[2] = (uintptr_t)(acStack_28);
   validate_and_lookup_pair(uVar1,uVar2 & 0xff,param_2,param_3,(uint16_t *)*puVar3,(uint16_t *)puVar3[1],
                (int *)puVar3[2]);
-  cls_105a6ef4_delete((void *)auStack_28,2);
-  cls_105a6abc_delete((void *)auStack_3c,2);
+  cls_105a6ef4_delete(acStack_28,2);
+  cls_105a6abc_delete(acStack_3c,2);
   return;
 }

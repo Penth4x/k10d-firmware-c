@@ -33,40 +33,40 @@ void send_sequential_command_blocks(void *param_1,int param_2,int param_3)
   puVar4 = (uint32_t *)auStackY_28;
   puVar5 = auStackY_28;
   if (param_3 == 1) {
-    forward_six_args_to_helper_1046a5e6(param_1,5,(uint)(ushort)(_DAT_800042d0/*SDRAM*/ + 1),(void *)&DAT_105a82c8/*ROM*/,0,3);
+    forward_six_args_to_helper_1046a5e6(param_1,5,(uint)(ushort)(_DAT_800042d0/*SDRAM*/ + 1),&DAT_105a82c8/*ROM*/,0,3);
     call_helper_forty_five_times(param_1);
     uVar3 = *(ushort *)(_DAT_800042c0/*SDRAM*/ + 0x83fbf8);
     uVar1 = *(ushort *)(_DAT_800042c0/*SDRAM*/ + 0x83fbfa);
     uVar2 = _DAT_800042d0/*SDRAM*/ + 1;
     *(uint16_t *)((int)puVar4 + 2) = 6;
-    forward_params_to_helper_1046a5be(param_1,5,(uint)uVar2,(void *)&DAT_105a82dc/*ROM*/,*(uint16_t *)((int)puVar4 + 2));
+    forward_params_to_helper_1046a5be(param_1,5,(uint)uVar2,&DAT_105a82dc/*ROM*/,*(uint16_t *)((int)puVar4 + 2));
     uVar2 = _DAT_800042d0/*SDRAM*/ + 9;
-    *puVar4 = (uint32_t)(uintptr_t)&DAT_105a82e8/*ROM*/;
+    *puVar4 = (uintptr_t)(&DAT_105a82e8/*ROM*/);
     *(uint16_t *)((int)puVar4 + 6) = 6;
     build_and_send_param_struct_1046a60e(param_1,5,(uint)uVar2,(void *)((int)(uint)uVar3 >> 8),(char *)*puVar4,
                  *(uint16_t *)((int)puVar4 + 6));
     uVar2 = _DAT_800042d0/*SDRAM*/ + 0xb;
-    *puVar4 = (uint32_t)(uintptr_t)&DAT_105a82ec/*ROM*/;
+    *puVar4 = (uintptr_t)(&DAT_105a82ec/*ROM*/);
     *(uint16_t *)((int)puVar4 + 6) = 6;
     build_and_send_param_struct_1046a60e(param_1,5,(uint)uVar2,(void *)(uVar3 & 0xff),(char *)*puVar4,
                  *(uint16_t *)((int)puVar4 + 6));
     uVar3 = _DAT_800042d0/*SDRAM*/ + 0xe;
-    *puVar4 = (uint32_t)(uintptr_t)&DAT_105a82f4/*ROM*/;
+    *puVar4 = (uintptr_t)(&DAT_105a82f4/*ROM*/);
     *(uint16_t *)((int)puVar4 + 6) = 6;
     build_and_send_param_struct_1046a60e(param_1,5,(uint)uVar3,(void *)((int)(uint)uVar1 >> 8),(char *)*puVar4,
                  *(uint16_t *)((int)puVar4 + 6));
     uVar3 = _DAT_800042d0/*SDRAM*/ + 0x11;
-    *puVar4 = (uint32_t)(uintptr_t)&DAT_105a82fc/*ROM*/;
+    *puVar4 = (uintptr_t)(&DAT_105a82fc/*ROM*/);
     *(uint16_t *)((int)puVar4 + 6) = 6;
     build_and_send_param_struct_1046a60e(param_1,5,(uint)uVar3,(void *)(uVar1 & 0xff),(char *)*puVar4,
                  *(uint16_t *)((int)puVar4 + 6));
     uVar3 = _DAT_800042d0/*SDRAM*/ + 1;
     *(uint16_t *)((int)puVar4 + 2) = 2;
-    forward_params_to_helper_1046a5be(param_1,4,(uint)uVar3,(void *)&DAT_105a8304/*ROM*/,*(uint16_t *)((int)puVar4 + 2));
+    forward_params_to_helper_1046a5be(param_1,4,(uint)uVar3,&DAT_105a8304/*ROM*/,*(uint16_t *)((int)puVar4 + 2));
     if (param_2 == 1) {
       uVar3 = _DAT_800042d0/*SDRAM*/ + 1;
       *(uint16_t *)((int)puVar4 + 2) = 5;
-      forward_params_to_helper_1046a5be(param_1,7,(uint)uVar3,(void *)&DAT_105a8318/*ROM*/,*(uint16_t *)((int)puVar4 + 2));
+      forward_params_to_helper_1046a5be(param_1,7,(uint)uVar3,&DAT_105a8318/*ROM*/,*(uint16_t *)((int)puVar4 + 2));
     }
     else {
       call_helper_forty_five_times(param_1);
@@ -74,11 +74,11 @@ void send_sequential_command_blocks(void *param_1,int param_2,int param_3)
     }
   }
   else {
-    forward_six_args_to_helper_1046a5e6(param_1,5,(uint)(ushort)(_DAT_800042d0/*SDRAM*/ + 5),(void *)&DAT_105a8328/*ROM*/,0,3);
+    forward_six_args_to_helper_1046a5e6(param_1,5,(uint)(ushort)(_DAT_800042d0/*SDRAM*/ + 5),&DAT_105a8328/*ROM*/,0,3);
     if (param_2 == 1) {
       uVar3 = _DAT_800042d0/*SDRAM*/ + 1;
       *(uint16_t *)(puVar5 + 2) = 7;
-      forward_params_to_helper_1046a5be(param_1,8,(uint)uVar3,(void *)&DAT_105a833c/*ROM*/,*(uint16_t *)(puVar5 + 2));
+      forward_params_to_helper_1046a5be(param_1,8,(uint)uVar3,&DAT_105a833c/*ROM*/,*(uint16_t *)(puVar5 + 2));
     }
   }
   return;

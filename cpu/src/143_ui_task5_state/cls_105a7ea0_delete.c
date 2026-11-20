@@ -22,7 +22,7 @@ void cls_105a7ea0_delete(uint32_t *param_1,uint param_2)
     param_1[8] = 0x105a7f40/*ROM*/;
     release_object_and_free_heap(param_1 + 0xf,2);
     cls_105a2af8_delete(param_1 + 10,2);
-    cls_1059e408_delete(param_1 + 8,0);
+    cls_1059e408_delete((void *)(param_1 + 8),0);
     cls_105a2c1c_delete(param_1 + 3,0);
     reset_vtable_and_free_if_owned_10428142(param_1 + 2,0);
     reset_vtable_and_free_if_flagged_10428182(param_1 + 1,0);

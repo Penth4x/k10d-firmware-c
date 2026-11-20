@@ -31,8 +31,8 @@ bool update_subobject_state(int param_1,int param_2)
   *(int *)(param_1 + 0x8c) = param_2;
   eventflag_clr_flg(puVar2,0x10);
   iVar1 = **(int **)(param_1 + 0x2fc);
-  (**(code **)(iVar1 + 0x9c))
-            ((int)*(int **)(param_1 + 0x2fc) + (int)*(short *)(iVar1 + 0x98),param_1 + 4,
+  (((vtbl_entry*)(iVar1))[19].fn)
+            ((int)*(int **)(param_1 + 0x2fc) + (int)((vtbl_entry*)(iVar1))[19].adj,param_1 + 4,
              param_2 != 0,auStack_e);
   eventflag_wai_flg(puVar2,0x10,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar2,0x10);

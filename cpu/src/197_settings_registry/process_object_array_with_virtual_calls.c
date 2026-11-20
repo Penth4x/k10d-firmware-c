@@ -18,7 +18,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void process_object_array_with_virtual_calls(int param_1,uint32_t param_2)
+void process_object_array_with_virtual_calls(cls_105b43cc *param_1,uint32_t param_2)
 
 {
   short sVar1;
@@ -43,33 +43,33 @@ void process_object_array_with_virtual_calls(int param_1,uint32_t param_2)
   uint8_t auStack_18 [4];
   uint32_t auStack_14 [3];
   
-  apuStack_44[0] = (uint32_t *)(param_1 + 0x18);
+  apuStack_44[0] = (uint32_t *)&param_1->field_0x18;
   piStack_6c = (int *)*apuStack_44[0];
   iVar5 = 0;
-  if (piStack_6c != *(int **)(param_1 + 0x1c)) {
+  if ((uint32_t)(piStack_6c) != param_1->field_0x1c) {
     ppuVar3 = apuStack_44 + 1;
     do {
       iVar4 = *piStack_6c;
-      (**(code **)(*(int *)(iVar4 + 0xc) + 0x2c))
-                (auStack_38,*(short *)(*(int *)(iVar4 + 0xc) + 0x28) + iVar4);
+      (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[5].fn)
+                (auStack_38,((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[5].adj + iVar4);
       iVar6 = 8;
       do {
         iVar6 = iVar6 + -4;
         *(uint32_t *)(iVar6 + (int)ppuVar3) = *(uint32_t *)(auStack_38 + iVar6);
       } while (iVar6 != 0);
-      iVar6 = return_first_word_1045c514((void *)ppuVar3);
+      iVar6 = return_first_word_1045c514(ppuVar3);
       iVar5 = iVar6 + iVar5;
       free_heap_if_flagged_1045c402(ppuVar3,2);
-      dispatch_event_with_flag((void *)iVar4,(void *)(*(uint *)(param_1 + 0x3c) & 0xffff),(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+      dispatch_event_with_flag((int *)(iVar4),(void *)(param_1->field_0x3c & 0xffff),(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
       piStack_6c = piStack_6c + 1;
-    } while (piStack_6c != *(int **)(param_1 + 0x1c));
+    } while ((uint32_t)(piStack_6c) != param_1->field_0x1c);
   }
   uStack_50 = 0;
-  if (*(int *)(param_1 + 0x38) == 1) {
-    uStack_50 = (uint)*(ushort *)(param_1 + 0x34) - iVar5 >> 1;
+  if (param_1->field_0x38 == 1) {
+    uStack_50 = (uint)(ushort)param_1->field_0x34 - iVar5 >> 1;
   }
-  else if (*(int *)(param_1 + 0x38) == 2) {
-    uStack_50 = (uint)*(ushort *)(param_1 + 0x34) - iVar5;
+  else if (param_1->field_0x38 == 2) {
+    uStack_50 = (uint)(ushort)param_1->field_0x34 - iVar5;
   }
   if (uStack_50 != (uStack_50 & 0xfffffffe)) {
     uStack_50 = uStack_50 - 1;
@@ -81,8 +81,8 @@ void process_object_array_with_virtual_calls(int param_1,uint32_t param_2)
       iVar6 = *piStack_6c;
       iVar4 = *(int *)(iVar6 + 0xc);
       sVar1 = *(short *)(iVar4 + 0x10);
-      uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(&uStack_20,uStack_50 + iStack_64,0);
-      (*(code *)0x1045bc90/*ROM*/)(auStack_18,param_1 + 0x10,uVar2);
+      uVar2 = (uintptr_t)(alloc_two_word_pair_1045bc2e(&uStack_20,uStack_50 + iStack_64,0));
+      (*(code *)0x1045bc90/*ROM*/)(auStack_18,&param_1->field_0x10,uVar2);
       iVar5 = 8;
       do {
         iVar7 = iVar5 + -4;
@@ -95,27 +95,27 @@ void process_object_array_with_virtual_calls(int param_1,uint32_t param_2)
         *(uint32_t *)((int)&uStack_34 + iVar5) = *(uint32_t *)((int)&uStack_2c + iVar5);
         iVar5 = iVar7;
       } while (iVar7 != 0);
-      (**(code **)(iVar4 + 0x14))(sVar1 + iVar6,auStack_30);
+      (((vtbl_entry*)(iVar4))[2].fn)(sVar1 + iVar6,auStack_30);
       free_heap_block_if_flagged_1045bc54(auStack_30,2);
       free_heap_block_if_flagged_1045bc54(auStack_28,2);
       free_heap_block_if_flagged_1045bc54(&uStack_20,2);
-      (**(code **)(*(int *)(iVar6 + 0xc) + 0xdc))
-                (*(short *)(*(int *)(iVar6 + 0xc) + 0xd8) + iVar6,*(uint32_t *)(param_1 + 0x30));
-      (**(code **)(*(int *)(iVar6 + 0xc) + 0xe4))
-                (*(short *)(*(int *)(iVar6 + 0xc) + 0xe0) + iVar6,param_2);
-      (**(code **)(*(int *)(iVar6 + 0xc) + 0x2c))
-                (auStack_38,*(short *)(*(int *)(iVar6 + 0xc) + 0x28) + iVar6);
+      (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[27].fn)
+                (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[27].adj + iVar6,param_1->field_0x30);
+      (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[28].fn)
+                (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[28].adj + iVar6,param_2);
+      (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[5].fn)
+                (auStack_38,((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[5].adj + iVar6);
       iVar5 = 8;
       do {
         iVar4 = iVar5 + -4;
         *(uint32_t *)((int)auStack_14 + iVar5) = *(uint32_t *)((int)apuStack_44 + iVar5 + 8);
         iVar5 = iVar4;
       } while (iVar4 != 0);
-      iVar5 = return_first_word_1045c514((void *)(auStack_14 + 1));
+      iVar5 = return_first_word_1045c514(auStack_14 + 1);
       iStack_64 = iVar5 + iStack_64;
       free_heap_if_flagged_1045c402(auStack_14 + 1,2);
       piStack_6c = piStack_6c + 1;
-    } while (piStack_6c != *(int **)(param_1 + 0x1c));
+    } while ((uint32_t)(piStack_6c) != param_1->field_0x1c);
   }
   return;
 }

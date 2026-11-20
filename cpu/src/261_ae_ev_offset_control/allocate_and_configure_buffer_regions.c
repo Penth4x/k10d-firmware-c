@@ -82,7 +82,7 @@ void allocate_and_configure_buffer_regions(int param_1, int param_2, uint32_t pa
   uVar2 = *(uint16_t *)(param_2 + 0x12);
   pvVar9 = (void *)get_system_heap();
   pvVar9 = (void *)mempool_get_block(pvVar9,(void *)0x180000,0);
-  if (pvVar9 != (void *)0x0) {
+  if (pvVar9 != 0) {
     uVar5 = *(uint32_t *)(param_2 + 4);
     uVar6 = *(uint32_t *)(param_2 + 8);
     uVar7 = *(uint32_t *)(param_2 + 0xc);
@@ -114,7 +114,7 @@ void allocate_and_configure_buffer_regions(int param_1, int param_2, uint32_t pa
     uStack_26 = uStack_2a;
     eventflag_clr_flg(puVar10,1);
     iVar8 = param_1 + 4;
-    build_sensor_readout_params(*(uint32_t *)(param_1 + 0x28),1,(void *)iVar8,&uStack_48);
+    build_sensor_readout_params((int)(*(uint32_t *)(param_1 + 0x28)),(int)(1),(void *)(iVar8),(int *)(&uStack_48));
     eventflag_wai_flg(puVar10,1,&uStack_c,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar10,1);
     configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),1);
@@ -133,14 +133,14 @@ void allocate_and_configure_buffer_regions(int param_1, int param_2, uint32_t pa
     uStack_28 = uStack_2a;
     uStack_26 = uStack_2a;
     eventflag_clr_flg(puVar10,1);
-    build_sensor_readout_params(*(uint32_t *)(param_1 + 0x28),1,(void *)iVar8,&uStack_48);
+    build_sensor_readout_params((int)(*(uint32_t *)(param_1 + 0x28)),(int)(1),(void *)(iVar8),(int *)(&uStack_48));
     eventflag_wai_flg(puVar10,1,&uStack_c,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar10,1);
     configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),1);
     pvStack_44 = (void *)uVar7;
     pvStack_38 = (void *)((int)pvVar9 + 0x120000);
     eventflag_clr_flg(puVar10,1);
-    build_sensor_readout_params(*(uint32_t *)(param_1 + 0x28),1,(void *)iVar8,&uStack_48);
+    build_sensor_readout_params((int)(*(uint32_t *)(param_1 + 0x28)),(int)(1),(void *)(iVar8),(int *)(&uStack_48));
     eventflag_wai_flg(puVar10,1,&uStack_c,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar10,1);
     configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),1);
@@ -185,7 +185,7 @@ void allocate_and_configure_buffer_regions(int param_1, int param_2, uint32_t pa
     uStack_28 = uStack_2e;
     uStack_26 = uStack_2e;
     eventflag_clr_flg(puVar10,1);
-    build_sensor_readout_params(*(uint32_t *)(param_1 + 0x28),1,(void *)iVar8,&uStack_48);
+    build_sensor_readout_params((int)(*(uint32_t *)(param_1 + 0x28)),(int)(1),(void *)(iVar8),(int *)(&uStack_48));
     eventflag_wai_flg(puVar10,1,&uStack_c,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar10,1);
     configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),1);
@@ -203,14 +203,14 @@ void allocate_and_configure_buffer_regions(int param_1, int param_2, uint32_t pa
     uStack_28 = uStack_2e;
     uStack_26 = uStack_2e;
     eventflag_clr_flg(puVar10,1);
-    build_sensor_readout_params(*(uint32_t *)(param_1 + 0x28),1,(void *)iVar8,&uStack_48);
+    build_sensor_readout_params((int)(*(uint32_t *)(param_1 + 0x28)),(int)(1),(void *)(iVar8),(int *)(&uStack_48));
     eventflag_wai_flg(puVar10,1,&uStack_c,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar10,1);
     configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),1);
     pvStack_44 = (void *)((int)pvVar9 + 0x120000);
     pvStack_38 = (void *)uVar7;
     eventflag_clr_flg(puVar10,1);
-    build_sensor_readout_params(*(uint32_t *)(param_1 + 0x28),1,(void *)iVar8,&uStack_48);
+    build_sensor_readout_params((int)(*(uint32_t *)(param_1 + 0x28)),(int)(1),(void *)(iVar8),(int *)(&uStack_48));
     eventflag_wai_flg(puVar10,1,&uStack_c,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar10,1);
     configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),1);

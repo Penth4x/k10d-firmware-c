@@ -101,13 +101,13 @@ void update_mode_transition_flags(int param_1,void *param_2)
   pvVar1 = *(void **)(param_1 + 0x60);
   if ((*(void **)(param_1 + 0x38) == pvVar1) && (param_2 != pvVar1)) {
     iVar3 = **(int **)(param_1 + 0x2c);
-    (**(code **)(iVar3 + 0x1c))
-              ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar3 + 0x18),0x13006d,0);
+    (((vtbl_entry*)(iVar3))[3].fn)
+              ((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar3))[3].adj,0x13006d,0);
   }
   else if ((*(void **)(param_1 + 0x38) != pvVar1) && (param_2 == pvVar1)) {
     iVar3 = **(int **)(param_1 + 0x2c);
-    (**(code **)(iVar3 + 0x1c))
-              ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar3 + 0x18),0x13006d,1);
+    (((vtbl_entry*)(iVar3))[3].fn)
+              ((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar3))[3].adj,0x13006d,1);
   }
   if ((param_2 == *(void **)(param_1 + 0x84)) && (*(char *)(param_1 + 0xd7) != '\0')) {
     *(uint *)(param_1 + 0x58) = *(uint *)(param_1 + 0x58) | 1;

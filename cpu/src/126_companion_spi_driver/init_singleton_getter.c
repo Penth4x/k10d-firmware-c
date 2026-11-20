@@ -19,7 +19,7 @@ uint32_t init_singleton_getter(void)
 {
   if (iRam8001ebe4 == 0) {
     iRam8001ebe4 = 1;
-    cls_105a020c_new((void *)0x8001ebe0/*SDRAM*/);
+    cls_105a020c_new((cls_105a020c *)0x8001ebe0/*SDRAM*/);
     prepend_to_singly_linked_list((void *)0x8000fc7c/*SDRAM*/);
   }
   return 0x8001ebe0/*SDRAM*/;

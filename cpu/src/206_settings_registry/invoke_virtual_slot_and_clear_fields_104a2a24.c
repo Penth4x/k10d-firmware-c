@@ -21,8 +21,8 @@ void invoke_virtual_slot_and_clear_fields_104a2a24(int *param_1)
   
   iVar1 = *param_1;
   if (iVar1 != 0) {
-    (**(code **)(*(int *)(iVar1 + 0x11c) + 0x14))
-              (*(short *)(*(int *)(iVar1 + 0x11c) + 0x10) + iVar1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0x11c)))[2].fn)
+              (((vtbl_entry*)(*(int *)(iVar1 + 0x11c)))[2].adj + iVar1);
   }
   param_1[1] = 0;
   param_1[2] = 0;

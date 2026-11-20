@@ -193,7 +193,7 @@ LAB_10545d7a:
               *param_3 = (int)(puVar4 + 1);
               *(uint32_t *)*puVar4 = *(uint *)_DAT_80014a6c/*SDRAM*/;
             }
-            *param_2 = pbVar9;
+            *param_2 = (uintptr_t)(pbVar9);
             return 0;
           }
           goto LAB_10545d7a;
@@ -347,7 +347,7 @@ LAB_10545962:
   *param_3 = (int)(puVar5 + 2);
   uVar12 = *puVar5;
   uStack_48 = puVar5[1];
-  uStack_4c = (uStack_4c & ~(0xffffULL << 0)) | ((((uint64_t)((ushort)(uVar12 >> 0x10))) & 0xffffULL) << 0);
+  uStack_4c = (uStack_4c & ~(((uint64_t)0xffff) << 0)) | ((((uint64_t)((ushort)(uVar12 >> 0x10))) & ((uint64_t)0xffff)) << 0);
   if ((uVar12 & 0x80000000/*SDRAM*/) == 0) {
 LAB_105459ba:
     uStack_4c = uVar12;
@@ -504,6 +504,6 @@ LAB_10545db2:
       iVar6 = iVar6 + -1;
     }
   }
-  *param_2 = pbVar9;
+  *param_2 = (uintptr_t)(pbVar9);
   return (int)puVar15 - (int)param_1;
 }

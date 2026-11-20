@@ -42,14 +42,14 @@ void update_object_state_and_data(int param_1)
   uStack_12 = (short)uVar1;
   free_heap_if_flagged_1045c402(auStack_28,2);
   iVar2 = **(int **)(param_1 + 0x2c);
-  (**(code **)(iVar2 + 0x7c))((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar2 + 0x78),0);
+  (((vtbl_entry*)(iVar2))[15].fn)((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar2))[15].adj,0);
   iVar2 = **(int **)(param_1 + 0x2c);
-  (**(code **)(iVar2 + 0x74))
-            ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar2 + 0x70),DAT_80015f14/*SDRAM*/,&uStack_20)
+  (((vtbl_entry*)(iVar2))[14].fn)
+            ((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar2))[14].adj,DAT_80015f14/*SDRAM*/,&uStack_20)
   ;
   if (*(char *)(param_1 + 0xb8) != '\0') {
     iVar2 = **(int **)(param_1 + 0x2c);
-    (**(code **)(iVar2 + 0x7c))((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar2 + 0x78),1);
+    (((vtbl_entry*)(iVar2))[15].fn)((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar2))[15].adj,1);
   }
   return;
 }

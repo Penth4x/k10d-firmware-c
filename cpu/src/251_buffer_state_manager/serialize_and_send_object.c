@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void serialize_and_send_object(uint32_t *param_1)
+void serialize_and_send_object(cls_10621600 *param_1)
 
 {
   int iVar1;
@@ -23,26 +23,27 @@ void serialize_and_send_object(uint32_t *param_1)
   
   uStack_14 = 0xffffffff;
   uStack_a = 4;
-  param_1[4] = 0;
-  param_1[5] = 0;
-  param_1[6] = 0;
-  param_1[7] = 0;
-  (**(code **)(param_1[2] + 0x24))((int)*(short *)(param_1[2] + 0x20) + (int)param_1);
-  iStack_10 = param_1[8] * 4 + 0xc;
-  copy_bytes_forward((uint8_t *)&iStack_10,auStack_34,4);
-  copy_bytes_forward((uint8_t *)&uStack_a,auStack_30,2);
-  copy_bytes_forward((uint8_t *)(param_1 + 3),auStack_2e,2);
-  copy_bytes_forward((uint8_t *)&uStack_14,auStack_2c,4);
+  param_1->field_0x10 = 0;
+  param_1->field_0x14 = (uintptr_t)((void *)0x0);
+  param_1->field_0x18 = 0;
+  param_1->field_0x1c = 0;
+  (((vtbl_entry*)(param_1->field_0x8))[4].fn)
+            ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x8))[4].adj);
+  iStack_10 = (int)param_1->field_0x20 * 4 + 0xc;
+  copy_bytes_forward(&iStack_10,auStack_34,4);
+  copy_bytes_forward(&uStack_a,auStack_30,2);
+  copy_bytes_forward(&param_1->field_0xc,auStack_2e,2);
+  copy_bytes_forward(&uStack_14,auStack_2c,4);
   iVar2 = 0;
-  if (0 < (int)param_1[8]) {
+  if (0 < (int)param_1->field_0x20) {
     iVar1 = 0;
     do {
-      copy_bytes_forward((uint8_t *)((int)param_1 + iVar1 + 0x10),auStack_28 + iVar1,4);
+      copy_bytes_forward((uint8_t *)((int)&param_1->field_0x10 + iVar1),(uint8_t *)(auStack_28 + iVar1),(uint)(4));
       iVar2 = iVar2 + 1;
       iVar1 = iVar1 + 4;
-    } while (iVar2 < (int)param_1[8]);
+    } while (iVar2 < (int)param_1->field_0x20);
   }
-  iVar2 = bounded_byte_copy((uint *)*param_1,auStack_34,param_1[8] * 4 + 0xc,0);
+  iVar2 = bounded_byte_copy((uint *)(param_1->field_0x0),(void *)(auStack_34),(int)param_1->field_0x20 * 4 + 0xc,(int)(0));
   if (iVar2 == 1) {
     invoke_virtual_slot_5_104e18cc(param_1,iStack_10);
   }

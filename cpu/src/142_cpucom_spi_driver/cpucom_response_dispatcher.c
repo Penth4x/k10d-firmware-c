@@ -27,7 +27,7 @@ uint32_t cpucom_response_dispatcher(void *param_1,uint8_t *param_2)
     uVar3 = 0;
   }
   else {
-    uVar3 = (**(code **)(*piVar2 + 0x74))((int)*(short *)(*piVar2 + 0x70) + (int)piVar2,param_2);
+    uVar3 = (((vtbl_entry*)(*piVar2))[14].fn)((int)((vtbl_entry*)(*piVar2))[14].adj + (int)piVar2,param_2);
   }
   return uVar3;
 }

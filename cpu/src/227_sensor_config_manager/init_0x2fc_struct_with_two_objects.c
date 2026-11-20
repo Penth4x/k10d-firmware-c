@@ -27,8 +27,8 @@ uint8_t * init_0x2fc_struct_with_two_objects(uint8_t *param_1)
     *(uint32_t *)(param_1 + 0x10) = 0xffffffff;
     *(uint16_t *)(param_1 + 0x14) = 0;
     *(uint16_t *)(param_1 + 0x16) = 0;
-    cls_105aae7c_new(param_1 + 0x18);
-    cls_105b572c_new((void *)(param_1 + 0x138));
+    cls_105aae7c_new((cls_105aae7c *)(param_1 + 0x18));
+    cls_105b572c_new((cls_105b572c *)(param_1 + 0x138));
     *(uint32_t *)(param_1 + 0x2f0) = 0;
     *(uint32_t *)(param_1 + 0x2f4) = 0;
     *(uint32_t *)(param_1 + 0x2f8) = 0;

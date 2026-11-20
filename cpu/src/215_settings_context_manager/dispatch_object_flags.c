@@ -16,8 +16,8 @@ void dispatch_object_flags(int param_1,uint param_2)
       param_2 = param_2 & 0xfffbffff;
       update_object_state_and_dispatch_104b3ade(param_1,*(uint32_t *)(param_1 + 0x3c));
       iVar1 = **(int **)(param_1 + 0x48);
-      (**(code **)(iVar1 + 0x1c))
-                ((int)*(int **)(param_1 + 0x48) + (int)*(short *)(iVar1 + 0x18),
+      (((vtbl_entry*)(iVar1))[3].fn)
+                ((int)*(int **)(param_1 + 0x48) + (int)((vtbl_entry*)(iVar1))[3].adj,
                  *(uint32_t *)(param_1 + 0x3c));
     }
     if ((param_2 & 0x80000) != 0) {
@@ -27,21 +27,21 @@ void dispatch_object_flags(int param_1,uint param_2)
       param_2 = param_2 & 0xffefffff;
       invoke_virtual_slot_and_clear_flags(param_1);
       iVar1 = **(int **)(param_1 + 0x48);
-      (**(code **)(iVar1 + 0x14))((int)*(int **)(param_1 + 0x48) + (int)*(short *)(iVar1 + 0x10));
+      (((vtbl_entry*)(iVar1))[2].fn)((int)*(int **)(param_1 + 0x48) + (int)((vtbl_entry*)(iVar1))[2].adj);
     }
     if ((param_2 & 0x200000) != 0) {
       param_2 = param_2 & 0xffdfffff;
       update_object_state_and_dispatch_104b3ade(param_1,*(uint32_t *)(param_1 + 0x3c));
       iVar1 = **(int **)(param_1 + 0x48);
-      (**(code **)(iVar1 + 0xc))
+      (((vtbl_entry*)(iVar1))[1].fn)
                 ((int)*(int **)(param_1 + 0x48) + (int)*(short *)(iVar1 + 8),
                  *(uint32_t *)(param_1 + 0x3c));
     }
     if ((param_2 & 0x400000) != 0) {
       param_2 = param_2 & 0xffbfffff;
       iVar1 = **(int **)(param_1 + 0x48);
-      (**(code **)(iVar1 + 0x1c))
-                ((int)*(int **)(param_1 + 0x48) + (int)*(short *)(iVar1 + 0x18),
+      (((vtbl_entry*)(iVar1))[3].fn)
+                ((int)*(int **)(param_1 + 0x48) + (int)((vtbl_entry*)(iVar1))[3].adj,
                  *(uint32_t *)(param_1 + 0x3c));
     }
   }

@@ -22,10 +22,10 @@ void dispatch_virtual_slot_2_with_string_args(uint32_t param_1,int *param_2,uint
 {
   int iVar1;
   
-  append_string_to_buffer(param_2,(void *)0x105ba3a4/*ROM*/);
+  append_string_to_buffer((int *)(param_2),(char *)(0x105ba3a4/*ROM*/));
   iVar1 = get_or_create_singleton_object_104d9012();
-  (**(code **)(*(int *)(iVar1 + 0x1c) + 0x1c))
-            (iVar1 + *(short *)(*(int *)(iVar1 + 0x1c) + 0x18),param_2,param_3);
-  append_string_to_buffer(param_2,(void *)0x105ba3d4/*ROM*/);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0x1c)))[3].fn)
+            (iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 0x1c)))[3].adj,param_2,param_3);
+  append_string_to_buffer((int *)(param_2),(char *)(0x105ba3d4/*ROM*/));
   return;
 }

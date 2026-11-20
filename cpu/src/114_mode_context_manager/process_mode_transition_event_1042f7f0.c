@@ -52,9 +52,9 @@ void process_mode_transition_event_1042f7f0(int param_1,int *param_2)
   uVar1 = *(uint8_t *)(param_2 + 8);
   piVar15 = (int *)param_2[10];
   iVar14 = call_two_helpers_and_return_10430102(param_1);
-  twai_sem_obj((void *)(param_1 + 0x28),_DAT_105a2bf0/*ROM*/);
+  twai_sem_obj((void*)(param_1 + 0x28),_DAT_105a2bf0/*ROM*/);
   if (iVar14 == 0) {
-    (**(code **)(*piVar15 + 0x14))((int)*(short *)(*piVar15 + 0x10) + (int)piVar15,0x2000000,2);
+    (((vtbl_entry*)(*piVar15))[2].fn)((int)((vtbl_entry*)(*piVar15))[2].adj + (int)piVar15,0x2000000,2);
   }
   else {
     cVar2 = *(char *)(param_2 + 0xb);
@@ -66,14 +66,14 @@ void process_mode_transition_event_1042f7f0(int param_1,int *param_2)
     }
     else {
       call_helper_with_param_and_result(param_1,iVar11);
-      (**(code **)(*piVar15 + 0x14))((int)*(short *)(*piVar15 + 0x10) + (int)piVar15,0x2000002,0);
-      iVar14 = (**(code **)(*piVar15 + 0x14))
-                         ((int)*(short *)(*piVar15 + 0x10) + (int)piVar15,0x2000001,param_2[0xc]);
+      (((vtbl_entry*)(*piVar15))[2].fn)((int)((vtbl_entry*)(*piVar15))[2].adj + (int)piVar15,0x2000002,0);
+      iVar14 = (((vtbl_entry*)(*piVar15))[2].fn)
+                         ((int)((vtbl_entry*)(*piVar15))[2].adj + (int)piVar15,0x2000001,param_2[0xc]);
       bVar16 = iVar14 != 0;
     }
     store_two_values_in_object(param_1,iVar3,iVar4,iVar7);
     store_params_at_offsets_10430084(param_1,iVar5,iVar6,uVar1);
-    (**(code **)(*piVar15 + 0x14))((int)*(short *)(*piVar15 + 0x10) + (int)piVar15,0x2000000,1);
+    (((vtbl_entry*)(*piVar15))[2].fn)((int)((vtbl_entry*)(*piVar15))[2].adj + (int)piVar15,0x2000000,1);
     forward_params_with_helper_result(param_1,iVar5,iVar6);
     if ((iVar11 < 4) && (iVar5 != iVar11)) {
       store_params_at_offsets_10430014(param_1,iVar11,uVar12,uVar13);
@@ -90,13 +90,13 @@ void process_mode_transition_event_1042f7f0(int param_1,int *param_2)
     else {
       iVar3 = *piVar15;
       if (!bVar16) {
-        (**(code **)(iVar3 + 0x14))((int)*(short *)(iVar3 + 0x10) + (int)piVar15,0x2000000,2);
+        (((vtbl_entry*)(iVar3))[2].fn)((int)((vtbl_entry*)(iVar3))[2].adj + (int)piVar15,0x2000000,2);
         goto LAB_1042f9d4;
       }
     }
-    (**(code **)(iVar3 + 0x14))((int)*(short *)(iVar3 + 0x10) + (int)piVar15,0x2000000,3);
+    (((vtbl_entry*)(iVar3))[2].fn)((int)((vtbl_entry*)(iVar3))[2].adj + (int)piVar15,0x2000000,3);
   }
 LAB_1042f9d4:
-  sig_sem_obj((void *)(param_1 + 0x28));
+  sig_sem_obj((void*)(param_1 + 0x28));
   return;
 }

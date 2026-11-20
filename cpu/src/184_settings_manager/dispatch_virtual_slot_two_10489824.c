@@ -18,19 +18,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-int * dispatch_virtual_slot_two_10489824(int *param_1,int *param_2)
+cls_105b38b0 * dispatch_virtual_slot_two_10489824(cls_105b38b0 *param_1,int *param_2)
 
 {
   int iVar1;
   
-  iVar1 = (**(code **)(*param_1 + 0x1c))((int)*(short *)(*param_1 + 0x18) + (int)param_1);
+  iVar1 = (((vtbl_entry*)(param_1->field_0x0))[3].fn)
+                    ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[3].adj);
   if (iVar1 != 0) {
-    iVar1 = (**(code **)(*param_2 + 0x24))((int)*(short *)(*param_2 + 0x20) + (int)param_2,0xd);
+    iVar1 = (((vtbl_entry*)(*param_2))[4].fn)((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,0xd);
     if (iVar1 == 0) {
-      param_1 = (int *)get_or_create_sram_object_104899a6();
+      param_1 = (cls_105b38b0 *)get_or_create_sram_object_104899a6();
     }
     else {
-      param_1 = (int *)get_or_create_singleton_object_104898cc();
+      param_1 = (cls_105b38b0 *)get_or_create_singleton_object_104898cc();
     }
   }
   return param_1;

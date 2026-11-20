@@ -1,15 +1,14 @@
 /* @k10d call_kernel_with_short_id @ 0x10459d74
- * name: model (proposed by the local model from the decompile, confidence 0.75)
+ * name: model (proposed by the local model from the decompile, confidence 0.95)
  * unit: 127_rtos_kernel_services (unit names are model-proposed)
  * purpose:
- *   Extracts the low 16 bits of the first argument and passes them with 0xffffffff to
- *   allocate_kernel_object_10010fe0.
+ *   Passes the 16-bit value at the start of param_1 to the kernel entry point
+ *   allocate_kernel_object_10010fe0 with a second argument of -1.
  * summary:
- *   A one-line wrapper that reads the first two bytes of param_1 as a signed short, sign-
- *   extends it to 32 bits, and forwards it along with the constant 0xffffffff to
- *   allocate_kernel_object_10010fe0. It lives in the rtos_wrappers_and_heap module
- *   alongside heap and mailbox wrappers, suggesting it is a thin kernel-entry helper, but
- *   the specific kernel operation is not identifiable from the callee name.
+ *   This is a one-call wrapper in the rtos_wrappers_and_heap module. It loads the first two
+ *   bytes of param_1 as a signed short and forwards it to allocate_kernel_object_10010fe0,
+ *   which is likely a kernel dispatch or system call entry. The second argument is
+ *   hardcoded to 0xffffffff (-1). The function returns void.
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"

@@ -26,7 +26,7 @@ void copy_four_bytes_and_check_state(int param_1)
   uintptr_t sp;
   short asStack_c [2];
   
-  iVar1 = check_six_char_pattern((void *)(param_1 + 0x48));
+  iVar1 = check_six_char_pattern((char *)(param_1 + 0x48));
   if (iVar1 != 0) {
     psVar2 = *(short **)(*(int *)(*(int *)(param_1 + 0x70) + 0xc) + 4);
     iVar1 = 4;

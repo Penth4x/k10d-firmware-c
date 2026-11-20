@@ -25,7 +25,7 @@ void send_lens_fw_update_packet(int param_1)
                *(uint *)(*(int *)(param_1 + 8) + 0x10));
   *(uint32_t *)(param_1 + 8) = 0;
   iVar1 = **(int **)(param_1 + 0xc);
-  (**(code **)(iVar1 + 0x14))
-            ((int)*(int **)(param_1 + 0xc) + (int)*(short *)(iVar1 + 0x10),uStack_18,uStack_14,0);
+  (((vtbl_entry*)(iVar1))[2].fn)
+            ((int)*(int **)(param_1 + 0xc) + (int)((vtbl_entry*)(iVar1))[2].adj,uStack_18,uStack_14,0);
   return;
 }

@@ -40,13 +40,13 @@ void dispatch_five_mode_variants(int param_1,int param_2)
   
   iVar2 = menu_item_register(param_1);
   iVar3 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(*(short *)(*(int *)(iVar2 + 0xc) + 8) + iVar2,1);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0x1c))
-            (&uStack_48,iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 0x18));
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar2 + 0xc) + 8) + iVar2,1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[3].fn)
+            (&uStack_48,iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[3].adj);
   puVar4 = auStack_44 + 1;
   alloc_two_word_pair_1045bc2e(puVar4,0,0);
   if (param_2 == 0) {
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xec))(*(short *)(*(int *)(iVar3 + 0xc) + 0xe8) + iVar3,6);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[29].fn)(((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[29].adj + iVar3,6);
     iVar2 = read_first_word_1045bd4c(&uStack_48);
     iVar5 = get_second_word_of_struct(&uStack_48);
     store_two_words_to_memory(puVar4,iVar2 + 0x36,iVar5 + 0x18);
@@ -58,12 +58,12 @@ void dispatch_five_mode_variants(int param_1,int param_2)
       *(uint32_t *)((int)&uStack_34 + iVar2) = *(uint32_t *)((int)auStack_44 + iVar2);
       iVar2 = iVar6;
     } while (iVar6 != 0);
-    (**(code **)(iVar5 + 0x14))(sVar1 + iVar3,local_30);
+    (((vtbl_entry*)(iVar5))[2].fn)(sVar1 + iVar3,local_30);
     free_heap_block_if_flagged_1045bc54(local_30,2);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
   }
   else if (param_2 == 1) {
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xec))(*(short *)(*(int *)(iVar3 + 0xc) + 0xe8) + iVar3,6);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[29].fn)(((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[29].adj + iVar3,6);
     iVar2 = read_first_word_1045bd4c(&uStack_48);
     iVar5 = get_second_word_of_struct(&uStack_48);
     store_two_words_to_memory(puVar4,iVar2 + 0x48,iVar5 + 0x18);
@@ -75,12 +75,12 @@ void dispatch_five_mode_variants(int param_1,int param_2)
       *(uint32_t *)((int)&uStack_2c + iVar2) = *(uint32_t *)((int)auStack_44 + iVar2);
       iVar2 = iVar6;
     } while (iVar6 != 0);
-    (**(code **)(iVar5 + 0x14))(sVar1 + iVar3,local_28);
+    (((vtbl_entry*)(iVar5))[2].fn)(sVar1 + iVar3,local_28);
     free_heap_block_if_flagged_1045bc54(local_28,2);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
   }
   else if (param_2 == 2) {
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xec))(*(short *)(*(int *)(iVar3 + 0xc) + 0xe8) + iVar3,2);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[29].fn)(((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[29].adj + iVar3,2);
     iVar2 = read_first_word_1045bd4c(&uStack_48);
     iVar5 = get_second_word_of_struct(&uStack_48);
     store_two_words_to_memory(puVar4,iVar2 + 0x5a,iVar5 + 0x18);
@@ -92,12 +92,12 @@ void dispatch_five_mode_variants(int param_1,int param_2)
       *(uint32_t *)((int)&uStack_24 + iVar2) = *(uint32_t *)((int)auStack_44 + iVar2);
       iVar2 = iVar6;
     } while (iVar6 != 0);
-    (**(code **)(iVar5 + 0x14))(sVar1 + iVar3,local_20);
+    (((vtbl_entry*)(iVar5))[2].fn)(sVar1 + iVar3,local_20);
     free_heap_block_if_flagged_1045bc54(local_20,2);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
   }
   else if (param_2 == 3) {
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xec))(*(short *)(*(int *)(iVar3 + 0xc) + 0xe8) + iVar3,6);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[29].fn)(((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[29].adj + iVar3,6);
     iVar2 = read_first_word_1045bd4c(&uStack_48);
     iVar5 = get_second_word_of_struct(&uStack_48);
     store_two_words_to_memory(puVar4,iVar2 + 0x6c,iVar5 + 0x18);
@@ -109,12 +109,12 @@ void dispatch_five_mode_variants(int param_1,int param_2)
       *(uint32_t *)((int)&uStack_1c + iVar2) = *(uint32_t *)((int)auStack_44 + iVar2);
       iVar2 = iVar6;
     } while (iVar6 != 0);
-    (**(code **)(iVar5 + 0x14))(sVar1 + iVar3,local_18);
+    (((vtbl_entry*)(iVar5))[2].fn)(sVar1 + iVar3,local_18);
     free_heap_block_if_flagged_1045bc54(local_18,2);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
   }
   else if (param_2 == 4) {
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xec))(*(short *)(*(int *)(iVar3 + 0xc) + 0xe8) + iVar3,6);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[29].fn)(((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[29].adj + iVar3,6);
     iVar2 = read_first_word_1045bd4c(&uStack_48);
     iVar5 = get_second_word_of_struct(&uStack_48);
     store_two_words_to_memory(puVar4,iVar2 + 0x7e,iVar5 + 0x18);
@@ -126,9 +126,9 @@ void dispatch_five_mode_variants(int param_1,int param_2)
       *(uint32_t *)((int)&uStack_14 + iVar2) = *(uint32_t *)((int)auStack_44 + iVar2);
       iVar2 = iVar6;
     } while (iVar6 != 0);
-    (**(code **)(iVar5 + 0x14))(sVar1 + iVar3,local_10);
+    (((vtbl_entry*)(iVar5))[2].fn)(sVar1 + iVar3,local_10);
     free_heap_block_if_flagged_1045bc54(local_10,2);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
   }
   free_heap_block_if_flagged_1045bc54(puVar4,2);
   free_heap_block_if_flagged_1045bc54(&uStack_48,2);

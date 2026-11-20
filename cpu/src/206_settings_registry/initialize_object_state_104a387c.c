@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t initialize_object_state_104a387c(int param_1)
+uint32_t initialize_object_state_104a387c(cls_105b6554 *param_1)
 
 {
   int iVar1;
@@ -25,10 +25,10 @@ uint32_t initialize_object_state_104a387c(int param_1)
   iVar1 = sr_driver_singleton();
   module_array_getter(*(void **)(iVar1 + 4),9);
   uVar2 = return_sram_address_104357ec();
-  *(uint32_t *)(param_1 + 0x5c) = uVar2;
+  param_1->field_0x5c = uVar2;
   uVar2 = get_or_init_sram_buffer_1052c5b8();
-  *(uint32_t *)(param_1 + 100) = uVar2;
-  initialize_two_entry_table(param_1);
-  initialize_parameter_table(param_1);
+  param_1->field_0x64 = uVar2;
+  initialize_two_entry_table((int)(param_1));
+  initialize_parameter_table((int)(param_1));
   return 1;
 }

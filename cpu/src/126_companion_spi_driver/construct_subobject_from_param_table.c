@@ -16,11 +16,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t construct_subobject_from_param_table(void *param_1)
+uint32_t construct_subobject_from_param_table(cls_105a0adc *param_1)
 
 {
   void *pvVar1;
-  int iVar2;
+  void *puVar2;
   uint32_t uVar3;
   uintptr_t sp;
   uint32_t uStack_3c;
@@ -52,10 +52,10 @@ uint32_t construct_subobject_from_param_table(void *param_1)
   uStack_14 = 0x5c00500a;
   uStack_c = 0x47;
   uStack_10 = 0xb0;
-  iVar2 = cls_105a0a84_new((uint32_t *)0x0,&uStack_3c);
-  *(int *)((int)param_1 + 4) = iVar2;
-  uVar3 = (**(code **)(*(int *)(iVar2 + 4) + 0x14))
-                    (iVar2 + *(short *)(*(int *)(iVar2 + 4) + 0x10),0);
+  puVar2 = (void *)cls_105a0a84_new((cls_105a0a84 *)0x0,&uStack_3c);
+  param_1->field_0x4 = (uint32_t)(puVar2);
+  uVar3 = (((vtbl_entry*)(*(int *)((char*)puVar2 + 4)))[2].fn)
+                    ((char*)puVar2 + ((vtbl_entry*)(*(int *)((char*)puVar2 + 4)))[2].adj,0);
   free_if_heap_flag_set_1044014c(&uStack_3c,2);
   return uVar3;
 }

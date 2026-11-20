@@ -16,23 +16,24 @@
 #include "globals.h"
 #include "funcs.h"
 
-int * init_object_with_timer_delay(int *param_1)
+cls_105b2f20 * init_object_with_timer_delay(cls_105b2f20 *param_1)
 
 {
-  int iVar1;
+  int *piVar1;
   int iVar2;
+  int iVar3;
   
-  iVar1 = get_or_init_singleton_104895da();
-  param_1[0x15] = iVar1;
+  piVar1 = (int *)get_or_init_singleton_104895da();
+  param_1->field_0x54 = (uintptr_t)(piVar1);
   enable_display_output(param_1);
-  iVar1 = query_object_flag_at_offset_0x1c_1046d6f8(*param_1);
-  if (iVar1 == 0) {
-    iVar2 = 0;
+  iVar2 = query_object_flag_at_offset_0x1c_1046d6f8(param_1->field_0x0);
+  if (iVar2 == 0) {
+    iVar3 = 0;
   }
   else {
-    iVar2 = 2;
+    iVar3 = 2;
   }
-  dispatch_two_param_operation(*param_1,iVar2,iVar1);
+  dispatch_two_param_operation(param_1->field_0x0,iVar3,iVar2);
   clear_byte_and_call_helper(param_1,5000);
   return param_1;
 }

@@ -16,6 +16,6 @@
 void invoke_virtual_slot_12_1036c3da(void)
 
 {
-  (**(code **)(iRam80018060 + 100))(*(short *)(iRam80018060 + 0x60) + -0x7ffe7fa0);
+  (((vtbl_entry*)(iRam80018060))[12].fn)(((vtbl_entry*)(iRam80018060))[12].adj + -0x7ffe7fa0);
   return;
 }

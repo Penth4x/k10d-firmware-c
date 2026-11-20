@@ -33,23 +33,23 @@ uint32_t osdc_event_dispatch(int param_1,int param_2,uint32_t param_3)
     iVar4 = param_1 + 0x8c;
     if ((*(int *)(iVar4 + iVar3) == param_2) &&
        (piVar1 = *(int **)(iVar5 + iVar3), piVar1 != (int *)0x0)) {
-      uVar2 = (**(code **)(*piVar1 + 0x14))
-                        ((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,param_2,param_3);
+      uVar2 = (((vtbl_entry*)(*piVar1))[2].fn)
+                        ((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1,param_2,param_3);
     }
     if ((*(int *)(iVar4 + iVar3 + 4) == param_2) &&
        (piVar1 = *(int **)(iVar5 + iVar3 + 4), piVar1 != (int *)0x0)) {
-      uVar2 = (**(code **)(*piVar1 + 0x14))
-                        ((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,param_2,param_3);
+      uVar2 = (((vtbl_entry*)(*piVar1))[2].fn)
+                        ((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1,param_2,param_3);
     }
     if ((*(int *)(iVar4 + iVar3 + 8) == param_2) &&
        (piVar1 = *(int **)(iVar5 + iVar3 + 8), piVar1 != (int *)0x0)) {
-      uVar2 = (**(code **)(*piVar1 + 0x14))
-                        ((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,param_2,param_3);
+      uVar2 = (((vtbl_entry*)(*piVar1))[2].fn)
+                        ((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1,param_2,param_3);
     }
     if ((*(int *)(iVar4 + iVar3 + 0xc) == param_2) &&
        (piVar1 = *(int **)(iVar5 + iVar3 + 0xc), piVar1 != (int *)0x0)) {
-      uVar2 = (**(code **)(*piVar1 + 0x14))
-                        ((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,param_2,param_3);
+      uVar2 = (((vtbl_entry*)(*piVar1))[2].fn)
+                        ((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1,param_2,param_3);
     }
     uStack_10 = uStack_10 + -1;
     iVar3 = iVar3 + 0x10;

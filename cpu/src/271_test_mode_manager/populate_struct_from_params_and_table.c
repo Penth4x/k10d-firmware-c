@@ -33,7 +33,7 @@ void populate_struct_from_params_and_table(int param_1)
   iVar1 = get_or_init_sram_buffer_1052c5b8();
   iVar4 = *(int *)(iVar1 + 0xa4);
   iVar3 = *(int *)(iVar1 + 0xa8);
-  iVar1 = get_SVD((void *)(param_1 + 0x164));
+  iVar1 = get_SVD((int *)(param_1 + 0x164));
   if (iVar1 < 0x51) {
     *(uint16_t *)(*(int *)(param_1 + 0x7f0) + 0x34) = *(uint16_t *)(iVar4 + iVar1 * 2);
     *(uint16_t *)(*(int *)(param_1 + 0x7f0) + 0x36) = *(uint16_t *)(iVar3 + iVar1 * 2);

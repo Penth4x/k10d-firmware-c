@@ -28,7 +28,7 @@ uint32_t update_lens_fw_entry_value(void *param_1,int param_2,int param_3)
   else {
     uVar1 = 0;
     do {
-      piVar2 = (int *)(_DAT_800149fc/*SDRAM*/ + uVar1 * 0x1c);
+      piVar2 = (int *)((char*)_DAT_800149fc/*SDRAM*/ + uVar1 * 0x1c);
       if (*piVar2 == 1) {
         for (piVar2 = (int *)piVar2[(uint)*(ushort *)((int)param_1 + 10) * 2 + 4];
             piVar2 != (int *)0x0; piVar2 = (int *)piVar2[5]) {

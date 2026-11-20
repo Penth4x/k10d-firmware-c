@@ -6,23 +6,24 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_with_pointer_and_vcall_104a159c(int param_1,int *param_2)
+uint32_t init_object_with_pointer_and_vcall_104a159c(cls_105b5d3c *param_1,int *param_2)
 
 {
-  uint32_t uVar1;
-  int iVar2;
+  int iVar1;
+  uint32_t uVar2;
+  uint32_t *puVar3;
   
-  *(int **)(param_1 + 4) = param_2;
-  iVar2 = *param_2;
-  *(int *)(param_1 + 0xc) = iVar2;
-  *(uint32_t *)(param_1 + 0x10) = *(uint32_t *)(iVar2 + 0x10);
-  iVar2 = invoke_virtual_method_on_object_104a15f8(__frv_reg_unset(4));
-  if (iVar2 == 0) {
-    uVar1 = 0;
+  param_1->field_0x4 = (uint32_t)(param_2);
+  puVar3 = (uint32_t *)*param_2;
+  param_1->field_0xc = (uint32_t)(puVar3);
+  param_1->field_0x10 = puVar3[4];
+  iVar1 = invoke_virtual_method_on_object_104a15f8(__frv_reg_unset(4));
+  if (iVar1 == 0) {
+    uVar2 = 0;
   }
   else {
-    uVar1 = (**(code **)(*(int *)(param_1 + 0x1c) + 0x44))
-                      (*(short *)(*(int *)(param_1 + 0x1c) + 0x40) + param_1);
+    uVar2 = (((vtbl_entry*)(param_1->field_0x1c))[8].fn)
+                      ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x1c))[8].adj);
   }
-  return uVar1;
+  return uVar2;
 }

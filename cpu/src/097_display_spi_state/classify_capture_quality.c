@@ -47,6 +47,6 @@ void classify_capture_quality(void *param_1,int param_2)
     uVar2 = 2;
   }
   iVar3 = *(int *)(*(int *)((int)param_1 + 0x2c) + 4);
-  (**(code **)(iVar3 + 0x8c))(*(int *)((int)param_1 + 0x2c) + (int)*(short *)(iVar3 + 0x88),uVar2);
+  (((vtbl_entry*)(iVar3))[17].fn)(*(int *)((int)param_1 + 0x2c) + (int)((vtbl_entry*)(iVar3))[17].adj,uVar2);
   return;
 }

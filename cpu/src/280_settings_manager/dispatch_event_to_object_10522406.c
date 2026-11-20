@@ -24,14 +24,14 @@ uint32_t dispatch_event_to_object_10522406(int *param_1,uint8_t param_2,uint8_t 
   *(uint8_t *)(param_1 + 8) = 1;
   *(uint8_t *)(param_1[2] + 0x858) = param_2;
   *(uint8_t *)(param_1[2] + 0x859) = param_3;
-  store_value_to_pointer_1046c7d4((void *)param_1[2],param_1[3]);
+  store_value_to_pointer_1046c7d4((void*)(param_1[2]),param_1[3]);
   param_1[3] = 0;
   *(uint8_t *)(param_1[6] + 7) = 1;
   iVar1 = *(int *)param_1[4];
-  iVar1 = (**(code **)(iVar1 + 0x2c))(param_1[4] + (int)*(short *)(iVar1 + 0x28),param_1,param_1[2])
+  iVar1 = (((vtbl_entry*)(iVar1))[5].fn)(param_1[4] + (int)((vtbl_entry*)(iVar1))[5].adj,param_1,param_1[2])
   ;
   if (iVar1 == 0x82) {
-    (**(code **)(*param_1 + 0x14))((int)*(short *)(*param_1 + 0x10) + (int)param_1,0,0);
+    (((vtbl_entry*)(*param_1))[2].fn)((int)((vtbl_entry*)(*param_1))[2].adj + (int)param_1,0,0);
   }
   return 0;
 }

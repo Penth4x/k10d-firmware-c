@@ -32,16 +32,16 @@ void dispatch_two_virtual_commands_103c801e(int *param_1)
   iVar2 = menu_item_register(*param_1);
   iVar5 = *(int *)(iVar2 + 0xc);
   sVar1 = *(short *)(iVar5 + 0x10);
-  uVar3 = alloc_two_word_pair_1045bc2e(auStack_10,uVar4 - 0x48,0x198);
-  (**(code **)(iVar5 + 0x14))(sVar1 + iVar2,uVar3);
+  uVar3 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_10,uVar4 - 0x48,0x198));
+  (((vtbl_entry*)(iVar5))[2].fn)(sVar1 + iVar2,uVar3);
   free_heap_block_if_flagged_1045bc54(auStack_10,2);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   iVar2 = menu_item_register(*param_1);
   iVar5 = *(int *)(iVar2 + 0xc);
   sVar1 = *(short *)(iVar5 + 0x10);
-  uVar3 = alloc_two_word_pair_1045bc2e(auStack_10,uVar4,0x198);
-  (**(code **)(iVar5 + 0x14))(sVar1 + iVar2,uVar3);
+  uVar3 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_10,uVar4,0x198));
+  (((vtbl_entry*)(iVar5))[2].fn)(sVar1 + iVar2,uVar3);
   free_heap_block_if_flagged_1045bc54(auStack_10,2);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   return;
 }

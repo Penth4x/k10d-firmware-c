@@ -11,6 +11,6 @@ uint32_t call_virtual_slot_6_1046096e(int *param_1)
 {
   uint32_t uVar1;
   
-  uVar1 = (**(code **)(*param_1 + 0x34))((int)*(short *)(*param_1 + 0x30) + (int)param_1,2,0xff);
+  uVar1 = (((vtbl_entry*)(*param_1))[6].fn)((int)((vtbl_entry*)(*param_1))[6].adj + (int)param_1,2,0xff);
   return uVar1;
 }

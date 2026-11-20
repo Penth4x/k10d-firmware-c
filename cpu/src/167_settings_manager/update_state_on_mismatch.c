@@ -31,7 +31,7 @@ uint32_t update_state_on_mismatch(int param_1,uint32_t param_2)
   uint32_t uStack_40;
   uint32_t uStack_3c;
   uint8_t uStack_38;
-  uint8_t auStack_28 [32];
+  cls_105ab468 cStack_28;
   
   puVar6 = (uint32_t *)auStack_5c;
   uVar1 = *(ushort *)(param_1 + 0x2c);
@@ -42,21 +42,21 @@ uint32_t update_state_on_mismatch(int param_1,uint32_t param_2)
     *(uint16_t *)(param_1 + 0x2c) = uVar5;
     uStack_40 = 0;
     uStack_3c = 0;
-    cls_105ab468_new(auStack_28);
+    cls_105ab468_new(&cStack_28);
     uStack_38 = 0;
     pvVar3 = (void *)(*(code *)0x104779aa/*ROM*/)(param_2);
     iVar4 = *(int *)(param_1 + 4);
-    *puVar6 = (uint32_t)&uStack_40;
-    iVar4 = call_inner_with_lock_pair(iVar4,pvVar3,(void *)uRam8000ff2c,0,*puVar6);
+    *puVar6 = (uintptr_t)(&uStack_40);
+    iVar4 = call_inner_with_lock_pair((int)(iVar4),(void *)(pvVar3),(char *)(uRam8000ff2c),(uint32_t)(0),(uint32_t)(*puVar6));
     if (iVar4 != 0) {
       do {
-        allocate_and_link_event_object(param_1,auStack_28);
+        allocate_and_link_event_object(param_1,&cStack_28);
         iVar4 = call_helper_with_lock_guard(*(int *)(param_1 + 4),&uStack_40);
       } while (iVar4 != 0);
     }
     call_three_helpers_on_param(*(int *)(param_1 + 4),&uStack_40);
     iterate_and_process_range_items(param_1);
-    cls_105ab468_delete(auStack_28,2);
+    cls_105ab468_delete(&cStack_28,2);
   }
   return 1;
 }

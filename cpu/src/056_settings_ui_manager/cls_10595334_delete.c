@@ -11,17 +11,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_10595334_delete(int *param_1,uint param_2)
+void cls_10595334_delete(cls_10595334 *param_1,uint param_2)
 
 {
   int *piVar1;
   
-  if (param_1 != (int *)0x0) {
-    param_1[4] = 0x10595334/*ROM*/;
-    (*pcRam10595358)((int)sRam10595354 + (int)param_1);
-    piVar1 = (int *)*param_1;
+  if (param_1 != (cls_10595334 *)0x0) {
+    param_1->field_0x10 = (uint32_t)((void *)0x10595334/*ROM*/);
+    (*pcRam10595358)((int)&param_1->field_0x0 + (int)sRam10595354);
+    piVar1 = (int *)(param_1->field_0x0);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+      (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
     }
     reset_vtable_and_free_if_flagged_103c71c8(param_1,0);
     if ((param_2 & 1) != 0) {

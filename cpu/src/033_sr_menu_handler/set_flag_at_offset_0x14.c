@@ -13,10 +13,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_flag_at_offset_0x14(int param_1)
+void set_flag_at_offset_0x14(cls_105584bc *param_1)
 
 {
   invoke_callback_at_8000439c();
-  *(uint8_t *)(param_1 + 0x14) = 1;
+  param_1->field_0x14 = 1;
   return;
 }

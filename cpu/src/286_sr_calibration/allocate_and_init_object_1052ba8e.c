@@ -24,10 +24,10 @@ uint32_t * allocate_and_init_object_1052ba8e(uint32_t *param_1)
   if ((param_1 != (uint32_t *)0x0) ||
      (param_1 = (uint32_t *)heap_alloc((void *)0xc), param_1 != (uint32_t *)0x0)) {
     *param_1 = 0;
-    cls_105a2be0_new(param_1 + 1);
+    cls_105a2be0_new((cls_105a2be0 *)(param_1 + 1));
     iVar1 = get_sensor_singleton();
     *param_1 = *(uint32_t *)(iVar1 + 4);
-    forward_three_args_to_helper_10459d64(param_1 + 1,1,0x1f);
+    forward_three_args_to_helper_10459d64((cls_105a2be0 *)(param_1 + 1),1,0x1f);
   }
   return param_1;
 }

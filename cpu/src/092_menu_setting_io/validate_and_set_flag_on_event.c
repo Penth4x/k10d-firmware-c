@@ -6,18 +6,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t validate_and_set_flag_on_event(int param_1,uint32_t param_2,int *param_3)
+uint32_t validate_and_set_flag_on_event(cls_10599b14 *param_1,uint32_t param_2,int *param_3)
 
 {
   int iVar1;
   
-  *(uint32_t *)(param_1 + 0x40) = param_2;
-  *(int **)(param_1 + 0x44) = param_3;
-  iVar1 = *(int *)(param_1 + 0x40);
+  param_1->field_0x40 = param_2;
+  param_1->field_0x44 = (uintptr_t)(param_3);
+  iVar1 = param_1->field_0x40;
   if (iVar1 == 0xc0004) goto LAB_1040a348;
   if (iVar1 < 0xc0005) {
     if (iVar1 == 0x1000e) {
-      set_flag_from_pointer(param_1,param_3);
+      set_flag_from_pointer((int)(param_1),(int *)(param_3));
       goto LAB_1040a348;
     }
     if (iVar1 != 0xc0001) {
@@ -38,6 +38,6 @@ uint32_t validate_and_set_flag_on_event(int param_1,uint32_t param_2,int *param_
     return 0;
   }
 LAB_1040a348:
-  set_flg_obj((uint32_t *)(param_1 + 0x18));
+  set_flg_obj(&param_1->field_0x18);
   return 0;
 }

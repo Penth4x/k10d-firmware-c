@@ -19,7 +19,7 @@
 void destroy_and_maybe_free_object(void *param_1,uint param_2)
 
 {
-  if ((param_1 != (void *)0x0) && (free_if_flag_set_104ce624(param_1,2), (param_2 & 1) != 0)) {
+  if ((param_1 != 0) && (free_if_flag_set_104ce624(param_1,2), (param_2 & 1) != 0)) {
     heap_free((int)param_1);
   }
   return;

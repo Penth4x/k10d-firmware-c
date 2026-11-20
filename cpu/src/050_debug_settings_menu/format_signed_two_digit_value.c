@@ -23,7 +23,7 @@ void format_signed_two_digit_value(void *param_1,void *param_2,uint8_t *param_3)
     param_2 = (void *)(iVar1 % 10);
     puVar3 = (uint8_t *)(iVar1 / 10);
   }
-  else if (param_2 == (void *)0x0) {
+  else if (param_2 == 0) {
     pcVar2 = (char *)0x10565f60/*ROM*/;
   }
   else if (((int)param_2 < 1) || (0x62 < (int)param_2)) {

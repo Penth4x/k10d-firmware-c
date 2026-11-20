@@ -14,16 +14,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t store_two_values_into_object(void *param_1)
+uint32_t store_two_values_into_object(cls_105b6ac8 *param_1)
 
 {
   uint32_t uVar1;
-  uintptr_t sp;
   uint8_t uStack_9;
   
-  uVar1 = call_subroutine_and_return_0x2026((int)&uStack_9);
-  *(uint32_t *)((int)param_1 + 4) = uVar1;
-  uVar1 = return_constant_0x5468((int)&uStack_9);
-  *(uint32_t *)((int)param_1 + 8) = uVar1;
+  uVar1 = call_subroutine_and_return_0x2026((uint32_t)&uStack_9);
+  param_1->field_0x4 = uVar1;
+  uVar1 = return_constant_0x5468((uint32_t)&uStack_9);
+  param_1->field_0x8 = uVar1;
   return 1;
 }

@@ -21,18 +21,18 @@ void invoke_virtual_slots_on_object_10469e2e(int param_1,uint32_t param_2)
   int iVar1;
   
   iVar1 = *(int *)(*(int *)(param_1 + 0x23c) + 4);
-  (**(code **)(iVar1 + 0x2c))(*(int *)(param_1 + 0x23c) + (int)*(short *)(iVar1 + 0x28));
+  (((vtbl_entry*)(iVar1))[5].fn)(*(int *)(param_1 + 0x23c) + (int)((vtbl_entry*)(iVar1))[5].adj);
   iVar1 = *(int *)(*(int *)(param_1 + 0x23c) + 4);
-  (**(code **)(iVar1 + 0x44))(*(int *)(param_1 + 0x23c) + (int)*(short *)(iVar1 + 0x40),param_2,0,0)
+  (((vtbl_entry*)(iVar1))[8].fn)(*(int *)(param_1 + 0x23c) + (int)((vtbl_entry*)(iVar1))[8].adj,param_2,0,0)
   ;
   iVar1 = *(int *)(*(int *)(param_1 + 0x23c) + 4);
-  for (iVar1 = (**(code **)(iVar1 + 0x54))
-                         (*(int *)(param_1 + 0x23c) + (int)*(short *)(iVar1 + 0x50)); iVar1 == 0;
-      iVar1 = (**(code **)(iVar1 + 0x54))(*(int *)(param_1 + 0x23c) + (int)*(short *)(iVar1 + 0x50))
+  for (iVar1 = (((vtbl_entry*)(iVar1))[10].fn)
+                         (*(int *)(param_1 + 0x23c) + (int)((vtbl_entry*)(iVar1))[10].adj); iVar1 == 0;
+      iVar1 = (((vtbl_entry*)(iVar1))[10].fn)(*(int *)(param_1 + 0x23c) + (int)((vtbl_entry*)(iVar1))[10].adj)
       ) {
     iVar1 = *(int *)(*(int *)(param_1 + 0x23c) + 4);
   }
   iVar1 = *(int *)(*(int *)(param_1 + 0x23c) + 4);
-  (**(code **)(iVar1 + 0x2c))(*(int *)(param_1 + 0x23c) + (int)*(short *)(iVar1 + 0x28));
+  (((vtbl_entry*)(iVar1))[5].fn)(*(int *)(param_1 + 0x23c) + (int)((vtbl_entry*)(iVar1))[5].adj);
   return;
 }

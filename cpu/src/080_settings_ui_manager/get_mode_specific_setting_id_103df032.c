@@ -14,7 +14,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t get_mode_specific_setting_id_103df032(int param_1,int param_2)
+uint32_t get_mode_specific_setting_id_103df032(cls_105969f8 *param_1,int param_2)
 
 {
   uint32_t uVar1;
@@ -38,7 +38,7 @@ uint32_t get_mode_specific_setting_id_103df032(int param_1,int param_2)
     auStack_40[0xb] = 0x1900033;
     auStack_40[0xc] = 0x1900037;
     auStack_40[0xd] = 0x190003b;
-    iVar2 = setting_get(*(int *)(param_1 + 8),0xa9);
+    iVar2 = setting_get(param_1->field_0x8,0xa9);
     uVar1 = auStack_40[iVar2];
   }
   return uVar1;

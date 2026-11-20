@@ -13,16 +13,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_mode_two_variants(uint32_t param_1,ushort *param_2,int param_3,int param_4)
+uint32_t dispatch_mode_two_variants(cls_105b5668 *param_1,ushort *param_2,int param_3,int param_4)
 
 {
   uint32_t uVar1;
   
   if (param_3 == 0) {
-    uVar1 = dispatch_three_way_on_param3(param_1,param_2,param_4);
+    uVar1 = dispatch_three_way_on_param3((int)param_1,param_2,param_4);
   }
   else if (param_3 == 1) {
-    uVar1 = dispatch_event_by_type_10499932(param_1,param_2,param_4);
+    uVar1 = dispatch_event_by_type_10499932((int)param_1,param_2,param_4);
   }
   else {
     uVar1 = 1;

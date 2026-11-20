@@ -14,7 +14,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_two_initializers_10466f6e(void *param_1)
+/* WARNING: Struct "cls_105a7df8": ignoring multiple overlapping fields */
+
+void call_two_initializers_10466f6e(cls_105a7df8 *param_1)
 
 {
   set_flag_at_offset_0x28_10466fde(param_1);

@@ -46,7 +46,7 @@ int iterate_and_process_object_list(char *param_1,int *param_2,int param_3,int *
   iStack_14 = 0;
   bVar2 = false;
   local_c = 0;
-  (**(code **)(*param_4 + 0x1c))((int)*(short *)(*param_4 + 0x18) + (int)param_4,&local_c,1,param_3)
+  (((vtbl_entry*)(*param_4))[3].fn)((int)((vtbl_entry*)(*param_4))[3].adj + (int)param_4,&local_c,1,param_3)
   ;
   iVar4 = validate_range_1_to_100(param_1,(uint)local_c);
   if (iVar4 == 0) {
@@ -68,20 +68,20 @@ int iterate_and_process_object_list(char *param_1,int *param_2,int param_3,int *
     iVar4 = iVar6;
     do {
       uStack_a = 0;
-      (**(code **)(*param_4 + 0x1c))
-                ((int)*(short *)(*param_4 + 0x18) + (int)param_4,&uStack_a,1,iVar4);
+      (((vtbl_entry*)(*param_4))[3].fn)
+                ((int)((vtbl_entry*)(*param_4))[3].adj + (int)param_4,&uStack_a,1,iVar4);
       sVar1 = *(short *)(*param_5 + 0x18);
       pcVar7 = *(code **)(*param_5 + 0x1c);
       *puVar9 = 0;
       iVar8 = (*pcVar7)((int)sVar1 + (int)param_5,uStack_a,0,0);
       if (iVar8 != 0) {
-        (**(code **)(*(int *)(iVar8 + 0x10) + 0x14))
-                  (*(short *)(*(int *)(iVar8 + 0x10) + 0x10) + iVar8,param_4,iVar4);
+        (((vtbl_entry*)(*(int *)(iVar8 + 0x10)))[2].fn)
+                  (((vtbl_entry*)(*(int *)(iVar8 + 0x10)))[2].adj + iVar8,param_4,iVar4);
         forward_two_params_to_helper_104a874a(iStack_14,iVar8);
         iVar6 = iVar4 + 0xc;
-        iVar5 = (**(code **)(*param_5 + 0x2c))
-                          ((int)*(short *)(*param_5 + 0x28) + (int)param_5,uStack_a);
-        if ((iVar5 != 0) && (iVar8 = iterate_and_process_entries(param_1,iVar8,param_4,param_5), iVar8 == 0)) {
+        iVar5 = (((vtbl_entry*)(*param_5))[5].fn)
+                          ((int)((vtbl_entry*)(*param_5))[5].adj + (int)param_5,uStack_a);
+        if ((iVar5 != 0) && (iVar8 = iterate_and_process_entries(param_1,(void*)(iVar8),param_4,param_5), iVar8 == 0)) {
           bVar2 = true;
           break;
         }
@@ -93,10 +93,10 @@ int iterate_and_process_object_list(char *param_1,int *param_2,int param_3,int *
   }
   if (!bVar2) {
     iStack_10 = iStack_20;
-    (**(code **)(*param_4 + 0x24))
-              ((int)*(short *)(*param_4 + 0x20) + (int)param_4,&iStack_10,1,iVar6);
+    (((vtbl_entry*)(*param_4))[4].fn)
+              ((int)((vtbl_entry*)(*param_4))[4].adj + (int)param_4,&iStack_10,1,iVar6);
     if ((iStack_10 != 0) && (*param_1 == '\0')) {
-      *puVar9 = param_5;
+      *puVar9 = (uint32_t)(param_5);
       iVar4 = iterate_and_process_object_list(param_1,(int *)0x0,iStack_10,param_4,(int *)*puVar9);
       if (iVar4 == 0) goto code_r0x1049a1b0;
       *(int *)(iStack_14 + 0x2c) = iVar4;

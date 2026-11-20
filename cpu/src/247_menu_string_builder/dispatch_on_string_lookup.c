@@ -25,24 +25,24 @@ uint32_t dispatch_on_string_lookup(uint32_t param_1,int *param_2,uint32_t param_
   int iVar1;
   uint32_t uVar2;
   uintptr_t sp;
-  uint8_t auStack_28 [32];
+  cls_105bb0b8 cStack_28;
   
-  cls_105bb0b8_new((void *)auStack_28);
-  iVar1 = call_helper_with_saved_field(param_2,auStack_28);
+  cls_105bb0b8_new(&cStack_28);
+  iVar1 = call_helper_with_saved_field(param_2,&cStack_28);
   if (iVar1 == 0) {
-    reset_vtable_and_free_if_flagged_104ddfe6(auStack_28,2);
+    reset_vtable_and_free_if_flagged_104ddfe6(&cStack_28,2);
     uVar2 = 0;
   }
   else {
-    iVar1 = validate_and_copy_string((void *)auStack_28,(void *)0x105bade4/*ROM*/);
+    iVar1 = validate_and_copy_string((uint32_t *)(&cStack_28),(char *)(0x105bade4/*ROM*/));
     if (iVar1 == 0) {
-      iVar1 = validate_and_copy_string((void *)auStack_28,(void *)0x105badec/*ROM*/);
+      iVar1 = validate_and_copy_string((uint32_t *)(&cStack_28),(char *)(0x105badec/*ROM*/));
       if (iVar1 == 0) {
-        iVar1 = validate_and_copy_string((void *)auStack_28,(void *)0x105badf8/*ROM*/);
+        iVar1 = validate_and_copy_string((uint32_t *)(&cStack_28),(char *)(0x105badf8/*ROM*/));
         if (iVar1 == 0) {
-          iVar1 = validate_and_copy_string((void *)auStack_28,(void *)0x105bae00/*ROM*/);
+          iVar1 = validate_and_copy_string((uint32_t *)(&cStack_28),(char *)(0x105bae00/*ROM*/));
           if (iVar1 == 0) {
-            iVar1 = validate_and_copy_string((void *)auStack_28,(void *)0x105bae0c/*ROM*/);
+            iVar1 = validate_and_copy_string((uint32_t *)(&cStack_28),(char *)(0x105bae0c/*ROM*/));
             if (iVar1 == 0) {
               uVar2 = try_two_step_operation(param_1,param_2);
             }
@@ -65,7 +65,7 @@ uint32_t dispatch_on_string_lookup(uint32_t param_1,int *param_2,uint32_t param_
     else {
       uVar2 = process_two_config_entries_104dce94(param_1,param_2,param_3);
     }
-    reset_vtable_and_free_if_flagged_104ddfe6(auStack_28,2);
+    reset_vtable_and_free_if_flagged_104ddfe6(&cStack_28,2);
   }
   return uVar2;
 }

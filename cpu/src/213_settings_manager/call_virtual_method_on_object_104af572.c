@@ -26,8 +26,8 @@ int call_virtual_method_on_object_104af572(int *param_1,uint32_t param_2,uint32_
   if (iVar1 == 0) {
     call_subroutine_on_field_16_104ea70a((void *)param_1[1]);
     iVar2 = *(int *)(*param_1 + 4);
-    iVar2 = (**(code **)(iVar2 + 0x34))
-                      (*param_1 + (int)*(short *)(iVar2 + 0x30),param_2,param_3,param_4);
+    iVar2 = (((vtbl_entry*)(iVar2))[6].fn)
+                      (*param_1 + (int)((vtbl_entry*)(iVar2))[6].adj,param_2,param_3,param_4);
     if (iVar2 == 0) {
       iVar1 = 0xb;
     }

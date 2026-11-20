@@ -19,13 +19,13 @@ uint32_t test_mode_config_singleton(void)
 
 {
                     /* Purpose: Test mode config singleton. One-time init: if _DAT_8005a3e4 == 0,
-                       sets it to 1, calls cls_105d8c08_new(0x8005a3dc) (config ctor) and
-                       prepend_to_singly_linked_list(0x800134d0) (register with menu system). Returns config object
+                       sets it to 1, calls FUN_1052632c(0x8005a3dc) (config ctor) and
+                       FUN_105470da(0x800134d0) (register with menu system). Returns config object
                        at 0x8005a3dc.\nReturns: pointer to test-mode config singleton. */
   if (_DAT_8005a3e4/*SDRAM*/ == 0) {
     _DAT_8005a3e4/*SDRAM*/ = 1;
-    cls_105d8c08_new((void *)0x8005a3dc/*SDRAM*/);
-    prepend_to_singly_linked_list((void *)0x800134d0/*SDRAM*/);
+    cls_105d8c08_new((uint32_t *)(0x8005a3dc/*SDRAM*/));
+    prepend_to_singly_linked_list((uint32_t *)(0x800134d0/*SDRAM*/));
   }
   return 0x8005a3dc/*SDRAM*/;
 }

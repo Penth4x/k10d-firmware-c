@@ -14,10 +14,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void clear_flag_and_call_helper_103bb95c(int param_1)
+void clear_flag_and_call_helper_103bb95c(cls_10594e70 *param_1)
 
 {
-  *(uint8_t *)(param_1 + 0x39) = 0;
+  param_1->field_0x39 = 0;
   update_state_and_notify((uint32_t *)__frv_reg_unset(4),__frv_reg_unset(5));
   return;
 }

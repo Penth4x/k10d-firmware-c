@@ -6,16 +6,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_three_heap_blocks(int param_1)
+void release_three_heap_blocks(cls_105d51fc *param_1)
 
 {
   void *pvVar1;
   
   pvVar1 = (void *)get_system_heap();
-  mempool_release_block(pvVar1,*(void **)(param_1 + 0x310));
+  mempool_release_block(pvVar1,(char*)(param_1) ->field_0x310);
   pvVar1 = (void *)get_system_heap();
-  mempool_release_block(pvVar1,*(void **)(param_1 + 0x314));
+  mempool_release_block(pvVar1,(char*)(param_1) ->field_0x314);
   pvVar1 = (void *)get_system_heap();
-  mempool_release_block(pvVar1,*(void **)(param_1 + 0x318));
+  mempool_release_block(pvVar1,(char*)(param_1) ->field_0x318);
   return;
 }

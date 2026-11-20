@@ -17,7 +17,7 @@ cls_105b3d34_new_2(uint16_t *param_1,int param_2,uint32_t param_3,uint32_t param
                   uint8_t param_9,uint8_t param_10)
 
 {
-  uint16_t *puVar1;
+  cls_105b3d9c *pcVar1;
   uintptr_t sp;
   uint8_t *puVar2;
   uint8_t *puVar3;
@@ -35,14 +35,14 @@ cls_105b3d34_new_2(uint16_t *param_1,int param_2,uint32_t param_3,uint32_t param
     param_1[0x14] = param_6;
     param_1[0x15] = param_7;
     param_1[0x16] = param_8;
-    puVar1 = (uint16_t *)heap_alloc((void *)0x2c);
-    if (puVar1 == (uint16_t *)0x0) {
-      puVar1 = (uint16_t *)0x0;
+    pcVar1 = (cls_105b3d9c *)heap_alloc((void *)0x2c);
+    if (pcVar1 == (cls_105b3d9c *)0x0) {
+      pcVar1 = (cls_105b3d9c *)0x0;
     }
     else {
-      cls_105b3d9c_new(puVar1);
+      cls_105b3d9c_new(pcVar1);
     }
-    *(uint16_t **)(param_1 + 0x18) = puVar1;
+    *(cls_105b3d9c **)(param_1 + 0x18) = pcVar1;
   }
   return param_1;
 }

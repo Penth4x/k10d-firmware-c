@@ -48,20 +48,20 @@ uint32_t init_three_buffer_pools(int param_1,uint8_t *param_2,void *param_3)
   iVar4 = 0;
   do {
     iVar8 = *(int *)(*(int *)((int)piVar5 + iVar4) + 0x8d4);
-    (**(code **)(iVar8 + 0x6c))
-              (*(int *)((int)piVar5 + iVar4) + (int)*(short *)(iVar8 + 0x68),param_3);
+    (((vtbl_entry*)(iVar8))[13].fn)
+              (*(int *)((int)piVar5 + iVar4) + (int)((vtbl_entry*)(iVar8))[13].adj,param_3);
     iVar8 = *(int *)((int)piVar5 + iVar4 + 4);
     iVar9 = *(int *)(iVar8 + 0x8d4);
-    (**(code **)(iVar9 + 0x6c))(iVar8 + *(short *)(iVar9 + 0x68),param_3);
+    (((vtbl_entry*)(iVar9))[13].fn)(iVar8 + ((vtbl_entry*)(iVar9))[13].adj,param_3);
     iVar8 = *(int *)((int)piVar5 + iVar4 + 8);
     iVar9 = *(int *)(iVar8 + 0x8d4);
-    (**(code **)(iVar9 + 0x6c))(iVar8 + *(short *)(iVar9 + 0x68),param_3);
+    (((vtbl_entry*)(iVar9))[13].fn)(iVar8 + ((vtbl_entry*)(iVar9))[13].adj,param_3);
     iVar8 = *(int *)((int)piVar5 + iVar4 + 0xc);
     iVar9 = *(int *)(iVar8 + 0x8d4);
-    (**(code **)(iVar9 + 0x6c))(iVar8 + *(short *)(iVar9 + 0x68),param_3);
+    (((vtbl_entry*)(iVar9))[13].fn)(iVar8 + ((vtbl_entry*)(iVar9))[13].adj,param_3);
     iVar8 = *(int *)((int)piVar5 + iVar4 + 0x10);
     iVar9 = *(int *)(iVar8 + 0x8d4);
-    (**(code **)(iVar9 + 0x6c))(iVar8 + *(short *)(iVar9 + 0x68),param_3);
+    (((vtbl_entry*)(iVar9))[13].fn)(iVar8 + ((vtbl_entry*)(iVar9))[13].adj,param_3);
     iVar4 = iVar4 + 0x14;
     iStack_24 = iStack_24 + -1;
   } while (-1 < iStack_24);
@@ -78,14 +78,14 @@ uint32_t init_three_buffer_pools(int param_1,uint8_t *param_2,void *param_3)
       pvVar6 = (void *)get_system_heap();
       mempool_release_block(pvVar6,*(void **)(*(int *)((int)piVar5 + iVar4) + 0x4c));
       iVar9 = *(int *)(*(int *)((int)piVar5 + iVar4) + 0x8d4);
-      (**(code **)(iVar9 + 0x44))(*(int *)((int)piVar5 + iVar4) + (int)*(short *)(iVar9 + 0x40),0);
+      (((vtbl_entry*)(iVar9))[8].fn)(*(int *)((int)piVar5 + iVar4) + (int)((vtbl_entry*)(iVar9))[8].adj,0);
     }
     iVar9 = iVar4 + 4;
     if (*(int *)(*(int *)((int)piVar5 + iVar9) + 0x4c) != 0) {
       pvVar6 = (void *)get_system_heap();
       mempool_release_block(pvVar6,*(void **)(*(int *)((int)piVar5 + iVar9) + 0x4c));
       iVar10 = *(int *)(*(int *)((int)piVar5 + iVar9) + 0x8d4);
-      (**(code **)(iVar10 + 0x44))(*(int *)((int)piVar5 + iVar9) + (int)*(short *)(iVar10 + 0x40),0)
+      (((vtbl_entry*)(iVar10))[8].fn)(*(int *)((int)piVar5 + iVar9) + (int)((vtbl_entry*)(iVar10))[8].adj,0)
       ;
     }
     iVar9 = iVar4 + 8;
@@ -93,7 +93,7 @@ uint32_t init_three_buffer_pools(int param_1,uint8_t *param_2,void *param_3)
       pvVar6 = (void *)get_system_heap();
       mempool_release_block(pvVar6,*(void **)(*(int *)((int)piVar5 + iVar9) + 0x4c));
       iVar10 = *(int *)(*(int *)((int)piVar5 + iVar9) + 0x8d4);
-      (**(code **)(iVar10 + 0x44))(*(int *)((int)piVar5 + iVar9) + (int)*(short *)(iVar10 + 0x40),0)
+      (((vtbl_entry*)(iVar10))[8].fn)(*(int *)((int)piVar5 + iVar9) + (int)((vtbl_entry*)(iVar10))[8].adj,0)
       ;
     }
     iVar9 = iVar4 + 0xc;
@@ -101,7 +101,7 @@ uint32_t init_three_buffer_pools(int param_1,uint8_t *param_2,void *param_3)
       pvVar6 = (void *)get_system_heap();
       mempool_release_block(pvVar6,*(void **)(*(int *)((int)piVar5 + iVar9) + 0x4c));
       iVar10 = *(int *)(*(int *)((int)piVar5 + iVar9) + 0x8d4);
-      (**(code **)(iVar10 + 0x44))(*(int *)((int)piVar5 + iVar9) + (int)*(short *)(iVar10 + 0x40),0)
+      (((vtbl_entry*)(iVar10))[8].fn)(*(int *)((int)piVar5 + iVar9) + (int)((vtbl_entry*)(iVar10))[8].adj,0)
       ;
     }
     iVar9 = iVar4 + 0x10;
@@ -109,7 +109,7 @@ uint32_t init_three_buffer_pools(int param_1,uint8_t *param_2,void *param_3)
       pvVar6 = (void *)get_system_heap();
       mempool_release_block(pvVar6,*(void **)(*(int *)((int)piVar5 + iVar9) + 0x4c));
       iVar10 = *(int *)(*(int *)((int)piVar5 + iVar9) + 0x8d4);
-      (**(code **)(iVar10 + 0x44))(*(int *)((int)piVar5 + iVar9) + (int)*(short *)(iVar10 + 0x40),0)
+      (((vtbl_entry*)(iVar10))[8].fn)(*(int *)((int)piVar5 + iVar9) + (int)((vtbl_entry*)(iVar10))[8].adj,0)
       ;
     }
     iVar8 = iVar8 + -1;
@@ -122,28 +122,28 @@ uint32_t init_three_buffer_pools(int param_1,uint8_t *param_2,void *param_3)
     pvVar6 = (void *)get_system_heap();
     uVar7 = mempool_get_block(pvVar6,*(void **)(param_1 + 0x2a8),0);
     iVar8 = *(int *)(*(int *)((int)piVar5 + iVar4) + 0x8d4);
-    (**(code **)(iVar8 + 0x44))(*(int *)((int)piVar5 + iVar4) + (int)*(short *)(iVar8 + 0x40),uVar7)
+    (((vtbl_entry*)(iVar8))[8].fn)(*(int *)((int)piVar5 + iVar4) + (int)((vtbl_entry*)(iVar8))[8].adj,uVar7)
     ;
     pvVar6 = (void *)get_system_heap();
     uVar7 = mempool_get_block(pvVar6,*(void **)(param_1 + 0x2a8),0);
     iVar8 = *(int *)((int)piVar5 + iVar4 + 4);
     iVar9 = *(int *)(iVar8 + 0x8d4);
-    (**(code **)(iVar9 + 0x44))(iVar8 + *(short *)(iVar9 + 0x40),uVar7);
+    (((vtbl_entry*)(iVar9))[8].fn)(iVar8 + ((vtbl_entry*)(iVar9))[8].adj,uVar7);
     pvVar6 = (void *)get_system_heap();
     uVar7 = mempool_get_block(pvVar6,*(void **)(param_1 + 0x2a8),0);
     iVar8 = *(int *)((int)piVar5 + iVar4 + 8);
     iVar9 = *(int *)(iVar8 + 0x8d4);
-    (**(code **)(iVar9 + 0x44))(iVar8 + *(short *)(iVar9 + 0x40),uVar7);
+    (((vtbl_entry*)(iVar9))[8].fn)(iVar8 + ((vtbl_entry*)(iVar9))[8].adj,uVar7);
     pvVar6 = (void *)get_system_heap();
     uVar7 = mempool_get_block(pvVar6,*(void **)(param_1 + 0x2a8),0);
     iVar8 = *(int *)((int)piVar5 + iVar4 + 0xc);
     iVar9 = *(int *)(iVar8 + 0x8d4);
-    (**(code **)(iVar9 + 0x44))(iVar8 + *(short *)(iVar9 + 0x40),uVar7);
+    (((vtbl_entry*)(iVar9))[8].fn)(iVar8 + ((vtbl_entry*)(iVar9))[8].adj,uVar7);
     pvVar6 = (void *)get_system_heap();
     uVar7 = mempool_get_block(pvVar6,*(void **)(param_1 + 0x2a8),0);
     iVar8 = *(int *)((int)piVar5 + iVar4 + 0x10);
     iVar9 = *(int *)(iVar8 + 0x8d4);
-    (**(code **)(iVar9 + 0x44))(iVar8 + *(short *)(iVar9 + 0x40),uVar7);
+    (((vtbl_entry*)(iVar9))[8].fn)(iVar8 + ((vtbl_entry*)(iVar9))[8].adj,uVar7);
     iVar4 = iVar4 + 0x14;
     iStack_10 = iStack_10 + -1;
   } while (-1 < iStack_10);

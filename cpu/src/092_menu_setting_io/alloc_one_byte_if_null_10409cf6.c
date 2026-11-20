@@ -16,7 +16,7 @@
 void alloc_one_byte_if_null_10409cf6(void *param_1)
 
 {
-  if (param_1 == (void *)0x0) {
+  if (param_1 == 0) {
     heap_alloc((void *)1);
   }
   return;

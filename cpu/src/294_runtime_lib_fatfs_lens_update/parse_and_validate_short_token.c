@@ -18,7 +18,7 @@ uint32_t parse_and_validate_short_token(char *param_1,uint8_t *param_2,int *para
   }
   else {
     *param_2 = 0;
-    iVar2 = find_colon_in_string(param_1);
+    iVar2 = (uintptr_t)(find_colon_in_string(param_1));
     *param_3 = iVar2;
     if (iVar2 == 0) {
       *param_3 = (int)param_1;

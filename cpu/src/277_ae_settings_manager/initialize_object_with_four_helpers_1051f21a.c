@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int initialize_object_with_four_helpers_1051f21a(uint32_t *param_1)
+int initialize_object_with_four_helpers_1051f21a(cls_105d6e14 *param_1)
 
 {
   set_two_fields_to_four((int)param_1);

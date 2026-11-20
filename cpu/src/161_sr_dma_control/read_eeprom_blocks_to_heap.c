@@ -26,25 +26,24 @@ bool read_eeprom_blocks_to_heap(uint32_t param_1,void *param_2)
   int *piVar5;
   uintptr_t sp;
   bool bVar6;
-  uint8_t auStack_2c [16];
-  int iStack_1c;
+  cls_105ab468 cStack_2c;
   uint32_t uStack_c;
   
   iVar1 = get_or_create_camera_object();
   piVar5 = *(int **)(iVar1 + 0xc);
-  cls_105ab468_new(auStack_2c);
-  iVar1 = call_with_offset_lock_1048101c(piVar5,param_2,auStack_2c);
+  cls_105ab468_new(&cStack_2c);
+  iVar1 = call_with_offset_lock_1048101c(piVar5,param_2,&cStack_2c);
   bVar6 = false;
-  if ((iVar1 != 0) && (bVar6 = false, iStack_1c == 0x12000)) {
+  if ((iVar1 != 0) && (bVar6 = false, cStack_2c.field_0x10 == 0x12000)) {
     uStack_c = 0;
-    iVar1 = (**(code **)(*piVar5 + 0x2c))
-                      ((int)*(short *)(*piVar5 + 0x28) + (int)piVar5,param_2,1,&uStack_c);
+    iVar1 = (((vtbl_entry*)(*piVar5))[5].fn)
+                      ((int)((vtbl_entry*)(*piVar5))[5].adj + (int)piVar5,param_2,1,&uStack_c);
     bVar6 = false;
     if (iVar1 != 0) {
       iVar1 = heap_alloc_2(0x12000);
-      (**(code **)(*piVar5 + 0x3c))
-                ((int)*(short *)(*piVar5 + 0x38) + (int)piVar5,uStack_c,iVar1,0x12000);
-      (**(code **)(*piVar5 + 0x34))((int)*(short *)(*piVar5 + 0x30) + (int)piVar5,uStack_c);
+      (((vtbl_entry*)(*piVar5))[7].fn)
+                ((int)((vtbl_entry*)(*piVar5))[7].adj + (int)piVar5,uStack_c,iVar1,0x12000);
+      (((vtbl_entry*)(*piVar5))[6].fn)((int)((vtbl_entry*)(*piVar5))[6].adj + (int)piVar5,uStack_c);
       pvVar2 = (void *)get_or_init_sram_buffer_104277bc();
       uVar3 = read_table_entry_field(pvVar2,0xa7);
       copy_buffer_with_clamped_length(uVar3,3,iVar1,0x1000);
@@ -53,6 +52,6 @@ bool read_eeprom_blocks_to_heap(uint32_t param_1,void *param_2)
       heap_free_2(iVar1);
     }
   }
-  cls_105ab468_delete(auStack_2c,2);
+  cls_105ab468_delete(&cStack_2c,2);
   return bVar6;
 }

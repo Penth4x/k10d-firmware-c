@@ -14,12 +14,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t reset_flag_and_sync_ui(int param_1)
+uint32_t reset_flag_and_sync_ui(cls_105b4254 *param_1)
 
 {
   empty_stub_104928e0();
-  *(uint8_t *)(param_1 + 0x1d) = 0;
-  call_subroutine_on_field_0x18_104924d4(param_1);
-  ui_request_sync(param_1,0x10);
+  param_1->field_0x1d = 0;
+  call_subroutine_on_field_0x18_104924d4((int)param_1);
+  ui_request_sync((int)param_1,0x10);
   return 1;
 }

@@ -34,7 +34,7 @@ void process_two_entry_pairs(int param_1,uint16_t *param_2)
       *(uint32_t *)(param_1 + 0x3c) = *(uint32_t *)(iVar1 + 8);
       iVar2 = invoke_virtual_method_on_object_104bf940(param_1,param_1 + 0x4c);
       if (iVar2 != 0) {
-        copy_string_with_offset(iVar1,(void *)(param_1 + 0x4c));
+        copy_string_with_offset((int)(iVar1),(char *)(param_1 + 0x4c));
         *(uint8_t *)(iVar1 + 0x19) = *(uint8_t *)(param_1 + 0x59);
         *(uint32_t *)(iVar1 + 0x1c) = *(uint32_t *)(param_1 + 0x5c);
         iVar2 = 8;
@@ -49,7 +49,7 @@ void process_two_entry_pairs(int param_1,uint16_t *param_2)
           auStack_18[iVar4] = auStack_18[iVar2 + 7];
           iVar2 = iVar4;
         } while (iVar4 != 0);
-        write_field_at_offset_0x20(iVar1,(void *)auStack_18);
+        write_field_at_offset_0x20(iVar1,auStack_18);
         free_heap_if_flag_set_1045c56c(auStack_18,2);
       }
     }
@@ -63,7 +63,7 @@ void process_two_entry_pairs(int param_1,uint16_t *param_2)
       *(uint32_t *)(param_1 + 0x3c) = *(uint32_t *)(iVar1 + 8);
       iVar2 = invoke_virtual_method_on_object_104bf940(param_1,param_1 + 0x4c);
       if (iVar2 != 0) {
-        copy_string_with_offset(iVar1,(void *)(param_1 + 0x4c));
+        copy_string_with_offset((int)(iVar1),(char *)(param_1 + 0x4c));
         *(uint8_t *)(iVar1 + 0x19) = *(uint8_t *)(param_1 + 0x59);
         *(uint32_t *)(iVar1 + 0x1c) = *(uint32_t *)(param_1 + 0x5c);
         iVar2 = 8;
@@ -78,7 +78,7 @@ void process_two_entry_pairs(int param_1,uint16_t *param_2)
           auStack_18[iVar4] = auStack_18[iVar2 + 7];
           iVar2 = iVar4;
         } while (iVar4 != 0);
-        write_field_at_offset_0x20(iVar1,(void *)auStack_18);
+        write_field_at_offset_0x20(iVar1,auStack_18);
         free_heap_if_flag_set_1045c56c(auStack_18,2);
       }
     }

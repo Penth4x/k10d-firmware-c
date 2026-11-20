@@ -29,7 +29,7 @@ void dispatch_virtual_call_with_params_10495120(int param_1)
   
   puVar4 = auStack_1c;
   iVar3 = *(int *)(**(int **)(param_1 + 0x60) + 0xc);
-  iVar3 = (**(code **)(iVar3 + 0x94))(**(int **)(param_1 + 0x60) + (int)*(short *)(iVar3 + 0x90));
+  iVar3 = (((vtbl_entry*)(iVar3))[18].fn)(**(int **)(param_1 + 0x60) + (int)((vtbl_entry*)(iVar3))[18].adj);
   uVar1 = call_single_helper_1045c0f2((uint32_t *)(param_1 + 0x90));
   uVar2 = call_single_helper_with_param_1045c10e(param_1 + 0x90);
   puVar4[3] = 1;

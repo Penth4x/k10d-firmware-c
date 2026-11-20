@@ -21,175 +21,175 @@
 /* WARNING: Instruction at (ram,0x1042478e) overlaps instruction at (ram,0x1042478c)
     */
 
-int * update_five_cyclic_counters(int *param_1,int param_2)
+cls_1059ddb0 * update_five_cyclic_counters(cls_1059ddb0 *param_1,int param_2)
 
 {
   int iVar1;
   uint32_t uVar2;
-  int *piVar3;
+  cls_1059ddb0 *pcVar3;
   uintptr_t sp;
   uint16_t uStack_a;
   
   uStack_a = 0;
-  param_1[5] = param_2;
-  if (param_1[6] == 0x1be0005) {
+  *(int *)&param_1->field_0x14 = param_2;
+  if (param_1->field_0x18 == 0x1be0005) {
     if (param_2 == 0xd) {
-      if (param_1[8] < 4) {
-        iVar1 = param_1[8] + 1;
+      if (*(int *)&param_1->field_0x20 < 4) {
+        iVar1 = *(int *)&param_1->field_0x20 + 1;
       }
       else {
         iVar1 = 0;
       }
 LAB_10424520:
-      param_1[8] = iVar1;
+      *(int *)&param_1->field_0x20 = iVar1;
     }
     else if (param_2 == 0xe) {
-      if (param_1[8] < 1) {
+      if (*(int *)&param_1->field_0x20 < 1) {
         iVar1 = 4;
       }
       else {
-        iVar1 = param_1[8] + -1;
+        iVar1 = *(int *)&param_1->field_0x20 + -1;
       }
       goto LAB_10424520;
     }
-    uVar2 = menu_item_register(*param_1);
-    uStack_a = (uint16_t)param_1[8];
-    menu_list_build((void *)uVar2,&uStack_a,1,0);
+    uVar2 = menu_item_register((int)param_1->field_0x0);
+    uStack_a = (uint16_t)*(uint32_t *)&param_1->field_0x20;
+    menu_list_build((int *)(uVar2),(uint16_t *)(&uStack_a),(uint8_t)(1),(uint8_t)(0));
   }
-  if (param_1[6] == 0x1be000a) {
-    if (param_1[5] == 0xd) {
-      if (param_1[9] < 4) {
-        iVar1 = param_1[9] + 1;
+  if (param_1->field_0x18 == 0x1be000a) {
+    if (*(int *)&param_1->field_0x14 == 0xd) {
+      if (*(int *)&param_1->field_0x24 < 4) {
+        iVar1 = *(int *)&param_1->field_0x24 + 1;
       }
       else {
         iVar1 = 0;
       }
 LAB_10424582:
-      param_1[9] = iVar1;
+      *(int *)&param_1->field_0x24 = iVar1;
     }
-    else if (param_1[5] == 0xe) {
-      if (param_1[9] < 1) {
+    else if (*(int *)&param_1->field_0x14 == 0xe) {
+      if (*(int *)&param_1->field_0x24 < 1) {
         iVar1 = 4;
       }
       else {
-        iVar1 = param_1[9] + -1;
+        iVar1 = *(int *)&param_1->field_0x24 + -1;
       }
       goto LAB_10424582;
     }
-    uVar2 = menu_item_register(*param_1);
-    uStack_a = (uint16_t)param_1[9];
-    menu_list_build((void *)uVar2,&uStack_a,1,0);
+    uVar2 = menu_item_register((int)param_1->field_0x0);
+    uStack_a = (uint16_t)*(uint32_t *)&param_1->field_0x24;
+    menu_list_build((int *)(uVar2),(uint16_t *)(&uStack_a),(uint8_t)(1),(uint8_t)(0));
   }
-  if (param_1[6] == 0x1be000f) {
-    if (param_1[5] == 0xd) {
-      if (param_1[10] < 4) {
-        iVar1 = param_1[10] + 1;
+  if (param_1->field_0x18 == 0x1be000f) {
+    if (*(int *)&param_1->field_0x14 == 0xd) {
+      if (*(int *)&param_1->field_0x28 < 4) {
+        iVar1 = *(int *)&param_1->field_0x28 + 1;
       }
       else {
         iVar1 = 0;
       }
 LAB_104245e4:
-      param_1[10] = iVar1;
+      *(int *)&param_1->field_0x28 = iVar1;
     }
-    else if (param_1[5] == 0xe) {
-      if (param_1[10] < 1) {
+    else if (*(int *)&param_1->field_0x14 == 0xe) {
+      if (*(int *)&param_1->field_0x28 < 1) {
         iVar1 = 4;
       }
       else {
-        iVar1 = param_1[10] + -1;
+        iVar1 = *(int *)&param_1->field_0x28 + -1;
       }
       goto LAB_104245e4;
     }
-    uVar2 = menu_item_register(*param_1);
-    uStack_a = (uint16_t)param_1[10];
-    menu_list_build((void *)uVar2,&uStack_a,1,0);
+    uVar2 = menu_item_register((int)param_1->field_0x0);
+    uStack_a = (uint16_t)*(uint32_t *)&param_1->field_0x28;
+    menu_list_build((int *)(uVar2),(uint16_t *)(&uStack_a),(uint8_t)(1),(uint8_t)(0));
   }
-  if (param_1[6] == 0x1be0014) {
-    if (param_1[5] == 0xd) {
-      if (param_1[0xb] < 4) {
-        iVar1 = param_1[0xb] + 1;
+  if (param_1->field_0x18 == 0x1be0014) {
+    if (*(int *)&param_1->field_0x14 == 0xd) {
+      if (*(int *)&param_1->field_0x2c < 4) {
+        iVar1 = *(int *)&param_1->field_0x2c + 1;
       }
       else {
         iVar1 = 0;
       }
 LAB_10424646:
-      param_1[0xb] = iVar1;
+      *(int *)&param_1->field_0x2c = iVar1;
     }
-    else if (param_1[5] == 0xe) {
-      if (param_1[0xb] < 1) {
+    else if (*(int *)&param_1->field_0x14 == 0xe) {
+      if (*(int *)&param_1->field_0x2c < 1) {
         iVar1 = 4;
       }
       else {
-        iVar1 = param_1[0xb] + -1;
+        iVar1 = *(int *)&param_1->field_0x2c + -1;
       }
       goto LAB_10424646;
     }
-    uVar2 = menu_item_register(*param_1);
-    uStack_a = (uint16_t)param_1[0xb];
-    menu_list_build((void *)uVar2,&uStack_a,1,0);
+    uVar2 = menu_item_register((int)param_1->field_0x0);
+    uStack_a = (uint16_t)*(uint32_t *)&param_1->field_0x2c;
+    menu_list_build((int *)(uVar2),(uint16_t *)(&uStack_a),(uint8_t)(1),(uint8_t)(0));
   }
-  if (param_1[6] != 0x1be0019) goto LAB_104246d4;
-  if (param_1[5] == 0xd) {
-    if (param_1[0xc] < 4) {
-      iVar1 = param_1[0xc] + 1;
+  if (param_1->field_0x18 != 0x1be0019) goto LAB_104246d4;
+  if (*(int *)&param_1->field_0x14 == 0xd) {
+    if (*(int *)&param_1->field_0x30 < 4) {
+      iVar1 = *(int *)&param_1->field_0x30 + 1;
     }
     else {
       iVar1 = 0;
     }
 LAB_104246a8:
-    param_1[0xc] = iVar1;
+    *(int *)&param_1->field_0x30 = iVar1;
   }
-  else if (param_1[5] == 0xe) {
-    if (param_1[0xc] < 1) {
+  else if (*(int *)&param_1->field_0x14 == 0xe) {
+    if (*(int *)&param_1->field_0x30 < 1) {
       iVar1 = 4;
     }
     else {
-      iVar1 = param_1[0xc] + -1;
+      iVar1 = *(int *)&param_1->field_0x30 + -1;
     }
     goto LAB_104246a8;
   }
-  uVar2 = menu_item_register(*param_1);
-  uStack_a = (uint16_t)param_1[0xc];
-  menu_list_build((void *)uVar2,&uStack_a,1,0);
+  uVar2 = menu_item_register((int)param_1->field_0x0);
+  uStack_a = (uint16_t)*(uint32_t *)&param_1->field_0x30;
+  menu_list_build((int *)(uVar2),(uint16_t *)(&uStack_a),(uint8_t)(1),(uint8_t)(0));
 LAB_104246d4:
-  piVar3 = param_1;
-  if (param_1[5] == 0x11) {
+  pcVar3 = param_1;
+  if (*(int *)&param_1->field_0x14 == 0x11) {
     uVar2 = get_sysparam_store_instance();
-    set_sysparam_store_entry(uVar2,0,param_1[8]);
+    set_sysparam_store_entry(uVar2,0,*(uint32_t *)&param_1->field_0x20);
     uVar2 = get_sysparam_store_instance();
-    set_sysparam_store_entry(uVar2,1,param_1[9]);
+    set_sysparam_store_entry(uVar2,1,*(uint32_t *)&param_1->field_0x24);
     uVar2 = get_sysparam_store_instance();
-    set_sysparam_store_entry(uVar2,2,param_1[10]);
+    set_sysparam_store_entry(uVar2,2,*(uint32_t *)&param_1->field_0x28);
     uVar2 = get_sysparam_store_instance();
-    set_sysparam_store_entry(uVar2,3,param_1[0xb]);
+    set_sysparam_store_entry(uVar2,3,*(uint32_t *)&param_1->field_0x2c);
     uVar2 = get_sysparam_store_instance();
-    set_sysparam_store_entry(uVar2,4,param_1[0xc]);
-    *(uint8_t *)((int)param_1 + 0x35) = 0x50;
-    piVar3 = (int *)0x0;
+    set_sysparam_store_entry(uVar2,4,*(uint32_t *)&param_1->field_0x30);
+    param_1->field_0x35 = 0x50;
+    pcVar3 = (cls_1059ddb0 *)0x0;
   }
-  if (param_1[5] == 0xc) {
-    piVar3 = (int *)get_or_init_sram_object_104248cc();
+  if (*(int *)&param_1->field_0x14 == 0xc) {
+    pcVar3 = (cls_1059ddb0 *)get_or_init_sram_object_104248cc();
   }
-  iVar1 = param_1[5];
+  iVar1 = *(int *)&param_1->field_0x14;
   if ((((iVar1 == 7) || (iVar1 == 0)) || (iVar1 == 1)) || (iVar1 == 3)) {
-    *(uint8_t *)((int)param_1 + 0x35) = 0x8c;
-    piVar3 = (int *)0x0;
+    param_1->field_0x35 = 0x8c;
+    pcVar3 = (cls_1059ddb0 *)0x0;
   }
-  if ((param_1[5] == 0x19) || (param_1[5] == 9)) {
-    *(uint8_t *)((int)param_1 + 0x35) = 0x50;
-    piVar3 = (int *)0x0;
+  if ((*(int *)&param_1->field_0x14 == 0x19) || (*(int *)&param_1->field_0x14 == 9)) {
+    param_1->field_0x35 = 0x50;
+    pcVar3 = (cls_1059ddb0 *)0x0;
   }
-  if (param_1[5] == 0x18) {
-    *(uint8_t *)((int)param_1 + 0x35) = 0xb4;
-    piVar3 = (int *)0x0;
+  if (*(int *)&param_1->field_0x14 == 0x18) {
+    param_1->field_0x35 = 0xb4;
+    pcVar3 = (cls_1059ddb0 *)0x0;
   }
-  if (param_1[5] == 0x2c) {
-    *(uint8_t *)((int)param_1 + 0x35) = 0x8c;
-    piVar3 = (int *)0x0;
+  if (*(int *)&param_1->field_0x14 == 0x2c) {
+    param_1->field_0x35 = 0x8c;
+    pcVar3 = (cls_1059ddb0 *)0x0;
   }
-  if (param_1[5] == 10) {
-    *(uint8_t *)((int)param_1 + 0x35) = 200;
-    piVar3 = (int *)0x0;
+  if (*(int *)&param_1->field_0x14 == 10) {
+    param_1->field_0x35 = 200;
+    pcVar3 = (cls_1059ddb0 *)0x0;
   }
-  return piVar3;
+  return pcVar3;
 }

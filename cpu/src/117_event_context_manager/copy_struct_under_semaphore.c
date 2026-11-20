@@ -24,9 +24,9 @@ void copy_struct_under_semaphore(int param_1,void *param_2)
   int iVar2;
   int iVar3;
   
-  twai_sem_obj((void *)(param_1 + 0x90),_DAT_105a2bf0/*ROM*/);
+  twai_sem_obj((uint32_t *)(param_1 + 0x90),(int)(_DAT_105a2bf0/*ROM*/));
   iVar1 = *(int *)(param_1 + 0x98);
-  empty_stub_function_10433096((int)param_2,iVar1);
+  empty_stub_function_10433096((uint32_t)(param_2),(uint32_t)(iVar1));
   iVar3 = 0xf;
   do {
     iVar2 = iVar3 + -1;
@@ -51,6 +51,6 @@ void copy_struct_under_semaphore(int param_1,void *param_2)
     *(uint8_t *)((int)param_2 + iVar3 + 0x30) = *(uint8_t *)(iVar2 + iVar1 + 0x31);
     iVar3 = iVar2;
   } while (iVar2 != 0);
-  sig_sem_obj((void *)(param_1 + 0x90));
+  sig_sem_obj((uint32_t *)(param_1 + 0x90));
   return;
 }

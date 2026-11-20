@@ -17,24 +17,24 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t process_buffer_with_two_params(int *param_1,void *param_2,int param_3)
+uint32_t process_buffer_with_two_params(cls_105b75f8 *param_1,void *param_2,int param_3)
 
 {
   uint32_t uVar1;
   int iVar2;
   
   uVar1 = 0;
-  if ((param_2 != (void *)0x0) && (param_3 != 0)) {
+  if ((param_2 != 0) && (param_3 != 0)) {
     iVar2 = dispatch_virtual_slot_two_104af096((int)param_1,2,1);
-    uVar1 = dispatch_virtual_slot_two_104af096((int)param_1,(uint)*(byte *)(param_1 + 8),
-                         (uint)*(byte *)((int)param_1 + 0x21));
-    iVar2 = dispatch_on_param_two_value(param_1[9],iVar2,param_2,uVar1);
+    uVar1 = dispatch_virtual_slot_two_104af096((int)param_1,(uint)(byte)param_1->field_0x20,
+                         (uint)(byte)param_1->field_0x21);
+    iVar2 = dispatch_on_param_two_value(param_1->field_0x24,iVar2,param_2,uVar1);
     if (iVar2 == 0) {
       invoke_virtual_slot_two_104ae2e4(param_1);
-      uVar1 = invoke_virtual_slot_4_104af106(param_1);
+      uVar1 = invoke_virtual_slot_4_104af106(&param_1->field_0x0);
     }
     else {
-      uVar1 = invoke_virtual_slot_two_104af0c8(param_1,param_2,iVar2);
+      uVar1 = invoke_virtual_slot_two_104af0c8(&param_1->field_0x0,param_2,iVar2);
     }
   }
   return uVar1;

@@ -11,8 +11,8 @@ void invoke_two_virtual_methods_104b2e54(int *param_1)
 {
   int iVar1;
   
-  (**(code **)(*param_1 + 0x14))((int)*(short *)(*param_1 + 0x10) + (int)param_1);
+  (((vtbl_entry*)(*param_1))[2].fn)((int)((vtbl_entry*)(*param_1))[2].adj + (int)param_1);
   iVar1 = *(int *)param_1[1];
-  (**(code **)(iVar1 + 0x4c))(param_1[1] + (int)*(short *)(iVar1 + 0x48),param_1[4],param_1[5]);
+  (((vtbl_entry*)(iVar1))[9].fn)(param_1[1] + (int)((vtbl_entry*)(iVar1))[9].adj,param_1[4],param_1[5]);
   return;
 }

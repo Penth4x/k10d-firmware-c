@@ -13,7 +13,7 @@ uint32_t get_or_init_sram_object_10443fc0(void)
 {
   if (_DAT_8001ef7c/*SDRAM*/ == 0) {
     _DAT_8001ef7c/*SDRAM*/ = 1;
-    cls_105a0f58_new((void *)0x8001ef74/*SDRAM*/);
+    cls_105a0f58_new((cls_105a0f58 *)0x8001ef74/*SDRAM*/);
     prepend_to_singly_linked_list((void *)0x8000fd80/*SDRAM*/);
   }
   return 0x8001ef74/*SDRAM*/;

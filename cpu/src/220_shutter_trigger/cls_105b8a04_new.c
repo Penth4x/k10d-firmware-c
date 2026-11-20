@@ -20,7 +20,7 @@ uint32_t * cls_105b8a04_new(uint32_t *param_1)
      (param_1 = (uint32_t *)heap_alloc((void *)0x874), param_1 != (uint32_t *)0x0)) {
     cls_1059e478_new(param_1);
     *param_1 = 0x105b8a04/*ROM*/;
-    cls_105a2af8_new(param_1 + 1);
+    cls_105a2af8_new((void *)(param_1 + 1));
     param_1[3] = 0;
     alloc_and_zero_struct_1046c686(param_1 + 4);
     param_1[0x21b] = 0;

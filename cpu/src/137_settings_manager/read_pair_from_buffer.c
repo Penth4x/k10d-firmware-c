@@ -14,7 +14,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint read_pair_from_buffer(void *param_1,int param_2)
+uint read_pair_from_buffer(cls_105a70ec *param_1,int param_2)
 
 {
   uint uVar1;
@@ -22,25 +22,24 @@ uint read_pair_from_buffer(void *param_1,int param_2)
   ushort uVar3;
   
   if (param_2 == 0) {
-    uVar2 = (ushort)*(byte *)((int)param_1 + 5);
-    uVar3 = (ushort)*(byte *)((int)param_1 + 4);
+    uVar2 = (ushort)param_1->field_0x5;
+    uVar3 = (ushort)param_1->field_0x4;
   }
   else if (param_2 == 1) {
-    uVar2 = (ushort)*(byte *)((int)param_1 + 7);
-    uVar3 = (ushort)*(byte *)((int)param_1 + 6);
+    uVar2 = (ushort)param_1->field_0x7;
+    uVar3 = (ushort)param_1->field_0x6;
   }
   else {
     if (param_2 == 2) {
-      uVar1 = pack_bytes_into_uint32(param_1,(uint)*(byte *)((int)param_1 + 7),
-                           (uint)*(byte *)((int)param_1 + 6),(uint)*(byte *)((int)param_1 + 5),
-                           *(byte *)((int)param_1 + 4));
+      uVar1 = pack_bytes_into_uint32(param_1,(uint)param_1->field_0x7,(uint)param_1->field_0x6,
+                           (uint)param_1->field_0x5,param_1->field_0x4);
       return uVar1;
     }
     if (param_2 != 3) {
       return 0;
     }
-    uVar2 = (ushort)*(byte *)((int)param_1 + 9);
-    uVar3 = (ushort)*(byte *)((int)param_1 + 8);
+    uVar2 = (ushort)param_1->field_0x9;
+    uVar3 = (ushort)param_1->field_0x8;
   }
   uVar2 = pack_two_byte_value_10496952(param_1,uVar2,uVar3);
   return (uint)uVar2;

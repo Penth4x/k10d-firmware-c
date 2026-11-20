@@ -19,11 +19,11 @@ uint32_t compute_and_store_setting_value_104d3e0a(int param_1,uint param_2)
 {
   int iVar1;
   uintptr_t sp;
-  uint32_t auStack_24 [7];
+  cls_105a6d8c acStack_24 [7];
   
-  cls_105a6d8c_new(auStack_24);
-  copy_status_block_bytes(*(int *)(param_1 + 8),auStack_24);
-  iVar1 = extract_field_from_struct_1045ff0e((int)auStack_24,0x2b);
+  cls_105a6d8c_new(acStack_24);
+  copy_status_block_bytes(*(int *)(param_1 + 8),acStack_24);
+  iVar1 = extract_field_from_struct_1045ff0e(acStack_24,0x2b);
   if (iVar1 < 1) {
     iVar1 = 0x5b;
   }
@@ -31,6 +31,6 @@ uint32_t compute_and_store_setting_value_104d3e0a(int param_1,uint param_2)
     iVar1 = (iVar1 + -1) * 0x80 + 0x16b;
   }
   setting_set(*(int *)(param_1 + 0x14),iVar1,param_2 & 0xff);
-  cls_105a6d8c_delete(auStack_24,2);
+  cls_105a6d8c_delete(acStack_24,2);
   return 0;
 }

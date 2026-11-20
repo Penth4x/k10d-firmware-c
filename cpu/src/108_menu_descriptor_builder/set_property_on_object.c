@@ -22,10 +22,10 @@ uint32_t set_property_on_object(int param_1,int param_2,uint32_t param_3)
   
   uVar1 = 0x83;
   if (param_2 < 0x1e) {
-    iVar2 = read_virtual_property_field(*(uint32_t *)(param_1 + 0x14),0);
+    iVar2 = read_virtual_property_field((int *)(*(uint32_t *)(param_1 + 0x14)),(int)(0));
     if (iVar2 == 1) {
       piVar3 = (int *)module_array_getter(*(void **)(param_1 + 8),param_2);
-      (**(code **)(*piVar3 + 0x5c))((int)piVar3 + (int)*(short *)(*piVar3 + 0x58),param_3);
+      (((vtbl_entry*)(*piVar3))[11].fn)((int)piVar3 + (int)((vtbl_entry*)(*piVar3))[11].adj,param_3);
       uVar1 = 0;
     }
     else {

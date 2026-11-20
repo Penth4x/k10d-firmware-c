@@ -17,34 +17,32 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t deactivate_dual_object_pair(void *param_1)
+uint32_t deactivate_dual_object_pair(cls_105d4190 *param_1)
 
 {
   int iVar1;
   
   write_field_at_offset_0x10c(param_1,1);
   issue_sequential_channel_commands(param_1,0);
-  iVar1 = *(int *)(*(int *)((int)param_1 + 0x110) + 4);
-  (**(code **)(iVar1 + 100))(*(int *)((int)param_1 + 0x110) + (int)*(short *)(iVar1 + 0x60));
-  iVar1 = *(int *)(*(int *)((int)param_1 + 0x110) + 4);
-  (**(code **)(iVar1 + 0x84))(*(int *)((int)param_1 + 0x110) + (int)*(short *)(iVar1 + 0x80));
-  clear_flag_if_active(*(void **)((int)param_1 + 0x110));
-  iVar1 = *(int *)(*(int *)((int)param_1 + 0x114) + 4);
-  (**(code **)(iVar1 + 100))(*(int *)((int)param_1 + 0x114) + (int)*(short *)(iVar1 + 0x60));
-  iVar1 = *(int *)(*(int *)((int)param_1 + 0x114) + 4);
-  (**(code **)(iVar1 + 0x84))(*(int *)((int)param_1 + 0x114) + (int)*(short *)(iVar1 + 0x80));
-  clear_flag_if_active(*(void **)((int)param_1 + 0x114));
-  iVar1 = *(int *)(*(int *)((int)param_1 + 0x110) + 8);
-  (**(code **)(iVar1 + 0x1c))
-            (*(int *)((int)param_1 + 0x110) + 8 + (int)*(short *)(iVar1 + 0x18),(int)param_1 + 4,
-             0x10);
-  iVar1 = *(int *)(*(int *)((int)param_1 + 0x114) + 8);
-  (**(code **)(iVar1 + 0x1c))
-            (*(int *)((int)param_1 + 0x114) + 8 + (int)*(short *)(iVar1 + 0x18),(int)param_1 + 4,
-             0x11);
-  iVar1 = *(int *)(*(int *)((int)param_1 + 0x110) + 4);
-  (**(code **)(iVar1 + 0x54))(*(int *)((int)param_1 + 0x110) + (int)*(short *)(iVar1 + 0x50));
-  iVar1 = *(int *)(*(int *)((int)param_1 + 0x114) + 4);
-  (**(code **)(iVar1 + 0x54))(*(int *)((int)param_1 + 0x114) + (int)*(short *)(iVar1 + 0x50));
+  iVar1 = *(int *)(param_1->field_0x110 + 4);
+  (((vtbl_entry*)(iVar1))[12].fn)(param_1->field_0x110 + (int)((vtbl_entry*)(iVar1))[12].adj);
+  iVar1 = *(int *)(param_1->field_0x110 + 4);
+  (((vtbl_entry*)(iVar1))[16].fn)(param_1->field_0x110 + (int)((vtbl_entry*)(iVar1))[16].adj);
+  clear_flag_if_active((char*)(param_1) ->field_0x110);
+  iVar1 = *(int *)(param_1->field_0x114 + 4);
+  (((vtbl_entry*)(iVar1))[12].fn)(param_1->field_0x114 + (int)((vtbl_entry*)(iVar1))[12].adj);
+  iVar1 = *(int *)(param_1->field_0x114 + 4);
+  (((vtbl_entry*)(iVar1))[16].fn)(param_1->field_0x114 + (int)((vtbl_entry*)(iVar1))[16].adj);
+  clear_flag_if_active((char*)(param_1) ->field_0x114);
+  iVar1 = *(int *)(param_1->field_0x110 + 8);
+  (((vtbl_entry*)(iVar1))[3].fn)
+            (param_1->field_0x110 + 8 + (int)((vtbl_entry*)(iVar1))[3].adj,&param_1->field_0x4,0x10);
+  iVar1 = *(int *)(param_1->field_0x114 + 8);
+  (((vtbl_entry*)(iVar1))[3].fn)
+            (param_1->field_0x114 + 8 + (int)((vtbl_entry*)(iVar1))[3].adj,&param_1->field_0x4,0x11);
+  iVar1 = *(int *)(param_1->field_0x110 + 4);
+  (((vtbl_entry*)(iVar1))[10].fn)(param_1->field_0x110 + (int)((vtbl_entry*)(iVar1))[10].adj);
+  iVar1 = *(int *)(param_1->field_0x114 + 4);
+  (((vtbl_entry*)(iVar1))[10].fn)(param_1->field_0x114 + (int)((vtbl_entry*)(iVar1))[10].adj);
   return 1;
 }

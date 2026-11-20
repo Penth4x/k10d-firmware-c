@@ -15,14 +15,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_helper_if_check_passes_1051ce40(uint32_t *param_1)
+uint32_t call_helper_if_check_passes_1051ce40(cls_105d6c88 *param_1)
 
 {
   int iVar1;
   uint32_t uVar2;
   
-  clear_field_at_offset_0x30(__frv_reg_unset(4));
-  iVar1 = call_init_then_query_param(param_1);
+  clear_field_at_offset_0x30(param_1);
+  iVar1 = call_init_then_query_param((cls_105b6174 *)param_1);
   if (iVar1 == 0) {
     uVar2 = 0;
   }

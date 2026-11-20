@@ -23,8 +23,8 @@ uint32_t invoke_virtual_method_on_object_104e1232(int *param_1,uint32_t param_2)
   int iVar2;
   
   iVar2 = *(int *)param_1[1];
-  iVar2 = (**(code **)(iVar2 + 0x14))
-                    (param_1[1] + (int)*(short *)(iVar2 + 0x10),*(uint32_t *)(*param_1 + 8),
+  iVar2 = (((vtbl_entry*)(iVar2))[2].fn)
+                    (param_1[1] + (int)((vtbl_entry*)(iVar2))[2].adj,*(uint32_t *)(*param_1 + 8),
                      param_2,0);
   uVar1 = 1;
   if (iVar2 == 0) {

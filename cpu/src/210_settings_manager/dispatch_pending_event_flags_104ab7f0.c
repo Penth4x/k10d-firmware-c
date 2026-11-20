@@ -32,12 +32,12 @@ uint32_t dispatch_pending_event_flags_104ab7f0(void *param_1)
     uVar2 = 1;
     if ((uVar3 & 1) != 0) {
       iVar4 = *(int *)**(int **)((int)param_1 + 0x1c);
-      iVar4 = (**(code **)(iVar4 + 0x1c))
-                        (**(int **)((int)param_1 + 0x1c) + (int)*(short *)(iVar4 + 0x18));
+      iVar4 = (((vtbl_entry*)(iVar4))[3].fn)
+                        (**(int **)((int)param_1 + 0x1c) + (int)((vtbl_entry*)(iVar4))[3].adj);
       if (iVar4 == 0) {
         iVar4 = *(int *)**(int **)((int)param_1 + 0x20);
-        iVar4 = (**(code **)(iVar4 + 0x1c))
-                          (**(int **)((int)param_1 + 0x20) + (int)*(short *)(iVar4 + 0x18));
+        iVar4 = (((vtbl_entry*)(iVar4))[3].fn)
+                          (**(int **)((int)param_1 + 0x20) + (int)((vtbl_entry*)(iVar4))[3].adj);
         if (iVar4 == 0) {
           uVar2 = 0;
         }
@@ -52,7 +52,7 @@ uint32_t dispatch_pending_event_flags_104ab7f0(void *param_1)
     if ((uVar3 & 2) != 0) {
       piVar1 = *(int **)(*(int *)((int)param_1 + 0x20) + 4);
       iVar4 = *piVar1;
-      iVar4 = (**(code **)(iVar4 + 0x1c))((int)piVar1 + (int)*(short *)(iVar4 + 0x18));
+      iVar4 = (((vtbl_entry*)(iVar4))[3].fn)((int)piVar1 + (int)((vtbl_entry*)(iVar4))[3].adj);
       if (iVar4 == 0) {
         uVar2 = 0;
       }
@@ -63,7 +63,7 @@ uint32_t dispatch_pending_event_flags_104ab7f0(void *param_1)
     if ((uVar3 & 4) != 0) {
       piVar1 = *(int **)(*(int *)((int)param_1 + 0x1c) + 4);
       iVar4 = *piVar1;
-      iVar4 = (**(code **)(iVar4 + 0x1c))((int)piVar1 + (int)*(short *)(iVar4 + 0x18));
+      iVar4 = (((vtbl_entry*)(iVar4))[3].fn)((int)piVar1 + (int)((vtbl_entry*)(iVar4))[3].adj);
       if (iVar4 == 0) {
         uVar2 = 0;
       }
@@ -74,7 +74,7 @@ uint32_t dispatch_pending_event_flags_104ab7f0(void *param_1)
     if ((uVar3 & 8) != 0) {
       piVar1 = *(int **)(*(int *)((int)param_1 + 0x20) + 8);
       iVar4 = *piVar1;
-      iVar4 = (**(code **)(iVar4 + 0x1c))((int)piVar1 + (int)*(short *)(iVar4 + 0x18));
+      iVar4 = (((vtbl_entry*)(iVar4))[3].fn)((int)piVar1 + (int)((vtbl_entry*)(iVar4))[3].adj);
       if (iVar4 == 0) {
         uVar2 = 0;
       }

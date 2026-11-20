@@ -31,10 +31,10 @@ void dispatch_context_virtual_op(void *param_1,int param_2)
   clear_low_bit_at_offset_0x20(*(void **)((int)param_1 + 0xc));
   iVar1 = *(int *)((int)param_1 + 0x14);
   if (param_2 == 0) {
-    (**(code **)(*(int *)(iVar1 + 4) + 100))(iVar1 + *(short *)(*(int *)(iVar1 + 4) + 0x60));
+    (((vtbl_entry*)(*(int *)(iVar1 + 4)))[12].fn)(iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 4)))[12].adj);
   }
   else {
-    (**(code **)(*(int *)(iVar1 + 4) + 0x6c))(iVar1 + *(short *)(*(int *)(iVar1 + 4) + 0x68),1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 4)))[13].fn)(iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 4)))[13].adj,1);
   }
   return;
 }

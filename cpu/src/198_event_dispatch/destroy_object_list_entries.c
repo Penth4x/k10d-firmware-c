@@ -17,43 +17,43 @@
 #include "globals.h"
 #include "funcs.h"
 
-void destroy_object_list_entries(int param_1)
+void destroy_object_list_entries(cls_105b44b4 *param_1)
 
 {
   uint32_t uVar1;
   int *piVar2;
-  uint32_t *puVar3;
+  int **ppiVar3;
   int iVar4;
   
   uVar1 = get_or_init_sram_block_10409fec();
-  (*(code *)0x1040a01e/*ROM*/)(uVar1,*(uint32_t *)(param_1 + 4));
-  dispatch_object_event_and_notify(param_1);
-  puVar3 = (uint32_t *)(param_1 + 0x48);
-  piVar2 = (int *)*puVar3;
-  if (piVar2 != *(int **)(param_1 + 0x4c)) {
+  (*(code *)0x1040a01e/*ROM*/)(uVar1,param_1->field_0x4);
+  dispatch_object_event_and_notify((cls_105b48dc *)param_1);
+  ppiVar3 = &param_1->field47_0x48;
+  piVar2 = *ppiVar3;
+  if ((uint32_t)(piVar2) != param_1->field_0x4c) {
     do {
       iVar4 = *(int *)(*piVar2 + 0xc);
-      (**(code **)(iVar4 + 0x54))(*piVar2 + (int)*(short *)(iVar4 + 0x50));
+      (((vtbl_entry*)(iVar4))[10].fn)(*piVar2 + (int)((vtbl_entry*)(iVar4))[10].adj);
       piVar2 = piVar2 + 1;
-    } while (piVar2 != *(int **)(param_1 + 0x4c));
+    } while ((uint32_t)(piVar2) != param_1->field_0x4c);
   }
-  piVar2 = (int *)*puVar3;
-  if (piVar2 != *(int **)(param_1 + 0x4c)) {
+  piVar2 = *ppiVar3;
+  if ((uint32_t)(piVar2) != param_1->field_0x4c) {
     do {
       iVar4 = *(int *)(*piVar2 + 0xc);
-      (**(code **)(iVar4 + 0xc4))(*piVar2 + (int)*(short *)(iVar4 + 0xc0));
+      (((vtbl_entry*)(iVar4))[24].fn)(*piVar2 + (int)((vtbl_entry*)(iVar4))[24].adj);
       piVar2 = piVar2 + 1;
-    } while (piVar2 != *(int **)(param_1 + 0x4c));
+    } while ((uint32_t)(piVar2) != param_1->field_0x4c);
   }
-  piVar2 = (int *)*puVar3;
-  if (piVar2 != *(int **)(param_1 + 0x4c)) {
+  piVar2 = *ppiVar3;
+  if ((uint32_t)(piVar2) != param_1->field_0x4c) {
     do {
       iVar4 = *(int *)(*piVar2 + 0xc);
-      (**(code **)(iVar4 + 0xbc))(*piVar2 + (int)*(short *)(iVar4 + 0xb8));
+      (((vtbl_entry*)(iVar4))[23].fn)(*piVar2 + (int)((vtbl_entry*)(iVar4))[23].adj);
       piVar2 = piVar2 + 1;
-    } while (piVar2 != *(int **)(param_1 + 0x4c));
+    } while ((uint32_t)(piVar2) != param_1->field_0x4c);
   }
   uVar1 = get_or_init_sram_block_10409fec();
-  (*(code *)0x1040a020/*ROM*/)(uVar1,*(uint32_t *)(param_1 + 4));
+  (*(code *)0x1040a020/*ROM*/)(uVar1,param_1->field_0x4);
   return;
 }

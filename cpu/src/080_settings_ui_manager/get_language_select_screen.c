@@ -21,7 +21,7 @@ uint32_t get_language_select_screen(void)
 {
   if (_DAT_8001c3b8/*SDRAM*/ == 0) {
     _DAT_8001c3b8/*SDRAM*/ = 1;
-    cls_105969f8_new((uint32_t *)0x8001c394/*SDRAM*/);
+    cls_105969f8_new((cls_105969f8 *)0x8001c394/*SDRAM*/);
     prepend_to_singly_linked_list((void *)0x8000f894/*SDRAM*/);
   }
   return 0x8001c394/*SDRAM*/;

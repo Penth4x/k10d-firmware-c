@@ -11,35 +11,46 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_10566478_new(uint32_t *param_1)
+cls_105643d0 * cls_10566478_new(cls_10566478 *param_1)
 
 {
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x6c), param_1 != (uint32_t *)0x0)) {
-    cls_105643d0_new(param_1);
-    *param_1 = 0x10566478/*ROM*/;
-    param_1[0x10] = 0;
-    *(uint8_t *)(param_1 + 0x11) = 0;
-    *(uint8_t *)((int)param_1 + 0x45) = 0;
-    *(uint16_t *)((int)param_1 + 0x46) = 0;
-    *(uint16_t *)(param_1 + 0x12) = 0;
-    *(uint16_t *)((int)param_1 + 0x4a) = 0;
-    *(uint8_t *)((int)param_1 + 0x66) = 0;
-    *(uint8_t *)((int)param_1 + 0x67) = 0;
-    param_1[0x1a] = 0;
-    *(uint16_t *)(param_1 + 0x19) = 0x24;
-    *(uint16_t *)((int)param_1 + 0x62) = 0x22;
-    *(uint16_t *)(param_1 + 0x18) = 0x21;
-    *(uint16_t *)((int)param_1 + 0x5e) = 0x20;
-    *(uint16_t *)(param_1 + 0x17) = 0x1e;
-    *(uint16_t *)((int)param_1 + 0x5a) = 0x1c;
-    *(uint16_t *)(param_1 + 0x16) = 0x1b;
-    *(uint16_t *)((int)param_1 + 0x56) = 0x1a;
-    *(uint16_t *)(param_1 + 0x15) = 0x18;
-    *(uint16_t *)((int)param_1 + 0x52) = 0x16;
-    *(uint16_t *)(param_1 + 0x14) = 0x15;
-    *(uint16_t *)((int)param_1 + 0x4e) = 0x14;
-    *(uint16_t *)(param_1 + 0x13) = 0x12;
+  if ((param_1 != (cls_10566478 *)0x0) ||
+     (param_1 = (cls_10566478 *)heap_alloc((void *)0x6c), (cls_105643d0 *)param_1 != (cls_105643d0 *)0x0)) {
+    cls_105643d0_new((cls_105643d0 *)param_1);
+    ((cls_105643d0 *)param_1)->field_0x0 = (uintptr_t)((void *)0x10566478/*ROM*/);
+    ((cls_105643d0 *)param_1)->field40_0x40 = 0;
+    ((cls_105643d0 *)param_1)->field41_0x41 = '\0';
+    ((cls_105643d0 *)param_1)->field42_0x42 = 0;
+    ((cls_105643d0 *)param_1)->field43_0x43 = 0;
+    ((cls_105643d0 *)param_1)->field44_0x44 = 0;
+    ((cls_105643d0 *)param_1)->field45_0x45 = 0;
+    ((cls_105643d0 *)param_1)->field46_0x46 = 0;
+    ((cls_105643d0 *)param_1)->field47_0x47 = 0;
+    ((cls_105643d0 *)param_1)->field48_0x48 = 0;
+    ((cls_105643d0 *)param_1)->field49_0x49 = 0;
+    ((cls_105643d0 *)param_1)->field50_0x4a = 0;
+    ((cls_105643d0 *)param_1)->field51_0x4b = 0;
+    *(uint8_t *)&((cls_105643d0 *)param_1)->field69_0x66 = 0;
+    *(uint8_t *)((int)&((cls_105643d0 *)param_1)->field69_0x66 + 1) = 0;
+    ((cls_105643d0 *)param_1)->field70_0x68 = 0;
+    ((cls_105643d0 *)param_1)->field71_0x6a = 0;
+    ((cls_105643d0 *)param_1)->field68_0x64 = 0x24;
+    ((cls_105643d0 *)param_1)->field67_0x62 = 0x22;
+    ((cls_105643d0 *)param_1)->field66_0x60 = 0x21;
+    ((cls_105643d0 *)param_1)->field65_0x5e = 0x20;
+    ((cls_105643d0 *)param_1)->field64_0x5c = 0x1e;
+    ((cls_105643d0 *)param_1)->field62_0x5a = 0;
+    ((cls_105643d0 *)param_1)->field63_0x5b = 0x1c;
+    *(uint16_t *)&((cls_105643d0 *)param_1)->field_0x58 = 0x1b;
+    ((cls_105643d0 *)param_1)->field58_0x56 = 0;
+    ((cls_105643d0 *)param_1)->field59_0x57 = '\x1a';
+    ((cls_105643d0 *)param_1)->field57_0x54 = 0x18;
+    *(uint16_t *)((int)&((cls_105643d0 *)param_1)->field56_0x50 + 2) = 0x16;
+    *(uint16_t *)&((cls_105643d0 *)param_1)->field56_0x50 = 0x15;
+    ((cls_105643d0 *)param_1)->field54_0x4e = 0;
+    ((cls_105643d0 *)param_1)->field55_0x4f = 0x14;
+    ((cls_105643d0 *)param_1)->field52_0x4c = '\0';
+    ((cls_105643d0 *)param_1)->field53_0x4d = 0x12;
   }
-  return param_1;
+  return (cls_105643d0 *)param_1;
 }

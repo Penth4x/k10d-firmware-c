@@ -31,14 +31,14 @@ uint32_t check_string_fits_buffer(uint32_t param_1,void *param_2,int param_3)
   
   uStack_10 = 0;
   heap_alloc_one_byte_1045926e((int)&uStack_9);
-  pcVar1 = (char *)return_pentax_string_ptr((int)&uStack_9);
+  pcVar1 = (char *)return_pentax_string_ptr((uint32_t)(&uStack_9));
   iVar2 = count_string_bytes(pcVar1);
   iVar3 = count_string_bytes((char *)0x105d6dd8/*ROM*/);
   pcVar1 = (char *)(*(code *)0x10459346/*ROM*/)(&uStack_9);
   iVar4 = count_string_bytes(pcVar1);
   iVar4 = iVar2 + iVar3 + iVar4;
   if (iVar4 < param_3) {
-    pvVar5 = (void *)return_pentax_k10d_string_104592f4((int)&uStack_9);
+    pvVar5 = (void *)return_pentax_k10d_string_104592f4((uint32_t)(&uStack_9));
     iVar2 = compare_byte_arrays(param_2,pvVar5,iVar4);
     if (iVar2 == 0) {
       uStack_10 = 1;

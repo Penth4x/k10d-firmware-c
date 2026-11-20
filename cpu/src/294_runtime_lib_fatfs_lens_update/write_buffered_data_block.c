@@ -55,7 +55,7 @@ int write_buffered_data_block(int param_1,int param_2,int param_3,void *param_4,
     uVar4 = uVar4 - uStack_28;
     iVar5 = iVar5 + uStack_28;
   }
-  if (param_4 != (void *)0x0) {
+  if (param_4 != 0) {
     iVar3 = transmit_buffer_segment(param_1,iVar5,pvStack_24,param_4);
     if (iVar3 < 0) {
       return iVar3;

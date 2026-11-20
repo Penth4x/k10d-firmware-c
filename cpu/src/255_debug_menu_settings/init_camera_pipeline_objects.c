@@ -17,199 +17,202 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_camera_pipeline_objects(int param_1)
+uint32_t init_camera_pipeline_objects(cls_105c26f0 *param_1)
 
 {
-  int iVar1;
-  uint32_t uVar2;
-  int iVar3;
-  uint32_t *puVar4;
-  void *pvVar5;
-  uint32_t uVar6;
-  uint32_t uVar7;
-  uint32_t uVar8;
-  uint32_t uVar9;
-  uint32_t uVar10;
-  uint32_t uVar11;
+  void *puVar1;
+  void *puVar2;
+  cls_105bce58 *pcVar3;
+  cls_105bca40 *pcVar4;
+  int iVar5;
+  void *pvVar6;
+  cls_105bd140 *pcVar7;
+  cls_105bc4d8 *pcVar8;
+  cls_105bc1c4 *pcVar9;
+  void *puVar10;
+  void *puVar11;
+  void *puVar12;
+  void *puVar13;
+  void *puVar14;
   uintptr_t sp;
-  uint32_t *puVar12;
+  uint32_t *puVar15;
   uint8_t auStack_34 [20];
   uint32_t uStack_10;
   uint32_t uStack_c;
   
-  puVar12 = (uint32_t *)auStack_34;
+  puVar15 = (uint32_t *)auStack_34;
   uStack_10 = 1;
-  iVar3 = heap_alloc((void *)200);
-  if (iVar3 == 0) {
-    iVar3 = 0;
+  puVar2 = (void *)heap_alloc((void *)200);
+  if (puVar2 == 0) {
+    puVar2 = (void *)0x0;
   }
   else {
-    alloc_and_zero_struct_104e3164((void *)iVar3);
+    alloc_and_zero_struct_104e3164(puVar2);
   }
-  *(int *)(param_1 + 4) = iVar3;
-  puVar4 = (uint32_t *)heap_alloc((void *)0x30);
-  if (puVar4 == (uint32_t *)0x0) {
-    puVar4 = (uint32_t *)0x0;
-  }
-  else {
-    cls_105bce58_new(puVar4);
-  }
-  *(uint32_t **)(param_1 + 8) = puVar4;
-  if (puVar4 != (uint32_t *)0x0) {
-    (*(code *)0x104e07f0/*ROM*/)(puVar4,*(uint32_t *)(param_1 + 4));
-  }
-  iVar3 = heap_alloc((void *)0x102c);
-  if (iVar3 == 0) {
-    iVar3 = 0;
+  param_1->field_0x4 = (uintptr_t)(puVar2);
+  pcVar3 = (cls_105bce58 *)heap_alloc((void *)0x30);
+  if (pcVar3 == (cls_105bce58 *)0x0) {
+    pcVar3 = (cls_105bce58 *)0x0;
   }
   else {
-    cls_105bca40_new((void *)iVar3);
+    cls_105bce58_new(pcVar3);
   }
-  *(int *)(param_1 + 0xc) = iVar3;
-  if (iVar3 != 0) {
-    *(uint32_t *)(iVar3 + 0x1014) = *(uint32_t *)(param_1 + 4);
+  param_1->field_0x8 = (uintptr_t)((void *)pcVar3);
+  if (pcVar3 != (cls_105bce58 *)0x0) {
+    (*(code *)0x104e07f0/*ROM*/)(pcVar3,param_1->field_0x4);
   }
-  iVar3 = get_shared_sram_buffer();
-  *(int *)(param_1 + 0x10) = iVar3;
-  if (iVar3 != 0) {
-    if (*(int *)(param_1 + 0xc) == 0) {
-      iVar1 = 0;
+  pcVar4 = (cls_105bca40 *)heap_alloc((void *)0x102c);
+  if (pcVar4 == (cls_105bca40 *)0x0) {
+    pcVar4 = (cls_105bca40 *)0x0;
+  }
+  else {
+    cls_105bca40_new(pcVar4);
+  }
+  param_1->field_0xc = (uintptr_t)((void *)pcVar4);
+  if (pcVar4 != (cls_105bca40 *)0x0) {
+    pcVar4[0x101].field_0x4 = param_1->field_0x4;
+  }
+  puVar2 = (void *)get_shared_sram_buffer();
+  param_1->field_0x10 = (uintptr_t)(puVar2);
+  if (puVar2 != 0) {
+    if (param_1->field_0xc == 0) {
+      puVar1 = (void *)0x0;
     }
     else {
-      iVar1 = *(int *)(param_1 + 0xc) + 8;
+      puVar1 = (void *)((uintptr_t)(param_1->field_0xc + 8));
     }
-    *(int *)(iVar3 + 0x80) = iVar1;
+    *(void **)((char*)puVar2 + 0x80) = puVar1;
   }
-  iVar3 = get_or_init_sram_block_104b3d52();
-  if (iVar3 == 0) {
+  iVar5 = get_or_init_sram_block_104b3d52();
+  if (iVar5 == 0) {
     uStack_c = 0;
   }
   else {
     uStack_c = call_two_helpers_and_return_104b3df8();
   }
-  pvVar5 = (void *)get_system_heap();
-  iVar3 = heap_alloc((void *)0x18);
-  if (iVar3 == 0) {
-    iVar3 = 0;
+  pvVar6 = (void *)get_system_heap();
+  puVar2 = (void *)heap_alloc((void *)0x18);
+  if (puVar2 == 0) {
+    puVar2 = (void *)0x0;
   }
   else {
-    alloc_and_zero_small_struct_104e125e((void *)iVar3);
+    alloc_and_zero_small_struct_104e125e(puVar2);
   }
-  *(int *)(param_1 + 0x14) = iVar3;
-  if (pvVar5 == (void *)0x0) {
-    iVar3 = 0;
-  }
-  else {
-    iVar3 = mempool_get_block(pvVar5,(void *)0x20000,3);
-  }
-  iVar1 = *(int *)(param_1 + 0x14);
-  if (iVar1 != 0) {
-    *(uint8_t *)((int)puVar12 + 3) = 1;
-    uStack_10 = (*(code *)0x104e1294/*ROM*/)(iVar1,iVar3,iVar3 + 0x10000,0x10000);
-  }
-  iVar1 = heap_alloc((void *)0x18);
-  if (iVar1 == 0) {
-    iVar1 = 0;
+  param_1->field_0x14 = (uintptr_t)(puVar2);
+  if (pvVar6 == 0) {
+    iVar5 = 0;
   }
   else {
-    alloc_and_zero_small_struct_104e125e((void *)iVar1);
+    iVar5 = mempool_get_block(pvVar6,(void *)0x20000,3);
   }
-  *(int *)(param_1 + 0x18) = iVar1;
-  if (pvVar5 != (void *)0x0) {
-    iVar3 = mempool_get_block(pvVar5,(void *)0x20000,3);
+  puVar2 = (void *)((uintptr_t)(param_1->field_0x14));
+  if (puVar2 != 0) {
+    *(uint8_t *)((int)puVar15 + 3) = 1;
+    uStack_10 = (*(code *)0x104e1294/*ROM*/)(puVar2,iVar5,iVar5 + 0x10000,0x10000);
   }
-  iVar1 = *(int *)(param_1 + 0x18);
-  if (iVar1 != 0) {
-    *(uint8_t *)((int)puVar12 + 3) = 1;
-    uStack_10 = (*(code *)0x104e1294/*ROM*/)(iVar1,iVar3,iVar3 + 0x10000,0x10000);
-  }
-  iVar3 = heap_alloc((void *)0x28);
-  if (iVar3 == 0) {
-    iVar3 = 0;
+  puVar2 = (void *)heap_alloc((void *)0x18);
+  if (puVar2 == 0) {
+    puVar2 = (void *)0x0;
   }
   else {
-    allocate_and_zero_struct_104e0340((void *)iVar3);
+    alloc_and_zero_small_struct_104e125e(puVar2);
   }
-  *(int *)(param_1 + 0x30) = iVar3;
-  puVar4 = (uint32_t *)heap_alloc((void *)0x44);
-  if (puVar4 == (uint32_t *)0x0) {
-    puVar4 = (uint32_t *)0x0;
+  param_1->field_0x18 = (uintptr_t)(puVar2);
+  if (pvVar6 != 0) {
+    iVar5 = mempool_get_block(pvVar6,(void *)0x20000,3);
   }
-  else {
-    cls_105bd140_new(puVar4);
+  puVar2 = (void *)((uintptr_t)(param_1->field_0x18));
+  if (puVar2 != 0) {
+    *(uint8_t *)((int)puVar15 + 3) = 1;
+    uStack_10 = (*(code *)0x104e1294/*ROM*/)(puVar2,iVar5,iVar5 + 0x10000,0x10000);
   }
-  *(uint32_t **)(param_1 + 0x34) = puVar4;
-  if (puVar4 != (uint32_t *)0x0) {
-    (*(code *)0x104e0d3a/*ROM*/)(puVar4,*(uint32_t *)(param_1 + 0x18),uStack_c);
-  }
-  iVar3 = *(int *)(param_1 + 8);
-  if (iVar3 != 0) {
-    uVar6 = *(uint32_t *)(param_1 + 0x30);
-    uVar8 = *(uint32_t *)(param_1 + 0x14);
-    uVar2 = *(uint32_t *)(param_1 + 0x34);
-    uVar10 = *(uint32_t *)(param_1 + 0xc);
-    *puVar12 = *(uint32_t *)(param_1 + 0x10);
-    puVar12[1] = uVar2;
-    puVar12[2] = uVar10;
-    (*(code *)0x104e07ca/*ROM*/)(iVar3,uStack_c,uVar6,uVar8);
-  }
-  if (*(int *)(param_1 + 0xc) != 0) {
-    (*(code *)0x104e0620/*ROM*/)(*(int *)(param_1 + 0xc),*(uint32_t *)(param_1 + 0x10));
-  }
-  puVar4 = (uint32_t *)heap_alloc((void *)0x80);
-  if (puVar4 == (uint32_t *)0x0) {
-    puVar4 = (uint32_t *)0x0;
+  puVar2 = (void *)heap_alloc((void *)0x28);
+  if (puVar2 == 0) {
+    puVar2 = (void *)0x0;
   }
   else {
-    cls_105bc4d8_new(puVar4);
+    allocate_and_zero_struct_104e0340(puVar2);
   }
-  *(uint32_t **)(param_1 + 0x38) = puVar4;
-  if (puVar4 != (uint32_t *)0x0) {
-    uVar2 = *(uint32_t *)(param_1 + 0x18);
-    uVar6 = *(uint32_t *)(param_1 + 0x30);
-    uVar8 = *(uint32_t *)(param_1 + 0x10);
-    uVar10 = *(uint32_t *)(param_1 + 0x34);
-    *puVar12 = uStack_c;
-    puVar12[1] = uVar10;
-    uStack_10 = (*(code *)0x104dfad6/*ROM*/)(puVar4,uVar2,uVar6,uVar8);
-  }
-  if (*(int *)(param_1 + 4) != 0) {
-    uStack_10 = (*(code *)0x104e32d6/*ROM*/)(*(int *)(param_1 + 4),*(uint32_t *)(param_1 + 0x38));
-  }
-  puVar4 = (uint32_t *)heap_alloc((void *)0x54);
-  if (puVar4 == (uint32_t *)0x0) {
-    puVar4 = (uint32_t *)0x0;
+  param_1->field_0x30 = (uintptr_t)(puVar2);
+  pcVar7 = (cls_105bd140 *)heap_alloc((void *)0x44);
+  if (pcVar7 == (cls_105bd140 *)0x0) {
+    pcVar7 = (cls_105bd140 *)0x0;
   }
   else {
-    cls_105bc1c4_new(puVar4);
+    cls_105bd140_new(pcVar7);
   }
-  *(uint32_t **)(param_1 + 0x3c) = puVar4;
-  if (puVar4 != (uint32_t *)0x0) {
-    uVar2 = *(uint32_t *)(param_1 + 0x14);
-    uVar6 = *(uint32_t *)(param_1 + 0x30);
-    uVar8 = *(uint32_t *)(param_1 + 0x10);
-    uVar10 = *(uint32_t *)(param_1 + 0x34);
-    *puVar12 = uStack_c;
-    puVar12[1] = uVar10;
-    uStack_10 = (*(code *)0x104dfad6/*ROM*/)(puVar4,uVar2,uVar6,uVar8);
+  param_1->field_0x34 = (uintptr_t)((void *)pcVar7);
+  if (pcVar7 != (cls_105bd140 *)0x0) {
+    (*(code *)0x104e0d3a/*ROM*/)(pcVar7,param_1->field_0x18,uStack_c);
   }
-  if (*(int *)(param_1 + 4) != 0) {
-    uStack_10 = (*(code *)0x104e32e6/*ROM*/)(*(int *)(param_1 + 4),*(uint32_t *)(param_1 + 0x3c));
+  puVar2 = (void *)((uintptr_t)(param_1->field_0x8));
+  if (puVar2 != 0) {
+    puVar10 = (void *)((uintptr_t)(param_1->field_0x30));
+    puVar11 = (void *)((uintptr_t)(param_1->field_0x14));
+    puVar1 = (void *)((uintptr_t)(param_1->field_0x34));
+    puVar13 = (void *)((uintptr_t)(param_1->field_0xc));
+    *puVar15 = param_1->field_0x10;
+    puVar15[1] = (uintptr_t)(puVar1);
+    puVar15[2] = (uintptr_t)(puVar13);
+    (*(code *)0x104e07ca/*ROM*/)(puVar2,uStack_c,puVar10,puVar11);
   }
-  uVar10 = *(uint32_t *)(param_1 + 4);
-  uVar7 = *(uint32_t *)(param_1 + 0x14);
-  uVar9 = *(uint32_t *)(param_1 + 0x18);
-  uVar6 = *(uint32_t *)(param_1 + 0x30);
-  uVar8 = *(uint32_t *)(param_1 + 0x10);
-  uVar2 = *(uint32_t *)(param_1 + 0x3c);
-  uVar11 = *(uint32_t *)(param_1 + 0x38);
-  *puVar12 = *(uint32_t *)(param_1 + 0x34);
-  puVar12[1] = uVar6;
-  puVar12[2] = uVar8;
-  puVar12[3] = uVar2;
-  puVar12[4] = uVar11;
-  allocate_and_register_subobjects(param_1,uVar10,uVar7,uVar9,*puVar12,puVar12[1],puVar12[2],puVar12[3],puVar12[4]);
-  initialize_object_subsystems_104eb426(param_1,*(uint32_t *)(param_1 + 4),uStack_c);
-  initialize_object_subsystem_104eb5da(param_1);
+  if (param_1->field_0xc != 0) {
+    (*(code *)0x104e0620/*ROM*/)(param_1->field_0xc,param_1->field_0x10);
+  }
+  pcVar8 = (cls_105bc4d8 *)heap_alloc((void *)0x80);
+  if (pcVar8 == (cls_105bc4d8 *)0x0) {
+    pcVar8 = (cls_105bc4d8 *)0x0;
+  }
+  else {
+    cls_105bc4d8_new(pcVar8);
+  }
+  param_1->field_0x38 = (uintptr_t)((void *)pcVar8);
+  if (pcVar8 != (cls_105bc4d8 *)0x0) {
+    puVar2 = (void *)((uintptr_t)(param_1->field_0x18));
+    puVar1 = (void *)((uintptr_t)(param_1->field_0x30));
+    puVar10 = (void *)((uintptr_t)(param_1->field_0x10));
+    puVar11 = (void *)((uintptr_t)(param_1->field_0x34));
+    *puVar15 = uStack_c;
+    puVar15[1] = (uintptr_t)(puVar11);
+    uStack_10 = (*(code *)0x104dfad6/*ROM*/)(pcVar8,puVar2,puVar1,puVar10);
+  }
+  if (param_1->field_0x4 != 0) {
+    uStack_10 = (*(code *)0x104e32d6/*ROM*/)(param_1->field_0x4,param_1->field_0x38);
+  }
+  pcVar9 = (cls_105bc1c4 *)heap_alloc((void *)0x54);
+  if (pcVar9 == (cls_105bc1c4 *)0x0) {
+    pcVar9 = (cls_105bc1c4 *)0x0;
+  }
+  else {
+    cls_105bc1c4_new(pcVar9);
+  }
+  param_1->field_0x3c = (uintptr_t)((void *)pcVar9);
+  if (pcVar9 != (cls_105bc1c4 *)0x0) {
+    puVar2 = (void *)((uintptr_t)(param_1->field_0x14));
+    puVar1 = (void *)((uintptr_t)(param_1->field_0x30));
+    puVar10 = (void *)((uintptr_t)(param_1->field_0x10));
+    puVar11 = (void *)((uintptr_t)(param_1->field_0x34));
+    *puVar15 = uStack_c;
+    puVar15[1] = (uintptr_t)(puVar11);
+    uStack_10 = (*(code *)0x104dfad6/*ROM*/)(pcVar9,puVar2,puVar1,puVar10);
+  }
+  if (param_1->field_0x4 != 0) {
+    uStack_10 = (*(code *)0x104e32e6/*ROM*/)(param_1->field_0x4,param_1->field_0x3c);
+  }
+  puVar11 = (void *)((uintptr_t)(param_1->field_0x4));
+  puVar13 = (void *)((uintptr_t)(param_1->field_0x14));
+  puVar12 = (void *)((uintptr_t)(param_1->field_0x18));
+  puVar1 = (void *)((uintptr_t)(param_1->field_0x30));
+  puVar10 = (void *)((uintptr_t)(param_1->field_0x10));
+  puVar2 = (void *)((uintptr_t)(param_1->field_0x3c));
+  puVar14 = (void *)((uintptr_t)(param_1->field_0x38));
+  *puVar15 = param_1->field_0x34;
+  puVar15[1] = (uintptr_t)(puVar1);
+  puVar15[2] = (uintptr_t)(puVar10);
+  puVar15[3] = (uintptr_t)(puVar2);
+  puVar15[4] = (uintptr_t)(puVar14);
+  allocate_and_register_subobjects((int)param_1,(uint32_t)(puVar11),(uint32_t)(puVar13),(uint32_t)(puVar12),(uint32_t)(*puVar15),(uint32_t)(puVar15[1]),(uint32_t)(puVar15[2]),(uint32_t)(puVar15[3]), (uint32_t)(puVar15[4]));
+  initialize_object_subsystems_104eb426((int)(param_1),(uint32_t)(param_1->field_0x4),(uint32_t)(uStack_c));
+  initialize_object_subsystem_104eb5da((int)(param_1));
   return uStack_10;
 }

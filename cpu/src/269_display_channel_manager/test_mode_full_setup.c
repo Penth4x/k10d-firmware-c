@@ -55,7 +55,7 @@ bool test_mode_full_setup(short param_1)
       *(uint32_t *)(iVar9 + (int)(caller_r10 + 0xab)) = *(uint32_t *)(iVar9 + iVar2 + 0x164);
     } while (iVar9 != 0);
     field_setter((int)(caller_r10 + 0xab),0x51,0);
-    empty_noop_stub_1050d3b0(piVar7,*(uint32_t *)(caller_r14 + -0x38));
+    empty_noop_stub_1050d3b0((uint32_t)(piVar7),*(uint32_t *)(caller_r14 + -0x38));
     iVar9 = *(int *)(caller_r14 + -0x38);
     iVar2 = 0x17;
     do {
@@ -64,7 +64,7 @@ bool test_mode_full_setup(short param_1)
       iVar2 = iVar10;
     } while (iVar10 != 0);
     iVar9 = *(int *)(caller_r14 + -0x38);
-    empty_noop_stub_1050d3b0(caller_r10 + 0x59,iVar9 + 0x1c);
+    empty_noop_stub_1050d3b0((uint32_t)(caller_r10 + 0x59),iVar9 + 0x1c);
     iVar2 = 0x10;
     do {
       iVar10 = iVar2 + -1;
@@ -72,7 +72,7 @@ bool test_mode_full_setup(short param_1)
       iVar2 = iVar10;
     } while (iVar10 != 0);
     iVar9 = *(int *)(caller_r14 + -0x38);
-    empty_noop_stub_1050d3b0(caller_r10 + 0x5e,iVar9 + 0x30);
+    empty_noop_stub_1050d3b0((uint32_t)(caller_r10 + 0x5e),iVar9 + 0x30);
     iVar2 = 0x45;
     do {
       iVar10 = iVar2 + -1;
@@ -80,7 +80,7 @@ bool test_mode_full_setup(short param_1)
       iVar2 = iVar10;
     } while (iVar10 != 0);
     iVar9 = *(int *)(caller_r14 + -0x38);
-    empty_noop_stub_1050d3b0(caller_r10 + 0x71,iVar9 + 0x7c);
+    empty_noop_stub_1050d3b0((uint32_t)(caller_r10 + 0x71),iVar9 + 0x7c);
     iVar2 = 0x1b;
     do {
       iVar10 = iVar2 + -1;
@@ -89,10 +89,10 @@ bool test_mode_full_setup(short param_1)
     } while (iVar10 != 0);
     iVar2 = *(int *)(caller_r14 + 8);
     *(int *)(caller_r14 + -0x34) = iVar2;
-    empty_noop_stub_1050d3b0(caller_r10 + 0x79,iVar2 + 0x9c);
+    empty_noop_stub_1050d3b0((uint32_t)(caller_r10 + 0x79),iVar2 + 0x9c);
     *(uint8_t *)(caller_r10 + 0x7a) = *(uint8_t *)(iVar2 + 0xa0);
     iVar9 = *(int *)(caller_r14 + -0x34);
-    empty_noop_stub_1050d3b0(caller_r10 + 0x7b,iVar9 + 0xa4);
+    empty_noop_stub_1050d3b0((uint32_t)(caller_r10 + 0x7b),iVar9 + 0xa4);
     iVar2 = 8;
     do {
       iVar10 = iVar2 + -1;
@@ -100,7 +100,7 @@ bool test_mode_full_setup(short param_1)
       iVar2 = iVar10;
     } while (iVar10 != 0);
     iVar9 = *(int *)(caller_r14 + -0x34);
-    empty_noop_stub_1050d3b0(caller_r10 + 0x7e,iVar9 + 0xb0);
+    empty_noop_stub_1050d3b0((uint32_t)(caller_r10 + 0x7e),iVar9 + 0xb0);
     iVar2 = 0x10;
     do {
       iVar10 = iVar2 + -1;
@@ -108,7 +108,7 @@ bool test_mode_full_setup(short param_1)
       iVar2 = iVar10;
     } while (iVar10 != 0);
     iVar9 = *(int *)(caller_r14 + -0x34);
-    empty_noop_stub_1050d3b0(caller_r10 + 0x83,iVar9 + 0xc4);
+    empty_noop_stub_1050d3b0((uint32_t)(caller_r10 + 0x83),iVar9 + 0xc4);
     iVar2 = 0x10;
     do {
       iVar10 = iVar2 + -1;
@@ -116,7 +116,7 @@ bool test_mode_full_setup(short param_1)
       iVar2 = iVar10;
     } while (iVar10 != 0);
     iVar9 = *(int *)(caller_r14 + -0x34);
-    empty_noop_stub_1050d3b0(caller_r10 + 0x88,iVar9 + 0xd8);
+    empty_noop_stub_1050d3b0((uint32_t)(caller_r10 + 0x88),iVar9 + 0xd8);
     iVar2 = 0x10;
     do {
       iVar10 = iVar2 + -1;
@@ -124,7 +124,7 @@ bool test_mode_full_setup(short param_1)
       iVar2 = iVar10;
     } while (iVar10 != 0);
     iVar9 = *(int *)(caller_r14 + -0x34);
-    empty_noop_stub_1050d3b0(caller_r10 + 0x8d,iVar9 + 0xec);
+    empty_noop_stub_1050d3b0((uint32_t)(caller_r10 + 0x8d),iVar9 + 0xec);
     iVar2 = 0xc;
     do {
       iVar10 = iVar2 + -1;
@@ -132,7 +132,7 @@ bool test_mode_full_setup(short param_1)
       iVar2 = iVar10;
     } while (iVar10 != 0);
     iVar9 = *(int *)(caller_r14 + -0x34);
-    empty_noop_stub_1050d3b0(caller_r10 + 0x95,iVar9 + 0x10c);
+    empty_noop_stub_1050d3b0((uint32_t)(caller_r10 + 0x95),iVar9 + 0x10c);
     iVar2 = 4;
     do {
       iVar10 = iVar2 + -1;
@@ -141,7 +141,7 @@ bool test_mode_full_setup(short param_1)
     } while (iVar10 != 0);
     iVar9 = *(int *)(caller_r14 + 8);
     *(uint32_t **)(caller_r14 + -0x14) = caller_r10 + 0x17e;
-    empty_noop_stub_1050d3b0(caller_r10 + 0x17e,iVar9 + 0x4b0);
+    empty_noop_stub_1050d3b0((uint32_t)(caller_r10 + 0x17e),iVar9 + 0x4b0);
     iVar2 = *(int *)(caller_r14 + -0x14) + 4;
     *(int *)(caller_r14 + -0x14) = iVar2;
     iVar10 = 6;
@@ -150,7 +150,7 @@ bool test_mode_full_setup(short param_1)
       *(uint8_t *)(iVar10 + iVar2) = *(uint8_t *)(iVar10 + iVar9 + 0x4b4);
     } while (iVar10 != 0);
     *(uint32_t **)(caller_r14 + -0x18) = caller_r10 + 0x181;
-    empty_noop_stub_1050d3b0(caller_r10 + 0x181,iVar9 + 0x4bc);
+    empty_noop_stub_1050d3b0((uint32_t)(caller_r10 + 0x181),iVar9 + 0x4bc);
     iVar2 = *(int *)(caller_r14 + -0x18) + 4;
     *(int *)(caller_r14 + -0x18) = iVar2;
     iVar10 = 4;
@@ -167,7 +167,7 @@ bool test_mode_full_setup(short param_1)
       *(uint32_t *)(iVar11 + iVar10) = *(uint32_t *)(iVar11 + iVar2);
     } while (iVar11 != 0);
     *(uint32_t **)(caller_r14 + -0x1c) = caller_r10 + 0x97;
-    empty_noop_stub_1050d3b0(caller_r10 + 0x97,iVar9 + 0x114);
+    empty_noop_stub_1050d3b0((uint32_t)(caller_r10 + 0x97),iVar9 + 0x114);
     iVar2 = *(int *)(caller_r14 + -0x1c) + 4;
     *(int *)(caller_r14 + -0x1c) = iVar2;
     iVar10 = 4;
@@ -176,7 +176,7 @@ bool test_mode_full_setup(short param_1)
       *(uint8_t *)(iVar10 + iVar2) = *(uint8_t *)(iVar10 + iVar9 + 0x118);
     } while (iVar10 != 0);
     *(uint32_t **)(caller_r14 + -0x20) = caller_r10 + 0x99;
-    empty_noop_stub_1050d3b0(caller_r10 + 0x99,iVar9 + 0x11c);
+    empty_noop_stub_1050d3b0((uint32_t)(caller_r10 + 0x99),iVar9 + 0x11c);
     iVar2 = *(int *)(caller_r14 + -0x20) + 4;
     *(int *)(caller_r14 + -0x20) = iVar2;
     iVar10 = 0x20;
@@ -185,7 +185,7 @@ bool test_mode_full_setup(short param_1)
       *(uint8_t *)(iVar10 + iVar2) = *(uint8_t *)(iVar10 + iVar9 + 0x120);
     } while (iVar10 != 0);
     *(uint32_t **)(caller_r14 + -0x24) = caller_r10 + 0xa2;
-    empty_noop_stub_1050d3b0(caller_r10 + 0xa2,iVar9 + 0x140);
+    empty_noop_stub_1050d3b0((uint32_t)(caller_r10 + 0xa2),iVar9 + 0x140);
     iVar2 = *(int *)(caller_r14 + -0x24) + 4;
     *(int *)(caller_r14 + -0x24) = iVar2;
     iVar10 = 0x20;
@@ -195,7 +195,7 @@ bool test_mode_full_setup(short param_1)
     } while (iVar10 != 0);
     iVar9 = *(int *)(caller_r14 + 8);
     *(uint32_t **)(caller_r14 + -0x28) = caller_r10 + 0x91;
-    empty_noop_stub_1050d3b0(caller_r10 + 0x91,iVar9 + 0xfc);
+    empty_noop_stub_1050d3b0((uint32_t)(caller_r10 + 0x91),iVar9 + 0xfc);
     iVar2 = *(int *)(caller_r14 + -0x28) + 4;
     *(int *)(caller_r14 + -0x28) = iVar2;
     iVar10 = 9;
@@ -320,7 +320,7 @@ bool test_mode_full_setup(short param_1)
   iVar2 = caller_r10[0x235];
   sVar1 = *(short *)(iVar2 + 0x70);
   *(uint32_t *)(caller_r14 + -0x34) = 4;
-  (**(code **)(iVar2 + 0x74))((int)sVar1 + (int)caller_r10,4);
+  (((vtbl_entry*)(iVar2))[14].fn)((int)sVar1 + (int)caller_r10,4);
   cVar5 = settings_getter((int)(caller_r10 + 0xab),0xd);
   if (((cVar5 == '\t') || (cVar5 == '\n')) || (cVar5 == '\v')) {
     *(uint16_t *)caller_r10[0x183] =
@@ -332,7 +332,7 @@ bool test_mode_full_setup(short param_1)
     *(uint16_t *)(caller_r10[0x183] + 6) =
          *(uint16_t *)(*(int *)(*(int *)(caller_r14 + -0x38) + 0x4c4) + 0xe);
   }
-  iVar2 = (**(code **)(*piVar7 + 0x1c))((int)*(short *)(*piVar7 + 0x18) + (int)piVar7,0x10);
+  iVar2 = (((vtbl_entry*)(*piVar7))[3].fn)((int)((vtbl_entry*)(*piVar7))[3].adj + (int)piVar7,0x10);
   pvVar3 = *(void **)(*(int *)(caller_r14 + -0x3c) + 0x7c);
   if (iVar2 == 0) {
     write_two_words_to_struct_10513bca(pvVar3,1,8,6);
@@ -363,25 +363,25 @@ bool test_mode_full_setup(short param_1)
     iVar2 = mempool_get_block(pvVar3,(void *)caller_r10[0x1c],0);
     bVar12 = iVar2 == 0;
     if (!bVar12) {
-      (**(code **)(caller_r10[0x235] + 0x54))
-                ((int)*(short *)(caller_r10[0x235] + 0x50) + (int)caller_r10);
+      (((vtbl_entry*)(caller_r10[0x235]))[10].fn)
+                ((int)((vtbl_entry*)(caller_r10[0x235]))[10].adj + (int)caller_r10);
     }
     iVar2 = 0x78;
   }
   else if ((*(int *)(caller_r14 + -0x30) == 4) || (*(int *)(caller_r14 + -0x30) == 2)) {
-    (**(code **)(caller_r10[0x235] + 0x14))
-              ((int)*(short *)(caller_r10[0x235] + 0x10) + (int)caller_r10,0);
-    (**(code **)(caller_r10[0x235] + 0x24))
-              ((int)*(short *)(caller_r10[0x235] + 0x20) + (int)caller_r10,
+    (((vtbl_entry*)(caller_r10[0x235]))[2].fn)
+              ((int)((vtbl_entry*)(caller_r10[0x235]))[2].adj + (int)caller_r10,0);
+    (((vtbl_entry*)(caller_r10[0x235]))[4].fn)
+              ((int)((vtbl_entry*)(caller_r10[0x235]))[4].adj + (int)caller_r10,
                *(int *)(caller_r14 + -0x2c) + -0x600);
     iVar2 = 0x74;
   }
   else {
     if ((*(int *)(caller_r14 + -0x30) != 5) && (*(int *)(caller_r14 + -0x30) != 3)) goto LAB_1050cf86;
-    (**(code **)(caller_r10[0x235] + 0x14))
-              ((int)*(short *)(caller_r10[0x235] + 0x10) + (int)caller_r10,0);
-    (**(code **)(caller_r10[0x235] + 0x24))
-              ((int)*(short *)(caller_r10[0x235] + 0x20) + (int)caller_r10,
+    (((vtbl_entry*)(caller_r10[0x235]))[2].fn)
+              ((int)((vtbl_entry*)(caller_r10[0x235]))[2].adj + (int)caller_r10,0);
+    (((vtbl_entry*)(caller_r10[0x235]))[4].fn)
+              ((int)((vtbl_entry*)(caller_r10[0x235]))[4].adj + (int)caller_r10,
                *(int *)(caller_r14 + -0x2c) + -0x600);
     pvVar3 = (void *)get_system_heap();
     iVar2 = mempool_get_block(pvVar3,(void *)caller_r10[0x1c],0);
@@ -390,8 +390,8 @@ bool test_mode_full_setup(short param_1)
       iVar2 = 0x7c;
     }
     else {
-      (**(code **)(caller_r10[0x235] + 0x54))
-                ((int)*(short *)(caller_r10[0x235] + 0x50) + (int)caller_r10,iVar2);
+      (((vtbl_entry*)(caller_r10[0x235]))[10].fn)
+                ((int)((vtbl_entry*)(caller_r10[0x235]))[10].adj + (int)caller_r10,iVar2);
       iVar2 = 0x7c;
     }
   }

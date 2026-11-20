@@ -31,11 +31,11 @@ void register_and_configure_menu_item_1038a040(int param_1,uint32_t param_2,int 
   iVar2 = menu_item_register(param_1);
   if (param_3 == 2) {
     set_object_flag_via_virtual_call(param_1,2);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(*(short *)(*(int *)(iVar1 + 0xc) + 8) + iVar1,0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar1 + 0xc) + 8) + iVar1,0);
   }
   else {
     invoke_virtual_slot_two_1038a0ae(param_1,param_2);
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(*(short *)(*(int *)(iVar2 + 0xc) + 8) + iVar2,0);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar2 + 0xc) + 8) + iVar2,0);
   }
   return;
 }

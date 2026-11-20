@@ -11,7 +11,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_105b9400_delete(void *param_1,uint param_2)
+void cls_105b9400_delete(cls_105b9400 *param_1,uint param_2)
 
 {
   uintptr_t sp;
@@ -19,13 +19,13 @@ void cls_105b9400_delete(void *param_1,uint param_2)
   uint8_t local_14 [8];
   
   puVar1 = (uint32_t *)local_14;
-  if (param_1 != (void *)0x0) {
-    *(void **)((int)param_1 + 0x1d8) = &DAT_105b9400/*ROM*/;
-    free_heap_if_flag_set_1045c56c((void *)((int)param_1 + 0x1cc),2);
+  if (param_1 != (cls_105b9400 *)0x0) {
+    param_1->field_0x1d8 = (uintptr_t)(&DAT_105b9400/*ROM*/);
+    free_heap_if_flag_set_1045c56c(&param_1->field_0x1cc,2);
     *puVar1 = 0;
     puVar1[1] = 0;
     lens_fw_update_teardown();
-    free_heap_if_flag_set_1045c56c((void *)((int)param_1 + 0x20),2);
+    free_heap_if_flag_set_1045c56c(&param_1->field_0x20,2);
     if ((param_2 & 1) != 0) {
       heap_free((int)param_1);
     }

@@ -28,15 +28,15 @@ uint32_t mode1_activate_ready(void *param_1,uint32_t *param_2,int *param_3)
   iVar1 = read_first_word_10433098(param_2);
   iVar2 = read_first_word_10433098(param_2 + 5);
   if (iVar2 == 3) {
-    iVar3 = (**(code **)(*param_3 + 0x14))((int)*(short *)(*param_3 + 0x10) + (int)param_3,0x2c);
+    iVar3 = (((vtbl_entry*)(*param_3))[2].fn)((int)((vtbl_entry*)(*param_3))[2].adj + (int)param_3,0x2c);
     if (iVar3 != 0) {
       write_param_to_buffer(*(uint32_t *)((int)param_1 + 0x30),param_2,1);
       dispatch_mode_change_request_10435152(*(uint32_t *)((int)param_1 + 0x30),param_2,4);
     }
   }
   else if ((iVar2 == 0) &&
-          (iVar3 = (**(code **)(*param_3 + 0x1c))
-                             ((int)*(short *)(*param_3 + 0x18) + (int)param_3,0x2c), iVar3 != 0)) {
+          (iVar3 = (((vtbl_entry*)(*param_3))[3].fn)
+                             ((int)((vtbl_entry*)(*param_3))[3].adj + (int)param_3,0x2c), iVar3 != 0)) {
     init_and_set_value_10434ee8(*(uint32_t *)((int)param_1 + 0x30),param_2,1);
     write_struct_field_with_optional_value(*(uint32_t *)((int)param_1 + 0x30),param_2,1);
   }

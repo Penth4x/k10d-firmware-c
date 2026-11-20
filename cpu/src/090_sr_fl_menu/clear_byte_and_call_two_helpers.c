@@ -15,11 +15,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void clear_byte_and_call_two_helpers(int param_1)
+void clear_byte_and_call_two_helpers(cls_105992d4 *param_1)
 
 {
-  *(uint8_t *)(param_1 + 0xb9) = 0;
+  param_1->field_0xb9 = '\0';
   call_helper_on_fetched_pointer();
-  clear_struct_field_at_offset_8(param_1);
+  clear_struct_field_at_offset_8((cls_10564e90 *)param_1);
   return;
 }

@@ -20,7 +20,7 @@
 void cls_105a2ab0_delete(void *param_1,uint param_2)
 
 {
-  if ((param_1 != (void *)0x0) &&
+  if ((param_1 != 0) &&
      (*(void **)((int)param_1 + 8) = &DAT_105a2ab0/*ROM*/, (param_2 & 1) != 0)) {
     heap_free((int)param_1);
   }

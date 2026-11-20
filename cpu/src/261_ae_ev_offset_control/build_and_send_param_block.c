@@ -83,7 +83,7 @@ void build_and_send_param_block(int param_1,uint32_t *param_2)
   uStack_10 = param_2[9];
   puVar2 = (uint32_t *)(param_1 + 0x2c);
   eventflag_clr_flg(puVar2,1);
-  apply_param_struct_to_object(*(uint32_t *)(param_1 + 0x28),param_1 + 4,&uStack_34);
+  apply_param_struct_to_object((int)(*(uint32_t *)(param_1 + 0x28)),(void *)(param_1 + 4),(int *)(&uStack_34));
   eventflag_wai_flg(puVar2,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar2,1);
   reset_object_three_fields(*(uint32_t *)(param_1 + 0x28));

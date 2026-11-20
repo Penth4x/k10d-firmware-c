@@ -55,20 +55,20 @@ uint32_t process_buffered_data_entries_1036d692(void *param_1)
     iStack_28 = 3;
     iVar11 = 0;
     do {
-      (**(code **)(*(int *)(iVar11 + -0x7ffea0d4) + 0x14))
-                (*(short *)(*(int *)(iVar11 + -0x7ffea0d4) + 0x10) + iVar11 + -0x7ffea0e8);
-      (**(code **)(*(int *)(iVar11 + -0x7ffe9ec0) + 0x14))
-                (*(short *)(*(int *)(iVar11 + -0x7ffe9ec0) + 0x10) + iVar11 + -0x7ffe9ed4);
-      (**(code **)(*(int *)(iVar11 + -0x7ffe9cac) + 0x14))
-                (*(short *)(*(int *)(iVar11 + -0x7ffe9cac) + 0x10) + iVar11 + -0x7ffe9cc0);
-      (**(code **)(*(int *)(iVar11 + -0x7ffe9a98) + 0x14))
-                (*(short *)(*(int *)(iVar11 + -0x7ffe9a98) + 0x10) + iVar11 + -0x7ffe9aac);
+      (((vtbl_entry*)(*(int *)(iVar11 + -0x7ffea0d4)))[2].fn)
+                (((vtbl_entry*)(*(int *)(iVar11 + -0x7ffea0d4)))[2].adj + iVar11 + -0x7ffea0e8);
+      (((vtbl_entry*)(*(int *)(iVar11 + -0x7ffe9ec0)))[2].fn)
+                (((vtbl_entry*)(*(int *)(iVar11 + -0x7ffe9ec0)))[2].adj + iVar11 + -0x7ffe9ed4);
+      (((vtbl_entry*)(*(int *)(iVar11 + -0x7ffe9cac)))[2].fn)
+                (((vtbl_entry*)(*(int *)(iVar11 + -0x7ffe9cac)))[2].adj + iVar11 + -0x7ffe9cc0);
+      (((vtbl_entry*)(*(int *)(iVar11 + -0x7ffe9a98)))[2].fn)
+                (((vtbl_entry*)(*(int *)(iVar11 + -0x7ffe9a98)))[2].adj + iVar11 + -0x7ffe9aac);
       iVar11 = iVar11 + 0x850;
       iStack_28 = iStack_28 + -1;
     } while (-1 < iStack_28);
     iVar11 = **(int **)((int)param_1 + 0x70);
-    (**(code **)(iVar11 + 0x8c))
-              ((int)*(int **)((int)param_1 + 0x70) + (int)*(short *)(iVar11 + 0x88));
+    (((vtbl_entry*)(iVar11))[17].fn)
+              ((int)*(int **)((int)param_1 + 0x70) + (int)((vtbl_entry*)(iVar11))[17].adj);
     release_object_field_0x70(param_1);
     uVar8 = read_byte_at_offset_five_1051e50e(iVar2);
     cVar7 = read_byte_at_offset_four_1051e508(iVar2);
@@ -84,8 +84,8 @@ uint32_t process_buffered_data_entries_1036d692(void *param_1)
         set_byte_at_offset_five((int)pvVar3,(char)uVar13);
         dispatch_event_with_buffer_lock(param_1,2,pvVar3);
         iVar11 = **(int **)((int)param_1 + 0x70);
-        (**(code **)(iVar11 + 0x94))
-                  (auStack_10,(int)*(int **)((int)param_1 + 0x70) + (int)*(short *)(iVar11 + 0x90));
+        (((vtbl_entry*)(iVar11))[18].fn)
+                  (auStack_10,(int)*(int **)((int)param_1 + 0x70) + (int)((vtbl_entry*)(iVar11))[18].adj);
         iVar11 = 8;
         do {
           iVar11 = iVar11 + -4;
@@ -97,32 +97,29 @@ uint32_t process_buffered_data_entries_1036d692(void *param_1)
         puVar14[2] = 0xffffffff;
         puVar14[3] = 3;
         *(uint8_t *)((int)puVar14 + 0x13) = DAT_800043a0/*SDRAM*/;
-        iVar5 = dispatch_event_with_payload_1036b92c(param_1,1,auStack_18,iVar11 + -0x7ffea0e8,*puVar14,puVar14[1],
-                             puVar14[2],puVar14[3],*(uint8_t *)((int)puVar14 + 0x13));
+        iVar5 = dispatch_event_with_payload_1036b92c(param_1,1,auStack_18,iVar11 + -0x7ffea0e8,*puVar14,puVar14[1], puVar14[2],puVar14[3],*(uint8_t *)((int)puVar14 + 0x13));
         if (iVar5 == 1) {
 code_r0x1036d8cc:
           dispatch_virtual_event_with_payload((int)param_1);
         }
         else {
-          (**(code **)(*(int *)(iVar11 + -0x7ffea0d4) + 0x14))
-                    (*(short *)(*(int *)(iVar11 + -0x7ffea0d4) + 0x10) + iVar11 + -0x7ffea0e8);
+          (((vtbl_entry*)(*(int *)(iVar11 + -0x7ffea0d4)))[2].fn)
+                    (((vtbl_entry*)(*(int *)(iVar11 + -0x7ffea0d4)))[2].adj + iVar11 + -0x7ffea0e8);
           *puVar14 = 0;
           puVar14[1] = 0;
           puVar14[2] = 0xffffffff;
           puVar14[3] = 3;
           *(uint8_t *)((int)puVar14 + 0x13) = DAT_800043a0/*SDRAM*/;
-          iVar5 = dispatch_event_with_payload_1036b92c(param_1,2,auStack_18,iVar11 + -0x7ffea0e8,*puVar14,puVar14[1],
-                               puVar14[2],puVar14[3],*(uint8_t *)((int)puVar14 + 0x13));
+          iVar5 = dispatch_event_with_payload_1036b92c(param_1,2,auStack_18,iVar11 + -0x7ffea0e8,*puVar14,puVar14[1], puVar14[2],puVar14[3],*(uint8_t *)((int)puVar14 + 0x13));
           if (iVar5 == 1) goto code_r0x1036d8cc;
-          (**(code **)(*(int *)(iVar11 + -0x7ffea0d4) + 0x14))
-                    (*(short *)(*(int *)(iVar11 + -0x7ffea0d4) + 0x10) + iVar11 + -0x7ffea0e8);
+          (((vtbl_entry*)(*(int *)(iVar11 + -0x7ffea0d4)))[2].fn)
+                    (((vtbl_entry*)(*(int *)(iVar11 + -0x7ffea0d4)))[2].adj + iVar11 + -0x7ffea0e8);
           iVar11 = **(int **)((int)param_1 + 0x70);
-          (**(code **)(iVar11 + 0xa4))
-                    ((int)*(int **)((int)param_1 + 0x70) + (int)*(short *)(iVar11 + 0xa0),
-                     *(uint32_t *)((int)param_1 + 0x24c));
+          (((vtbl_entry*)(iVar11))[20].fn)
+                    ((int)*(int **)((int)param_1 + 0x70) + (int)((vtbl_entry*)(iVar11))[20].adj, *(uint32_t *)((int)param_1 + 0x24c));
         }
         set_byte_at_offset_five((int)pvVar3,(char)uVar13);
-        call_single_argument_helper_1036bd60(param_1,pvVar3);
+        call_single_argument_helper_1036bd60((uint32_t)(param_1),(uint32_t)(pvVar3));
         uVar6 = read_table_entry_at_offset((int)pvVar3,uVar13);
         *(uint16_t *)((int)param_1 + 0x250) = uVar6;
         uVar6 = read_second_word_from_pointer_array((int)pvVar3,uVar13);
@@ -139,8 +136,8 @@ code_r0x1036d8cc:
     if (cVar7 != '\0') {
       do {
         iVar2 = **(int **)((int)param_1 + 0x70);
-        (**(code **)(iVar2 + 0xac))
-                  ((int)*(int **)((int)param_1 + 0x70) + (int)*(short *)(iVar2 + 0xa8),bVar9);
+        (((vtbl_entry*)(iVar2))[21].fn)
+                  ((int)*(int **)((int)param_1 + 0x70) + (int)((vtbl_entry*)(iVar2))[21].adj,bVar9);
         bVar9 = bVar9 + 1;
         bVar10 = read_byte_at_offset_four_1051e508((int)param_1 + 0x1c);
       } while (bVar9 < bVar10);
@@ -153,12 +150,12 @@ code_r0x1036d8cc:
     sVar1 = *(short *)(iVar2 + 0xb0);
     uStack_1c = read_offset_six_word_1051e514(iVar11);
     uVar4 = read_offset_8_word(iVar11);
-    (**(code **)(iVar2 + 0xb4))((int)piVar12 + (int)sVar1,uStack_1c,uVar4);
+    (((vtbl_entry*)(iVar2))[22].fn)((int)piVar12 + (int)sVar1,uStack_1c,uVar4);
     piVar12 = *(int **)((int)param_1 + 0x70);
     iVar2 = *piVar12;
     sVar1 = *(short *)(iVar2 + 0xb8);
     uVar8 = read_byte_at_offset_five_1051e50e(iVar11);
-    (**(code **)(iVar2 + 0xbc))((int)piVar12 + (int)sVar1,uVar8);
+    (((vtbl_entry*)(iVar2))[23].fn)((int)piVar12 + (int)sVar1,uVar8);
     release_object_field_0x70(param_1);
     bVar9 = read_byte_at_offset_four_1051e508(iVar11);
     uVar13 = read_byte_at_offset_one_1051e4f6(iVar11);

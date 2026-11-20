@@ -11,22 +11,22 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_105a70ec_new(uint32_t *param_1)
+cls_105a70ec * cls_105a70ec_new(cls_105a70ec *param_1)
 
 {
   int iVar1;
   int iVar2;
   
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0xc), param_1 != (uint32_t *)0x0)) {
-    cls_105b5264_new(param_1);
-    *param_1 = (uint32_t)&DAT_105a70ec/*ROM*/;
+  if ((param_1 != (cls_105a70ec *)0x0) ||
+     (param_1 = (cls_105a70ec *)heap_alloc((void *)0xc), param_1 != (cls_105a70ec *)0x0)) {
+    cls_105b5264_new((cls_105b5264 *)param_1);
+    param_1->field_0x0 = (uintptr_t)(&DAT_105a70ec/*ROM*/);
     iVar1 = 0;
     iVar2 = 1;
     do {
-      *(uint8_t *)((int)param_1 + iVar1 + 4) = 0;
-      *(uint8_t *)((int)param_1 + iVar1 + 5) = 0;
-      *(uint8_t *)((int)param_1 + iVar1 + 6) = 0;
+      (&param_1->field_0x4)[iVar1] = 0;
+      (&param_1->field_0x5)[iVar1] = 0;
+      (&param_1->field_0x6)[iVar1] = 0;
       iVar2 = iVar2 + -1;
       iVar1 = iVar1 + 3;
     } while (-1 < iVar2);

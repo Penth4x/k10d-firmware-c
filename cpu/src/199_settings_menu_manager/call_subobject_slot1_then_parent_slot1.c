@@ -21,7 +21,7 @@ void call_subobject_slot1_then_parent_slot1(int param_1,uint32_t param_2)
   int iVar1;
   
   iVar1 = *(int *)(*(int *)(param_1 + 0x48) + 0xc);
-  (**(code **)(iVar1 + 0xc))(*(int *)(param_1 + 0x48) + (int)*(short *)(iVar1 + 8));
+  (((vtbl_entry*)(iVar1))[1].fn)(*(int *)(param_1 + 0x48) + (int)*(short *)(iVar1 + 8));
   notify_range_end_to_observers(param_1,param_2);
   return;
 }

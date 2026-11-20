@@ -20,7 +20,7 @@
 void release_object_with_pointer_field(void *param_1)
 
 {
-  reset_and_select_channel_1039a462((void *)((int)param_1 + 4),0xffffffff);
+  reset_and_select_channel_1039a462((void *)((int)param_1 + 4),(uint32_t)(0xffffffff));
   forward_params_via_helper_10394686(param_1,*(int **)((int)param_1 + 0x48),0);
   request_ui_sync_with_flag_10491f5c(*(void **)((int)param_1 + 0x48),0);
   return;

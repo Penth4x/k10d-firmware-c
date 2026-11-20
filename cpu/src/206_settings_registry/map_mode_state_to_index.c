@@ -20,8 +20,8 @@ void map_mode_state_to_index(int param_1,int param_2)
   case 1:
   case 2:
     iVar3 = **(int **)(param_1 + 0x14);
-    uVar1 = (**(code **)(iVar3 + 0x14))
-                      ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar3 + 0x10),8);
+    uVar1 = (((vtbl_entry*)(iVar3))[2].fn)
+                      ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar3))[2].adj,8);
     switch(uVar1) {
     case 0:
     case 4:

@@ -25,18 +25,18 @@ uint32_t query_object_property_if_valid(int param_1)
   uint uVar1;
   uint32_t uVar3;
   uintptr_t sp;
-  uint8_t auStack_1c [20];
+  cls_105a6abc acStack_1c [5];
   
   bVar2 = set_pointer_and_clear_flag((int *)(param_1 + 0x2c),(void *)(param_1 + 4));
   uVar3 = 8;
   if (bVar2) {
-    cls_105a6abc_new((void *)auStack_1c);
-    copy_buffer_with_lock_1045e22a(*(int *)(param_1 + 0x1c),auStack_1c);
+    cls_105a6abc_new(acStack_1c);
+    copy_buffer_with_lock_1045e22a(*(int *)(param_1 + 0x1c),acStack_1c);
     uVar3 = get_or_init_heap_block();
-    uVar1 = extract_bitfield_from_byte_array(auStack_1c,0x17);
+    uVar1 = extract_bitfield_from_byte_array(acStack_1c,0x17);
     uVar3 = (*(code *)0x1045b0aa/*ROM*/)(uVar3,uVar1 & 0xff);
     delete_signal_semaphore((int *)(param_1 + 0x2c));
-    cls_105a6abc_delete((void *)auStack_1c,2);
+    cls_105a6abc_delete(acStack_1c,2);
   }
   return uVar3;
 }

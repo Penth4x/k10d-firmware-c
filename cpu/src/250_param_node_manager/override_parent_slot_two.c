@@ -14,9 +14,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void override_parent_slot_two(void)
+/* WARNING: Struct "cls_105bb314": ignoring overlapping field "field_0x8" */
+/* WARNING: Struct "cls_105bb0ec": ignoring overlapping field "field_0x8" */
+
+void override_parent_slot_two(cls_105bb314 *param_1)
 
 {
-  initialize_object_subcomponent(__frv_reg_unset(4));
+  initialize_object_subcomponent((cls_105bb0ec *)param_1);
   return;
 }

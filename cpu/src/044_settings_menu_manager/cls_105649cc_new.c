@@ -11,79 +11,86 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_105649cc_new(uint32_t *param_1)
+cls_105643d0 * cls_105649cc_new(cls_105649cc *param_1)
 
 {
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x11c), param_1 != (uint32_t *)0x0)) {
-    cls_105643d0_new(param_1);
-    *param_1 = 0x105649cc/*ROM*/;
-    *(uint8_t *)(param_1 + 0x10) = 0;
-    *(uint8_t *)((int)param_1 + 0x41) = 0;
-    *(uint8_t *)((int)param_1 + 0x42) = 0;
-    *(uint8_t *)((int)param_1 + 0x43) = 0;
-    *(uint8_t *)(param_1 + 0x11) = 0;
-    *(uint8_t *)((int)param_1 + 0x45) = 0;
-    *(uint16_t *)((int)param_1 + 0x46) = 0;
-    *(uint16_t *)(param_1 + 0x12) = 0;
-    *(uint16_t *)((int)param_1 + 0x4a) = 0;
-    *(uint8_t *)(param_1 + 0x13) = 0;
-    *(uint8_t *)((int)param_1 + 0x4d) = 0;
-    *(uint8_t *)((int)param_1 + 0x4e) = 0;
-    *(uint8_t *)(param_1 + 0x46) = 0;
-    *(uint8_t *)((int)param_1 + 0x119) = 0;
-    *(uint16_t *)(param_1 + 0x14) = 0;
-    *(uint16_t *)((int)param_1 + 0x52) = 0x18;
-    *(uint16_t *)(param_1 + 0x15) = 0x1a;
-    *(uint16_t *)((int)param_1 + 0x56) = 0x1b;
-    *(uint16_t *)(param_1 + 0x16) = 0x1c;
-    *(uint16_t *)((int)param_1 + 0x5a) = 0x1e;
-    *(uint16_t *)(param_1 + 0x17) = 0x20;
-    *(uint16_t *)((int)param_1 + 0x5e) = 0x21;
-    *(uint16_t *)(param_1 + 0x18) = 0x22;
-    *(uint16_t *)((int)param_1 + 0x62) = 0x24;
-    *(uint16_t *)(param_1 + 0x19) = 0x26;
-    *(uint16_t *)((int)param_1 + 0x66) = 0x27;
-    *(uint16_t *)(param_1 + 0x1a) = 0x28;
-    *(uint16_t *)((int)param_1 + 0x6a) = 0x2a;
-    *(uint16_t *)(param_1 + 0x1b) = 0x2c;
-    *(uint16_t *)((int)param_1 + 0x6e) = 0x2d;
-    *(uint16_t *)(param_1 + 0x1c) = 0x2e;
-    *(uint16_t *)((int)param_1 + 0x72) = 0x30;
-    *(uint16_t *)(param_1 + 0x1d) = 0x32;
-    *(uint16_t *)((int)param_1 + 0x76) = 0x33;
-    *(uint16_t *)(param_1 + 0x1e) = 0x34;
-    *(uint16_t *)((int)param_1 + 0x7a) = 0x36;
-    *(uint16_t *)(param_1 + 0x1f) = 0x38;
-    *(uint16_t *)((int)param_1 + 0x7e) = 0x39;
-    *(uint16_t *)(param_1 + 0x20) = 0x3a;
-    *(uint16_t *)((int)param_1 + 0x82) = 0x3c;
-    *(uint8_t *)(param_1 + 0x2d) = 0;
-    *(uint8_t *)(param_1 + 0x33) = 1;
-    *(uint8_t *)((int)param_1 + 0xce) = 2;
-    *(uint8_t *)((int)param_1 + 0xcf) = 3;
-    *(uint8_t *)(param_1 + 0x34) = 4;
-    *(uint8_t *)((int)param_1 + 0xd2) = 5;
-    *(uint8_t *)(param_1 + 0x35) = 6;
-    *(uint8_t *)((int)param_1 + 0xd5) = 7;
-    *(uint8_t *)((int)param_1 + 0xd6) = 8;
-    *(uint8_t *)(param_1 + 0x36) = 9;
-    *(uint8_t *)((int)param_1 + 0xda) = 10;
-    *(uint8_t *)((int)param_1 + 0xdb) = 0xb;
-    *(uint8_t *)(param_1 + 0x37) = 0xc;
-    *(uint8_t *)((int)param_1 + 0xde) = 0xd;
-    *(uint8_t *)(param_1 + 0x38) = 0xe;
-    *(uint8_t *)((int)param_1 + 0xe1) = 0xf;
-    *(uint8_t *)((int)param_1 + 0xe2) = 0x10;
-    *(uint8_t *)(param_1 + 0x39) = 0x11;
-    *(uint8_t *)((int)param_1 + 0xe6) = 0x12;
-    *(uint8_t *)((int)param_1 + 0xe7) = 0x13;
-    *(uint8_t *)(param_1 + 0x3a) = 0x14;
-    *(uint8_t *)((int)param_1 + 0xea) = 0x15;
-    *(uint8_t *)(param_1 + 0x3b) = 0x16;
-    *(uint8_t *)((int)param_1 + 0xed) = 0x17;
-    *(uint8_t *)((int)param_1 + 0xee) = 0x18;
-    *(uint8_t *)(param_1 + 0x3c) = 0x19;
+  if ((param_1 != (cls_105649cc *)0x0) ||
+     (param_1 = (cls_105649cc *)heap_alloc((void *)0x11c), (cls_105643d0 *)param_1 != (cls_105643d0 *)0x0))
+  {
+    cls_105643d0_new((cls_105643d0 *)param_1);
+    ((cls_105643d0 *)param_1)->field_0x0 = (uintptr_t)((void *)0x105649cc/*ROM*/);
+    ((cls_105643d0 *)param_1)->field40_0x40 = 0;
+    ((cls_105643d0 *)param_1)->field41_0x41 = '\0';
+    ((cls_105643d0 *)param_1)->field42_0x42 = 0;
+    ((cls_105643d0 *)param_1)->field43_0x43 = 0;
+    ((cls_105643d0 *)param_1)->field44_0x44 = 0;
+    ((cls_105643d0 *)param_1)->field45_0x45 = 0;
+    ((cls_105643d0 *)param_1)->field46_0x46 = 0;
+    ((cls_105643d0 *)param_1)->field47_0x47 = 0;
+    ((cls_105643d0 *)param_1)->field48_0x48 = 0;
+    ((cls_105643d0 *)param_1)->field49_0x49 = 0;
+    ((cls_105643d0 *)param_1)->field50_0x4a = 0;
+    ((cls_105643d0 *)param_1)->field51_0x4b = 0;
+    ((cls_105643d0 *)param_1)->field52_0x4c = '\0';
+    ((cls_105643d0 *)param_1)->field53_0x4d = 0;
+    ((cls_105643d0 *)param_1)->field54_0x4e = 0;
+    ((cls_105643d0 *)param_1)->field196_0x118 = 0;
+    ((cls_105643d0 *)param_1)->field197_0x119 = 0;
+    *(uint16_t *)&((cls_105643d0 *)param_1)->field56_0x50 = 0;
+    *(uint16_t *)((int)&((cls_105643d0 *)param_1)->field56_0x50 + 2) = 0x18;
+    ((cls_105643d0 *)param_1)->field57_0x54 = 0x1a;
+    ((cls_105643d0 *)param_1)->field58_0x56 = 0;
+    ((cls_105643d0 *)param_1)->field59_0x57 = '\x1b';
+    *(uint16_t *)&((cls_105643d0 *)param_1)->field_0x58 = 0x1c;
+    ((cls_105643d0 *)param_1)->field62_0x5a = 0;
+    ((cls_105643d0 *)param_1)->field63_0x5b = 0x1e;
+    ((cls_105643d0 *)param_1)->field64_0x5c = 0x20;
+    ((cls_105643d0 *)param_1)->field65_0x5e = 0x21;
+    ((cls_105643d0 *)param_1)->field66_0x60 = 0x22;
+    ((cls_105643d0 *)param_1)->field67_0x62 = 0x24;
+    ((cls_105643d0 *)param_1)->field68_0x64 = 0x26;
+    ((cls_105643d0 *)param_1)->field69_0x66 = 0x27;
+    ((cls_105643d0 *)param_1)->field70_0x68 = 0x28;
+    ((cls_105643d0 *)param_1)->field71_0x6a = 0x2a;
+    ((cls_105643d0 *)param_1)->field72_0x6c = 0x2c;
+    ((cls_105643d0 *)param_1)->field73_0x6e = 0x2d;
+    ((cls_105643d0 *)param_1)->field74_0x70 = 0x2e;
+    ((cls_105643d0 *)param_1)->field75_0x72 = 0x30;
+    ((cls_105643d0 *)param_1)->field76_0x74 = 0;
+    ((cls_105643d0 *)param_1)->field77_0x75 = 0x32;
+    ((cls_105643d0 *)param_1)->field78_0x76 = 0x33;
+    ((cls_105643d0 *)param_1)->field79_0x78 = 0x34;
+    ((cls_105643d0 *)param_1)->field80_0x7a = 0x36;
+    ((cls_105643d0 *)param_1)->field81_0x7c = 0x38;
+    ((cls_105643d0 *)param_1)->field82_0x7e = 0x39;
+    ((cls_105643d0 *)param_1)->field83_0x80 = 0x3a;
+    ((cls_105643d0 *)param_1)->field84_0x82 = 0x3c;
+    *(uint8_t *)&((cls_105643d0 *)param_1)->field118_0xb4 = 0;
+    ((cls_105643d0 *)param_1)->field124_0xcc = 1;
+    ((cls_105643d0 *)param_1)->field126_0xce = 2;
+    ((cls_105643d0 *)param_1)->field127_0xcf = 3;
+    ((cls_105643d0 *)param_1)->field128_0xd0 = 4;
+    ((cls_105643d0 *)param_1)->field130_0xd2 = 5;
+    ((cls_105643d0 *)param_1)->field132_0xd4 = 6;
+    ((cls_105643d0 *)param_1)->field133_0xd5 = 7;
+    ((cls_105643d0 *)param_1)->field134_0xd6 = 8;
+    ((cls_105643d0 *)param_1)->field136_0xd8 = 9;
+    ((cls_105643d0 *)param_1)->field138_0xda = 10;
+    ((cls_105643d0 *)param_1)->field139_0xdb = 0xb;
+    ((cls_105643d0 *)param_1)->field140_0xdc = 0xc;
+    ((cls_105643d0 *)param_1)->field142_0xde = 0xd;
+    ((cls_105643d0 *)param_1)->field144_0xe0 = 0xe;
+    ((cls_105643d0 *)param_1)->field145_0xe1 = 0xf;
+    ((cls_105643d0 *)param_1)->field146_0xe2 = 0x10;
+    ((cls_105643d0 *)param_1)->field148_0xe4 = 0x11;
+    ((cls_105643d0 *)param_1)->field150_0xe6 = 0x12;
+    ((cls_105643d0 *)param_1)->field151_0xe7 = 0x13;
+    ((cls_105643d0 *)param_1)->field152_0xe8 = 0x14;
+    ((cls_105643d0 *)param_1)->field154_0xea = 0x15;
+    ((cls_105643d0 *)param_1)->field156_0xec = 0x16;
+    ((cls_105643d0 *)param_1)->field157_0xed = 0x17;
+    ((cls_105643d0 *)param_1)->field158_0xee = 0x18;
+    ((cls_105643d0 *)param_1)->field160_0xf0 = 0x19;
   }
-  return param_1;
+  return (cls_105643d0 *)param_1;
 }

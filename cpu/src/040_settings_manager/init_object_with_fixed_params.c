@@ -18,7 +18,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_with_fixed_params(void *param_1,uint32_t param_2,void *param_3,void *param_4)
+void init_object_with_fixed_params(cls_10563ba4 *param_1,uint32_t param_2,void *param_3,void *param_4)
 
 {
   void *pvVar1;

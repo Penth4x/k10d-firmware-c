@@ -14,10 +14,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_two_helpers_with_param_10393d66(uint32_t param_1)
+void call_two_helpers_with_param_10393d66(cls_10562a24 *param_1)
 
 {
   call_two_unnamed_helpers_10394af0();
-  call_single_helper_10393dd6(param_1);
+  call_single_helper_10393dd6((uint)param_1);
   return;
 }

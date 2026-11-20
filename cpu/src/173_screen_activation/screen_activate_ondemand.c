@@ -35,13 +35,13 @@ bool screen_activate_ondemand(void *param_1,void *param_2)
   
   pvVar2 = (void *)get_system_heap();
   pvVar2 = (void *)mempool_get_block(pvVar2,&DAT_00000200,2);
-  iVar3 = lookup_table_entry_by_index_10482026((void *)_DAT_80010030/*SDRAM*/);
+  iVar3 = lookup_table_entry_by_index_10482026((void*)(_DAT_80010030/*SDRAM*/));
   bVar1 = true;
-  iVar4 = (**(code **)(*(int *)(iVar3 + 4) + 0x1c))
-                    (*(short *)(*(int *)(iVar3 + 4) + 0x18) + iVar3,0);
+  iVar4 = (((vtbl_entry*)(*(int *)(iVar3 + 4)))[3].fn)
+                    (((vtbl_entry*)(*(int *)(iVar3 + 4)))[3].adj + iVar3,0);
   if ((iVar4 != 0) &&
-     (iVar4 = (**(code **)(*(int *)(iVar3 + 4) + 0x3c))
-                        (*(short *)(*(int *)(iVar3 + 4) + 0x38) + iVar3,0,1,pvVar2), iVar4 != 0)) {
+     (iVar4 = (((vtbl_entry*)(*(int *)(iVar3 + 4)))[7].fn)
+                        (((vtbl_entry*)(*(int *)(iVar3 + 4)))[7].adj + iVar3,0,1,pvVar2), iVar4 != 0)) {
     bVar1 = false;
     alloc_and_store_pointer(&uStack_1c,pvVar2);
     alloc_and_zero_16_bytes_1047f12a(auStack_18);
@@ -61,7 +61,7 @@ bool screen_activate_ondemand(void *param_1,void *param_2)
     free_heap_if_flag_set_1047f3b6(&uStack_1c,2);
   }
   if (bVar1) {
-    iVar3 = (**(code **)(*(int *)(iVar3 + 4) + 100))(*(short *)(*(int *)(iVar3 + 4) + 0x60) + iVar3)
+    iVar3 = (((vtbl_entry*)(*(int *)(iVar3 + 4)))[12].fn)(((vtbl_entry*)(*(int *)(iVar3 + 4)))[12].adj + iVar3)
     ;
     if (iVar3 == 5) {
       *(uint32_t *)((int)param_1 + 4) = 0xfffffcae;

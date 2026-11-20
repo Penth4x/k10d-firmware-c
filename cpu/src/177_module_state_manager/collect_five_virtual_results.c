@@ -24,7 +24,7 @@ uint32_t collect_five_virtual_results(void *param_1,int param_2)
       *(uint32_t *)(param_2 + iVar3) = 0;
     }
     else {
-      uVar2 = (**(code **)(*piVar1 + 0x2c))((int)*(short *)(*piVar1 + 0x28) + (int)piVar1);
+      uVar2 = (((vtbl_entry*)(*piVar1))[5].fn)((int)((vtbl_entry*)(*piVar1))[5].adj + (int)piVar1);
       *(uint32_t *)(param_2 + iVar3) = uVar2;
     }
     piVar1 = (int *)module_array_getter(param_1,iVar4 + 1);
@@ -32,7 +32,7 @@ uint32_t collect_five_virtual_results(void *param_1,int param_2)
       *(uint32_t *)(param_2 + iVar3 + 4) = 0;
     }
     else {
-      uVar2 = (**(code **)(*piVar1 + 0x2c))((int)*(short *)(*piVar1 + 0x28) + (int)piVar1);
+      uVar2 = (((vtbl_entry*)(*piVar1))[5].fn)((int)((vtbl_entry*)(*piVar1))[5].adj + (int)piVar1);
       *(uint32_t *)(param_2 + iVar3 + 4) = uVar2;
     }
     piVar1 = (int *)module_array_getter(param_1,iVar4 + 2);
@@ -40,7 +40,7 @@ uint32_t collect_five_virtual_results(void *param_1,int param_2)
       *(uint32_t *)(param_2 + iVar3 + 8) = 0;
     }
     else {
-      uVar2 = (**(code **)(*piVar1 + 0x2c))((int)*(short *)(*piVar1 + 0x28) + (int)piVar1);
+      uVar2 = (((vtbl_entry*)(*piVar1))[5].fn)((int)((vtbl_entry*)(*piVar1))[5].adj + (int)piVar1);
       *(uint32_t *)(param_2 + iVar3 + 8) = uVar2;
     }
     piVar1 = (int *)module_array_getter(param_1,iVar4 + 3);
@@ -48,7 +48,7 @@ uint32_t collect_five_virtual_results(void *param_1,int param_2)
       *(uint32_t *)(param_2 + iVar3 + 0xc) = 0;
     }
     else {
-      uVar2 = (**(code **)(*piVar1 + 0x2c))((int)*(short *)(*piVar1 + 0x28) + (int)piVar1);
+      uVar2 = (((vtbl_entry*)(*piVar1))[5].fn)((int)((vtbl_entry*)(*piVar1))[5].adj + (int)piVar1);
       *(uint32_t *)(param_2 + iVar3 + 0xc) = uVar2;
     }
     piVar1 = (int *)module_array_getter(param_1,iVar4 + 4);
@@ -56,7 +56,7 @@ uint32_t collect_five_virtual_results(void *param_1,int param_2)
       *(uint32_t *)(param_2 + iVar3 + 0x10) = 0;
     }
     else {
-      uVar2 = (**(code **)(*piVar1 + 0x2c))((int)*(short *)(*piVar1 + 0x28) + (int)piVar1);
+      uVar2 = (((vtbl_entry*)(*piVar1))[5].fn)((int)((vtbl_entry*)(*piVar1))[5].adj + (int)piVar1);
       *(uint32_t *)(param_2 + iVar3 + 0x10) = uVar2;
     }
     iVar4 = iVar4 + 5;

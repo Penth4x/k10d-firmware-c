@@ -14,11 +14,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_helper_on_offset_field_104ef4a4(int param_1,int param_2)
+/* WARNING: Struct "cls_105c2e20": ignoring multiple overlapping fields */
+
+uint32_t call_helper_on_offset_field_104ef4a4(cls_105c2e20 *param_1,int param_2)
 
 {
   if (param_2 == -0x7fffffec) {
-    invoke_virtual_slot_two_104272e4((void *)(param_1 + 0x14),0x10d0001,0);
+    invoke_virtual_slot_two_104272e4((void *)&param_1->field_0x14,0x10d0001,0);
   }
   return 0;
 }

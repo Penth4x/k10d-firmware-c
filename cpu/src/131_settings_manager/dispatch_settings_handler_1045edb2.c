@@ -28,7 +28,7 @@ void dispatch_settings_handler_1045edb2(int param_1,int param_2,int param_3)
     scatter_bytes_via_offset_table_1045fd2e(piVar1,param_2);
   }
   else {
-    (**(code **)(*piVar1 + 0x44))((int)piVar1 + (int)*(short *)(*piVar1 + 0x40));
+    (((vtbl_entry*)(*piVar1))[8].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[8].adj);
   }
   check_kernel_call_success_10459d88((uint32_t *)(param_1 + 0xa4));
   return;

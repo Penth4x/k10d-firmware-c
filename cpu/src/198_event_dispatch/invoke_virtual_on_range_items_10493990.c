@@ -26,7 +26,7 @@ void invoke_virtual_on_range_items_10493990(int param_1,uint32_t param_2)
   if (piVar1 != *(int **)(param_1 + 0x4c)) {
     do {
       iVar2 = *(int *)(*piVar1 + 0xc);
-      (**(code **)(iVar2 + 0xc))(*piVar1 + (int)*(short *)(iVar2 + 8),param_2);
+      (((vtbl_entry*)(iVar2))[1].fn)(*piVar1 + (int)*(short *)(iVar2 + 8),param_2);
       piVar1 = piVar1 + 1;
     } while (piVar1 != *(int **)(param_1 + 0x4c));
   }

@@ -22,7 +22,7 @@ bool query_object_via_virtual_call_10480050(uint32_t param_x0, uint32_t param_x1
 {
   int iVar1;
   
-  iVar1 = lookup_table_entry_by_index_10482026((void *)_DAT_80010030/*SDRAM*/);
-  iVar1 = (**(code **)(*(int *)(iVar1 + 4) + 0x4c))(iVar1 + *(short *)(*(int *)(iVar1 + 4) + 0x48));
+  iVar1 = lookup_table_entry_by_index_10482026((void*)(_DAT_80010030/*SDRAM*/));
+  iVar1 = (((vtbl_entry*)(*(int *)(iVar1 + 4)))[9].fn)(iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 4)))[9].adj);
   return iVar1 != 0;
 }

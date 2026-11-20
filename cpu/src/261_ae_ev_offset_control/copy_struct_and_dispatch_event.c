@@ -66,7 +66,7 @@ void copy_struct_and_dispatch_event(int param_1,int *param_2)
   iStack_10 = param_2[0xd];
   puVar1 = (uint32_t *)(param_1 + 0x2c);
   eventflag_clr_flg(puVar1,1);
-  build_and_send_param_struct_10505a10(*(uint32_t *)(param_1 + 0x24),1,param_1 + 4,&uStack_44);
+  build_and_send_param_struct_10505a10((int)(*(uint32_t *)(param_1 + 0x24)),(int)(1),(void *)(param_1 + 4),(int *)(&uStack_44));
   eventflag_wai_flg(puVar1,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,1);
   configure_timer_channel_state(*(uint32_t *)(param_1 + 0x24),1);

@@ -18,7 +18,7 @@ void invoke_virtual_on_two_object_lists(int param_1,uint32_t param_2)
     do {
       piVar1 = *(int **)(uVar2 * 4 + *(int *)(param_1 + 0x1c));
       iVar3 = *piVar1;
-      (**(code **)(iVar3 + 0x14))((int)piVar1 + (int)*(short *)(iVar3 + 0x10),param_2);
+      (((vtbl_entry*)(iVar3))[2].fn)((int)piVar1 + (int)((vtbl_entry*)(iVar3))[2].adj,param_2);
       uVar2 = uVar2 + 1 & 0xff;
     } while (uVar2 < *(byte *)(param_1 + 0x14));
   }
@@ -27,7 +27,7 @@ void invoke_virtual_on_two_object_lists(int param_1,uint32_t param_2)
     do {
       piVar1 = *(int **)(uVar2 * 4 + *(int *)(param_1 + 0x20));
       iVar3 = *piVar1;
-      (**(code **)(iVar3 + 0x14))((int)piVar1 + (int)*(short *)(iVar3 + 0x10),param_2);
+      (((vtbl_entry*)(iVar3))[2].fn)((int)piVar1 + (int)((vtbl_entry*)(iVar3))[2].adj,param_2);
       uVar2 = uVar2 + 1 & 0xff;
     } while (uVar2 < *(byte *)(param_1 + 0x15));
   }

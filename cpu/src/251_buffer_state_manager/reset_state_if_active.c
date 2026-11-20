@@ -16,16 +16,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool reset_state_if_active(int *param_1)
+bool reset_state_if_active(cls_105bce58 *param_1)
 
 {
-  int iVar1;
+  bool bVar1;
   
-  iVar1 = *param_1;
-  if (iVar1 == 1) {
+  bVar1 = param_1->field_0x0 == 1;
+  if (bVar1) {
     init_two_pointers_via_helper(param_1,0);
     call_subroutine_on_field_0x28(param_1);
-    *param_1 = 0;
+    param_1->field_0x0 = 0;
   }
-  return iVar1 == 1;
+  return bVar1;
 }

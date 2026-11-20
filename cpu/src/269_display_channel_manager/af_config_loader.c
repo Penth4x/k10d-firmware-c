@@ -114,7 +114,7 @@ bool af_config_loader(int param_1)
   iVar2 = caller_r10[0x235];
   sVar1 = *(short *)(iVar2 + 0x70);
   *(uint32_t *)(caller_r14 + -0x34) = 4;
-  (**(code **)(iVar2 + 0x74))((int)sVar1 + (int)caller_r10,4);
+  (((vtbl_entry*)(iVar2))[14].fn)((int)sVar1 + (int)caller_r10,4);
   cVar5 = settings_getter((int)(caller_r11 + 0x59),0xd);
   if (((cVar5 == '\t') || (cVar5 == '\n')) || (cVar5 == '\v')) {
     *(uint16_t *)caller_r11[0x131] =
@@ -126,7 +126,7 @@ bool af_config_loader(int param_1)
     *(uint16_t *)(caller_r11[0x131] + 6) =
          *(uint16_t *)(*(int *)(*(int *)(caller_r14 + -0x38) + 0x4c4) + 0xe);
   }
-  iVar2 = (**(code **)(*caller_r11 + 0x1c))((int)*(short *)(*caller_r11 + 0x18) + (int)caller_r11,0x10)
+  iVar2 = (((vtbl_entry*)(*caller_r11))[3].fn)((int)((vtbl_entry*)(*caller_r11))[3].adj + (int)caller_r11,0x10)
   ;
   pvVar3 = *(void **)(*(int *)(caller_r14 + -0x3c) + 0x7c);
   if (iVar2 == 0) {
@@ -158,25 +158,25 @@ bool af_config_loader(int param_1)
     iVar2 = mempool_get_block(pvVar3,(void *)caller_r10[0x1c],0);
     bVar8 = iVar2 == 0;
     if (!bVar8) {
-      (**(code **)(caller_r10[0x235] + 0x54))
-                ((int)*(short *)(caller_r10[0x235] + 0x50) + (int)caller_r10);
+      (((vtbl_entry*)(caller_r10[0x235]))[10].fn)
+                ((int)((vtbl_entry*)(caller_r10[0x235]))[10].adj + (int)caller_r10);
     }
     iVar2 = 0x78;
   }
   else if ((*(int *)(caller_r14 + -0x30) == 4) || (*(int *)(caller_r14 + -0x30) == 2)) {
-    (**(code **)(caller_r10[0x235] + 0x14))
-              ((int)*(short *)(caller_r10[0x235] + 0x10) + (int)caller_r10,0);
-    (**(code **)(caller_r10[0x235] + 0x24))
-              ((int)*(short *)(caller_r10[0x235] + 0x20) + (int)caller_r10,
+    (((vtbl_entry*)(caller_r10[0x235]))[2].fn)
+              ((int)((vtbl_entry*)(caller_r10[0x235]))[2].adj + (int)caller_r10,0);
+    (((vtbl_entry*)(caller_r10[0x235]))[4].fn)
+              ((int)((vtbl_entry*)(caller_r10[0x235]))[4].adj + (int)caller_r10,
                *(int *)(caller_r14 + -0x2c) + -0x600);
     iVar2 = 0x74;
   }
   else {
     if ((*(int *)(caller_r14 + -0x30) != 5) && (*(int *)(caller_r14 + -0x30) != 3)) goto LAB_1050cf86;
-    (**(code **)(caller_r10[0x235] + 0x14))
-              ((int)*(short *)(caller_r10[0x235] + 0x10) + (int)caller_r10,0);
-    (**(code **)(caller_r10[0x235] + 0x24))
-              ((int)*(short *)(caller_r10[0x235] + 0x20) + (int)caller_r10,
+    (((vtbl_entry*)(caller_r10[0x235]))[2].fn)
+              ((int)((vtbl_entry*)(caller_r10[0x235]))[2].adj + (int)caller_r10,0);
+    (((vtbl_entry*)(caller_r10[0x235]))[4].fn)
+              ((int)((vtbl_entry*)(caller_r10[0x235]))[4].adj + (int)caller_r10,
                *(int *)(caller_r14 + -0x2c) + -0x600);
     pvVar3 = (void *)get_system_heap();
     iVar2 = mempool_get_block(pvVar3,(void *)caller_r10[0x1c],0);
@@ -185,8 +185,8 @@ bool af_config_loader(int param_1)
       iVar2 = 0x7c;
     }
     else {
-      (**(code **)(caller_r10[0x235] + 0x54))
-                ((int)*(short *)(caller_r10[0x235] + 0x50) + (int)caller_r10,iVar2);
+      (((vtbl_entry*)(caller_r10[0x235]))[10].fn)
+                ((int)((vtbl_entry*)(caller_r10[0x235]))[10].adj + (int)caller_r10,iVar2);
       iVar2 = 0x7c;
     }
   }

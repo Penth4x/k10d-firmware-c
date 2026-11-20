@@ -14,16 +14,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_object_at_offset_0x44(int param_1)
+void release_object_at_offset_0x44(cls_105b7f68 *param_1)
 
 {
-  int iVar1;
+  void *pvVar1;
   
-  if (*(int *)(param_1 + 0x44) != 0) {
-    eventflag_clr_flg((void *)(*(int *)(param_1 + 0x44)),0xffffffff);
-    iVar1 = *(int *)(param_1 + 0x44);
-    if (iVar1 != 0) {
-      (**(code **)(*(int *)(iVar1 + 4) + 0xc))(*(short *)(*(int *)(iVar1 + 4) + 8) + iVar1,3);
+  if (param_1->field_0x44 != 0) {
+    eventflag_clr_flg((uint32_t *)(param_1->field_0x44),(uint)(0xffffffff));
+    pvVar1 = (void *)(param_1->field_0x44);
+    if (pvVar1 != 0) {
+      (((vtbl_entry*)(*(int *)((int)pvVar1 + 4)))[1].fn)
+                ((int)*(short *)(*(int *)((int)pvVar1 + 4) + 8) + (int)pvVar1,3);
     }
   }
   return;

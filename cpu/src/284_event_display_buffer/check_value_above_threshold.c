@@ -17,6 +17,6 @@ bool check_value_above_threshold(int param_1)
 {
   int iVar1;
   
-  iVar1 = sum_virtual_method_results((void *)(param_1 + 0xe00));
+  iVar1 = sum_virtual_method_results((cls_105f9250 *)(param_1 + 0xe00));
   return 3 < (uint)(iVar1 << 8) / 0x4b0000;
 }

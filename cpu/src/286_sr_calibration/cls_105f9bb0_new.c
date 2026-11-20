@@ -18,7 +18,7 @@ uint32_t * cls_105f9bb0_new(uint32_t *param_1)
      (param_1 = (uint32_t *)heap_alloc((void *)0x10), param_1 != (uint32_t *)0x0)) {
     cls_1059e478_new(param_1);
     *param_1 = 0x105f9bb0/*ROM*/;
-    cls_105a2bf8_new(param_1 + 1);
+    cls_105a2bf8_new((void *)(param_1 + 1));
     param_1[3] = 0;
     forward_three_args_to_helper_10459edc(param_1 + 1,0,1);
   }

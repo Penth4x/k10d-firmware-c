@@ -31,7 +31,7 @@ uint32_t cpucom_spi_xfer(void *param_1,uint8_t *param_2,uint8_t *param_3)
   
   call_kernel_with_short_id(*(uint32_t **)((int)param_1 + 0x24));
   iVar11 = *(int *)(*(int *)((int)param_1 + 0x14) + 4);
-  (**(code **)(iVar11 + 100))(*(int *)((int)param_1 + 0x14) + (int)*(short *)(iVar11 + 0x60));
+  (((vtbl_entry*)(iVar11))[12].fn)(*(int *)((int)param_1 + 0x14) + (int)((vtbl_entry*)(iVar11))[12].adj);
   store_word_at_offset_0x20(param_1,0);
   spi_set_state(param_1,0);
   spi_start_xfer(*(void **)((int)param_1 + 0xc));
@@ -108,7 +108,7 @@ uint32_t cpucom_spi_xfer(void *param_1,uint8_t *param_2,uint8_t *param_3)
   store_word_at_offset_0x20(param_1,0xffff);
   invoke_virtual_slot_5_on_nested_object(param_1);
   iVar11 = *(int *)(*(int *)((int)param_1 + 0x14) + 4);
-  (**(code **)(iVar11 + 0x6c))(*(int *)((int)param_1 + 0x14) + (int)*(short *)(iVar11 + 0x68),1);
+  (((vtbl_entry*)(iVar11))[13].fn)(*(int *)((int)param_1 + 0x14) + (int)((vtbl_entry*)(iVar11))[13].adj,1);
   check_kernel_call_success_10459d88(*(uint32_t **)((int)param_1 + 0x24));
   uVar4 = get_cpucom_context_field_2c(param_1);
   return uVar4;

@@ -29,7 +29,7 @@ void dispatch_event_by_type_103a9db4(void *param_1,uint32_t param_2)
   
   iVar6 = (int)param_1 + 8;
   iVar2 = menu_item_register(iVar6);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
   if (*(char *)((int)param_1 + 0x40) == '\f') {
     uVar4 = *(uint32_t *)((int)param_1 + 0x28);
     uVar3 = query_object_property_via_temp_104f2482(uVar4);
@@ -49,18 +49,18 @@ void dispatch_event_by_type_103a9db4(void *param_1,uint32_t param_2)
   else {
     if (cVar1 == '\x16') {
       iVar2 = menu_item_register(iVar6);
-      (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
       goto LAB_103a9eac;
     }
     if (iVar2 == 0) {
       iVar2 = menu_item_register((int)param_1 + 8);
-      (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
       goto LAB_103a9eac;
     }
   }
   render_exposure_value_digits_103a9ed6((int)param_1,iVar2);
 LAB_103a9eac:
   iVar2 = menu_item_register(iVar6);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   return;
 }

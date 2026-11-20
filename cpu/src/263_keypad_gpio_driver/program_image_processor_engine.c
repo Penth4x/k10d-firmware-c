@@ -109,7 +109,7 @@ void program_image_processor_engine(int param_1,uint32_t *param_2)
     uStack_17 = *(uint8_t *)((int)param_2 + 0x39);
     uStack_14 = param_2[0xf];
     eventflag_clr_flg((uint32_t *)(param_1 + 0x2c), __frv_reg_unset(5));
-    imgp_c_program_and_start(*(uint32_t *)(param_1 + 0x24),(void *)(param_1 + 4),&uStack_50);
+    imgp_c_program_and_start_104fe976((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(param_1 + 4),(int *)(&uStack_50));
     eventflag_wai_flg((uint32_t *)(param_1 + 0x2c),1,&uStack_10,_DAT_105a2af0/*ROM*/);
   }
   else {
@@ -138,7 +138,7 @@ void program_image_processor_engine(int param_1,uint32_t *param_2)
     uStack_14 = param_2[0xf];
     puVar1 = (uint32_t *)(param_1 + 0x2c);
     eventflag_clr_flg(puVar1,1);
-    imgp_c_program_and_start(*(uint32_t *)(param_1 + 0x24),(void *)(param_1 + 4),&uStack_50);
+    imgp_c_program_and_start_104fe976((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(param_1 + 4),(int *)(&uStack_50));
     eventflag_wai_flg(puVar1,1,&uStack_c,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar1,1);
     imgp_c_start_and_ack(*(uint32_t *)(param_1 + 0x24));
@@ -173,10 +173,10 @@ void program_image_processor_engine(int param_1,uint32_t *param_2)
     uStack_17 = *(uint8_t *)((int)param_2 + 0x39);
     uStack_14 = param_2[0xf];
     eventflag_clr_flg(puVar1,1);
-    imgp_c_program_and_start(*(uint32_t *)(param_1 + 0x24),(void *)(param_1 + 4),&uStack_50);
+    imgp_c_program_and_start_104fe976((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(param_1 + 4),(int *)(&uStack_50));
     eventflag_wai_flg(puVar1,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   }
-  eventflag_clr_flg((uint32_t *)(param_1 + 0x2c),1);
+  eventflag_clr_flg((uint32_t *)(param_1 + 0x2c),(uint)(1));
   imgp_c_start_and_ack(*(uint32_t *)(param_1 + 0x24));
   return;
 }

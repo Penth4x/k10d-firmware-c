@@ -26,7 +26,7 @@ void invoke_virtual_on_nested_object(void *param_1)
   uVar2 = **(uint32_t **)((int)param_1 + 0x10);
   fill_byte_array(pvVar1,0,0x40);
   iVar3 = **(int **)((int)param_1 + 0x24);
-  (**(code **)(iVar3 + 0xc))
+  (((vtbl_entry*)(iVar3))[1].fn)
             ((int)*(int **)((int)param_1 + 0x24) + (int)*(short *)(iVar3 + 8),pvVar1,uVar2,0);
   return;
 }

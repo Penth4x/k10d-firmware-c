@@ -31,23 +31,15 @@ void process_sensor_readout_event_104ccbe0(int param_1)
   uint extraout_r4;
   uint uVar8;
   uint extraout_r5;
+  void **ppuVar11;
   uintptr_t sp;
-  int *piVar11;
-  uint64_t uVar12;
+  int *piVar12;
   uint64_t uVar13;
   uint64_t uVar14;
+  uint64_t uVar15;
   uint8_t auStack_540 [4];
   int iStack_514;
-  uint8_t auStack_4e0 [16];
-  int iStack_4d0;
-  uint32_t uStack_4c8;
-  uint32_t uStack_4c4;
-  uint32_t uStack_4c0;
-  uint32_t uStack_4bc;
-  uint32_t uStack_4b8;
-  uint32_t auStack_4b4 [2];
-  uint32_t auStack_4ac [119];
-  uint8_t uStack_2d0;
+  cls_105b9458 cStack_4e0;
   uint32_t uStack_2cc;
   uint32_t uStack_2c8;
   uint32_t uStack_2c4;
@@ -58,12 +50,7 @@ void process_sensor_readout_event_104ccbe0(int param_1)
   uint16_t uStack_2b6;
   uint16_t uStack_2b4;
   uint8_t auStack_2b0 [92];
-  uint8_t auStack_254 [28];
-  uint32_t uStack_238;
-  uint32_t uStack_234;
-  uint32_t uStack_230;
-  uint32_t uStack_22c;
-  uint32_t auStack_228 [122];
+  cls_105b9458 cStack_254;
   uint32_t uStack_40;
   uint32_t uStack_3c;
   uint32_t uStack_38;
@@ -83,7 +70,7 @@ void process_sensor_readout_event_104ccbe0(int param_1)
   ushort uStack_e;
   uint16_t uStack_c;
   
-  piVar11 = (int *)auStack_540;
+  piVar12 = (int *)auStack_540;
   *(uint32_t *)(param_1 + 0x210) = 0xc0015;
   puVar5 = (uint32_t *)(*(code *)0x1052d61a/*ROM*/)(*(uint32_t *)(param_1 + 0x1e0));
   iVar4 = puVar5[2];
@@ -99,11 +86,11 @@ void process_sensor_readout_event_104ccbe0(int param_1)
       }
       if (*(char *)(param_1 + 0x218) == '\0') {
         process_three_string_slots_per_entry(*(int *)(param_1 + 0x48));
-        cls_105b9458_new((void *)auStack_4e0);
-        iVar6 = compute_buffer_size_and_init(auStack_4e0,(uint32_t *)(param_1 + 0x1e8),2);
+        cls_105b9458_new(&cStack_4e0);
+        iVar6 = compute_buffer_size_and_init(&cStack_4e0,(uint32_t *)(param_1 + 0x1e8),2);
         if (iVar6 == 0) {
           uVar3 = 3;
-          if (iStack_4d0 != 2) {
+          if (cStack_4e0.field_0x10 != 2) {
             uVar3 = 0;
           }
           *(uint32_t *)(param_1 + 0x214) = uVar3;
@@ -114,15 +101,16 @@ void process_sensor_readout_event_104ccbe0(int param_1)
           uStack_2b8 = 0;
           uStack_2b6 = 0;
           uStack_2b4 = 0;
-          uStack_2c8 = uStack_4c0;
-          uStack_2c4 = uStack_4bc;
-          uStack_2c0 = uStack_4b8;
-          uStack_2cc = uStack_4c4;
-          uVar3 = return_first_word_1045c514(auStack_4b4);
+          uStack_2c8 = cStack_4e0.field_0x20;
+          uStack_2c4 = cStack_4e0.field_0x24;
+          uStack_2c0 = cStack_4e0.field_0x28;
+          ppuVar11 = &cStack_4e0.field_0x2c;
+          uStack_2cc = cStack_4e0.field_0x1c;
+          uVar3 = return_first_word_1045c514(ppuVar11);
           uStack_2b8 = (short)uVar3;
-          uVar3 = return_first_word_1045c514(auStack_4b4);
+          uVar3 = return_first_word_1045c514(ppuVar11);
           uStack_2bc = (short)uVar3;
-          uVar3 = read_struct_field_at_offset_4(auStack_4b4);
+          uVar3 = read_struct_field_at_offset_4(ppuVar11);
           uStack_2b6 = 0;
           uStack_2b4 = 0;
           iStack_514 = 0;
@@ -141,25 +129,25 @@ void process_sensor_readout_event_104ccbe0(int param_1)
           iVar6 = (*(code *)0x1052d61c/*ROM*/)(*(uint32_t *)(param_1 + 0x1e0));
           uVar7 = get_aligned_next_pointer(iVar6);
           uVar3 = (*(code *)0x1052d626/*ROM*/)(*(uint32_t *)(param_1 + 0x1e0));
-          *piVar11 = uVar3;
-          bVar10 = initialize_sensor_object_from_config(iVar4,iStack_514,uVar7,(int)&uStack_2cc,*piVar11);
+          *piVar12 = uVar3;
+          bVar10 = initialize_sensor_object_from_config(iVar4,iStack_514,uVar7,(int)&uStack_2cc,*piVar12);
           if (bVar10) {
             if (*(char *)(param_1 + 500) == '\0') {
-              iVar4 = compare_two_structs_by_mode(param_1,0,auStack_4e0,*(void **)(param_1 + 0x1e4));
+              iVar4 = compare_two_structs_by_mode(param_1,0,&cStack_4e0,*(void **)(param_1 + 0x1e4));
             }
             else {
-              uStack_2d0 = 1;
-              copy_large_struct(auStack_4ac,puVar5);
-              uStack_4c8 = 3;
-              alloc_and_zero_struct_104bb416((void *)auStack_2b0);
+              cStack_4e0.field_0x210 = 1;
+              copy_large_struct((uint32_t *)&cStack_4e0.field_0x34,puVar5);
+              cStack_4e0.field_0x18 = 3;
+              alloc_and_zero_struct_104bb416(auStack_2b0);
               read_struct_field_at_index_104c2890(puVar5,0);
               iVar4 = map_mode_code_to_index_104bb5c4(__frv_reg_unset(4));
               if ((iVar4 == 0) || (iVar4 == 2)) {
-                iVar4 = compare_two_structs_by_mode(param_1,iVar4,auStack_4e0,*(void **)(param_1 + 0x1e4));
+                iVar4 = compare_two_structs_by_mode(param_1,iVar4,&cStack_4e0,*(void **)(param_1 + 0x1e4));
               }
               else {
-                cls_105b9458_new((void *)auStack_254);
-                iVar4 = compare_two_structs_by_mode(param_1,iVar4,auStack_4e0,auStack_254);
+                cls_105b9458_new(&cStack_254);
+                iVar4 = compare_two_structs_by_mode(param_1,iVar4,&cStack_4e0,&cStack_254);
                 if (iVar4 == 0) {
                   iVar4 = 0;
                 }
@@ -173,7 +161,7 @@ void process_sensor_readout_event_104ccbe0(int param_1)
                     else {
                       *(uint32_t *)(param_1 + 0x214) = 0;
                     }
-                    cls_105b9458_delete(auStack_254,2);
+                    cls_105b9458_delete(&cStack_254,2);
                     destroy_five_member_objects(auStack_2b0,2);
                     goto LAB_104cd368;
                   }
@@ -207,31 +195,32 @@ void process_sensor_readout_event_104ccbe0(int param_1)
                   iVar4 = *(int *)(param_1 + 0x1f0) * 3;
                   bVar1 = (&DAT_105b94e0/*ROM*/)[iVar4];
                   bVar2 = (&DAT_105b94e1/*ROM*/)[iVar4];
-                  *(ushort *)((int)piVar11 + 2) = (ushort)(byte)(&DAT_105b94e2/*ROM*/)[iVar4];
+                  *(ushort *)((int)piVar12 + 2) = (ushort)(byte)(&DAT_105b94e2/*ROM*/)[iVar4];
                   forward_event_with_payload(uVar3,&uStack_24,(ushort)bVar1,(ushort)bVar2,
-                               *(uint16_t *)((int)piVar11 + 2));
-                  uStack_3c = uStack_234;
-                  uStack_38 = uStack_230;
-                  uStack_34 = uStack_22c;
-                  uStack_40 = uStack_238;
-                  uVar3 = return_first_word_1045c514(auStack_228);
+                               *(uint16_t *)((int)piVar12 + 2));
+                  uStack_3c = cStack_254.field_0x20;
+                  uStack_38 = cStack_254.field_0x24;
+                  uStack_34 = cStack_254.field_0x28;
+                  uStack_40 = cStack_254.field_0x1c;
+                  ppuVar11 = &cStack_254.field_0x2c;
+                  uVar3 = return_first_word_1045c514(ppuVar11);
                   uStack_2c = (short)uVar3;
-                  uVar3 = return_first_word_1045c514(auStack_228);
+                  uVar3 = return_first_word_1045c514(ppuVar11);
                   uStack_30 = (short)uVar3;
-                  uVar3 = read_struct_field_at_offset_4(auStack_228);
+                  uVar3 = read_struct_field_at_offset_4(ppuVar11);
                   uStack_2a = 0;
                   uStack_28 = 0;
                   uStack_2e = (short)uVar3;
-                  uVar7 = read_struct_field_at_offset_4(auStack_228);
-                  uVar12 = abs_uint32(uVar7 & 0xffff);
-                  uVar7 = return_first_word_1045c514(auStack_228);
+                  uVar7 = read_struct_field_at_offset_4(ppuVar11);
                   uVar13 = abs_uint32(uVar7 & 0xffff);
-                  uVar7 = read_struct_field_at_offset_4((void *)(*(int *)(param_1 + 0x1e4) + 0x2c));
+                  uVar7 = return_first_word_1045c514(ppuVar11);
                   uVar14 = abs_uint32(uVar7 & 0xffff);
-                  uVar12 = multiply_fixed_point_values_105445a2((int)((ulonglong)uVar14 >> 0x20),(int)uVar14,
-                                        (int)((ulonglong)uVar12 >> 0x20),(int)uVar12);
-                  multiply_two_floats((uint)((ulonglong)uVar12 >> 0x20),(uint)uVar12,
-                               (uint)((ulonglong)uVar13 >> 0x20),(uint)uVar13);
+                  uVar7 = read_struct_field_at_offset_4((void *)(*(int *)(param_1 + 0x1e4) + 0x2c));
+                  uVar15 = abs_uint32(uVar7 & 0xffff);
+                  uVar13 = multiply_fixed_point_values_105445a2((int)((ulonglong)uVar15 >> 0x20),(int)uVar15,
+                                        (int)((ulonglong)uVar13 >> 0x20),(int)uVar13);
+                  multiply_two_floats((uint)((ulonglong)uVar13 >> 0x20),(uint)uVar13,
+                               (uint)((ulonglong)uVar14 >> 0x20),(uint)uVar14);
                   uVar7 = normalize_fixed_point_value_105448ac(extraout_r4,extraout_r5);
                   uVar8 = return_first_word_1045c514((uint32_t *)(*(int *)(param_1 + 0x1e4) + 0x2c));
                   uStack_20 = *(uint32_t *)(*(int *)(param_1 + 0x1e4) + 0x20);
@@ -252,7 +241,7 @@ void process_sensor_readout_event_104ccbe0(int param_1)
                     *(uint32_t *)(*(int *)(param_1 + 0x1e4) + 0x18) = 3;
                   }
                 }
-                cls_105b9458_delete(auStack_254,2);
+                cls_105b9458_delete(&cStack_254,2);
               }
               destroy_five_member_objects(auStack_2b0,2);
             }
@@ -269,7 +258,7 @@ void process_sensor_readout_event_104ccbe0(int param_1)
           }
         }
 LAB_104cd368:
-        cls_105b9458_delete(auStack_4e0,2);
+        cls_105b9458_delete(&cStack_4e0,2);
         return;
       }
       uVar3 = 2;

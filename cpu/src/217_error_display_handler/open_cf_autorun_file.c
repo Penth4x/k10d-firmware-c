@@ -29,23 +29,23 @@ void open_cf_autorun_file(int *param_1,char *param_2)
   
   uStack_c = 0;
   iVar4 = *(int *)*param_1;
-  iVar4 = (**(code **)(iVar4 + 0x2c))
-                    (*param_1 + (int)*(short *)(iVar4 + 0x28),param_1 + 0x15,2,&uStack_c);
+  iVar4 = (((vtbl_entry*)(iVar4))[5].fn)
+                    (*param_1 + (int)((vtbl_entry*)(iVar4))[5].adj,param_1 + 0x15,2,&uStack_c);
   piVar2 = (int *)*param_1;
   if (iVar4 == 0) {
-    (**(code **)(*piVar2 + 0x2c))
-              ((int)piVar2 + (int)*(short *)(*piVar2 + 0x28),param_1 + 0x15,0,&uStack_c);
+    (((vtbl_entry*)(*piVar2))[5].fn)
+              ((int)piVar2 + (int)((vtbl_entry*)(*piVar2))[5].adj,param_1 + 0x15,0,&uStack_c);
     piVar2 = (int *)*param_1;
   }
   else {
-    (**(code **)(*piVar2 + 0x4c))((int)piVar2 + (int)*(short *)(*piVar2 + 0x48),uStack_c,0,2);
+    (((vtbl_entry*)(*piVar2))[9].fn)((int)piVar2 + (int)((vtbl_entry*)(*piVar2))[9].adj,uStack_c,0,2);
     piVar2 = (int *)*param_1;
   }
   iVar3 = *piVar2;
   sVar1 = *(short *)(iVar3 + 0x40);
   iVar4 = count_string_bytes(param_2);
-  (**(code **)(iVar3 + 0x44))((int)piVar2 + (int)sVar1,uStack_c,param_2,iVar4);
+  (((vtbl_entry*)(iVar3))[8].fn)((int)piVar2 + (int)sVar1,uStack_c,param_2,iVar4);
   iVar4 = *(int *)*param_1;
-  (**(code **)(iVar4 + 0x34))(*param_1 + (int)*(short *)(iVar4 + 0x30),uStack_c);
+  (((vtbl_entry*)(iVar4))[6].fn)(*param_1 + (int)((vtbl_entry*)(iVar4))[6].adj,uStack_c);
   return;
 }

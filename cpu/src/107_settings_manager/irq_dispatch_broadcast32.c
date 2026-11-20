@@ -14,35 +14,34 @@
 #include "globals.h"
 #include "funcs.h"
 
-void irq_dispatch_broadcast32(int param_1,uint32_t param_2,uint32_t param_3)
+void irq_dispatch_broadcast32(cls_1059e430 *param_1,uint32_t param_2,uint32_t param_3)
 
 {
   int *piVar1;
   int iVar2;
-  uint32_t uStack_c;
+  int iStack_c;
   
-  uStack_c = 7;
+  iStack_c = 7;
   iVar2 = 0;
-  param_1 = param_1 + 4;
   do {
-    piVar1 = *(int **)(param_1 + iVar2);
+    piVar1 = *(int **)((int)&param_1->field_0x4 + iVar2);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,param_2,param_3);
+      (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1,param_2,param_3);
     }
-    piVar1 = *(int **)(param_1 + iVar2 + 4);
+    piVar1 = *(int **)((int)&param_1[1].field_0x0 + iVar2);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,param_2,param_3);
+      (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1,param_2,param_3);
     }
-    piVar1 = *(int **)(param_1 + iVar2 + 8);
+    piVar1 = *(int **)((int)&param_1[1].field_0x4 + iVar2);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,param_2,param_3);
+      (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1,param_2,param_3);
     }
-    piVar1 = *(int **)(param_1 + iVar2 + 0xc);
+    piVar1 = *(int **)((int)&param_1[2].field_0x0 + iVar2);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,param_2,param_3);
+      (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1,param_2,param_3);
     }
-    uStack_c = uStack_c + -1;
+    iStack_c = iStack_c + -1;
     iVar2 = iVar2 + 0x10;
-  } while (-1 < uStack_c);
+  } while (-1 < iStack_c);
   return;
 }

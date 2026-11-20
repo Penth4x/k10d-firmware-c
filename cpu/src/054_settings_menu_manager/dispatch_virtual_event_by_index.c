@@ -33,14 +33,14 @@ void dispatch_virtual_event_by_index(int *param_1,int param_2)
     iVar4 = 0;
   }
   iVar3 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,0);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,0);
   if (param_2 == 0) {
     pcVar2 = *(code **)(*(int *)(iVar3 + 0xc) + 0xf4);
     sVar1 = *(short *)(*(int *)(iVar3 + 0xc) + 0xf0);
     *(uint16_t *)(puVar5 + 2) = 8;
     *(uint16_t *)(puVar5 + 6) = 0x10;
     (*pcVar2)(sVar1 + iVar3,6,0x1ee,iVar4 + 0x106);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
   }
   else if (param_2 == 1) {
     pcVar2 = *(code **)(*(int *)(iVar3 + 0xc) + 0xf4);
@@ -48,7 +48,7 @@ void dispatch_virtual_event_by_index(int *param_1,int param_2)
     *(uint16_t *)(puVar5 + 2) = 8;
     *(uint16_t *)(puVar5 + 6) = 0x10;
     (*pcVar2)(sVar1 + iVar3,6,0x1fa,iVar4 + 0x106);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
   }
   else if (param_2 == 2) {
     pcVar2 = *(code **)(*(int *)(iVar3 + 0xc) + 0xf4);
@@ -56,7 +56,7 @@ void dispatch_virtual_event_by_index(int *param_1,int param_2)
     *(uint16_t *)(puVar5 + 2) = 8;
     *(uint16_t *)(puVar5 + 6) = 0x10;
     (*pcVar2)(sVar1 + iVar3,6,0x206,iVar4 + 0x106);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
   }
   else if (param_2 == 3) {
     pcVar2 = *(code **)(*(int *)(iVar3 + 0xc) + 0xf4);
@@ -64,7 +64,7 @@ void dispatch_virtual_event_by_index(int *param_1,int param_2)
     *(uint16_t *)(puVar5 + 2) = 8;
     *(uint16_t *)(puVar5 + 6) = 0x10;
     (*pcVar2)(sVar1 + iVar3,2,0x212,iVar4 + 0x106);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
   }
   else if (param_2 == 4) {
     pcVar2 = *(code **)(*(int *)(iVar3 + 0xc) + 0xf4);
@@ -72,7 +72,7 @@ void dispatch_virtual_event_by_index(int *param_1,int param_2)
     *(uint16_t *)(puVar5 + 2) = 8;
     *(uint16_t *)(puVar5 + 6) = 0x10;
     (*pcVar2)(sVar1 + iVar3,6,0x21e,iVar4 + 0x106);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
   }
   else if (param_2 == 5) {
     pcVar2 = *(code **)(*(int *)(iVar3 + 0xc) + 0xf4);
@@ -80,7 +80,7 @@ void dispatch_virtual_event_by_index(int *param_1,int param_2)
     *(uint16_t *)(puVar5 + 2) = 8;
     *(uint16_t *)(puVar5 + 6) = 0x10;
     (*pcVar2)(sVar1 + iVar3,6,0x22a,iVar4 + 0x106);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
   }
   else if (param_2 == 6) {
     pcVar2 = *(code **)(*(int *)(iVar3 + 0xc) + 0xf4);
@@ -88,7 +88,7 @@ void dispatch_virtual_event_by_index(int *param_1,int param_2)
     *(uint16_t *)(puVar5 + 2) = 8;
     *(uint16_t *)(puVar5 + 6) = 0x10;
     (*pcVar2)(sVar1 + iVar3,6,0x236,iVar4 + 0x106);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
   }
   return;
 }

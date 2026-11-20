@@ -15,10 +15,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_shifted_byte_1043d68e(void *param_1)
+void call_helper_with_shifted_byte_1043d68e(cls_105a0828 *param_1)
 
 {
-  update_flag_bits_in_object(param_1,(ushort)(3 << ((byte)*(uint32_t *)((int)param_1 + 0x120) & 0xf)),
-               *(ushort *)((int)param_1 + 0x124));
+  update_flag_bits_in_object(param_1,(ushort)(3 << ((byte)param_1->field_0x120 & 0xf)),param_1->field_0x124);
   return;
 }

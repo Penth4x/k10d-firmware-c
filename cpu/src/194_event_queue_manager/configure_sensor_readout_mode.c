@@ -5,7 +5,7 @@
  *   Configures sensor readout parameters and display state based on mode and sub-mode
  *   indices.
  * summary:
- *   The function initializes sensor-related state via deactivate_display_mode and
+ *   The function initializes sensor-related state via deactivate_display_state and
  *   set_high_bit_of_field, then dispatches to specific configuration routines
  *   (init_object_state_and_callers, etc.) based on param_3. It then uses param_2 to select
  *   a specific sensor configuration profile, writing a series of values to memory addresses
@@ -39,7 +39,7 @@ uint32_t configure_sensor_readout_mode(int param_1,int param_2,int param_3)
   uint32_t uStack_20;
   
   puVar6 = auStack_a0;
-  deactivate_display_mode(param_1);
+  deactivate_display_state(param_1);
   iStack_88 = set_high_bit_of_field(param_1);
   iStack_84 = iStack_88 + 0x4b000;
   iVar5 = iStack_88 + 0x5dc00;

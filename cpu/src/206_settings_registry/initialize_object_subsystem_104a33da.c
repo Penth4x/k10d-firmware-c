@@ -28,18 +28,18 @@ uint32_t initialize_object_subsystem_104a33da(int param_1)
   uint32_t uStack_10;
   uint32_t uStack_c;
   
-  iVar1 = (int)cls_105b5bd0_new(0);
-  iVar2 = (int)cls_105b5b6c_new((uint32_t *)0x0);
-  uVar3 = (uint32_t)cls_105b609c_new(0);
+  iVar1 = (uint32_t)(cls_105b5bd0_new((cls_105b5bd0 *)0x0));
+  iVar2 = cls_105b5b6c_new((cls_105b5b6c *)0x0);
+  uVar3 = (uint32_t)(cls_105b609c_new((cls_105b609c *)0x0));
   uStack_10 = *(uint32_t *)(param_1 + 0x38);
   uVar5 = 0;
   uStack_c = 0x30000;
-  iVar4 = (**(code **)(*(int *)(iVar1 + 0x1c) + 0x14))
-                    (*(short *)(*(int *)(iVar1 + 0x1c) + 0x10) + iVar1,&uStack_10);
+  iVar4 = (((vtbl_entry*)(*(int *)(iVar1 + 0x1c)))[2].fn)
+                    (((vtbl_entry*)(*(int *)(iVar1 + 0x1c)))[2].adj + iVar1,&uStack_10);
   if (iVar4 != 0) {
     *(uint32_t *)(iVar2 + 0x140) = uVar3;
-    iVar4 = (**(code **)(*(int *)(iVar2 + 8) + 0x14))
-                      (*(short *)(*(int *)(iVar2 + 8) + 0x10) + iVar2,0);
+    iVar4 = (((vtbl_entry*)(*(int *)(iVar2 + 8)))[2].fn)
+                      (((vtbl_entry*)(*(int *)(iVar2 + 8)))[2].adj + iVar2,0);
     if (iVar4 != 0) {
       *(int *)(iVar1 + 0x20) = iVar2;
       uVar5 = 1;

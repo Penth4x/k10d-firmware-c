@@ -19,7 +19,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void init_object_with_setting_check(uint32_t *param_1,uint16_t param_2)
+void init_object_with_setting_check(cls_1059639c *param_1,uint16_t param_2)
 
 {
   int iVar1;
@@ -29,8 +29,8 @@ void init_object_with_setting_check(uint32_t *param_1,uint16_t param_2)
   uint16_t auStack_10 [4];
   
   puVar2 = auStack_2c;
-  if (*(char *)((int)param_1 + 0x21) == '>') {
-    setting_set(param_1[2],0xa4,0);
+  if (param_1->field_0x21 == '>') {
+    setting_set(param_1->field_0x8,0xa4,0);
     puVar2[3] = 0;
     puVar2[7] = 0;
     puVar2[0xb] = 0;
@@ -47,9 +47,9 @@ void init_object_with_setting_check(uint32_t *param_1,uint16_t param_2)
     query_and_apply_param_state(*(uint32_t *)(iVar1 + 4),auStack_10);
     free_heap_if_flag_set_1045c56c(auStack_10,2);
   }
-  *(uint8_t *)((int)param_1 + 0x23) = 0xff;
-  *(uint8_t *)((int)param_1 + 0x22) = 0xff;
-  *(uint16_t *)(param_1 + 3) = param_2;
-  check_mode_transition_validity(param_1,0);
+  param_1->field_0x23 = 0xff;
+  param_1->field_0x22 = 0xff;
+  param_1->field_0xc = param_2;
+  check_mode_transition_validity(&param_1->field_0x0,0);
   return;
 }

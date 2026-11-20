@@ -17,7 +17,7 @@ uint32_t cpucom_register_cmd(void *param_1,int param_2)
 {
   uint32_t uVar1;
   
-  if (*(void **)((int)param_1 + 0x44) == (void *)0x0) {
+  if (*(void **)((int)param_1 + 0x44) == 0) {
     uVar1 = 0;
   }
   else {

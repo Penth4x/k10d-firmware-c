@@ -20,7 +20,7 @@ bool process_event_queue_and_check_status(int param_1,int param_2)
     iVar5 = 0;
     do {
       pvVar4 = *(void **)(param_1 + 0x1f8 + iVar5);
-      if (pvVar4 == (void *)0x0) break;
+      if (pvVar4 == 0) break;
       iVar3 = *(int *)((int)pvVar4 + 0x20);
       iVar2 = *(int *)((int)pvVar4 + 0x24);
       sVar1 = *(short *)(iVar3 + iVar2 * 2);

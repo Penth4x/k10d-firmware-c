@@ -23,30 +23,30 @@ uint32_t process_two_stage_operation_104de78e(uint32_t param_1,int *param_2,void
   int iVar2;
   uint32_t uVar3;
   uintptr_t sp;
-  uint8_t auStack_48 [32];
-  uint8_t auStack_28 [32];
+  cls_105bb0b8 cStack_48;
+  cls_105bb0b8 cStack_28;
   
-  cls_105bb0b8_new((void *)auStack_48);
+  cls_105bb0b8_new(&cStack_48);
   pcVar1 = (char *)copy_bytes_to_sram_buffer(param_3);
-  iVar2 = check_two_conditions_and_return_flag(param_2,auStack_48,pcVar1);
+  iVar2 = check_two_conditions_and_return_flag(param_2,&cStack_48,pcVar1);
   if (iVar2 == 0) {
-    reset_vtable_and_free_if_flagged_104ddfe6(auStack_48,2);
+    reset_vtable_and_free_if_flagged_104ddfe6(&cStack_48,2);
     uVar3 = 0;
   }
   else {
-    cls_105bb0b8_new((void *)auStack_28);
+    cls_105bb0b8_new(&cStack_28);
     do {
-      iVar2 = call_helper_with_saved_field(param_2,auStack_28);
+      iVar2 = call_helper_with_saved_field(param_2,&cStack_28);
       if (iVar2 == 0) {
-        reset_vtable_and_free_if_flagged_104ddfe6(auStack_28,2);
-        reset_vtable_and_free_if_flagged_104ddfe6(auStack_48,2);
+        reset_vtable_and_free_if_flagged_104ddfe6(&cStack_28,2);
+        reset_vtable_and_free_if_flagged_104ddfe6(&cStack_48,2);
         return 0;
       }
       pcVar1 = (char *)copy_bytes_to_sram_buffer(param_3);
-      iVar2 = check_and_process_two_params(param_2,auStack_28,pcVar1);
+      iVar2 = check_and_process_two_params(param_2,&cStack_28,pcVar1);
     } while (iVar2 == 0);
-    reset_vtable_and_free_if_flagged_104ddfe6(auStack_28,2);
-    reset_vtable_and_free_if_flagged_104ddfe6(auStack_48,2);
+    reset_vtable_and_free_if_flagged_104ddfe6(&cStack_28,2);
+    reset_vtable_and_free_if_flagged_104ddfe6(&cStack_48,2);
     uVar3 = 1;
   }
   return uVar3;

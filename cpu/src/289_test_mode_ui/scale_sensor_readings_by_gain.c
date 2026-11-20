@@ -18,7 +18,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void scale_sensor_readings_by_gain(uint32_t param_1,void *param_2,void *param_3)
+void scale_sensor_readings_by_gain(cls_105fa760 *param_1,void *param_2,void *param_3)
 
 {
   ushort uVar1;

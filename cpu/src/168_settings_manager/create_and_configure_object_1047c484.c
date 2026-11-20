@@ -21,16 +21,15 @@ void create_and_configure_object_1047c484(int param_1,uint32_t param_2)
 {
   int iVar1;
   uintptr_t sp;
-  int aiStack_18 [4];
   
-  cls_105aaebc_new(aiStack_18);
-  allocate_pool_block_if_null(aiStack_18,2,(void *)10000);
-  release_object_if_allocated_1047e45e(aiStack_18);
+  cls_105aaebc_new((cls_105aaebc *)&stack0xffffffe8);
+  allocate_pool_block_if_null((cls_105aaebc *)&stack0xffffffe8,2,(void *)0x2710);
+  release_object_if_allocated_1047e45e((cls_105aaebc *)&stack0xffffffe8);
   iVar1 = call_helper_on_field_c(*(int *)(param_1 + 0x50));
   if (iVar1 != 0) {
-    call_helper_with_second_field_1047a6be(*(uint32_t *)(param_1 + 0x54),param_2,(uint32_t)aiStack_18);
+    call_helper_with_second_field_1047a6be((int)(*(uint32_t *)(param_1 + 0x54)),(uint32_t)(param_2),(uint32_t)((cls_105aaebc *)&stack0xffffffe8));
   }
-  release_heap_block_if_set(aiStack_18);
-  cls_105aaebc_delete(aiStack_18,2);
+  release_heap_block_if_set((cls_105aaebc *)&stack0xffffffe8);
+  cls_105aaebc_delete((cls_105aaebc *)&stack0xffffffe8,2);
   return;
 }

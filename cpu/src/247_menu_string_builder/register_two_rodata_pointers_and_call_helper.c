@@ -23,12 +23,12 @@ void register_two_rodata_pointers_and_call_helper(uint32_t param_1,int *param_2,
   uint32_t uVar1;
   uint32_t r7_in;
   
-  append_string_to_buffer(param_2,(void *)0x105bb058/*ROM*/);
-  append_string_to_buffer(param_2,(void *)0x105bb068/*ROM*/);
+  append_string_to_buffer((int *)(param_2),(char *)(0x105bb058/*ROM*/));
+  append_string_to_buffer((int *)(param_2),(char *)(0x105bb068/*ROM*/));
   add_offset_to_param_104d6ef6(param_3);
   uVar1 = (*(code *)0x104d7a12/*ROM*/)();
-  build_and_apply_param_string(param_2,(void *)uVar1,1,(void *)r7_in);
-  append_string_to_buffer(param_2,(void *)0x105bb074/*ROM*/);
-  append_string_to_buffer(param_2,(void *)0x105bb080/*ROM*/);
+  build_and_apply_param_string((int *)(param_2),(void *)(uVar1),(int)(1),(void *)(r7_in));
+  append_string_to_buffer((int *)(param_2),(char *)(0x105bb074/*ROM*/));
+  append_string_to_buffer((int *)(param_2),(char *)(0x105bb080/*ROM*/));
   return;
 }

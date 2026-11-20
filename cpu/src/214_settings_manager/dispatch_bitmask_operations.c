@@ -36,7 +36,7 @@ void dispatch_bitmask_operations(int param_1,uint param_2)
                       if ((param_2 & 0x100) == 0) {
                         if ((param_2 & 0x200) != 0) {
                           param_2 = param_2 & 0xfffffdff;
-                          invoke_two_virtual_methods_104b31d8((void *)(*(uint32_t *)(param_1 + 0x30)));
+                          invoke_two_virtual_methods_104b31d8((int *)(*(uint32_t *)(param_1 + 0x30)));
                         }
                         bVar1 = param_2 == 0;
                       }
@@ -54,7 +54,7 @@ void dispatch_bitmask_operations(int param_1,uint param_2)
                   }
                   else {
                     param_2 = param_2 & 0xffffffbf;
-                    invoke_two_virtual_methods_104b2e54((void *)(*(uint32_t *)(param_1 + 0x2c)));
+                    invoke_two_virtual_methods_104b2e54((int *)(*(uint32_t *)(param_1 + 0x2c)));
                     bVar1 = param_2 == 0;
                   }
                 }

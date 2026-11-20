@@ -24,10 +24,10 @@ uint8_t send_control_message_sequence(int *param_1,void *param_2)
   
   bVar3 = set_pointer_and_clear_flag(param_1 + 7,param_2);
   if (bVar3) {
-    cpucom_msg_set_cmd((void *)param_1[6],uRam105a71e8);
+    cpucom_msg_set_cmd((void*)(param_1[6]),uRam105a71e8);
     cpucom_resp_set_insize((void *)param_1[6],(uint)bRam105a71e9);
     pvVar4 = (void *)param_1[6];
-    pvVar1 = (void *)(**(code **)(*param_1 + 0x6c))((int)*(short *)(*param_1 + 0x68) + (int)param_1)
+    pvVar1 = (void *)(((vtbl_entry*)(*param_1))[13].fn)((int)((vtbl_entry*)(*param_1))[13].adj + (int)param_1)
     ;
     set_ptr_if_field_is_null(pvVar4,pvVar1);
     set_object_field_at_offset_0x14((void *)param_1[6],param_2);

@@ -29,10 +29,10 @@ bool virtual_call_with_offset_adjust(void *param_1,int *param_2,void *param_3)
     bVar4 = dispatch_event_to_subscribers(*(int *)((int)param_1 + 4),param_2,(int)param_3);
   }
   else {
-    uVar1 = (**(code **)(*param_2 + 0x34))((int)*(short *)(*param_2 + 0x30) + (int)param_2);
-    (**(code **)(*param_2 + 0x2c))
-              ((int)*(short *)(*param_2 + 0x28) + (int)param_2,*(uint32_t *)((int)param_1 + 8));
-    if (param_3 == (void *)0x0) {
+    uVar1 = (((vtbl_entry*)(*param_2))[6].fn)((int)((vtbl_entry*)(*param_2))[6].adj + (int)param_2);
+    (((vtbl_entry*)(*param_2))[5].fn)
+              ((int)((vtbl_entry*)(*param_2))[5].adj + (int)param_2,*(uint32_t *)((int)param_1 + 8));
+    if (param_3 == 0) {
       bVar4 = dispatch_event_to_subscribers(*(int *)((int)param_1 + 4),param_2,0);
     }
     else {
@@ -43,7 +43,7 @@ bool virtual_call_with_offset_adjust(void *param_1,int *param_2,void *param_3)
       bVar4 = dispatch_event_to_subscribers(*(int *)((int)param_1 + 4),param_2,(int)param_3);
       *(int *)(iVar3 + 0x30) = iVar5;
     }
-    (**(code **)(*param_2 + 0x2c))((int)*(short *)(*param_2 + 0x28) + (int)param_2,uVar1);
+    (((vtbl_entry*)(*param_2))[5].fn)((int)((vtbl_entry*)(*param_2))[5].adj + (int)param_2,uVar1);
   }
   return bVar4;
 }

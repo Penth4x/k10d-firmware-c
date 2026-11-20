@@ -15,15 +15,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-int call_virtual_slot_and_fallback_104ea4d6(int param_1)
+int call_virtual_slot_and_fallback_104ea4d6(cls_105c20d0 *param_1)
 
 {
   int iVar1;
   
-  iVar1 = **(int **)(param_1 + 4);
-  iVar1 = (**(code **)(iVar1 + 0x3c))((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar1 + 0x38));
+  iVar1 = *(int *)param_1->field_0x4;
+  iVar1 = (((vtbl_entry*)(iVar1))[7].fn)((int)param_1->field_0x4 + (int)((vtbl_entry*)(iVar1))[7].adj);
   if (iVar1 != 5) {
-    iVar1 = dispatch_on_state_field_104ea53c(param_1);
+    iVar1 = dispatch_on_state_field_104ea53c((int)param_1);
   }
   return iVar1;
 }

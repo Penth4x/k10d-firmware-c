@@ -34,7 +34,7 @@ void build_lens_fw_update_packet(void *param_1,int *param_2,void *param_3)
   fill_byte_array(auStack_4c,0,0x20);
   memcpy_bytes(auStack_4c,param_3,0xb);
   uStack_41 = 8;
-  call_single_helper_1047f97e((int)&iStack_2c);
+  call_single_helper_1047f97e((uint32_t)(&iStack_2c));
   uStack_3c = (uint16_t)(((uStack_20 | (iStack_1c + 1) * 0x20) & 0xff) << 8);
   uStack_3e = (uint16_t)(((iStack_2c / 2 | iStack_28 << 5) & 0xffU) << 8);
   uStack_3a = uStack_3c;

@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_on_query_result(void *param_1,uint32_t param_2,uint32_t param_3,int *param_4)
+uint32_t dispatch_on_query_result(cls_105b7798 *param_1,uint32_t param_2,uint32_t param_3,int *param_4)
 
 {
   int iVar1;

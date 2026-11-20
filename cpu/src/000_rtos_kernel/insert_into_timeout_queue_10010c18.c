@@ -35,7 +35,7 @@ uint32_t insert_into_timeout_queue_10010c18(int param_1,int *param_2)
       sVar2 = *(short *)(iVar6 + -0x10);
       if (sVar2 == -1) {
         if ((*(ushort *)(iVar6 + -0xc) & 2) == 0) {
-          **(uint32_t **)(iVar6 + -4) = param_2;
+          **(uint32_t **)(iVar6 + -4) = (uintptr_t)(param_2);
           *param_2 = DAT_10011d08/*ROM*/ + param_1 + -8;
           *(int **)(DAT_10011d08/*ROM*/ + param_1 + -4) = param_2;
         }
@@ -84,7 +84,7 @@ uint32_t insert_into_timeout_queue_10010c18(int param_1,int *param_2)
         else {
           *(uint8_t *)(iVar6 + 0x6a001c06) = 8;
         }
-        **(uint32_t **)(iVar6 + 0x6a001c10) = param_2;
+        **(uint32_t **)(iVar6 + 0x6a001c10) = (uintptr_t)(param_2);
       }
       uVar8 = 0;
     }

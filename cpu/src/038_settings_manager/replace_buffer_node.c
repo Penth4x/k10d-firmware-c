@@ -42,7 +42,7 @@ uint32_t replace_buffer_node(int param_1,void *param_2)
       *(uint32_t *)(&stack0xffffffe8 + iVar7) = *(uint32_t *)(iVar6 + (int)param_2);
       iVar7 = iVar6;
     } while (iVar6 != 0);
-    piVar4 = (int *)(**(code **)(iVar2 + 0x1c))((int)sVar1 + (int)piVar5,auStack_14);
+    piVar4 = (int *)(((vtbl_entry*)(iVar2))[3].fn)((int)sVar1 + (int)piVar5,auStack_14);
     if ((piVar4 != piVar5) && (*(char *)(param_1 + 0x5d) == '\0')) {
       *(uint32_t *)(param_1 + 0x60) = 0;
       *(uint8_t *)(param_1 + 0x80) = 1;

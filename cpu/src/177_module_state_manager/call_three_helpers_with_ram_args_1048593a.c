@@ -18,7 +18,7 @@
 void call_three_helpers_with_ram_args_1048593a(void)
 
 {
-  set_flag_with_notify((void*)pvRam800102c8);
+  set_flag_with_notify((void *)pvRam800102c8);
   write_fixed_values_to_register_block(uRam800102c0);
   call_helper_with_0xc000_104453e6(_DAT_800102bc/*SDRAM*/);
   return;

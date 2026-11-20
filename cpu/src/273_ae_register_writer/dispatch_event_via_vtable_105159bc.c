@@ -16,8 +16,8 @@
 void dispatch_event_via_vtable_105159bc(int param_1,void *param_2)
 
 {
-  (**(code **)(*(int *)((int)param_2 + 0x8d4) + 0xe4))
-            ((int)*(short *)(*(int *)((int)param_2 + 0x8d4) + 0xe0) + (int)param_2,
+  (((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[28].fn)
+            ((int)((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[28].adj + (int)param_2,
              *(uint16_t *)
               (*(int *)((int)param_2 + 0x24) * 2 + *(int *)((int)param_2 + 0x20) + 0xa0));
   *(uint32_t *)((int)param_2 + 0x10) = 0x1100001;

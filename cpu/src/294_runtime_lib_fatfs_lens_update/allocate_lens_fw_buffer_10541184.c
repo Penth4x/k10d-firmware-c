@@ -25,7 +25,7 @@ int allocate_lens_fw_buffer_10541184(void)
   iVar1 = init_lens_fw_buffer();
   if ((iVar1 == 0) && (iVar1 = allocate_lens_fw_update_buffer(), iVar1 == 0)) {
     _DAT_8005b2b0/*SDRAM*/ = (void *)alloc_pool2_block((void *)0x1000);
-    if (_DAT_8005b2b0/*SDRAM*/ == (void *)0x0) {
+    if (_DAT_8005b2b0/*SDRAM*/ == 0) {
       iVar1 = -0xc;
     }
     else {

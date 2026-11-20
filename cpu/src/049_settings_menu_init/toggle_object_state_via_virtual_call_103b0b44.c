@@ -21,9 +21,9 @@ void toggle_object_state_via_virtual_call_103b0b44(void *param_1)
   int iVar1;
   
   iVar1 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
   read_setting_by_mode_flag(*(int *)((int)param_1 + 0x28));
   iVar1 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   return;
 }

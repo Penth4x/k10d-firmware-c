@@ -11,16 +11,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_105d4c70_delete(uint32_t *param_1,uint param_2)
+/* WARNING: Struct "cls_105d4c70": ignoring multiple overlapping fields */
+
+void cls_105d4c70_delete(cls_105d4c70 *param_1,uint param_2)
 
 {
-  if (param_1 != (uint32_t *)0x0) {
-    *param_1 = (uint32_t)&DAT_105d4c70/*ROM*/;
-    param_1[1] = (uint32_t)&DAT_105d4ca8/*ROM*/;
-    param_1[4] = (uint32_t)&DAT_105d4cd0/*ROM*/;
-    cls_1059e288_delete(param_1 + 7,2);
-    cls_105a2a8c_delete(param_1 + 3,0);
-    cls_1059e408_delete(param_1 + 1,0);
+  if (param_1 != (cls_105d4c70 *)0x0) {
+    param_1->field_0x0 = (uintptr_t)(&DAT_105d4c70/*ROM*/);
+    ((uint32_t *)&(param_1->field_0x4))[0] = (uint32_t)(&DAT_105d4ca8/*ROM*/);
+    ((uint32_t *)&(param_1->field_0x4))[3] = (uint32_t)(&DAT_105d4cd0/*ROM*/);
+    cls_1059e288_delete(&param_1->field_0x1c,2);
+    cls_105a2a8c_delete(&((uint32_t *)&(param_1->field_0x4))[2],0);
+    cls_1059e408_delete(&param_1->field_0x4,0);
     reset_vtable_and_free_if_flagged_10428264(param_1,0);
     if ((param_2 & 1) != 0) {
       heap_free((int)param_1);

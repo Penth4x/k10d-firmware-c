@@ -26,7 +26,7 @@ int send_or_create_mailbox_message(int *param_1,int param_2,uint16_t param_3,uin
   uint32_t uStack_8;
   
   uStack_8 = 0;
-  _uStack_c = CONCAT22(param_3,param_4);
+  *(uint32_t *)&uStack_c = CONCAT22(param_3,param_4);
   *param_1 = param_2;
   if (param_2 == 0) {
     iVar1 = allocate_free_task_slot(&uStack_c);

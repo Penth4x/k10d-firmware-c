@@ -6,15 +6,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_and_conditional_callback_105204fe(int param_1)
+void invoke_virtual_slot_and_conditional_callback_105204fe(cls_105d7118 *param_1)
 
 {
   int iVar1;
   
-  iVar1 = **(int **)(param_1 + 8);
-  iVar1 = (**(code **)(iVar1 + 0x4c))((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar1 + 0x48));
-  if ((iVar1 == 2) && (*(int *)(param_1 + 0xc) != 0)) {
-    dispatch_event_if_enabled(param_1,2);
+  iVar1 = *(int *)param_1->field_0x8;
+  iVar1 = (((vtbl_entry*)(iVar1))[9].fn)((int)param_1->field_0x8 + (int)((vtbl_entry*)(iVar1))[9].adj);
+  if ((iVar1 == 2) && (param_1->field_0xc != 0)) {
+    dispatch_event_if_enabled((uint32_t)(param_1),2);
   }
   return;
 }

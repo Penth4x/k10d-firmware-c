@@ -19,27 +19,27 @@ void release_mode_event_resources(int param_1,uint32_t *param_2)
     if (param_2[0xd] != 0) {
       pvVar1 = (void *)get_system_heap();
       mempool_release_block(pvVar1,(void *)param_2[0xd]);
-      (**(code **)(param_2[0x235] + 0x14))((int)*(short *)(param_2[0x235] + 0x10) + (int)param_2,0);
+      (((vtbl_entry*)(param_2[0x235]))[2].fn)((int)((vtbl_entry*)(param_2[0x235]))[2].adj + (int)param_2,0);
     }
     if (param_2[0x15] != 0) {
       pvVar1 = (void *)get_system_heap();
       mempool_release_block(pvVar1,(void *)param_2[0x15]);
-      (**(code **)(param_2[0x235] + 0x54))((int)*(short *)(param_2[0x235] + 0x50) + (int)param_2,0);
+      (((vtbl_entry*)(param_2[0x235]))[10].fn)((int)((vtbl_entry*)(param_2[0x235]))[10].adj + (int)param_2,0);
     }
     if (param_2[0xe] != 0) {
       pvVar1 = (void *)get_system_heap();
       mempool_release_block(pvVar1,(void *)param_2[0xe]);
-      (**(code **)(param_2[0x235] + 0x1c))((int)*(short *)(param_2[0x235] + 0x18) + (int)param_2,0);
+      (((vtbl_entry*)(param_2[0x235]))[3].fn)((int)((vtbl_entry*)(param_2[0x235]))[3].adj + (int)param_2,0);
     }
     if (param_2[0x17] != 0) {
       pvVar1 = (void *)get_system_heap();
       mempool_release_block(pvVar1,(void *)param_2[0x17]);
-      (**(code **)(param_2[0x235] + 100))((int)*(short *)(param_2[0x235] + 0x60) + (int)param_2,0);
+      (((vtbl_entry*)(param_2[0x235]))[12].fn)((int)((vtbl_entry*)(param_2[0x235]))[12].adj + (int)param_2,0);
     }
     if (param_2[0x12] != 0) {
       pvVar1 = (void *)get_system_heap();
       mempool_release_block(pvVar1,(void *)param_2[0x12]);
-      (**(code **)(param_2[0x235] + 0x3c))((int)*(short *)(param_2[0x235] + 0x38) + (int)param_2,0);
+      (((vtbl_entry*)(param_2[0x235]))[7].fn)((int)((vtbl_entry*)(param_2[0x235]))[7].adj + (int)param_2,0);
     }
     check_kernel_call_success_10459d88((uint32_t *)(param_1 + 0x1550));
     remove_node_from_list(*(int *)(param_1 + 0x54),param_2);

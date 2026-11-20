@@ -27,8 +27,8 @@ bool invoke_virtual_method_on_object_104bfb72(int param_1,void *param_2)
   *(uint8_t *)(param_1 + 0x1c) = 0;
   eventflag_clr_flg(puVar1,0x1000);
   iVar2 = **(int **)(param_1 + 0x480);
-  (**(code **)(iVar2 + 0x6c))
-            ((int)*(int **)(param_1 + 0x480) + (int)*(short *)(iVar2 + 0x68),param_1,
+  (((vtbl_entry*)(iVar2))[13].fn)
+            ((int)*(int **)(param_1 + 0x480) + (int)((vtbl_entry*)(iVar2))[13].adj,param_1,
              *(uint32_t *)(param_1 + 0x34),param_2);
   eventflag_wai_flg(puVar1,0x1000,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,0x1000);

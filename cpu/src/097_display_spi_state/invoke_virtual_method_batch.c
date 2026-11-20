@@ -58,35 +58,35 @@ void invoke_virtual_method_batch(void *param_1)
   uStack_c = 0;
   uStack_a = 0;
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_2c = (**(code **)(iVar1 + 0x194))
+  uStack_2c = (((vtbl_entry*)(iVar1))[50].fn)
                         ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 400));
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_2a = (**(code **)(iVar1 + 0x19c))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x198));
+  uStack_2a = (((vtbl_entry*)(iVar1))[51].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[51].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_28 = (**(code **)(iVar1 + 0x1a4))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x1a0));
+  uStack_28 = (((vtbl_entry*)(iVar1))[52].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[52].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_26 = (**(code **)(iVar1 + 0x1ac))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x1a8));
+  uStack_26 = (((vtbl_entry*)(iVar1))[53].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[53].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_24 = (**(code **)(iVar1 + 0x1b4))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x1b0));
+  uStack_24 = (((vtbl_entry*)(iVar1))[54].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[54].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_22 = (**(code **)(iVar1 + 0x1bc))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x1b8));
+  uStack_22 = (((vtbl_entry*)(iVar1))[55].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[55].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_20 = (**(code **)(iVar1 + 0x1c4))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x1c0));
+  uStack_20 = (((vtbl_entry*)(iVar1))[56].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[56].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_1e = (**(code **)(iVar1 + 0x1cc))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x1c8));
+  uStack_1e = (((vtbl_entry*)(iVar1))[57].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[57].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_1c = (**(code **)(iVar1 + 0x1d4))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x1d0));
+  uStack_1c = (((vtbl_entry*)(iVar1))[58].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[58].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_1a = (**(code **)(iVar1 + 0x1dc))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x1d8));
+  uStack_1a = (((vtbl_entry*)(iVar1))[59].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[59].adj);
   uStack_18 = 0x4c;
   uStack_16 = 0x4a;
   uStack_14 = 0x4a;

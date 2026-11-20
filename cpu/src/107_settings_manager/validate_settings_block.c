@@ -9,6 +9,6 @@
 void validate_settings_block(void)
 
 {
-  settings_block_valid((void *)0x10004000/*ROM*/);
+  settings_block_valid((int *)(0x10004000/*ROM*/));
   return;
 }

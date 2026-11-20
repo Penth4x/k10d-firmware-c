@@ -6,8 +6,8 @@
 #include "globals.h"
 #include "funcs.h"
 
-int read_byte_at_offset_10460694(void *param_1,int param_2)
+int read_byte_at_offset_10460694(cls_105a6f3c *param_1,int param_2)
 
 {
-  return (int)*(char *)((int)param_1 + param_2 + 4);
+  return (int)(char)(&param_1->field_0x4)[param_2];
 }

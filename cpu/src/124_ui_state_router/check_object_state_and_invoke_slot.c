@@ -26,7 +26,7 @@ uint32_t check_object_state_and_invoke_slot(uint32_t param_1,int *param_2)
     iVar2 = read_byte_at_offset_0x15(param_1);
     uVar1 = 0;
     if ((iVar2 == 0) &&
-       (iVar2 = (**(code **)(*param_2 + 0x14))((int)*(short *)(*param_2 + 0x10) + (int)param_2,0xc),
+       (iVar2 = (((vtbl_entry*)(*param_2))[2].fn)((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,0xc),
        iVar2 != 0)) {
       uVar1 = 1;
     }

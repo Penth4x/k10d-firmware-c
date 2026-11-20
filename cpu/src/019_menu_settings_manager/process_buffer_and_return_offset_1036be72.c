@@ -21,9 +21,9 @@
 uint32_t process_buffer_and_return_offset_1036be72(void *param_1,uint32_t param_2)
 
 {
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,0x2000);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(0x2000));
   init_object_with_flag_and_byte_104c4910(_DAT_8000439c/*SDRAM*/,param_1,param_2);
   eventflag_wai_flg((uint32_t *)0x80018088/*SDRAM*/,0x2000,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,0x2000);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(0x2000));
   return *(uint32_t *)((int)param_1 + 8);
 }

@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_virtual_event_by_state(int param_1,int param_2)
+uint32_t dispatch_virtual_event_by_state(cls_105575b0 *param_1,int param_2)
 
 {
   short sVar1;
@@ -27,30 +27,30 @@ uint32_t dispatch_virtual_event_by_state(int param_1,int param_2)
   uint32_t uVar5;
   
   uVar5 = 0;
-  switch(*(uint32_t *)(param_1 + 0x204)) {
+  switch(param_1->field_0x204) {
   case 0:
-    piVar2 = *(int **)(param_1 + 0x70);
+    piVar2 = (int *)param_1->field_0x70;
     if (piVar2 != (int *)0x0) {
       iVar3 = *piVar2;
       sVar1 = *(short *)(iVar3 + 0xd0);
-      uVar4 = read_byte_at_offset_five_1051e50e(param_1 + 0x1c);
-      uVar5 = (**(code **)(iVar3 + 0xd4))((int)sVar1 + (int)piVar2,uVar4);
+      uVar4 = read_byte_at_offset_five_1051e50e((int)&param_1->field_0x1c);
+      uVar5 = (((vtbl_entry*)(iVar3))[26].fn)((int)sVar1 + (int)piVar2,uVar4);
     }
     break;
   case 1:
-    piVar2 = *(int **)(param_1 + 0x70);
+    piVar2 = (int *)param_1->field_0x70;
     if (piVar2 != (int *)0x0) {
-      iVar3 = (**(code **)(*piVar2 + 0xfc))((int)*(short *)(*piVar2 + 0xf8) + (int)piVar2);
-      piVar2 = *(int **)(param_1 + 0x70);
+      iVar3 = (((vtbl_entry*)(*piVar2))[31].fn)((int)((vtbl_entry*)(*piVar2))[31].adj + (int)piVar2);
+      piVar2 = (int *)param_1->field_0x70;
       if (param_2 == iVar3) {
-        uVar5 = (**(code **)(*piVar2 + 0x104))((int)piVar2 + (int)*(short *)(*piVar2 + 0x100));
+        uVar5 = (((vtbl_entry*)(*piVar2))[32].fn)((int)piVar2 + (int)((vtbl_entry*)(*piVar2))[32].adj);
       }
       else {
-        iVar3 = (**(code **)(*piVar2 + 0x104))((int)piVar2 + (int)*(short *)(*piVar2 + 0x100));
+        iVar3 = (((vtbl_entry*)(*piVar2))[32].fn)((int)piVar2 + (int)((vtbl_entry*)(*piVar2))[32].adj);
         if (param_2 == iVar3) {
-          iVar3 = **(int **)(param_1 + 0x70);
-          uVar5 = (**(code **)(iVar3 + 0x10c))
-                            ((int)*(int **)(param_1 + 0x70) + (int)*(short *)(iVar3 + 0x108));
+          iVar3 = *(int *)param_1->field_0x70;
+          uVar5 = (((vtbl_entry*)(iVar3))[33].fn)
+                            ((int)param_1->field_0x70 + (int)((vtbl_entry*)(iVar3))[33].adj);
         }
       }
     }

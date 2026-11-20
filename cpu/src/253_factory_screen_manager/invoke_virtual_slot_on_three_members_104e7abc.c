@@ -6,14 +6,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_on_three_members_104e7abc(int param_1,uint32_t param_2)
+void invoke_virtual_slot_on_three_members_104e7abc(cls_105c136c *param_1,uint32_t param_2)
 
 {
-  (**(code **)(*(int *)(param_1 + 0x1c) + 0xe4))
-            (param_1 + 0x10 + (int)*(short *)(*(int *)(param_1 + 0x1c) + 0xe0));
-  (**(code **)(*(int *)(param_1 + 0x3c) + 0xe4))
-            (param_1 + 0x30 + (int)*(short *)(*(int *)(param_1 + 0x3c) + 0xe0),param_2);
-  (**(code **)(*(int *)(param_1 + 0x2c) + 0xe4))
-            (param_1 + 0x20 + (int)*(short *)(*(int *)(param_1 + 0x2c) + 0xe0),param_2);
+  (*(code *)((uint32_t *)(param_1->field_0x1c))[0x39])
+            ((int)&param_1->field_0x10 + (int)*(short *)(param_1->field_0x1c + 0x38));
+  (((vtbl_entry*)(param_1->field_0x3c))[28].fn)
+            ((int)&param_1->field_0x30 + (int)((vtbl_entry*)(param_1->field_0x3c))[28].adj,param_2);
+  (((vtbl_entry*)(param_1->field_0x2c))[28].fn)
+            (&param_1->field_0x20 + ((vtbl_entry*)(param_1->field_0x2c))[28].adj,param_2);
   return;
 }

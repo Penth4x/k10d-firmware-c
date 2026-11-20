@@ -11,26 +11,27 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_105fa6ac_new(uint32_t *param_1)
+cls_105b7ee0 * cls_105fa6ac_new(cls_105fa6ac *param_1)
 
 {
   int iVar1;
-  uint32_t uVar2;
+  uint32_t *puVar2;
+  uint32_t uVar3;
   
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x14), param_1 != (uint32_t *)0x0)) {
-    cls_105b7ee0_new(param_1);
-    *param_1 = 0x105fa6ac/*ROM*/;
-    param_1[1] = 0;
-    param_1[2] = 0;
+  if ((param_1 != (cls_105fa6ac *)0x0) ||
+     (param_1 = (cls_105fa6ac *)heap_alloc((void *)0x14), (cls_105b7ee0 *)param_1 != (cls_105b7ee0 *)0x0)) {
+    cls_105b7ee0_new((cls_105b7ee0 *)param_1);
+    ((cls_105b7ee0 *)param_1)->field_0x0 = 0x105fa6ac/*ROM*/;
+    ((cls_105b7ee0 *)param_1)->field1_0x4 = 0;
+    ((cls_105b7ee0 *)param_1)->field2_0x8 = 0;
     iVar1 = extract_bitfield_with_offset(0x200,4,1);
-    uVar2 = (uint32_t)heap_alloc_2(iVar1 << 2);
-    param_1[3] = uVar2;
-    uVar2 = (uint32_t)alloc_and_zero_small_object((uint32_t *)0x0);
-    param_1[4] = uVar2;
-    zero_memory_region((void *)param_1[3],0x200,0);
+    puVar2 = (uint32_t *)heap_alloc_2(iVar1 << 2);
+    ((cls_105b7ee0 *)param_1)->field3_0xc = (uintptr_t)(puVar2);
+    uVar3 = (uintptr_t)(alloc_and_zero_small_object((uint32_t *)0x0));
+    ((cls_105b7ee0 *)param_1)->field4_0x10 = uVar3;
+    zero_memory_region((uint32_t *)(((cls_105b7ee0 *)param_1)->field3_0xc),(uint)(0x200),(uint32_t)(0));
     set_field_at_offset_c(param_1,0,0x200);
     set_field_at_offset_c(param_1,2,0x2001);
   }
-  return param_1;
+  return (cls_105b7ee0 *)param_1;
 }

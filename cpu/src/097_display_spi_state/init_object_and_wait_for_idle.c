@@ -72,7 +72,7 @@ void init_object_and_wait_for_idle(int param_1)
   iVar3 = 0;
   do {
     piVar5 = (int *)(param_1 + 0x1588 + iVar3);
-    iVar4 = alloc_first_ring_entry(*(uint32_t *)(param_1 + 0x54),param_1 + 0x40);
+    iVar4 = (uintptr_t)(alloc_first_ring_entry(*(uint32_t *)(param_1 + 0x54),param_1 + 0x40));
     *piVar5 = iVar4;
     if (iVar4 == 0) break;
     iVar3 = iVar3 + 8;

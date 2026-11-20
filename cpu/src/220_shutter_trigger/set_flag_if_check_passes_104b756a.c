@@ -6,13 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t set_flag_if_check_passes_104b756a(int param_1,int param_2,uint32_t param_3)
+uint32_t set_flag_if_check_passes_104b756a(cls_105b8a04 *param_1,int param_2,uint32_t param_3)
 
 {
   int iVar1;
   
-  if ((param_2 == 0x1000000) && (iVar1 = map_mode_code_to_flag(param_1,param_3), iVar1 != 0)) {
-    set_flg_obj((uint32_t *)(param_1 + 4));
+  if ((param_2 == 0x1000000) && (iVar1 = map_mode_code_to_flag((int)param_1,param_3), iVar1 != 0)) {
+    set_flg_obj((void *)&param_1->field_0x4);
   }
   return 0;
 }

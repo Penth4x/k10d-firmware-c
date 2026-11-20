@@ -17,10 +17,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void lens_fw_update_slot4(uint32_t *param_1)
+void lens_fw_update_slot4(cls_10621c8c *param_1)
 
 {
-  reset_subobject_at_offset_0x2c_104706b2(*param_1);
+  reset_subobject_at_offset_0x2c_104706b2(param_1->field_0x0);
   trigger_sr_cal_transfer_104867c0((int)param_1);
   call_helper_with_second_field_104867ae((int)param_1);
   return;

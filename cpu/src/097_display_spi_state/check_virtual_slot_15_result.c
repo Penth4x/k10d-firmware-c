@@ -20,7 +20,7 @@ bool check_virtual_slot_15_result(int param_1)
   int iVar1;
   
   iVar1 = **(int **)(param_1 + 0x4c);
-  iVar1 = (**(code **)(iVar1 + 0x7c))
-                    ((int)*(int **)(param_1 + 0x4c) + (int)*(short *)(iVar1 + 0x78));
+  iVar1 = (((vtbl_entry*)(iVar1))[15].fn)
+                    ((int)*(int **)(param_1 + 0x4c) + (int)((vtbl_entry*)(iVar1))[15].adj);
   return iVar1 == 0;
 }

@@ -18,7 +18,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void poll_flag_and_dispatch_1036eda4(int param_1)
+void poll_flag_and_dispatch_1036eda4(cls_10557f3c *param_1)
 
 {
   uint32_t *puVar1;
@@ -28,11 +28,11 @@ void poll_flag_and_dispatch_1036eda4(int param_1)
   uStack_c = 0;
   do {
     do {
-      puVar1 = (uint32_t *)(param_1 + 0xbc);
+      puVar1 = &param_1->field_0xbc;
       set_flg_obj(puVar1);
       eventflag_wai_flg(puVar1,1,&uStack_c,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar1,uStack_c);
     } while ((uStack_c & 1) == 0);
-    init_three_buffer_slots(param_1);
+    init_three_buffer_slots((int)(param_1));
   } while( true );
 }

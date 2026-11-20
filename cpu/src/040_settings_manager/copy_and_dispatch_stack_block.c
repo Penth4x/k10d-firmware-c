@@ -44,7 +44,7 @@ void copy_and_dispatch_stack_block(void)
   free_heap_if_flagged_1045c402(auStack_20,2);
   uVar2 = return_first_word_1045c514(puVar4);
   uVar3 = read_struct_field_at_offset_4(puVar4);
-  write_two_words_to_memory((void *)0x8001a4a8/*SDRAM*/,uVar2,uVar3);
+  write_two_words_to_memory((uint32_t *)(0x8001a4a8/*SDRAM*/),(uint32_t)(uVar2),(uint32_t)(uVar3));
   free_heap_if_flagged_1045c402(puVar4,2);
   return;
 }

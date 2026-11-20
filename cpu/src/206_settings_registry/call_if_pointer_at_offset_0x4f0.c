@@ -20,7 +20,7 @@ void call_if_pointer_at_offset_0x4f0(int param_1,int param_2)
   void *pvVar1;
   
   pvVar1 = *(void **)(*(int *)(param_1 + 0x58) + 0x4f0);
-  if (pvVar1 != (void *)0x0) {
+  if (pvVar1 != 0) {
     copy_bytes_to_struct_field(param_2,pvVar1,*(uint32_t *)(*(int *)(param_1 + 0x58) + 0x4f4));
   }
   return;

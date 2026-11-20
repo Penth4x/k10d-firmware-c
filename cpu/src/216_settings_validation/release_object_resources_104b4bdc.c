@@ -11,7 +11,7 @@ void release_object_resources_104b4bdc(int param_1, uint32_t param_x1)
 {
   void *pvVar1;
   
-  call_three_init_helpers_104b6972((void *)(*(uint32_t *)(param_1 + 0x5c)));
+  call_three_init_helpers_104b6972((uint32_t *)(*(uint32_t *)(param_1 + 0x5c)));
   call_function_on_offset_field_104b4b30(param_1);
   clear_byte_at_offset_0x40(*(uint32_t *)(param_1 + 0x58));
   call_helper_with_second_field_104b59ec(*(uint32_t *)(param_1 + 0x5c));

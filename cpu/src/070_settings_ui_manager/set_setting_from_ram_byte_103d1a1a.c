@@ -6,13 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_setting_from_ram_byte_103d1a1a(int param_1,int param_2)
+void set_setting_from_ram_byte_103d1a1a(cls_10595f9c *param_1,int param_2)
 
 {
   uint32_t uVar1;
   uint uVar2;
   
-  *(int *)(param_1 + 0x18) = param_2;
+  param_1->field_0x18 = param_2;
   if (param_2 == 0x18b0015) {
     uVar2 = (uint)bRam10595f99;
     uVar1 = 0x91;
@@ -54,8 +54,8 @@ void set_setting_from_ram_byte_103d1a1a(int param_1,int param_2)
     uVar2 = (uint)bRam10595f98;
     uVar1 = 0x95;
   }
-  setting_set(*(int *)(param_1 + 8),uVar1,uVar2);
+  setting_set(param_1->field_0x8,uVar1,uVar2);
 LAB_103d1b0c:
-  *(int *)(param_1 + 0x18) = param_2;
+  param_1->field_0x18 = param_2;
   return;
 }

@@ -27,7 +27,7 @@ uint32_t grow_dynamic_buffer_1045ca6c(int *param_1,uint param_2)
       param_2) {
     iVar3 = *(int *)param_1[3];
     puVar2 = (uint32_t *)
-             (**(code **)(iVar3 + 0x14))(param_1[3] + (int)*(short *)(iVar3 + 0x10),param_2);
+             (((vtbl_entry*)(iVar3))[2].fn)(param_1[3] + (int)((vtbl_entry*)(iVar3))[2].adj,param_2);
     if (puVar2 == (uint32_t *)0x0) {
       uVar1 = 0;
     }
@@ -37,7 +37,7 @@ uint32_t grow_dynamic_buffer_1045ca6c(int *param_1,uint param_2)
       copy_word_array_1045cd06(param_1,(uint32_t *)*param_1,(uint32_t *)param_1[1],puVar2);
       zero_memory_range(param_1,(uint32_t *)*param_1,(uint32_t *)param_1[1]);
       iVar3 = *(int *)param_1[3];
-      (**(code **)(iVar3 + 0x1c))(param_1[3] + (int)*(short *)(iVar3 + 0x18),*param_1);
+      (((vtbl_entry*)(iVar3))[3].fn)(param_1[3] + (int)((vtbl_entry*)(iVar3))[3].adj,*param_1);
       param_1[2] = (int)(puVar2 + param_2);
       uVar1 = 1;
       param_1[1] = (int)(puVar2 + ((int)(((uint)(param_1[1] - *param_1 >> 1) >> 0x1e) +

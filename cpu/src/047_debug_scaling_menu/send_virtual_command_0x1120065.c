@@ -22,7 +22,7 @@ void send_virtual_command_0x1120065(void *param_1)
   
   *(uint32_t *)((int)param_1 + 0x34) = 60000;
   iVar1 = **(int **)((int)param_1 + 0x2c);
-  (**(code **)(iVar1 + 0x14))
-            ((int)*(int **)((int)param_1 + 0x2c) + (int)*(short *)(iVar1 + 0x10),0x1120065,0);
+  (((vtbl_entry*)(iVar1))[2].fn)
+            ((int)*(int **)((int)param_1 + 0x2c) + (int)((vtbl_entry*)(iVar1))[2].adj,0x1120065,0);
   return;
 }

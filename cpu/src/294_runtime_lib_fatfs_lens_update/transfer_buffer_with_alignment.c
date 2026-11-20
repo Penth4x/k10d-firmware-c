@@ -32,7 +32,7 @@ int transfer_buffer_with_alignment(int param_1,int param_2,void *param_3,void *p
   piVar5 = (int *)auStack_34;
   iVar3 = 0;
   *param_6 = 0;
-  if (param_4 == (void *)0x0) {
+  if (param_4 == 0) {
     return 0;
   }
   pvVar4 = *(void **)(param_1 + 0xc);
@@ -75,7 +75,7 @@ int transfer_buffer_with_alignment(int param_1,int param_2,void *param_3,void *p
     param_2 = param_2 + (int)local_28;
     if (iVar3 < 0) goto LAB_1053defc;
   }
-  if (pvVar2 != (void *)0x0) {
+  if (pvVar2 != 0) {
     *piVar5 = 0;
     iVar3 = write_data_via_virtual_interface(param_1,param_2,param_3,pvVar2,*piVar5);
     if (-1 < iVar3) {

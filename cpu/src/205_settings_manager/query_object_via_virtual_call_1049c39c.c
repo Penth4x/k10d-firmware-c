@@ -15,6 +15,6 @@ bool query_object_via_virtual_call_1049c39c(void *param_1,int *param_2)
   short sStack_a;
   
   sStack_a = 0;
-  (**(code **)(*param_2 + 0x1c))((int)*(short *)(*param_2 + 0x18) + (int)param_2,&sStack_a,1,2);
+  (((vtbl_entry*)(*param_2))[3].fn)((int)((vtbl_entry*)(*param_2))[3].adj + (int)param_2,&sStack_a,1,2);
   return _DAT_105b5acc/*ROM*/ == sStack_a;
 }

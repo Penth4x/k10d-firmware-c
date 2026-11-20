@@ -6,10 +6,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t clear_two_object_flags(void *param_1)
+/* WARNING: Struct "cls_105d4c70": ignoring multiple overlapping fields */
+
+uint32_t clear_two_object_flags(cls_105d4c70 *param_1)
 
 {
-  set_bit_14_in_ram40030400(*(int *)((int)param_1 + 0x14) + 0x10,0);
-  set_ram_flag_40030001(*(int *)((int)param_1 + 0x14) + 0x11,0);
+  set_bit_14_in_ram40030400(param_1->field_0x14 + 0x10,0);
+  set_ram_flag_40030001(param_1->field_0x14 + 0x11,0);
   return 1;
 }

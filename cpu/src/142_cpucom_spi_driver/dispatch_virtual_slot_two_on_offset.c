@@ -14,14 +14,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_virtual_slot_two_on_offset(int param_1,int param_2)
+uint32_t dispatch_virtual_slot_two_on_offset(cls_105a7d14 *param_1,int param_2)
 
 {
   uint32_t uVar1;
   
   uVar1 = 0;
   if (param_2 == 0xf) {
-    uVar1 = dispatch_single_subobj(param_1 + 4);
+    uVar1 = dispatch_single_subobj((cls_1059e408 *)&param_1->field_0x4);
   }
   return uVar1;
 }

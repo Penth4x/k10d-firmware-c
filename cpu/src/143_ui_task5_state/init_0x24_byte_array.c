@@ -21,7 +21,7 @@ void init_0x24_byte_array(void *param_1)
   int iVar2;
   int iVar3;
   
-  if ((param_1 != (void *)0x0) || (param_1 = (void *)heap_alloc((void *)0x24), param_1 != (void *)0x0)) {
+  if ((param_1 != 0) || (param_1 = (void *)heap_alloc((void *)0x24), param_1 != 0)) {
     *(uint32_t *)((int)param_1 + 0x14) = 0;
     *(uint32_t *)((int)param_1 + 0x18) = 0;
     *(uint32_t *)((int)param_1 + 0x1c) = 0;

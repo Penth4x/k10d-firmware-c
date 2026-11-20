@@ -20,50 +20,50 @@ void initialize_object_array_1048516a(void *param_1)
   iStack_10 = 1;
   iVar3 = 0;
   while( true ) {
-    iVar1 = (int)heap_alloc((void *)0x358);
+    iVar1 = heap_alloc((void *)0x358);
     if (iVar1 == 0) {
       iVar1 = 0;
     }
     else {
-      cls_105ab904_new((void *)iVar1);
+      cls_105ab904_new((uint32_t *)(iVar1));
     }
     *(int *)((int)param_1 + iVar3 + 4) = iVar1;
     piVar2 = *(int **)((int)param_1 + iVar3 + 4);
     iVar1 = *piVar2;
-    (**(code **)(iVar1 + 0x14))((int)piVar2 + (int)*(short *)(iVar1 + 0x10),0);
-    iVar1 = (int)heap_alloc((void *)0x358);
+    (((vtbl_entry*)(iVar1))[2].fn)((int)piVar2 + (int)((vtbl_entry*)(iVar1))[2].adj,0);
+    iVar1 = heap_alloc((void *)0x358);
     if (iVar1 == 0) {
       iVar1 = 0;
     }
     else {
-      cls_105ab904_new((void *)iVar1);
+      cls_105ab904_new((uint32_t *)(iVar1));
     }
     *(int *)((int)param_1 + iVar3 + 8) = iVar1;
     piVar2 = *(int **)((int)param_1 + iVar3 + 8);
     iVar1 = *piVar2;
-    (**(code **)(iVar1 + 0x14))((int)piVar2 + (int)*(short *)(iVar1 + 0x10),0);
-    iVar1 = (int)heap_alloc((void *)0x358);
+    (((vtbl_entry*)(iVar1))[2].fn)((int)piVar2 + (int)((vtbl_entry*)(iVar1))[2].adj,0);
+    iVar1 = heap_alloc((void *)0x358);
     if (iVar1 == 0) {
       iVar1 = 0;
     }
     else {
-      cls_105ab904_new((void *)iVar1);
+      cls_105ab904_new((uint32_t *)(iVar1));
     }
     *(int *)((int)param_1 + iVar3 + 0xc) = iVar1;
     piVar2 = *(int **)((int)param_1 + iVar3 + 0xc);
     iVar1 = *piVar2;
-    (**(code **)(iVar1 + 0x14))((int)piVar2 + (int)*(short *)(iVar1 + 0x10),0);
-    iVar1 = (int)heap_alloc((void *)0x358);
+    (((vtbl_entry*)(iVar1))[2].fn)((int)piVar2 + (int)((vtbl_entry*)(iVar1))[2].adj,0);
+    iVar1 = heap_alloc((void *)0x358);
     if (iVar1 == 0) {
       iVar1 = 0;
     }
     else {
-      cls_105ab904_new((void *)iVar1);
+      cls_105ab904_new((uint32_t *)(iVar1));
     }
     *(int *)((int)param_1 + iVar3 + 0x10) = iVar1;
     piVar2 = *(int **)((int)param_1 + iVar3 + 0x10);
     iVar1 = *piVar2;
-    (**(code **)(iVar1 + 0x14))((int)piVar2 + (int)*(short *)(iVar1 + 0x10),0);
+    (((vtbl_entry*)(iVar1))[2].fn)((int)piVar2 + (int)((vtbl_entry*)(iVar1))[2].adj,0);
     iStack_10 = iStack_10 + -1;
     if (iStack_10 < 0) break;
     iVar3 = iVar3 + 0x10;
@@ -76,6 +76,6 @@ void initialize_object_array_1048516a(void *param_1)
     cls_105d6da0_new(piVar2);
   }
   *(int **)((int)param_1 + 0x24) = piVar2;
-  (**(code **)(*piVar2 + 0x14))((int)*(short *)(*piVar2 + 0x10) + (int)piVar2,0);
+  (((vtbl_entry*)(*piVar2))[2].fn)((int)((vtbl_entry*)(*piVar2))[2].adj + (int)piVar2,0);
   return;
 }

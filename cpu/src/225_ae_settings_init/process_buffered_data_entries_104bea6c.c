@@ -45,7 +45,7 @@ int process_buffered_data_entries_104bea6c(int param_1,uint32_t param_2)
         *(int *)(param_1 + 0xfd94) =
              param_1 + 0xebac + *(int *)(param_1 + 0x8d0) * 0x2fc + iVar2 * 0x2fc;
         iVar2 = find_first_active_entry(*(int *)(param_1 + 0x8d0) * 0xb34 + param_1 + 0x2118,iVar2);
-        iStack_10 = apply_param_state_to_object(param_1,param_2,(void *)iVar2);
+        iStack_10 = apply_param_state_to_object((int)(param_1),(uint32_t)(param_2),(uint32_t *)(iVar2));
         if (iStack_10 == 0) break;
       }
       iVar1 = iVar1 + 1;

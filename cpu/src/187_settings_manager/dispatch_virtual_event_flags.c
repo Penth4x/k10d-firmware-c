@@ -24,25 +24,25 @@ void dispatch_virtual_event_flags(int *param_1,int *param_2)
   int iVar2;
   
   poll_key_states_and_update_counters(__frv_reg_unset(4),(int *)__frv_reg_unset(5));
-  iVar1 = (**(code **)(*param_2 + 0x24))((int)*(short *)(*param_2 + 0x20) + (int)param_2,0xd);
+  iVar1 = (((vtbl_entry*)(*param_2))[4].fn)((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,0xd);
   if (iVar1 == 0) {
-    iVar1 = (**(code **)(*param_2 + 0x24))((int)*(short *)(*param_2 + 0x20) + (int)param_2,0xe);
+    iVar1 = (((vtbl_entry*)(*param_2))[4].fn)((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,0xe);
     if (iVar1 == 0) {
-      iVar1 = (**(code **)(*param_2 + 0x24))((int)*(short *)(*param_2 + 0x20) + (int)param_2,0x10);
+      iVar1 = (((vtbl_entry*)(*param_2))[4].fn)((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,0x10);
       if (iVar1 == 0) {
-        iVar1 = (**(code **)(*param_2 + 0x24))((int)*(short *)(*param_2 + 0x20) + (int)param_2,0x17)
+        iVar1 = (((vtbl_entry*)(*param_2))[4].fn)((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,0x17)
         ;
         if (iVar1 == 0) {
-          iVar1 = (**(code **)(*param_2 + 0x24))((int)*(short *)(*param_2 + 0x20) + (int)param_2,1);
+          iVar1 = (((vtbl_entry*)(*param_2))[4].fn)((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,1);
           iVar2 = *param_2;
           if (iVar1 != 0) {
-            iVar1 = (**(code **)(iVar2 + 0x1c))((int)*(short *)(iVar2 + 0x18) + (int)param_2,0xc);
+            iVar1 = (((vtbl_entry*)(iVar2))[3].fn)((int)((vtbl_entry*)(iVar2))[3].adj + (int)param_2,0xc);
             if ((iVar1 != 0) || (iVar1 = query_object_flag_at_offset_0x1c_1046d73a(*param_1), iVar1 != 0)) {
               run_sensor_readout_sequence(*param_1,(uint8_t *)1,0,(uint8_t *)__frv_reg_unset(7));
             }
             iVar2 = *param_2;
           }
-          iVar1 = (**(code **)(iVar2 + 0x24))((int)*(short *)(iVar2 + 0x20) + (int)param_2,0);
+          iVar1 = (((vtbl_entry*)(iVar2))[4].fn)((int)((vtbl_entry*)(iVar2))[4].adj + (int)param_2,0);
           if (iVar1 != 0) {
             set_object_flag_from_bool(*param_1,1);
             *(uint8_t *)(param_1 + 0x48) = 1;
@@ -68,31 +68,31 @@ void dispatch_virtual_event_flags(int *param_1,int *param_2)
     *(uint8_t *)((int)param_1 + 0x11f) = 1;
   }
   if ((*(char *)((int)param_1 + 0x122) != '\0') &&
-     (iVar1 = (**(code **)(*param_2 + 0x1c))((int)*(short *)(*param_2 + 0x18) + (int)param_2,0x10),
+     (iVar1 = (((vtbl_entry*)(*param_2))[3].fn)((int)((vtbl_entry*)(*param_2))[3].adj + (int)param_2,0x10),
      iVar1 != 0)) {
     set_param_via_object(*param_1,0);
     *(uint8_t *)((int)param_1 + 0x122) = 0;
   }
   if ((*(char *)((int)param_1 + 0x121) != '\0') &&
-     (iVar1 = (**(code **)(*param_2 + 0x1c))((int)*(short *)(*param_2 + 0x18) + (int)param_2,0xe),
+     (iVar1 = (((vtbl_entry*)(*param_2))[3].fn)((int)((vtbl_entry*)(*param_2))[3].adj + (int)param_2,0xe),
      iVar1 != 0)) {
     set_flag_from_bool_1046fd0c(*param_1,0);
     *(uint8_t *)((int)param_1 + 0x121) = 0;
   }
   if ((*(char *)(param_1 + 0x48) != '\0') &&
-     (iVar1 = (**(code **)(*param_2 + 0x1c))((int)*(short *)(*param_2 + 0x18) + (int)param_2,0),
+     (iVar1 = (((vtbl_entry*)(*param_2))[3].fn)((int)((vtbl_entry*)(*param_2))[3].adj + (int)param_2,0),
      iVar1 != 0)) {
     set_object_flag_from_bool(*param_1,0);
     *(uint8_t *)(param_1 + 0x48) = 0;
   }
   if ((*(char *)((int)param_1 + 0x11f) != '\0') &&
-     (iVar1 = (**(code **)(*param_2 + 0x1c))((int)*(short *)(*param_2 + 0x18) + (int)param_2,0xd),
+     (iVar1 = (((vtbl_entry*)(*param_2))[3].fn)((int)((vtbl_entry*)(*param_2))[3].adj + (int)param_2,0xd),
      iVar1 != 0)) {
     set_param_and_dispatch_event(*param_1,0);
     *(uint8_t *)((int)param_1 + 0x11f) = 0;
   }
   if ((*(char *)((int)param_1 + 0x123) != '\0') &&
-     (iVar1 = (**(code **)(*param_2 + 0x1c))((int)*(short *)(*param_2 + 0x18) + (int)param_2,0x17),
+     (iVar1 = (((vtbl_entry*)(*param_2))[3].fn)((int)((vtbl_entry*)(*param_2))[3].adj + (int)param_2,0x17),
      iVar1 != 0)) {
     set_object_field_via_helper_1046fd9e(*param_1,0);
     *(uint8_t *)((int)param_1 + 0x123) = 0;

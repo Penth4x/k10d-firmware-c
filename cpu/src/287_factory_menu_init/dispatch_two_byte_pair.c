@@ -35,7 +35,7 @@ uint32_t dispatch_two_byte_pair(int param_1,uint32_t param_2)
     uVar1 = get_shared_sram_buffer();
     uVar2 = 0x105f9fec/*ROM*/;
   }
-  dispatch_by_two_state_flags(uVar1,&uStack_10,&uStack_c,(void*)uVar2);
+  dispatch_by_two_state_flags((int)(uVar1),(uint32_t *)(&uStack_10),(uint32_t *)(&uStack_c),(void *)(uVar2));
   (*(code *)0x104de008/*ROM*/)(param_2,uStack_10,uStack_c,uStack_c);
   return 1;
 }

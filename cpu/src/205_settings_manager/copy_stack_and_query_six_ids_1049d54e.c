@@ -35,17 +35,17 @@ void copy_stack_and_query_six_ids_1049d54e(int param_1)
     *(uint32_t *)(iVar4 + param_1 + 0xd4) = *(uint32_t *)(&stack0xffffffec + iVar5);
     iVar5 = iVar4;
   } while (iVar4 != 0);
-  uVar2 = (**(code **)(*piVar1 + 0x24))((int)*(short *)(*piVar1 + 0x20) + (int)piVar1,0x103);
+  uVar2 = (((vtbl_entry*)(*piVar1))[4].fn)((int)((vtbl_entry*)(*piVar1))[4].adj + (int)piVar1,0x103);
   forward_two_params_to_helper_104a874a(iVar3,uVar2);
-  uVar2 = (**(code **)(*piVar1 + 0x24))((int)*(short *)(*piVar1 + 0x20) + (int)piVar1,0x11a);
+  uVar2 = (((vtbl_entry*)(*piVar1))[4].fn)((int)((vtbl_entry*)(*piVar1))[4].adj + (int)piVar1,0x11a);
   forward_two_params_to_helper_104a874a(iVar3,uVar2);
-  uVar2 = (**(code **)(*piVar1 + 0x24))((int)*(short *)(*piVar1 + 0x20) + (int)piVar1,0x11b);
+  uVar2 = (((vtbl_entry*)(*piVar1))[4].fn)((int)((vtbl_entry*)(*piVar1))[4].adj + (int)piVar1,0x11b);
   forward_two_params_to_helper_104a874a(iVar3,uVar2);
-  uVar2 = (**(code **)(*piVar1 + 0x24))((int)*(short *)(*piVar1 + 0x20) + (int)piVar1,0x128);
+  uVar2 = (((vtbl_entry*)(*piVar1))[4].fn)((int)((vtbl_entry*)(*piVar1))[4].adj + (int)piVar1,0x128);
   forward_two_params_to_helper_104a874a(iVar3,uVar2);
-  uVar2 = (**(code **)(*piVar1 + 0x24))((int)*(short *)(*piVar1 + 0x20) + (int)piVar1,0x201);
+  uVar2 = (((vtbl_entry*)(*piVar1))[4].fn)((int)((vtbl_entry*)(*piVar1))[4].adj + (int)piVar1,0x201);
   forward_two_params_to_helper_104a874a(iVar3,uVar2);
-  uVar2 = (**(code **)(*piVar1 + 0x24))((int)*(short *)(*piVar1 + 0x20) + (int)piVar1,0x202);
+  uVar2 = (((vtbl_entry*)(*piVar1))[4].fn)((int)((vtbl_entry*)(*piVar1))[4].adj + (int)piVar1,0x202);
   forward_two_params_to_helper_104a874a(iVar3,uVar2);
   return;
 }

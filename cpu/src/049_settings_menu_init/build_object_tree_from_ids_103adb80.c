@@ -18,7 +18,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void build_object_tree_from_ids_103adb80(int param_1,uint32_t param_2,void *param_3,void *param_4)
+void build_object_tree_from_ids_103adb80(cls_10565d08 *param_1,uint32_t param_2,void *param_3,void *param_4)
 
 {
   uint uVar1;
@@ -248,7 +248,7 @@ void build_object_tree_from_ids_103adb80(int param_1,uint32_t param_2,void *para
   void *pvVar225;
   void *pvVar226;
   
-  *(uint8_t *)(param_1 + 4) = 1;
+  param_1->field_0x4 = 1;
   uVar1 = (uint)uRam10568dce;
   uVar2 = (uint)uRam10568dd0;
   uVar3 = (uint)uRam10568dd2;
@@ -256,8 +256,8 @@ void build_object_tree_from_ids_103adb80(int param_1,uint32_t param_2,void *para
   uVar4 = (uint)uRam10568dd8;
   uVar5 = (uint)uRam10568dda;
   sVar7 = 0x280 - sRam10568ddc;
-  *(uint16_t *)(param_1 + 0x4a) = 0x1da;
-  *(uint16_t *)(param_1 + 0x4c) = 0x48;
+  *(uint16_t *)&param_1->field_0x4a = 0x1da;
+  *(uint16_t *)&param_1->field_0x4c = 0x48;
   pvVar8 = (void *)get_or_init_static_buffer_10495746();
   iterate_range_and_call_match(pvVar8,(uint *)0x10568de0/*ROM*/,param_3,param_4);
   pvVar9 = (void *)app_obj_factory(pvVar8,(void *)0x20a0000,0,0);
@@ -288,14 +288,14 @@ void build_object_tree_from_ids_103adb80(int param_1,uint32_t param_2,void *para
   pvVar34 = (void *)app_obj_factory(pvVar8,(void *)0x20a0019,0,0);
   pvVar35 = (void *)app_obj_factory(pvVar8,(void *)0x20a001a,0,0);
   pvVar36 = (void *)app_obj_factory(pvVar8,(void *)0x20a001b,0,0);
-  pvVar37 = (void *)app_obj_factory(pvVar8,(void *)0x20a001c,0x1c4U - ((int)uVar1 >> 1) & 0xffff,0xe4U - ((int)uVar1 >> 1) & 0xffff);
-  pvVar38 = (void *)app_obj_factory(pvVar8,(void *)0x20a001d,0,0x144U - ((int)uVar2 >> 1) & 0xffff);
-  pvVar39 = (void *)app_obj_factory(pvVar8,(void *)0x20a001e,0,0x18cU - ((int)uVar3 >> 1) & 0xffff);
-  pvVar40 = (void *)app_obj_factory(pvVar8,(void *)0x20a001f,0,sVar6);
+  pvVar37 = (void *)app_obj_factory((int *)(pvVar8),(void *)0x20a001c,(void *)(0x1c4U - ((int)uVar1 >> 1) & 0xffff),(void *)(0xe4U - ((int)uVar1 >> 1) & 0xffff));
+  pvVar38 = (void *)app_obj_factory((int *)(pvVar8),(void *)0x20a001d,(void *)(0),(void *)(0x144U - ((int)uVar2 >> 1) & 0xffff));
+  pvVar39 = (void *)app_obj_factory((int *)(pvVar8),(void *)0x20a001e,(void *)(0),(void *)(0x18cU - ((int)uVar3 >> 1) & 0xffff));
+  pvVar40 = (void *)app_obj_factory((int *)(pvVar8),(void *)0x20a001f,(void *)(0),(void *)(sVar6));
   pvVar41 = (void *)app_obj_factory(pvVar8,(void *)0x20a0020,0,0);
-  pvVar42 = (void *)app_obj_factory(pvVar8,(void *)0x20a0021,0x14cU - ((int)uVar4 >> 1) & 0xffff,0x144U - ((int)uVar4 >> 1) & 0xffff);
-  pvVar43 = (void *)app_obj_factory(pvVar8,(void *)0x20a0022,0x1c4U - ((int)uVar5 >> 1) & 0xffff,0);
-  pvVar44 = (void *)app_obj_factory(pvVar8,(void *)0x20a0023,sVar7,0);
+  pvVar42 = (void *)app_obj_factory((int *)(pvVar8),(void *)0x20a0021,(void *)(0x14cU - ((int)uVar4 >> 1) & 0xffff),(void *)(0x144U - ((int)uVar4 >> 1) & 0xffff));
+  pvVar43 = (void *)app_obj_factory((int *)(pvVar8),(void *)0x20a0022,(void *)(0x1c4U - ((int)uVar5 >> 1) & 0xffff),(void *)(0));
+  pvVar44 = (void *)app_obj_factory((int *)(pvVar8),(void *)0x20a0023,(void *)(sVar7),(void *)(0));
   pvVar45 = (void *)app_obj_factory(pvVar8,(void *)0x20a0024,(void *)0x20,(void *)0x18);
   pvVar46 = (void *)app_obj_factory(pvVar8,(void *)0x20a0025,(void *)0x20,(void *)0x18);
   pvVar47 = (void *)app_obj_factory(pvVar8,(void *)0x20a0026,(void *)0x20,(void *)0x18);
@@ -695,6 +695,6 @@ void build_object_tree_from_ids_103adb80(int param_1,uint32_t param_2,void *para
   iterate_and_remove_list_entry(pvVar9,pvVar33,pvVar225,pvVar226);
   iterate_and_remove_list_entry(pvVar9,pvVar34,pvVar225,pvVar226);
   iterate_and_remove_list_entry(pvVar9,pvVar35,pvVar225,pvVar226);
-  set_object_field_at_offset_0x10((void *)(param_1 + 8),pvVar9);
+  set_object_field_at_offset_0x10(&param_1->field5_0x8,pvVar9);
   return;
 }

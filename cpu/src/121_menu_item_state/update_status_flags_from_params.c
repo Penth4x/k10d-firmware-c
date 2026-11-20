@@ -9,8 +9,8 @@
  *   0x10435554, mapping them to specific indices (0-4) and boolean flags. It then calls
  *   write_object_field_byte multiple times with the pointer at param_1+0x1c to set various
  *   status fields (indices 0, 1, 3, 4, 5, 0xe, 0x14). It also queries param_1 via
- *   FUN_10433ce8, read_byte_at_offset_0x15, and read_byte_at_offset_0x16 to set boolean
- *   status bits. Finally, if param_3 is non-zero, it calls resubmit_cpucom_context.
+ *   read_byte_at_offset_0x14, read_byte_at_offset_0x15, and read_byte_at_offset_0x16 to set
+ *   boolean status bits. Finally, if param_3 is non-zero, it calls resubmit_cpucom_context.
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"
@@ -49,7 +49,7 @@ void update_status_flags_from_params(int param_1,void *param_2,int param_3)
   else {
     iVar3 = 0;
   }
-  write_object_field_byte((void *)(*(uint32_t *)(param_1 + 0x1c)),0,iVar3);
+  write_object_field_byte((int *)(*(uint32_t *)(param_1 + 0x1c)),(int)(0),(uint)(iVar3));
   iVar4 = (*(code *)0x10435546/*ROM*/)((int)param_2 + 0x14);
   if (iVar4 == 0) {
     iVar4 = (*(code *)0x10435554/*ROM*/)((int)param_2 + 0x14);
@@ -73,18 +73,18 @@ void update_status_flags_from_params(int param_1,void *param_2,int param_3)
   else {
     iVar5 = 0;
   }
-  write_object_field_byte((void *)(*(uint32_t *)(param_1 + 0x1c)),1,iVar5);
+  write_object_field_byte((int *)(*(uint32_t *)(param_1 + 0x1c)),(int)(1),(uint)(iVar5));
   uVar6 = *(uint32_t *)(param_1 + 0x1c);
   iVar3 = (*(code *)0x10433ce8/*ROM*/)(param_1);
-  write_object_field_byte((void *)uVar6,3,iVar3 != 0);
+  write_object_field_byte((int *)(uVar6),(int)(3),(uint)(iVar3 != 0));
   uVar6 = *(uint32_t *)(param_1 + 0x1c);
   iVar3 = read_byte_at_offset_0x15(param_1);
-  write_object_field_byte((void *)uVar6,4,iVar3 != 0);
+  write_object_field_byte((int *)(uVar6),(int)(4),(uint)(iVar3 != 0));
   uVar6 = *(uint32_t *)(param_1 + 0x1c);
   iVar3 = read_byte_at_offset_0x16(param_1);
-  write_object_field_byte((void *)uVar6,5,iVar3 != 0);
-  write_object_field_byte((void *)(*(uint32_t *)(param_1 + 0x1c)),0xe,uVar1);
-  write_object_field_byte((void *)(*(uint32_t *)(param_1 + 0x1c)),0x14,uVar2);
+  write_object_field_byte((int *)(uVar6),(int)(5),(uint)(iVar3 != 0));
+  write_object_field_byte((int *)(*(uint32_t *)(param_1 + 0x1c)),(int)(0xe),(uint)(uVar1));
+  write_object_field_byte((int *)(*(uint32_t *)(param_1 + 0x1c)),(int)(0x14),(uint)(uVar2));
   if (param_3 != 0) {
     resubmit_cpucom_context(param_1);
   }

@@ -32,7 +32,7 @@ void ec_init_build_graph(void *param_1)
     iVar1 = 0;
   }
   else {
-    cls_1059f088_new((void *)iVar1);
+    cls_1059f088_new((uint32_t *)(iVar1));
   }
   *(int *)((int)param_1 + 4) = iVar1;
   iVar1 = get_or_create_singleton_104e7b68();
@@ -44,15 +44,15 @@ void ec_init_build_graph(void *param_1)
     pvVar4 = (void *)(*(int *)((int)param_1 + 4) + 4);
   }
   set_pointer_if_null(pvVar6,pvVar4);
-  uVar2 = (uint32_t)cls_1059ef7c_new(0,2,(int)pvVar6);
+  uVar2 = (uintptr_t)(cls_1059ef7c_new((cls_1059ef7c *)(0),(uint32_t)(2),(uint32_t)(pvVar6)));
   *(uint32_t *)((int)param_1 + 0x10) = uVar2;
-  uVar2 = (uint32_t)cls_1059ef7c_new(0,0,0);
+  uVar2 = (uintptr_t)(cls_1059ef7c_new(0,0,0));
   *(uint32_t *)((int)param_1 + 8) = uVar2;
-  uVar2 = (uint32_t)cls_1059ef7c_new(0,1,0);
+  uVar2 = (uintptr_t)(cls_1059ef7c_new(0,1,0));
   *(uint32_t *)((int)param_1 + 0xc) = uVar2;
-  uVar2 = (uint32_t)cls_1059ef7c_new(0,3,0);
+  uVar2 = (uintptr_t)(cls_1059ef7c_new(0,3,0));
   *(uint32_t *)((int)param_1 + 0x14) = uVar2;
-  uVar2 = (uint32_t)cls_1059ef7c_new(0,4,0);
+  uVar2 = (uintptr_t)(cls_1059ef7c_new(0,4,0));
   *(uint32_t *)((int)param_1 + 0x18) = uVar2;
   iVar1 = cls_1059ef8c_new((uint32_t *)0x0,2,0);
   *(int *)((int)param_1 + 0x24) = iVar1;
@@ -83,24 +83,24 @@ void ec_init_build_graph(void *param_1)
     iVar1 = 0;
   }
   else {
-    cls_105c1344_new((void *)iVar1);
+    cls_105c1344_new((uint32_t *)(iVar1));
   }
   *(int *)((int)param_1 + 0x3c) = iVar1;
   *(uint32_t *)(iVar1 + 0x28) = *(uint32_t *)((int)param_1 + 4);
   iVar1 = **(int **)((int)param_1 + 0x3c);
-  (**(code **)(iVar1 + 0x14))((int)*(int **)((int)param_1 + 0x3c) + (int)*(short *)(iVar1 + 0x10),0)
+  (((vtbl_entry*)(iVar1))[2].fn)((int)*(int **)((int)param_1 + 0x3c) + (int)((vtbl_entry*)(iVar1))[2].adj,0)
   ;
   iVar1 = heap_alloc((void *)0xd0);
   if (iVar1 == 0) {
     iVar1 = 0;
   }
   else {
-    cls_1059efac_new((void *)iVar1);
+    cls_1059efac_new((uint32_t *)(iVar1));
   }
   *(int *)((int)param_1 + 0x2c) = iVar1;
   *(uint32_t *)(iVar1 + 0xcc) = *(uint32_t *)((int)param_1 + 0x3c);
   iVar1 = **(int **)((int)param_1 + 0x2c);
-  (**(code **)(iVar1 + 0x14))((int)*(int **)((int)param_1 + 0x2c) + (int)*(short *)(iVar1 + 0x10),0)
+  (((vtbl_entry*)(iVar1))[2].fn)((int)*(int **)((int)param_1 + 0x2c) + (int)((vtbl_entry*)(iVar1))[2].adj,0)
   ;
   link_first_entry_in_list(*(void **)((int)param_1 + 0x2c),*(int **)((int)param_1 + 8));
   link_first_entry_in_list(*(void **)((int)param_1 + 0x2c),*(int **)((int)param_1 + 0xc));
@@ -143,7 +143,7 @@ void ec_init_build_graph(void *param_1)
     iVar5 = *(int *)((int)param_1 + 4) + 4;
   }
   set_field_at_offset_0x14_104aa6e2(*(void **)(iVar1 + 8),iVar5);
-  uVar2 = (uint32_t)cls_105b55d4_new(0,1);
+  uVar2 = (uintptr_t)(cls_105b55d4_new(0,1));
   *(uint32_t *)((int)param_1 + 0x34) = uVar2;
   piVar3 = (int *)heap_alloc((void *)0x40);
   if (piVar3 == (int *)0x0) {
@@ -153,22 +153,22 @@ void ec_init_build_graph(void *param_1)
     cls_105b979c_new(piVar3);
   }
   *(int **)((int)param_1 + 0x38) = piVar3;
-  (**(code **)(*piVar3 + 0x14))((int)*(short *)(*piVar3 + 0x10) + (int)piVar3,0);
+  (((vtbl_entry*)(*piVar3))[2].fn)((int)((vtbl_entry*)(*piVar3))[2].adj + (int)piVar3,0);
   iVar1 = heap_alloc((void *)100);
   if (iVar1 == 0) {
     iVar1 = 0;
   }
   else {
-    cls_1059f3b4_new((void *)iVar1);
+    cls_1059f3b4_new((uint32_t *)(iVar1));
   }
   *(int *)((int)param_1 + 0x30) = iVar1;
   *(uint32_t *)(iVar1 + 0x5c) = *(uint32_t *)((int)param_1 + 0x34);
   *(uint32_t *)(*(int *)((int)param_1 + 0x30) + 0x60) = *(uint32_t *)((int)param_1 + 0x38);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  (**(code **)(iVar1 + 0x14))((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x10),0)
+  (((vtbl_entry*)(iVar1))[2].fn)((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[2].adj,0)
   ;
   *(uint32_t *)(*(int *)((int)param_1 + 4) + 0x30) = *(uint32_t *)((int)param_1 + 0x30);
   iVar1 = **(int **)((int)param_1 + 4);
-  (**(code **)(iVar1 + 0x14))((int)*(int **)((int)param_1 + 4) + (int)*(short *)(iVar1 + 0x10),0);
+  (((vtbl_entry*)(iVar1))[2].fn)((int)*(int **)((int)param_1 + 4) + (int)((vtbl_entry*)(iVar1))[2].adj,0);
   return;
 }

@@ -26,14 +26,14 @@ int dispatch_virtual_then_table(uint32_t *param_1,uint32_t *param_2)
   int iVar5;
   short *psVar6;
   
-  *param_1 = (uint32_t)(uintptr_t)param_2;
+  *param_1 = (uint32_t)(param_2);
   param_1[1] = *param_2;
   iVar5 = 0;
   pvVar2 = (void *)get_system_heap();
   pvVar2 = (void *)mempool_get_block(pvVar2,&DAT_00000200,2);
   zero_struct_fields_1047e898(param_1);
-  iVar3 = (**(code **)(param_1[0xc] + 0x14))
-                    ((int)*(short *)(param_1[0xc] + 0x10) + (int)param_1,param_2);
+  iVar3 = (((vtbl_entry*)(param_1[0xc]))[2].fn)
+                    ((int)((vtbl_entry*)(param_1[0xc]))[2].adj + (int)param_1,param_2);
   if ((iVar3 != 0) && (sum_five_values_into_offset_0x2c(param_1), sRam105aaee6 != 0)) {
     iVar3 = 0;
     do {

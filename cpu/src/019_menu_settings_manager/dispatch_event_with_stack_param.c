@@ -26,10 +26,10 @@ uint32_t dispatch_event_with_stack_param(void *param_1,uint16_t param_2,uint8_t 
   uint8_t auStack_20 [4];
   
   puVar1 = auStack_20;
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,0x8000);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(0x8000));
   puVar1[3] = param_4;
   init_object_with_params_104c49b8(_DAT_8000439c/*SDRAM*/,(int)param_1,param_2,param_3,puVar1[3]);
   eventflag_wai_flg((uint32_t *)0x80018088/*SDRAM*/,0x8000,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,0x8000);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(0x8000));
   return *(uint32_t *)((int)param_1 + 8);
 }

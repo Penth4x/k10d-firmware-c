@@ -24,14 +24,14 @@ void poll_and_transmit_sensor_data(int param_1)
   uint8_t *puVar3;
   uint8_t auStack_a0 [8];
   uint8_t auStack_68 [80];
-  uint8_t auStack_18 [8];
-  uint8_t auStack_10 [8];
+  cls_105a6cb4 cStack_18;
+  cls_105a6b4c cStack_10;
   
   puVar3 = auStack_a0;
   *(uint8_t *)(param_1 + 0x12) = 0;
   forward_event_to_subobject(param_1,1);
-  cls_105a6cb4_new(auStack_18);
-  cls_105a6b4c_new(auStack_10);
+  cls_105a6cb4_new(&cStack_18);
+  cls_105a6b4c_new(&cStack_10);
   check_kernel_call_success_10459fea();
   puVar2 = &DAT_105a9614/*ROM*/;
   *(uint16_t *)(puVar3 + 2) = 3;
@@ -39,23 +39,23 @@ void poll_and_transmit_sensor_data(int param_1)
   sr_dma_command(param_1,2,6,&DAT_105a9614/*ROM*/,*(uint16_t *)(puVar3 + 2),*(uint16_t *)(puVar3 + 6));
   if (*(char *)(param_1 + 0x12) == '\0') {
     do {
-      copy_four_bytes_from_offset(*(int *)(param_1 + 0x30),auStack_18);
-      copy_three_bytes_from_offset(*(int *)(param_1 + 0x30),auStack_10);
-      pvVar1 = (void *)read_pair_from_object(auStack_18,0);
+      copy_four_bytes_from_offset(*(int *)(param_1 + 0x30),&cStack_18);
+      copy_three_bytes_from_offset(*(int *)(param_1 + 0x30),&cStack_10);
+      pvVar1 = (void *)read_pair_from_object(&cStack_18,0);
       format_string_to_buffer_10545140(auStack_68,&DAT_105a9624/*ROM*/,pvVar1,puVar2);
       *(uint16_t *)(puVar3 + 2) = 7;
       *(uint16_t *)(puVar3 + 6) = 0xff;
       puVar2 = auStack_68;
       sr_dma_command(param_1,4,2,auStack_68,*(uint16_t *)(puVar3 + 2),*(uint16_t *)(puVar3 + 6))
       ;
-      pvVar1 = (void *)read_pair_from_object(auStack_18,1);
+      pvVar1 = (void *)read_pair_from_object(&cStack_18,1);
       format_string_to_buffer_10545140(auStack_68,&DAT_105a9638/*ROM*/,pvVar1,puVar2);
       *(uint16_t *)(puVar3 + 2) = 7;
       *(uint16_t *)(puVar3 + 6) = 0xff;
       puVar2 = auStack_68;
       sr_dma_command(param_1,5,2,auStack_68,*(uint16_t *)(puVar3 + 2),*(uint16_t *)(puVar3 + 6))
       ;
-      pvVar1 = (void *)read_two_byte_field(auStack_10);
+      pvVar1 = (void *)read_two_byte_field(&cStack_10);
       format_string_to_buffer_10545140(auStack_68,&DAT_105a964c/*ROM*/,pvVar1,puVar2);
       *(uint16_t *)(puVar3 + 2) = 7;
       *(uint16_t *)(puVar3 + 6) = 0xff;
@@ -67,7 +67,7 @@ void poll_and_transmit_sensor_data(int param_1)
   }
   *(uint8_t *)(param_1 + 0x12) = 0;
   forward_event_to_subobject(param_1,0);
-  cls_105a6b4c_delete(auStack_10,2);
-  cls_105a6cb4_delete(auStack_18,2);
+  cls_105a6b4c_delete(&cStack_10,2);
+  cls_105a6cb4_delete(&cStack_18,2);
   return;
 }

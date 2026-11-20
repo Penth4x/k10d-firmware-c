@@ -13,10 +13,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_two_handles(int param_1)
+void release_two_handles(cls_105b6554 *param_1)
 
 {
-  heap_free_2(*(int *)(param_1 + 0x68));
-  heap_free_2(*(int *)(param_1 + 0x6c));
+  heap_free_2(param_1->field_0x68);
+  heap_free_2(param_1->field_0x6c);
   return;
 }

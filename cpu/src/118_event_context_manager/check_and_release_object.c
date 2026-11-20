@@ -26,7 +26,7 @@ uint32_t check_and_release_object(int param_1,void *param_2,int *param_3,int *pa
   iVar2 = scan_key_table_and_report(*(uint32_t *)(param_1 + 0x30),param_2);
   if (((iVar2 != 0) ||
       ((param_3 != (int *)0x0 &&
-       (iVar2 = (**(code **)(*param_3 + 0x3c))((int)*(short *)(*param_3 + 0x38) + (int)param_3),
+       (iVar2 = (((vtbl_entry*)(*param_3))[7].fn)((int)((vtbl_entry*)(*param_3))[7].adj + (int)param_3),
        iVar2 == 0)))) ||
      ((param_4 != (int *)0x0 &&
       (iVar2 = (**(code **)(*param_4 + 0x3c))((int)*(short *)(*param_4 + 0x38) + (int)param_4),

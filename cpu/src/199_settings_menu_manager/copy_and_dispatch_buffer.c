@@ -26,8 +26,8 @@ int copy_and_dispatch_buffer(void *param_1,void *param_2)
   uint32_t uStack_14;
   uint8_t local_10 [8];
   
-  alloc_and_zero_two_words_1045bc0e((void *)local_10);
-  store_two_words_to_memory((void *)local_10,0,0);
+  alloc_and_zero_two_words_1045bc0e(local_10);
+  store_two_words_to_memory(local_10,0,0);
   iVar1 = 0x10;
   do {
     iVar2 = iVar1 + -4;

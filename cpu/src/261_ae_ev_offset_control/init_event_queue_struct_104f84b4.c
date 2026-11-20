@@ -136,7 +136,7 @@ void init_event_queue_struct_104f84b4(int param_1,uint32_t param_2,uint32_t para
   uStack_6c = param_3;
   uStack_68 = param_4;
   eventflag_clr_flg(puVar1,1);
-  build_and_send_structured_packet(*(uint32_t *)(param_1 + 0x28),1,(void *)(param_1 + 4),&uStack_74);
+  build_and_send_structured_packet((int)(*(uint32_t *)(param_1 + 0x28)),(int)(1),(void *)(param_1 + 4),(uint32_t *)(&uStack_74));
   eventflag_wai_flg(puVar1,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,1);
   configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),1);

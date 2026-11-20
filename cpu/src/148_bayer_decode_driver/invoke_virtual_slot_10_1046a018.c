@@ -13,6 +13,6 @@ uint32_t invoke_virtual_slot_10_1046a018(int param_1)
   int iVar2;
   
   iVar2 = *(int *)(*(int *)(param_1 + 0x23c) + 4);
-  uVar1 = (**(code **)(iVar2 + 0x54))(*(int *)(param_1 + 0x23c) + (int)*(short *)(iVar2 + 0x50));
+  uVar1 = (((vtbl_entry*)(iVar2))[10].fn)(*(int *)(param_1 + 0x23c) + (int)((vtbl_entry*)(iVar2))[10].adj);
   return uVar1;
 }

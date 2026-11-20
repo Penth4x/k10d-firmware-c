@@ -23,7 +23,7 @@ void toggle_virtual_state_based_on_flag_103b0fbc(void *param_1)
   int iVar2;
   
   iVar2 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
   iVar2 = query_object_property_byte_104f2294(*(uint32_t *)((int)param_1 + 0x28));
   if (iVar2 == 1) {
     bVar1 = true;
@@ -46,6 +46,6 @@ void toggle_virtual_state_based_on_flag_103b0fbc(void *param_1)
   }
 LAB_103b103c:
   iVar2 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   return;
 }

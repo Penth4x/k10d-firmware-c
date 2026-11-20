@@ -14,16 +14,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool allocate_and_init_subobject_104b333a(int param_1)
+bool allocate_and_init_subobject_104b333a(cls_105b7f68 *param_1)
 
 {
   void *pvVar1;
   
-  pvVar1 = (void *)cls_105a2af8_new((uint32_t *)0x0);
-  *(void **)(param_1 + 0x44) = pvVar1;
-  if (pvVar1 != (void *)0x0) {
+  pvVar1 = (void *)cls_105a2af8_new((cls_105a2af8 *)0x0);
+  param_1->field_0x44 = (uintptr_t)(pvVar1);
+  if (pvVar1 != 0) {
     wait_flg_obj(pvVar1,0);
-    alloc_pool_and_init_task((int *)(param_1 + 4),0x13,0x2000,4);
+    alloc_pool_and_init_task(&param_1->field_0x4,0x13,0x2000,4);
   }
-  return pvVar1 != (void *)0x0;
+  return pvVar1 != 0;
 }

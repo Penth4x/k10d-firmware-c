@@ -6,13 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_flag_if_zero_and_call_helper(int param_1)
+void set_flag_if_zero_and_call_helper(cls_105575b0 *param_1)
 
 {
-  if (*(int *)(param_1 + 0x204) == 0) {
-    *(uint8_t *)(param_1 + 0x14) = 1;
+  if (param_1->field_0x204 == 0) {
+    param_1->field_0x14 = 1;
   }
-  if (*(char *)(param_1 + 0x16) != '\0') {
+  if (param_1->field_0x16 != '\0') {
     invoke_callback_at_8000439c();
   }
   return;

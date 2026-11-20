@@ -68,7 +68,7 @@ void * app_obj_factory(int *param_1,void *param_2,void *param_3,void *param_4)
       puVar1 = (uint *)*(int *)((ulonglong)uVar13 >> 0x20);
       if ((*puVar1 & 0xffff0000) == ((uint)param_2 & 0xffff0000)) break;
       pvVar9 = (void *)0x0;
-      swap_first_word_and_call((int *)auStack_38,aiStack_60);
+      swap_first_word_and_call(auStack_38,aiStack_60);
       iStack_c = param_1[1];
       pvVar7 = extraout_r5;
       puVar1 = (uint *)0x0;
@@ -181,11 +181,11 @@ void * app_obj_factory(int *param_1,void *param_2,void *param_3,void *param_4)
     uVar14 = CONCAT44(uVar4,pbStack_44);
     break;
   case 0xe:
-    pvVar7 = (void *)alloc_two_word_pair_1045bc2e(auStack_30,(uint)param_3,(uint)param_4);
+    pvVar7 = (void *)alloc_two_word_pair_1045bc2e((uint32_t *)(auStack_30),(uint32_t)(param_3),(uint32_t)(param_4));
     copy_eight_bytes_1045bf68(piVar10,pvVar7);
     free_heap_block_if_flagged_1045bc54(auStack_30,2);
     param_3 = (void *)(uint)uStack_3a;
-    pvVar7 = (void *)alloc_two_word_pair_1045c3dc(&uStack_28,(uint)uStack_3c,(uint)param_3);
+    pvVar7 = (void *)alloc_two_word_pair_1045c3dc((uint32_t *)(&uStack_28),(uint32_t)((uint)uStack_3c),(uint32_t)(param_3));
     copy_and_dispatch_two_params(piVar10,pvVar7);
     free_heap_if_flagged_1045c402(&uStack_28,2);
     iVar3 = 0x10;
@@ -210,7 +210,7 @@ void * app_obj_factory(int *param_1,void *param_2,void *param_3,void *param_4)
     uVar14 = CONCAT44(iVar3,uVar5);
     break;
   case 0x11:
-    uVar14 = (ulonglong)alloc_and_construct_object((int)param_1);
+    uVar14 = (uintptr_t)(alloc_and_construct_object((uint32_t)(param_1)));
     param_3 = pvVar7;
     param_4 = pvVar9;
     break;
@@ -219,17 +219,17 @@ void * app_obj_factory(int *param_1,void *param_2,void *param_3,void *param_4)
     uVar14 = CONCAT44(iVar3,pbStack_44);
     break;
   case 0x13:
-    uVar14 = (ulonglong)allocate_and_construct_object((int)param_1);
+    uVar14 = (uintptr_t)(allocate_and_construct_object((uint32_t)(param_1)));
     param_3 = pvVar7;
     param_4 = pvVar9;
     break;
   case 0x14:
-    uVar14 = (ulonglong)alloc_and_init_object_1049609e((int)param_1);
+    uVar14 = (uintptr_t)(alloc_and_init_object_1049609e((uint32_t)(param_1)));
     param_3 = pvVar7;
     param_4 = pvVar9;
     break;
   case 0x15:
-    uVar14 = (ulonglong)alloc_and_init_0x14_object((int)param_1);
+    uVar14 = (uintptr_t)(alloc_and_init_0x14_object((uint32_t)(param_1)));
     param_3 = pvVar7;
     param_4 = pvVar9;
     break;
@@ -247,18 +247,18 @@ void * app_obj_factory(int *param_1,void *param_2,void *param_3,void *param_4)
     param_4 = pvVar9;
   }
   pvVar7 = (void *)(uVar14 >> 0x20);
-  if (pvVar7 == (void *)0x0) {
+  if (pvVar7 == 0) {
     console_printf(&DAT_105b5158/*ROM*/,(void *)uVar14,param_3,param_4);
   }
   write_field_at_offset_four_10493da0(pvVar7,aiStack_60[5]);
   if ((iStack_40 == 2) || (aiStack_60[6] == 5)) {
-    (**(code **)(*(int *)((int)pvVar7 + 0xc) + 0xdc))
-              ((int)*(short *)(*(int *)((int)pvVar7 + 0xc) + 0xd8) + (int)pvVar7,
+    (((vtbl_entry*)(*(int *)((int)pvVar7 + 0xc)))[27].fn)
+              ((int)((vtbl_entry*)(*(int *)((int)pvVar7 + 0xc)))[27].adj + (int)pvVar7,
                *(uint32_t *)(*param_1 + 4));
   }
   else {
-    (**(code **)(*(int *)((int)pvVar7 + 0xc) + 0xdc))
-              ((int)*(short *)(*(int *)((int)pvVar7 + 0xc) + 0xd8) + (int)pvVar7,
+    (((vtbl_entry*)(*(int *)((int)pvVar7 + 0xc)))[27].fn)
+              ((int)((vtbl_entry*)(*(int *)((int)pvVar7 + 0xc)))[27].adj + (int)pvVar7,
                *(uint32_t *)*param_1);
   }
   destroy_text_widget(piVar10,2);

@@ -31,21 +31,21 @@ void invoke_virtual_slot_two_on_pairs(int param_1,int param_2,uint32_t param_3)
       iVar4 = param_1 + 0x54;
       piVar1 = *(int **)(iVar4 + iVar3);
       if ((piVar1 != (int *)0x0) &&
-         (iVar2 = (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1),
+         (iVar2 = (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1),
          iVar2 != 0)) {
         iVar2 = **(int **)(iVar4 + iVar3);
-        (**(code **)(iVar2 + 0x1c))
-                  ((int)*(int **)(iVar4 + iVar3) + (int)*(short *)(iVar2 + 0x18),
+        (((vtbl_entry*)(iVar2))[3].fn)
+                  ((int)*(int **)(iVar4 + iVar3) + (int)((vtbl_entry*)(iVar2))[3].adj,
                    *(uint32_t *)(param_2 * 4 + 0x105a720c/*ROM*/),param_3);
       }
       piVar1 = *(int **)(iVar4 + iVar3 + 4);
       if ((piVar1 != (int *)0x0) &&
-         (iVar2 = (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1),
+         (iVar2 = (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1),
          iVar2 != 0)) {
         piVar1 = *(int **)(iVar4 + iVar3 + 4);
         iVar4 = *piVar1;
-        (**(code **)(iVar4 + 0x1c))
-                  ((int)piVar1 + (int)*(short *)(iVar4 + 0x18),
+        (((vtbl_entry*)(iVar4))[3].fn)
+                  ((int)piVar1 + (int)((vtbl_entry*)(iVar4))[3].adj,
                    *(uint32_t *)(param_2 * 4 + 0x105a720c/*ROM*/),param_3);
       }
       iStack_10 = iStack_10 + -1;

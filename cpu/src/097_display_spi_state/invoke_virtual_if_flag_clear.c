@@ -14,7 +14,7 @@ void invoke_virtual_if_flag_clear(int param_1)
   iVar1 = query_object_state_flag_104f357a();
   if (iVar1 == 0) {
     iVar1 = **(int **)(param_1 + 0x4c);
-    (**(code **)(iVar1 + 0x84))((int)*(int **)(param_1 + 0x4c) + (int)*(short *)(iVar1 + 0x80));
+    (((vtbl_entry*)(iVar1))[16].fn)((int)*(int **)(param_1 + 0x4c) + (int)((vtbl_entry*)(iVar1))[16].adj);
   }
   return;
 }

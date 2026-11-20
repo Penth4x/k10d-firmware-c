@@ -21,7 +21,7 @@ void invoke_virtual_slot_six_10369aa0(int *param_1)
 {
   dispatch_on_field_0x2c_104bb7ae(param_1 + 0xf);
   init_object_state_from_ram_flags(param_1);
-  (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1);
+  (((vtbl_entry*)(*param_1))[8].fn)((int)((vtbl_entry*)(*param_1))[8].adj + (int)param_1);
   request_ui_sync_code_4(param_1 + 5);
   return;
 }

@@ -6,36 +6,35 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool invoke_slot2_on_four_members_10442536(void *param_1)
+bool invoke_slot2_on_four_members_10442536(cls_105a0d28 *param_1)
 
 {
-  int *piVar1;
-  int iVar2;
-  int iVar3;
+  void **ppuVar1;
+  void *puVar2;
+  bool bVar3;
   bool bVar4;
   bool bVar5;
-  bool bVar6;
   
-  piVar1 = (int *)((int)param_1 + 4);
-  iVar2 = *piVar1;
-  if (iVar2 != 0) {
-    (**(code **)(*(int *)(*piVar1 + 4) + 0x1c))
-              (*piVar1 + (int)*(short *)(*(int *)(*piVar1 + 4) + 0x18),0);
+  ppuVar1 = &param_1->field_0x4;
+  puVar2 = *ppuVar1;
+  if (puVar2 != 0) {
+    (((vtbl_entry*)(*(int *)((char*)*ppuVar1 + 4)))[3].fn)
+              ((char*)*ppuVar1 + ((vtbl_entry*)(*(int *)((char*)*ppuVar1 + 4)))[3].adj,0);
   }
-  bVar4 = *(int *)((int)param_1 + 8) != 0;
+  bVar3 = param_1->field_0x8 != 0;
+  if (bVar3) {
+    (((vtbl_entry*)(*(int *)(param_1->field_0x8 + 4)))[3].fn)
+              (param_1->field_0x8 + ((vtbl_entry*)(*(int *)(param_1->field_0x8 + 4)))[3].adj,0);
+  }
+  bVar4 = param_1->field_0xc != 0;
   if (bVar4) {
-    iVar3 = *(int *)(*(int *)((int)param_1 + 8) + 4);
-    (**(code **)(iVar3 + 0x1c))(*(int *)((int)param_1 + 8) + (int)*(short *)(iVar3 + 0x18),0);
+    (((vtbl_entry*)(*(int *)(param_1->field_0xc + 4)))[3].fn)
+              (param_1->field_0xc + ((vtbl_entry*)(*(int *)(param_1->field_0xc + 4)))[3].adj,0);
   }
-  bVar5 = *(int *)((int)param_1 + 0xc) != 0;
+  bVar5 = param_1->field_0x10 != 0;
   if (bVar5) {
-    iVar3 = *(int *)(*(int *)((int)param_1 + 0xc) + 4);
-    (**(code **)(iVar3 + 0x1c))(*(int *)((int)param_1 + 0xc) + (int)*(short *)(iVar3 + 0x18),0);
+    (((vtbl_entry*)(*(int *)(param_1->field_0x10 + 4)))[3].fn)
+              (param_1->field_0x10 + ((vtbl_entry*)(*(int *)(param_1->field_0x10 + 4)))[3].adj,0);
   }
-  bVar6 = *(int *)((int)param_1 + 0x10) != 0;
-  if (bVar6) {
-    iVar3 = *(int *)(*(int *)((int)param_1 + 0x10) + 4);
-    (**(code **)(iVar3 + 0x1c))(*(int *)((int)param_1 + 0x10) + (int)*(short *)(iVar3 + 0x18),0);
-  }
-  return bVar6 || (bVar5 || (bVar4 || iVar2 != 0));
+  return bVar5 || (bVar4 || (bVar3 || puVar2 != 0));
 }

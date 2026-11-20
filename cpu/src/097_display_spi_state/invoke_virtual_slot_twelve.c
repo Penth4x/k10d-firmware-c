@@ -16,12 +16,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_twelve(void *param_1)
+void invoke_virtual_slot_twelve(cls_1059be70 *param_1)
 
 {
   invoke_fourteen_helpers_on_subobject(param_1);
   release_subobject_triplets(param_1);
-  (**(code **)(*(int *)((int)param_1 + 4) + 0x7c))
-            ((int)*(short *)(*(int *)((int)param_1 + 4) + 0x78) + (int)param_1,1);
+  (((vtbl_entry*)(param_1->field_0x4))[15].fn)
+            (&param_1->field_0x0 + ((vtbl_entry*)(param_1->field_0x4))[15].adj,1);
   return;
 }

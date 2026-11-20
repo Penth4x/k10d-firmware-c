@@ -61,7 +61,7 @@ void init_sensor_readout_params(int param_1)
   send_two_byte_pairs_over_ch2(param_1,0x42,0,0);
   sVar10 = 0;
   uVar2 = get_sysparam_store_instance();
-  iVar1 = get_sysparam_store_byte(uVar2,0xc);
+  iVar1 = get_sysparam_store_byte((void*)(uVar2),0xc);
   if (iVar1 != 0) {
     iVar1 = get_sysparam_store_instance();
     sVar10 = *(short *)(iVar1 + 0x22);
@@ -98,7 +98,7 @@ void init_sensor_readout_params(int param_1)
       uVar9 = 0x83;
     }
     uVar2 = get_sysparam_store_instance();
-    iVar1 = get_sysparam_store_byte(uVar2,0xe);
+    iVar1 = get_sysparam_store_byte((void*)(uVar2),0xe);
     if (iVar1 != 0) {
       uVar9 = uVar9 | 0x200;
       uStack_c = uStack_c | 0x200;
@@ -116,14 +116,14 @@ void init_sensor_readout_params(int param_1)
   puVar3 = (uint8_t *)get_sysparam_store_instance();
   cVar5 = read_sysparam_byte(puVar3);
   if (cVar5 == '\0') {
-    (**(code **)(*(int *)(param_1 + 4) + 0x11c))
-              (*(short *)(*(int *)(param_1 + 4) + 0x118) + param_1,8);
+    (((vtbl_entry*)(*(int *)(param_1 + 4)))[35].fn)
+              (((vtbl_entry*)(*(int *)(param_1 + 4)))[35].adj + param_1,8);
   }
   else {
     iVar8 = *(int *)(param_1 + 4);
     sVar10 = *(short *)(iVar8 + 0x118);
     iVar1 = get_sysparam_store_instance();
-    (**(code **)(iVar8 + 0x11c))(sVar10 + param_1,*(uint16_t *)(iVar1 + 0x34));
+    (((vtbl_entry*)(iVar8))[35].fn)(sVar10 + param_1,*(uint16_t *)(iVar1 + 0x34));
   }
   send_two_byte_pairs_over_ch2(param_1,0,0,0);
   if ((*(char *)(param_1 + 0xbd) == '\0') || (uVar2 = 8, *(char *)(param_1 + 0xc6) == '\0')) {
@@ -183,12 +183,12 @@ void init_sensor_readout_params(int param_1)
   if (cVar5 == '\0') {
     check_kernel_call_success_10459fea();
   }
-  (**(code **)(*(int *)(param_1 + 4) + 0xfc))(*(short *)(*(int *)(param_1 + 4) + 0xf8) + param_1);
-  uVar2 = (**(code **)(*(int *)(param_1 + 4) + 0x114))
-                    (*(short *)(*(int *)(param_1 + 4) + 0x110) + param_1,1);
+  (((vtbl_entry*)(*(int *)(param_1 + 4)))[31].fn)(((vtbl_entry*)(*(int *)(param_1 + 4)))[31].adj + param_1);
+  uVar2 = (((vtbl_entry*)(*(int *)(param_1 + 4)))[34].fn)
+                    (((vtbl_entry*)(*(int *)(param_1 + 4)))[34].adj + param_1,1);
   *(uint32_t *)(param_1 + 0xd0) = uVar2;
-  uVar2 = (**(code **)(*(int *)(param_1 + 4) + 0x114))
-                    (*(short *)(*(int *)(param_1 + 4) + 0x110) + param_1,0);
+  uVar2 = (((vtbl_entry*)(*(int *)(param_1 + 4)))[34].fn)
+                    (((vtbl_entry*)(*(int *)(param_1 + 4)))[34].adj + param_1,0);
   *(uint32_t *)(param_1 + 0xd4) = uVar2;
   puVar7 = (uint32_t *)(param_1 + 0xd8);
   if (*(char *)(param_1 + 0xce) == '\0') {
@@ -200,41 +200,41 @@ void init_sensor_readout_params(int param_1)
         if (*(char *)(param_1 + 0x9f) != '\0') {
           return;
         }
-        (**(code **)(*(int *)(param_1 + 4) + 0x11c))
-                  (*(short *)(*(int *)(param_1 + 4) + 0x118) + param_1,uVar9 & 0xffff);
-        (**(code **)(*(int *)(param_1 + 4) + 0xfc))
-                  (*(short *)(*(int *)(param_1 + 4) + 0xf8) + param_1);
+        (((vtbl_entry*)(*(int *)(param_1 + 4)))[35].fn)
+                  (((vtbl_entry*)(*(int *)(param_1 + 4)))[35].adj + param_1,uVar9 & 0xffff);
+        (((vtbl_entry*)(*(int *)(param_1 + 4)))[31].fn)
+                  (((vtbl_entry*)(*(int *)(param_1 + 4)))[31].adj + param_1);
         check_kernel_call_success_10459fea();
-        uVar2 = (**(code **)(*(int *)(param_1 + 4) + 0x114))
-                          (*(short *)(*(int *)(param_1 + 4) + 0x110) + param_1,1);
+        uVar2 = (((vtbl_entry*)(*(int *)(param_1 + 4)))[34].fn)
+                          (((vtbl_entry*)(*(int *)(param_1 + 4)))[34].adj + param_1,1);
         *puVar7 = uVar2;
         uVar9 = uVar9 + 1;
-        uVar2 = (**(code **)(*(int *)(param_1 + 4) + 0x114))
-                          (*(short *)(*(int *)(param_1 + 4) + 0x110) + param_1,0);
+        uVar2 = (((vtbl_entry*)(*(int *)(param_1 + 4)))[34].fn)
+                          (((vtbl_entry*)(*(int *)(param_1 + 4)))[34].adj + param_1,0);
         puVar7[1] = uVar2;
         puVar7 = puVar7 + 2;
       } while ((int)uVar9 < 0x10);
     }
     else {
       uVar2 = get_sysparam_store_instance();
-      iVar1 = get_sysparam_store_byte(uVar2,0x10);
+      iVar1 = get_sysparam_store_byte((void*)(uVar2),0x10);
       if (iVar1 != 0) {
         uVar9 = 9;
         do {
           if (*(char *)(param_1 + 0x9f) != '\0') {
             return;
           }
-          (**(code **)(*(int *)(param_1 + 4) + 0x11c))
-                    (*(short *)(*(int *)(param_1 + 4) + 0x118) + param_1,uVar9 & 0xffff);
-          (**(code **)(*(int *)(param_1 + 4) + 0xfc))
-                    (*(short *)(*(int *)(param_1 + 4) + 0xf8) + param_1);
+          (((vtbl_entry*)(*(int *)(param_1 + 4)))[35].fn)
+                    (((vtbl_entry*)(*(int *)(param_1 + 4)))[35].adj + param_1,uVar9 & 0xffff);
+          (((vtbl_entry*)(*(int *)(param_1 + 4)))[31].fn)
+                    (((vtbl_entry*)(*(int *)(param_1 + 4)))[31].adj + param_1);
           check_kernel_call_success_10459fea();
-          uVar2 = (**(code **)(*(int *)(param_1 + 4) + 0x114))
-                            (*(short *)(*(int *)(param_1 + 4) + 0x110) + param_1,1);
+          uVar2 = (((vtbl_entry*)(*(int *)(param_1 + 4)))[34].fn)
+                            (((vtbl_entry*)(*(int *)(param_1 + 4)))[34].adj + param_1,1);
           *puVar7 = uVar2;
           uVar9 = uVar9 + 1;
-          uVar2 = (**(code **)(*(int *)(param_1 + 4) + 0x114))
-                            (*(short *)(*(int *)(param_1 + 4) + 0x110) + param_1,0);
+          uVar2 = (((vtbl_entry*)(*(int *)(param_1 + 4)))[34].fn)
+                            (((vtbl_entry*)(*(int *)(param_1 + 4)))[34].adj + param_1,0);
           puVar7[1] = uVar2;
           puVar7 = puVar7 + 2;
         } while ((int)uVar9 < 0x10);

@@ -28,8 +28,7 @@ uint32_t build_and_write_param_struct(int param_1,uint16_t *param_2)
   int iVar3;
   uintptr_t sp;
   uint8_t auStack_42c [256];
-  uint8_t auStack_32c [19];
-  uint8_t auStack_319 [13];
+  cls_105ab468 cStack_32c;
   uint8_t auStack_30c [682];
   uint16_t uStack_62;
   byte bStack_5f;
@@ -43,11 +42,11 @@ uint32_t build_and_write_param_struct(int param_1,uint16_t *param_2)
     uVar1 = 0;
   }
   else {
-    cls_105ab468_new((uint8_t *)__frv_reg_unset(4));
+    cls_105ab468_new(&cStack_32c);
     fill_byte_array(auStack_42c,0,0x100);
-    (**(code **)(*(int *)(param_1 + 0x18) + 0x5c))
-              (*(short *)(*(int *)(param_1 + 0x18) + 0x58) + param_1,auStack_42c);
-    iVar2 = call_with_offset_lock_1048101c(*(void **)(param_1 + 8),auStack_42c,auStack_32c);
+    (((vtbl_entry*)(*(int *)(param_1 + 0x18)))[11].fn)
+              (((vtbl_entry*)(*(int *)(param_1 + 0x18)))[11].adj + param_1,auStack_42c);
+    iVar2 = call_with_offset_lock_1048101c(*(void **)(param_1 + 8),auStack_42c,&cStack_32c);
     if (iVar2 == 0) {
       uVar1 = 0;
     }
@@ -55,7 +54,7 @@ uint32_t build_and_write_param_struct(int param_1,uint16_t *param_2)
       iVar2 = 8;
       do {
         iVar3 = iVar2 + -1;
-        auStack_19[iVar2 + 8] = auStack_319[iVar2];
+        auStack_19[iVar2 + 8] = auStack_30c[iVar2 + -0xd];
         iVar2 = iVar3;
       } while (iVar3 != 0);
       iVar2 = 8;
@@ -69,8 +68,8 @@ uint32_t build_and_write_param_struct(int param_1,uint16_t *param_2)
       uVar1 = 1;
     }
     init_0x2f4_byte_object(auStack_30c);
-    iVar2 = (**(code **)(*(int *)(param_1 + 0x18) + 0x24))
-                      (*(short *)(*(int *)(param_1 + 0x18) + 0x20) + param_1,auStack_30c);
+    iVar2 = (((vtbl_entry*)(*(int *)(param_1 + 0x18)))[4].fn)
+                      (((vtbl_entry*)(*(int *)(param_1 + 0x18)))[4].adj + param_1,auStack_30c);
     if (iVar2 != 0) {
       store_second_word(param_2,uStack_62);
       set_clamped_byte_field(param_2,(uint)bStack_5f);
@@ -79,7 +78,7 @@ uint32_t build_and_write_param_struct(int param_1,uint16_t *param_2)
       store_clamped_byte_at_offset_6(param_2,(uint)bStack_59);
       store_clamped_byte_at_offset_7(param_2,(uint)bStack_57);
     }
-    cls_105ab468_delete(auStack_32c,2);
+    cls_105ab468_delete(&cStack_32c,2);
   }
   return uVar1;
 }

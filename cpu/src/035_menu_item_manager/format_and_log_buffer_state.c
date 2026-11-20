@@ -40,12 +40,12 @@ void format_and_log_buffer_state(int param_1,uint param_2,void *param_3)
   *piVar5 = (int)&ppvStack_c;
   pvVar2 = param_3;
   compute_division_quotient_remainder(&uStack_11,param_2,(uint)param_3,(uint *)ppvVar4,(uint *)*piVar5);
-  if (param_3 == (void *)0x0) {
+  if (param_3 == 0) {
     pcVar3 = (char *)0x105598a0/*ROM*/;
   }
   else {
     pvVar2 = pvStack_10;
-    if ((pvStack_10 == (void *)0x0) && (ppvStack_c == (void **)0x0)) {
+    if ((pvStack_10 == 0) && (ppvStack_c == (void **)0x0)) {
       pcVar3 = (char *)0x105598a8/*ROM*/;
     }
     else if (pvStack_10 < (void *)0xa) {

@@ -33,7 +33,7 @@ void process_pending_event_pair(int param_1)
     puVar4 = (uint16_t *)(param_1 + 0x8d4);
     iVar1 = call_helper_then_two_followups(param_1,uVar3,uVar2,puVar4);
     if ((iVar1 != 0) &&
-       (iVar1 = compare_two_short_pairs_104c2112(param_1,*(int *)(param_1 + 0x8d0) * 0xb34 + param_1 + 0x2118,puVar4),
+       (iVar1 = compare_two_short_pairs_104c2112((int)(param_1),(short *)(*(int *)(param_1 + 0x8d0) * 0xb34 + param_1 + 0x2118),(short *)(puVar4)),
        iVar1 != 0)) {
       deep_copy_struct_with_subblocks((uint16_t *)(param_1 + 0xe04c),puVar4);
     }

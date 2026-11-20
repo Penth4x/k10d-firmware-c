@@ -12,6 +12,6 @@ void call_virtual_slot_4_on_object(void)
   int *piVar1;
   
   piVar1 = (int *)get_or_create_singleton_object_10492ade();
-  (**(code **)(*piVar1 + 0x24))((int)piVar1 + (int)*(short *)(*piVar1 + 0x20));
+  (((vtbl_entry*)(*piVar1))[4].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[4].adj);
   return;
 }

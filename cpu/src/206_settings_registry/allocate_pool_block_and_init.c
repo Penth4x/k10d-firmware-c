@@ -17,19 +17,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-void allocate_pool_block_and_init(int param_1)
+void allocate_pool_block_and_init(cls_105b6424 *param_1)
 
 {
   void *pvVar1;
-  uint32_t uVar2;
+  void *puVar2;
   
   pvVar1 = (void *)get_system_heap();
-  uVar2 = mempool_get_block(pvVar1,(void *)0x30000,2);
-  *(uint32_t *)(param_1 + 0x38) = uVar2;
-  init_object_with_new_member(param_1);
-  initialize_object_subcomponents_104a3522(param_1);
-  initialize_object_subcomponents_104a35a2(param_1);
-  initialize_subobject_at_offset_0x18(param_1);
-  initialize_object_with_five_values(param_1);
+  puVar2 = (void *)mempool_get_block(pvVar1,(void *)0x30000,2);
+  param_1->field_0x38 = (uintptr_t)(puVar2);
+  init_object_with_new_member((int)(param_1));
+  initialize_object_subcomponents_104a3522((int)(param_1));
+  initialize_object_subcomponents_104a35a2((int)(param_1));
+  initialize_subobject_at_offset_0x18((int)(param_1));
+  initialize_object_with_five_values((int)(param_1));
   return;
 }

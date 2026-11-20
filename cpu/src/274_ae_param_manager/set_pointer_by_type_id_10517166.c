@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t set_pointer_by_type_id_10517166(void *param_1,int param_2,void *param_3)
+uint32_t set_pointer_by_type_id_10517166(cls_105d6484 *param_1,int param_2,void *param_3)
 
 {
   int iVar1;
@@ -23,6 +23,6 @@ uint32_t set_pointer_by_type_id_10517166(void *param_1,int param_2,void *param_3
     }
     iVar1 = 0xc;
   }
-  *(void **)(iVar1 + (int)param_1) = param_3;
+  *(void **)((int)&param_1->field_0x0 + iVar1) = param_3;
   return 1;
 }

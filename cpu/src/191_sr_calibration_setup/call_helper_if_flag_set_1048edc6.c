@@ -13,10 +13,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_if_flag_set_1048edc6(int param_1)
+void call_helper_if_flag_set_1048edc6(cls_105b3ee0 *param_1)
 
 {
-  if (*(int *)(param_1 + 4) != 0) {
+  if (param_1->field_0x4 != 0) {
     copy_setting_into_buffer(__frv_reg_unset(4));
   }
   return;

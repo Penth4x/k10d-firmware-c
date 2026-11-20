@@ -26,9 +26,9 @@ uint32_t check_lens_fw_entry_present(void *param_1)
   
   iVar2 = 0;
   do {
-    if (*(char *)(iVar2 * 0x80 + _DAT_80014980/*SDRAM*/) != '\0') {
-      pvVar1 = *(void **)(*(int *)(_DAT_80014980/*SDRAM*/ + iVar2 * 0x80 + 100) + 4);
-      while (pvVar1 != (void *)0x0) {
+    if (*(char *)(iVar2 * 0x80 + (char*)_DAT_80014980/*SDRAM*/) != '\0') {
+      pvVar1 = *(void **)(*(int *)((char*)_DAT_80014980/*SDRAM*/ + iVar2 * 0x80 + 100) + 4);
+      while (pvVar1 != 0) {
         bVar3 = pvVar1 == param_1;
         pvVar1 = *(void **)((int)pvVar1 + 4);
         if (bVar3) {

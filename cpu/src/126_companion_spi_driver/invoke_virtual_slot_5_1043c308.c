@@ -6,10 +6,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t invoke_virtual_slot_5_1043c308(void *param_1)
+/* WARNING: Struct "cls_105a05a0": ignoring multiple overlapping fields */
+
+uint32_t invoke_virtual_slot_5_1043c308(cls_105a05a0 *param_1)
 
 {
-  (**(code **)(*(int *)((int)param_1 + 4) + 0x2c))
-            ((int)*(short *)(*(int *)((int)param_1 + 4) + 0x28) + (int)param_1);
+  (((vtbl_entry*)(param_1->field_0x4))[5].fn)
+            ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x4))[5].adj);
   return 1;
 }

@@ -11,20 +11,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_105b7e2c_new(uint32_t *param_1,int param_2,uint8_t param_3)
+cls_105b7e2c * cls_105b7e2c_new(cls_105b7e2c *param_1,int param_2,uint8_t param_3)
 
 {
-  uint32_t uVar1;
+  uint8_t *puVar1;
   
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0xc), param_1 != (uint32_t *)0x0)) {
-    param_1[2] = 0x105b7e2c/*ROM*/;
-    uVar1 = heap_alloc_2(param_2 + 3U & 0xfffffffc);
-    *param_1 = uVar1;
-    *(char *)(param_1 + 1) = (char)param_2;
-    *(uint8_t *)((int)param_1 + 5) = param_3;
-    set_byte_in_buffer_if_in_range(param_1,param_2,0);
-    set_byte_in_buffer_if_in_range(param_1,*(uint8_t *)((int)param_1 + 5),1);
+  if ((param_1 != (cls_105b7e2c *)0x0) ||
+     (param_1 = (cls_105b7e2c *)heap_alloc((void *)0xc), param_1 != (cls_105b7e2c *)0x0)) {
+    param_1->field_0x8 = 0x105b7e2c/*ROM*/;
+    puVar1 = (uint8_t *)heap_alloc_2(param_2 + 3U & 0xfffffffc);
+    param_1->field_0x0 = (uint32_t)puVar1;
+    param_1->field_0x4 = (byte)param_2;
+    param_1->field_0x5 = param_3;
+    set_byte_in_buffer_if_in_range((void *)param_1,param_2,0);
+    set_byte_in_buffer_if_in_range((void *)param_1,param_1->field_0x5,1);
   }
   return param_1;
 }

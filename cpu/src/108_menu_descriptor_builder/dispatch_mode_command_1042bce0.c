@@ -23,7 +23,7 @@ int dispatch_mode_command_1042bce0(int param_1,uint32_t param_2,int param_3)
   
   uVar1 = *(uint8_t *)(param_3 + 0x859);
   set_struct_field_at_offset_4(param_3,0);
-  iVar3 = read_virtual_property_field((void *)(param_1 + 0x18),1);
+  iVar3 = read_virtual_property_field((void*)(*(uint32_t *)(param_1 + 0x18)),1);
   bVar2 = false;
   if ((iVar3 == 2) || (iVar3 == 3)) {
     bVar2 = true;
@@ -34,7 +34,7 @@ int dispatch_mode_command_1042bce0(int param_1,uint32_t param_2,int param_3)
   switch(uVar1) {
   case 0:
     uVar4 = add_eight_to_param(param_3);
-    uVar4 = read_two_values_from_object_1042d8a4(param_1,(void *)uVar4);
+    uVar4 = read_two_values_from_object_1042d8a4(param_1,(void*)(uVar4));
     set_struct_field_at_offset_4(param_3,uVar4);
     iVar3 = 0;
     break;
@@ -53,7 +53,7 @@ int dispatch_mode_command_1042bce0(int param_1,uint32_t param_2,int param_3)
       uVar4 = 0;
     }
     eventflag_clr_flg((uint32_t *)(param_1 + 0x2c),1);
-    iVar5 = send_cpucom_command_1045cfdc((void *)(param_1 + 0x1c),(void *)(param_1 + 8),1,uVar4);
+    iVar5 = send_cpucom_command_1045cfdc((void*)(*(uint32_t *)(param_1 + 0x1c)),(void*)(param_1 + 8),1,uVar4);
     iVar3 = 0;
     if (iVar5 == 0) {
       iVar3 = 0x82;
@@ -61,7 +61,7 @@ int dispatch_mode_command_1042bce0(int param_1,uint32_t param_2,int param_3)
     if (iVar3 == 0) {
       twai_flg_obj((uint32_t *)(param_1 + 0x2c),1,(void *)0x0,_DAT_105a2af0/*ROM*/);
       uVar4 = add_eight_to_param(param_3);
-      uVar4 = read_two_values_from_object_1042d8a4(param_1,(void *)uVar4);
+      uVar4 = read_two_values_from_object_1042d8a4(param_1,(void*)(uVar4));
       set_struct_field_at_offset_4(param_3,uVar4);
     }
     break;
@@ -78,18 +78,18 @@ int dispatch_mode_command_1042bce0(int param_1,uint32_t param_2,int param_3)
     }
     break;
   case 5:
-    iVar3 = read_virtual_property_field((void *)(param_1 + 0x18),2);
-    if ((iVar3 == 0) && (iVar3 = read_virtual_property_field((void *)(param_1 + 0x18),0), iVar3 == 2)) {
+    iVar3 = read_virtual_property_field((void*)(*(uint32_t *)(param_1 + 0x18)),2);
+    if ((iVar3 == 0) && (iVar3 = read_virtual_property_field((void*)(*(uint32_t *)(param_1 + 0x18)),0), iVar3 == 2)) {
       iVar3 = **(int **)(param_1 + 0x28);
-      iVar3 = (**(code **)(iVar3 + 0x44))
-                        ((int)*(int **)(param_1 + 0x28) + (int)*(short *)(iVar3 + 0x40));
+      iVar3 = (((vtbl_entry*)(iVar3))[8].fn)
+                        ((int)*(int **)(param_1 + 0x28) + (int)((vtbl_entry*)(iVar3))[8].adj);
       if (iVar3 == 0) {
         iVar3 = 0x82;
       }
       else {
         iVar3 = **(int **)(param_1 + 0x28);
-        iVar3 = (**(code **)(iVar3 + 0x4c))
-                          ((int)*(int **)(param_1 + 0x28) + (int)*(short *)(iVar3 + 0x48),param_2,
+        iVar3 = (((vtbl_entry*)(iVar3))[9].fn)
+                          ((int)*(int **)(param_1 + 0x28) + (int)((vtbl_entry*)(iVar3))[9].adj,param_2,
                            param_3);
       }
     }
@@ -109,8 +109,8 @@ int dispatch_mode_command_1042bce0(int param_1,uint32_t param_2,int param_3)
     break;
   case 7:
     set_struct_field_at_offset_4(param_3,0);
-    eventflag_clr_flg((uint32_t *)(param_1 + 0x2c),1);
-    iVar3 = send_cpucom_command_sequence_1046132a((void *)(param_1 + 0x14),(void *)(param_1 + 8));
+    eventflag_clr_flg((void*)(param_1 + 0x2c),1);
+    iVar3 = send_cpucom_command_sequence_1046132a((void*)(*(uint32_t *)(param_1 + 0x14)),(void*)(param_1 + 8));
     iVar5 = 0;
     if (iVar3 == 0) {
       iVar5 = 0x82;
@@ -144,11 +144,11 @@ int dispatch_mode_command_1042bce0(int param_1,uint32_t param_2,int param_3)
     break;
   case 0xb:
     set_struct_field_at_offset_4(param_3,1);
-    cls_105a6eac_new((void *)auStack_10);
+    cls_105a6eac_new((void*)(auStack_10));
     copy_four_bytes_from_struct_field_1045e59a(*(int *)(param_1 + 0xc),auStack_10);
-    iVar3 = extract_field_by_index_10460366(auStack_10,0x14);
+    iVar3 = extract_field_by_index_10460366((void*)(auStack_10),0x14);
     write_word_to_struct_array(param_3,iVar3,0);
-    cls_105a6eac_delete((void *)auStack_10,2);
+    cls_105a6eac_delete((void*)(auStack_10),2);
     iVar3 = 0;
     break;
   case 0xc:
@@ -205,10 +205,10 @@ int dispatch_mode_command_1042bce0(int param_1,uint32_t param_2,int param_3)
     break;
   case 0x13:
     set_struct_field_at_offset_4(param_3,0);
-    eventflag_clr_flg((uint32_t *)(param_1 + 0x2c),2);
+    eventflag_clr_flg((void*)(param_1 + 0x2c),2);
     uVar4 = *(uint32_t *)(param_1 + 0x14);
     iVar3 = read_struct_field_at_index_1046c7ca(param_3,0);
-    iVar3 = send_cpucom_command_sequence_10461b02((void *)uVar4,(void *)(param_1 + 8),iVar3 != 0);
+    iVar3 = send_cpucom_command_sequence_10461b02((void*)(uVar4),(void*)(param_1 + 8),iVar3 != 0);
     iVar5 = 0;
     if (iVar3 == 0) {
       iVar5 = 0x82;

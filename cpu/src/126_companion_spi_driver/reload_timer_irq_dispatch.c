@@ -12,7 +12,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t reload_timer_irq_dispatch(int param_1,int param_2)
+uint32_t reload_timer_irq_dispatch(cls_105a071c *param_1,int param_2)
 
 {
   uint32_t uVar1;
@@ -20,16 +20,16 @@ uint32_t reload_timer_irq_dispatch(int param_1,int param_2)
   uVar1 = 0;
   if (param_2 == 0x25) {
     if ((uRam5c002000 & 0xc) == 0xc) {
-      uVar1 = osdc_event_dispatch(param_1,0x2c,0);
+      uVar1 = osdc_event_dispatch((int)param_1,0x2c,0);
     }
     if ((uRam5c002010 & 0xc) == 0xc) {
-      uVar1 = osdc_event_dispatch(param_1,0x2d,0);
+      uVar1 = osdc_event_dispatch((int)param_1,0x2d,0);
     }
     if ((uRam5c002020 & 0xc) == 0xc) {
-      uVar1 = osdc_event_dispatch(param_1,0x2e,0);
+      uVar1 = osdc_event_dispatch((int)param_1,0x2e,0);
     }
     if ((uRam5c002030 & 0xc) == 0xc) {
-      uVar1 = osdc_event_dispatch(param_1,0x2f,0);
+      uVar1 = osdc_event_dispatch((int)param_1,0x2f,0);
     }
   }
   return uVar1;

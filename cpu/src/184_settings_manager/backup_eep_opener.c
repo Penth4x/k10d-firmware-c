@@ -20,7 +20,7 @@ uint32_t backup_eep_opener(void)
 {
   if (_DAT_80048c14/*SDRAM*/ == 0) {
     _DAT_80048c14/*SDRAM*/ = 1;
-    cls_105b3658_new((uint32_t *)0x80048bc0/*SDRAM*/);
+    cls_105b3658_new((cls_105b3658 *)0x80048bc0/*SDRAM*/);
     prepend_to_singly_linked_list((void *)0x80010374/*SDRAM*/);
   }
   return 0x80048bc0/*SDRAM*/;

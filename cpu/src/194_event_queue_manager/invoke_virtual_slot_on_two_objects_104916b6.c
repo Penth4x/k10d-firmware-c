@@ -12,8 +12,8 @@ void invoke_virtual_slot_on_two_objects_104916b6(int *param_1)
   int iVar1;
   
   iVar1 = *(int *)(*param_1 + 0x18);
-  (**(code **)(iVar1 + 0x14))(*param_1 + (int)*(short *)(iVar1 + 0x10));
+  (((vtbl_entry*)(iVar1))[2].fn)(*param_1 + (int)((vtbl_entry*)(iVar1))[2].adj);
   iVar1 = *(int *)(param_1[1] + 0x18);
-  (**(code **)(iVar1 + 0x14))(param_1[1] + (int)*(short *)(iVar1 + 0x10));
+  (((vtbl_entry*)(iVar1))[2].fn)(param_1[1] + (int)((vtbl_entry*)(iVar1))[2].adj);
   return;
 }

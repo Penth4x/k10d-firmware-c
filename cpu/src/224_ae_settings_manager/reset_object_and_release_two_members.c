@@ -22,11 +22,11 @@ void reset_object_and_release_two_members(int param_1)
   process_three_string_slots_per_entry(param_1);
   *(uint8_t *)(param_1 + 0xfd99) = 0;
   if (*(char *)(param_1 + 0x88c) != '\0') {
-    release_object_heap_blocks_1047e1ec(param_1 + 0x874);
+    release_object_heap_blocks_1047e1ec((cls_105aae94 *)(param_1 + 0x874));
     *(uint8_t *)(param_1 + 0x88c) = 0;
   }
   if (*(char *)(param_1 + 0x8a8) != '\0') {
-    release_object_heap_blocks_1047e1ec(param_1 + 0x890);
+    release_object_heap_blocks_1047e1ec((cls_105aae94 *)(param_1 + 0x890));
     *(uint8_t *)(param_1 + 0x8a8) = 0;
   }
   *(uint8_t *)(param_1 + 0x1e) = 1;

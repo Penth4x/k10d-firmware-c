@@ -14,21 +14,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_state_transition_event_10521812(int param_1,int param_2)
+void dispatch_state_transition_event_10521812(cls_105d7b7c *param_1,int param_2)
 
 {
   int iVar1;
   
-  if (*(int *)(param_1 + 0x24) == 5) {
+  if (param_1->field_0x24 == 5) {
     if (param_2 == 3) {
-      iVar1 = **(int **)(param_1 + 0x2c);
-      (**(code **)(iVar1 + 0x3c))((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar1 + 0x38));
+      iVar1 = *(int *)param_1->field_0x2c;
+      (((vtbl_entry*)(iVar1))[7].fn)((int)param_1->field_0x2c + (int)((vtbl_entry*)(iVar1))[7].adj);
     }
   }
-  else if ((*(int *)(param_1 + 0x24) == 6) && (param_2 == 5)) {
-    iVar1 = **(int **)(param_1 + 0x2c);
-    (**(code **)(iVar1 + 0x3c))((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar1 + 0x38));
+  else if ((param_1->field_0x24 == 6) && (param_2 == 5)) {
+    iVar1 = *(int *)param_1->field_0x2c;
+    (((vtbl_entry*)(iVar1))[7].fn)((int)param_1->field_0x2c + (int)((vtbl_entry*)(iVar1))[7].adj);
   }
-  *(uint32_t *)(param_1 + 0x24) = 0;
+  param_1->field_0x24 = 0;
   return;
 }

@@ -18,7 +18,7 @@
 uint32_t select_and_copy_rodata_entry(uint32_t param_1,uint32_t param_2)
 
 {
-  uint32_t *pcVar1;
+  char *pcVar1;
   void *r6_in;
   void *r7_in;
   
@@ -293,6 +293,6 @@ uint32_t select_and_copy_rodata_entry(uint32_t param_1,uint32_t param_2)
   default:
     return 0x80010cb1/*SDRAM*/;
   }
-  format_string_to_buffer_10545140((uint8_t *)0x80010cb1/*SDRAM*/,(void *)pcVar1,r6_in,r7_in);
+  format_string_to_buffer_10545140((uint8_t *)0x80010cb1/*SDRAM*/,pcVar1,r6_in,r7_in);
   return 0x80010cb1/*SDRAM*/;
 }

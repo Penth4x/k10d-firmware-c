@@ -14,7 +14,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void check_and_handle_condition(void *param_1)
+void check_and_handle_condition(cls_105b71d4 *param_1)
 
 {
   int iVar1;

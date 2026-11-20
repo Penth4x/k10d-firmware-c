@@ -28,35 +28,35 @@ void extract_eight_byte_record(int param_1,uint8_t *param_2)
   uint8_t uVar3;
   int iVar4;
   uintptr_t sp;
-  int aiStack_18 [3];
+  cls_105a5d5c acStack_18 [3];
   uint32_t uStack_c;
   
   iVar1 = initialize_singleton_object_1045d6a0();
   iVar4 = *(int *)(iVar1 + 0x24);
-  cls_105a5d5c_new(aiStack_18);
+  cls_105a5d5c_new(acStack_18);
   uStack_c = 0;
-  iVar1 = send_cpucom_command_1045cfdc((void *)iVar4,(void *)(param_1 + 4),0,0);
+  iVar1 = send_cpucom_command_1045cfdc((int *)(iVar4),(void *)(param_1 + 4),(int)(0),(uint8_t)(0));
   if (iVar1 != 0) {
     eventflag_wai_flg((uint32_t *)(param_1 + 0x28),8,&uStack_c,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg((uint32_t *)(param_1 + 0x28),uStack_c);
-    copy_six_bytes_between_structs(iVar4,aiStack_18);
-    uVar2 = dispatch_on_two_state_value(aiStack_18);
+    copy_six_bytes_between_structs(iVar4,acStack_18);
+    uVar2 = dispatch_on_two_state_value(acStack_18);
     *param_2 = (char)uVar2;
-    uVar2 = dispatch_on_state_two_or_three_1045d5ae(aiStack_18);
+    uVar2 = dispatch_on_state_two_or_three_1045d5ae(acStack_18);
     param_2[1] = (char)uVar2;
-    uVar2 = dispatch_on_state_two_or_three_1045d5da(aiStack_18);
+    uVar2 = dispatch_on_state_two_or_three_1045d5da(acStack_18);
     param_2[2] = (char)uVar2;
-    uVar3 = invoke_virtual_slot_two_1045d4b0(aiStack_18);
+    uVar3 = invoke_virtual_slot_two_1045d4b0(acStack_18);
     param_2[3] = uVar3;
-    uVar2 = invoke_virtual_slot_3_1045d494(aiStack_18);
+    uVar2 = invoke_virtual_slot_3_1045d494((int *)acStack_18);
     param_2[4] = (char)uVar2;
-    uVar3 = invoke_virtual_slot_two_1045d4ce(aiStack_18);
+    uVar3 = invoke_virtual_slot_two_1045d4ce(acStack_18);
     param_2[5] = uVar3;
-    uVar3 = call_virtual_slot_two_1045d50a(aiStack_18);
+    uVar3 = call_virtual_slot_two_1045d50a(acStack_18);
     param_2[6] = uVar3;
-    uVar3 = call_virtual_slot_two_1045d528(aiStack_18);
+    uVar3 = call_virtual_slot_two_1045d528(acStack_18);
     param_2[7] = uVar3;
   }
-  cls_105a5d5c_delete(aiStack_18,2);
+  cls_105a5d5c_delete(acStack_18,2);
   return;
 }

@@ -36,13 +36,13 @@ void render_apex_mode_indicator(int param_1,int param_2)
   uint8_t local_10 [8];
   
   iVar3 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
   iVar3 = menu_item_register(param_1);
   iVar4 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,0);
-  (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,0);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0x1c))
-            (&uStack_38,*(short *)(*(int *)(iVar3 + 0xc) + 0x18) + iVar3);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,0);
+  (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,0);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[3].fn)
+            (&uStack_38,((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[3].adj + iVar3);
   puVar2 = auStack_34 + 1;
   alloc_two_word_pair_1045bc2e(puVar2,0,0);
   switch(param_2) {
@@ -54,7 +54,7 @@ void render_apex_mode_indicator(int param_1,int param_2)
   case 5:
   case 6:
   case 7:
-    (**(code **)(*(int *)(iVar4 + 0xc) + 0xec))(*(short *)(*(int *)(iVar4 + 0xc) + 0xe8) + iVar4,6);
+    (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[29].fn)(((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[29].adj + iVar4,6);
     iVar5 = read_first_word_1045bd4c(&uStack_38);
     iVar6 = get_second_word_of_struct(&uStack_38);
     store_two_words_to_memory(puVar2,iVar5 + ((8 - param_2) * -8 + 0x9eU & 0xffff),iVar6 + 0x14);
@@ -66,13 +66,13 @@ void render_apex_mode_indicator(int param_1,int param_2)
       *(uint32_t *)((int)&uStack_24 + iVar5) = *(uint32_t *)((int)auStack_34 + iVar5);
       iVar5 = iVar7;
     } while (iVar7 != 0);
-    (**(code **)(iVar6 + 0x14))(sVar1 + iVar4,local_20);
+    (((vtbl_entry*)(iVar6))[2].fn)(sVar1 + iVar4,local_20);
     free_heap_block_if_flagged_1045bc54(local_20,2);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
-    (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
+    (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,1);
     break;
   case 8:
-    (**(code **)(*(int *)(iVar4 + 0xc) + 0xec))(*(short *)(*(int *)(iVar4 + 0xc) + 0xe8) + iVar4,2);
+    (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[29].fn)(((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[29].adj + iVar4,2);
     iVar5 = read_first_word_1045bd4c(&uStack_38);
     iVar6 = get_second_word_of_struct(&uStack_38);
     store_two_words_to_memory(puVar2,iVar5 + 0x9c,iVar6 + 0x14);
@@ -84,10 +84,10 @@ void render_apex_mode_indicator(int param_1,int param_2)
       *(uint32_t *)((int)&uStack_1c + iVar5) = *(uint32_t *)((int)auStack_34 + iVar5);
       iVar5 = iVar7;
     } while (iVar7 != 0);
-    (**(code **)(iVar6 + 0x14))(sVar1 + iVar4,local_18);
+    (((vtbl_entry*)(iVar6))[2].fn)(sVar1 + iVar4,local_18);
     free_heap_block_if_flagged_1045bc54(local_18,2);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
-    (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
+    (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,1);
     break;
   case 9:
   case 10:
@@ -97,7 +97,7 @@ void render_apex_mode_indicator(int param_1,int param_2)
   case 0xe:
   case 0xf:
   case 0x10:
-    (**(code **)(*(int *)(iVar4 + 0xc) + 0xec))(*(short *)(*(int *)(iVar4 + 0xc) + 0xe8) + iVar4,6);
+    (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[29].fn)(((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[29].adj + iVar4,6);
     iVar5 = read_first_word_1045bd4c(&uStack_38);
     iVar6 = get_second_word_of_struct(&uStack_38);
     store_two_words_to_memory(puVar2,iVar5 + ((param_2 + -8) * 8 + 0x9aU & 0xffff),iVar6 + 0x14);
@@ -109,10 +109,10 @@ void render_apex_mode_indicator(int param_1,int param_2)
       *(uint32_t *)((int)&uStack_14 + iVar5) = *(uint32_t *)((int)auStack_34 + iVar5);
       iVar5 = iVar7;
     } while (iVar7 != 0);
-    (**(code **)(iVar6 + 0x14))(sVar1 + iVar4,local_10);
+    (((vtbl_entry*)(iVar6))[2].fn)(sVar1 + iVar4,local_10);
     free_heap_block_if_flagged_1045bc54(local_10,2);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
-    (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
+    (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,1);
     break;
   default:
   }

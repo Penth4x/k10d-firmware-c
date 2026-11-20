@@ -24,7 +24,7 @@ uint32_t process_type2_event_and_store_result(uint32_t param_1,int param_2,int p
   uVar1 = 0;
   if (*(short *)(param_3 + 2) == 2) {
     uVar1 = (*(code *)0x104a8c94/*ROM*/)(param_3);
-    iVar2 = check_string_fits_buffer(param_1,(void *)uVar1,*(uint32_t *)(param_3 + 4));
+    iVar2 = check_string_fits_buffer((uint32_t)(param_1),(void *)(uVar1),(int)(*(uint32_t *)(param_3 + 4)));
     uVar1 = 1;
     if (iVar2 == 0) {
       uVar1 = 2;

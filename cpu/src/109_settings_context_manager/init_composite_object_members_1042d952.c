@@ -30,7 +30,7 @@ uint32_t init_composite_object_members_1042d952(int param_1)
     iVar1 = 0;
   }
   else {
-    cls_1059e680_new((void *)iVar1);
+    cls_1059e680_new((uint32_t *)(iVar1));
   }
   *(int *)(param_1 + 8) = iVar1;
   initialize_object_from_globals(iVar1,0);
@@ -40,7 +40,7 @@ uint32_t init_composite_object_members_1042d952(int param_1)
     iVar1 = 0;
   }
   else {
-    cls_105b5524_new((void *)iVar1);
+    cls_105b5524_new((uint32_t *)(iVar1));
   }
   *(int *)(param_1 + 0xc) = iVar1;
   copy_two_fields_from_global(iVar1,0);
@@ -50,7 +50,7 @@ uint32_t init_composite_object_members_1042d952(int param_1)
     iVar1 = 0;
   }
   else {
-    cls_1059e9b4_new((void *)iVar1);
+    cls_1059e9b4_new((uint32_t *)(iVar1));
   }
   *(int *)(param_1 + 0x10) = iVar1;
   populate_struct_from_three_sources(iVar1,0);
@@ -61,7 +61,7 @@ uint32_t init_composite_object_members_1042d952(int param_1)
     iVar1 = 0;
   }
   else {
-    cls_1059e728_new((void *)iVar1);
+    cls_1059e728_new((uint32_t *)(iVar1));
   }
   *(int *)(param_1 + 0x14) = iVar1;
   copy_three_fields_from_source_1042a8ba(iVar1,0);
@@ -72,7 +72,7 @@ uint32_t init_composite_object_members_1042d952(int param_1)
     iVar1 = 0;
   }
   else {
-    cls_1059e7c8_new((void *)iVar1);
+    cls_1059e7c8_new((uint32_t *)(iVar1));
   }
   *(int *)(param_1 + 0x18) = iVar1;
   copy_three_fields_from_source_1042b4aa(iVar1,0);
@@ -83,7 +83,7 @@ uint32_t init_composite_object_members_1042d952(int param_1)
     iVar1 = 0;
   }
   else {
-    cls_1059e5b8_new((void *)iVar1);
+    cls_1059e5b8_new((uint32_t *)(iVar1));
   }
   *(int *)(param_1 + 0x1c) = iVar1;
   copy_state_fields_from_source(iVar1,0);
@@ -94,7 +94,7 @@ uint32_t init_composite_object_members_1042d952(int param_1)
     iVar1 = 0;
   }
   else {
-    cls_1059ed0c_new((void *)iVar1);
+    cls_1059ed0c_new((uint32_t *)(iVar1));
   }
   *(int *)(param_1 + 0x20) = iVar1;
   copy_three_fields_from_struct(iVar1,0);
@@ -104,7 +104,7 @@ uint32_t init_composite_object_members_1042d952(int param_1)
     iVar1 = 0;
   }
   else {
-    cls_1059ed94_new((void *)iVar1);
+    cls_1059ed94_new((uint32_t *)(iVar1));
   }
   *(int *)(param_1 + 0x24) = iVar1;
   iVar2 = get_or_create_camera_object();
@@ -117,7 +117,7 @@ uint32_t init_composite_object_members_1042d952(int param_1)
     iVar1 = 0;
   }
   else {
-    cls_1059ec78_new((void *)iVar1);
+    cls_1059ec78_new((uint32_t *)(iVar1));
   }
   *(int *)(param_1 + 0x28) = iVar1;
   initialize_object_fields_1042e1f4(iVar1,0);
@@ -127,7 +127,7 @@ uint32_t init_composite_object_members_1042d952(int param_1)
     iVar1 = 0;
   }
   else {
-    cls_105bb69c_new((void *)iVar1);
+    cls_105bb69c_new((uint32_t *)(iVar1));
   }
   *(int *)(param_1 + 0x2c) = iVar1;
   iVar2 = get_or_create_singleton_104e7b68();
@@ -146,7 +146,7 @@ uint32_t init_composite_object_members_1042d952(int param_1)
     iVar1 = 0;
   }
   else {
-    cls_105b9e6c_new((void *)iVar1);
+    cls_105b9e6c_new((uint32_t *)(iVar1));
   }
   *(int *)(param_1 + 0x30) = iVar1;
   populate_struct_from_three_getters(iVar1,0);
@@ -157,7 +157,7 @@ uint32_t init_composite_object_members_1042d952(int param_1)
     iVar1 = 0;
   }
   else {
-    cls_105b9bd0_new((void *)iVar1);
+    cls_105b9bd0_new((uint32_t *)(iVar1));
   }
   *(int *)(param_1 + 0x34) = iVar1;
   initialize_status_struct(iVar1,0);
@@ -168,7 +168,7 @@ uint32_t init_composite_object_members_1042d952(int param_1)
     iVar1 = 0;
   }
   else {
-    cls_1059eec4_new((void *)iVar1);
+    cls_1059eec4_new((uint32_t *)(iVar1));
   }
   *(int *)(param_1 + 4) = iVar1;
   *(uint32_t *)(iVar1 + 0x4c) = *(uint32_t *)(param_1 + 0x14);

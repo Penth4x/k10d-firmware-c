@@ -23,6 +23,6 @@ uint32_t menu_item_register(int param_1)
   int iVar2;
   
   iVar2 = *(int *)(*(int *)(param_1 + 0x10) + 0xc);
-  uVar1 = (**(code **)(iVar2 + 0xcc))(*(int *)(param_1 + 0x10) + (int)*(short *)(iVar2 + 200));
+  uVar1 = (((vtbl_entry*)(iVar2))[25].fn)(*(int *)(param_1 + 0x10) + (int)*(short *)(iVar2 + 200));
   return uVar1;
 }

@@ -161,8 +161,8 @@ void initialize_rtos_kernel(void)
     zero_two_word_struct((uint32_t *)0x6a0036c8);
     _DAT_6a0036c6 = 0xffff;
     _DAT_6a0036c4 = 0xffff;
-    _DAT_6a0036c0 = &DAT_6a0036bc;
-    _DAT_6a0036bc = &DAT_6a0036bc;
+    _DAT_6a0036c0 = (uintptr_t)(&DAT_6a0036bc);
+    _DAT_6a0036bc = (uintptr_t)(&DAT_6a0036bc);
     init_kernel_timer_struct();
     if (0 < DAT_10011d4a/*ROM*/) {
       iVar1 = 0x44;
@@ -177,7 +177,7 @@ void initialize_rtos_kernel(void)
     iVar2 = 1;
     if (0 < DAT_10011d32/*ROM*/) {
       iVar1 = 0x1c;
-      _DAT_000087d0 = &DAT_10011c24/*ROM*/;
+      _DAT_000087d0 = (uintptr_t)(&DAT_10011c24/*ROM*/);
       _DAT_000087d4 = 0xfffffbff;
       do {
         psVar6 = (short *)(_DAT_000087d0 + iVar1);
@@ -193,15 +193,15 @@ void initialize_rtos_kernel(void)
     iVar2 = 0;
     if (0 < DAT_10011d30/*ROM*/) {
       iVar1 = 0;
-      _DAT_000087bc = &DAT_10011cb0/*ROM*/;
+      _DAT_000087bc = (uintptr_t)(&DAT_10011cb0/*ROM*/);
       _DAT_000087d8 = 0xffffe5ff;
       do {
-        uVar4 = (*(code *)*_DAT_000087bc)
-                          ((int)*(short *)(SUB_10011ce8 + iVar1),(short *)(SUB_10011ce8 + iVar1) + 2
+        uVar4 = (*(code *)(*(uint32_t *)_DAT_000087bc))
+                          ((int)*(short *)((char*)SUB_10011ce8 + iVar1),(short *)((char*)SUB_10011ce8 + iVar1) + 2
                           );
         if (uVar4 != 0) {
                     /* WARNING: Subroutine does not return */
-          iterate_virtual_callback_table(uVar4 & _DAT_000087d8,(int)*(short *)(SUB_10011ce8 + iVar1));
+          iterate_virtual_callback_table(uVar4 & _DAT_000087d8,(int)*(short *)((char*)SUB_10011ce8 + iVar1));
         }
         iVar2 = iVar2 + 1;
         iVar1 = iVar1 + 0xc;
@@ -221,13 +221,13 @@ void initialize_rtos_kernel(void)
       _DAT_00008780 = (code *)0x0;
       _DAT_000087dc = 0xffffdfff;
       do {
-        uVar4 = (*DAT_10011cac/*ROM*/)((int)*(short *)(_DAT_00008780 + DAT_10011ce4/*ROM*/),
-                                _DAT_00008780 + DAT_10011ce4/*ROM*/ + 4);
+        uVar4 = (*DAT_10011cac/*ROM*/)((int)*(short *)((char*)_DAT_00008780 + DAT_10011ce4/*ROM*/),
+                                (char*)_DAT_00008780 + DAT_10011ce4/*ROM*/ + 4);
         if (uVar4 != 0) {
                     /* WARNING: Subroutine does not return */
-          iterate_virtual_callback_table(uVar4 & _DAT_000087dc,(int)*(short *)(_DAT_00008780 + DAT_10011ce4/*ROM*/));
+          iterate_virtual_callback_table(uVar4 & _DAT_000087dc,(int)*(short *)((char*)_DAT_00008780 + DAT_10011ce4/*ROM*/));
         }
-        _DAT_00008780 = _DAT_00008780 + 0x10;
+        _DAT_00008780 = (char*)_DAT_00008780 + 0x10;
         iVar2 = iVar2 + 1;
       } while (iVar2 < DAT_10011d2e/*ROM*/);
     }
@@ -243,10 +243,10 @@ void initialize_rtos_kernel(void)
     iVar2 = 0;
     if (0 < DAT_10011d2c/*ROM*/) {
       iVar1 = 0;
-      _DAT_000087c0 = &DAT_10011ca8/*ROM*/;
+      _DAT_000087c0 = (uintptr_t)(&DAT_10011ca8/*ROM*/);
       _DAT_000087e0 = 0xffffd7ff;
       do {
-        uVar4 = (*(code *)*_DAT_000087c0)
+        uVar4 = (*(code *)(*(uint32_t *)_DAT_000087c0))
                           ((int)*(short *)(DAT_10011ce0/*ROM*/ + iVar1),(short *)(DAT_10011ce0/*ROM*/ + iVar1) + 2
                           );
         if (uVar4 != 0) {
@@ -266,7 +266,7 @@ void initialize_rtos_kernel(void)
         iVar1 = iVar1 + 0x1c;
       } while (iVar2 < DAT_10011d44/*ROM*/);
     }
-    _DAT_0000878c = &DAT_10011d2a/*ROM*/;
+    _DAT_0000878c = (uintptr_t)(&DAT_10011d2a/*ROM*/);
     iVar2 = 0;
     if (0 < DAT_10011d2a/*ROM*/) {
       iVar1 = 0;
@@ -280,7 +280,7 @@ void initialize_rtos_kernel(void)
         }
         iVar2 = iVar2 + 1;
         iVar1 = iVar1 + 0x10;
-      } while (iVar2 < *_DAT_0000878c);
+      } while (iVar2 < *(uint32_t *)_DAT_0000878c);
     }
     iVar2 = 0;
     if (0 < DAT_10011d42/*ROM*/) {
@@ -345,10 +345,10 @@ void initialize_rtos_kernel(void)
     if (0 < DAT_10011d24/*ROM*/) {
       iVar1 = 0;
       _DAT_0000877c = &DAT_10011cd0/*ROM*/;
-      _DAT_000087c4 = &DAT_10011c98/*ROM*/;
+      _DAT_000087c4 = (uintptr_t)(&DAT_10011c98/*ROM*/);
       _DAT_000087f0 = 0xffff77ff;
       do {
-        uVar4 = (*(code *)*_DAT_000087c4)
+        uVar4 = (*(code *)(*(uint32_t *)_DAT_000087c4))
                           ((int)*(short *)(*_DAT_0000877c + iVar1),
                            (short *)(*_DAT_0000877c + iVar1) + 2);
         if (uVar4 != 0) {
@@ -375,7 +375,7 @@ void initialize_rtos_kernel(void)
     if (0 < DAT_10011d22/*ROM*/) {
       iVar1 = 0;
       _DAT_00008794 = &DAT_10011ccc/*ROM*/;
-      _DAT_000087c8 = &LAB_10011c94;
+      _DAT_000087c8 = (uintptr_t)(&LAB_10011c94);
       _DAT_000087f4 = 0xffffbbff;
       do {
         _DAT_00008780 = (code *)*(uint32_t *)_DAT_000087c8;
@@ -402,10 +402,10 @@ void initialize_rtos_kernel(void)
     iVar2 = 0;
     if (0 < DAT_10011d20/*ROM*/) {
       iVar1 = 0;
-      _DAT_000087cc = &DAT_10011c90/*ROM*/;
+      _DAT_000087cc = (uintptr_t)(&DAT_10011c90/*ROM*/);
       _DAT_000087b8 = 0xffff5fff;
       do {
-        uVar4 = (*(code *)*_DAT_000087cc)
+        uVar4 = (*(code *)(*(uint32_t *)_DAT_000087cc))
                           ((int)*(short *)(DAT_10011cc8/*ROM*/ + iVar1),(short *)(DAT_10011cc8/*ROM*/ + iVar1) + 2
                           );
         if (uVar4 != 0) {
@@ -479,7 +479,7 @@ void initialize_rtos_kernel(void)
         }
         psVar6 = psVar6 + 8;
         iVar2 = iVar2 + 1;
-        _DAT_0000878c = psVar6;
+        _DAT_0000878c = (uintptr_t)(psVar6);
       } while (iVar2 < *_DAT_00008790);
     }
     _DAT_6a000030 = 0x6a000000;
@@ -497,7 +497,7 @@ void initialize_rtos_kernel(void)
     if (0 < (int)_DAT_000087b0) {
       iVar1 = 0;
       do {
-        _DAT_00008778 = PTR_DAT_10011cbc + iVar1;
+        _DAT_00008778 = (char*)PTR_DAT_10011cbc + iVar1;
         _DAT_000087a0 = (uint32_t *)0x4;
         _DAT_000087a8 = 8;
         _DAT_000087a4 = *(code **)(_DAT_00008778 + 8);

@@ -29,32 +29,32 @@ void iterate_three_object_groups(void *param_1)
   do {
     piVar1 = (int *)module_array_getter(param_1,iVar3);
     if (piVar1 != (int *)0x0) {
-      iVar2 = (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1);
+      iVar2 = (((vtbl_entry*)(*piVar1))[3].fn)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1);
       if (iVar2 == 0) {
-        (**(code **)(*piVar1 + 0x34))((int)*(short *)(*piVar1 + 0x30) + (int)piVar1);
+        (((vtbl_entry*)(*piVar1))[6].fn)((int)((vtbl_entry*)(*piVar1))[6].adj + (int)piVar1);
       }
       else {
-        (**(code **)(*piVar1 + 0x3c))((int)*(short *)(*piVar1 + 0x38) + (int)piVar1);
+        (((vtbl_entry*)(*piVar1))[7].fn)((int)((vtbl_entry*)(*piVar1))[7].adj + (int)piVar1);
       }
     }
     piVar1 = (int *)module_array_getter(param_1,iVar3 + 1);
     if (piVar1 != (int *)0x0) {
-      iVar2 = (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1);
+      iVar2 = (((vtbl_entry*)(*piVar1))[3].fn)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1);
       if (iVar2 == 0) {
-        (**(code **)(*piVar1 + 0x34))((int)*(short *)(*piVar1 + 0x30) + (int)piVar1);
+        (((vtbl_entry*)(*piVar1))[6].fn)((int)((vtbl_entry*)(*piVar1))[6].adj + (int)piVar1);
       }
       else {
-        (**(code **)(*piVar1 + 0x3c))((int)*(short *)(*piVar1 + 0x38) + (int)piVar1);
+        (((vtbl_entry*)(*piVar1))[7].fn)((int)((vtbl_entry*)(*piVar1))[7].adj + (int)piVar1);
       }
     }
     piVar1 = (int *)module_array_getter(param_1,iVar3 + 2);
     if (piVar1 != (int *)0x0) {
-      iVar2 = (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1);
+      iVar2 = (((vtbl_entry*)(*piVar1))[3].fn)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1);
       if (iVar2 == 0) {
-        (**(code **)(*piVar1 + 0x34))((int)*(short *)(*piVar1 + 0x30) + (int)piVar1);
+        (((vtbl_entry*)(*piVar1))[6].fn)((int)((vtbl_entry*)(*piVar1))[6].adj + (int)piVar1);
       }
       else {
-        (**(code **)(*piVar1 + 0x3c))((int)*(short *)(*piVar1 + 0x38) + (int)piVar1);
+        (((vtbl_entry*)(*piVar1))[7].fn)((int)((vtbl_entry*)(*piVar1))[7].adj + (int)piVar1);
       }
     }
     iVar4 = iVar4 + -1;

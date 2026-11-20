@@ -27,7 +27,7 @@ uint32_t dispatch_mode_transition_10429c9a(int param_1,uint32_t param_2,int para
   
   cVar1 = *(char *)(param_3 + 0x859);
   set_struct_field_at_offset_4(param_3,0);
-  iVar3 = read_virtual_property_field(*(uint32_t *)(param_1 + 0x14),1);
+  iVar3 = read_virtual_property_field((int *)(*(uint32_t *)(param_1 + 0x14)),(int)(1));
   bVar2 = false;
   if ((iVar3 == 2) || (iVar3 == 3)) {
     bVar2 = true;
@@ -35,13 +35,13 @@ uint32_t dispatch_mode_transition_10429c9a(int param_1,uint32_t param_2,int para
   if (bVar2) {
     if (cVar1 == '\0') {
       uVar4 = add_eight_to_param(param_3);
-      uVar4 = populate_eight_entry_array(param_1,uVar4);
+      uVar4 = populate_eight_entry_array((int)(param_1),(int *)(uVar4));
       set_struct_field_at_offset_4(param_3,uVar4);
       uVar4 = 0;
     }
     else if (cVar1 == '\x01') {
       uVar4 = add_eight_to_param(param_3);
-      uVar4 = extract_three_values_from_object(param_1,uVar4);
+      uVar4 = extract_three_values_from_object((int)(param_1),(int *)(uVar4));
       set_struct_field_at_offset_4(param_3,uVar4);
       uVar4 = 0;
     }

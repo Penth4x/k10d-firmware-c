@@ -54,11 +54,11 @@ void render_exposure_value_digits_103a9ed6(int param_1,uint32_t param_2)
       iVar6 = menu_item_register(param_1 + 8);
       iVar5 = *(int *)(iVar6 + 0xc);
       sVar1 = *(short *)(iVar5 + 0x10);
-      uVar4 = alloc_two_word_pair_1045bc2e(auStack_10,uStack_38 & 0xffff,0xd8);
-      (**(code **)(iVar5 + 0x14))(iVar6 + sVar1,uVar4);
+      uVar4 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_10,uStack_38 & 0xffff,0xd8));
+      (((vtbl_entry*)(iVar5))[2].fn)(iVar6 + sVar1,uVar4);
       free_heap_block_if_flagged_1045bc54(auStack_10,2);
       iVar6 = menu_item_register(param_1 + 8);
-      (**(code **)(*(int *)(iVar6 + 0xc) + 0xc))(iVar6 + *(short *)(*(int *)(iVar6 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[1].fn)(iVar6 + *(short *)(*(int *)(iVar6 + 0xc) + 8),1);
     }
     iVar6 = iVar2 / *(int *)(iStack_3c + 0x1056545c/*ROM*/);
     if (iVar6 != 0) {
@@ -71,11 +71,11 @@ void render_exposure_value_digits_103a9ed6(int param_1,uint32_t param_2)
       iVar6 = menu_item_register(param_1 + 8);
       iVar5 = *(int *)(iVar6 + 0xc);
       sVar1 = *(short *)(iVar5 + 0x10);
-      uVar4 = alloc_two_word_pair_1045bc2e(auStack_10,uStack_38 - 0x18 & 0xffff,0xd8);
-      (**(code **)(iVar5 + 0x14))(iVar6 + sVar1,uVar4);
+      uVar4 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_10,uStack_38 - 0x18 & 0xffff,0xd8));
+      (((vtbl_entry*)(iVar5))[2].fn)(iVar6 + sVar1,uVar4);
       free_heap_block_if_flagged_1045bc54(auStack_10,2);
       iVar6 = menu_item_register(param_1 + 8);
-      (**(code **)(*(int *)(iVar6 + 0xc) + 0xc))(iVar6 + *(short *)(*(int *)(iVar6 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[1].fn)(iVar6 + *(short *)(*(int *)(iVar6 + 0xc) + 8),1);
     }
     iStack_44 = iStack_44 + 2;
     uStack_38 = uStack_38 - 0x30;

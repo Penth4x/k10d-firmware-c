@@ -29,7 +29,7 @@ uint32_t start_async_operation(int *param_1)
     uVar2 = 0;
     if (iVar1 == 0) {
       iVar1 = *(int *)(*param_1 + 4);
-      iVar1 = (**(code **)(iVar1 + 0x54))(*param_1 + (int)*(short *)(iVar1 + 0x50));
+      iVar1 = (((vtbl_entry*)(iVar1))[10].fn)(*param_1 + (int)((vtbl_entry*)(iVar1))[10].adj);
       if (iVar1 == 0) {
         param_1[4] = 3;
         *(uint8_t *)(param_1 + 5) = 0;

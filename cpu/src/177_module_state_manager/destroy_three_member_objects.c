@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void destroy_three_member_objects(void *param_1)
+void destroy_three_member_objects(cls_105ab92c *param_1)
 
 {
   int *piVar1;
@@ -27,27 +27,27 @@ void destroy_three_member_objects(void *param_1)
   iVar3 = 3;
   iVar2 = 0;
   do {
-    piVar1 = *(int **)((int)param_1 + iVar2 + 4);
+    piVar1 = *(int **)((int)&param_1->field_0x4 + iVar2);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0x24))((int)*(short *)(*piVar1 + 0x20) + (int)piVar1);
-      piVar1 = *(int **)((int)param_1 + iVar2 + 4);
+      (((vtbl_entry*)(*piVar1))[4].fn)((int)((vtbl_entry*)(*piVar1))[4].adj + (int)piVar1);
+      piVar1 = *(int **)((int)&param_1->field_0x4 + iVar2);
       if (piVar1 != (int *)0x0) {
-        (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+        (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
       }
     }
-    *(uint32_t *)((int)param_1 + iVar2 + 4) = 0;
-    piVar1 = *(int **)((int)param_1 + iVar2 + 8);
+    *(uint32_t *)((int)&param_1->field_0x4 + iVar2) = 0;
+    piVar1 = *(int **)((int)&param_1->field_0x8 + iVar2);
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0x24))((int)*(short *)(*piVar1 + 0x20) + (int)piVar1);
-      piVar1 = *(int **)((int)param_1 + iVar2 + 8);
+      (((vtbl_entry*)(*piVar1))[4].fn)((int)((vtbl_entry*)(*piVar1))[4].adj + (int)piVar1);
+      piVar1 = *(int **)((int)&param_1->field_0x8 + iVar2);
       if (piVar1 != (int *)0x0) {
-        (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+        (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
       }
     }
-    *(uint32_t *)((int)param_1 + iVar2 + 8) = 0;
+    *(uint32_t *)((int)&param_1->field_0x8 + iVar2) = 0;
     iVar3 = iVar3 + -1;
     iVar2 = iVar2 + 8;
   } while (-1 < iVar3);
-  *(uint32_t *)((int)param_1 + 0x24) = 0;
+  param_1->field_0x24 = (uintptr_t)((void *)0x0);
   return;
 }

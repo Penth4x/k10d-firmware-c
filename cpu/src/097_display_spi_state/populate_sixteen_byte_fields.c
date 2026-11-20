@@ -29,7 +29,7 @@ void populate_sixteen_byte_fields(int param_1,uint32_t param_2,uint32_t param_3,
     uVar2 = heap_alloc_2(iVar1);
     *(uint32_t *)(param_1 + 0x224) = uVar2;
   }
-  iVar1 = read_twenty_byte_buffer(*(uint32_t *)(param_1 + 0x28),(void *)(uint)*(uint32_t *)(param_1 + 0x224));
+  iVar1 = read_twenty_byte_buffer((int)(*(uint32_t *)(param_1 + 0x28)),(uint8_t *)(*(uint32_t *)(param_1 + 0x224)));
   if (iVar1 != 0) {
     format_string_to_buffer_10545140((byte *)(param_1 + 0x181),(char *)0x1059a4b4/*ROM*/,
                  (void *)(uint)**(byte **)(param_1 + 0x224),param_4);
@@ -97,7 +97,7 @@ void populate_sixteen_byte_fields(int param_1,uint32_t param_2,uint32_t param_3,
     pvVar3 = (void *)menu_item_register(iVar1);
     glyph_draw(pvVar3,(byte *)(param_1 + 0x217));
     iVar1 = menu_item_register(iVar1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   }
   return;
 }

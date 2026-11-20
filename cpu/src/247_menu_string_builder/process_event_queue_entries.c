@@ -29,22 +29,22 @@ uint32_t process_event_queue_entries(uint32_t param_1,int *param_2,uint32_t para
   int iVar4;
   int iVar6;
   uintptr_t sp;
-  uint8_t auStack_8c [32];
-  uint8_t auStack_6c [32];
-  uint8_t auStack_4c [32];
-  uint8_t auStack_2c [32];
+  cls_105bb0b8 cStack_8c;
+  cls_105bb0b8 cStack_6c;
+  cls_105bb0b8 cStack_4c;
+  cls_105bb0b8 cStack_2c;
   uint uStack_c;
   
-  cls_105bb0b8_new((void *)auStack_8c);
-  iVar1 = retry_operation_until_success_104de540(param_2,auStack_8c);
+  cls_105bb0b8_new(&cStack_8c);
+  iVar1 = retry_operation_until_success_104de540(param_2,&cStack_8c);
   if (iVar1 != 0) {
-    cls_105bb0b8_new((void *)auStack_6c);
-    iVar1 = scan_buffer_for_matching_bytes((void *)auStack_8c,(void *)auStack_6c);
-    if ((((iVar1 != 0) && (iVar1 = validate_and_copy_string((void *)auStack_6c,(void *)0x105ba880/*ROM*/), iVar1 != 0)) &&
-        (iVar1 = scan_buffer_for_matching_bytes((void *)auStack_8c,(void *)auStack_6c), iVar1 != 0)) &&
-       (iVar1 = validate_and_copy_string((void *)auStack_6c,(void *)0x105ba888/*ROM*/), iVar1 != 0)) {
-      cls_105bb0b8_new((void *)__frv_reg_unset(4));
-      iVar1 = scan_buffer_for_matching_bytes((void *)auStack_8c,(void *)auStack_4c);
+    cls_105bb0b8_new(&cStack_6c);
+    iVar1 = scan_buffer_for_matching_bytes(&cStack_8c,&cStack_6c);
+    if ((((iVar1 != 0) && (iVar1 = validate_and_copy_string((uint32_t *)(&cStack_6c),(char *)(0x105ba880/*ROM*/)), iVar1 != 0)) &&
+        (iVar1 = scan_buffer_for_matching_bytes(&cStack_8c,&cStack_6c), iVar1 != 0)) &&
+       (iVar1 = validate_and_copy_string((uint32_t *)(&cStack_6c),(char *)(0x105ba888/*ROM*/)), iVar1 != 0)) {
+      cls_105bb0b8_new(&cStack_4c);
+      iVar1 = scan_buffer_for_matching_bytes(&cStack_8c,&cStack_4c);
       if (iVar1 != 0) {
         uVar2 = allocate_buffer_via_helper();
         adjust_pointer_by_flag(param_3,1);
@@ -63,32 +63,32 @@ uint32_t process_event_queue_entries(uint32_t param_1,int *param_2,uint32_t para
           if (iVar6 == 0) {
             uVar2 = add_offset_by_flag(param_3,0);
             (*(code *)0x104d7eb2/*ROM*/)(uVar2,1);
-            reset_vtable_and_free_if_flagged_104ddfe6(auStack_4c,2);
-            reset_vtable_and_free_if_flagged_104ddfe6(auStack_6c,2);
+            reset_vtable_and_free_if_flagged_104ddfe6(&cStack_4c,2);
+            reset_vtable_and_free_if_flagged_104ddfe6(&cStack_6c,2);
           }
           else {
             (*(code *)0x104d5ea6/*ROM*/)(iVar1,1);
-            cls_105bb0b8_new((void *)auStack_2c);
-            iVar1 = check_and_process_two_params(param_2,auStack_2c,(char *)0x105ba894/*ROM*/);
+            cls_105bb0b8_new(&cStack_2c);
+            iVar1 = check_and_process_two_params(param_2,&cStack_2c,(char *)0x105ba894/*ROM*/);
             if (iVar1 != 0) {
-              reset_vtable_and_free_if_flagged_104ddfe6(auStack_2c,2);
-              reset_vtable_and_free_if_flagged_104ddfe6(auStack_4c,2);
-              reset_vtable_and_free_if_flagged_104ddfe6(auStack_6c,2);
-              reset_vtable_and_free_if_flagged_104ddfe6(auStack_8c,2);
+              reset_vtable_and_free_if_flagged_104ddfe6(&cStack_2c,2);
+              reset_vtable_and_free_if_flagged_104ddfe6(&cStack_4c,2);
+              reset_vtable_and_free_if_flagged_104ddfe6(&cStack_6c,2);
+              reset_vtable_and_free_if_flagged_104ddfe6(&cStack_8c,2);
               return 1;
             }
-            reset_vtable_and_free_if_flagged_104ddfe6(auStack_2c,2);
-            reset_vtable_and_free_if_flagged_104ddfe6(auStack_4c,2);
-            reset_vtable_and_free_if_flagged_104ddfe6(auStack_6c,2);
+            reset_vtable_and_free_if_flagged_104ddfe6(&cStack_2c,2);
+            reset_vtable_and_free_if_flagged_104ddfe6(&cStack_4c,2);
+            reset_vtable_and_free_if_flagged_104ddfe6(&cStack_6c,2);
           }
           goto LAB_104dadee;
         }
       }
-      reset_vtable_and_free_if_flagged_104ddfe6(auStack_4c,2);
+      reset_vtable_and_free_if_flagged_104ddfe6(&cStack_4c,2);
     }
-    reset_vtable_and_free_if_flagged_104ddfe6(auStack_6c,2);
+    reset_vtable_and_free_if_flagged_104ddfe6(&cStack_6c,2);
   }
 LAB_104dadee:
-  reset_vtable_and_free_if_flagged_104ddfe6(auStack_8c,2);
+  reset_vtable_and_free_if_flagged_104ddfe6(&cStack_8c,2);
   return 0;
 }

@@ -22,9 +22,9 @@ void invoke_virtual_slot_8_and_set_state(int *param_1)
   int iVar1;
   
   dispatch_event_with_state_check_1036f384(param_1,0);
-  (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1);
+  (((vtbl_entry*)(*param_1))[8].fn)((int)((vtbl_entry*)(*param_1))[8].adj + (int)param_1);
   request_ui_sync_code_4((void *)param_1[0xb]);
-  iVar1 = check_setting_0x72_enabled((void *)0x800158d4/*SDRAM*/);
+  iVar1 = check_setting_0x72_enabled((int *)(0x800158d4/*SDRAM*/));
   dispatch_event_with_state_check_1036f384(param_1,iVar1);
   return;
 }

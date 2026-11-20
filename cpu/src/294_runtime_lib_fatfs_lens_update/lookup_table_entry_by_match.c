@@ -33,8 +33,8 @@ int lookup_table_entry_by_match(void *param_1,uint32_t *param_2)
     if (iVar1 == 0) {
       iVar1 = 0;
       do {
-        pcVar3 = (char *)(_DAT_80014980/*SDRAM*/ + iVar1);
-        *param_2 = (uint32_t)pcVar3;
+        pcVar3 = (char *)((char*)_DAT_80014980/*SDRAM*/ + iVar1);
+        *param_2 = (uintptr_t)(pcVar3);
         if ((*pcVar3 != '\0') && (iVar2 = compare_null_terminated_strings(param_1,pcVar3 + 1), iVar2 == 0)) {
           return 0;
         }

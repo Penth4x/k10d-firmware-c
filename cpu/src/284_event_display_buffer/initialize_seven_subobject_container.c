@@ -21,7 +21,7 @@
 uint32_t * initialize_seven_subobject_container(uint32_t *param_1)
 
 {
-  uint32_t *puVar1;
+  cls_105f9250 *pcVar1;
   uint32_t *puVar2;
   uint32_t *puVar3;
   uint32_t *puVar4;
@@ -45,14 +45,14 @@ uint32_t * initialize_seven_subobject_container(uint32_t *param_1)
     }
     *puStack_5c = 0x105f9a44/*ROM*/;
     puStack_5c[1] = 0;
-    puVar7 = puStack_5c + 2;
-    cls_105f9250_new(puVar7);
-    cls_105f9250_new(puStack_5c + 0x97);
-    cls_105f9250_new(puStack_5c + 300);
-    cls_105f9250_new(puStack_5c + 0x1c1);
-    cls_105f9250_new(puStack_5c + 0x256);
-    cls_105f9250_new(puStack_5c + 0x2eb);
-    cls_105f9250_new(puStack_5c + 0x380);
+    pcVar1 = (cls_105f9250 *)(puStack_5c + 2);
+    cls_105f9250_new(pcVar1);
+    cls_105f9250_new((cls_105f9250 *)(puStack_5c + 0x97));
+    cls_105f9250_new((cls_105f9250 *)(puStack_5c + 300));
+    cls_105f9250_new((cls_105f9250 *)(puStack_5c + 0x1c1));
+    cls_105f9250_new((cls_105f9250 *)(puStack_5c + 0x256));
+    cls_105f9250_new((cls_105f9250 *)(puStack_5c + 0x2eb));
+    cls_105f9250_new((cls_105f9250 *)(puStack_5c + 0x380));
     get_lens_fw_update_status();
     *(uint8_t *)(puStack_5c + 0xc45) = 0;
     puStack_5c[0xc46] = 0;
@@ -61,56 +61,62 @@ uint32_t * initialize_seven_subobject_container(uint32_t *param_1)
     iVar8 = 0;
     do {
       iVar10 = *(int *)((int)puStack_5c + iVar8 + 0x125c);
-      (**(code **)(iVar10 + 0x7c))
-                ((int)puStack_5c + *(short *)(iVar10 + 0x78) + iVar8 + 0x1054,iVar9);
+      (((vtbl_entry*)(iVar10))[15].fn)
+                ((int)puStack_5c + ((vtbl_entry*)(iVar10))[15].adj + iVar8 + 0x1054,iVar9);
       iVar10 = *(int *)((int)puStack_5c + iVar8 + 0x125c);
-      (**(code **)(iVar10 + 0x8c))((int)puStack_5c + *(short *)(iVar10 + 0x88) + iVar8 + 0x1054);
+      (((vtbl_entry*)(iVar10))[17].fn)((int)puStack_5c + ((vtbl_entry*)(iVar10))[17].adj + iVar8 + 0x1054);
       iVar10 = *(int *)((int)puStack_5c + iVar8 + 0x1468);
-      (**(code **)(iVar10 + 0x7c))
-                ((int)puStack_5c + (int)*(short *)(iVar10 + 0x78) + iVar8 + 0x20c + 0x1054,iVar9 + 1
+      (((vtbl_entry*)(iVar10))[15].fn)
+                ((int)puStack_5c + (int)((vtbl_entry*)(iVar10))[15].adj + iVar8 + 0x20c + 0x1054,iVar9 + 1
                 );
       iVar10 = *(int *)((int)puStack_5c + iVar8 + 0x1468);
-      (**(code **)(iVar10 + 0x8c))
-                ((int)puStack_5c + (int)*(short *)(iVar10 + 0x88) + iVar8 + 0x20c + 0x1054);
+      (((vtbl_entry*)(iVar10))[17].fn)
+                ((int)puStack_5c + (int)((vtbl_entry*)(iVar10))[17].adj + iVar8 + 0x20c + 0x1054);
       iVar10 = *(int *)((int)puStack_5c + iVar8 + 0x1674);
-      (**(code **)(iVar10 + 0x7c))
-                ((int)puStack_5c + (int)*(short *)(iVar10 + 0x78) + iVar8 + 0x418 + 0x1054,iVar9 + 2
+      (((vtbl_entry*)(iVar10))[15].fn)
+                ((int)puStack_5c + (int)((vtbl_entry*)(iVar10))[15].adj + iVar8 + 0x418 + 0x1054,iVar9 + 2
                 );
       iVar10 = *(int *)((int)puStack_5c + iVar8 + 0x1674);
-      (**(code **)(iVar10 + 0x8c))
-                ((int)puStack_5c + (int)*(short *)(iVar10 + 0x88) + iVar8 + 0x418 + 0x1054);
+      (((vtbl_entry*)(iVar10))[17].fn)
+                ((int)puStack_5c + (int)((vtbl_entry*)(iVar10))[17].adj + iVar8 + 0x418 + 0x1054);
       iVar10 = *(int *)((int)puStack_5c + iVar8 + 0x1880);
-      (**(code **)(iVar10 + 0x7c))
-                ((int)puStack_5c + (int)*(short *)(iVar10 + 0x78) + iVar8 + 0x624 + 0x1054,iVar9 + 3
+      (((vtbl_entry*)(iVar10))[15].fn)
+                ((int)puStack_5c + (int)((vtbl_entry*)(iVar10))[15].adj + iVar8 + 0x624 + 0x1054,iVar9 + 3
                 );
       iVar10 = *(int *)((int)puStack_5c + iVar8 + 0x1880);
-      (**(code **)(iVar10 + 0x8c))
-                ((int)puStack_5c + (int)*(short *)(iVar10 + 0x88) + iVar8 + 0x624 + 0x1054);
+      (((vtbl_entry*)(iVar10))[17].fn)
+                ((int)puStack_5c + (int)((vtbl_entry*)(iVar10))[17].adj + iVar8 + 0x624 + 0x1054);
       iVar9 = iVar9 + 4;
       iVar8 = iVar8 + 0x830;
       iStack_28 = iStack_28 + -1;
     } while (-1 < iStack_28);
-    (**(code **)(puStack_5c[0x84] + 0x7c))((int)*(short *)(puStack_5c[0x84] + 0x78) + (int)puVar7,1)
-    ;
-    (**(code **)(puStack_5c[0x243] + 0x7c))
-              ((int)*(short *)(puStack_5c[0x243] + 0x78) + (int)(puStack_5c + 0x1c1),2);
-    (**(code **)(puStack_5c[0x2d8] + 0x7c))
-              ((int)*(short *)(puStack_5c[0x2d8] + 0x78) + (int)(puStack_5c + 0x256),3);
-    (**(code **)(puStack_5c[0x36d] + 0x7c))
-              ((int)*(short *)(puStack_5c[0x36d] + 0x78) + (int)(puStack_5c + 0x2eb),4);
-    (**(code **)(puStack_5c[0x119] + 0x7c))
-              ((int)*(short *)(puStack_5c[0x119] + 0x78) + (int)(puStack_5c + 0x97),5);
-    (**(code **)(puStack_5c[0x1ae] + 0x7c))
-              ((int)*(short *)(puStack_5c[0x1ae] + 0x78) + (int)(puStack_5c + 300),6);
-    (**(code **)(puStack_5c[0x402] + 0x7c))
-              ((int)*(short *)(puStack_5c[0x402] + 0x78) + (int)(puStack_5c + 0x380),7);
+    (((vtbl_entry*)(puStack_5c[0x84]))[15].fn)
+              ((int)&pcVar1->field_0x0 + (int)((vtbl_entry*)(puStack_5c[0x84]))[15].adj,1);
+    (((vtbl_entry*)(puStack_5c[0x243]))[15].fn)
+              ((int)&((cls_105f9250 *)(puStack_5c + 0x1c1))->field_0x0 +
+               (int)((vtbl_entry*)(puStack_5c[0x243]))[15].adj,2);
+    (((vtbl_entry*)(puStack_5c[0x2d8]))[15].fn)
+              ((int)&((cls_105f9250 *)(puStack_5c + 0x256))->field_0x0 +
+               (int)((vtbl_entry*)(puStack_5c[0x2d8]))[15].adj,3);
+    (((vtbl_entry*)(puStack_5c[0x36d]))[15].fn)
+              ((int)&((cls_105f9250 *)(puStack_5c + 0x2eb))->field_0x0 +
+               (int)((vtbl_entry*)(puStack_5c[0x36d]))[15].adj,4);
+    (((vtbl_entry*)(puStack_5c[0x119]))[15].fn)
+              ((int)&((cls_105f9250 *)(puStack_5c + 0x97))->field_0x0 +
+               (int)((vtbl_entry*)(puStack_5c[0x119]))[15].adj,5);
+    (((vtbl_entry*)(puStack_5c[0x1ae]))[15].fn)
+              ((int)&((cls_105f9250 *)(puStack_5c + 300))->field_0x0 +
+               (int)((vtbl_entry*)(puStack_5c[0x1ae]))[15].adj,6);
+    (((vtbl_entry*)(puStack_5c[0x402]))[15].fn)
+              ((int)&((cls_105f9250 *)(puStack_5c + 0x380))->field_0x0 +
+               (int)((vtbl_entry*)(puStack_5c[0x402]))[15].adj,7);
     iStack_24 = 3;
     iVar8 = 0;
     do {
       iVar9 = (int)puStack_5c + iVar8 + 0x1054;
+      append_to_bounded_array(pcVar1,iVar9);
+      puVar7 = puStack_5c + 0x1c1;
       append_to_bounded_array(puVar7,iVar9);
-      puVar1 = puStack_5c + 0x1c1;
-      append_to_bounded_array(puVar1,iVar9);
       puVar2 = puStack_5c + 0x256;
       append_to_bounded_array(puVar2,iVar9);
       puVar3 = puStack_5c + 0x2eb;
@@ -122,24 +128,24 @@ uint32_t * initialize_seven_subobject_container(uint32_t *param_1)
       puVar6 = puStack_5c + 0x380;
       append_to_bounded_array(puVar6,iVar9);
       iVar9 = (int)puStack_5c + iVar8 + 0x1260;
+      append_to_bounded_array(pcVar1,iVar9);
       append_to_bounded_array(puVar7,iVar9);
-      append_to_bounded_array(puVar1,iVar9);
       append_to_bounded_array(puVar2,iVar9);
       append_to_bounded_array(puVar3,iVar9);
       append_to_bounded_array(puVar4,iVar9);
       append_to_bounded_array(puVar5,iVar9);
       append_to_bounded_array(puVar6,iVar9);
       iVar9 = (int)puStack_5c + iVar8 + 0x146c;
+      append_to_bounded_array(pcVar1,iVar9);
       append_to_bounded_array(puVar7,iVar9);
-      append_to_bounded_array(puVar1,iVar9);
       append_to_bounded_array(puVar2,iVar9);
       append_to_bounded_array(puVar3,iVar9);
       append_to_bounded_array(puVar4,iVar9);
       append_to_bounded_array(puVar5,iVar9);
       append_to_bounded_array(puVar6,iVar9);
       iVar9 = (int)puStack_5c + iVar8 + 0x1678;
+      append_to_bounded_array(pcVar1,iVar9);
       append_to_bounded_array(puVar7,iVar9);
-      append_to_bounded_array(puVar1,iVar9);
       append_to_bounded_array(puVar2,iVar9);
       append_to_bounded_array(puVar3,iVar9);
       append_to_bounded_array(puVar4,iVar9);

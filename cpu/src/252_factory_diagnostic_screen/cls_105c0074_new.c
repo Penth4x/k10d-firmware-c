@@ -11,20 +11,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_105c0074_new(uint32_t *param_1)
+void cls_105c0074_new(cls_105c0074 *param_1)
 
 {
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x1c), param_1 != (uint32_t *)0x0)) {
-    param_1[6] = 0x105c0074/*ROM*/;
-    *param_1 = 0;
-    param_1[1] = 0;
-    param_1[2] = 0;
-    param_1[3] = 0;
-    param_1[4] = 0;
-    *(uint16_t *)(param_1 + 5) = 0;
-    *(uint8_t *)((int)param_1 + 0x16) = 1;
-    *(uint8_t *)((int)param_1 + 0x17) = 0;
+  if ((param_1 != (cls_105c0074 *)0x0) ||
+     (param_1 = (cls_105c0074 *)heap_alloc((void *)0x1c), param_1 != (cls_105c0074 *)0x0)) {
+    param_1->field_0x18 = 0x105c0074/*ROM*/;
+    param_1->field_0x0 = 0;
+    param_1->field_0x4 = 0;
+    param_1->field_0x8 = (uintptr_t)((void *)0x0);
+    param_1->field_0xc = 0;
+    param_1->field_0x10 = 0;
+    param_1->field_0x14 = 0;
+    param_1->field_0x16 = 1;
+    param_1->field_0x17 = 0;
   }
   return;
 }

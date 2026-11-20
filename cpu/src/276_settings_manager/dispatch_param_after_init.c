@@ -15,14 +15,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_param_after_init(uint32_t *param_1)
+uint32_t dispatch_param_after_init(cls_105d6ce0 *param_1)
 
 {
   int iVar1;
   uint32_t uVar2;
   
-  clear_two_word_fields_1051d02a(__frv_reg_unset(4));
-  iVar1 = call_helper_and_branch_on_result(param_1);
+  clear_two_word_fields_1051d02a(param_1);
+  iVar1 = call_helper_and_branch_on_result((cls_105d6c2c *)param_1);
   if (iVar1 == 0) {
     uVar2 = 0;
   }

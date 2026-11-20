@@ -17,7 +17,7 @@ void read_and_invert_four_bytes(int param_1,int param_2)
   byte bStack_d;
   
   piVar1 = (int *)(*(int *)(param_1 + 0x14) + 0xa4);
-  (**(code **)(*piVar1 + 0x24))((int)*(short *)(*piVar1 + 0x20) + (int)piVar1,&bStack_10);
+  (((vtbl_entry*)(*piVar1))[4].fn)((int)((vtbl_entry*)(*piVar1))[4].adj + (int)piVar1,&bStack_10);
   bStack_10 = read_byte_from_struct_offset_104a8c54(param_2,0);
   bStack_10 = bStack_10 ^ 0xff;
   bStack_f = read_byte_from_struct_offset_104a8c54(param_2,1);
@@ -26,6 +26,6 @@ void read_and_invert_four_bytes(int param_1,int param_2)
   bStack_e = bStack_e ^ 0xff;
   bStack_d = read_byte_from_struct_offset_104a8c54(param_2,3);
   bStack_d = bStack_d ^ 0xff;
-  (**(code **)(*piVar1 + 0x44))((int)*(short *)(*piVar1 + 0x40) + (int)piVar1,&bStack_10);
+  (((vtbl_entry*)(*piVar1))[8].fn)((int)((vtbl_entry*)(*piVar1))[8].adj + (int)piVar1,&bStack_10);
   return;
 }

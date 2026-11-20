@@ -22,7 +22,7 @@ void destroy_virtual_object(int *param_1,uint param_2)
   if (param_1 != (int *)0x0) {
     piVar1 = (int *)*param_1;
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+      (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
     }
     if ((param_2 & 1) != 0) {
       heap_free((int)param_1);

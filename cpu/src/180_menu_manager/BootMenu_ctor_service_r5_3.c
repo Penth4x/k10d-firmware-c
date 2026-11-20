@@ -16,14 +16,14 @@
 
 /* PATH-2: ctor chain with gate flag r5=3 (service, bit0+bit1). Vtable method */
 
-uint32_t BootMenu_ctor_service_r5_3(int param_1)
+uint32_t BootMenu_ctor_service_r5_3(cls_105b2d48 *param_1)
 
 {
   int *piVar1;
   
-  piVar1 = *(int **)(param_1 + 4);
+  piVar1 = (int *)param_1->field_0x4;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1,0);
+    (((vtbl_entry*)(*piVar1))[3].fn)((void *)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1),0);
   }
   return 1;
 }

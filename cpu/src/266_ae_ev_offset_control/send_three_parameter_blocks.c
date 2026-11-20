@@ -77,7 +77,7 @@ void send_three_parameter_blocks(int param_1,void *param_2,int param_3)
   uStack_c = 0;
   eventflag_clr_flg(puVar2,1);
   iVar1 = param_1 + 4;
-  build_and_send_param_struct_1050584a(*(uint32_t *)(param_1 + 0x24),0,(void *)iVar1,&uStack_38);
+  build_and_send_param_struct_1050584a((int)(*(uint32_t *)(param_1 + 0x24)),(int)(0),(void *)(iVar1),(int *)(&uStack_38));
   eventflag_wai_flg(puVar2,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar2,1);
   configure_timer_channel_state(*(uint32_t *)(param_1 + 0x24),0);
@@ -92,14 +92,14 @@ void send_three_parameter_blocks(int param_1,void *param_2,int param_3)
   uStack_1e = (uint16_t)((int)(uint)*(ushort *)(param_3 + 0x16) >> 1);
   uStack_1c = *(uint16_t *)(param_3 + 0x16);
   eventflag_clr_flg(puVar2,1);
-  build_and_send_param_struct_1050584a(*(uint32_t *)(param_1 + 0x24),0,(void *)iVar1,&uStack_38);
+  build_and_send_param_struct_1050584a((int)(*(uint32_t *)(param_1 + 0x24)),(int)(0),(void *)(iVar1),(int *)(&uStack_38));
   eventflag_wai_flg(puVar2,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar2,1);
   configure_timer_channel_state(*(uint32_t *)(param_1 + 0x24),0);
   uStack_34 = *(uint32_t *)((int)param_2 + 0xc);
   uStack_2c = *(uint32_t *)(param_3 + 0xc);
   eventflag_clr_flg(puVar2,1);
-  build_and_send_param_struct_1050584a(*(uint32_t *)(param_1 + 0x24),0,(void *)iVar1,&uStack_38);
+  build_and_send_param_struct_1050584a((int)(*(uint32_t *)(param_1 + 0x24)),(int)(0),(void *)(iVar1),(int *)(&uStack_38));
   eventflag_wai_flg(puVar2,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar2,1);
   configure_timer_channel_state(*(uint32_t *)(param_1 + 0x24),0);

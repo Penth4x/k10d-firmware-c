@@ -37,7 +37,7 @@ bool dispatch_object_state_change_10372604(void *param_1,int param_2)
     iVar1 = (int)param_1 + 0x80;
     puVar3 = (uint32_t *)puVar2;
   }
-  (**(code **)(*(int *)(iVar1 + 0x14) + 0x14))(*(short *)(*(int *)(iVar1 + 0x14) + 0x10) + iVar1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0x14)))[2].fn)(((vtbl_entry*)(*(int *)(iVar1 + 0x14)))[2].adj + iVar1);
   write_ten_fields_to_subobject((int)param_1);
   *puVar3 = 3;
   *(uint8_t *)((int)puVar3 + 7) = DAT_800043a0/*SDRAM*/;

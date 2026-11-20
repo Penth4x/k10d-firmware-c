@@ -29,14 +29,14 @@ void set_mode_state_flag(int param_1,int param_2,int param_3)
   if (param_2 == 0) {
     if (((cVar1 == '\x01') || (param_3 != 0)) && (iVar2 = call_single_helper_104185ec(), iVar2 == 0)) {
       eventflag_clr_flg((uint32_t *)(param_1 + 0x1540),8);
-      dispatch_mode_event_request((void *)(param_1 + 0x60),0x130002);
+      dispatch_mode_event_request((cls_105c2050 *)(param_1 + 0x60),0x130002);
       eventflag_wai_flg((uint32_t *)(param_1 + 0x1540),8,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
       *(uint8_t *)(param_1 + 0x151f) = 0;
     }
   }
   else if ((cVar1 == '\0') || (param_3 != 0)) {
     eventflag_clr_flg((uint32_t *)(param_1 + 0x1540),4);
-    dispatch_mode_event_request((void *)(param_1 + 0x60),0x130001);
+    dispatch_mode_event_request((cls_105c2050 *)(param_1 + 0x60),0x130001);
     eventflag_wai_flg((uint32_t *)(param_1 + 0x1540),4,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
     *(uint8_t *)(param_1 + 0x151f) = 1;
   }

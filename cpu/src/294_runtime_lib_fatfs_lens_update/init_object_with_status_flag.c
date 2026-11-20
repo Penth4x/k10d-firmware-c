@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int init_object_with_status_flag(uint32_t *param_1)
+int init_object_with_status_flag(cls_10621d20 *param_1)
 
 {
   int iVar1;
@@ -23,7 +23,7 @@ int init_object_with_status_flag(uint32_t *param_1)
   set_two_fields_to_four((int)param_1);
   enable_display_output(param_1);
   clear_lens_update_flag(param_1);
-  iVar1 = read_lens_firmware_and_show_info(param_1);
-  *(bool *)(param_1 + 0x1b) = iVar1 == 0;
+  iVar1 = read_lens_firmware_and_show_info((void *)param_1);
+  param_1->field_0x6c = iVar1 == 0;
   return (int)param_1;
 }

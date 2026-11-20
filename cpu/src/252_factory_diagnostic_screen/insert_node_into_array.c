@@ -15,11 +15,11 @@ int * insert_node_into_array(int param_1,int param_2,int param_3)
   *piVar1 = param_3 + 100;
   *(int **)(*(int *)(param_1 + 0x40) + param_3 * 4) = piVar1;
   if (param_2 == -1) {
-    (**(code **)(piVar1[6] + 0x3c))((int)*(short *)(piVar1[6] + 0x38) + (int)piVar1,0);
+    (((vtbl_entry*)(piVar1[6]))[7].fn)((int)((vtbl_entry*)(piVar1[6]))[7].adj + (int)piVar1,0);
   }
   else {
-    (**(code **)(piVar1[6] + 0x3c))
-              ((int)*(short *)(piVar1[6] + 0x38) + (int)piVar1,
+    (((vtbl_entry*)(piVar1[6]))[7].fn)
+              ((int)((vtbl_entry*)(piVar1[6]))[7].adj + (int)piVar1,
                *(uint32_t *)(*(int *)(param_1 + 0x40) + (param_2 + -100) * 4));
   }
   increment_field_at_offset_0x14(param_1);

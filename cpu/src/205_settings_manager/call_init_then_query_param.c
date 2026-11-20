@@ -15,13 +15,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_init_then_query_param(int *param_1)
+uint32_t call_init_then_query_param(cls_105b6174 *param_1)
 
 {
   int iVar1;
   uint32_t uVar2;
   
-  clear_struct_fields_104a1a02(__frv_reg_unset(4));
+  clear_struct_fields_104a1a02(param_1);
   iVar1 = (*(code *)0x104a29d0/*ROM*/)(param_1);
   if (iVar1 == 0) {
     uVar2 = 0;

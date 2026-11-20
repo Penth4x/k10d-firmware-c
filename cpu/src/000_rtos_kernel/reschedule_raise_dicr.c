@@ -16,6 +16,6 @@
 void reschedule_raise_dicr(void)
 
 {
-  *(uint32_t *)DAT_10011c5c/*ROM*/ = 1;
+  *DAT_10011c5c/*ROM*/ = 1;
   return;
 }

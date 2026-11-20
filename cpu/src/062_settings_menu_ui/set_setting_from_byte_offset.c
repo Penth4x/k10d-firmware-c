@@ -15,10 +15,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_setting_from_byte_offset(uint32_t *param_1,uint32_t param_2)
+void set_setting_from_byte_offset(cls_105958e8 *param_1,uint32_t param_2)
 
 {
-  setting_set(param_1[2],0x98,(uint)*(byte *)((int)param_1 + 0x23));
-  update_state_and_notify(param_1,param_2);
+  setting_set(param_1->field_0x8,0x98,(uint)(byte)param_1->field_0x23);
+  update_state_and_notify((void*)param_1,param_2);
   return;
 }

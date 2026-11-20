@@ -22,7 +22,7 @@ bool invoke_virtual_slot_4_10477064(int *param_1)
   int iVar2;
   
   iVar2 = param_1[2];
-  iVar1 = (**(code **)(*param_1 + 0x24))((int)*(short *)(*param_1 + 0x20) + (int)param_1);
+  iVar1 = (((vtbl_entry*)(*param_1))[4].fn)((int)((vtbl_entry*)(*param_1))[4].adj + (int)param_1);
   param_1[2] = iVar2;
   return iVar1 != -1;
 }

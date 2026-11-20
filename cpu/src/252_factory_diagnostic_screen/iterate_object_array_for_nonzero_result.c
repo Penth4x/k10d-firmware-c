@@ -35,7 +35,7 @@ int iterate_object_array_for_nonzero_result(int param_1)
       if (((*(int *)(*(int *)(param_1 + 0x40) + iVar2) != 0) &&
           (iVar1 = (*(code *)0x104e3858/*ROM*/)(), iVar1 != 0)) &&
          (iVar4 = *(int *)(*(int *)(param_1 + 0x40) + iVar2), iVar1 = *(int *)(iVar4 + 0x18),
-         iVar4 = (**(code **)(iVar1 + 0x1c))(iVar4 + *(short *)(iVar1 + 0x18)), iVar4 != 0)) break;
+         iVar4 = (((vtbl_entry*)(iVar1))[3].fn)(iVar4 + ((vtbl_entry*)(iVar1))[3].adj), iVar4 != 0)) break;
       iVar3 = iVar3 + 1;
       iVar2 = iVar2 + 4;
     } while (iVar3 < *(int *)(param_1 + 0x1c));

@@ -68,7 +68,7 @@ int run_lens_update_sequence_1053f8e0(char *param_1)
              (iVar2 = allocate_and_link_event_node_105382e4((int)pvStack_c,0x13,(int *)&piStack_14,auStack_70), iVar2 == 0))
           {
             bStack_51 = bStack_51 | 0x10;
-            call_single_helper_1047f97e(&iStack_3c);
+            call_single_helper_1047f97e((uint32_t)(&iStack_3c));
             pvVar1 = pvStack_c;
             uStack_5a = (ushort)(iStack_3c / 2) | (ushort)(iStack_38 << 5) |
                         (ushort)(iStack_34 << 0xb);

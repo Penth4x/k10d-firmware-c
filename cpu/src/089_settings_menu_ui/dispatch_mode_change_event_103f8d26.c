@@ -21,7 +21,7 @@
 /* WARNING: Instruction at (ram,0x103f8d3e) overlaps instruction at (ram,0x103f8d3c)
     */
 
-int * dispatch_mode_change_event_103f8d26(int *param_1,int param_2)
+cls_10597d1c * dispatch_mode_change_event_103f8d26(cls_10597d1c *param_1,int param_2)
 
 {
   short sVar1;
@@ -44,132 +44,132 @@ int * dispatch_mode_change_event_103f8d26(int *param_1,int param_2)
   puVar11 = auStack_24;
   puVar12 = auStack_24;
   if (param_2 == 0xe) {
-    param_1[5] = 0xe;
-    if (param_1[6] == 0x18f0011) {
-      iVar8 = menu_item_register(*param_1);
-      forward_two_args_to_helper_10493bf8((void *)iVar8,0);
-      (**(code **)(*(int *)(iVar8 + 0xc) + 0xc))(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),0);
-      iVar8 = menu_item_register(*param_1);
-      (**(code **)(*(int *)(iVar8 + 0xc) + 0xc))(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),0);
-      if (*(char *)((int)param_1 + 0x23) == '\x01') {
+    param_1->field_0x14 = 0xe;
+    if (param_1->field_0x18 == 0x18f0011) {
+      iVar8 = menu_item_register((int)param_1->field_0x0);
+      forward_two_args_to_helper_10493bf8((int *)(iVar8),(uint8_t)(0));
+      (((vtbl_entry*)(*(int *)(iVar8 + 0xc)))[1].fn)(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),0);
+      iVar8 = menu_item_register((int)param_1->field_0x0);
+      (((vtbl_entry*)(*(int *)(iVar8 + 0xc)))[1].fn)(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),0);
+      if (param_1->field_0x23 == '\x01') {
         uVar4 = 6;
       }
       else {
-        uVar4 = (uint)(byte)(*(char *)((int)param_1 + 0x23) - 1);
+        uVar4 = (uint)(byte)(param_1->field_0x23 - 1);
       }
-      *(uint8_t *)((int)param_1 + 0x22) = *(uint8_t *)(uVar4 + 0x10597d15/*ROM*/);
+      param_1->field_0x22 = *(uint8_t *)(uVar4 + 0x10597d15/*ROM*/);
       set_level_state_and_notify(param_1, __frv_reg_unset(5));
       compute_ev_offset_and_dispatch(param_1);
-      iVar8 = menu_item_register(*param_1);
-      uVar2 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + (uint)*(byte *)((int)param_1 + 0x22) * 4);
-      uVar3 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + ((uint)*(byte *)((int)param_1 + 0x22) * 2 + 1) * 2);
+      iVar8 = menu_item_register((int)param_1->field_0x0);
+      uVar2 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + (uint)(byte)param_1->field_0x22 * 4);
+      uVar3 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + ((uint)(byte)param_1->field_0x22 * 2 + 1) * 2);
       pcVar7 = *(code **)(*(int *)(iVar8 + 0xc) + 0xf4);
       sVar1 = *(short *)(*(int *)(iVar8 + 0xc) + 0xf0);
       *(uint16_t *)(puVar9 + 2) = 0xc;
       *(uint16_t *)(puVar9 + 6) = 0xc;
       (*pcVar7)(sVar1 + iVar8,0x10,uVar2,uVar3);
-      forward_two_args_to_helper_10493bf8((void *)iVar8,1);
-      (**(code **)(*(int *)(iVar8 + 0xc) + 0xc))(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),1);
-      iVar8 = menu_item_register(*param_1);
-      (**(code **)(*(int *)(iVar8 + 0xc) + 0xc))(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),1);
+      forward_two_args_to_helper_10493bf8((int *)(iVar8),(uint8_t)(1));
+      (((vtbl_entry*)(*(int *)(iVar8 + 0xc)))[1].fn)(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),1);
+      iVar8 = menu_item_register((int)param_1->field_0x0);
+      (((vtbl_entry*)(*(int *)(iVar8 + 0xc)))[1].fn)(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),1);
     }
-    else if (param_1[6] == 0x18f005d) {
-      iVar8 = menu_item_register(*param_1);
-      forward_two_args_to_helper_10493bf8((void *)iVar8,0);
-      (**(code **)(*(int *)(iVar8 + 0xc) + 0xc))(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),0);
-      iVar8 = menu_item_register(*param_1);
-      (**(code **)(*(int *)(iVar8 + 0xc) + 0xc))(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),0);
-      if (*(char *)((int)param_1 + 0x22) == '\0') {
+    else if (param_1->field_0x18 == 0x18f005d) {
+      iVar8 = menu_item_register((int)param_1->field_0x0);
+      forward_two_args_to_helper_10493bf8((int *)(iVar8),(uint8_t)(0));
+      (((vtbl_entry*)(*(int *)(iVar8 + 0xc)))[1].fn)(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),0);
+      iVar8 = menu_item_register((int)param_1->field_0x0);
+      (((vtbl_entry*)(*(int *)(iVar8 + 0xc)))[1].fn)(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),0);
+      if (param_1->field_0x22 == '\0') {
         cVar5 = 'F';
       }
       else {
-        cVar5 = *(char *)((int)param_1 + 0x22) + -1;
+        cVar5 = param_1->field_0x22 + -1;
       }
-      *(char *)((int)param_1 + 0x22) = cVar5;
-      set_level_state_and_notify(param_1,*(uint8_t *)((int)param_1 + 0x22));
+      param_1->field_0x22 = cVar5;
+      set_level_state_and_notify(param_1,param_1->field_0x22);
       compute_ev_offset_and_dispatch(param_1);
-      iVar8 = menu_item_register(*param_1);
-      uVar2 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + (uint)*(byte *)((int)param_1 + 0x22) * 4);
-      uVar3 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + ((uint)*(byte *)((int)param_1 + 0x22) * 2 + 1) * 2);
+      iVar8 = menu_item_register((int)param_1->field_0x0);
+      uVar2 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + (uint)(byte)param_1->field_0x22 * 4);
+      uVar3 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + ((uint)(byte)param_1->field_0x22 * 2 + 1) * 2);
       pcVar7 = *(code **)(*(int *)(iVar8 + 0xc) + 0xf4);
       sVar1 = *(short *)(*(int *)(iVar8 + 0xc) + 0xf0);
       *(uint16_t *)(puVar10 + 2) = 0xc;
       *(uint16_t *)(puVar10 + 6) = 0xc;
       (*pcVar7)(sVar1 + iVar8,0x10,uVar2,uVar3);
-      forward_two_args_to_helper_10493bf8((void *)iVar8,1);
-      (**(code **)(*(int *)(iVar8 + 0xc) + 0xc))(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),1);
-      iVar8 = menu_item_register(*param_1);
-      (**(code **)(*(int *)(iVar8 + 0xc) + 0xc))(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),1);
+      forward_two_args_to_helper_10493bf8((int *)(iVar8),(uint8_t)(1));
+      (((vtbl_entry*)(*(int *)(iVar8 + 0xc)))[1].fn)(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),1);
+      iVar8 = menu_item_register((int)param_1->field_0x0);
+      (((vtbl_entry*)(*(int *)(iVar8 + 0xc)))[1].fn)(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),1);
     }
   }
   else {
-    param_1[5] = param_2;
+    param_1->field_0x14 = param_2;
     if (param_2 == 0xd) {
-      if (param_1[6] == 0x18f0011) {
-        iVar8 = menu_item_register(*param_1);
-        forward_two_args_to_helper_10493bf8((void *)iVar8,0);
-        (**(code **)(*(int *)(iVar8 + 0xc) + 0xc))(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),0);
-        iVar8 = menu_item_register(*param_1);
-        (**(code **)(*(int *)(iVar8 + 0xc) + 0xc))(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),0);
-        if (*(char *)((int)param_1 + 0x23) == '\x06') {
+      if (param_1->field_0x18 == 0x18f0011) {
+        iVar8 = menu_item_register((int)param_1->field_0x0);
+        forward_two_args_to_helper_10493bf8((int *)(iVar8),(uint8_t)(0));
+        (((vtbl_entry*)(*(int *)(iVar8 + 0xc)))[1].fn)(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),0);
+        iVar8 = menu_item_register((int)param_1->field_0x0);
+        (((vtbl_entry*)(*(int *)(iVar8 + 0xc)))[1].fn)(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),0);
+        if (param_1->field_0x23 == '\x06') {
           uVar4 = 1;
         }
         else {
-          uVar4 = (uint)(byte)(*(char *)((int)param_1 + 0x23) + 1);
+          uVar4 = (uint)(byte)(param_1->field_0x23 + 1);
         }
-        *(uint8_t *)((int)param_1 + 0x22) = *(uint8_t *)(uVar4 + 0x10597d0f/*ROM*/);
+        param_1->field_0x22 = *(uint8_t *)(uVar4 + 0x10597d0f/*ROM*/);
         set_level_state_and_notify(param_1, __frv_reg_unset(5));
         compute_ev_offset_and_dispatch(param_1);
-        iVar8 = menu_item_register(*param_1);
-        uVar2 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + (uint)*(byte *)((int)param_1 + 0x22) * 4);
-        uVar3 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + ((uint)*(byte *)((int)param_1 + 0x22) * 2 + 1) * 2);
+        iVar8 = menu_item_register((int)param_1->field_0x0);
+        uVar2 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + (uint)(byte)param_1->field_0x22 * 4);
+        uVar3 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + ((uint)(byte)param_1->field_0x22 * 2 + 1) * 2);
         pcVar7 = *(code **)(*(int *)(iVar8 + 0xc) + 0xf4);
         sVar1 = *(short *)(*(int *)(iVar8 + 0xc) + 0xf0);
         *(uint16_t *)(puVar11 + 2) = 0xc;
         *(uint16_t *)(puVar11 + 6) = 0xc;
         (*pcVar7)(sVar1 + iVar8,0x10,uVar2,uVar3);
-        forward_two_args_to_helper_10493bf8((void *)iVar8,1);
-        (**(code **)(*(int *)(iVar8 + 0xc) + 0xc))(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),1);
-        iVar8 = menu_item_register(*param_1);
-        (**(code **)(*(int *)(iVar8 + 0xc) + 0xc))(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),1);
+        forward_two_args_to_helper_10493bf8((int *)(iVar8),(uint8_t)(1));
+        (((vtbl_entry*)(*(int *)(iVar8 + 0xc)))[1].fn)(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),1);
+        iVar8 = menu_item_register((int)param_1->field_0x0);
+        (((vtbl_entry*)(*(int *)(iVar8 + 0xc)))[1].fn)(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),1);
       }
-      else if (param_1[6] == 0x18f005d) {
-        iVar8 = menu_item_register(*param_1);
-        forward_two_args_to_helper_10493bf8((void *)iVar8,0);
-        (**(code **)(*(int *)(iVar8 + 0xc) + 0xc))(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),0);
-        iVar8 = menu_item_register(*param_1);
-        (**(code **)(*(int *)(iVar8 + 0xc) + 0xc))(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),0);
-        if (*(char *)((int)param_1 + 0x22) == 'F') {
-          *(uint8_t *)((int)param_1 + 0x22) = 0;
+      else if (param_1->field_0x18 == 0x18f005d) {
+        iVar8 = menu_item_register((int)param_1->field_0x0);
+        forward_two_args_to_helper_10493bf8((int *)(iVar8),(uint8_t)(0));
+        (((vtbl_entry*)(*(int *)(iVar8 + 0xc)))[1].fn)(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),0);
+        iVar8 = menu_item_register((int)param_1->field_0x0);
+        (((vtbl_entry*)(*(int *)(iVar8 + 0xc)))[1].fn)(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),0);
+        if (param_1->field_0x22 == 'F') {
+          param_1->field_0x22 = 0;
         }
         else {
-          *(char *)((int)param_1 + 0x22) = *(char *)((int)param_1 + 0x22) + '\x01';
+          param_1->field_0x22 = param_1->field_0x22 + '\x01';
         }
-        set_level_state_and_notify(param_1,*(uint8_t *)((int)param_1 + 0x22));
+        set_level_state_and_notify(param_1,param_1->field_0x22);
         compute_ev_offset_and_dispatch(param_1);
-        iVar8 = menu_item_register(*param_1);
-        uVar2 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + (uint)*(byte *)((int)param_1 + 0x22) * 4);
-        uVar3 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + ((uint)*(byte *)((int)param_1 + 0x22) * 2 + 1) * 2);
+        iVar8 = menu_item_register((int)param_1->field_0x0);
+        uVar2 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + (uint)(byte)param_1->field_0x22 * 4);
+        uVar3 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + ((uint)(byte)param_1->field_0x22 * 2 + 1) * 2);
         pcVar7 = *(code **)(*(int *)(iVar8 + 0xc) + 0xf4);
         sVar1 = *(short *)(*(int *)(iVar8 + 0xc) + 0xf0);
         *(uint16_t *)(puVar12 + 2) = 0xc;
         *(uint16_t *)(puVar12 + 6) = 0xc;
         (*pcVar7)(sVar1 + iVar8,0x10,uVar2,uVar3);
-        forward_two_args_to_helper_10493bf8((void *)iVar8,1);
-        (**(code **)(*(int *)(iVar8 + 0xc) + 0xc))(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),1);
-        iVar8 = menu_item_register(*param_1);
-        (**(code **)(*(int *)(iVar8 + 0xc) + 0xc))(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),1);
+        forward_two_args_to_helper_10493bf8((int *)(iVar8),(uint8_t)(1));
+        (((vtbl_entry*)(*(int *)(iVar8 + 0xc)))[1].fn)(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),1);
+        iVar8 = menu_item_register((int)param_1->field_0x0);
+        (((vtbl_entry*)(*(int *)(iVar8 + 0xc)))[1].fn)(iVar8 + *(short *)(*(int *)(iVar8 + 0xc) + 8),1);
       }
     }
     else if (param_2 == 0xc) {
       register_nine_menu_items_103fa390(param_1);
-      param_1 = (int *)get_or_init_singleton_object_103f21a6();
+      param_1 = (cls_10597d1c *)get_or_init_singleton_object_103f21a6();
     }
     else if (param_2 == 0x11) {
-      setting_set(param_1[2],0xa6,(uint)*(byte *)((int)param_1 + 0x22));
-      setting_set(param_1[2],0xa8,(uint)*(byte *)(param_1 + 9));
+      setting_set(param_1->field_0x8,0xa6,(uint)(byte)param_1->field_0x22);
+      setting_set(param_1->field_0x8,0xa8,(uint)(byte)param_1->field_0x24);
       register_nine_menu_items_103fa390(param_1);
-      param_1 = (int *)get_or_init_singleton_object_103f21a6();
+      param_1 = (cls_10597d1c *)get_or_init_singleton_object_103f21a6();
     }
     else {
       if ((((param_2 == 7) || (param_2 == 0)) || (param_2 == 1)) || (param_2 == 3)) {
@@ -195,8 +195,8 @@ int * dispatch_mode_change_event_103f8d26(int *param_1,int param_2)
         register_nine_menu_items_103fa390(param_1);
         uVar6 = 200;
       }
-      *(uint8_t *)((int)param_1 + 0x36) = uVar6;
-      param_1 = (int *)0x0;
+      param_1->field_0x36 = uVar6;
+      param_1 = (cls_10597d1c *)0x0;
     }
   }
   return param_1;

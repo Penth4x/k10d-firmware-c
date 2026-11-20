@@ -39,11 +39,11 @@ void register_menu_item_with_split_1038206e(int param_1)
   
   puVar11 = auStack_60;
   iVar6 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar6 + 0xc) + 0xc))(*(short *)(*(int *)(iVar6 + 0xc) + 8) + iVar6,1);
-  (**(code **)(*(int *)(iVar6 + 0xc) + 0x1c))
-            (auStack_28,*(short *)(*(int *)(iVar6 + 0xc) + 0x18) + iVar6);
-  (**(code **)(*(int *)(iVar6 + 0xc) + 0x2c))
-            (auStack_20,iVar6 + *(short *)(*(int *)(iVar6 + 0xc) + 0x28));
+  (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar6 + 0xc) + 8) + iVar6,1);
+  (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[3].fn)
+            (auStack_28,((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[3].adj + iVar6);
+  (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[5].fn)
+            (auStack_20,iVar6 + ((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[5].adj);
   uVar7 = read_first_word_1045bd4c(auStack_28);
   uVar8 = get_second_word_of_struct(auStack_28);
   uVar9 = return_first_word_1045c514(auStack_20);
@@ -60,7 +60,7 @@ void register_menu_item_with_split_1038206e(int param_1)
     *(uint16_t *)(puVar11 + 2) = uVar4;
     *(short *)(puVar11 + 6) = (short)uVar2;
     (*pcVar5)(sVar1 + iVar10,0,uVar7,uVar8 & 0xffff);
-    (**(code **)(*(int *)(iVar10 + 0xc) + 0xc))(*(short *)(*(int *)(iVar10 + 0xc) + 8) + iVar10,1);
+    (((vtbl_entry*)(*(int *)(iVar10 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar10 + 0xc) + 8) + iVar10,1);
   }
   iVar10 = menu_item_register(param_1);
   uVar8 = (uVar8 & 0xffff) + (uVar2 & 0xffff) & 0xffff;
@@ -70,7 +70,7 @@ void register_menu_item_with_split_1038206e(int param_1)
     *(uint16_t *)(puVar11 + 2) = uVar4;
     *(short *)(puVar11 + 6) = (short)uVar3;
     (*pcVar5)(sVar1 + iVar10,0x19,uVar7,uVar8);
-    (**(code **)(*(int *)(iVar10 + 0xc) + 0xc))(*(short *)(*(int *)(iVar10 + 0xc) + 8) + iVar10,1);
+    (((vtbl_entry*)(*(int *)(iVar10 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar10 + 0xc) + 8) + iVar10,1);
   }
   iVar10 = menu_item_register(param_1);
   uVar2 = iVar6 - (uVar2 + uVar3);
@@ -80,7 +80,7 @@ void register_menu_item_with_split_1038206e(int param_1)
     *(uint16_t *)(puVar11 + 2) = uVar4;
     *(short *)(puVar11 + 6) = (short)uVar2;
     (*pcVar5)(sVar1 + iVar10,0,uVar7,uVar8 + (uVar3 & 0xffff) & 0xffff);
-    (**(code **)(*(int *)(iVar10 + 0xc) + 0xc))(*(short *)(*(int *)(iVar10 + 0xc) + 8) + iVar10,1);
+    (((vtbl_entry*)(*(int *)(iVar10 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar10 + 0xc) + 8) + iVar10,1);
   }
   free_heap_if_flagged_1045c402(auStack_20,2);
   free_heap_block_if_flagged_1045bc54(auStack_28,2);

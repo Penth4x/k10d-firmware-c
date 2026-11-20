@@ -6,22 +6,22 @@
 #include "globals.h"
 #include "funcs.h"
 
-char any_item_predicate_true(int param_1)
+char any_item_predicate_true(cls_105b48dc *param_1)
 
 {
   int *piVar1;
   char cVar2;
   int iVar3;
   
-  cVar2 = *(char *)(param_1 + 9);
-  piVar1 = *(int **)(param_1 + 0x18);
-  if (piVar1 != *(int **)(param_1 + 0x1c)) {
+  cVar2 = param_1->field_0x9;
+  piVar1 = (void*)(param_1->field11_0x18);
+  if ((uint32_t)(piVar1) != param_1->field_0x1c) {
     do {
       iVar3 = *(int *)(*piVar1 + 0xc);
-      iVar3 = (**(code **)(iVar3 + 0x4c))(*piVar1 + (int)*(short *)(iVar3 + 0x48));
+      iVar3 = (((vtbl_entry*)(iVar3))[9].fn)(*piVar1 + (int)((vtbl_entry*)(iVar3))[9].adj);
       cVar2 = iVar3 != 0 || cVar2 != '\0';
       piVar1 = piVar1 + 1;
-    } while (piVar1 != *(int **)(param_1 + 0x1c));
+    } while ((uint32_t)(piVar1) != param_1->field_0x1c);
   }
   return cVar2;
 }

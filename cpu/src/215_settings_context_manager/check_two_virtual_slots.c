@@ -6,23 +6,23 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t check_two_virtual_slots(int param_1)
+uint32_t check_two_virtual_slots(cls_105b8160 *param_1)
 
 {
   int *piVar1;
   int iVar2;
   uint32_t uVar3;
   
-  piVar1 = *(int **)(param_1 + 8);
+  piVar1 = (int *)param_1->field_0x8;
   uVar3 = 1;
   if ((piVar1 != (int *)0x0) &&
-     (iVar2 = (**(code **)(*piVar1 + 0x2c))((int)*(short *)(*piVar1 + 0x28) + (int)piVar1),
+     (iVar2 = (((vtbl_entry*)(*piVar1))[5].fn)((int)((vtbl_entry*)(*piVar1))[5].adj + (int)piVar1),
      iVar2 == 0)) {
     uVar3 = 0;
   }
-  piVar1 = *(int **)(param_1 + 4);
+  piVar1 = (int *)param_1->field_0x4;
   if ((piVar1 != (int *)0x0) &&
-     (iVar2 = (**(code **)(*piVar1 + 0x2c))((int)*(short *)(*piVar1 + 0x28) + (int)piVar1),
+     (iVar2 = (((vtbl_entry*)(*piVar1))[5].fn)((int)((vtbl_entry*)(*piVar1))[5].adj + (int)piVar1),
      iVar2 == 0)) {
     uVar3 = 0;
   }

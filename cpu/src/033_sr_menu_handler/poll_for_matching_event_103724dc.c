@@ -58,7 +58,7 @@ LAB_1037253c:
     }
     dispatch_event_and_return_offset(param_1,(void *)((int)param_1 + 0x7c),iVar5);
     pvVar7 = *(void **)((int)param_1 + 0x7c);
-    if (pvVar7 == (void *)0x0) break;
+    if (pvVar7 == 0) break;
     uVar1 = *(ushort *)((int)pvVar7 + 4);
     uVar2 = *(ushort *)((int)pvVar7 + 6);
     if (((uVar1 == uVar10) && (uVar2 == uVar11)) && (!bVar3)) goto LAB_103725d6;
@@ -75,7 +75,7 @@ LAB_1037253c:
     }
   } while ((uVar1 != uVar10) || (uVar2 != uVar11));
   if (bVar3) {
-    reset_object_fields_and_call_base((void *)((int)param_1 + 0x80));
+    reset_object_fields_and_call_base((cls_105b9458 *)((int)param_1 + 0x80));
   }
 LAB_103725d6:
   if ((uVar12 == 0) && (bVar4)) {

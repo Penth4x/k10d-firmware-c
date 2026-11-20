@@ -194,19 +194,19 @@ void configure_image_pipeline_buffers(int param_1,uint32_t *param_2,int param_3)
   pvVar11 = (void *)mempool_get_block(pvVar11,pvVar13,0);
   pvVar12 = (void *)get_system_heap();
   pvVar13 = (void *)mempool_get_block(pvVar12,pvVar13,0);
-  if (pvVar10 == (void *)0x0) {
+  if (pvVar10 == 0) {
 LAB_104f5298:
-    if (pvVar11 != (void *)0x0) {
+    if (pvVar11 != 0) {
       pvVar10 = (void *)get_system_heap();
       mempool_release_block(pvVar10,pvVar11);
     }
-    if (pvVar13 != (void *)0x0) {
+    if (pvVar13 != 0) {
       pvVar10 = (void *)get_system_heap();
       mempool_release_block(pvVar10,pvVar13);
     }
     return;
   }
-  if ((pvVar11 == (void *)0x0) || (pvVar13 == (void *)0x0)) {
+  if ((pvVar11 == 0) || (pvVar13 == 0)) {
     pvVar12 = (void *)get_system_heap();
     mempool_release_block(pvVar12,pvVar10);
     goto LAB_104f5298;
@@ -216,9 +216,9 @@ LAB_104f5298:
   uVar18 = param_2[3];
   uVar1 = *(uint16_t *)(param_2 + 4);
   uVar2 = *(uint16_t *)((int)param_2 + 0x12);
-  *puVar23 = pvVar10;
-  puVar23[1] = pvVar11;
-  puVar23[2] = pvVar13;
+  *puVar23 = (uintptr_t)(pvVar10);
+  puVar23[1] = (uintptr_t)(pvVar11);
+  puVar23[2] = (uintptr_t)(pvVar13);
   *(uint16_t *)((int)puVar23 + 0xe) = uVar1;
   *(uint16_t *)((int)puVar23 + 0x12) = uVar2;
   puVar23[5] = 0;
@@ -269,7 +269,7 @@ LAB_104f5298:
   puVar23[5] = 0;
   puVar23[6] = 0;
   puVar23[7] = 0;
-  puVar23[8] = &local_186;
+  puVar23[8] = (uintptr_t)(&local_186);
   init_event_queue_struct_104f8648(param_1,pvVar10,pvVar11,pvVar13,*puVar23,puVar23[1],puVar23[2],
                *(ushort *)((int)puVar23 + 0xe),*(uint16_t *)((int)puVar23 + 0x12),puVar23[5],
                puVar23[6],puVar23[7],(uint16_t *)puVar23[8]);
@@ -339,8 +339,8 @@ LAB_104f5298:
   pvVar11 = (void *)mempool_get_block(pvVar11,(void *)(iVar20 * iVar9),0);
   pvVar12 = (void *)get_system_heap();
   pvVar12 = (void *)mempool_get_block(pvVar12,(void *)0x100,0);
-  if (pvVar13 != (void *)0x0) {
-    if (((pvVar10 != (void *)0x0) && (pvVar11 != (void *)0x0)) && (pvVar12 != (void *)0x0)) {
+  if (pvVar13 != 0) {
+    if (((pvVar10 != 0) && (pvVar11 != 0)) && (pvVar12 != 0)) {
       iVar21 = (int)pvVar13 + 0x20;
       iVar8 = (uStack_c + 0x20) * (uint)uStack_a;
       iVar7 = iVar21 + iVar8;
@@ -417,7 +417,7 @@ LAB_104f5298:
       uStack_9f = uStack_a0;
       uStack_98 = uStack_9e;
       eventflag_clr_flg(puVar15,1);
-      build_sensor_readout_params(*(uint32_t *)(param_1 + 0x28),1,iVar8,&uStack_cc);
+      build_sensor_readout_params((int)(*(uint32_t *)(param_1 + 0x28)),(int)(1),(void *)(iVar8),(int *)(&uStack_cc));
       eventflag_wai_flg(puVar15,1,&uStack_10,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar15,1);
       configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),1);
@@ -534,7 +534,7 @@ LAB_104f5298:
       pvStack_80 = pvVar10;
       uStack_58 = uStack_5a;
       eventflag_clr_flg(puVar15,1);
-      build_sensor_readout_params(*(uint32_t *)(param_1 + 0x28),1,iVar8,&uStack_90);
+      build_sensor_readout_params((int)(*(uint32_t *)(param_1 + 0x28)),(int)(1),(void *)(iVar8),(int *)(&uStack_90));
       eventflag_wai_flg(puVar15,1,&uStack_10,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar15,1);
       configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),1);
@@ -578,7 +578,7 @@ LAB_104f5298:
       pvStack_3c = pvVar13;
       eventflag_clr_flg(puVar15,1);
       iVar9 = param_1 + 4;
-      imgp_c_program_and_start(*(uint32_t *)(param_1 + 0x24),iVar9,&uStack_54);
+      imgp_c_program_and_start_104fe976((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(iVar9),(int *)(&uStack_54));
       eventflag_wai_flg(puVar15,1,&uStack_10,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar15,1);
       imgp_c_start_and_ack(*(uint32_t *)(param_1 + 0x24));
@@ -650,15 +650,15 @@ LAB_104f5298:
     pvVar14 = (void *)get_system_heap();
     mempool_release_block(pvVar14,pvVar13);
   }
-  if (pvVar10 != (void *)0x0) {
+  if (pvVar10 != 0) {
     pvVar13 = (void *)get_system_heap();
     mempool_release_block(pvVar13,pvVar10);
   }
-  if (pvVar11 != (void *)0x0) {
+  if (pvVar11 != 0) {
     pvVar13 = (void *)get_system_heap();
     mempool_release_block(pvVar13,pvVar11);
   }
-  if (pvVar12 != (void *)0x0) {
+  if (pvVar12 != 0) {
     pvVar13 = (void *)get_system_heap();
     mempool_release_block(pvVar13,pvVar12);
   }

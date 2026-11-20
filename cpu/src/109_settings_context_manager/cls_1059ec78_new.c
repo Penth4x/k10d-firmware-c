@@ -26,7 +26,7 @@ uint32_t * cls_1059ec78_new(uint32_t *param_1)
     param_1[3] = 0;
     param_1[4] = 0;
     init_small_struct_fields(param_1 + 5);
-    cls_105a2af8_new(param_1 + 0xb);
+    cls_105a2af8_new((void *)(param_1 + 0xb));
     param_1[0xd] = 0;
   }
   return param_1;

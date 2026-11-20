@@ -21,7 +21,7 @@ void init_object_with_flag_and_callbacks(void *param_1)
 {
   *(uint32_t *)((int)param_1 + 0x14) = 1;
   call_helper_on_struct_field_1036c46c();
-  compute_and_send_two_point_offsets_1037aecc((int)param_1 + 0x40);
-  call_helper_on_struct_field_1036c41a(param_1,(void *)((int)param_1 + 0x40),1);
+  compute_and_send_two_point_offsets_1037aecc((cls_10558990 *)((int)param_1 + 0x40));
+  call_helper_on_struct_field_1036c41a(param_1,(cls_10558990 *)((int)param_1 + 0x40),1);
   return;
 }

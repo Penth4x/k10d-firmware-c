@@ -28,8 +28,8 @@ void dispatch_two_word_event(uint32_t *param_1,uint32_t *param_2)
   local_c = (short)uVar1;
   uVar1 = read_struct_field_at_offset_4(param_2);
   local_a = (short)uVar1;
-  (**(code **)(param_1[3] + 0xfc))
-            ((int)*(short *)(param_1[3] + 0xf8) + (int)param_1,&local_c,&local_a);
+  (((vtbl_entry*)(param_1[3]))[31].fn)
+            ((int)((vtbl_entry*)(param_1[3]))[31].adj + (int)param_1,&local_c,&local_a);
   write_two_words_to_struct_1048d4d6(*param_1,local_c,local_a);
   *(uint8_t *)((int)param_1 + 9) = 1;
   return;

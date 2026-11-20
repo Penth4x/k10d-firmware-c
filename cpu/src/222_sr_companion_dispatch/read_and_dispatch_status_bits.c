@@ -29,26 +29,26 @@ uint32_t read_and_dispatch_status_bits(int param_1,uint8_t *param_2,int param_3,
   bVar3 = set_pointer_and_clear_flag((int *)(param_1 + 0x2c),(void *)(param_1 + 4));
   if (bVar3) {
     if (param_4 == 0) {
-      uVar2 = dispatch_virtual_query_by_index((void *)(*(uint32_t *)(param_1 + 0x14)),2);
+      uVar2 = dispatch_virtual_query_by_index((int *)(*(uint32_t *)(param_1 + 0x14)),(int)(2));
       (*(code *)0x104bb1da/*ROM*/)(param_3,uVar2);
-      uVar1 = dispatch_virtual_query_by_index((void *)(*(uint32_t *)(param_1 + 0x14)),3);
+      uVar1 = dispatch_virtual_query_by_index((int *)(*(uint32_t *)(param_1 + 0x14)),(int)(3));
       (*(code *)0x104bb1e4/*ROM*/)(param_3,uVar1 & 3);
       (*(code *)0x104bb1ea/*ROM*/)(param_3,(int)(uVar1 & 4) >> 2);
       (*(code *)0x104bb1f0/*ROM*/)(param_3,(int)(uVar1 & 0x18) >> 3);
       (*(code *)0x104bb1f6/*ROM*/)(param_3,(int)(uVar1 & 0x20) >> 5);
     }
     else {
-      uVar2 = dispatch_virtual_query_by_index((void *)(*(uint32_t *)(param_1 + 0x14)),0);
+      uVar2 = dispatch_virtual_query_by_index((int *)(*(uint32_t *)(param_1 + 0x14)),(int)(0));
       (*(code *)0x104bb1da/*ROM*/)(param_3,uVar2);
-      uVar1 = dispatch_virtual_query_by_index((void *)(*(uint32_t *)(param_1 + 0x14)),1);
+      uVar1 = dispatch_virtual_query_by_index((int *)(*(uint32_t *)(param_1 + 0x14)),(int)(1));
       (*(code *)0x104bb1e4/*ROM*/)(param_3,uVar1 & 3);
       (*(code *)0x104bb1ea/*ROM*/)(param_3,(int)(uVar1 & 4) >> 2);
       (*(code *)0x104bb1f0/*ROM*/)(param_3,(int)(uVar1 & 0x18) >> 3);
       (*(code *)0x104bb1f6/*ROM*/)(param_3,(int)(uVar1 & 0x20) >> 5);
       (*(code *)0x104bb1fc/*ROM*/)(param_3,(int)(uVar1 & 0xc0) >> 6);
-      uVar2 = dispatch_virtual_query_by_index((void *)(*(uint32_t *)(param_1 + 0x14)),2);
+      uVar2 = dispatch_virtual_query_by_index((int *)(*(uint32_t *)(param_1 + 0x14)),(int)(2));
       (*(code *)0x104bb1da/*ROM*/)(param_4,uVar2);
-      uVar1 = dispatch_virtual_query_by_index((void *)(*(uint32_t *)(param_1 + 0x14)),3);
+      uVar1 = dispatch_virtual_query_by_index((int *)(*(uint32_t *)(param_1 + 0x14)),(int)(3));
       (*(code *)0x104bb1e4/*ROM*/)(param_4,uVar1 & 3);
       (*(code *)0x104bb1ea/*ROM*/)(param_4,(int)(uVar1 & 4) >> 2);
       (*(code *)0x104bb1f0/*ROM*/)(param_4,(int)(uVar1 & 0x18) >> 3);
@@ -56,7 +56,7 @@ uint32_t read_and_dispatch_status_bits(int param_1,uint8_t *param_2,int param_3,
       param_3 = param_4;
     }
     (*(code *)0x104bb1fc/*ROM*/)(param_3,(int)(uVar1 & 0xc0) >> 6);
-    uVar4 = dispatch_virtual_query_by_index((void *)(*(uint32_t *)(param_1 + 0x14)),4);
+    uVar4 = dispatch_virtual_query_by_index((int *)(*(uint32_t *)(param_1 + 0x14)),(int)(4));
     *param_2 = uVar4;
     delete_signal_semaphore((int *)(param_1 + 0x2c));
   }

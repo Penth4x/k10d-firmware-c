@@ -38,39 +38,35 @@ bool run_sr_dma_sequence(int param_1,int param_2,uint param_3)
   invoke_virtual_slot_on_nested_object_10466170(iVar2);
   *(uint16_t *)(puVar3 + 2) = 6;
   *(uint16_t *)(puVar3 + 6) = 0xff;
-  sr_dma_command(param_1,1,0,(void *)0x105a96c8/*ROM*/,*(uint16_t *)(puVar3 + 2),*(uint16_t *)(puVar3 + 6));
+  sr_dma_command((int)(param_1),(uint32_t)(1),(uint32_t)(0),(byte *)(0x105a96c8/*ROM*/),(uint16_t)(*(uint16_t *)(puVar3 + 2)),(uint16_t)(*(uint16_t *)(puVar3 + 6)));
   *(uint16_t *)(puVar3 + 2) = 3;
   *(uint16_t *)(puVar3 + 6) = 0xff;
-  sr_dma_command(param_1,4,8,(void *)0x105a96e4/*ROM*/,*(uint16_t *)(puVar3 + 2),*(uint16_t *)(puVar3 + 6));
+  sr_dma_command((int)(param_1),(uint32_t)(4),(uint32_t)(8),(byte *)(0x105a96e4/*ROM*/),(uint16_t)(*(uint16_t *)(puVar3 + 2)),(uint16_t)(*(uint16_t *)(puVar3 + 6)));
   release_struct_fields_10466d06(*(void **)(param_1 + 0x38));
   iVar1 = poll_context_flag_until_status_set(*(void **)(param_1 + 0x38),5000);
   if (iVar1 == 0) {
     *(uint16_t *)(puVar3 + 2) = 3;
     *(uint16_t *)(puVar3 + 6) = 0xff;
-    sr_dma_command(param_1,4,0x10,(void *)0x105a96f0/*ROM*/,*(uint16_t *)(puVar3 + 2),*(uint16_t *)(puVar3 + 6)
-                  );
+    sr_dma_command((int)(param_1),(uint32_t)(4),(uint32_t)(0x10),(byte *)(0x105a96f0/*ROM*/),(uint16_t)(*(uint16_t *)(puVar3 + 2)),(uint16_t)(*(uint16_t *)(puVar3 + 6)));
     iVar1 = execute_multi_byte_transfer(iVar2,0xf1,param_2,param_3);
     bVar4 = iVar1 == _DAT_105a7ce8/*ROM*/;
     *(uint16_t *)(puVar3 + 2) = 3;
     *(uint16_t *)(puVar3 + 6) = 0xff;
-    sr_dma_command(param_1,4,0x11,(void *)0x105a96f4/*ROM*/,*(uint16_t *)(puVar3 + 2),*(uint16_t *)(puVar3 + 6)
-                  );
+    sr_dma_command((int)(param_1),(uint32_t)(4),(uint32_t)(0x11),(byte *)(0x105a96f4/*ROM*/),(uint16_t)(*(uint16_t *)(puVar3 + 2)),(uint16_t)(*(uint16_t *)(puVar3 + 6)));
     bVar5 = false;
     if (bVar4) {
       iVar1 = read_bytes_via_transfer_loop(iVar2,0xf1,(int)&cStack_9,1);
       bVar4 = iVar1 == _DAT_105a7ce8/*ROM*/;
       *(uint16_t *)(puVar3 + 2) = 3;
       *(uint16_t *)(puVar3 + 6) = 0xff;
-      sr_dma_command(param_1,4,0x12,(void *)0x105a96f8/*ROM*/,*(uint16_t *)(puVar3 + 2),
-                     *(uint16_t *)(puVar3 + 6));
+      sr_dma_command((int)(param_1),(uint32_t)(4),(uint32_t)(0x12),(byte *)(0x105a96f8/*ROM*/),(uint16_t)(*(uint16_t *)(puVar3 + 2)), (uint16_t)(*(uint16_t *)(puVar3 + 6)));
       bVar5 = false;
       if (bVar4) {
-        iVar1 = cpucom_wait_line_clear((void *)(*(uint32_t *)(param_1 + 0x38)),5000);
+        iVar1 = cpucom_wait_line_clear((void *)(*(uint32_t *)(param_1 + 0x38)),(int)(5000));
         bVar5 = iVar1 == 0;
         *(uint16_t *)(puVar3 + 2) = 3;
         *(uint16_t *)(puVar3 + 6) = 0xff;
-        sr_dma_command(param_1,4,0x13,(void *)0x105a96fc/*ROM*/,*(uint16_t *)(puVar3 + 2),
-                       *(uint16_t *)(puVar3 + 6));
+        sr_dma_command((int)(param_1),(uint32_t)(4),(uint32_t)(0x13),(byte *)(0x105a96fc/*ROM*/),(uint16_t)(*(uint16_t *)(puVar3 + 2)), (uint16_t)(*(uint16_t *)(puVar3 + 6)));
       }
     }
   }
@@ -78,26 +74,26 @@ bool run_sr_dma_sequence(int param_1,int param_2,uint param_3)
   if (bVar5 == false) {
     *(uint16_t *)(puVar3 + 2) = 6;
     *(uint16_t *)(puVar3 + 6) = 0xff;
-    sr_dma_command(param_1,3,10,(void *)0x105a971c/*ROM*/,*(uint16_t *)(puVar3 + 2),*(uint16_t *)(puVar3 + 6));
+    sr_dma_command((int)(param_1),(uint32_t)(3),(uint32_t)(10),(byte *)(0x105a971c/*ROM*/),(uint16_t)(*(uint16_t *)(puVar3 + 2)),(uint16_t)(*(uint16_t *)(puVar3 + 6)));
   }
   else {
     if (cStack_9 == '\x01') {
       *(uint16_t *)(puVar3 + 2) = 1;
       *(uint16_t *)(puVar3 + 6) = 0xff;
-      sr_dma_command(param_1,3,9,(void *)0x105a9700/*ROM*/,*(uint16_t *)(puVar3 + 2),*(uint16_t *)(puVar3 + 6))
+      sr_dma_command((int)(param_1),(uint32_t)(3),(uint32_t)(9),(byte *)(0x105a9700/*ROM*/),(uint16_t)(*(uint16_t *)(puVar3 + 2)),(uint16_t)(*(uint16_t *)(puVar3 + 6)))
       ;
       goto LAB_104709a6;
     }
     *(uint16_t *)(puVar3 + 2) = 6;
     *(uint16_t *)(puVar3 + 6) = 0xff;
-    sr_dma_command(param_1,3,7,(void *)0x105a970c/*ROM*/,*(uint16_t *)(puVar3 + 2),*(uint16_t *)(puVar3 + 6));
+    sr_dma_command((int)(param_1),(uint32_t)(3),(uint32_t)(7),(byte *)(0x105a970c/*ROM*/),(uint16_t)(*(uint16_t *)(puVar3 + 2)),(uint16_t)(*(uint16_t *)(puVar3 + 6)));
   }
   bVar5 = false;
 LAB_104709a6:
   release_struct_fields_10466d06(*(void **)(param_1 + 0x38));
   *(uint16_t *)(puVar3 + 2) = 4;
   *(uint16_t *)(puVar3 + 6) = 0xff;
-  sr_dma_command(param_1,7,10,(void *)0x105a9724/*ROM*/,*(uint16_t *)(puVar3 + 2),*(uint16_t *)(puVar3 + 6));
+  sr_dma_command((int)(param_1),(uint32_t)(7),(uint32_t)(10),(byte *)(0x105a9724/*ROM*/),(uint16_t)(*(uint16_t *)(puVar3 + 2)),(uint16_t)(*(uint16_t *)(puVar3 + 6)));
   invoke_virtual_slot_10_with_one(iVar2);
   return bVar5;
 }

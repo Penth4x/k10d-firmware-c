@@ -11,34 +11,35 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_10557a18_new(uint32_t *param_1)
+cls_10557c88 * cls_10557a18_new(cls_10557a18 *param_1)
 
 {
   int iVar1;
   int iVar2;
   
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x140), param_1 != (uint32_t *)0x0)) {
-    cls_10557c88_new(param_1);
-    *param_1 = (uint32_t)&DAT_10557a18/*ROM*/;
-    *(uint8_t *)(param_1 + 5) = 0;
-    *(uint8_t *)((int)param_1 + 0x15) = 0;
-    *(uint16_t *)((int)param_1 + 0x16) = 0;
-    *(uint16_t *)(param_1 + 6) = 0;
-    init_0x50_byte_object_1051e840((void *)(param_1 + 7));
-    cls_10558e74_new(param_1 + 0x1b);
-    param_1[0x45] = 0;
-    cls_105aae94_new(param_1 + 0x46);
+  if ((param_1 != (cls_10557a18 *)0x0) ||
+     (param_1 = (cls_10557a18 *)heap_alloc((void *)0x140), (cls_10557c88 *)param_1 != (cls_10557c88 *)0x0))
+  {
+    cls_10557c88_new((cls_10557c88 *)param_1);
+    ((cls_10557c88 *)param_1)->field_0x0 = (uintptr_t)(&DAT_10557a18/*ROM*/);
+    ((cls_10557c88 *)param_1)->field8_0x14 = 0;
+    ((cls_10557c88 *)param_1)->field_0x15 = 0;
+    ((cls_10557c88 *)param_1)->field_0x16 = 0;
+    *(uint16_t *)&((cls_10557c88 *)param_1)->field_0x18 = 0;
+    init_0x50_byte_object_1051e840(&((cls_10557c88 *)param_1)->field_0x1c);
+    cls_10558e74_new((cls_10558e74 *)&((cls_10557c88 *)param_1)->field65_0x6c);
+    ((cls_10557c88 *)param_1)->field_0x114 = 0;
+    cls_105aae94_new((cls_105aae94 *)&((cls_10557c88 *)param_1)->field_0x118);
     iVar1 = 0;
-    param_1[0x4f] = 0;
+    ((cls_10557c88 *)param_1)->field_0x13c = 0;
     iVar2 = 1;
     do {
-      *(uint16_t *)((int)param_1 + iVar1 + 0x130) = 0;
-      *(uint16_t *)((int)param_1 + iVar1 + 0x132) = 0;
-      *(uint16_t *)((int)param_1 + iVar1 + 0x134) = 0;
+      *(uint16_t *)(&((cls_10557c88 *)param_1)->field_0x130 + iVar1) = 0;
+      *(uint16_t *)(&((cls_10557c88 *)param_1)->field_0x132 + iVar1) = 0;
+      *(uint16_t *)(&((cls_10557c88 *)param_1)->field_0x134 + iVar1) = 0;
       iVar2 = iVar2 + -1;
       iVar1 = iVar1 + 6;
     } while (-1 < iVar2);
   }
-  return param_1;
+  return (cls_10557c88 *)param_1;
 }

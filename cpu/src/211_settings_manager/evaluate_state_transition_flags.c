@@ -18,7 +18,7 @@
 /* WARNING: Instruction at (ram,0x104ac1fc) overlaps instruction at (ram,0x104ac1fa)
     */
 
-uint32_t evaluate_state_transition_flags(int param_1)
+uint32_t evaluate_state_transition_flags(cls_105b7288 *param_1)
 
 {
   uint32_t *puVar1;
@@ -31,52 +31,49 @@ uint32_t evaluate_state_transition_flags(int param_1)
   uint32_t uVar8;
   int iVar9;
   
-  puVar1 = *(uint32_t **)(param_1 + 0x1c);
+  puVar1 = (uint32_t *)param_1->field_0x1c;
   uVar8 = 0;
   puVar4 = (uint *)*puVar1;
-  puVar5 = *(uint32_t **)(param_1 + 0x18);
+  puVar5 = (uint32_t *)param_1->field_0x18;
   uVar7 = puVar5[0xe];
   if ((*puVar4 & puVar1[8]) == 0 || (*(uint *)*puVar5 & uVar7) != 0) {
-    if ((*(int *)(param_1 + 0x20) != 0) && ((*puVar4 & puVar1[0xb]) != 0)) {
+    if ((param_1->field_0x20 != 0) && ((*puVar4 & puVar1[0xb]) != 0)) {
       merge_masked_word_fields(puVar1,0,puVar1[0xb]);
-      puVar1 = *(uint32_t **)(param_1 + 0x18);
+      puVar1 = (uint32_t *)param_1->field_0x18;
       if ((*(uint *)*puVar1 & puVar1[0x11]) == 0) {
         merge_masked_word_fields(puVar1,puVar1[0xd],puVar1[0xb] | puVar1[0xd]);
-        uVar7 = (*(uint32_t **)(param_1 + 0x18))[0x11];
-        merge_masked_word_fields(*(uint32_t **)(param_1 + 0x18),uVar7,uVar7);
-        merge_masked_word_fields(*(uint32_t **)(param_1 + 0x1c),0,(*(uint32_t **)(param_1 + 0x1c))[0xb]);
+        uVar7 = ((uint32_t *)param_1->field_0x18)[0x11];
+        merge_masked_word_fields((uint32_t *)param_1->field_0x18,uVar7,uVar7);
+        merge_masked_word_fields((uint32_t *)param_1->field_0x1c,0,((uint32_t *)param_1->field_0x1c)[0xb]);
         uVar8 = 1;
-        merge_masked_word_fields(*(uint32_t **)(param_1 + 0x1c),0,(*(uint32_t **)(param_1 + 0x1c))[7]);
-        clear_and_set_flag_in_struct(*(uint32_t **)(param_1 + 0x20));
-        *(uint32_t *)(param_1 + 0x24) = 0;
-        *(uint32_t *)(param_1 + 0x34) = 2;
+        merge_masked_word_fields((uint32_t *)param_1->field_0x1c,0,((uint32_t *)param_1->field_0x1c)[7]);
+        clear_and_set_flag_in_struct((uint32_t *)param_1->field_0x20);
+        param_1->field_0x24 = 0;
+        param_1->field_0x34 = 2;
       }
     }
   }
   else if ((*puVar4 & puVar1[6]) != 0) {
-    puVar1 = *(uint32_t **)(param_1 + 0x14);
+    puVar1 = (uint32_t *)param_1->field_0x14;
     uVar2 = (*(uint *)*puVar1 & puVar1[5]) >> (puVar1[6] & 0x1f);
     merge_masked_word_fields(puVar5,uVar7,uVar7);
-    iVar6 = *(int *)(param_1 + 0x24);
+    iVar6 = param_1->field_0x24;
     if (iVar6 == 0) {
       if (uVar2 == 0) {
-        *(uint32_t *)(param_1 + 0x34) = 2;
+        param_1->field_0x34 = 2;
         uVar8 = 1;
       }
     }
-    else if ((uVar2 == 0) ||
-            ((iVar9 = *(int *)(iVar6 + 4), iVar3 = *(int *)(iVar6 + 0xc),
-             iVar6 = append_bytes_to_dynamic_buffer((void *)iVar6,(void *)(*(uint32_t *)(param_1 + 0x10)),uVar2),
-             iVar9 - iVar3 != iVar6 && (*(uint *)(param_1 + 0x28) <= uVar2)))) {
-      merge_masked_word_fields(*(uint32_t **)(param_1 + 0x18),0,(*(uint32_t **)(param_1 + 0x18))[0xe]);
+    else if ((uVar2 == 0) || ((iVar9 = *(int *)(iVar6 + 4), iVar3 = *(int *)(iVar6 + 0xc), iVar6 = append_bytes_to_dynamic_buffer((int *)(iVar6),(uint32_t *)(param_1->field_0x10),(uint)(uVar2)), iVar9 - iVar3 != iVar6 && ((uint)param_1->field_0x28 <= uVar2)))) {
+      merge_masked_word_fields((uint32_t *)param_1->field_0x18,0,((uint32_t *)param_1->field_0x18)[0xe]);
     }
     else {
-      *(uint32_t *)(param_1 + 0x24) = 0;
-      *(uint32_t *)(param_1 + 0x34) = 2;
+      param_1->field_0x24 = 0;
+      param_1->field_0x34 = 2;
       uVar8 = 1;
     }
-    uVar7 = (*(uint32_t **)(param_1 + 0x1c))[6];
-    merge_masked_word_fields(*(uint32_t **)(param_1 + 0x1c),uVar7,uVar7);
+    uVar7 = ((uint32_t *)param_1->field_0x1c)[6];
+    merge_masked_word_fields((uint32_t *)param_1->field_0x1c,uVar7,uVar7);
   }
   return uVar8;
 }

@@ -34,24 +34,19 @@ int search_and_apply_zoom_factor(int param_1,uint32_t *param_2,int param_3,int p
   uint32_t uVar9;
   int iVar10;
   int iVar11;
-  int iVar12;
+  void **ppuVar12;
   int iVar13;
-  uint32_t *puVar14;
-  int iVar15;
+  int iVar14;
+  uint32_t *puVar15;
   int iVar16;
   int iVar17;
   int iVar18;
+  int iVar19;
   uintptr_t sp;
-  int *piVar19;
+  int *piVar20;
   uint8_t local_394 [40];
   uint32_t auStack_2e4 [3];
-  uint8_t auStack_2d8 [16];
-  int iStack_2c8;
-  uint32_t local_2bc;
-  uint32_t uStack_2b8;
-  uint32_t uStack_2b4;
-  uint32_t uStack_2b0;
-  uint32_t auStack_2ac [122];
+  cls_105b9458 cStack_2d8;
   uint32_t auStack_c4 [2];
   uint32_t uStack_bc;
   uint32_t uStack_b8;
@@ -99,9 +94,9 @@ int search_and_apply_zoom_factor(int param_1,uint32_t *param_2,int param_3,int p
   uint16_t uStack_c;
   uint16_t uStack_a;
   
-  piVar19 = (int *)local_394;
+  piVar20 = (int *)local_394;
   *(uint8_t *)(param_1 + 0x219) = 0;
-  cls_105b9458_new((void *)auStack_2d8);
+  cls_105b9458_new(&cStack_2d8);
   uVar5 = negate_signed_integer((uint)*(ushort *)(param_3 + 0x50));
   uVar6 = compare_version_fields(0x43800000,uVar5);
   uVar5 = negate_signed_integer((uint)*(ushort *)(param_3 + 0x52));
@@ -122,9 +117,9 @@ int search_and_apply_zoom_factor(int param_1,uint32_t *param_2,int param_3,int p
   store_value_to_pointer_1045c510(auStack_c4,iVar10 * uVar5);
   iVar10 = read_struct_field_at_offset_4(param_2);
   write_field_at_offset_four_1045c518(auStack_c4,iVar10 * uVar5);
-  iVar10 = compute_buffer_size_and_init(auStack_2d8,auStack_c4,2);
+  iVar10 = compute_buffer_size_and_init(&cStack_2d8,auStack_c4,2);
   if (iVar10 == 0) {
-    if (iStack_2c8 == 2) {
+    if (cStack_2d8.field_0x10 == 2) {
       *(uint8_t *)(param_1 + 0x219) = 1;
     }
   }
@@ -134,15 +129,16 @@ int search_and_apply_zoom_factor(int param_1,uint32_t *param_2,int param_3,int p
     uStack_a8 = 0;
     uStack_a6 = 0;
     uStack_a4 = 0;
-    uStack_b8 = uStack_2b8;
-    uStack_b4 = uStack_2b4;
-    uStack_b0 = uStack_2b0;
-    uStack_bc = local_2bc;
-    uVar6 = return_first_word_1045c514(auStack_2ac);
+    uStack_b8 = cStack_2d8.field_0x20;
+    uStack_b4 = cStack_2d8.field_0x24;
+    uStack_b0 = cStack_2d8.field_0x28;
+    uStack_bc = cStack_2d8.field_0x1c;
+    ppuVar12 = &cStack_2d8.field_0x2c;
+    uVar6 = return_first_word_1045c514(ppuVar12);
     uStack_a8 = (uint16_t)uVar6;
-    uVar6 = return_first_word_1045c514(auStack_2ac);
+    uVar6 = return_first_word_1045c514(ppuVar12);
     uStack_ac = (uint16_t)uVar6;
-    uVar6 = read_struct_field_at_offset_4(auStack_2ac);
+    uVar6 = read_struct_field_at_offset_4(ppuVar12);
     iVar10 = param_6 * 3;
     uStack_aa = (short)uVar6;
     uStack_a6 = 0;
@@ -150,8 +146,8 @@ int search_and_apply_zoom_factor(int param_1,uint32_t *param_2,int param_3,int p
     uVar6 = *(uint32_t *)(param_1 + 0x4c);
     bVar2 = (&DAT_105b94e1/*ROM*/)[iVar10];
     bVar1 = (&DAT_105b94e0/*ROM*/)[iVar10];
-    *(ushort *)((int)piVar19 + 2) = (ushort)(byte)(&DAT_105b94e2/*ROM*/)[iVar10];
-    forward_event_with_payload(uVar6,&uStack_bc,(ushort)bVar1,(ushort)bVar2,*(uint16_t *)((int)piVar19 + 2));
+    *(ushort *)((int)piVar20 + 2) = (ushort)(byte)(&DAT_105b94e2/*ROM*/)[iVar10];
+    forward_event_with_payload(uVar6,&uStack_bc,(ushort)bVar1,(ushort)bVar2,*(uint16_t *)((int)piVar20 + 2));
     uStack_90 = 0;
     uStack_8e = 0;
     uStack_8c = 0;
@@ -161,25 +157,15 @@ int search_and_apply_zoom_factor(int param_1,uint32_t *param_2,int param_3,int p
     uStack_98 = *(uint32_t *)(param_4 + 0x24);
     uStack_94 = *(uint32_t *)(param_4 + 0x28);
     uStack_a0 = *(uint32_t *)(param_4 + 0x1c);
-    puVar14 = (uint32_t *)(param_4 + 0x2c);
-    uVar6 = return_first_word_1045c514(puVar14);
+    puVar15 = (uint32_t *)(param_4 + 0x2c);
+    uVar6 = return_first_word_1045c514(puVar15);
     uStack_8c = (uint16_t)uVar6;
-    uVar6 = return_first_word_1045c514(puVar14);
+    uVar6 = return_first_word_1045c514(puVar15);
     uStack_90 = (uint16_t)uVar6;
-    uVar6 = read_struct_field_at_offset_4(puVar14);
+    uVar6 = read_struct_field_at_offset_4(puVar15);
     uStack_8e = (uint16_t)uVar6;
     uStack_8a = 0;
     auStack_88[0] = 0;
-    copy_transformed_pair(local_84,(void *)param_3);
-    iVar11 = 8;
-    do {
-      iVar15 = iVar11 + -4;
-      *(uint32_t *)((int)auStack_2e4 + iVar11) = *(uint32_t *)((int)auStack_88 + iVar11);
-      iVar11 = iVar15;
-    } while (iVar15 != 0);
-    puVar14 = auStack_2e4 + 1;
-    iVar15 = return_first_word_1045c514(puVar14);
-    free_heap_if_flagged_1045c402(puVar14,2);
     copy_transformed_pair(local_84,(void *)param_3);
     iVar11 = 8;
     do {
@@ -187,9 +173,9 @@ int search_and_apply_zoom_factor(int param_1,uint32_t *param_2,int param_3,int p
       *(uint32_t *)((int)auStack_2e4 + iVar11) = *(uint32_t *)((int)auStack_88 + iVar11);
       iVar11 = iVar16;
     } while (iVar16 != 0);
-    iVar16 = read_struct_field_at_offset_4(puVar14);
-    free_heap_if_flagged_1045c402(puVar14,2);
-    iVar12 = return_first_word_1045c514(auStack_c4);
+    puVar15 = auStack_2e4 + 1;
+    iVar16 = return_first_word_1045c514(puVar15);
+    free_heap_if_flagged_1045c402(puVar15,2);
     copy_transformed_pair(local_84,(void *)param_3);
     iVar11 = 8;
     do {
@@ -197,9 +183,9 @@ int search_and_apply_zoom_factor(int param_1,uint32_t *param_2,int param_3,int p
       *(uint32_t *)((int)auStack_2e4 + iVar11) = *(uint32_t *)((int)auStack_88 + iVar11);
       iVar11 = iVar17;
     } while (iVar17 != 0);
-    iVar17 = return_first_word_1045c514(puVar14);
-    free_heap_if_flagged_1045c402(puVar14,2);
-    iVar13 = read_struct_field_at_offset_4(auStack_c4);
+    iVar17 = read_struct_field_at_offset_4(puVar15);
+    free_heap_if_flagged_1045c402(puVar15,2);
+    iVar13 = return_first_word_1045c514(auStack_c4);
     copy_transformed_pair(local_84,(void *)param_3);
     iVar11 = 8;
     do {
@@ -207,8 +193,18 @@ int search_and_apply_zoom_factor(int param_1,uint32_t *param_2,int param_3,int p
       *(uint32_t *)((int)auStack_2e4 + iVar11) = *(uint32_t *)((int)auStack_88 + iVar11);
       iVar11 = iVar18;
     } while (iVar18 != 0);
-    iVar11 = read_struct_field_at_offset_4(puVar14);
-    free_heap_if_flagged_1045c402(puVar14,2);
+    iVar18 = return_first_word_1045c514(puVar15);
+    free_heap_if_flagged_1045c402(puVar15,2);
+    iVar14 = read_struct_field_at_offset_4(auStack_c4);
+    copy_transformed_pair(local_84,(void *)param_3);
+    iVar11 = 8;
+    do {
+      iVar19 = iVar11 + -4;
+      *(uint32_t *)((int)auStack_2e4 + iVar11) = *(uint32_t *)((int)auStack_88 + iVar11);
+      iVar11 = iVar19;
+    } while (iVar19 != 0);
+    iVar11 = read_struct_field_at_offset_4(puVar15);
+    free_heap_if_flagged_1045c402(puVar15,2);
     uStack_c = (short)((int)(uint)*(ushort *)(param_3 + 0x50) / (int)uVar5);
     uStack_a = (short)((int)(uint)*(ushort *)(param_3 + 0x52) / (int)uVar5);
     uStack_3c = *(uint32_t *)(param_3 + 0x38);
@@ -217,38 +213,38 @@ int search_and_apply_zoom_factor(int param_1,uint32_t *param_2,int param_3,int p
     uStack_30 = 0;
     uStack_2c = 0;
     uStack_28 = 0;
-    *piVar19 = (int)&uStack_c;
-    piVar19[1] = (int)&uStack_a;
-    piVar19[2] = (int)&uStack_3c;
-    piVar19[3] = (int)&uStack_38;
-    clamp_crop_to_sensor_bounds(param_1,param_4,iVar15 * uVar5 & 0xffff,iVar16 * uVar5 & 0xffff,(ushort *)*piVar19,
-                 (ushort *)piVar19[1],(uint *)piVar19[2],(uint *)piVar19[3]);
-    uVar6 = return_first_word_1045c514(auStack_2ac);
+    *piVar20 = (int)&uStack_c;
+    piVar20[1] = (int)&uStack_a;
+    piVar20[2] = (int)&uStack_3c;
+    piVar20[3] = (int)&uStack_38;
+    clamp_crop_to_sensor_bounds(param_1,param_4,iVar16 * uVar5 & 0xffff,iVar17 * uVar5 & 0xffff,(ushort *)*piVar20,
+                 (ushort *)piVar20[1],(uint *)piVar20[2],(uint *)piVar20[3]);
+    uVar6 = return_first_word_1045c514(ppuVar12);
     uStack_a8 = (short)uVar6;
-    uStack_ac = (short)(iVar15 * uVar5);
-    uStack_aa = (short)(iVar16 * uVar5);
-    uStack_a6 = (short)(iVar12 - iVar17 * uVar5 >> 1);
-    uStack_a4 = (short)(iVar13 - iVar11 * uVar5 >> 1);
+    uStack_ac = (short)(iVar16 * uVar5);
+    uStack_aa = (short)(iVar17 * uVar5);
+    uStack_a6 = (short)(iVar13 - iVar18 * uVar5 >> 1);
+    uStack_a4 = (short)(iVar14 - iVar11 * uVar5 >> 1);
     bVar2 = (&DAT_105b94e1/*ROM*/)[iVar10];
     bVar3 = (&DAT_105b94e2/*ROM*/)[iVar10];
     uVar6 = *(uint32_t *)(param_1 + 0x4c);
     bVar1 = (&DAT_105b94e0/*ROM*/)[iVar10];
-    *(uint16_t *)((int)piVar19 + 2) = uStack_a;
-    *(uint32_t **)((int)piVar19 + 4) = &uStack_3c;
-    *(uint32_t **)((int)piVar19 + 8) = &uStack_38;
-    *(uint32_t **)((int)piVar19 + 0xc) = &uStack_34;
-    *(uint32_t **)((int)piVar19 + 0x10) = &uStack_30;
-    *(uint32_t **)((int)piVar19 + 0x14) = &uStack_2c;
-    *(uint32_t **)((int)piVar19 + 0x18) = &uStack_28;
-    *(ushort *)((int)piVar19 + 0x1e) = (ushort)bVar1;
-    *(ushort *)((int)piVar19 + 0x22) = (ushort)bVar2;
-    *(ushort *)((int)piVar19 + 0x26) = (ushort)bVar3;
-    iVar10 = compute_six_fixed_point_values(uVar6,&uStack_a0,&uStack_bc,uStack_c,*(uint16_t *)((int)piVar19 + 2),
-                          *(int **)((int)piVar19 + 4),*(int **)((int)piVar19 + 8),
-                          *(int **)((int)piVar19 + 0xc),*(int **)((int)piVar19 + 0x10),
-                          *(int **)((int)piVar19 + 0x14),*(int **)((int)piVar19 + 0x18),
-                          *(uint16_t *)((int)piVar19 + 0x1e),*(uint16_t *)((int)piVar19 + 0x22),
-                          *(uint16_t *)((int)piVar19 + 0x26));
+    *(uint16_t *)((int)piVar20 + 2) = uStack_a;
+    *(uint32_t **)((int)piVar20 + 4) = &uStack_3c;
+    *(uint32_t **)((int)piVar20 + 8) = &uStack_38;
+    *(uint32_t **)((int)piVar20 + 0xc) = &uStack_34;
+    *(uint32_t **)((int)piVar20 + 0x10) = &uStack_30;
+    *(uint32_t **)((int)piVar20 + 0x14) = &uStack_2c;
+    *(uint32_t **)((int)piVar20 + 0x18) = &uStack_28;
+    *(ushort *)((int)piVar20 + 0x1e) = (ushort)bVar1;
+    *(ushort *)((int)piVar20 + 0x22) = (ushort)bVar2;
+    *(ushort *)((int)piVar20 + 0x26) = (ushort)bVar3;
+    iVar10 = compute_six_fixed_point_values(uVar6,&uStack_a0,&uStack_bc,uStack_c,*(uint16_t *)((int)piVar20 + 2),
+                          *(int **)((int)piVar20 + 4),*(int **)((int)piVar20 + 8),
+                          *(int **)((int)piVar20 + 0xc),*(int **)((int)piVar20 + 0x10),
+                          *(int **)((int)piVar20 + 0x14),*(int **)((int)piVar20 + 0x18),
+                          *(uint16_t *)((int)piVar20 + 0x1e),*(uint16_t *)((int)piVar20 + 0x22),
+                          *(uint16_t *)((int)piVar20 + 0x26));
     if (iVar10 != 0) {
       iVar10 = compute_buffer_size_and_init((void *)param_5,param_2,2);
       if (iVar10 == 0) {
@@ -262,11 +258,11 @@ int search_and_apply_zoom_factor(int param_1,uint32_t *param_2,int param_3,int p
         uStack_68 = 0;
         uStack_66 = 0;
         uStack_64 = 0;
-        uVar6 = return_first_word_1045c514(auStack_2ac);
+        uVar6 = return_first_word_1045c514(ppuVar12);
         uStack_68 = (uint16_t)uVar6;
-        uVar6 = return_first_word_1045c514(auStack_2ac);
+        uVar6 = return_first_word_1045c514(ppuVar12);
         uStack_6c = (uint16_t)uVar6;
-        uVar6 = read_struct_field_at_offset_4(auStack_2ac);
+        uVar6 = read_struct_field_at_offset_4(ppuVar12);
         uStack_6a = (uint16_t)uVar6;
         uStack_66 = 0;
         uStack_64 = uStack_66;
@@ -307,34 +303,34 @@ int search_and_apply_zoom_factor(int param_1,uint32_t *param_2,int param_3,int p
         auStack_48[0] = 0;
         uVar6 = *(uint32_t *)(param_1 + 0x4c);
         uVar4 = (uint16_t)((uVar5 & 0xff) << 8);
-        *(uint16_t *)((int)piVar19 + 2) = uVar4;
-        *(uint **)((int)piVar19 + 4) = &uStack_24;
-        *(uint **)((int)piVar19 + 8) = auStack_20;
-        *(uint **)((int)piVar19 + 0xc) = auStack_20 + 1;
-        *(uint **)((int)piVar19 + 0x10) = auStack_20 + 2;
-        *(uint **)((int)piVar19 + 0x14) = auStack_20 + 3;
-        *(uint **)((int)piVar19 + 0x18) = auStack_20 + 4;
-        *(uint16_t *)((int)piVar19 + 0x1e) = 0;
-        *(uint16_t *)((int)piVar19 + 0x22) = 0x80;
-        *(uint16_t *)((int)piVar19 + 0x26) = 0x80;
-        iVar10 = compute_six_fixed_point_values(uVar6,auStack_7c,&uStack_60,uVar4,*(uint16_t *)((int)piVar19 + 2),
-                              *(int **)((int)piVar19 + 4),*(int **)((int)piVar19 + 8),
-                              *(int **)((int)piVar19 + 0xc),*(int **)((int)piVar19 + 0x10),
-                              *(int **)((int)piVar19 + 0x14),*(int **)((int)piVar19 + 0x18),
-                              *(uint16_t *)((int)piVar19 + 0x1e),
-                              *(uint16_t *)((int)piVar19 + 0x22),
-                              *(uint16_t *)((int)piVar19 + 0x26));
+        *(uint16_t *)((int)piVar20 + 2) = uVar4;
+        *(uint **)((int)piVar20 + 4) = &uStack_24;
+        *(uint **)((int)piVar20 + 8) = auStack_20;
+        *(uint **)((int)piVar20 + 0xc) = auStack_20 + 1;
+        *(uint **)((int)piVar20 + 0x10) = auStack_20 + 2;
+        *(uint **)((int)piVar20 + 0x14) = auStack_20 + 3;
+        *(uint **)((int)piVar20 + 0x18) = auStack_20 + 4;
+        *(uint16_t *)((int)piVar20 + 0x1e) = 0;
+        *(uint16_t *)((int)piVar20 + 0x22) = 0x80;
+        *(uint16_t *)((int)piVar20 + 0x26) = 0x80;
+        iVar10 = compute_six_fixed_point_values(uVar6,auStack_7c,&uStack_60,uVar4,*(uint16_t *)((int)piVar20 + 2),
+                              *(int **)((int)piVar20 + 4),*(int **)((int)piVar20 + 8),
+                              *(int **)((int)piVar20 + 0xc),*(int **)((int)piVar20 + 0x10),
+                              *(int **)((int)piVar20 + 0x14),*(int **)((int)piVar20 + 0x18),
+                              *(uint16_t *)((int)piVar20 + 0x1e),
+                              *(uint16_t *)((int)piVar20 + 0x22),
+                              *(uint16_t *)((int)piVar20 + 0x26));
         if (iVar10 != 0) {
-          *(uint16_t *)((int)piVar19 + 2) = uStack_a;
-          *(uint32_t *)((int)piVar19 + 4) = uStack_3c;
-          *(uint32_t *)((int)piVar19 + 8) = uStack_38;
-          *(uint32_t *)((int)piVar19 + 0xc) = uStack_34;
-          *(uint32_t *)((int)piVar19 + 0x10) = uStack_30;
-          *(uint32_t *)((int)piVar19 + 0x14) = uStack_2c;
-          *(uint32_t *)((int)piVar19 + 0x18) = uStack_28;
+          *(uint16_t *)((int)piVar20 + 2) = uStack_a;
+          *(uint32_t *)((int)piVar20 + 4) = uStack_3c;
+          *(uint32_t *)((int)piVar20 + 8) = uStack_38;
+          *(uint32_t *)((int)piVar20 + 0xc) = uStack_34;
+          *(uint32_t *)((int)piVar20 + 0x10) = uStack_30;
+          *(uint32_t *)((int)piVar20 + 0x14) = uStack_2c;
+          *(uint32_t *)((int)piVar20 + 0x18) = uStack_28;
           update_viewfinder_overlay_bounds(param_3,&uStack_a0);
           free_heap_if_flagged_1045c402(auStack_c4,2);
-          cls_105b9458_delete(auStack_2d8,2);
+          cls_105b9458_delete(&cStack_2d8,2);
           return iVar10;
         }
       }
@@ -342,6 +338,6 @@ int search_and_apply_zoom_factor(int param_1,uint32_t *param_2,int param_3,int p
   }
   free_heap_if_flagged_1045c402(auStack_c4,2);
 LAB_104c7df2:
-  cls_105b9458_delete(auStack_2d8,2);
+  cls_105b9458_delete(&cStack_2d8,2);
   return 0;
 }

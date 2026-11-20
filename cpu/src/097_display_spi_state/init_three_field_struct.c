@@ -9,8 +9,8 @@
 void init_three_field_struct(uint32_t *param_1,void *param_2,uint32_t param_3)
 
 {
-  param_1[1] = (uint32_t)param_2;
-  param_1[2] = (uint32_t)param_2;
+  param_1[1] = (uintptr_t)(param_2);
+  param_1[2] = (uintptr_t)(param_2);
   *param_1 = param_3;
   return;
 }

@@ -14,26 +14,30 @@
 #include "globals.h"
 #include "funcs.h"
 
-int dispatch_state_machine_step(int *param_1,int param_2)
+int dispatch_state_machine_step(cls_105fa6fc *param_1,int param_2)
 
 {
   int iVar1;
   
-  if (param_1[1] != 0) {
-    if (param_1[5] == 1) {
-      iVar1 = *(int *)param_1[2];
-      (**(code **)(iVar1 + 0x6c))(param_1[2] + (int)*(short *)(iVar1 + 0x68),param_1[3],6);
-      param_1[5] = 2;
-      iVar1 = *(int *)param_1[1];
-      param_2 = (**(code **)(iVar1 + 0x44))(param_1[1] + (int)*(short *)(iVar1 + 0x40),1,0);
+  if (param_1->field_0x4 != 0) {
+    if (param_1->field_0x14 == 1) {
+      iVar1 = *(int *)param_1->field_0x8;
+      (((vtbl_entry*)(iVar1))[13].fn)
+                ((int)param_1->field_0x8 + (int)((vtbl_entry*)(iVar1))[13].adj,param_1->field_0xc,6);
+      param_1->field_0x14 = 2;
+      iVar1 = *(int *)param_1->field_0x4;
+      param_2 = (((vtbl_entry*)(iVar1))[8].fn)
+                          ((int)param_1->field_0x4 + (int)((vtbl_entry*)(iVar1))[8].adj,1,0);
       if (param_2 == 2) {
-        param_1[5] = 2;
-        param_2 = (**(code **)(*param_1 + 0x24))((int)*(short *)(*param_1 + 0x20) + (int)param_1,2);
+        param_1->field_0x14 = 2;
+        param_2 = (((vtbl_entry*)(param_1->field_0x0))[4].fn)
+                            ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[4].adj,2
+                            );
       }
     }
-    else if (param_1[5] == 2) {
-      param_1[5] = 0;
-      param_1[1] = 0;
+    else if (param_1->field_0x14 == 2) {
+      param_1->field_0x14 = 0;
+      param_1->field_0x4 = 0;
     }
   }
   return param_2;

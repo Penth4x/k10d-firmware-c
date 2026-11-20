@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_subobject_method_1047cda6(void *param_1)
+void call_subobject_method_1047cda6(cls_105aaa50 *param_1)
 
 {
-  clear_flag_and_call_helper_10482dda(*(void **)((int)param_1 + 0x28));
+  clear_flag_and_call_helper_10482dda((char*)(param_1) ->field_0x28);
   return;
 }

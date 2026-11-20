@@ -21,11 +21,11 @@ bool check_object_property_e(int param_1)
 {
   int iVar1;
   uintptr_t sp;
-  uint8_t auStack_10 [8];
+  cls_105a6eac cStack_10;
   
-  cls_105a6eac_new((void *)auStack_10);
-  copy_four_bytes_from_struct_field_1045e59a(*(int *)(param_1 + 8),auStack_10);
-  iVar1 = extract_field_by_index_10460366(auStack_10,0xe);
-  cls_105a6eac_delete((void *)auStack_10,2);
+  cls_105a6eac_new(&cStack_10);
+  copy_four_bytes_from_struct_field_1045e59a(*(int *)(param_1 + 8),&cStack_10);
+  iVar1 = extract_field_by_index_10460366(&cStack_10,0xe);
+  cls_105a6eac_delete(&cStack_10,2);
   return iVar1 != 0;
 }

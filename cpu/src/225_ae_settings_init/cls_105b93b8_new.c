@@ -43,8 +43,8 @@ uint32_t * cls_105b93b8_new(uint32_t *param_1)
     *(uint16_t *)(param_1 + 0x11) = 0;
     *(uint16_t *)((int)param_1 + 0x46) = 0;
     param_1[0x12] = 0;
-    cls_105ab468_new((void *)(param_1 + 0x13));
-    zero_init_six_bytes((void *)(param_1 + 0x1b));
+    cls_105ab468_new(param_1 + 0x13);
+    zero_init_six_bytes(param_1 + 0x1b);
     cls_105b572c_new(param_1 + 0x1d);
     param_1[0x8b] = 0;
     cls_105aae7c_new(param_1 + 0x8c);
@@ -54,7 +54,7 @@ uint32_t * cls_105b93b8_new(uint32_t *param_1)
     param_1[0x122] = 0;
     init_small_struct_fields(param_1 + 0x123);
     param_1[0x129] = 0;
-    zero_four_byte_buffer((void *)(param_1 + 0x12a));
+    zero_four_byte_buffer(param_1 + 0x12a);
     cls_105d67cc_new(param_1 + 299);
     alloc_and_init_small_object(param_1 + 0x137);
     cls_105b9a6c_new(param_1 + 0x13c);
@@ -74,7 +74,7 @@ uint32_t * cls_105b93b8_new(uint32_t *param_1)
     param_1[0x232] = 0;
     param_1[0x233] = 0xffffffff;
     param_1[0x234] = 0xffffffff;
-    alloc_and_zero_struct_1051ec28((void *)(param_1 + 0x235));
+    alloc_and_zero_struct_1051ec28(param_1 + 0x235);
     cls_105b9400_new(param_1 + 0x502);
     get_lens_fw_update_status();
     get_lens_fw_update_status();

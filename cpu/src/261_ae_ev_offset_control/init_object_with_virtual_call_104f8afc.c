@@ -16,19 +16,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_with_virtual_call_104f8afc(int param_1)
+/* WARNING: Struct "cls_105d40b0": ignoring multiple overlapping fields */
+
+uint32_t init_object_with_virtual_call_104f8afc(cls_105d40b0 *param_1)
 
 {
   void *pvVar1;
-  uint32_t uVar2;
+  void *puVar2;
   int iVar3;
   
   pvVar1 = (void *)get_or_init_sram_buffer_104277bc();
-  uVar2 = read_table_entry_field(pvVar1,0xcc);
-  *(uint32_t *)(param_1 + 0xc) = uVar2;
-  iVar3 = *(int *)(*(int *)(param_1 + 0x10) + 4);
-  (**(code **)(iVar3 + 0x1c))
-            (*(int *)(param_1 + 0x10) + 4 + (int)*(short *)(iVar3 + 0x18),param_1 + 4,0x80000015/*SDRAM*/);
-  forward_three_args_to_helper_10459edc((void *)(param_1 + 0x18),1,1);
+  puVar2 = (void *)read_table_entry_field(pvVar1,0xcc);
+  ((uint32_t *)&(param_1->field_0x4))[2] = (uint32_t)(puVar2);
+  puVar2 = (void *)(((uint32_t *)&(param_1->field_0x4))[3]);
+  iVar3 = *(int *)((char*)puVar2 + 4);
+  (((vtbl_entry*)(iVar3))[3].fn)((char*)puVar2 + ((vtbl_entry*)(iVar3))[3].adj + 4,&param_1->field_0x4,0x80000015/*SDRAM*/);
+  forward_three_args_to_helper_10459edc(&((uint32_t *)&(param_1->field_0x14))[1],1,1);
   return 1;
 }

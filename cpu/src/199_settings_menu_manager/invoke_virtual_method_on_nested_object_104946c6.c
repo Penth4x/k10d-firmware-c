@@ -20,8 +20,8 @@ void invoke_virtual_method_on_nested_object_104946c6(int param_1)
   
   piVar1 = *(int **)(param_1 + 0x10);
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0x24))
-              ((int)*(short *)(*piVar1 + 0x20) + (int)piVar1,*(uint32_t *)(param_1 + 4));
+    (((vtbl_entry*)(*piVar1))[4].fn)
+              ((int)((vtbl_entry*)(*piVar1))[4].adj + (int)piVar1,*(uint32_t *)(param_1 + 4));
   }
   return;
 }

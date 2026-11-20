@@ -19,28 +19,28 @@
 #include "globals.h"
 #include "funcs.h"
 
-void update_three_values_in_subobject(void *param_1)
+void update_three_values_in_subobject(cls_10557ba8 *param_1)
 
 {
   char cVar2;
   uint32_t uVar1;
-  int iVar3;
+  uint8_t *puVar3;
   
-  iVar3 = (int)param_1 + 0x14;
-  cVar2 = read_byte_at_offset_0x1d(iVar3);
+  puVar3 = &param_1->field_0x14;
+  cVar2 = read_byte_at_offset_0x1d((int)puVar3);
   if (cVar2 != '\0') {
-    dispatch_object_state_update_10491fb2(iVar3,1);
+    dispatch_object_state_update_10491fb2((int)puVar3,1);
   }
   uVar1 = test_low_two_bits_of_helper(param_1);
-  register_menu_item_and_invoke_slot_10387f8c(iVar3,uVar1);
+  register_menu_item_and_invoke_slot_10387f8c((int)(puVar3),(uint32_t)(uVar1));
   uVar1 = test_bits_2_and_3_of_status(param_1);
-  register_menu_item_and_invoke_slot_10387fba(iVar3,uVar1);
+  register_menu_item_and_invoke_slot_10387fba((int)(puVar3),(uint32_t)(uVar1));
   uVar1 = test_low_two_bits_of_helper(param_1);
-  invoke_virtual_method_on_object_10387fe8(iVar3,uVar1);
+  invoke_virtual_method_on_object_10387fe8((int)(puVar3),(uint32_t)(uVar1));
   read_two_shorts_and_store_1036af70(param_1);
-  cVar2 = read_byte_at_offset_0x1d(iVar3);
+  cVar2 = read_byte_at_offset_0x1d((int)puVar3);
   if (cVar2 != '\0') {
-    dispatch_object_state_update_10491fb2(iVar3,0);
+    dispatch_object_state_update_10491fb2((int)puVar3,0);
   }
   return;
 }

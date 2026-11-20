@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t get_setting_option_value(int param_1,int param_2)
+uint32_t get_setting_option_value(cls_105950ac *param_1,int param_2)
 
 {
   uint32_t uVar1;
@@ -28,7 +28,7 @@ uint32_t get_setting_option_value(int param_1,int param_2)
   
   uVar1 = 0;
   if (param_2 == 0x107003f) {
-    cVar4 = *(char *)(param_1 + 0x21);
+    cVar4 = param_1->field_0x21;
     if (cVar4 == '?') {
       uVar1 = 0x107001a;
     }
@@ -56,7 +56,7 @@ uint32_t get_setting_option_value(int param_1,int param_2)
   }
   else {
     if (param_2 == 0x107001a) {
-      uVar3 = setting_get(*(int *)(param_1 + 8),0xb0);
+      uVar3 = setting_get(param_1->field_0x8,0xb0);
       iVar2 = 0xff;
       if (bRam10595098 == uVar3) {
         iVar2 = 0;
@@ -67,7 +67,7 @@ uint32_t get_setting_option_value(int param_1,int param_2)
       cVar4 = -0x48;
     }
     else if (param_2 == 0x1070020) {
-      uVar3 = setting_get(*(int *)(param_1 + 8),0xb1);
+      uVar3 = setting_get(param_1->field_0x8,0xb1);
       iVar2 = 0xff;
       if (bRam1059509a == uVar3) {
         iVar2 = 0;
@@ -84,7 +84,7 @@ uint32_t get_setting_option_value(int param_1,int param_2)
       cVar4 = -0x40;
     }
     else if (param_2 == 0x1070027) {
-      uVar3 = setting_get(*(int *)(param_1 + 8),0xb2);
+      uVar3 = setting_get(param_1->field_0x8,0xb2);
       iVar2 = 0xff;
       if (bRam1059509e == uVar3) {
         iVar2 = 0;
@@ -95,7 +95,7 @@ uint32_t get_setting_option_value(int param_1,int param_2)
       cVar4 = -0x30;
     }
     else if (param_2 == 0x107002c) {
-      uVar3 = setting_get(*(int *)(param_1 + 8),0xb3);
+      uVar3 = setting_get(param_1->field_0x8,0xb3);
       iVar2 = 0xff;
       if (bRam105950a0 == uVar3) {
         iVar2 = 0;
@@ -106,7 +106,7 @@ uint32_t get_setting_option_value(int param_1,int param_2)
       cVar4 = -0x28;
     }
     else if (param_2 == 0x1070031) {
-      uVar3 = setting_get(*(int *)(param_1 + 8),0xb4);
+      uVar3 = setting_get(param_1->field_0x8,0xb4);
       iVar2 = 0xff;
       if (bRam105950a2 == uVar3) {
         iVar2 = 0;
@@ -129,7 +129,7 @@ uint32_t get_setting_option_value(int param_1,int param_2)
       if (param_2 != 0x1070039) {
         return 0;
       }
-      uVar3 = setting_get(*(int *)(param_1 + 8),0xb5);
+      uVar3 = setting_get(param_1->field_0x8,0xb5);
       iVar2 = 0xff;
       if (bRam105950a7 == uVar3) {
         iVar2 = 0;

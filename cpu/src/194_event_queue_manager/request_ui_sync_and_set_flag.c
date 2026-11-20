@@ -15,11 +15,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t request_ui_sync_and_set_flag(void *param_1)
+uint32_t request_ui_sync_and_set_flag(cls_105b4254 *param_1)
 
 {
   empty_stub_104928e0();
   ui_request_sync((int)param_1,2);
-  *(uint8_t *)((int)param_1 + 0x1d) = 1;
+  param_1->field_0x1d = 1;
   return 1;
 }

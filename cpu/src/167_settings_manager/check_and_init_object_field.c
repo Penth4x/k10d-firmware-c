@@ -20,10 +20,10 @@ bool check_and_init_object_field(int param_1)
   void *pvVar1;
   
   pvVar1 = (void *)find_matching_entry_in_table(__frv_reg_unset(4), __frv_reg_unset(5));
-  if ((pvVar1 != (void *)0x0) && (*(short *)((int)pvVar1 + 2) != 0)) {
+  if ((pvVar1 != 0) && (*(short *)((int)pvVar1 + 2) != 0)) {
     *(uint8_t *)(param_1 + 0xea48) = 1;
     *(uint16_t *)((int)pvVar1 + 4) = 0;
     forward_two_struct_fields(param_1,pvVar1);
   }
-  return pvVar1 != (void *)0x0;
+  return pvVar1 != 0;
 }

@@ -79,11 +79,11 @@ void render_decimal_digits_to_object(int param_1,uint32_t param_2,int param_3,ui
       iVar6 = menu_item_register(param_1 + 8);
       iVar8 = *(int *)(iVar6 + 0xc);
       sVar1 = *(short *)(iVar8 + 0x10);
-      uVar5 = alloc_two_word_pair_1045bc2e(auStack_10,uStack_4c & 0xffff,param_4);
-      (**(code **)(iVar8 + 0x14))(iVar6 + sVar1,uVar5);
+      uVar5 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_10,uStack_4c & 0xffff,param_4));
+      (((vtbl_entry*)(iVar8))[2].fn)(iVar6 + sVar1,uVar5);
       free_heap_block_if_flagged_1045bc54(auStack_10,2);
       iVar6 = menu_item_register(param_1 + 8);
-      (**(code **)(*(int *)(iVar6 + 0xc) + 0xc))(iVar6 + *(short *)(*(int *)(iVar6 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[1].fn)(iVar6 + *(short *)(*(int *)(iVar6 + 0xc) + 8),1);
     }
     iVar6 = iVar7 + 1;
     if (iVar3 / *(int *)(&DAT_105649c0/*ROM*/ + iStack_50) != 0) {
@@ -115,11 +115,11 @@ void render_decimal_digits_to_object(int param_1,uint32_t param_2,int param_3,ui
       iVar6 = menu_item_register(param_1 + 8);
       iVar8 = *(int *)(iVar6 + 0xc);
       sVar1 = *(short *)(iVar8 + 0x10);
-      uVar5 = alloc_two_word_pair_1045bc2e(auStack_10,uStack_4c - iVar2 & 0xffff,param_4);
-      (**(code **)(iVar8 + 0x14))(iVar6 + sVar1,uVar5);
+      uVar5 = (uint32_t)(alloc_two_word_pair_1045bc2e(auStack_10,uStack_4c - iVar2 & 0xffff,param_4));
+      (((vtbl_entry*)(iVar8))[2].fn)(iVar6 + sVar1,uVar5);
       free_heap_block_if_flagged_1045bc54(auStack_10,2);
       iVar6 = menu_item_register(param_1 + 8);
-      (**(code **)(*(int *)(iVar6 + 0xc) + 0xc))(iVar6 + *(short *)(*(int *)(iVar6 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[1].fn)(iVar6 + *(short *)(*(int *)(iVar6 + 0xc) + 8),1);
     }
     iVar7 = iVar7 + 2;
     uStack_4c = (uStack_4c - iVar2) - iVar2;

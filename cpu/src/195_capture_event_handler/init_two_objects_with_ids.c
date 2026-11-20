@@ -18,9 +18,9 @@
 void init_two_objects_with_ids(void)
 
 {
-  cls_105a2af8_new((void *)0x80048f20/*SDRAM*/);
+  cls_105a2af8_new((cls_105a2af8 *)0x80048f20/*SDRAM*/);
   prepend_to_singly_linked_list((void *)0x800104a4/*SDRAM*/);
-  cls_105a2be0_new((void *)0x80048f28/*SDRAM*/);
+  cls_105a2be0_new((cls_105a2be0 *)0x80048f28/*SDRAM*/);
   prepend_to_singly_linked_list((void *)0x800104b4/*SDRAM*/);
   return;
 }

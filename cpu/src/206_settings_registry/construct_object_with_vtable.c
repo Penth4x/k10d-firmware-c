@@ -34,7 +34,7 @@ construct_object_with_vtable(uint16_t *param_1,uint16_t param_2,uint16_t param_3
     bVar2 = check_product_exceeds_threshold(param_1);
     if (bVar2) {
       iVar1 = compute_weighted_value((int)param_1);
-      allocate_and_init_buffer_104a906e(param_1,(void *)iVar1);
+      allocate_and_init_buffer_104a906e((void *)(param_1),(void *)(iVar1));
     }
   }
   return (short)param_1;

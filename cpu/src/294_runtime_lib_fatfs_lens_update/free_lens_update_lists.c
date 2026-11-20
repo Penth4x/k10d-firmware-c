@@ -14,10 +14,10 @@ uint32_t free_lens_update_lists(void *param_1)
   void *pvVar3;
   
   pvVar3 = *(void **)((int)param_1 + 100);
-  if (pvVar3 != (void *)0x0) {
+  if (pvVar3 != 0) {
     if (*(int *)((int)pvVar3 + 8) != 0) {
       puVar1 = *(void **)((int)pvVar3 + 8);
-      while (puVar1 != (void *)0x0) {
+      while (puVar1 != 0) {
         pvVar2 = (void *)*puVar1;
         release_heap_block_1047f9bc(puVar1);
         puVar1 = pvVar2;
@@ -25,7 +25,7 @@ uint32_t free_lens_update_lists(void *param_1)
     }
     if (*(int *)((int)pvVar3 + 0x18) != 0) {
       puVar1 = *(void **)((int)pvVar3 + 0x18);
-      while (puVar1 != (void *)0x0) {
+      while (puVar1 != 0) {
         pvVar2 = (void *)*puVar1;
         release_lens_update_context_1053905e(puVar1);
         puVar1 = pvVar2;

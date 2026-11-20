@@ -12,9 +12,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_offset_eight_103926b2(int param_1)
+void call_helper_with_offset_eight_103926b2(cls_105627d4 *param_1)
 
 {
-  forward_param_to_helper_1039c4f2((void *)(param_1 + 8));
+  forward_param_to_helper_1039c4f2((void *)((char *)param_1 + 8));
   return;
 }

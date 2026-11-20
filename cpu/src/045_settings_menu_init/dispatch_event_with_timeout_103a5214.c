@@ -43,26 +43,26 @@ void dispatch_event_with_timeout_103a5214(int *param_1)
   iStack_18 = param_1[0xf];
   uStack_14 = *(char *)(param_1 + 0x14) == '\x01';
   iVar1 = *(int *)param_1[0xb];
-  (**(code **)(iVar1 + 0x14))(param_1[0xb] + (int)*(short *)(iVar1 + 0x10),0x1120069,2);
+  (((vtbl_entry*)(iVar1))[2].fn)(param_1[0xb] + (int)((vtbl_entry*)(iVar1))[2].adj,0x1120069,2);
   iVar1 = configure_pipeline_with_settings(param_1[0xe],&uStack_1c);
   if (iVar1 == 0) {
     *(uint8_t *)((int)param_1 + 0x65) = 1;
     register_seven_menu_items(param_1);
     iVar1 = menu_item_register((int)(param_1 + 2));
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     iVar1 = menu_item_register((int)(param_1 + 2));
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
     *(uint8_t *)(param_1 + 0x19) = 0;
     param_1[0xd] = 60000;
     iVar1 = *(int *)param_1[0xb];
-    (**(code **)(iVar1 + 0x14))(param_1[0xb] + (int)*(short *)(iVar1 + 0x10),0x1120065,0);
+    (((vtbl_entry*)(iVar1))[2].fn)(param_1[0xb] + (int)((vtbl_entry*)(iVar1))[2].adj,0x1120065,0);
   }
   else {
     iVar1 = *(int *)param_1[0xb];
-    (**(code **)(iVar1 + 0x14))(param_1[0xb] + (int)*(short *)(iVar1 + 0x10),0x1120069,0);
-    (**(code **)(*param_1 + 0x74))((int)*(short *)(*param_1 + 0x70) + (int)param_1,0x1120009,0);
+    (((vtbl_entry*)(iVar1))[2].fn)(param_1[0xb] + (int)((vtbl_entry*)(iVar1))[2].adj,0x1120069,0);
+    (((vtbl_entry*)(*param_1))[14].fn)((int)((vtbl_entry*)(*param_1))[14].adj + (int)param_1,0x1120009,0);
   }
   iVar1 = *(int *)param_1[0xb];
-  (**(code **)(iVar1 + 0x14))(param_1[0xb] + (int)*(short *)(iVar1 + 0x10),0x1120067,1);
+  (((vtbl_entry*)(iVar1))[2].fn)(param_1[0xb] + (int)((vtbl_entry*)(iVar1))[2].adj,0x1120067,1);
   return;
 }

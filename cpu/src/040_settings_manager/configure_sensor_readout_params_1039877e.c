@@ -24,7 +24,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void configure_sensor_readout_params_1039877e(void *param_1,uint32_t param_2,void *param_3,void *param_4)
+void configure_sensor_readout_params_1039877e(cls_10563404 *param_1,uint32_t param_2,void *param_3,void *param_4)
 
 {
   void *pvVar1;
@@ -47,22 +47,22 @@ void configure_sensor_readout_params_1039877e(void *param_1,uint32_t param_2,voi
   *puVar9 = 0x50;
   dispatch_virtual_method_call((int)param_1,(int)pvVar1,(void *)0x5060002,0x20,*puVar9);
   iVar2 = init_object_with_fourteen_handles(param_1,(int)pvVar1);
-  *(int *)((int)param_1 + 0x60) = iVar2;
+  *(int *)&param_1->field_0x60 = iVar2;
   *puVar9 = 6;
   iVar2 = allocate_2d_buffer_block((int)param_1,(int)pvVar1,(void *)0x5060020,0x13,*puVar9);
   iVar3 = init_struct_with_seven_helpers(param_1,(int)pvVar1,iVar2);
-  *(int *)((int)param_1 + 100) = iVar3;
+  *(int *)&param_1->field_0x64 = iVar3;
   *puVar9 = 8;
   iVar3 = allocate_2d_buffer_block((int)param_1,(int)pvVar1,(void *)0x506002f,0x13,*puVar9);
   iVar4 = init_param_block_with_handles(param_1,(int)pvVar1,iVar3);
-  *(int *)((int)param_1 + 0x68) = iVar4;
+  *(int *)&param_1->field_0x68 = iVar4;
   *puVar9 = 10;
   iVar4 = allocate_2d_buffer_block((int)param_1,(int)pvVar1,(void *)0x506003c,0x13,*puVar9);
   iVar5 = init_object_with_seven_helpers_10399588(param_1,(int)pvVar1,iVar4);
-  *(int *)((int)param_1 + 0x6c) = iVar5;
-  iVar6 = *(int *)((int)param_1 + 0x60);
-  iVar7 = *(int *)((int)param_1 + 100);
-  iVar8 = *(int *)((int)param_1 + 0x68);
+  *(int *)&param_1->field_0x6c = iVar5;
+  iVar6 = *(int *)&param_1->field_0x60;
+  iVar7 = *(int *)&param_1->field_0x64;
+  iVar8 = *(int *)&param_1->field_0x68;
   *puVar9 = iVar5;
   puVar9[2] = iVar3;
   puVar9[1] = iVar2;
@@ -80,14 +80,14 @@ void configure_sensor_readout_params_1039877e(void *param_1,uint32_t param_2,voi
                ,puVar9[2],*(short *)((int)puVar9 + 0xe));
   *puVar9 = 0x11;
   iVar2 = allocate_and_init_2d_buffer_1039c664((int)param_1,(int)pvVar1,(void *)0x5060041,0x12,*puVar9);
-  *(int *)((int)param_1 + 0xcc) = iVar2;
+  param_1->field_0xcc = iVar2;
   *puVar9 = 0x11;
   *(uint8_t *)((int)puVar9 + 7) = 1;
   puVar9[2] = 0;
   puVar9[3] = 0;
   iVar2 = allocate_and_init_object_entry((int)param_1,(int)pvVar1,(void *)0x5060042,0x15,*puVar9,
                        *(uint8_t *)((int)puVar9 + 7),puVar9[2],*(short *)((int)puVar9 + 0xe));
-  *(int *)((int)param_1 + 0xd0) = iVar2;
+  param_1->field_0xd0 = iVar2;
   reset_and_select_one_field(param_1,0x5060003,1);
   reset_and_select_one_field(param_1,0x5060013,1);
   reset_and_select_one_field(param_1,0x5060022,1);

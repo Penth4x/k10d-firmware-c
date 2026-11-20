@@ -21,7 +21,7 @@ uint32_t sr_driver_singleton(void)
 {
   if (_DAT_80048904/*SDRAM*/ == 0) {
     _DAT_80048904/*SDRAM*/ = 1;
-    cls_105ab8d4_new((void *)0x800488fc/*SDRAM*/);
+    cls_105ab8d4_new((cls_105ab8d4 *)0x800488fc/*SDRAM*/);
     prepend_to_singly_linked_list((void *)0x8001007c/*SDRAM*/);
   }
   return 0x800488fc/*SDRAM*/;

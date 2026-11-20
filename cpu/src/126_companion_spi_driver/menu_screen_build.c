@@ -14,17 +14,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-void menu_screen_build(void *param_1)
+void menu_screen_build(cls_105a1a84 *param_1)
 
 {
   int iVar1;
   
-  *(uint32_t *)((int)param_1 + 0x120) = 0;
-  if (*(char *)((int)param_1 + 0xdd) == '\0') {
-    (**(code **)(*(int *)((int)param_1 + 4) + 0x2c))
-              ((int)*(short *)(*(int *)((int)param_1 + 4) + 0x28) + (int)param_1,0);
-    (**(code **)(*(int *)((int)param_1 + 4) + 0x2c))
-              ((int)*(short *)(*(int *)((int)param_1 + 4) + 0x28) + (int)param_1,1);
+  param_1->field_0x120 = 0;
+  if (param_1->field_0xdd == '\0') {
+    (((vtbl_entry*)(param_1->field_0x4))[5].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x4))[5].adj,0);
+    (((vtbl_entry*)(param_1->field_0x4))[5].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x4))[5].adj,1);
     screen_submod_reset(param_1);
     menu_build_prestep(param_1);
     iVar1 = sd_card_init_worker(param_1);
@@ -32,8 +32,8 @@ void menu_screen_build(void *param_1)
   else {
     iVar1 = 1;
   }
-  if ((iVar1 == 0) && (*(int *)((int)param_1 + 0x120) == 0)) {
-    *(uint32_t *)((int)param_1 + 0x120) = 0xffffffff;
+  if ((iVar1 == 0) && (param_1->field_0x120 == 0)) {
+    param_1->field_0x120 = 0xffffffff;
   }
   return;
 }

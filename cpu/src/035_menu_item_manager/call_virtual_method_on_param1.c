@@ -21,10 +21,10 @@ bool call_virtual_method_on_param1(int param_1)
   int iVar1;
   int iVar2;
   
-  iVar1 = retry_virtual_call_with_timeout_10373b24(param_1,0,(void *)0x80018058/*SDRAM*/,*(int *)(param_1 + 0x38),0,0);
+  iVar1 = retry_virtual_call_with_timeout_10373b24((int)(param_1),(uint32_t)(0),(void *)(0x80018058/*SDRAM*/),(int)(*(int *)(param_1 + 0x38)),(int)(0),(int)(0));
   if (iVar1 != 1) {
     iVar2 = *(int *)(*(int *)(param_1 + 0x38) + 0x14);
-    (**(code **)(iVar2 + 0x14))(*(int *)(param_1 + 0x38) + (int)*(short *)(iVar2 + 0x10));
+    (((vtbl_entry*)(iVar2))[2].fn)(*(int *)(param_1 + 0x38) + (int)((vtbl_entry*)(iVar2))[2].adj);
   }
   return iVar1 == 1;
 }

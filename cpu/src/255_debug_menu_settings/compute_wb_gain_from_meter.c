@@ -207,7 +207,7 @@ LAB_104eecf4:
   case 0xc:
   case 0xd:
   case 0xe:
-    scale_sensor_readings_by_gain(param_1 + 0x3128,aiStack_84,param_5);
+    scale_sensor_readings_by_gain((cls_105fa760 *)(param_1 + 0x3128),aiStack_84,param_5);
     return;
   default:
     goto LAB_104eecf4;

@@ -9,7 +9,7 @@
 /* WARNING: Instruction at (ram,0x1050b666) overlaps instruction at (ram,0x1050b664)
     */
 
-uint32_t dispatch_event_by_id_1050b652(int param_1,int param_2)
+uint32_t dispatch_event_by_id_1050b652(cls_105d5584 *param_1,int param_2)
 
 {
   int *piVar1;
@@ -50,11 +50,11 @@ uint32_t dispatch_event_by_id_1050b652(int param_1,int param_2)
     }
     else {
       if (param_2 == 0xf00001) {
-        piVar1 = *(int **)(param_1 + 0x58);
+        piVar1 = (int *)(param_1->field_0x58);
         if (piVar1 == (int *)0x0) {
           return 0;
         }
-        (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,0x1160002);
+        (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1,0x1160002);
         return 0;
       }
       if (param_2 < 0xf00002) {
@@ -71,7 +71,7 @@ uint32_t dispatch_event_by_id_1050b652(int param_1,int param_2)
         if (param_2 < 0x10f0002) {
           if (param_2 != 0xf00003) {
             if (param_2 == 0xf00007) {
-              *(uint8_t *)(param_1 + 0x80) = 1;
+              param_1->field_0x80 = 1;
               return 0;
             }
             if (param_2 != 0x10e0001) {
@@ -85,6 +85,6 @@ uint32_t dispatch_event_by_id_1050b652(int param_1,int param_2)
       }
     }
   }
-  set_flg_obj((uint32_t *)(param_1 + 0x68));
+  set_flg_obj(&param_1->field_0x68);
   return 0;
 }

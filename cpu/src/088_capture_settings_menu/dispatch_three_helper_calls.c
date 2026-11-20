@@ -15,11 +15,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_three_helper_calls(void *param_1,uint32_t param_2)
+void dispatch_three_helper_calls(cls_10597c80 *param_1,uint32_t param_2)
 
 {
   read_setting_and_send_packet(__frv_reg_unset(4));
-  update_state_and_notify(param_1,param_2);
-  register_six_menu_items_103f6aee(param_1);
+  update_state_and_notify((void*)param_1,param_2);
+  register_six_menu_items_103f6aee((void*)param_1);
   return;
 }

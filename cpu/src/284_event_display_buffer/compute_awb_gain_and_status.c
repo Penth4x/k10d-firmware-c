@@ -67,7 +67,7 @@ void compute_awb_gain_and_status(int param_1,int *param_2,void *param_3)
   iVar11 = param_2[0xe];
   iVar12 = param_2[0xf];
   heap_alloc_one_byte_1045926e((int)&uStack_9);
-  pvVar17 = (void *)return_pentax_corp_string_ptr((int)&uStack_9);
+  pvVar17 = (void *)return_pentax_corp_string_ptr((uint32_t)(&uStack_9));
   iVar18 = compare_buffer_bytes(pvVar17,&DAT_105f9a5c/*ROM*/,6);
   if (iVar18 == 0) {
     puVar6 = &DAT_105e9180/*ROM*/;
@@ -101,7 +101,7 @@ void compute_awb_gain_and_status(int param_1,int *param_2,void *param_3)
     if (*(char *)(param_1 + 0x3114) == '\0') {
       iVar16 = evaluate_weighted_threshold(param_1,&DAT_105f9a24/*ROM*/,0x100);
       if (iVar16 == 0) {
-        uVar7 = sum_virtual_method_results((void *)(param_1 + 0x4b0));
+        uVar7 = sum_virtual_method_results((cls_105f9250 *)(param_1 + 0x4b0));
         if (250000 < uVar7) {
           *(uint32_t *)(param_1 + 0x914) = 0x40;
           *(uint32_t *)(param_1 + 0x46c) = 0;

@@ -38,9 +38,9 @@ uint32_t parse_and_mask_hex_string(int param_1,char *param_2,uint32_t param_3,vo
   else {
     iVar2 = 2;
   }
-  iVar2 = count_lens_fw_update_chars((byte *)(param_2 + iVar3),(byte *)(&DAT_105b88eb/*ROM*/ + iVar2 * 3),&uStack_c,param_4);
+  iVar2 = count_lens_fw_update_chars((byte *)(param_2 + iVar3),&DAT_105b88eb/*ROM*/ + iVar2 * 3,&uStack_c,param_4);
   if (iVar2 == -1) {
-    cmd_error_report((void *)(param_1 + 4),0x90);
+    cmd_error_report((uint32_t *)(*(uint32_t *)(param_1 + 4)),(uint32_t)(0x90));
   }
   bVar1 = param_2[iVar3];
   if ((bVar1 < 0x66) && (0x2f < bVar1)) {

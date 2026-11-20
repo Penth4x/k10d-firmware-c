@@ -15,7 +15,7 @@
 void free_heap_if_flagged_1051ec9e(void *param_1,uint param_2)
 
 {
-  if (param_1 != (void *)0x0) {
+  if (param_1 != 0) {
     lens_fw_update_teardown();
     if ((param_2 & 1) != 0) {
       heap_free((int)param_1);

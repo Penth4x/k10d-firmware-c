@@ -27,8 +27,8 @@ void update_object_state_and_notify_1051576a(int param_1,void *param_2)
     uVar1 = 0;
   }
   else {
-    (**(code **)(*(int *)((int)param_2 + 0x8d4) + 0xac))
-              ((int)*(short *)(*(int *)((int)param_2 + 0x8d4) + 0xa8) + (int)param_2,
+    (((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[21].fn)
+              ((int)((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[21].adj + (int)param_2,
                *(short *)(*(int *)((int)param_2 + 0x20) + 0xa0 + *(int *)((int)param_2 + 0x24) * 2)
                == 1);
     *(uint32_t *)((int)param_2 + 0x10) = 0xa00005;

@@ -23,10 +23,10 @@ uint32_t invoke_virtual_slot_two_and_notify(int *param_1)
   
   uVar2 = 0;
   if ((param_1[2] != 0) &&
-     (iVar1 = (**(code **)(*param_1 + 0x14))((int)*(short *)(*param_1 + 0x10) + (int)param_1),
+     (iVar1 = (((vtbl_entry*)(*param_1))[2].fn)((int)((vtbl_entry*)(*param_1))[2].adj + (int)param_1),
      iVar1 != 0)) {
     iVar1 = *(int *)param_1[2];
-    (**(code **)(iVar1 + 0x34))(param_1[2] + (int)*(short *)(iVar1 + 0x30),1,param_1[4]);
+    (((vtbl_entry*)(iVar1))[6].fn)(param_1[2] + (int)((vtbl_entry*)(iVar1))[6].adj,1,param_1[4]);
     uVar2 = 1;
   }
   return uVar2;

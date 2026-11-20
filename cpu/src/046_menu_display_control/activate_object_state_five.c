@@ -17,12 +17,12 @@ void activate_object_state_five(void *param_1)
     puVar1 = (uint32_t *)get_or_init_sram_block_1052b6fc();
     init_object_with_three_calls_1052b7a2(puVar1);
     iVar2 = *(int *)(*(int *)((int)param_1 + 0xbc) + 0xc);
-    (**(code **)(iVar2 + 0xc))(*(int *)((int)param_1 + 0xbc) + (int)*(short *)(iVar2 + 8),1);
+    (((vtbl_entry*)(iVar2))[1].fn)(*(int *)((int)param_1 + 0xbc) + (int)*(short *)(iVar2 + 8),1);
     setup_object_with_two_subobjects(param_1,0);
     iVar2 = *(int *)(*(int *)((int)param_1 + 0xdc) + 0xc);
-    (**(code **)(iVar2 + 0xc))(*(int *)((int)param_1 + 0xdc) + (int)*(short *)(iVar2 + 8),0);
+    (((vtbl_entry*)(iVar2))[1].fn)(*(int *)((int)param_1 + 0xdc) + (int)*(short *)(iVar2 + 8),0);
     iVar2 = *(int *)(*(int *)((int)param_1 + 0xe8) + 0xc);
-    (**(code **)(iVar2 + 0xc))(*(int *)((int)param_1 + 0xe8) + (int)*(short *)(iVar2 + 8),0);
+    (((vtbl_entry*)(iVar2))[1].fn)(*(int *)((int)param_1 + 0xe8) + (int)*(short *)(iVar2 + 8),0);
     *(uint32_t *)((int)param_1 + 0x48) = 1;
     *(uint32_t *)((int)param_1 + 0x40) = 5;
   }

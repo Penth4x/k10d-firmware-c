@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_offset_arg_1047ca0c(void *param_1)
+void call_helper_with_offset_arg_1047ca0c(cls_105aa9dc *param_1)
 
 {
-  kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 4) + 4));
+  kernel_diag_taskstack((void *)(param_1->field_0x4 + 4));
   return;
 }

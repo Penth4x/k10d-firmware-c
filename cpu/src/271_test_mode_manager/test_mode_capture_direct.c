@@ -25,8 +25,8 @@ void test_mode_capture_direct(int param_1)
   exposure_cfg_loader(uVar1,(void *)(param_1 + 0x148),0);
   *(uint8_t *)(param_1 + 0x29) = 0;
   *(uint8_t *)(param_1 + 0x2f) = 0;
-  (**(code **)(*(int *)(param_1 + 0x8d4) + 0x17c))
-            (*(short *)(*(int *)(param_1 + 0x8d4) + 0x178) + param_1);
+  (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[47].fn)
+            (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[47].adj + param_1);
   *(uint8_t *)(param_1 + 0x62e) = *(uint8_t *)(param_1 + 0x29);
   return;
 }

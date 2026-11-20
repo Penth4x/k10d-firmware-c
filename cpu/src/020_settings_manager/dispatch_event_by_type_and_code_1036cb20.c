@@ -8,7 +8,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void dispatch_event_by_type_and_code_1036cb20(void *param_1,int *param_2)
+void dispatch_event_by_type_and_code_1036cb20(cls_10557d80 *param_1,int *param_2)
 
 {
   int iVar1;
@@ -18,15 +18,14 @@ void dispatch_event_by_type_and_code_1036cb20(void *param_1,int *param_2)
   
   iVar1 = *param_2;
   if (iVar1 == 1) {
-    if (*(int *)((int)param_1 + 0x70) != 0) {
-      *(int *)((int)param_1 + 0x248) = param_2[1];
-      iVar1 = **(int **)((int)param_1 + 0x70);
-      iVar1 = (**(code **)(iVar1 + 0xcc))
-                        ((int)*(int **)((int)param_1 + 0x70) + (int)*(short *)(iVar1 + 200));
+    if (param_1->field_0x70 != 0) {
+      param_1->field_0x248 = param_2[1];
+      iVar1 = *(int *)param_1->field_0x70;
+      iVar1 = (((vtbl_entry*)(iVar1))[25].fn)((int)param_1->field_0x70 + (int)*(short *)(iVar1 + 200));
       if (iVar1 != 0) {
-        iVar4 = **(int **)((int)param_1 + 0x70);
-        (**(code **)(iVar4 + 0xc4))
-                  ((int)*(int **)((int)param_1 + 0x70) + (int)*(short *)(iVar4 + 0xc0),iVar1 + -1);
+        iVar4 = *(int *)param_1->field_0x70;
+        (((vtbl_entry*)(iVar4))[24].fn)
+                  ((int)param_1->field_0x70 + (int)((vtbl_entry*)(iVar4))[24].adj,iVar1 + -1);
       }
     }
   }
@@ -41,11 +40,11 @@ void dispatch_event_by_type_and_code_1036cb20(void *param_1,int *param_2)
       }
       else if (uVar2 != 10) {
         if (uVar2 == 0xc) {
-          if (*(int *)((int)param_1 + 0x244) != 0) {
+          if (param_1->field_0x244 != 0) {
             return;
           }
-          *(uint8_t *)((int)param_1 + 0x14) = 1;
-          *(uint8_t *)((int)param_1 + 0x15) = 1;
+          param_1->field_0x14 = 1;
+          param_1->field_0x15 = 1;
           return;
         }
         if (uVar2 != 0x29) {

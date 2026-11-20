@@ -23,7 +23,7 @@ void toggle_object_state_via_virtual_call_103ac416(void *param_1)
   int iVar2;
   
   iVar2 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
   empty_stub_function_103b76f0();
   empty_noop_stub_103b76f2();
   iVar2 = query_object_byte_property_104f19c4(*(uint32_t *)((int)param_1 + 0x28));
@@ -42,6 +42,6 @@ void toggle_object_state_via_virtual_call_103ac416(void *param_1)
   }
 LAB_103ac48c:
   iVar2 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   return;
 }

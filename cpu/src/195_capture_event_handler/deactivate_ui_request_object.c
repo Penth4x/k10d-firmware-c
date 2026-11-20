@@ -21,7 +21,7 @@ uint32_t deactivate_ui_request_object(void *param_1)
   
   iVar1 = *(int *)((int)param_1 + 0x10);
   if (iVar1 != 0) {
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0x3c))(*(short *)(*(int *)(iVar1 + 0xc) + 0x38) + iVar1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[7].fn)(((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[7].adj + iVar1);
     invoke_virtual_method_on_nested_object_1049273c(param_1);
   }
   return 1;

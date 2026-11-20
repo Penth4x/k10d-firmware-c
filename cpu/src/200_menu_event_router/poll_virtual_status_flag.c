@@ -17,7 +17,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-int poll_virtual_status_flag(int *param_1)
+int poll_virtual_status_flag(cls_105b5410 *param_1)
 
 {
   int iVar1;
@@ -26,7 +26,8 @@ int poll_virtual_status_flag(int *param_1)
   
   iVar3 = 0xffff;
   if ((_DAT_8001053c/*SDRAM*/ != 0xffff) &&
-     (iVar2 = (**(code **)(*param_1 + 0x14))((int)*(short *)(*param_1 + 0x10) + (int)param_1),
+     (iVar2 = (((vtbl_entry*)(param_1->field_0x0))[2].fn)
+                        ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[2].adj),
      iVar1 = _DAT_8001053c/*SDRAM*/, iVar2 == 0)) {
     _DAT_8001053c/*SDRAM*/ = 0xffff;
     iVar3 = iVar1;

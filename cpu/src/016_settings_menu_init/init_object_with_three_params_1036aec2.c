@@ -22,7 +22,7 @@ uint32_t init_object_with_three_params_1036aec2(void *param_1)
   uint8_t auStack_10 [4];
   
   puVar1 = (uint32_t *)auStack_10;
-  reset_object_fields_and_call_base((void *)0x80015d04/*SDRAM*/);
+  reset_object_fields_and_call_base((cls_105b9458 *)0x80015d04/*SDRAM*/);
   *puVar1 = 3;
   retry_virtual_call_until_success_1036ad06((int)param_1,(int)param_1 + 0x3c,0x80015af0/*SDRAM*/,-0x7ffea2fc,*puVar1);
   return 1;

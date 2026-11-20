@@ -17,24 +17,24 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_buffer_dimensions_and_clamp_size(int *param_1,int param_2,uint param_3,int param_4)
+void init_buffer_dimensions_and_clamp_size(cls_105b77e8 *param_1,int param_2,uint param_3,int param_4)
 
 {
-  uint uVar1;
+  uint32_t *puVar1;
   int iVar2;
   
-  param_1[10] = param_4;
-  param_1[8] = param_2;
-  param_1[0xd] = *(int *)(param_1[10] + 8);
-  iVar2 = dispatch_virtual_slot_two_104af096((int)param_1,2,4);
-  param_1[0xb] = iVar2;
+  param_1->field_0x28 = param_4;
+  *(int *)&param_1->field_0x20 = param_2;
+  param_1->field_0x34 = *(uint32_t *)(param_1->field_0x28 + 8);
+  puVar1 = (uint32_t *)dispatch_virtual_slot_two_104af096((int)param_1,2,4);
+  param_1->field_0x2c = (uintptr_t)(puVar1);
   iVar2 = dispatch_virtual_slot_two_104af096((int)param_1,7,2);
-  param_1[0xc] = iVar2;
-  uVar1 = iVar2 * param_1[0xd];
-  param_1[9] = uVar1;
-  if (param_3 <= uVar1 && uVar1 - param_3 != 0) {
-    param_1[9] = param_3;
+  param_1->field_0x30 = iVar2;
+  puVar1 = (uint32_t *)(iVar2 * param_1->field_0x34);
+  param_1->field_0x24 = (uintptr_t)(puVar1);
+  if (param_3 <= (uint32_t)(puVar1) && (int)puVar1 - param_3 != 0) {
+    param_1->field_0x24 = (uintptr_t)((uint32_t *)param_3);
   }
-  invoke_virtual_slot_1(param_1,param_1[8],param_1[9]);
+  invoke_virtual_slot_1((int *)param_1,*(uint32_t *)&param_1->field_0x20,(int)param_1->field_0x24);
   return;
 }

@@ -6,17 +6,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-void wait_for_flag_then_call_virtual(void *param_1)
+/* WARNING: Struct "cls_105bb314": ignoring overlapping field "field_0x8" */
+
+void wait_for_flag_then_call_virtual(cls_10562400 *param_1)
 
 {
   char cVar1;
   
-  cVar1 = *(char *)((int)param_1 + 0x2c38);
+  cVar1 = *(char *)&param_1[0x46].field_0x78;
   while (cVar1 != '\0') {
     check_kernel_call_success_10459fea();
-    cVar1 = *(char *)((int)param_1 + 0x2c38);
+    cVar1 = *(char *)&param_1[0x46].field_0x78;
   }
   invoke_virtual_slot_10_on_sixteen_objects();
-  override_parent_slot4(param_1);
+  override_parent_slot4((cls_105bb314 *)param_1);
   return;
 }

@@ -16,6 +16,6 @@
 void forward_three_struct_fields(int param_1)
 
 {
-  dispatch_cpucom_command_1046111e(*(uint32_t *)(param_1 + 0x1c),param_1 + 8,param_1 + 0x34);
+  dispatch_cpucom_command_1046111e((int *)(*(uint32_t *)(param_1 + 0x1c)),(void *)(param_1 + 8),(uint32_t)(param_1 + 0x34));
   return;
 }

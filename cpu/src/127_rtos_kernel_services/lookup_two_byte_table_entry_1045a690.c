@@ -25,7 +25,7 @@ uint16_t lookup_two_byte_table_entry_1045a690(uint32_t param_1,int param_2,int p
       }
       puVar2 = &DAT_105a3f80/*ROM*/;
     }
-    uVar1 = *(uint16_t *)(puVar2 + param_2);
+    uVar1 = *(uint16_t *)((char*)puVar2 + param_2);
   }
   return uVar1;
 }

@@ -21,7 +21,7 @@ uint32_t spi_poll_complete(void *param_1)
   int iVar2;
   
   iVar2 = *(int *)(*(int *)((int)param_1 + 0x18) + 4);
-  uVar1 = (**(code **)(iVar2 + 0x54))(*(int *)((int)param_1 + 0x18) + (int)*(short *)(iVar2 + 0x50))
+  uVar1 = (((vtbl_entry*)(iVar2))[10].fn)(*(int *)((int)param_1 + 0x18) + (int)((vtbl_entry*)(iVar2))[10].adj)
   ;
   return uVar1;
 }

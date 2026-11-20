@@ -17,15 +17,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_fields_and_flags(int param_1)
+/* WARNING: Struct "cls_105b2b70": ignoring overlapping field "field_0x8" */
+
+uint32_t init_object_fields_and_flags(cls_105b2b70 *param_1)
 
 {
   uint32_t uVar1;
   
-  alloc_pool_and_init_task((int *)(param_1 + 0x1c),0xf,0x1800,4);
-  wait_flg_obj((void *)(param_1 + 0x48),0);
-  create_kernel_object((void *)(param_1 + 0x40));
+  alloc_pool_and_init_task(&param_1->field_0x1c,0xf,0x1800,4);
+  wait_flg_obj(&param_1->field_0x48,0);
+  create_kernel_object(&param_1->field_0x40);
   uVar1 = get_or_create_singleton_object_10486db8();
-  *(uint32_t *)(param_1 + 0x54) = uVar1;
+  param_1->field_0x54 = uVar1;
   return 1;
 }

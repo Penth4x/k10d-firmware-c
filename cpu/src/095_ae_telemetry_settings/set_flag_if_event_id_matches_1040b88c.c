@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t set_flag_if_event_id_matches_1040b88c(int param_1,int param_2)
+uint32_t set_flag_if_event_id_matches_1040b88c(cls_1059a294 *param_1,int param_2)
 
 {
   if (param_2 != 0xa00003) {
@@ -19,6 +19,6 @@ uint32_t set_flag_if_event_id_matches_1040b88c(int param_1,int param_2)
       return 0;
     }
   }
-  set_flg_obj((uint32_t *)(param_1 + 0x14));
+  set_flg_obj((void *)&param_1->field_0x14);
   return 0;
 }

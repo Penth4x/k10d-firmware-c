@@ -31,12 +31,12 @@ int issue_indexed_command_and_wait(int *param_1,void *param_2,int param_3,void *
   iVar4 = 0;
   if (bVar2) {
     iVar4 = param_3 * 2;
-    (**(code **)(*param_1 + 0x54))
-              ((int)*(short *)(*param_1 + 0x50) + (int)param_1,param_4,(&DAT_105a73c9/*ROM*/)[iVar4]);
-    cpucom_msg_set_cmd((void *)param_1[6],*(uint8_t *)(iVar4 + 0x105a73c8/*ROM*/));
+    (((vtbl_entry*)(*param_1))[10].fn)
+              ((int)((vtbl_entry*)(*param_1))[10].adj + (int)param_1,param_4,(&DAT_105a73c9/*ROM*/)[iVar4]);
+    cpucom_msg_set_cmd((void*)(param_1[6]),*(uint8_t *)(iVar4 + 0x105a73c8/*ROM*/));
     cpucom_resp_set_insize((void *)param_1[6],(uint)(byte)(&DAT_105a73c9/*ROM*/)[iVar4]);
     pvVar3 = (void *)param_1[6];
-    pvVar1 = (void *)(**(code **)(*param_1 + 0x6c))((int)*(short *)(*param_1 + 0x68) + (int)param_1)
+    pvVar1 = (void *)(((vtbl_entry*)(*param_1))[13].fn)((int)((vtbl_entry*)(*param_1))[13].adj + (int)param_1)
     ;
     set_ptr_if_field_is_null(pvVar3,pvVar1);
     set_object_field_at_offset_0x14((void *)param_1[6],param_1 + 1);
@@ -46,8 +46,8 @@ int issue_indexed_command_and_wait(int *param_1,void *param_2,int param_3,void *
     if (iVar4 != 0) {
       twai_flg_obj(param_1 + 0xd,2,(void *)0x0,_DAT_105a2af0/*ROM*/);
       if (param_5 != 0) {
-        (**(code **)(*param_1 + 0x34))
-                  ((int)*(short *)(*param_1 + 0x30) + (int)param_1,param_5,
+        (((vtbl_entry*)(*param_1))[6].fn)
+                  ((int)((vtbl_entry*)(*param_1))[6].adj + (int)param_1,param_5,
                    (&DAT_105a7467/*ROM*/)[*(int *)(&DAT_105a7504/*ROM*/ + param_3 * 4) * 2]);
       }
     }

@@ -31,7 +31,7 @@ void wait_for_flag_with_timeout_1046ffca(int param_1)
   configure_timer_object(param_1,1);
   *(uint16_t *)(puVar2 + 2) = 3;
   *(uint16_t *)(puVar2 + 6) = 0xff;
-  sr_dma_command(param_1,3,1,0x105a9660/*ROM*/,*(uint16_t *)(puVar2 + 2),*(uint16_t *)(puVar2 + 6));
+  sr_dma_command((int)(param_1),(uint32_t)(3),(uint32_t)(1),(byte *)(0x105a9660/*ROM*/),(uint16_t)(*(uint16_t *)(puVar2 + 2)),(uint16_t)(*(uint16_t *)(puVar2 + 6)));
   set_param_via_object(param_1,1);
   cVar1 = *(char *)(param_1 + 0x13);
   while (cVar1 == '\0') {

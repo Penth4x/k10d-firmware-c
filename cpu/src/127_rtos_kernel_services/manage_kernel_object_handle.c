@@ -48,10 +48,10 @@ bool manage_kernel_object_handle(int *param_1,int param_2)
         *param_1 = 0;
         local_18 = 0;
         uStack_8 = 0;
-        pcStack_10 = (code *)call_virtual_slot_two_1045962a;
+        pcStack_10 = call_virtual_slot_two_1045962a;
         piStack_14 = param_1;
         iStack_c = param_2;
-        iVar2 = find_free_tcb_slot_1000d6e4((void *)&local_18);
+        iVar2 = find_free_tcb_slot_1000d6e4(&local_18);
         if (0 < iVar2) {
           *param_1 = iVar2;
           param_1[1] = param_2;

@@ -13,15 +13,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t initialize_buffer_offsets(int *param_1)
+uint32_t initialize_buffer_offsets(cls_105d6c2c *param_1)
 
 {
   int iVar1;
   
-  iVar1 = *(int *)(*param_1 + 4);
-  param_1[2] = iVar1;
-  param_1[3] = iVar1 + 0x4a8;
-  param_1[4] = param_1[2];
-  param_1[5] = param_1[2] + 0x164;
+  iVar1 = *(int *)(param_1->field_0x0 + 4);
+  param_1->field_0x8 = iVar1;
+  param_1->field_0xc = iVar1 + 0x4a8;
+  param_1->field_0x10 = param_1->field_0x8;
+  param_1->field_0x14 = param_1->field_0x8 + 0x164;
   return 1;
 }

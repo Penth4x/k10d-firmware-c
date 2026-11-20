@@ -27,7 +27,7 @@ void ui_task5_body(int param_1)
       eventflag_wai_flg((uint32_t *)(param_1 + 0x28),1,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg((uint32_t *)(param_1 + 0x28),1);
       if (*(char *)(*(int *)(param_1 + 0x30) + 0x60) == '\0') break;
-      cpucom_ctx_resubmit(*(void **)(param_1 + 0x30),(void *)(param_1 + 4));
+      cpucom_ctx_resubmit((int *)(*(int *)(param_1 + 0x30)),(void *)(param_1 + 4));
     }
     cpucom_repost_request(*(void **)(param_1 + 0x38),(uint8_t *)(param_1 + 0x3c));
   } while( true );

@@ -15,32 +15,32 @@
 #include "globals.h"
 #include "funcs.h"
 
-void register_menu_item_state(int *param_1,uint16_t param_2)
+void register_menu_item_state(cls_105959b0 *param_1,uint16_t param_2)
 
 {
   int iVar1;
   
   iVar1 = get_or_create_singleton_object_1050b118();
-  *(int **)(iVar1 + 0x58) = param_1 + 5;
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0x74))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 0x70),0);
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0x74))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 0x70),0);
-  *(uint16_t *)(param_1 + 3) = param_2;
+  *(void ***)(iVar1 + 0x58) = &param_1->field_0x14;
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].fn)(iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].adj,0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].fn)(iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].adj,0);
+  param_1->field_0xc = param_2;
   iVar1 = get_or_create_singleton_object_1050b118();
   iVar1 = get_field_at_offset_0x28(iVar1);
   if (iVar1 == 0) {
-    iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0x74))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 0x70),1);
-    iVar1 = menu_item_register(*param_1);
-    if (((*(ushort *)(param_1 + 3) & 2) != 2) || ((*(ushort *)(param_1 + 3) & 4) != 4)) {
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0x74))
-                (*(short *)(*(int *)(iVar1 + 0xc) + 0x70) + iVar1,1);
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].fn)(iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].adj,1);
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    if (((param_1->field_0xc & 2) != 2) || ((param_1->field_0xc & 4) != 4)) {
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].fn)
+                (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].adj + iVar1,1);
     }
   }
   else {
-    *(uint8_t *)((int)param_1 + 0x27) = 1;
+    param_1->field_0x27 = 1;
   }
-  check_mode_transition_validity(param_1,0);
+  check_mode_transition_validity(&param_1->field_0x0,0);
   return;
 }

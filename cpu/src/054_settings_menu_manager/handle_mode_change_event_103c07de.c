@@ -16,42 +16,42 @@
 #include "globals.h"
 #include "funcs.h"
 
-void * handle_mode_change_event_103c07de(void *param_1,int param_2,int param_3)
+cls_10594f8c * handle_mode_change_event_103c07de(cls_10594f8c *param_1,int param_2,int param_3)
 
 {
   int iVar1;
-  void *pvVar2;
+  cls_10594f8c *pcVar2;
   
-  *(int *)((int)param_1 + 0x18) = param_3;
-  pvVar2 = param_1;
+  param_1->field_0x18 = param_3;
+  pcVar2 = param_1;
   if (((param_2 == 0x1020020) || (param_2 == 0x102001e)) || (param_2 == 0x102001f)) {
     if ((param_3 == 0x11) || (param_3 == 0xe)) {
-      apply_setting_from_table(param_1,5,(uint)*(byte *)((int)param_1 + 0x30));
+      apply_setting_from_table(param_1,5,(uint)(byte)param_1->field_0x30);
       iVar1 = get_setting_by_index((int)param_1,5);
       if (iVar1 != 0) {
         apply_setting_from_table(param_1,0xb,0);
       }
     }
     else if (((param_3 == 7) || (param_3 == 0)) || ((param_3 == 1 || (param_3 == 3)))) {
-      apply_setting_from_table(param_1,5,(uint)*(byte *)((int)param_1 + 0x30));
+      apply_setting_from_table(param_1,5,(uint)(byte)param_1->field_0x30);
       iVar1 = get_setting_by_index((int)param_1,5);
       if (iVar1 != 0) {
         apply_setting_from_table(param_1,0xb,0);
       }
-      *(uint8_t *)((int)param_1 + 0x33) = 0x8c;
-      pvVar2 = (void *)0x0;
+      param_1->field_0x33 = 0x8c;
+      pcVar2 = (cls_10594f8c *)0x0;
     }
   }
   if (param_2 == 0x102002d) {
-    iVar1 = *(int *)((int)param_1 + 0x18);
+    iVar1 = param_1->field_0x18;
     if ((iVar1 == 0x11) || (iVar1 == 0xe)) {
-      apply_setting_from_table(param_1,0x47,(uint)*(byte *)((int)param_1 + 0x30));
+      apply_setting_from_table(param_1,0x47,(uint)(byte)param_1->field_0x30);
     }
     else if ((((iVar1 == 7) || (iVar1 == 0)) || (iVar1 == 1)) || (iVar1 == 3)) {
-      setting_set(*(int *)((int)param_1 + 8),0x54,(uint)*(byte *)((int)param_1 + 0x30));
-      *(uint8_t *)((int)param_1 + 0x33) = 0x8c;
-      pvVar2 = (void *)0x0;
+      setting_set(param_1->field_0x8,0x54,(uint)(byte)param_1->field_0x30);
+      param_1->field_0x33 = 0x8c;
+      pcVar2 = (cls_10594f8c *)0x0;
     }
   }
-  return pvVar2;
+  return pcVar2;
 }

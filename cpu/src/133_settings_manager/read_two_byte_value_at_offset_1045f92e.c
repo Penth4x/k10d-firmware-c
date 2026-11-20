@@ -16,14 +16,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint read_two_byte_value_at_offset_1045f92e(int param_1,int param_2)
+uint read_two_byte_value_at_offset_1045f92e(cls_105a6c24 *param_1,int param_2)
 
 {
   int iVar1;
   ushort uVar2;
   
   iVar1 = *(int *)(param_2 * 8 + 0x105a6144/*ROM*/);
-  uVar2 = pack_two_byte_value_10496952((void *)param_1,(ushort)*(byte *)(param_1 + 4 + iVar1 + 1),
-                       (ushort)*(byte *)(param_1 + 4 + iVar1));
+  uVar2 = pack_two_byte_value_10496952(param_1,(ushort)*(byte *)((int)&param_1[1].field_0x0 + iVar1 + 1),
+                       (ushort)*(byte *)((int)&param_1[1].field_0x0 + iVar1));
   return (uint)uVar2;
 }

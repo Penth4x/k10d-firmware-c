@@ -24,25 +24,25 @@ uint32_t dispatch_virtual_method_on_param(int param_1)
   uint32_t uVar2;
   void *pvVar3;
   uintptr_t sp;
-  uint8_t auStack_28 [32];
+  cls_105bb0b8 cStack_28;
   
   iVar1 = check_flag_bit2_in_struct(__frv_reg_unset(4));
   if (iVar1 != 0) {
     uVar2 = return_r4_passthrough_104d800e();
     pvVar3 = (void *)add_offset_by_flag(uVar2,1);
     clear_two_fields_at_offset_0x20(pvVar3);
-    cls_105bb0b8_new((void *)auStack_28);
-    iVar1 = (**(code **)(*(int *)(param_1 + 0x2b18) + 100))
-                      (*(short *)(*(int *)(param_1 + 0x2b18) + 0x60) + param_1,auStack_28);
+    cls_105bb0b8_new(&cStack_28);
+    iVar1 = (((vtbl_entry*)(*(int *)(param_1 + 0x2b18)))[12].fn)
+                      (((vtbl_entry*)(*(int *)(param_1 + 0x2b18)))[12].adj + param_1,&cStack_28);
     if (iVar1 != 0) {
       uVar2 = return_r4_passthrough_104d800e();
-      iVar1 = invoke_virtual_slot_six_104d6dc4(uVar2,auStack_28);
+      iVar1 = invoke_virtual_slot_six_104d6dc4(uVar2,&cStack_28);
       if (iVar1 != 0) {
-        reset_vtable_and_free_if_flagged_104ddfe6(auStack_28,2);
+        reset_vtable_and_free_if_flagged_104ddfe6(&cStack_28,2);
         return 1;
       }
     }
-    reset_vtable_and_free_if_flagged_104ddfe6(auStack_28,2);
+    reset_vtable_and_free_if_flagged_104ddfe6(&cStack_28,2);
   }
   return 0;
 }

@@ -17,7 +17,7 @@
 uint32_t release_lens_update_resource(void *param_1)
 
 {
-  if (*(void **)((int)param_1 + 0x70) != (void *)0x0) {
+  if (*(void **)((int)param_1 + 0x70) != 0) {
     release_heap_block_1047f9bc(*(void **)((int)param_1 + 0x70));
     *(uint32_t *)((int)param_1 + 0x70) = 0;
   }

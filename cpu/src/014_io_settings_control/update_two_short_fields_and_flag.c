@@ -21,7 +21,7 @@ void update_two_short_fields_and_flag(int param_1)
 
 {
   uint32_t uVar1;
-  int iVar2;
+  cls_10558fd4 *pcVar2;
   uintptr_t sp;
   uint32_t auStack_28 [2];
   uint32_t uStack_20;
@@ -41,11 +41,11 @@ void update_two_short_fields_and_flag(int param_1)
   uVar1 = read_struct_field_at_offset_4(auStack_28);
   uStack_12 = (short)uVar1;
   free_heap_if_flagged_1045c402(auStack_28,2);
-  iVar2 = param_1 + 0x14;
-  register_thirteen_menu_items(iVar2,0);
-  register_menu_item_and_update_10382a9c(iVar2,(uint)*(byte *)(param_1 + 0x2a8),&uStack_20);
+  pcVar2 = (cls_10558fd4 *)(param_1 + 0x14);
+  register_thirteen_menu_items(pcVar2,0);
+  register_menu_item_and_update_10382a9c(pcVar2,(uint)*(byte *)(param_1 + 0x2a8),&uStack_20);
   if (*(char *)(param_1 + 0x2a8) == '\0') {
-    register_thirteen_menu_items(iVar2,1);
+    register_thirteen_menu_items(pcVar2,1);
   }
   return;
 }

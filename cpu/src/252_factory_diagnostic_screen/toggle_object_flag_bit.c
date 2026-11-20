@@ -25,8 +25,8 @@ int toggle_object_flag_bit(int param_1,int param_2)
   byte local_9;
   
   fill_byte_array(auStack_10c,0,0x100);
-  (**(code **)(*(int *)(param_1 + 0x18) + 0x5c))
-            (*(short *)(*(int *)(param_1 + 0x18) + 0x58) + param_1,auStack_10c);
+  (((vtbl_entry*)(*(int *)(param_1 + 0x18)))[11].fn)
+            (((vtbl_entry*)(*(int *)(param_1 + 0x18)))[11].adj + param_1,auStack_10c);
   local_9 = 0;
   iVar1 = query_status_with_lock(*(int *)(param_1 + 8),auStack_10c,&local_9);
   if (iVar1 != 0) {

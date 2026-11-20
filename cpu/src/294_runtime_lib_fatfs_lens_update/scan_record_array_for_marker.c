@@ -42,7 +42,7 @@ LAB_1053a4ec:
         return -999;
       }
       pcStack_28 = acStack_2d8;
-      iStack_34 = validate_and_dispatch_lens_write(param_1,uVar3,(void *)&pcStack_28,&uStack_30);
+      iStack_34 = validate_and_dispatch_lens_write(param_1,uVar3,&pcStack_28,&uStack_30);
       uVar1 = compute_modulo_10544c28(uVar3 - 1,uStack_30);
     }
     else {

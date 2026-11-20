@@ -14,22 +14,22 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool check_condition_with_virtual_call(int param_1)
+bool check_condition_with_virtual_call(cls_105b4dac *param_1)
 
 {
   int iVar1;
   bool bVar2;
   bool bVar3;
   
-  iVar1 = any_item_predicate_true(__frv_reg_unset(4));
+  iVar1 = any_item_predicate_true((cls_105b48dc *)param_1);
   bVar3 = iVar1 != 0;
-  if (*(char *)(param_1 + 0xac) == '\0') {
-    iVar1 = read_byte_at_offset_8(param_1);
+  if (param_1->field_0xac == '\0') {
+    iVar1 = read_byte_at_offset_8((uint32_t)(param_1));
     bVar2 = bVar3;
-    if ((iVar1 != 0) && (*(char *)(param_1 + 0xa0) != '\0')) {
-      iVar1 = *(int *)(**(int **)(param_1 + 0x60) + 0xc);
-      iVar1 = (**(code **)(iVar1 + 0x4c))
-                        (**(int **)(param_1 + 0x60) + (int)*(short *)(iVar1 + 0x48));
+    if ((iVar1 != 0) && (param_1->field_0xa0 != '\0')) {
+      iVar1 = *(int *)(*(int *)param_1->field_0x60 + 0xc);
+      iVar1 = (((vtbl_entry*)(iVar1))[9].fn)
+                        (*(int *)param_1->field_0x60 + (int)((vtbl_entry*)(iVar1))[9].adj);
       bVar2 = true;
       if (iVar1 == 0 && !bVar3) {
         bVar2 = false;
@@ -37,7 +37,7 @@ bool check_condition_with_virtual_call(int param_1)
     }
   }
   else {
-    iVar1 = iterate_object_list_and_call_virtual(__frv_reg_unset(4));
+    iVar1 = iterate_object_list_and_call_virtual((cls_105b47b4 *)param_1);
     bVar2 = true;
     if (iVar1 == 0 && !bVar3) {
       bVar2 = false;

@@ -39,19 +39,19 @@ int process_object_state_update(void *param_1)
     }
     else {
       init_fixed_size_queue(*(uint32_t *)((int)param_1 + 0x74));
-      init_buffer_pool_context((void *)(*(uint32_t *)((int)param_1 + 0x74)));
+      init_buffer_pool_context((int *)(*(uint32_t *)((int)param_1 + 0x74)));
       uVar2 = allocate_and_zero_buffer(*(int *)((int)param_1 + 0x74));
       *(uint32_t *)((int)param_1 + 0x40) = uVar2;
       uVar3 = allocate_queue_slot((int)param_1);
-      uVar2 = (uint32_t)insert_node_into_array((int)param_1,0xffffffff,uVar3);
+      uVar2 = (uintptr_t)(insert_node_into_array((int)(param_1),(int)(0xffffffff),(int)(uVar3)));
       *(uint32_t *)((int)param_1 + 0x44) = uVar2;
-      copy_null_terminated_string(&uStack_16,(void *)pvRam80010bb8);
+      copy_null_terminated_string((void *)(&uStack_16),(void *)(pvRam80010bb8));
       uStack_15 = 0x3a;
       uStack_14 = 0;
       iVar1 = *(int *)((int)param_1 + 0x44);
       if (iVar1 != 0) {
-        (**(code **)(*(int *)(iVar1 + 0x18) + 0x44))
-                  (*(short *)(*(int *)(iVar1 + 0x18) + 0x40) + iVar1,&uStack_16);
+        (((vtbl_entry*)(*(int *)(iVar1 + 0x18)))[8].fn)
+                  (((vtbl_entry*)(*(int *)(iVar1 + 0x18)))[8].adj + iVar1,&uStack_16);
         invoke_virtual_slot_14_104e6148(param_1,*(void **)((int)param_1 + 0x44));
       }
       iStack_10 = 1;

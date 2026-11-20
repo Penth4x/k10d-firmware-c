@@ -25,7 +25,7 @@ void free_struct_member_pointers(uint32_t *param_1)
   uVar1 = 4;
   do {
     iVar2 = (uVar1 - 1) * 4;
-    destroy_object_members_10520720((void *)(*(uint32_t *)(param_1[7] + iVar2)),3);
+    destroy_object_members_10520720((int *)(*(uint32_t *)(param_1[7] + iVar2)),(uint)(3));
     uVar1 = uVar1 - 1 & 0xff;
     *(uint32_t *)(param_1[7] + iVar2) = 0;
   } while (uVar1 != 0);
@@ -34,7 +34,7 @@ void free_struct_member_pointers(uint32_t *param_1)
   uVar1 = 4;
   do {
     iVar2 = (uVar1 - 1) * 4;
-    destroy_object_members_10520720((void *)(*(uint32_t *)(param_1[5] + iVar2)),3);
+    destroy_object_members_10520720((int *)(*(uint32_t *)(param_1[5] + iVar2)),(uint)(3));
     uVar1 = uVar1 - 1 & 0xff;
     *(uint32_t *)(param_1[5] + iVar2) = 0;
   } while (uVar1 != 0);
@@ -43,7 +43,7 @@ void free_struct_member_pointers(uint32_t *param_1)
   uVar1 = 4;
   do {
     iVar2 = (uVar1 - 1) * 4;
-    destroy_object_members_10520720((void *)(*(uint32_t *)(param_1[6] + iVar2)),3);
+    destroy_object_members_10520720((int *)(*(uint32_t *)(param_1[6] + iVar2)),(uint)(3));
     uVar1 = uVar1 - 1 & 0xff;
     *(uint32_t *)(param_1[6] + iVar2) = 0;
   } while (uVar1 != 0);
@@ -52,7 +52,7 @@ void free_struct_member_pointers(uint32_t *param_1)
   uVar1 = 4;
   do {
     iVar2 = (uVar1 - 1) * 4;
-    destroy_object_members_10520720((void *)(*(uint32_t *)(param_1[4] + iVar2)),3);
+    destroy_object_members_10520720((int *)(*(uint32_t *)(param_1[4] + iVar2)),(uint)(3));
     uVar1 = uVar1 - 1 & 0xff;
     *(uint32_t *)(param_1[4] + iVar2) = 0;
   } while (uVar1 != 0);
@@ -61,17 +61,17 @@ void free_struct_member_pointers(uint32_t *param_1)
   uVar1 = 2;
   do {
     iVar2 = (uVar1 - 1) * 4;
-    destroy_object_members_10520720((void *)(*(uint32_t *)(param_1[3] + iVar2)),3);
+    destroy_object_members_10520720((int *)(*(uint32_t *)(param_1[3] + iVar2)),(uint)(3));
     uVar1 = uVar1 - 1 & 0xff;
     *(uint32_t *)(param_1[3] + iVar2) = 0;
   } while (uVar1 != 0);
   heap_free_2(param_1[3]);
   param_1[3] = 0;
-  destroy_object_members_10520720((void *)(param_1[2]),3);
+  destroy_object_members_10520720((int *)(param_1[2]),(uint)(3));
   param_1[2] = 0;
-  destroy_object_members_10520720((void *)(param_1[1]),3);
+  destroy_object_members_10520720((int *)(param_1[1]),(uint)(3));
   param_1[1] = 0;
-  destroy_object_members_10520720((void *)(*param_1),3);
+  destroy_object_members_10520720((int *)(*param_1),(uint)(3));
   *param_1 = 0;
   return;
 }

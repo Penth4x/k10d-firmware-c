@@ -16,15 +16,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t update_object_pointer_and_notify(void *param_1)
+/* WARNING: Struct "cls_105d5104": ignoring multiple overlapping fields */
+
+uint32_t update_object_pointer_and_notify(cls_105d5104 *param_1)
 
 {
-  int iVar1;
+  uint32_t *puVar1;
   
-  iVar1 = (int)param_1 + 4;
-  *(int *)(*(int *)((int)param_1 + 0x18) + 0x2c) = iVar1;
-  allocate_free_slot_in_table_1045e7f2(*(void **)((int)param_1 + 0x14),0,iVar1);
-  allocate_free_slot_in_table_1045e7f2(*(void **)((int)param_1 + 0x14),0x11,iVar1);
-  wait_flg_obj((void *)((int)param_1 + 0x1c),0);
+  puVar1 = &param_1->field_0x4;
+  *(uint32_t **)(param_1->field_0x18 + 0x2c) = puVar1;
+  allocate_free_slot_in_table_1045e7f2((void *)(((uint32_t *)&(param_1->field_0x8))[3]),(int)(0),(uint32_t)(puVar1));
+  allocate_free_slot_in_table_1045e7f2((void *)(((uint32_t *)&(param_1->field_0x8))[3]),(int)(0x11),(uint32_t)(puVar1));
+  wait_flg_obj(&param_1->field_0x1c,0);
   return 1;
 }

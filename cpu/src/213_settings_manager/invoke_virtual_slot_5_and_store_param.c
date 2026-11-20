@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t invoke_virtual_slot_5_and_store_param(int *param_1,int param_2)
+uint32_t invoke_virtual_slot_5_and_store_param(cls_105b7458 *param_1,int param_2)
 
 {
   uint32_t uVar1;
@@ -15,8 +15,9 @@ uint32_t invoke_virtual_slot_5_and_store_param(int *param_1,int param_2)
     uVar1 = 0;
   }
   else {
-    uVar1 = (**(code **)(*param_1 + 0x2c))((int)*(short *)(*param_1 + 0x28) + (int)param_1);
-    param_1[2] = param_2;
+    uVar1 = (((vtbl_entry*)(param_1->field_0x0))[5].fn)
+                      ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[5].adj);
+    param_1->field_0x8 = param_2;
   }
   return uVar1;
 }

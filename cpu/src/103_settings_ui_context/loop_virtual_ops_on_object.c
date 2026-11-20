@@ -17,24 +17,30 @@
 #include "globals.h"
 #include "funcs.h"
 
-void loop_virtual_ops_on_object(int *param_1)
+/* WARNING: Struct "cls_105bb314": ignoring overlapping field "field_0x8" */
+
+void loop_virtual_ops_on_object(cls_105bb314 *param_1)
 
 {
   int iVar1;
-  int *piVar2;
+  void **ppuVar2;
   
-  (**(code **)(*param_1 + 0x4c))((int)*(short *)(*param_1 + 0x48) + (int)param_1,0);
-  piVar2 = param_1 + 2;
-  set_flag_at_offset_eight_10427ba8(piVar2);
+  (((vtbl_entry*)(param_1->field_0x0))[9].fn)
+            ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[9].adj,0);
+  ppuVar2 = &((uint32_t *)&(param_1->field_0x4))[1];
+  set_flag_at_offset_eight_10427ba8(ppuVar2);
   do {
-    init_object_with_two_ids_10427bba(piVar2);
-    (**(code **)(*param_1 + 0x54))((int)*(short *)(*param_1 + 0x50) + (int)param_1,0);
-    set_flag_at_offset_eight_10427c02(piVar2);
-    iVar1 = check_and_clear_event_flag(piVar2);
+    init_object_with_two_ids_10427bba(ppuVar2);
+    (((vtbl_entry*)(param_1->field_0x0))[10].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[10].adj,0);
+    set_flag_at_offset_eight_10427c02(ppuVar2);
+    iVar1 = check_and_clear_event_flag(ppuVar2);
     while (iVar1 == 0) {
-      (**(code **)(*param_1 + 100))((int)*(short *)(*param_1 + 0x60) + (int)param_1,0);
-      iVar1 = check_and_clear_event_flag(piVar2);
+      (((vtbl_entry*)(param_1->field_0x0))[12].fn)
+                ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[12].adj,0);
+      iVar1 = check_and_clear_event_flag(ppuVar2);
     }
-    (**(code **)(*param_1 + 0x5c))((int)*(short *)(*param_1 + 0x58) + (int)param_1,0);
+    (((vtbl_entry*)(param_1->field_0x0))[11].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[11].adj,0);
   } while( true );
 }

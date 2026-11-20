@@ -13,10 +13,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_if_field_c_nonzero(int param_1)
+void call_helper_if_field_c_nonzero(cls_105b7838 *param_1)
 
 {
-  if (*(int *)(param_1 + 0xc) != 0) {
+  if (param_1->field_0xc != 0) {
     destroy_lens_update_objects(__frv_reg_unset(4));
   }
   return;

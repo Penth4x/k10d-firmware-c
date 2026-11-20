@@ -17,8 +17,8 @@
 void invoke_virtual_slot2_on_three_objects(uint32_t param_x0)
 
 {
-  reset_object_fields_and_call_base((void *)0x800158dc/*SDRAM*/);
-  reset_object_fields_and_call_base((void *)0x80015af0/*SDRAM*/);
-  reset_object_fields_and_call_base((void *)0x80015d04/*SDRAM*/);
+  reset_object_fields_and_call_base((cls_105b9458 *)0x800158dc/*SDRAM*/);
+  reset_object_fields_and_call_base((cls_105b9458 *)0x80015af0/*SDRAM*/);
+  reset_object_fields_and_call_base((cls_105b9458 *)0x80015d04/*SDRAM*/);
   return;
 }

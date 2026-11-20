@@ -14,7 +14,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t virtual_slot3_check_and_reset(void *param_1)
+uint32_t virtual_slot3_check_and_reset(cls_105a28b4 *param_1)
 
 {
   bool bVar1;

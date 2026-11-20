@@ -22,7 +22,7 @@ bool initialize_object_with_five_values(int param_1)
   
   piVar1 = (int *)cls_105b63b0_new(0);
   *(int **)(param_1 + 4) = piVar1;
-  iVar2 = (**(code **)(*piVar1 + 0x14))((int)piVar1 + (int)*(short *)(*piVar1 + 0x10),0);
+  iVar2 = (((vtbl_entry*)(*piVar1))[2].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[2].adj,0);
   if (iVar2 != 0) {
     (*(code *)0x104a2dd6/*ROM*/)(*(uint32_t *)(param_1 + 4),0,*(uint32_t *)(param_1 + 8));
     (*(code *)0x104a2dd6/*ROM*/)(*(uint32_t *)(param_1 + 4),1,*(uint32_t *)(param_1 + 0xc));

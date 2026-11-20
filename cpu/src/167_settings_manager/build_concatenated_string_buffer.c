@@ -19,7 +19,7 @@ bool build_concatenated_string_buffer(void *param_1,char *param_2)
   iVar3 = count_string_bytes(pcRam8001485c);
   pvVar4 = (void *)heap_alloc_2(iVar3 + iVar2 + iVar1 + 4);
   *(void **)((int)param_1 + 0xc) = pvVar4;
-  if (pvVar4 != (void *)0x0) {
+  if (pvVar4 != 0) {
     copy_null_terminated_string(pvVar4,param_2);
     copy_string_to_buffer(*(char **)((int)param_1 + 0xc),(void *)0x105aa6c0/*ROM*/);
     copy_string_to_buffer(*(char **)((int)param_1 + 0xc),pcRam80014860);

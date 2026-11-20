@@ -28,14 +28,14 @@ int alloc_or_acquire_heap_block(int *param_1,int param_2,uint32_t param_3)
   *param_1 = param_2;
   uStack_8 = param_3;
   if (param_2 == 0) {
-    iVar1 = find_free_tcb_slot_1000d770((void *)&uStack_c);
+    iVar1 = find_free_tcb_slot_1000d770(&uStack_c);
     if (0 < iVar1) {
       *param_1 = iVar1;
       return iVar1;
     }
   }
   else {
-    iVar1 = validate_task_id_and_flag((int)(short)param_2,(void *)&uStack_c);
+    iVar1 = validate_task_id_and_flag((int)(short)param_2,&uStack_c);
   }
   if (iVar1 == 0) {
     iVar1 = 0;

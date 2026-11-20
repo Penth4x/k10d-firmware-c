@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_virtual_method_by_id(int *param_1)
+uint32_t dispatch_virtual_method_by_id(cls_105be3a8 *param_1)
 
 {
   bool bVar1;
@@ -26,34 +26,34 @@ uint32_t dispatch_virtual_method_by_id(int *param_1)
   uint32_t uVar5;
   
   bVar1 = false;
-  release_object_members(param_1);
+  release_object_members((int *)param_1);
   iVar2 = validate_sequence_counter(param_1);
   if (iVar2 == 0) {
     return 9;
   }
-  uVar3 = get_field_at_offset_0x18(*param_1);
+  uVar3 = get_field_at_offset_0x18(param_1->field_0x0);
   if (uVar3 == 0x3002) {
     iVar2 = 1;
 LAB_104e204e:
-    (*(code *)0x104e0e6c/*ROM*/)(param_1[1],iVar2);
+    (*(code *)0x104e0e6c/*ROM*/)(param_1->field_0x4,iVar2);
     bVar1 = true;
   }
   else {
     if (uVar3 < 0x3003) {
       if (uVar3 == 0) {
-        iVar2 = (*(code *)0x104e048a/*ROM*/)(*param_1);
+        iVar2 = (*(code *)0x104e048a/*ROM*/)(param_1->field_0x0);
         if (iVar2 == 0) {
-          iVar2 = (*(code *)0x104e4b88/*ROM*/)(param_1[2]);
+          iVar2 = (*(code *)0x104e4b88/*ROM*/)(param_1->field_0x8);
           if (iVar2 != 0) {
             iVar2 = iVar2 + -1;
           }
         }
         else {
-          iVar2 = (*(code *)0x104e048a/*ROM*/)(*param_1);
+          iVar2 = (*(code *)0x104e048a/*ROM*/)(param_1->field_0x0);
           if (iVar2 == -1) {
             iVar2 = 100;
           }
-          iVar2 = (*(code *)0x104e4b8e/*ROM*/)(param_1[2],iVar2);
+          iVar2 = (*(code *)0x104e4b8e/*ROM*/)(param_1->field_0x8,iVar2);
         }
         goto LAB_104e204e;
       }
@@ -64,8 +64,8 @@ LAB_104e2062:
     else {
       if (uVar3 != 0x3006) {
         if (uVar3 == 0x3801) {
-          iVar4 = (*(code *)0x104e4b88/*ROM*/)(param_1[2]);
-          iVar2 = (*(code *)0x104e4bc4/*ROM*/)(param_1[2]);
+          iVar4 = (*(code *)0x104e4b88/*ROM*/)(param_1->field_0x8);
+          iVar2 = (*(code *)0x104e4bc4/*ROM*/)(param_1->field_0x8);
           iVar2 = (iVar4 + -1) - iVar2;
           goto LAB_104e204e;
         }
@@ -78,8 +78,8 @@ LAB_104e205c:
   }
   uVar5 = 1;
   if (bVar1) {
-    *(uint32_t *)(param_1[1] + 0xc) = 0xc;
-    *(uint32_t *)(param_1[1] + 0x30) = 1;
+    *(uint32_t *)(param_1->field_0x4 + 0xc) = 0xc;
+    *(uint32_t *)(param_1->field_0x4 + 0x30) = 1;
   }
   else {
     uVar5 = 9;

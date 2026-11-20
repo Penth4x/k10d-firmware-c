@@ -21,21 +21,21 @@
 void initialize_object_pointers(void)
 
 {
-  cls_10563ff4_new((void *)0x800158d4/*SDRAM*/);
-  prepend_to_singly_linked_list((void *)0x800043ac/*SDRAM*/);
-  cls_105b9458_new((void *)0x800158dc/*SDRAM*/);
-  prepend_to_singly_linked_list((void *)0x800043bc/*SDRAM*/);
-  cls_105b9458_new((void *)0x80015af0/*SDRAM*/);
-  prepend_to_singly_linked_list((void *)0x800043cc/*SDRAM*/);
-  cls_105b9458_new((void *)0x80015d04/*SDRAM*/);
-  prepend_to_singly_linked_list((void *)0x800043dc/*SDRAM*/);
+  cls_10563ff4_new((cls_10563ff4 *)0x800158d4/*SDRAM*/);
+  prepend_to_singly_linked_list((uint32_t *)(0x800043ac/*SDRAM*/));
+  cls_105b9458_new((cls_105b9458 *)0x800158dc/*SDRAM*/);
+  prepend_to_singly_linked_list((uint32_t *)(0x800043bc/*SDRAM*/));
+  cls_105b9458_new((cls_105b9458 *)0x80015af0/*SDRAM*/);
+  prepend_to_singly_linked_list((uint32_t *)(0x800043cc/*SDRAM*/));
+  cls_105b9458_new((cls_105b9458 *)0x80015d04/*SDRAM*/);
+  prepend_to_singly_linked_list((uint32_t *)(0x800043dc/*SDRAM*/));
   get_lens_fw_update_status();
-  prepend_to_singly_linked_list((void *)0x800043ec/*SDRAM*/);
-  alloc_and_zero_two_words_1045c3bc((void *)0x80018058/*SDRAM*/);
-  prepend_to_singly_linked_list((void *)0x800043fc/*SDRAM*/);
-  cls_10559b1c_new((void *)0x80018060/*SDRAM*/);
-  prepend_to_singly_linked_list((void *)0x8000440c/*SDRAM*/);
-  cls_105a2af8_new((void *)0x80018088/*SDRAM*/);
-  prepend_to_singly_linked_list((void *)0x8000441c/*SDRAM*/);
+  prepend_to_singly_linked_list((uint32_t *)(0x800043ec/*SDRAM*/));
+  alloc_and_zero_two_words_1045c3bc((uint32_t *)(0x80018058/*SDRAM*/));
+  prepend_to_singly_linked_list((uint32_t *)(0x800043fc/*SDRAM*/));
+  cls_10559b1c_new((cls_10559b1c *)0x80018060/*SDRAM*/);
+  prepend_to_singly_linked_list((uint32_t *)(0x8000440c/*SDRAM*/));
+  cls_105a2af8_new((cls_105a2af8 *)0x80018088/*SDRAM*/);
+  prepend_to_singly_linked_list((uint32_t *)(0x8000441c/*SDRAM*/));
   return;
 }

@@ -14,13 +14,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t copy_word_from_global_to_offset_8(void *param_1)
+uint32_t copy_word_from_global_to_offset_8(cls_1061e19c *param_1)
 
 {
   int iVar1;
   
   iVar1 = initialize_singleton_object_1045d6a0();
-  *(uint32_t *)((int)param_1 + 8) = *(uint32_t *)(iVar1 + 0x20);
-  wait_flg_obj((void *)((int)param_1 + 0xc),0);
+  param_1->field_0x8 = *(uint32_t *)(iVar1 + 0x20);
+  wait_flg_obj(&param_1->field_0xc,0);
   return 1;
 }

@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void app_task_generic_waitloop(void *param_1)
+void app_task_generic_waitloop(cls_105a2b50 *param_1)
 
 {
   int iVar1;
@@ -25,9 +25,9 @@ void app_task_generic_waitloop(void *param_1)
   uStack_c = 0;
   do {
     do {
-      iVar1 = mbx_receive_message((int)param_1 + 0x14,&uStack_c,uRam105a2b18);
+      iVar1 = mbx_receive_message_104598e8(&param_1->field_0x14,&uStack_c,uRam105a2b18);
     } while (iVar1 == 0);
-    (**(code **)(*(int *)((int)param_1 + 0x10) + 0x1c))
-              ((int)*(short *)(*(int *)((int)param_1 + 0x10) + 0x18) + (int)param_1,uStack_c);
+    (((vtbl_entry*)(param_1->field_0x10))[3].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x10))[3].adj,uStack_c);
   } while( true );
 }

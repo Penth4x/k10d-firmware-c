@@ -28,12 +28,12 @@ uint32_t accumulate_two_buffer_sizes(int param_1,int param_2)
   iVar1 = *(int *)(param_1 + 0xc) + iVar1;
   *(int *)(param_1 + 0xc) = iVar1;
   *(int *)(*(int *)(*(int *)(param_1 + 4) + 0x14) + 0x30) = iVar1;
-  uVar2 = (uint32_t)(uintptr_t)find_entry_by_ushort_key(param_2,0x201);
+  uVar2 = (uintptr_t)(find_entry_by_ushort_key(param_2,0x201));
   iVar1 = find_entry_by_id_in_table(param_2,0x201);
   iVar1 = call_helper_if_param2_nonzero_104d0666(param_1,uVar2,iVar1);
   uVar2 = 0;
   if (iVar1 != 0) {
-    uVar2 = (uint32_t)(uintptr_t)find_entry_by_ushort_key(param_2,0x202);
+    uVar2 = (uintptr_t)(find_entry_by_ushort_key(param_2,0x202));
     iVar1 = find_entry_by_id_in_table(param_2,0x202);
     uVar2 = call_helper_if_param2_nonzero_104d0690(param_1,uVar2,iVar1);
   }

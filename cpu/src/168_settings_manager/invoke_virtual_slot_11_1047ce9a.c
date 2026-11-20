@@ -20,7 +20,7 @@ uint32_t invoke_virtual_slot_11_1047ce9a(int param_1)
   int iVar2;
   
   iVar2 = **(int **)(param_1 + 0x28);
-  uVar1 = (**(code **)(iVar2 + 0x5c))
-                    ((int)*(int **)(param_1 + 0x28) + (int)*(short *)(iVar2 + 0x58));
+  uVar1 = (((vtbl_entry*)(iVar2))[11].fn)
+                    ((int)*(int **)(param_1 + 0x28) + (int)((vtbl_entry*)(iVar2))[11].adj);
   return uVar1;
 }

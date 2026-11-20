@@ -11,8 +11,8 @@ uint32_t get_or_create_sram_object_104a79b2(void)
 {
   if (iRam80049068 == 0) {
     iRam80049068 = 1;
-    cls_105b6980_new((void*)0x80049060/*SDRAM*/);
-    prepend_to_singly_linked_list((void*)0x800105c4/*SDRAM*/);
+    cls_105b6980_new((cls_105b6980 *)0x80049060/*SDRAM*/);
+    prepend_to_singly_linked_list((void *)0x800105c4/*SDRAM*/);
   }
   return 0x80049060/*SDRAM*/;
 }

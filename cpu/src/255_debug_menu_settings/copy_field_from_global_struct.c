@@ -6,12 +6,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t copy_field_from_global_struct(void *param_1)
+uint32_t copy_field_from_global_struct(cls_105c2e90 *param_1)
 
 {
   int iVar1;
   
   iVar1 = get_or_init_singleton_104aa272();
-  *(uint32_t *)((int)param_1 + 0x24) = *(uint32_t *)(iVar1 + 8);
+  param_1->field_0x24 = *(uint32_t *)(iVar1 + 8);
   return 1;
 }

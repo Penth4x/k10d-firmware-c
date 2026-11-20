@@ -19,7 +19,7 @@
 /* WARNING: Instruction at (ram,0x10423b18) overlaps instruction at (ram,0x10423b16)
     */
 
-int * process_apex_mode_change(int *param_1,int param_2)
+cls_1059dd24 * process_apex_mode_change(cls_1059dd24 *param_1,int param_2)
 
 {
   short sVar1;
@@ -28,7 +28,7 @@ int * process_apex_mode_change(int *param_1,int param_2)
   code *pcVar4;
   uint32_t uVar5;
   int iVar6;
-  int *piVar7;
+  cls_1059dd24 *pcVar7;
   int iVar8;
   uintptr_t sp;
   uint8_t *puVar9;
@@ -65,114 +65,114 @@ int * process_apex_mode_change(int *param_1,int param_2)
     uRam8001d162 = 0x232;
     uRam8001d164 = 0x248;
   }
-  param_1[5] = param_2;
+  *(int *)&param_1->field_0x14 = param_2;
   uStack_a = 0;
-  if (param_1[6] != 0x1bf0007) goto LAB_10423b02;
-  if (param_1[5] == 0xd) {
-    if (*(byte *)(param_1 + 8) < 3) {
-      *(byte *)(param_1 + 8) = *(byte *)(param_1 + 8) + 1;
+  if (param_1->field_0x18 != 0x1bf0007) goto LAB_10423b02;
+  if (*(int *)&param_1->field_0x14 == 0xd) {
+    if ((byte)param_1->field_0x20 < 3) {
+      param_1->field_0x20 = param_1->field_0x20 + 1;
     }
     else {
       cVar3 = '\0';
 LAB_10423ad8:
-      *(char *)(param_1 + 8) = cVar3;
+      param_1->field_0x20 = cVar3;
     }
   }
-  else if (param_1[5] == 0xe) {
-    if (*(char *)(param_1 + 8) == '\0') {
+  else if (*(int *)&param_1->field_0x14 == 0xe) {
+    if (param_1->field_0x20 == '\0') {
       cVar3 = '\x03';
     }
     else {
-      cVar3 = *(char *)(param_1 + 8) + -1;
+      cVar3 = param_1->field_0x20 + -1;
     }
     goto LAB_10423ad8;
   }
-  uVar5 = menu_item_register(*param_1);
-  uStack_a = (ushort)*(byte *)(param_1 + 8);
-  menu_list_build((void *)uVar5,&uStack_a,1,0);
+  uVar5 = menu_item_register((int)param_1->field_0x0);
+  uStack_a = (ushort)(byte)param_1->field_0x20;
+  menu_list_build((int *)(uVar5),(uint16_t *)(&uStack_a),(uint8_t)(1),(uint8_t)(0));
 LAB_10423b02:
-  if (param_1[6] == 0x1bf000c) {
-    if (param_1[5] == 0xd) {
-      if (param_1[9] < 0x78) {
-        param_1[9] = param_1[9] + 10;
+  if (param_1->field_0x18 == 0x1bf000c) {
+    if (*(int *)&param_1->field_0x14 == 0xd) {
+      if (*(int *)&param_1->field_0x24 < 0x78) {
+        *(int *)&param_1->field_0x24 = *(int *)&param_1->field_0x24 + 10;
       }
       else {
-        param_1[9] = 0x78;
+        *(uint32_t *)&param_1->field_0x24 = 0x78;
       }
     }
-    else if (param_1[5] == 0xe) {
-      if (param_1[9] < -0x77) {
-        param_1[9] = -0x78;
+    else if (*(int *)&param_1->field_0x14 == 0xe) {
+      if (*(int *)&param_1->field_0x24 < -0x77) {
+        *(uint32_t *)&param_1->field_0x24 = 0xffffff88;
       }
       else {
-        param_1[9] = param_1[9] + -10;
+        *(int *)&param_1->field_0x24 = *(int *)&param_1->field_0x24 + -10;
       }
     }
-    if (param_1[9] < 0) {
-      iVar6 = menu_item_register(*param_1);
-      (**(code **)(*(int *)(iVar6 + 0xc) + 0xc))(iVar6 + *(short *)(*(int *)(iVar6 + 0xc) + 8),1);
-      uStack_a = -(short)param_1[9];
+    if (*(int *)&param_1->field_0x24 < 0) {
+      iVar6 = menu_item_register((int)param_1->field_0x0);
+      (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[1].fn)(iVar6 + *(short *)(*(int *)(iVar6 + 0xc) + 8),1);
+      uStack_a = -(short)*(uint32_t *)&param_1->field_0x24;
     }
-    else if (param_1[9] < 1) {
-      iVar6 = menu_item_register(*param_1);
-      (**(code **)(*(int *)(iVar6 + 0xc) + 0xc))(iVar6 + *(short *)(*(int *)(iVar6 + 0xc) + 8),0);
-      iVar6 = menu_item_register(*param_1);
-      (**(code **)(*(int *)(iVar6 + 0xc) + 0xc))(iVar6 + *(short *)(*(int *)(iVar6 + 0xc) + 8),0);
+    else if (*(int *)&param_1->field_0x24 < 1) {
+      iVar6 = menu_item_register((int)param_1->field_0x0);
+      (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[1].fn)(iVar6 + *(short *)(*(int *)(iVar6 + 0xc) + 8),0);
+      iVar6 = menu_item_register((int)param_1->field_0x0);
+      (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[1].fn)(iVar6 + *(short *)(*(int *)(iVar6 + 0xc) + 8),0);
     }
     else {
-      iVar6 = menu_item_register(*param_1);
-      (**(code **)(*(int *)(iVar6 + 0xc) + 0xc))(iVar6 + *(short *)(*(int *)(iVar6 + 0xc) + 8),1);
-      uStack_a = (ushort)param_1[9];
+      iVar6 = menu_item_register((int)param_1->field_0x0);
+      (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[1].fn)(iVar6 + *(short *)(*(int *)(iVar6 + 0xc) + 8),1);
+      uStack_a = (ushort)*(uint32_t *)&param_1->field_0x24;
     }
     iVar8 = 0;
-    uVar5 = menu_item_register(*param_1);
-    menu_list_build((void *)uVar5,&uStack_a,3,1);
+    uVar5 = menu_item_register((int)param_1->field_0x0);
+    menu_list_build((int *)(uVar5),(uint16_t *)(&uStack_a),(uint8_t)(3),(uint8_t)(1));
     iVar6 = 0;
     do {
-      if ((int)*(short *)(iVar6 + 0x1059dcf0/*ROM*/) == param_1[9]) {
-        iVar6 = menu_item_register(*param_1);
+      if ((int)*(short *)(iVar6 + 0x1059dcf0/*ROM*/) == *(int *)&param_1->field_0x24) {
+        iVar6 = menu_item_register((int)param_1->field_0x0);
         uVar2 = *(uint16_t *)(iVar8 * 2 + -0x7ffe2ecc);
         pcVar4 = *(code **)(*(int *)(iVar6 + 0xc) + 0xf4);
         sVar1 = *(short *)(*(int *)(iVar6 + 0xc) + 0xf0);
         *(uint16_t *)(puVar9 + 2) = 0x18;
         *(uint16_t *)(puVar9 + 6) = 0x30;
         (*pcVar4)(sVar1 + iVar6,2,uVar2,0x120);
-        (**(code **)(*(int *)(iVar6 + 0xc) + 0xc))(iVar6 + *(short *)(*(int *)(iVar6 + 0xc) + 8),1);
+        (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[1].fn)(iVar6 + *(short *)(*(int *)(iVar6 + 0xc) + 8),1);
         break;
       }
       iVar6 = iVar6 + 2;
       iVar8 = iVar8 + 1;
     } while (iVar6 < 0x32);
   }
-  piVar7 = param_1;
-  if (param_1[5] == 0x11) {
-    *(uint8_t *)((int)param_1 + 0x2a) = 1;
-    *(uint8_t *)((int)param_1 + 0x29) = 0x50;
-    piVar7 = (int *)0x0;
+  pcVar7 = param_1;
+  if (*(int *)&param_1->field_0x14 == 0x11) {
+    *(uint8_t *)&param_1->field_0x2a = 1;
+    param_1->field_0x29 = 'P';
+    pcVar7 = (cls_1059dd24 *)0x0;
   }
-  if (param_1[5] == 0xc) {
-    piVar7 = (int *)get_or_init_sram_object_104248cc();
+  if (*(int *)&param_1->field_0x14 == 0xc) {
+    pcVar7 = (cls_1059dd24 *)get_or_init_sram_object_104248cc();
   }
-  iVar6 = param_1[5];
+  iVar6 = *(int *)&param_1->field_0x14;
   if ((((iVar6 == 7) || (iVar6 == 0)) || (iVar6 == 1)) || (iVar6 == 3)) {
-    *(uint8_t *)((int)param_1 + 0x29) = 0x8c;
-    piVar7 = (int *)0x0;
+    param_1->field_0x29 = -0x74;
+    pcVar7 = (cls_1059dd24 *)0x0;
   }
-  if ((param_1[5] == 0x19) || (param_1[5] == 9)) {
-    *(uint8_t *)((int)param_1 + 0x29) = 0x50;
-    piVar7 = (int *)0x0;
+  if ((*(int *)&param_1->field_0x14 == 0x19) || (*(int *)&param_1->field_0x14 == 9)) {
+    param_1->field_0x29 = 'P';
+    pcVar7 = (cls_1059dd24 *)0x0;
   }
-  if (param_1[5] == 0x18) {
-    *(uint8_t *)((int)param_1 + 0x29) = 0xb4;
-    piVar7 = (int *)0x0;
+  if (*(int *)&param_1->field_0x14 == 0x18) {
+    param_1->field_0x29 = -0x4c;
+    pcVar7 = (cls_1059dd24 *)0x0;
   }
-  if (param_1[5] == 0x2c) {
-    *(uint8_t *)((int)param_1 + 0x29) = 0x8c;
-    piVar7 = (int *)0x0;
+  if (*(int *)&param_1->field_0x14 == 0x2c) {
+    param_1->field_0x29 = -0x74;
+    pcVar7 = (cls_1059dd24 *)0x0;
   }
-  if (param_1[5] == 10) {
-    *(uint8_t *)((int)param_1 + 0x29) = 200;
-    piVar7 = (int *)0x0;
+  if (*(int *)&param_1->field_0x14 == 10) {
+    param_1->field_0x29 = -0x38;
+    pcVar7 = (cls_1059dd24 *)0x0;
   }
-  return piVar7;
+  return pcVar7;
 }

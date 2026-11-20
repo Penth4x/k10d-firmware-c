@@ -24,7 +24,7 @@ void get_task_state_or_current(int param_1,uint32_t *param_2)
   uint32_t uVar1;
   
   if (param_1 == _DAT_6a003758) {
-    uVar1 = (*(uint32_t (*)())0x1000d3ca/*ROM*/)();
+    uVar1 = (*(code *)0x1000d3ca/*ROM*/)();
     *param_2 = uVar1;
   }
   else {

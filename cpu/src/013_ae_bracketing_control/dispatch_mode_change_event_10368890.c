@@ -14,7 +14,7 @@ uint32_t dispatch_mode_change_event_10368890(void *param_1,uint32_t param_2)
 {
   bool bVar3;
   char cVar4;
-  uint8_t uVar5;
+  byte bVar5;
   int iVar1;
   char cVar6;
   uint32_t uVar2;
@@ -39,8 +39,8 @@ uint32_t dispatch_mode_change_event_10368890(void *param_1,uint32_t param_2)
         return 1;
       }
 LAB_10368a2c:
-      uVar5 = read_byte_at_offset_five_1051e924((int)param_1 + 0x1c);
-      set_index_and_dispatch_event((int)param_1 + 0x6c,uVar5);
+      bVar5 = read_byte_at_offset_five_1051e924((int)param_1 + 0x1c);
+      set_index_and_dispatch_event((cls_10558e74 *)((int)param_1 + 0x6c),(uint)bVar5);
       init_struct_and_set_offset_field(param_1);
       return 1;
     }

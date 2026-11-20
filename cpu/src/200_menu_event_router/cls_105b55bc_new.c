@@ -19,9 +19,9 @@ uint32_t * cls_105b55bc_new(uint32_t *param_1,uint32_t param_2)
     cls_1059e478_new(param_1);
     *param_1 = 0x105b55bc/*ROM*/;
     param_1[1] = param_2;
-    cls_105a2af8_new(param_1 + 2);
-    cls_105a2bf8_new(param_1 + 4);
-    cls_105a2bf8_new(param_1 + 6);
+    cls_105a2af8_new((void *)(param_1 + 2));
+    cls_105a2bf8_new((void *)(param_1 + 4));
+    cls_105a2bf8_new((void *)(param_1 + 6));
     wait_flg_obj(param_1 + 2,0);
     forward_three_args_to_helper_10459edc(param_1 + 4,1,1);
     forward_three_args_to_helper_10459edc(param_1 + 6,1,1);

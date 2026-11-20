@@ -11,6 +11,6 @@
 void get_block_from_pool_two(void *param_1)
 
 {
-  mempool_get_block((void *)_DAT_8004907c/*SDRAM*/,param_1,2);
+  mempool_get_block((void *)(_DAT_8004907c/*SDRAM*/),(void *)(param_1),(int)(2));
   return;
 }

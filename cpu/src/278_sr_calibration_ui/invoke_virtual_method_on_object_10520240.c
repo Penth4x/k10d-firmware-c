@@ -6,17 +6,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_method_on_object_10520240(int param_1)
+void invoke_virtual_method_on_object_10520240(cls_105d70a0 *param_1)
 
 {
   int iVar1;
   uint32_t in_stack_00000000;
   
-  *(uint32_t *)(param_1 + 4) = in_stack_00000000;
-  (*(code *)0x104ad2ea/*ROM*/)(*(uint32_t *)(param_1 + 0x10),param_1 + 8,1,0);
-  iVar1 = **(int **)(param_1 + 4);
-  (**(code **)(iVar1 + 0x44))
-            ((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar1 + 0x40),1,
-             *(uint32_t *)(param_1 + 0x10));
+  param_1->field_0x4 = in_stack_00000000;
+  (*(code *)0x104ad2ea/*ROM*/)(param_1->field_0x10,&param_1->field_0x8,1,0);
+  iVar1 = *(int *)param_1->field_0x4;
+  (((vtbl_entry*)(iVar1))[8].fn)
+            ((int)param_1->field_0x4 + (int)((vtbl_entry*)(iVar1))[8].adj,1,param_1->field_0x10);
   return;
 }

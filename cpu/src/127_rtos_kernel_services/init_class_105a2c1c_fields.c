@@ -30,11 +30,11 @@ void init_class_105a2c1c_fields(uint32_t param_1,void *param_2,void *param_3,voi
   short sStack_1e;
   
   console_printf((void *)0x105a2c34/*ROM*/,param_2,param_3,param_4);
-  initialize_timeout_queue_node_10010304((void *)auStack_22);
+  initialize_timeout_queue_node_10010304(auStack_22);
   pvVar2 = (void *)0x2;
   if (2 < sStack_1e) {
     do {
-      iVar1 = get_task_status_info((int)(short)pvVar2,(void *)auStack_48);
+      iVar1 = get_task_status_info((int)(short)pvVar2,auStack_48);
       if (iVar1 == 0) {
         if (*piStack_28 == 0x5aa55aa5) {
           console_printf((void *)0x105a2c94/*ROM*/,pvVar2,(void *)(int)sStack_46,param_4);

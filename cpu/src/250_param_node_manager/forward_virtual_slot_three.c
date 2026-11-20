@@ -13,9 +13,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void forward_virtual_slot_three(void)
+/* WARNING: Struct "cls_105bb314": ignoring overlapping field "field_0x8" */
+/* WARNING: Struct "cls_105bb0ec": ignoring overlapping field "field_0x8" */
+
+void forward_virtual_slot_three(cls_105bb314 *param_1)
 
 {
-  check_field_at_offset_0x70(__frv_reg_unset(4));
+  check_field_at_offset_0x70((cls_105bb0ec *)param_1);
   return;
 }

@@ -13,7 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_helper_with_zero_arg_1043be8a(void *param_1)
+/* WARNING: Struct "cls_105a04cc": ignoring multiple overlapping fields */
+
+uint32_t call_helper_with_zero_arg_1043be8a(cls_105a04cc *param_1)
 
 {
   set_flag_via_helper(param_1,0);

@@ -6,7 +6,7 @@
  *   argument.
  * summary:
  *   This function is a thin wrapper that dereferences the input pointer and passes the
- *   resulting value to deactivate_display_mode. It performs no other operations or state
+ *   resulting value to deactivate_display_state. It performs no other operations or state
  *   changes. The specific role of the callee is unknown, so the wrapper's behavior is
  *   described mechanically.
  * @end */
@@ -17,6 +17,6 @@
 void call_single_helper_with_arg(int *param_1)
 
 {
-  deactivate_display_mode(*param_1);
+  deactivate_display_state(*param_1);
   return;
 }

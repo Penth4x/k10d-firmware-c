@@ -22,7 +22,7 @@ uint32_t invoke_virtual_slot_5_104bee64(int param_1)
   int iVar2;
   
   iVar2 = **(int **)(param_1 + 0x488);
-  uVar1 = (**(code **)(iVar2 + 0x34))
-                    ((int)*(int **)(param_1 + 0x488) + (int)*(short *)(iVar2 + 0x30));
+  uVar1 = (((vtbl_entry*)(iVar2))[6].fn)
+                    ((int)*(int **)(param_1 + 0x488) + (int)((vtbl_entry*)(iVar2))[6].adj);
   return uVar1;
 }

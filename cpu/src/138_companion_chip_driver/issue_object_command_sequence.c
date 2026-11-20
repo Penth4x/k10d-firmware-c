@@ -22,12 +22,12 @@ uint32_t issue_object_command_sequence(int *param_1,void *param_2,int param_3)
   uint32_t uVar2;
   void *pvVar3;
   
-  (**(code **)(*param_1 + 0x4c))
-            ((int)*(short *)(*param_1 + 0x48) + (int)param_1,0,param_3 != 0,0xff);
-  cpucom_msg_set_cmd((void *)param_1[6],DAT_105a71f2/*ROM*/);
+  (((vtbl_entry*)(*param_1))[9].fn)
+            ((int)((vtbl_entry*)(*param_1))[9].adj + (int)param_1,0,param_3 != 0,0xff);
+  cpucom_msg_set_cmd((void*)(param_1[6]),DAT_105a71f2/*ROM*/);
   cpucom_resp_set_insize((void *)param_1[6],(uint)DAT_105a71f3/*ROM*/);
   pvVar3 = (void *)param_1[6];
-  pvVar1 = (void *)(**(code **)(*param_1 + 0x6c))((int)*(short *)(*param_1 + 0x68) + (int)param_1);
+  pvVar1 = (void *)(((vtbl_entry*)(*param_1))[13].fn)((int)((vtbl_entry*)(*param_1))[13].adj + (int)param_1);
   set_ptr_if_field_is_null(pvVar3,pvVar1);
   set_object_field_at_offset_0x14((void *)param_1[6],param_2);
   write_word_at_offset_16((void *)param_1[6],0x104000e);

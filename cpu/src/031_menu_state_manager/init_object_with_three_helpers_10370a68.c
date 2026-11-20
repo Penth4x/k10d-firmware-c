@@ -20,7 +20,7 @@ void init_object_with_three_helpers_10370a68(void *param_1)
 {
   *(uint32_t *)((int)param_1 + 0x14) = 0;
   call_helper_on_struct_field_1036c46c();
-  compute_and_send_two_channel_offsets((int)param_1 + 0x18);
-  call_helper_on_struct_field_1036c41a(param_1,(void *)((int)param_1 + 0x18),1);
+  compute_and_send_two_channel_offsets((cls_1055a164 *)((int)param_1 + 0x18));
+  call_helper_on_struct_field_1036c41a(param_1,(cls_1055a164 *)((int)param_1 + 0x18),1);
   return;
 }

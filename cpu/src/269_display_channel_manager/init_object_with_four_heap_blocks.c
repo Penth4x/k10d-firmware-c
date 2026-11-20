@@ -16,104 +16,104 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_with_four_heap_blocks(void *param_1)
+uint32_t init_object_with_four_heap_blocks(cls_105d5584 *param_1)
 
 {
   void *pvVar1;
   uint32_t uVar2;
   
-  alloc_pool_and_init_task((int *)((int)param_1 + 0xc),0x10,0x1000,4);
-  wait_flg_obj((void *)((int)param_1 + 0x68),0);
-  forward_three_args_to_helper_10459d64((void *)((int)param_1 + 0x60),1,0x1f);
-  *(int *)(*(int *)((int)param_1 + 0x28) + 0x6c) = (int)param_1 + 4;
+  alloc_pool_and_init_task((int *)&param_1->field_0xc,0x10,0x1000,4);
+  wait_flg_obj(&param_1->field_0x68,0);
+  forward_three_args_to_helper_10459d64(&param_1->field_0x60,1,0x1f);
+  *(void ***)(param_1->field_0x28 + 0x6c) = &param_1->field_0x4;
   pvVar1 = (void *)get_system_heap();
   uVar2 = mempool_get_block(pvVar1,(void *)0xe1180,0);
-  *(uint32_t *)((int)param_1 + 0x5c) = uVar2;
+  param_1->field_0x5c = uVar2;
   pvVar1 = (void *)heap_alloc((void *)0x142);
-  if (pvVar1 == (void *)0x0) {
+  if (pvVar1 == 0) {
     pvVar1 = (void *)0x0;
   }
   else {
     init_0x142_byte_buffer(pvVar1);
   }
-  *(void **)((int)param_1 + 0x70) = pvVar1;
+  param_1->field_0x70 = (uintptr_t)(pvVar1);
   pvVar1 = (void *)heap_alloc((void *)0x142);
-  if (pvVar1 == (void *)0x0) {
+  if (pvVar1 == 0) {
     pvVar1 = (void *)0x0;
   }
   else {
     init_0x142_byte_buffer(pvVar1);
   }
-  *(void **)((int)param_1 + 0x74) = pvVar1;
+  param_1->field_0x74 = (uintptr_t)(pvVar1);
   pvVar1 = (void *)heap_alloc((void *)0x142);
-  if (pvVar1 == (void *)0x0) {
+  if (pvVar1 == 0) {
     pvVar1 = (void *)0x0;
   }
   else {
     init_0x142_byte_buffer(pvVar1);
   }
-  *(void **)((int)param_1 + 0x78) = pvVar1;
+  param_1->field_0x78 = (uintptr_t)(pvVar1);
   pvVar1 = (void *)heap_alloc((void *)0x142);
-  if (pvVar1 == (void *)0x0) {
+  if (pvVar1 == 0) {
     pvVar1 = (void *)0x0;
   }
   else {
     init_0x142_byte_buffer(pvVar1);
   }
-  *(void **)((int)param_1 + 0x7c) = pvVar1;
+  param_1->field_0x7c = (uintptr_t)(pvVar1);
   *(uint16_t *)((int)pvVar1 + 0x140) = 1;
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x7c),0,2,2);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x7c),1,8,6);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x7c),2,0x13,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x7c),3,0xb,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x7c),4,0x13,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x7c),5,0xc,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x7c),6,0x13,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x7c),7,1,2);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x7c),8,0xf,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x7c),9,0x13,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x7c),10,1,0xc);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x7c),0xb,0x14,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x7c),0xc,0x13,0);
-  *(uint16_t *)(*(int *)((int)param_1 + 0x74) + 0x140) = 1;
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x74),0,2,2);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x74),1,8,6);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x74),2,0x13,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x74),3,0xb,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x74),4,0x13,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x74),5,1,2);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x74),6,0x14,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x74),7,0x13,0);
-  *(uint16_t *)(*(int *)((int)param_1 + 0x78) + 0x140) = 1;
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x78),0,2,1);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x78),1,0x1b,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x78),2,0x13,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x78),3,2,2);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x78),4,8,6);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x78),5,0x13,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x78),6,0xb,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x78),7,0x13,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x78),8,0xc,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x78),9,0x13,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x78),10,1,2);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x78),0xb,1,1);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x78),0xc,0xf,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x78),0xd,0x13,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x78),0xe,1,0xc);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x78),0xf,0x14,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x78),0x10,0x13,0);
-  *(uint16_t *)(*(int *)((int)param_1 + 0x70) + 0x140) = 1;
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x70),0,2,1);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x70),1,0x1b,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x70),2,0x13,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x70),3,2,2);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x70),4,8,6);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x70),5,0x13,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x70),6,0xb,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x70),7,0x13,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x70),8,1,2);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x70),9,1,1);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x70),10,0x14,0);
-  write_two_words_to_struct_10513bca(*(void **)((int)param_1 + 0x70),0xb,0x13,0);
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x7c),(int)(0),(uint16_t)(2),(uint16_t)(2));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x7c),(int)(1),(uint16_t)(8),(uint16_t)(6));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x7c),(int)(2),(uint16_t)(0x13),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x7c),(int)(3),(uint16_t)(0xb),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x7c),(int)(4),(uint16_t)(0x13),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x7c),(int)(5),(uint16_t)(0xc),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x7c),(int)(6),(uint16_t)(0x13),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x7c),(int)(7),(uint16_t)(1),(uint16_t)(2));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x7c),(int)(8),(uint16_t)(0xf),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x7c),(int)(9),(uint16_t)(0x13),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x7c),(int)(10),(uint16_t)(1),(uint16_t)(0xc));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x7c),(int)(0xb),(uint16_t)(0x14),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x7c),(int)(0xc),(uint16_t)(0x13),(uint16_t)(0));
+  *(uint16_t *)((int)param_1->field_0x74 + 0x140) = 1;
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x74),(int)(0),(uint16_t)(2),(uint16_t)(2));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x74),(int)(1),(uint16_t)(8),(uint16_t)(6));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x74),(int)(2),(uint16_t)(0x13),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x74),(int)(3),(uint16_t)(0xb),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x74),(int)(4),(uint16_t)(0x13),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x74),(int)(5),(uint16_t)(1),(uint16_t)(2));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x74),(int)(6),(uint16_t)(0x14),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x74),(int)(7),(uint16_t)(0x13),(uint16_t)(0));
+  *(uint16_t *)((int)param_1->field_0x78 + 0x140) = 1;
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x78),(int)(0),(uint16_t)(2),(uint16_t)(1));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x78),(int)(1),(uint16_t)(0x1b),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x78),(int)(2),(uint16_t)(0x13),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x78),(int)(3),(uint16_t)(2),(uint16_t)(2));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x78),(int)(4),(uint16_t)(8),(uint16_t)(6));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x78),(int)(5),(uint16_t)(0x13),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x78),(int)(6),(uint16_t)(0xb),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x78),(int)(7),(uint16_t)(0x13),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x78),(int)(8),(uint16_t)(0xc),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x78),(int)(9),(uint16_t)(0x13),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x78),(int)(10),(uint16_t)(1),(uint16_t)(2));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x78),(int)(0xb),(uint16_t)(1),(uint16_t)(1));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x78),(int)(0xc),(uint16_t)(0xf),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x78),(int)(0xd),(uint16_t)(0x13),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x78),(int)(0xe),(uint16_t)(1),(uint16_t)(0xc));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x78),(int)(0xf),(uint16_t)(0x14),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x78),(int)(0x10),(uint16_t)(0x13),(uint16_t)(0));
+  *(uint16_t *)((int)param_1->field_0x70 + 0x140) = 1;
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x70),(int)(0),(uint16_t)(2),(uint16_t)(1));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x70),(int)(1),(uint16_t)(0x1b),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x70),(int)(2),(uint16_t)(0x13),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x70),(int)(3),(uint16_t)(2),(uint16_t)(2));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x70),(int)(4),(uint16_t)(8),(uint16_t)(6));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x70),(int)(5),(uint16_t)(0x13),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x70),(int)(6),(uint16_t)(0xb),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x70),(int)(7),(uint16_t)(0x13),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x70),(int)(8),(uint16_t)(1),(uint16_t)(2));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x70),(int)(9),(uint16_t)(1),(uint16_t)(1));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x70),(int)(10),(uint16_t)(0x14),(uint16_t)(0));
+  write_two_words_to_struct_10513bca((void *)(param_1->field_0x70),(int)(0xb),(uint16_t)(0x13),(uint16_t)(0));
   return 1;
 }

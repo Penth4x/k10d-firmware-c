@@ -21,13 +21,13 @@ uint32_t query_object_property_byte_104f2294(int param_1)
   uint uVar1;
   uint32_t uVar2;
   uintptr_t sp;
-  uint32_t auStack_24 [7];
+  cls_105a6d8c acStack_24 [7];
   
-  cls_105a6d8c_new(auStack_24);
-  copy_status_block_bytes(*(int *)(param_1 + 8),auStack_24);
-  uVar1 = extract_field_from_struct_1045ff0e((int)auStack_24,0x1b);
+  cls_105a6d8c_new(acStack_24);
+  copy_status_block_bytes(*(int *)(param_1 + 8),acStack_24);
+  uVar1 = extract_field_from_struct_1045ff0e(acStack_24,0x1b);
   uVar2 = get_or_init_heap_block();
   uVar2 = map_mode_code_to_index_1045b5a6(uVar2,uVar1 & 0xff);
-  cls_105a6d8c_delete(auStack_24,2);
+  cls_105a6d8c_delete(acStack_24,2);
   return uVar2;
 }

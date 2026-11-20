@@ -24,7 +24,7 @@ void check_and_trigger_event(int param_1)
   if (((iVar1 == 0) && (iVar1 = check_status_bit1(*(uint32_t *)(param_1 + 0x5c)), iVar1 == 0)) &&
      ((*(int *)(param_1 + 0x1518) == 0 || (*(int *)(param_1 + 0x1518) == 1)))) {
     set_mode_state_flag(param_1,1,0);
-    dispatch_mode_event_request((void *)(param_1 + 0x60),0x130004);
+    dispatch_mode_event_request((cls_105c2050 *)(param_1 + 0x60),0x130004);
   }
   return;
 }

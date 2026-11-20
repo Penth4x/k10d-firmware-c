@@ -6,11 +6,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_object_fields_and_flag_104afde2(int param_1,uint8_t param_2,uint32_t param_3)
+void set_object_fields_and_flag_104afde2(cls_105b7994 *param_1,uint8_t param_2,uint32_t param_3)
 
 {
-  *(uint8_t *)(param_1 + 0x54) = param_2;
-  *(uint32_t *)(param_1 + 0x58) = param_3;
-  set_flg_obj(*(uint32_t **)(param_1 + 0x34));
+  param_1->field_0x54 = param_2;
+  param_1->field_0x58 = param_3;
+  set_flg_obj((void *)param_1->field_0x34);
   return;
 }

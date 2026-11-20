@@ -26,7 +26,7 @@ void dispatch_virtual_event_with_flag(int param_1)
     dispatch_event_with_status(param_1,uVar1);
   }
   iVar2 = **(int **)(param_1 + 0x2c);
-  (**(code **)(iVar2 + 0x14))
-            ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar2 + 0x10),0x1120064,0);
+  (((vtbl_entry*)(iVar2))[2].fn)
+            ((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar2))[2].adj,0x1120064,0);
   return;
 }

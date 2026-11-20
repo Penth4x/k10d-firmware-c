@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_virtual_event_on_child(int param_1,int param_2)
+uint32_t dispatch_virtual_event_on_child(cls_105d6d68 *param_1,int param_2)
 
 {
   short sVar1;
@@ -14,11 +14,11 @@ uint32_t dispatch_virtual_event_on_child(int param_1,int param_2)
   uint32_t uVar3;
   int iVar4;
   
-  if ((param_2 == 0xb) && (piVar2 = *(int **)(param_1 + 0xc), piVar2 != (int *)0x0)) {
+  if ((param_2 == 0xb) && (piVar2 = (int *)param_1->field_0xc, piVar2 != (int *)0x0)) {
     iVar4 = *piVar2;
     sVar1 = *(short *)(iVar4 + 0x18);
-    uVar3 = (*(code *)0x10440f06/*ROM*/)(*(uint32_t *)(param_1 + 8));
-    (**(code **)(iVar4 + 0x1c))((int)sVar1 + (int)piVar2,0x118001,uVar3);
+    uVar3 = (*(code *)0x10440f06/*ROM*/)(param_1->field_0x8);
+    (((vtbl_entry*)(iVar4))[3].fn)((void *)((int)sVar1 + (int)piVar2),0x118001,uVar3);
   }
   return 0;
 }

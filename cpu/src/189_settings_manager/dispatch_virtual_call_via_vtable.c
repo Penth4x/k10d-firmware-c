@@ -22,8 +22,8 @@ void dispatch_virtual_call_via_vtable(int param_1,uint32_t param_2,uint32_t para
   
   (*(code *)0x1048cc66/*ROM*/)(*(uint32_t *)(param_1 + 0x30),param_1 + 4,param_2,param_3);
   iVar1 = *(int *)(*(int *)(param_1 + 0x30) + 0x20);
-  (**(code **)(iVar1 + 0x24))
-            (*(int *)(param_1 + 0x30) + (int)*(short *)(iVar1 + 0x20),param_4,param_5,param_6);
+  (((vtbl_entry*)(iVar1))[4].fn)
+            (*(int *)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[4].adj,param_4,param_5,param_6);
   call_helper_if_field_nonzero_1048d4b2(*(uint32_t *)(param_1 + 0x30),1);
   return;
 }

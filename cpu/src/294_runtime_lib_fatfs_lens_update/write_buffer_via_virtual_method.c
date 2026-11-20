@@ -37,7 +37,7 @@ int write_buffer_via_virtual_method(void *param_1,int param_2,uint param_3,void 
     if (param_3 < *puVar2) {
       uVar5 = param_3;
     }
-    iVar4 = (**(code **)((int)param_1 + 0x58))
+    iVar4 = (((vtbl_entry*)((int)param_1))[11].fn)
                       (*(uint32_t *)((int)param_1 + 0x60),param_2,uVar5,param_4);
     if (iVar4 != 0) break;
     param_2 = param_2 + uVar5;

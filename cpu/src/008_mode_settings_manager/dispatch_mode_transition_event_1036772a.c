@@ -6,12 +6,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-int dispatch_mode_transition_event_1036772a(int *param_1,int *param_2)
+int dispatch_mode_transition_event_1036772a(cls_105579a8 *param_1,int *param_2)
 
 {
   int iVar1;
   uint32_t uVar2;
-  int *piVar3;
+  cls_105579a8 *pcVar3;
   uint32_t uVar4;
   
   if ((*param_2 == 4) || (*param_2 == 5)) {
@@ -23,8 +23,8 @@ int dispatch_mode_transition_event_1036772a(int *param_1,int *param_2)
     }
     goto LAB_10367832;
   }
-  if (param_1[5] != 0) {
-    if (param_1[5] != 3) {
+  if (*(int *)&param_1->field_0x14 != 0) {
+    if (*(int *)&param_1->field_0x14 != 3) {
       return (int)param_1;
     }
     if (param_2[1] != 0x11) {
@@ -32,17 +32,17 @@ int dispatch_mode_transition_event_1036772a(int *param_1,int *param_2)
     }
     goto LAB_10367832;
   }
-  piVar3 = param_1;
-  if (param_1[0x27] == 0) {
+  pcVar3 = param_1;
+  if (param_1->field_0x9c == 0) {
     iVar1 = param_2[1];
     if (iVar1 == 0xc) {
       uVar2 = get_or_create_singleton_object_1036c796();
       uVar4 = 0xd;
 LAB_103677dc:
-      piVar3 = (int *)read_array_element_bounded(uVar2,uVar4);
+      pcVar3 = (cls_105579a8 *)read_array_element_bounded(uVar2,uVar4);
     }
     else if (iVar1 == 0x18) {
-      param_1[0x27] = 1;
+      param_1->field_0x9c = 1;
       call_virtual_slot_8_after_init(param_1);
     }
     else if (iVar1 == 0x11) {
@@ -52,7 +52,7 @@ LAB_103677dc:
       goto LAB_103677dc;
     }
   }
-  else if (param_1[0x27] == 1) {
+  else if (param_1->field_0x9c == 1) {
     iVar1 = param_2[1];
     if (iVar1 != 0xc) {
       if (iVar1 == 0x18) {
@@ -67,21 +67,21 @@ LAB_103677dc:
       }
       goto LAB_103677dc;
     }
-    param_1[0x27] = 0;
+    param_1->field_0x9c = 0;
     call_virtual_slot_8_after_init(param_1);
   }
 LAB_103677e8:
   iVar1 = param_2[1];
   if ((iVar1 == 0x28) || (iVar1 == 0xe)) {
     adjust_and_notify_counter((int)param_1,0);
-    return (int)piVar3;
+    return (int)pcVar3;
   }
   if ((iVar1 == 0x27) || (iVar1 == 0xd)) {
     adjust_and_notify_counter((int)param_1,1);
-    return (int)piVar3;
+    return (int)pcVar3;
   }
   if ((iVar1 != 0x19) && (iVar1 != 9)) {
-    return (int)piVar3;
+    return (int)pcVar3;
   }
 LAB_10367832:
   uVar2 = get_or_create_singleton_object_1036c796();

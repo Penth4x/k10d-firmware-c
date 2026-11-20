@@ -16,18 +16,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-void initialize_object_and_invoke_callback(int param_1)
+void initialize_object_and_invoke_callback(cls_105b44b4 *param_1)
 
 {
   int iVar1;
   int *piVar2;
   
-  iterate_and_dispatch_object_list(__frv_reg_unset(4));
-  activate_object_list_items(param_1);
-  piVar2 = (int *)find_matching_list_entry(param_1);
-  *(int **)(param_1 + 0x60) = piVar2;
+  iterate_and_dispatch_object_list(param_1);
+  activate_object_list_items((cls_105b4ad4 *)param_1);
+  piVar2 = (int *)find_matching_list_entry((int)(param_1));
+  param_1->field_0x60 = (uintptr_t)(piVar2);
   if ((piVar2 != (int *)0x0) && (iVar1 = *piVar2, iVar1 != 0)) {
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0x3c))(*(short *)(*(int *)(iVar1 + 0xc) + 0x38) + iVar1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[7].fn)(((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[7].adj + iVar1);
   }
   return;
 }

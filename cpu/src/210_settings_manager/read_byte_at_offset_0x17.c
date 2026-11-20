@@ -6,8 +6,8 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint8_t read_byte_at_offset_0x17(int param_1)
+uint8_t read_byte_at_offset_0x17(cls_105b71d4 *param_1)
 
 {
-  return *(uint8_t *)(param_1 + 0x17);
+  return param_1->field_0x17;
 }

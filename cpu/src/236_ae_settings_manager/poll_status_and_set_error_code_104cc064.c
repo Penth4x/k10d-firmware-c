@@ -43,7 +43,7 @@ LAB_104cc162:
     }
   }
   else {
-    eventflag_clr_flg((uint32_t *)(param_1 + 0x34),0xffffffff);
+    eventflag_clr_flg((uint32_t *)(param_1 + 0x34),(uint)(0xffffffff));
     iVar2 = call_single_helper_104be79e();
     if (iVar2 != 0) {
       uStack_c = 0;
@@ -55,8 +55,8 @@ LAB_104cc162:
           *(uint32_t *)(param_1 + 0x214) = 0xb;
           *(uint32_t *)(param_1 + 0x210) = 0xc000e;
           iVar2 = **(int **)(param_1 + 0x1c);
-          (**(code **)(iVar2 + 0x14))
-                    ((int)*(int **)(param_1 + 0x1c) + (int)*(short *)(iVar2 + 0x10),0xc000e,0xb);
+          (((vtbl_entry*)(iVar2))[2].fn)
+                    ((int)*(int **)(param_1 + 0x1c) + (int)((vtbl_entry*)(iVar2))[2].adj,0xc000e,0xb);
         }
       }
       bVar3 = (uStack_c & 0x8000000) != 0;

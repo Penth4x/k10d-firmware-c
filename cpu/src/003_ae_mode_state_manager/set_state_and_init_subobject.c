@@ -20,7 +20,7 @@ void set_state_and_init_subobject(void *param_1)
 {
   *(uint32_t *)((int)param_1 + 0x204) = 3;
   call_helper_on_struct_field_1036c46c();
-  compute_and_store_pair_deltas((int)param_1 + 0x1dc);
-  call_helper_on_struct_field_1036c41a(param_1,(void *)((int)param_1 + 0x1dc),1);
+  compute_and_store_pair_deltas((cls_10558a60 *)((int)param_1 + 0x1dc));
+  call_helper_on_struct_field_1036c41a(param_1,(cls_10558a60 *)((int)param_1 + 0x1dc),1);
   return;
 }

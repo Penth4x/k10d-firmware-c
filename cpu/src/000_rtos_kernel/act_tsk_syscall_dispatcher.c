@@ -11,7 +11,7 @@
  *   counter is zero, it calls remove_task_from_timeout_queue_1001166c and act_tsk, likely
  *   to activate the associated task or signal an event. It also manipulates flags at offset
  *   0x06 and calls virtual-like functions via pointers in the event structure. The behavior
- *   is consistent with a kernel timeout or delay queue processor in a µITRON-like RTOS.
+ *   is consistent with a kernel timeout or delay queue processor in a ÂµITRON-like RTOS.
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"
@@ -36,7 +36,7 @@ uint32_t act_tsk_syscall_dispatcher(void)
     _DAT_6a0036c4 = sVar1;
     if (iVar5 == -1) {
 LAB_1000fb04:
-      if (_DAT_6a0036bc != &DAT_6a0036bc) {
+      if (_DAT_6a0036bc != (uint32_t)(&DAT_6a0036bc)) {
         do {
           iVar5 = (int)*(short *)(_DAT_6a0036bc + 0xc);
           if (*(int *)(_DAT_6a0036bc + 8) != 0) {
@@ -45,7 +45,7 @@ LAB_1000fb04:
           }
           if ((*(ushort *)(_DAT_6a0036bc + 0xe) & 8) == 0) {
             iVar2 = iVar5 * 0x1c;
-            insert_into_timeout_queue_10011644(DAT_10011cf4/*ROM*/ + iVar2 + -0x1c);
+            insert_into_timeout_queue_10011644((int *)(DAT_10011cf4/*ROM*/ + iVar2 + -0x1c));
             *(uint32_t *)(DAT_10011cf4/*ROM*/ + iVar2 + -0x14) =
                  *(uint32_t *)(DAT_10011cf4/*ROM*/ + iVar2 + -0xc);
             insert_into_timeout_queue_1000fcd4((uint32_t *)(DAT_10011cf4/*ROM*/ + iVar2 + -0x1c));
@@ -60,7 +60,7 @@ LAB_1000fb04:
           }
           else {
             iVar2 = iVar5 * 0x18;
-            insert_into_timeout_queue_10011644(DAT_10011cf0/*ROM*/ + iVar2 + -0x18);
+            insert_into_timeout_queue_10011644((int *)(DAT_10011cf0/*ROM*/ + iVar2 + -0x18));
             *(int *)(DAT_10011cf0/*ROM*/ + iVar2 + -0x18) = DAT_10011cf0/*ROM*/ + iVar2 + -0x18;
             pcVar4 = *(code **)(iVar2 + DAT_10011cf0/*ROM*/ + -8);
             uVar3 = *(uint32_t *)(iVar2 + DAT_10011cf0/*ROM*/ + -4);
@@ -68,7 +68,7 @@ LAB_1000fb04:
             (*pcVar4)(uVar3);
             lens_fw_update_stub_105370da(iVar5);
           }
-        } while (_DAT_6a0036bc != &DAT_6a0036bc);
+        } while (_DAT_6a0036bc != (uint32_t)(&DAT_6a0036bc));
       }
       return 0;
     }

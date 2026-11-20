@@ -15,7 +15,7 @@ void set_state_two_and_clear_flag(int param_1)
   
   if (*(int *)(param_1 + 0xb8) != 2) {
     iVar3 = *(int *)(*(int *)(param_1 + 0x2c) + 4);
-    (**(code **)(iVar3 + 0x94))(*(int *)(param_1 + 0x2c) + (int)*(short *)(iVar3 + 0x90),1);
+    (((vtbl_entry*)(iVar3))[18].fn)(*(int *)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar3))[18].adj,1);
     *(uint32_t *)(param_1 + 0xb8) = 2;
     pvVar2 = *(void **)(param_1 + 0x44);
     uVar1 = read_bounded_array_element_1051d696(pvVar2,0);

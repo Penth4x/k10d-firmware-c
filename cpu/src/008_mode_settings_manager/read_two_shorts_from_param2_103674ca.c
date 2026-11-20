@@ -38,6 +38,6 @@ void read_two_shorts_from_param2_103674ca(void *param_1,void *param_2)
   uVar1 = read_struct_field_at_offset_4(auStack_28);
   uStack_12 = (short)uVar1;
   free_heap_if_flagged_1045c402(auStack_28,2);
-  register_menu_item_with_data_1037dab4((int)param_1 + 0x20,1,&uStack_20);
+  register_menu_item_with_data_1037dab4((cls_10558c04 *)((int)param_1 + 0x20),1,&uStack_20);
   return;
 }

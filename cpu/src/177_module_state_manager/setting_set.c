@@ -2,11 +2,12 @@
  * name: verified (structural evidence: decomp: field_setter on obj+0x14 and *(obj+0xc); emulator: language OK writes 0xa9 -> +0x141)
  * unit: 177_module_state_manager (unit names are model-proposed)
  * purpose:
- *   Writes setting param_2 = param_3 into both the working copy and the master settings
- *   block.
+ *   Writes a value to two fields of a struct via a helper function.
  * summary:
- *   VERIFIED: decomp: field_setter on obj+0x14 and *(obj+0xc); emulator: language OK writes
- *   0xa9 -> +0x141
+ *   The function calls field_setter twice. The first call targets the field at offset 0x14
+ *   of the struct pointed to by param_1. The second call targets the field at the address
+ *   stored in the field at offset 0xc of the struct. Both calls pass param_2 and param_3 as
+ *   the second and third arguments respectively.
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"

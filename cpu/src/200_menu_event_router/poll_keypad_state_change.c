@@ -17,7 +17,7 @@
     */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-bool poll_keypad_state_change(int param_1,int param_2)
+bool poll_keypad_state_change(cls_105b5410 *param_1,int param_2)
 
 {
   int iVar1;
@@ -29,30 +29,30 @@ bool poll_keypad_state_change(int param_1,int param_2)
   if (param_2 - 0x22U < 0xc) {
     switch(param_2) {
     case 0x22:
-      iVar1 = extract_status_bitfield((void *)(param_1 + 4),0x16);
+      iVar1 = extract_status_bitfield(&param_1->field_0x4,0x16);
       if (_DAT_8001051c/*SDRAM*/ != iVar1) {
         bVar3 = _DAT_8001051c/*SDRAM*/ != 0xffff;
         _DAT_8001051c/*SDRAM*/ = iVar1;
       }
       break;
     case 0x23:
-      iVar1 = extract_status_bitfield((void *)(param_1 + 4),0x1a);
+      iVar1 = extract_status_bitfield(&param_1->field_0x4,0x1a);
       if (_DAT_80010520/*SDRAM*/ != iVar1) {
         bVar3 = _DAT_80010520/*SDRAM*/ != 0xffff;
         _DAT_80010520/*SDRAM*/ = iVar1;
       }
       break;
     case 0x24:
-      iVar1 = extract_status_bitfield((void *)(param_1 + 4),0x20);
+      iVar1 = extract_status_bitfield(&param_1->field_0x4,0x20);
       if (_DAT_80010524/*SDRAM*/ != iVar1) {
         bVar3 = _DAT_80010524/*SDRAM*/ != 0xffff;
         _DAT_80010524/*SDRAM*/ = iVar1;
       }
       break;
     case 0x25:
-      iVar1 = check_status_item_asserted(param_1,0x29);
+      iVar1 = check_status_item_asserted((int)(param_1),(int)(0x29));
       if (iVar1 != 0) {
-        iVar1 = extract_status_bitfield((void *)(param_1 + 4),0x29);
+        iVar1 = extract_status_bitfield(&param_1->field_0x4,0x29);
         if (iVar1 < 1) {
           bVar3 = false;
         }
@@ -62,9 +62,9 @@ bool poll_keypad_state_change(int param_1,int param_2)
       }
       break;
     case 0x26:
-      iVar1 = check_status_item_asserted(param_1,0x29);
+      iVar1 = check_status_item_asserted((int)(param_1),(int)(0x29));
       if (iVar1 != 0) {
-        iVar1 = extract_status_bitfield((void *)(param_1 + 4),0x29);
+        iVar1 = extract_status_bitfield(&param_1->field_0x4,0x29);
         if (iVar1 < 0) {
           bVar3 = true;
         }
@@ -74,9 +74,9 @@ bool poll_keypad_state_change(int param_1,int param_2)
       }
       break;
     case 0x27:
-      iVar1 = check_status_item_asserted(param_1,0x2a);
+      iVar1 = check_status_item_asserted((int)(param_1),(int)(0x2a));
       if (iVar1 != 0) {
-        iVar1 = extract_status_bitfield((void *)(param_1 + 4),0x2a);
+        iVar1 = extract_status_bitfield(&param_1->field_0x4,0x2a);
         if (iVar1 < 1) {
           bVar3 = false;
         }
@@ -86,9 +86,9 @@ bool poll_keypad_state_change(int param_1,int param_2)
       }
       break;
     case 0x28:
-      iVar1 = check_status_item_asserted(param_1,0x2a);
+      iVar1 = check_status_item_asserted((int)(param_1),(int)(0x2a));
       if (iVar1 != 0) {
-        iVar1 = extract_status_bitfield((void *)(param_1 + 4),0x2a);
+        iVar1 = extract_status_bitfield(&param_1->field_0x4,0x2a);
         if (iVar1 < 0) {
           bVar3 = true;
         }
@@ -98,21 +98,21 @@ bool poll_keypad_state_change(int param_1,int param_2)
       }
       break;
     case 0x29:
-      iVar1 = extract_status_bitfield((void *)(param_1 + 4),0x2e);
+      iVar1 = extract_status_bitfield(&param_1->field_0x4,0x2e);
       if (_DAT_80010518/*SDRAM*/ != iVar1) {
         bVar3 = _DAT_80010518/*SDRAM*/ != 0xffff;
         _DAT_80010518/*SDRAM*/ = iVar1;
       }
       break;
     case 0x2a:
-      iVar1 = extract_status_bitfield((void *)(param_1 + 4),8);
+      iVar1 = extract_status_bitfield(&param_1->field_0x4,8);
       if (_DAT_80010528/*SDRAM*/ != iVar1) {
         bVar3 = _DAT_80010528/*SDRAM*/ != 0xffff;
         _DAT_80010528/*SDRAM*/ = iVar1;
       }
       break;
     case 0x2b:
-      iVar1 = extract_status_bitfield((void *)(param_1 + 4),0x2f);
+      iVar1 = extract_status_bitfield(&param_1->field_0x4,0x2f);
       if (_DAT_8001052c/*SDRAM*/ != iVar1) {
         bVar3 = _DAT_8001052c/*SDRAM*/ != 0xffff;
         _DAT_8001052c/*SDRAM*/ = iVar1;
@@ -124,17 +124,17 @@ bool poll_keypad_state_change(int param_1,int param_2)
         _DAT_80010530/*SDRAM*/ = 0xffff;
       }
       else {
-        iVar1 = extract_status_bitfield((void *)(param_1 + 4),0x31);
+        iVar1 = extract_status_bitfield(&param_1->field_0x4,0x31);
         if (_DAT_80010530/*SDRAM*/ != iVar1) {
           bVar3 = _DAT_80010530/*SDRAM*/ != 0xffff;
           _DAT_80010530/*SDRAM*/ = iVar1;
           uVar2 = get_or_init_sram_block_105342fe();
-          write_field_by_id((void *)uVar2,0x2c,_DAT_80010530/*SDRAM*/);
+          write_field_by_id((uint32_t *)(uVar2),(int)(0x2c),(uint32_t)(_DAT_80010530/*SDRAM*/));
         }
       }
       break;
     case 0x2d:
-      iVar1 = extract_status_bitfield((void *)(param_1 + 4),0x32);
+      iVar1 = extract_status_bitfield(&param_1->field_0x4,0x32);
       if (_DAT_80010540/*SDRAM*/ != iVar1) {
         bVar3 = _DAT_80010540/*SDRAM*/ != 0xffff;
         _DAT_80010540/*SDRAM*/ = iVar1;

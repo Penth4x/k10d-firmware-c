@@ -215,7 +215,7 @@ uint32_t step_mode_parameter_value(void *param_1,int param_2)
       *(uint8_t *)((int)param_1 + 100) = 1;
     }
 LAB_10372010:
-    set_setting_0x82((void *)0x800158d4/*SDRAM*/,*(uint8_t *)((int)param_1 + 100));
+    set_setting_0x82((int *)(0x800158d4/*SDRAM*/),(uint32_t)(*(uint8_t *)((int)param_1 + 100)));
     return 1;
   case 1:
     cVar2 = *(char *)((int)param_1 + 0x65);
@@ -229,7 +229,7 @@ LAB_10372010:
       *(uint8_t *)((int)param_1 + 0x65) = 1;
     }
 LAB_10372052:
-    set_setting_0x83((void *)0x800158d4/*SDRAM*/,*(uint8_t *)((int)param_1 + 0x65));
+    set_setting_0x83((int *)(0x800158d4/*SDRAM*/),(uint32_t)(*(uint8_t *)((int)param_1 + 0x65)));
     return 1;
   case 2:
     iVar3 = read_field_at_offset_0x4a8((int)param_1);
@@ -292,7 +292,7 @@ LAB_10372052:
     cVar2 = *(char *)((int)param_1 + 0x67) + -1;
 LAB_1037213e:
     *(char *)((int)param_1 + 0x67) = cVar2;
-    set_setting_0x84((void *)0x800158d4/*SDRAM*/,cVar2);
+    set_setting_0x84((int *)(0x800158d4/*SDRAM*/),(uint32_t)(cVar2));
     return 1;
   case 4:
     if (*(char *)((int)param_1 + 0x68) == '\0') {

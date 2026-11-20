@@ -35,16 +35,16 @@ allocate_cpucom_transaction_context(uint32_t *param_1,uint32_t param_2,uint32_t 
     param_1[0x10] = 0;
     param_1[0x11] = 0;
     if (param_1[3] != 0) {
-      uVar2 = (uint32_t)heap_alloc_2(param_1[3]);
+      uVar2 = heap_alloc_2(param_1[3]);
       param_1[2] = uVar2;
       pvVar3 = (void *)heap_alloc((void *)8);
-      if (pvVar3 == (void *)0x0) {
+      if (pvVar3 == 0) {
         pvVar3 = (void *)0x0;
       }
       else {
         cls_105a2be0_new(pvVar3);
       }
-      param_1[0xf] = (uint32_t)pvVar3;
+      param_1[0xf] = (uintptr_t)(pvVar3);
       forward_three_args_to_helper_10459d64(pvVar3,1,0x1f);
       iVar1 = 0;
       if (0 < (int)param_1[3]) {
@@ -55,16 +55,16 @@ allocate_cpucom_transaction_context(uint32_t *param_1,uint32_t param_2,uint32_t 
       }
     }
     if (param_1[5] != 0) {
-      uVar2 = (uint32_t)heap_alloc_2(param_1[5]);
+      uVar2 = heap_alloc_2(param_1[5]);
       param_1[4] = uVar2;
       pvVar3 = (void *)heap_alloc((void *)8);
-      if (pvVar3 == (void *)0x0) {
+      if (pvVar3 == 0) {
         pvVar3 = (void *)0x0;
       }
       else {
         cls_105a2be0_new(pvVar3);
       }
-      param_1[0x10] = (uint32_t)pvVar3;
+      param_1[0x10] = (uintptr_t)(pvVar3);
       forward_three_args_to_helper_10459d64(pvVar3,1,0x1f);
       iVar1 = 0;
       if (0 < (int)param_1[5]) {

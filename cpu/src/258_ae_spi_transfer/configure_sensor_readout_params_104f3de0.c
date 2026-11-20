@@ -162,7 +162,7 @@ LAB_104f40b0:
     set_bit15_of_dat_40100d00(*(uint32_t *)(param_1 + 0x10), __frv_reg_unset(5));
     write_mmio_control_word(*(uint32_t *)(param_1 + 0x10),*(uint16_t *)((int)param_3 + 0x3a),
                  *(uint16_t *)(param_3 + 0xf));
-    write_masked_shorts_to_mmio_block(*(uint32_t *)(param_1 + 0x10),(void *)param_3[0x10],(void *)param_3[0x11]);
+    write_masked_shorts_to_mmio_block((uint32_t)(*(uint32_t *)(param_1 + 0x10)),(ushort *)(param_3[0x10]),(ushort *)(param_3[0x11]));
   }
   set_irq_enable_bit(*(int *)(param_1 + 0x14),-0x7fffffff,0x300);
   set_dat_40128200_flag(*(uint32_t *)(param_1 + 0xc),1);

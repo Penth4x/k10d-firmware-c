@@ -89,7 +89,7 @@ LAB_1054610e:
   }
   if ((uStack_24 == 0) && (*pbVar11 != 0x25)) {
     puVar2 = (uint32_t *)*param_3;
-    *param_3 = puVar2 + 1;
+    *param_3 = (uintptr_t)(puVar2 + 1);
     puStack_54 = (uint *)*puVar2;
   }
   bVar5 = *pbVar11;
@@ -137,7 +137,7 @@ LAB_105462cc:
         pbStack_50 = pbStack_4c + 1;
       }
       pbStack_50 = (byte *)((int)pbStack_50 - (int)pbVar9);
-      if ((iStack_2c == 0) || (pbStack_50 < caller_r9)) {
+      if ((iStack_2c == 0) || ((uint32_t)(pbStack_50) < caller_r9)) {
         caller_r9 = (uint)pbStack_50;
       }
     }
@@ -147,7 +147,7 @@ LAB_105462cc:
         caller_r9 = 1;
       }
       pbStack_50 = (byte *)count_string_bytes((char *)pbVar9);
-      if (pbStack_50 < caller_r9) {
+      if ((uint32_t)(pbStack_50) < caller_r9) {
         return 0xffffffff;
       }
     }
@@ -189,7 +189,7 @@ LAB_105461f8:
             pbStack_50 = pbStack_50 + 1) {
         }
         pbStack_50 = (byte *)((int)pbStack_50 - (int)pbVar9);
-        if ((iStack_2c == 0) || (pbStack_50 < caller_r9)) {
+        if ((iStack_2c == 0) || ((uint32_t)(pbStack_50) < caller_r9)) {
           caller_r9 = (uint)pbStack_50;
         }
         goto LAB_1054636a;
@@ -420,7 +420,7 @@ LAB_1054648e:
       else {
         pbStack_50 = (byte *)((*pbVar9 & 0xdf) - 0x37);
       }
-      if (uStack_3c <= pbStack_50) break;
+      if (uStack_3c <= (uint32_t)(pbStack_50)) break;
       uStack_30 = uStack_30 * uStack_3c + (int)pbStack_50;
       caller_r9 = caller_r9 - 1;
     }

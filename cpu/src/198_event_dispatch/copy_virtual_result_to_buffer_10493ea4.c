@@ -16,7 +16,7 @@ void copy_virtual_result_to_buffer_10493ea4(void *param_1,int *param_2)
   uint8_t local_14 [8];
   
   iVar1 = *(int *)(*param_2 + 0x20);
-  (**(code **)(iVar1 + 0x2c))(local_14,*param_2 + (int)*(short *)(iVar1 + 0x28));
+  (((vtbl_entry*)(iVar1))[5].fn)(local_14,*param_2 + (int)((vtbl_entry*)(iVar1))[5].adj);
   iVar1 = 8;
   do {
     iVar2 = iVar1 + -4;

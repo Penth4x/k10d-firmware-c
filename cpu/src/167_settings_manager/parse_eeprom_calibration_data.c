@@ -108,7 +108,7 @@ uint32_t parse_eeprom_calibration_data(int param_1,void *param_2)
                 if (iVar2 != 0) {
                   return 0;
                 }
-                uVar5 = iterate_string_table_entries(*(uint32_t *)(param_1 + 0xea50),(void *)((int)pvStack_4 + 8));
+                uVar5 = iterate_string_table_entries((uint32_t)(*(uint32_t *)(param_1 + 0xea50)),(void *)((int)pvStack_4 + 8));
                 *(uint8_t *)((int)psVar7 + 7) = uVar5;
                 iVar2 = (*(code *)0x105309be/*ROM*/)
                                   (*(uint32_t *)(param_1 + 0xea50),

@@ -18,7 +18,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int * initialize_object_with_virtual_call_1036927e(int *param_1)
+cls_10557b38 * initialize_object_with_virtual_call_1036927e(cls_10557b38 *param_1)
 
 {
   int iVar1;
@@ -30,15 +30,16 @@ int * initialize_object_with_virtual_call_1036927e(int *param_1)
     store_mode_flag_at_offset_0x2ac(param_1);
     update_viewfinder_overlay_params(param_1);
     init_object_state_from_ram_flags(param_1);
-    (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1);
+    (((vtbl_entry*)(param_1->field_0x0))[8].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[8].adj);
     init_object_with_two_ids_1036a3ce(param_1);
-    request_ui_sync_code_4(param_1 + 5);
-    iVar1 = check_setting_0x72_enabled((void *)0x800158d4/*SDRAM*/);
+    request_ui_sync_code_4(&param_1->field_0x14);
+    iVar1 = check_setting_0x72_enabled((int *)(0x800158d4/*SDRAM*/));
     dispatch_state_update(param_1,iVar1);
   }
   else {
     uVar2 = get_or_create_singleton_object_1036c796();
-    param_1 = (int *)read_array_element_bounded(uVar2,1);
+    param_1 = (cls_10557b38 *)read_array_element_bounded(uVar2,1);
   }
   return param_1;
 }

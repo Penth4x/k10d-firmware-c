@@ -15,12 +15,12 @@ uint32_t iterate_list_and_notify(int param_1,int param_2)
   int iVar4;
   
   iVar1 = (*(code *)0x10476d2e/*ROM*/)(*(uint32_t *)(param_1 + 0xc));
-  (**(code **)(*(int *)(param_2 + 0xc) + 0x24))
-            (*(short *)(*(int *)(param_2 + 0xc) + 0x20) + param_2);
+  (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[4].fn)
+            (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[4].adj + param_2);
   iVar4 = iVar1;
   do {
     piVar2 = (int *)read_field_at_offset_c(*(int *)(param_1 + 0xc));
-    iVar3 = (**(code **)(*piVar2 + 0x14))((int)piVar2 + (int)*(short *)(*piVar2 + 0x10));
+    iVar3 = (((vtbl_entry*)(*piVar2))[2].fn)((int)piVar2 + (int)((vtbl_entry*)(*piVar2))[2].adj);
     if (iVar3 != 0) {
       (*(code *)0x1047e50c/*ROM*/)(param_2,iVar4,1);
     }

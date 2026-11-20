@@ -53,7 +53,7 @@ uint32_t configure_mode_state_and_dispatch(int param_1,void *param_2,int param_3
     *(uint32_t *)(param_1 + 0x48c) = 1;
     *(uint32_t *)(param_1 + 0x490) = 3;
   }
-  if (param_2 == (void *)0x0) {
+  if (param_2 == 0) {
     bVar3 = invoke_object_method_and_reset_flag(param_1,(void *)(param_1 + 0x48c));
     uVar1 = 0;
     if (bVar3) {

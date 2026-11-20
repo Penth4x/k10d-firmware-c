@@ -17,28 +17,28 @@
 #include "globals.h"
 #include "funcs.h"
 
-void register_menu_item_with_flags(int *param_1,ushort param_2)
+void register_menu_item_with_flags(cls_10595818 *param_1,ushort param_2)
 
 {
   int iVar1;
   int iVar2;
   
   iVar1 = get_or_create_singleton_object_1050b118();
-  *(int **)(iVar1 + 0x58) = param_1 + 5;
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0x74))(*(short *)(*(int *)(iVar1 + 0xc) + 0x70) + iVar1,0);
-  *(ushort *)(param_1 + 3) = param_2;
+  *(void ***)(iVar1 + 0x58) = &param_1->field_0x14;
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].fn)(((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].adj + iVar1,0);
+  param_1->field_0xc = param_2;
   if ((param_2 & 2) != 2) {
     iVar2 = get_or_create_singleton_object_1050b118();
     iVar2 = get_field_at_offset_0x28(iVar2);
     if (iVar2 == 0) {
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0x74))
-                (*(short *)(*(int *)(iVar1 + 0xc) + 0x70) + iVar1,1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].fn)
+                (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].adj + iVar1,1);
     }
     else {
-      *(uint8_t *)((int)param_1 + 0x27) = 1;
+      param_1->field_0x27 = 1;
     }
   }
-  check_mode_transition_validity(param_1,0);
+  check_mode_transition_validity(&param_1->field_0x0,0);
   return;
 }

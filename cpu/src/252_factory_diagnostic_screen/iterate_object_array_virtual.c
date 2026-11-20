@@ -36,17 +36,17 @@ uint32_t iterate_object_array_virtual(int param_1,uint32_t param_2,uint32_t para
          (iVar1 = (*(code *)0x104e3858/*ROM*/)(), iVar1 != 0)) {
         iVar1 = *(int *)(*(int *)(param_1 + 0x40) + iVar3);
         iVar6 = *(int *)(iVar1 + 0x18);
-        iVar1 = (**(code **)(iVar6 + 0x1c))(iVar1 + *(short *)(iVar6 + 0x18));
+        iVar1 = (((vtbl_entry*)(iVar6))[3].fn)(iVar1 + ((vtbl_entry*)(iVar6))[3].adj);
         if (iVar1 != 0) {
           iVar5 = iVar5 + 1;
         }
         iVar1 = *(int *)(*(int *)(param_1 + 0x40) + iVar3);
         iVar6 = *(int *)(iVar1 + 0x18);
-        iVar1 = (**(code **)(iVar6 + 0x14))(iVar1 + *(short *)(iVar6 + 0x10),param_2,param_3);
+        iVar1 = (((vtbl_entry*)(iVar6))[2].fn)(iVar1 + ((vtbl_entry*)(iVar6))[2].adj,param_2,param_3);
         if (iVar1 != 0) {
           iVar4 = *(int *)(*(int *)(param_1 + 0x40) + iVar4 * 4);
           iVar3 = *(int *)(iVar4 + 0x18);
-          uVar2 = (**(code **)(iVar3 + 0x54))(iVar4 + *(short *)(iVar3 + 0x50));
+          uVar2 = (((vtbl_entry*)(iVar3))[10].fn)(iVar4 + ((vtbl_entry*)(iVar3))[10].adj);
           if (param_4 == (int *)0x0) {
             return uVar2;
           }

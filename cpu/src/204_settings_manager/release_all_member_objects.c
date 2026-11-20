@@ -16,63 +16,68 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_all_member_objects(int param_1)
+void release_all_member_objects(cls_105b57ac *param_1)
 
 {
   int *piVar1;
-  int iVar2;
+  void *puVar2;
+  int iVar3;
   
-  iVar2 = *(int *)(*(int *)(param_1 + 8) + 0x10);
-  (**(code **)(iVar2 + 0x24))(*(int *)(param_1 + 8) + (int)*(short *)(iVar2 + 0x20));
-  iVar2 = *(int *)(*(int *)(param_1 + 0xc) + 0x10);
-  (**(code **)(iVar2 + 0x24))(*(int *)(param_1 + 0xc) + (int)*(short *)(iVar2 + 0x20));
-  iVar2 = *(int *)(*(int *)(param_1 + 0x10) + 0x10);
-  (**(code **)(iVar2 + 0x24))(*(int *)(param_1 + 0x10) + (int)*(short *)(iVar2 + 0x20));
-  iVar2 = **(int **)(param_1 + 4);
-  (**(code **)(iVar2 + 0x24))((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar2 + 0x20));
-  piVar1 = *(int **)(param_1 + 0x2c);
+  iVar3 = *(int *)(param_1->field_0x8 + 0x10);
+  (((vtbl_entry*)(iVar3))[4].fn)(param_1->field_0x8 + ((vtbl_entry*)(iVar3))[4].adj);
+  iVar3 = *(int *)(param_1->field_0xc + 0x10);
+  (((vtbl_entry*)(iVar3))[4].fn)(param_1->field_0xc + ((vtbl_entry*)(iVar3))[4].adj);
+  iVar3 = *(int *)(param_1->field_0x10 + 0x10);
+  (((vtbl_entry*)(iVar3))[4].fn)(param_1->field_0x10 + ((vtbl_entry*)(iVar3))[4].adj);
+  iVar3 = *(int *)param_1->field_0x4;
+  (((vtbl_entry*)(iVar3))[4].fn)
+            ((void *)((int)param_1->field_0x4 + (int)((vtbl_entry*)(iVar3))[4].adj));
+  piVar1 = (int *)param_1->field_0x2c;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+    (((vtbl_entry*)(*piVar1))[1].fn)((void *)((int)*(short *)(*piVar1 + 8) + (int)piVar1),3);
   }
-  piVar1 = *(int **)(param_1 + 0x20);
+  piVar1 = (int *)param_1->field_0x20;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+    (((vtbl_entry*)(*piVar1))[1].fn)((void *)((int)*(short *)(*piVar1 + 8) + (int)piVar1),3);
   }
-  piVar1 = *(int **)(param_1 + 0x24);
+  piVar1 = (int *)param_1->field_0x24;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+    (((vtbl_entry*)(*piVar1))[1].fn)((void *)((int)*(short *)(*piVar1 + 8) + (int)piVar1),3);
   }
-  piVar1 = *(int **)(param_1 + 0x28);
+  piVar1 = (int *)param_1->field_0x28;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+    (((vtbl_entry*)(*piVar1))[1].fn)((void *)((int)*(short *)(*piVar1 + 8) + (int)piVar1),3);
   }
-  iVar2 = *(int *)(param_1 + 0x14);
-  if (iVar2 != 0) {
-    (**(code **)(*(int *)(iVar2 + 4) + 0xc))(*(short *)(*(int *)(iVar2 + 4) + 8) + iVar2,3);
+  puVar2 = (void *)(param_1->field_0x14);
+  if (puVar2 != 0) {
+    (((vtbl_entry*)(*(int *)((char*)puVar2 + 4)))[1].fn)((char*)puVar2 + *(short *)(*(int *)((char*)puVar2 + 4) + 8),3);
   }
-  iVar2 = *(int *)(param_1 + 0x18);
-  if (iVar2 != 0) {
-    (**(code **)(*(int *)(iVar2 + 4) + 0xc))(*(short *)(*(int *)(iVar2 + 4) + 8) + iVar2,3);
+  puVar2 = (void *)(param_1->field_0x18);
+  if (puVar2 != 0) {
+    (((vtbl_entry*)(*(int *)((char*)puVar2 + 4)))[1].fn)((char*)puVar2 + *(short *)(*(int *)((char*)puVar2 + 4) + 8),3);
   }
-  iVar2 = *(int *)(param_1 + 0x1c);
-  if (iVar2 != 0) {
-    (**(code **)(*(int *)(iVar2 + 4) + 0xc))(*(short *)(*(int *)(iVar2 + 4) + 8) + iVar2,3);
+  puVar2 = (void *)(param_1->field_0x1c);
+  if (puVar2 != 0) {
+    (((vtbl_entry*)(*(int *)((char*)puVar2 + 4)))[1].fn)((char*)puVar2 + *(short *)(*(int *)((char*)puVar2 + 4) + 8),3);
   }
-  iVar2 = *(int *)(param_1 + 8);
-  if (iVar2 != 0) {
-    (**(code **)(*(int *)(iVar2 + 0x10) + 0xc))(*(short *)(*(int *)(iVar2 + 0x10) + 8) + iVar2,3);
+  puVar2 = (void *)(param_1->field_0x8);
+  if (puVar2 != 0) {
+    (((vtbl_entry*)(*(int *)((char*)puVar2 + 0x10)))[1].fn)((char*)puVar2 + *(short *)(*(int *)((char*)puVar2 + 0x10) + 8),3)
+    ;
   }
-  iVar2 = *(int *)(param_1 + 0xc);
-  if (iVar2 != 0) {
-    (**(code **)(*(int *)(iVar2 + 0x10) + 0xc))(*(short *)(*(int *)(iVar2 + 0x10) + 8) + iVar2,3);
+  puVar2 = (void *)(param_1->field_0xc);
+  if (puVar2 != 0) {
+    (((vtbl_entry*)(*(int *)((char*)puVar2 + 0x10)))[1].fn)((char*)puVar2 + *(short *)(*(int *)((char*)puVar2 + 0x10) + 8),3)
+    ;
   }
-  iVar2 = *(int *)(param_1 + 0x10);
-  if (iVar2 != 0) {
-    (**(code **)(*(int *)(iVar2 + 0x10) + 0xc))(*(short *)(*(int *)(iVar2 + 0x10) + 8) + iVar2,3);
+  puVar2 = (void *)(param_1->field_0x10);
+  if (puVar2 != 0) {
+    (((vtbl_entry*)(*(int *)((char*)puVar2 + 0x10)))[1].fn)((char*)puVar2 + *(short *)(*(int *)((char*)puVar2 + 0x10) + 8),3)
+    ;
   }
-  piVar1 = *(int **)(param_1 + 4);
+  piVar1 = (int *)param_1->field_0x4;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+    (((vtbl_entry*)(*piVar1))[1].fn)((void *)((int)*(short *)(*piVar1 + 8) + (int)piVar1),3);
   }
   return;
 }

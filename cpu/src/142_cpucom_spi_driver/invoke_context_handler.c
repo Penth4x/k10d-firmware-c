@@ -20,7 +20,7 @@ uint32_t invoke_context_handler(int param_1)
   uint32_t uVar1;
   uint8_t *r5_in;
   
-  if (*(void **)(param_1 + 0x400) == (void *)0x0) {
+  if (*(void **)(param_1 + 0x400) == 0) {
     uVar1 = 0;
   }
   else {

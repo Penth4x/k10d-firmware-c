@@ -11,28 +11,29 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_105b709c_new(uint32_t *param_1,int param_2)
+cls_105b709c * cls_105b709c_new(cls_105b709c *param_1,int param_2)
 
 {
-  void *pvVar1;
+  int iVar1;
+  void *pvVar2;
   uintptr_t sp;
-  uint8_t *puVar2;
-  uint *puVar3;
+  uint8_t *puVar3;
+  uint *puVar4;
   uint8_t auStack_10 [4];
   
-  puVar2 = auStack_10;
-  puVar3 = (uint *)auStack_10;
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x20), puVar3 = (uint *)puVar2,
-     param_1 != (uint32_t *)0x0)) {
-    pvVar1 = *(void **)(&DAT_800490b8/*SDRAM*/ + param_2 * 4);
-    param_2 = param_2 * 0x10;
-    *puVar3 = *(uint *)(param_2 + 0x105b7054/*ROM*/) | *(uint *)(param_2 + 0x105b7058/*ROM*/);
-    cls_105b7448_new(param_1,pvVar1,0,0,*puVar3);
-    param_1[4] = 0x105b709c/*ROM*/;
-    param_1[5] = *(uint32_t *)(param_2 + 0x105b704c/*ROM*/);
-    param_1[6] = *(uint32_t *)(param_2 + 0x105b7050/*ROM*/);
-    param_1[7] = *(uint32_t *)(param_2 + 0x105b7054/*ROM*/);
+  puVar3 = auStack_10;
+  puVar4 = (uint *)auStack_10;
+  if ((param_1 != (cls_105b709c *)0x0) ||
+     (param_1 = (cls_105b709c *)heap_alloc((void *)0x20), puVar4 = (uint *)puVar3,
+     param_1 != (cls_105b709c *)0x0)) {
+    pvVar2 = *(void **)(&DAT_800490b8/*SDRAM*/ + param_2 * 4);
+    iVar1 = param_2 * 0x10;
+    *puVar4 = *(uint *)(iVar1 + 0x105b7054/*ROM*/) | *(uint *)(iVar1 + 0x105b7058/*ROM*/);
+    cls_105b7448_new((cls_105b7448 *)param_1,pvVar2,0,0,*puVar4);
+    param_1->field_0x10 = 0x105b709c/*ROM*/;
+    param_1->field_0x14 = *(uint32_t *)(iVar1 + 0x105b704c/*ROM*/);
+    param_1->field_0x18 = *(uint32_t *)(iVar1 + 0x105b7050/*ROM*/);
+    param_1->field_0x1c = *(uint32_t *)(iVar1 + 0x105b7054/*ROM*/);
   }
   return param_1;
 }

@@ -16,12 +16,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_on_two_state_fields(ushort *param_1)
+void dispatch_on_two_state_fields(cls_105b3e68 *param_1)
 
 {
-  if (*(int *)(param_1 + 2) != 0) {
-    if (((*param_1 - 4 & 0x1f) == 0) || (*param_1 - 4 == 0)) {
-      if ((param_1[0x13] - 4 & 0x1f) == 0) {
+  uint uVar1;
+  
+  if (param_1->field_0x4 != 0) {
+    uVar1 = (ushort)param_1->field_0x0 - 4;
+    if (((uVar1 & 0x1f) == 0) || (uVar1 == 0)) {
+      if ((param_1->field_0x26 - 4 & 0x1f) == 0) {
         issue_nine_region_draw_commands((ushort *)__frv_reg_unset(4));
       }
       else {

@@ -48,7 +48,7 @@ int poll_and_dispatch_event(void *param_1)
     }
     dispatch_event_and_return_offset(param_1,(void *)((int)param_1 + 0x68),uVar7);
     pvVar5 = *(void **)((int)param_1 + 0x68);
-    if (pvVar5 == (void *)0x0) break;
+    if (pvVar5 == 0) break;
     uVar4 = (uint)*(ushort *)((int)pvVar5 + 4);
     if ((((uVar10 != 0) || (uVar9 = (uint)*(ushort *)((int)pvVar5 + 6), uVar8 != 0)) &&
         (bVar6 = uVar4 == uVar10, uVar9 = uVar8, uVar4 = uVar10, bVar6)) &&
@@ -58,7 +58,7 @@ int poll_and_dispatch_event(void *param_1)
     uVar10 = uVar4;
     if ((iVar11 == 1) && (iVar11 = read_struct_field_at_index_104c2890(*(void **)((int)param_1 + 0x68),0x29), iVar11 == 1))
     {
-      reset_object_fields_and_call_base((void *)((int)param_1 + 0x6c));
+      reset_object_fields_and_call_base((cls_105b9458 *)((int)param_1 + 0x6c));
       bVar6 = dispatch_mode_state_update_10367558(param_1);
       uStack_14 = (uint)bVar6;
       if (uStack_14 != 0) {
@@ -69,7 +69,7 @@ int poll_and_dispatch_event(void *param_1)
   if (uStack_14 != 0) {
     return uStack_14;
   }
-  reset_object_fields_and_call_base((void *)((int)param_1 + 0x6c));
+  reset_object_fields_and_call_base((cls_105b9458 *)((int)param_1 + 0x6c));
   if (!bVar3) {
     return 0;
   }

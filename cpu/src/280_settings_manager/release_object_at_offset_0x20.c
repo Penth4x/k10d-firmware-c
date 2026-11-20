@@ -15,12 +15,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_object_at_offset_0x20(int param_1)
+void release_object_at_offset_0x20(cls_105d8bc8 *param_1)
 
 {
-  *(uint8_t *)(param_1 + 0x30) = 0;
-  if (*(void **)(param_1 + 0x20) != (void *)0x0) {
-    clear_flag_and_call_two_helpers_1052226c(*(void **)(param_1 + 0x20));
+  param_1->field_0x30 = 0;
+  if (*(void **)&param_1->field_0x20 != 0) {
+    clear_flag_and_call_two_helpers_1052226c(*(void **)&param_1->field_0x20);
   }
   return;
 }

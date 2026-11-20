@@ -6,10 +6,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_virtual_slot_19_10521bcc(int param_1)
+void call_virtual_slot_19_10521bcc(cls_105d7b7c *param_1)
 
 {
-  (**(code **)(*(int *)(param_1 + 0xc) + 0x9c))
-            (*(short *)(*(int *)(param_1 + 0xc) + 0x98) + param_1);
+  (((vtbl_entry*)(param_1->field_0xc))[19].fn)
+            ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0xc))[19].adj);
   return;
 }

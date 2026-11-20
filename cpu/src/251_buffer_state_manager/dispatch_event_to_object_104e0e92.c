@@ -24,47 +24,47 @@ void dispatch_event_to_object_104e0e92(int param_1)
     switch(iVar1) {
     case 1:
       iVar1 = *(int *)(*(int *)(param_1 + 0x40) + 0xc);
-      (**(code **)(iVar1 + 0x3c))
-                (*(int *)(param_1 + 0x40) + (int)*(short *)(iVar1 + 0x38),
+      (((vtbl_entry*)(iVar1))[7].fn)
+                (*(int *)(param_1 + 0x40) + (int)((vtbl_entry*)(iVar1))[7].adj,
                  *(uint32_t *)(param_1 + 0x38));
       break;
     case 2:
       iVar1 = *(int *)(*(int *)(param_1 + 0x40) + 0xc);
-      (**(code **)(iVar1 + 0x44))
-                (*(int *)(param_1 + 0x40) + (int)*(short *)(iVar1 + 0x40),
+      (((vtbl_entry*)(iVar1))[8].fn)
+                (*(int *)(param_1 + 0x40) + (int)((vtbl_entry*)(iVar1))[8].adj,
                  *(uint32_t *)(param_1 + 0x38));
       break;
     case 3:
       iVar1 = *(int *)(*(int *)(param_1 + 0x3c) + 0xc);
-      (**(code **)(iVar1 + 0x3c))
-                (*(int *)(param_1 + 0x3c) + (int)*(short *)(iVar1 + 0x38),
+      (((vtbl_entry*)(iVar1))[7].fn)
+                (*(int *)(param_1 + 0x3c) + (int)((vtbl_entry*)(iVar1))[7].adj,
                  *(uint32_t *)(param_1 + 0x38));
       break;
     case 4:
       iVar1 = *(int *)(*(int *)(param_1 + 0x3c) + 0xc);
-      (**(code **)(iVar1 + 0x44))
-                (*(int *)(param_1 + 0x3c) + (int)*(short *)(iVar1 + 0x40),
+      (((vtbl_entry*)(iVar1))[8].fn)
+                (*(int *)(param_1 + 0x3c) + (int)((vtbl_entry*)(iVar1))[8].adj,
                  *(uint32_t *)(param_1 + 0x38));
       break;
     case 5:
       iVar1 = *(int *)(*(int *)(param_1 + 0x3c) + 0xc);
-      (**(code **)(iVar1 + 0x1c))(*(int *)(param_1 + 0x3c) + (int)*(short *)(iVar1 + 0x18));
+      (((vtbl_entry*)(iVar1))[3].fn)(*(int *)(param_1 + 0x3c) + (int)((vtbl_entry*)(iVar1))[3].adj);
       break;
     case 6:
       iVar1 = *(int *)(*(int *)(param_1 + 0x3c) + 0xc);
-      (**(code **)(iVar1 + 0x24))(*(int *)(param_1 + 0x3c) + (int)*(short *)(iVar1 + 0x20));
+      (((vtbl_entry*)(iVar1))[4].fn)(*(int *)(param_1 + 0x3c) + (int)((vtbl_entry*)(iVar1))[4].adj);
     }
   }
   else if ((iVar1 == 1) || (iVar1 == 2)) {
     iVar1 = *(int *)(*(int *)(param_1 + 0x40) + 0xc);
-    (**(code **)(iVar1 + 0x4c))
-              (*(int *)(param_1 + 0x40) + (int)*(short *)(iVar1 + 0x48),
+    (((vtbl_entry*)(iVar1))[9].fn)
+              (*(int *)(param_1 + 0x40) + (int)((vtbl_entry*)(iVar1))[9].adj,
                *(uint32_t *)(param_1 + 0x38));
   }
   else if ((iVar1 == 3) || (iVar1 == 4)) {
     iVar1 = *(int *)(*(int *)(param_1 + 0x3c) + 0xc);
-    (**(code **)(iVar1 + 0x4c))
-              (*(int *)(param_1 + 0x3c) + (int)*(short *)(iVar1 + 0x48),
+    (((vtbl_entry*)(iVar1))[9].fn)
+              (*(int *)(param_1 + 0x3c) + (int)((vtbl_entry*)(iVar1))[9].adj,
                *(uint32_t *)(param_1 + 0x38));
   }
   *(uint32_t *)(param_1 + 0x38) = 0;

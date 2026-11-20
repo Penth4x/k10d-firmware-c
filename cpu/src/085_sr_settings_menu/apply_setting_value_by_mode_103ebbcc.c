@@ -19,72 +19,72 @@
 /* WARNING: Instruction at (ram,0x103ebd74) overlaps instruction at (ram,0x103ebd72)
     */
 
-int apply_setting_value_by_mode_103ebbcc(int param_1,int param_2)
+cls_1059796c * apply_setting_value_by_mode_103ebbcc(cls_1059796c *param_1,int param_2)
 
 {
   int iVar1;
-  int iVar2;
+  cls_1059796c *pcVar2;
   
-  *(int *)(param_1 + 0x14) = param_2;
-  iVar2 = param_1;
+  param_1->field_0x14 = param_2;
+  pcVar2 = param_1;
   if (param_2 == 0xc) {
-    iVar2 = get_or_init_sram_object_103c40b8();
+    pcVar2 = (cls_1059796c *)get_or_init_sram_object_103c40b8();
   }
-  if ((*(int *)(param_1 + 0x14) == 0xe) || (*(int *)(param_1 + 0x14) == 0x11)) {
-    if (*(int *)(param_1 + 0x18) == 0x1ae000c) {
-      setting_set(*(int *)(param_1 + 8),0xc6,(uint)bRam10597964);
-      iVar2 = get_or_init_sram_object_103c40b8();
+  if ((param_1->field_0x14 == 0xe) || (param_1->field_0x14 == 0x11)) {
+    if (param_1->field_0x18 == 0x1ae000c) {
+      setting_set(param_1->field_0x8,0xc6,(uint)bRam10597964);
+      pcVar2 = (cls_1059796c *)get_or_init_sram_object_103c40b8();
     }
-    if (*(int *)(param_1 + 0x18) == 0x1ae0010) {
-      setting_set(*(int *)(param_1 + 8),0xc6,(uint)bRam10597965);
-      iVar2 = get_or_init_sram_object_103c40b8();
+    if (param_1->field_0x18 == 0x1ae0010) {
+      setting_set(param_1->field_0x8,0xc6,(uint)bRam10597965);
+      pcVar2 = (cls_1059796c *)get_or_init_sram_object_103c40b8();
     }
-    if (*(int *)(param_1 + 0x18) == 0x1ae0014) {
-      setting_set(*(int *)(param_1 + 8),0xc6,(uint)bRam10597966);
-      iVar2 = get_or_init_sram_object_103c40b8();
+    if (param_1->field_0x18 == 0x1ae0014) {
+      setting_set(param_1->field_0x8,0xc6,(uint)bRam10597966);
+      pcVar2 = (cls_1059796c *)get_or_init_sram_object_103c40b8();
     }
-    if (*(int *)(param_1 + 0x18) == 0x1ae0018) {
-      setting_set(*(int *)(param_1 + 8),0xc6,(uint)bRam10597967);
-      iVar2 = get_or_init_sram_object_103c40b8();
+    if (param_1->field_0x18 == 0x1ae0018) {
+      setting_set(param_1->field_0x8,0xc6,(uint)bRam10597967);
+      pcVar2 = (cls_1059796c *)get_or_init_sram_object_103c40b8();
     }
-    if (*(int *)(param_1 + 0x18) == 0x1ae001c) {
-      setting_set(*(int *)(param_1 + 8),0xc6,(uint)bRam10597968);
-      iVar2 = get_or_init_sram_object_103c40b8();
+    if (param_1->field_0x18 == 0x1ae001c) {
+      setting_set(param_1->field_0x8,0xc6,(uint)bRam10597968);
+      pcVar2 = (cls_1059796c *)get_or_init_sram_object_103c40b8();
     }
   }
-  iVar1 = *(int *)(param_1 + 0x14);
+  iVar1 = param_1->field_0x14;
   if (((iVar1 == 7) || (iVar1 == 0)) || (iVar1 == 1)) {
-    if (*(int *)(param_1 + 0x18) == 0x1ae000c) {
-      setting_set(*(int *)(param_1 + 8),0xc6,(uint)bRam10597964);
+    if (param_1->field_0x18 == 0x1ae000c) {
+      setting_set(param_1->field_0x8,0xc6,(uint)bRam10597964);
     }
-    if (*(int *)(param_1 + 0x18) == 0x1ae0010) {
-      setting_set(*(int *)(param_1 + 8),0xc6,(uint)bRam10597965);
+    if (param_1->field_0x18 == 0x1ae0010) {
+      setting_set(param_1->field_0x8,0xc6,(uint)bRam10597965);
     }
-    if (*(int *)(param_1 + 0x18) == 0x1ae0014) {
-      setting_set(*(int *)(param_1 + 8),0xc6,(uint)bRam10597966);
+    if (param_1->field_0x18 == 0x1ae0014) {
+      setting_set(param_1->field_0x8,0xc6,(uint)bRam10597966);
     }
-    *(uint8_t *)(param_1 + 0x22) = 0x8c;
-    iVar2 = 0;
+    param_1->field_0x22 = 0x8c;
+    pcVar2 = (cls_1059796c *)0x0;
   }
-  if (*(int *)(param_1 + 0x14) == 3) {
-    *(uint8_t *)(param_1 + 0x22) = 0x8c;
-    iVar2 = 0;
+  if (param_1->field_0x14 == 3) {
+    param_1->field_0x22 = 0x8c;
+    pcVar2 = (cls_1059796c *)0x0;
   }
-  if ((*(int *)(param_1 + 0x14) == 0x19) || (*(int *)(param_1 + 0x14) == 9)) {
-    *(uint8_t *)(param_1 + 0x22) = 0x50;
-    iVar2 = 0;
+  if ((param_1->field_0x14 == 0x19) || (param_1->field_0x14 == 9)) {
+    param_1->field_0x22 = 0x50;
+    pcVar2 = (cls_1059796c *)0x0;
   }
-  if (*(int *)(param_1 + 0x14) == 0x18) {
-    *(uint8_t *)(param_1 + 0x22) = 0xb4;
-    iVar2 = 0;
+  if (param_1->field_0x14 == 0x18) {
+    param_1->field_0x22 = 0xb4;
+    pcVar2 = (cls_1059796c *)0x0;
   }
-  if (*(int *)(param_1 + 0x14) == 0x2c) {
-    *(uint8_t *)(param_1 + 0x22) = 0x8c;
-    iVar2 = 0;
+  if (param_1->field_0x14 == 0x2c) {
+    param_1->field_0x22 = 0x8c;
+    pcVar2 = (cls_1059796c *)0x0;
   }
-  if (*(int *)(param_1 + 0x14) == 10) {
-    *(uint8_t *)(param_1 + 0x22) = 200;
-    iVar2 = 0;
+  if (param_1->field_0x14 == 10) {
+    param_1->field_0x22 = 200;
+    pcVar2 = (cls_1059796c *)0x0;
   }
-  return iVar2;
+  return pcVar2;
 }

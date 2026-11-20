@@ -27,7 +27,7 @@ int process_data_with_retry_flag(void *param_1)
   iVar1 = lookup_table_entry_by_match(param_1,&uStack_c);
   iVar2 = 0;
   if (iVar1 == 0) {
-    iVar1 = start_update_if_flag_clear((void *)uStack_c);
+    iVar1 = start_update_if_flag_clear((void *)(uStack_c));
     if (iVar1 != 0) {
       if (iVar1 != -6) {
         return iVar1;
@@ -35,7 +35,7 @@ int process_data_with_retry_flag(void *param_1)
       iVar2 = 1;
     }
     iVar1 = (*(code *)0x1053e63c/*ROM*/)(uStack_c);
-    if ((iVar1 == 0) && (iVar1 = init_lens_update_context_10537c34((void *)uStack_c,iVar2), iVar2 == 1)) {
+    if ((iVar1 == 0) && (iVar1 = init_lens_update_context_10537c34((uint8_t *)(uStack_c),(uint32_t)(iVar2)), iVar2 == 1)) {
       iVar1 = -6;
     }
   }

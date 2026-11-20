@@ -6,16 +6,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_if_flag_set_1038e782(int *param_1)
+void invoke_virtual_if_flag_set_1038e782(cls_10599780 *param_1)
 
 {
-  int iVar1;
+  uint32_t uVar1;
   
-  if (*(char *)(param_1 + 8) != '\0') {
-    iVar1 = get_or_init_static_buffer_10495746();
-    param_1[9] = iVar1;
-    *(uint8_t *)(param_1 + 8) = 0;
-    (**(code **)(*param_1 + 0x84))((int)*(short *)(*param_1 + 0x80) + (int)param_1);
+  if (*(char *)&param_1->field_0x20 != '\0') {
+    uVar1 = get_or_init_static_buffer_10495746();
+    param_1->field_0x24 = uVar1;
+    *(uint8_t *)&param_1->field_0x20 = 0;
+    (((vtbl_entry*)(param_1->field_0x0))[16].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[16].adj);
   }
   return;
 }

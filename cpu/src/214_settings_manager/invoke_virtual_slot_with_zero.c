@@ -22,6 +22,6 @@ void invoke_virtual_slot_with_zero(int *param_1, uint32_t param_x1)
   get_or_init_sram_buffer_104af136();
   call_three_init_routines_104af1dc((uint32_t *)__frv_reg_unset(4));
   iVar1 = *(int *)(*param_1 + 0x10);
-  (**(code **)(iVar1 + 0x24))(*param_1 + (int)*(short *)(iVar1 + 0x20),0);
+  (((vtbl_entry*)(iVar1))[4].fn)(*param_1 + (int)((vtbl_entry*)(iVar1))[4].adj,0);
   return;
 }

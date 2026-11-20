@@ -24,7 +24,7 @@ uint32_t check_lens_fw_id_in_list(int param_1,int *param_2)
     *param_2 = param_1 << 2;
     iVar4 = 0;
     do {
-      pcVar1 = (char *)(_DAT_80014980/*SDRAM*/ + iVar4 * 0x80);
+      pcVar1 = (char *)((char*)_DAT_80014980/*SDRAM*/ + iVar4 * 0x80);
       if (*pcVar1 != '\0') {
         iVar3 = *(int *)(*(int *)(pcVar1 + 100) + 0x14);
         while (iVar3 != 0) {

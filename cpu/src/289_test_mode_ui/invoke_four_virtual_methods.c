@@ -18,12 +18,12 @@
 uint32_t invoke_four_virtual_methods(int param_1,int *param_2,int param_3)
 
 {
-  (**(code **)(*param_2 + 0x1c))((int)*(short *)(*param_2 + 0x18) + (int)param_2,param_1,1,param_3);
-  (**(code **)(*param_2 + 0x1c))
-            ((int)*(short *)(*param_2 + 0x18) + (int)param_2,param_1 + 2,1,param_3 + 2);
-  (**(code **)(*param_2 + 0x24))
-            ((int)*(short *)(*param_2 + 0x20) + (int)param_2,param_1 + 0x14,1,param_3 + 4);
-  (**(code **)(*param_2 + 0x24))
-            ((int)*(short *)(*param_2 + 0x20) + (int)param_2,param_1 + 8,1,param_3 + 8);
+  (((vtbl_entry*)(*param_2))[3].fn)((int)((vtbl_entry*)(*param_2))[3].adj + (int)param_2,param_1,1,param_3);
+  (((vtbl_entry*)(*param_2))[3].fn)
+            ((int)((vtbl_entry*)(*param_2))[3].adj + (int)param_2,param_1 + 2,1,param_3 + 2);
+  (((vtbl_entry*)(*param_2))[4].fn)
+            ((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,param_1 + 0x14,1,param_3 + 4);
+  (((vtbl_entry*)(*param_2))[4].fn)
+            ((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,param_1 + 8,1,param_3 + 8);
   return 1;
 }

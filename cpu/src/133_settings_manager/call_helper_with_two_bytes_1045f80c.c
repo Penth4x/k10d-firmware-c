@@ -15,13 +15,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_two_bytes_1045f80c(void *param_1,int param_2)
+void call_helper_with_two_bytes_1045f80c(cls_105a6bdc *param_1,int param_2)
 
 {
   int iVar1;
   
   iVar1 = *(int *)(param_2 * 8 + 0x105a60c4/*ROM*/);
-  pack_two_byte_value_10496952(param_1,(ushort)*(byte *)((int)param_1 + iVar1 + 5),
-               (ushort)*(byte *)((int)param_1 + iVar1 + 4));
+  pack_two_byte_value_10496952(param_1,(ushort)*(byte *)((int)&param_1[1].field_0x0 + iVar1 + 1),
+               (ushort)*(byte *)((int)&param_1[1].field_0x0 + iVar1));
   return;
 }

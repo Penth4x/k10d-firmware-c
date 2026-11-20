@@ -16,17 +16,17 @@ uint32_t retry_virtual_operation_with_lock(void *param_1,int param_2,uint32_t pa
   int iVar3;
   uint32_t uStack_10;
   
-  iVar1 = lookup_table_entry_by_index_10482026((void *)_DAT_80010030/*SDRAM*/);
-  iVar2 = (**(code **)(*(int *)(iVar1 + 4) + 0x4c))(*(short *)(*(int *)(iVar1 + 4) + 0x48) + iVar1);
+  iVar1 = lookup_table_entry_by_index_10482026((void*)(_DAT_80010030/*SDRAM*/));
+  iVar2 = (((vtbl_entry*)(*(int *)(iVar1 + 4)))[9].fn)(((vtbl_entry*)(*(int *)(iVar1 + 4)))[9].adj + iVar1);
   if (iVar2 == 0) {
     uStack_10 = 0xffffffed;
   }
   else {
     iVar2 = 0;
-    call_subroutine_on_field_16_104ea70a((void *)pvRam80010038);
+    call_subroutine_on_field_16_104ea70a((void*)(pvRam80010038));
     uStack_10 = 0xfffffffb;
-    while (iVar3 = (**(code **)(*(int *)(iVar1 + 4) + 0x3c))
-                             (*(short *)(*(int *)(iVar1 + 4) + 0x38) + iVar1,
+    while (iVar3 = (((vtbl_entry*)(*(int *)(iVar1 + 4)))[7].fn)
+                             (((vtbl_entry*)(*(int *)(iVar1 + 4)))[7].adj + iVar1,
                               *(int *)((int)param_1 + 4) + param_2,param_3,param_4), iVar3 == 0) {
       iVar3 = (**(code **)(*(int *)(iVar1 + 4) + 0x1c))
                         (*(short *)(*(int *)(iVar1 + 4) + 0x18) + iVar1,0);
@@ -34,7 +34,7 @@ uint32_t retry_virtual_operation_with_lock(void *param_1,int param_2,uint32_t pa
     }
     uStack_10 = 0;
 LAB_104802c0:
-    invoke_object_method_at_offset_0x10_104ea71c((void *)pvRam80010038);
+    invoke_object_method_at_offset_0x10_104ea71c((void*)(pvRam80010038));
   }
   return uStack_10;
 }

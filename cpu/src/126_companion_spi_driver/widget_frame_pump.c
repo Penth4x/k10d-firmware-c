@@ -42,25 +42,25 @@ uint32_t widget_frame_pump(void *param_1,uint param_2)
     }
     iVar1 = sdhc_buffer_port_addr(*(void **)((int)param_1 + 0x110));
     iVar4 = *(int *)(*(int *)((int)param_1 + 0x11c) + 4);
-    (**(code **)(iVar4 + 0x2c))
-              (*(int *)((int)param_1 + 0x11c) + (int)*(short *)(iVar4 + 0x28),param_2,iVar1,1);
+    (((vtbl_entry*)(iVar4))[5].fn)
+              (*(int *)((int)param_1 + 0x11c) + (int)((vtbl_entry*)(iVar4))[5].adj,param_2,iVar1,1);
     iVar1 = *(int *)(*(int *)((int)param_1 + 0x11c) + 4);
-    for (iVar1 = (**(code **)(iVar1 + 0x4c))
-                           (*(int *)((int)param_1 + 0x11c) + (int)*(short *)(iVar1 + 0x48));
+    for (iVar1 = (((vtbl_entry*)(iVar1))[9].fn)
+                           (*(int *)((int)param_1 + 0x11c) + (int)((vtbl_entry*)(iVar1))[9].adj);
         iVar1 != 0;
-        iVar1 = (**(code **)(*(int *)(iVar1 + 4) + 0x4c))
-                          (iVar1 + *(short *)(*(int *)(iVar1 + 4) + 0x48))) {
+        iVar1 = (((vtbl_entry*)(*(int *)(iVar1 + 4)))[9].fn)
+                          (iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 4)))[9].adj)) {
       iVar1 = *(int *)((int)param_1 + 0x11c);
       if (*(char *)((int)param_1 + 0xdc) != '\0') {
-        iVar2 = (**(code **)(*(int *)(iVar1 + 4) + 0x44))
-                          (iVar1 + *(short *)(*(int *)(iVar1 + 4) + 0x40));
+        iVar2 = (((vtbl_entry*)(*(int *)(iVar1 + 4)))[8].fn)
+                          (iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 4)))[8].adj);
         break;
       }
     }
     if (iVar2 == 0) {
       iVar1 = *(int *)(*(int *)((int)param_1 + 0x11c) + 4);
-      uVar3 = (**(code **)(iVar1 + 0x3c))
-                        (*(int *)((int)param_1 + 0x11c) + (int)*(short *)(iVar1 + 0x38));
+      uVar3 = (((vtbl_entry*)(iVar1))[7].fn)
+                        (*(int *)((int)param_1 + 0x11c) + (int)((vtbl_entry*)(iVar1))[7].adj);
     }
   }
   return uVar3;

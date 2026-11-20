@@ -19,8 +19,8 @@ uint32_t get_or_init_ram_buffer_104b590a(void)
 {
   if (iRam80049570 == 0) {
     iRam80049570 = 1;
-    allocate_and_init_0x21c_struct((void *)0x80049354/*SDRAM*/);
-    prepend_to_singly_linked_list((void *)0x80010750/*SDRAM*/);
+    allocate_and_init_0x21c_struct((void*)0x80049354/*SDRAM*/);
+    prepend_to_singly_linked_list((void*)0x80010750/*SDRAM*/);
   }
   return 0x80049354/*SDRAM*/;
 }

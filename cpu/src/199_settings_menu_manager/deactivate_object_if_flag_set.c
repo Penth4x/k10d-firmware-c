@@ -17,19 +17,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-void deactivate_object_if_flag_set(int param_1)
+void deactivate_object_if_flag_set(cls_105b4dac *param_1)
 
 {
   uint32_t uVar1;
   
-  if (*(char *)(param_1 + 0xac) != '\0') {
+  if (param_1->field_0xac != '\0') {
     uVar1 = get_or_init_sram_block_10409fec();
-    (*(code *)0x1040a01e/*ROM*/)(uVar1,*(uint32_t *)(param_1 + 4));
-    dispatch_object_event_and_notify(param_1);
-    report_three_sensor_metrics(param_1,(void *)__frv_reg_unset(5),(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
-    destroy_object_list_entries(param_1);
+    (*(code *)0x1040a01e/*ROM*/)(uVar1,param_1->field_0x4);
+    dispatch_object_event_and_notify((cls_105b48dc *)param_1);
+    report_three_sensor_metrics((int)(param_1),(void *)__frv_reg_unset(5),(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    destroy_object_list_entries((cls_105b44b4 *)param_1);
     uVar1 = get_or_init_sram_block_10409fec();
-    (*(code *)0x1040a020/*ROM*/)(uVar1,*(uint32_t *)(param_1 + 4));
+    (*(code *)0x1040a020/*ROM*/)(uVar1,param_1->field_0x4);
   }
   invoke_virtual_on_range_items_10493858(param_1,0);
   return;

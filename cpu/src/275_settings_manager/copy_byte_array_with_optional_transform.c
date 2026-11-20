@@ -14,7 +14,7 @@ int copy_byte_array_with_optional_transform(ushort *param_1,byte *param_2,void *
   void *pvStack_c;
   
   pvStack_c = param_3;
-  if (param_3 == (void *)0x0) {
+  if (param_3 == 0) {
     pvStack_c = (void *)count_string_length(param_2);
   }
   uVar2 = 0;

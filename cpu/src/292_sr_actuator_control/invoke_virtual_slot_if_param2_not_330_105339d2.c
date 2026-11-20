@@ -6,14 +6,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_if_param2_not_330_105339d2(int param_1,int param_2)
+void invoke_virtual_slot_if_param2_not_330_105339d2(cls_1061e380 *param_1,int param_2)
 
 {
   int iVar1;
   
   if (param_2 != 0x14a) {
-    iVar1 = **(int **)(param_1 + 4);
-    (**(code **)(iVar1 + 0x4c))((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar1 + 0x48));
+    iVar1 = *(int *)param_1->field_0x4;
+    (((vtbl_entry*)(iVar1))[9].fn)
+              ((void *)((int)param_1->field_0x4 + (int)((vtbl_entry*)(iVar1))[9].adj));
   }
   return;
 }

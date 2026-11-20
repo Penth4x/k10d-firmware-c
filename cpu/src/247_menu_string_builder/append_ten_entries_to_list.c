@@ -21,23 +21,23 @@ void append_ten_entries_to_list(uint32_t param_1,int *param_2,uint32_t param_3)
 {
   uint32_t uVar1;
   
-  append_string_to_buffer(param_2,(void *)0x105ba67c/*ROM*/);
-  append_string_to_buffer(param_2,(void *)0x105ba698/*ROM*/);
-  append_string_to_buffer(param_2,(void *)0x105ba6b8/*ROM*/);
+  append_string_to_buffer((int *)(param_2),(char *)(0x105ba67c/*ROM*/));
+  append_string_to_buffer((int *)(param_2),(char *)(0x105ba698/*ROM*/));
+  append_string_to_buffer((int *)(param_2),(char *)(0x105ba6b8/*ROM*/));
   adjust_pointer_by_offset(param_3,0);
   uVar1 = (*(code *)0x104d7d1a/*ROM*/)();
-  append_string_to_buffer(param_2,(void *)uVar1);
-  append_string_to_buffer(param_2,(void *)0x105ba6c8/*ROM*/);
-  append_string_to_buffer(param_2,(void *)0x105ba6d8/*ROM*/);
+  append_string_to_buffer((int *)(param_2),(char *)(uVar1));
+  append_string_to_buffer((int *)(param_2),(char *)(0x105ba6c8/*ROM*/));
+  append_string_to_buffer((int *)(param_2),(char *)(0x105ba6d8/*ROM*/));
   adjust_pointer_by_offset(param_3,0);
   uVar1 = (*(code *)0x104d7d4c/*ROM*/)();
-  append_string_to_buffer(param_2,(void *)uVar1);
-  append_string_to_buffer(param_2,(void *)0x105ba6f0/*ROM*/);
-  append_string_to_buffer(param_2,(void *)0x105ba70c/*ROM*/);
+  append_string_to_buffer((int *)(param_2),(char *)(uVar1));
+  append_string_to_buffer((int *)(param_2),(char *)(0x105ba6f0/*ROM*/));
+  append_string_to_buffer((int *)(param_2),(char *)(0x105ba70c/*ROM*/));
   adjust_pointer_by_offset(param_3,0);
   uVar1 = (*(code *)0x104d7d7e/*ROM*/)();
-  append_string_to_buffer(param_2,(void *)uVar1);
-  append_string_to_buffer(param_2,(void *)0x105ba71c/*ROM*/);
-  append_string_to_buffer(param_2,(void *)0x105ba72c/*ROM*/);
+  append_string_to_buffer((int *)(param_2),(char *)(uVar1));
+  append_string_to_buffer((int *)(param_2),(char *)(0x105ba71c/*ROM*/));
+  append_string_to_buffer((int *)(param_2),(char *)(0x105ba72c/*ROM*/));
   return;
 }

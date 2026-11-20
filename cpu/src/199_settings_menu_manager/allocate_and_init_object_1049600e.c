@@ -21,26 +21,26 @@ int allocate_and_init_object_1049600e(void *param_1,uint32_t param_2,void *param
 
 {
   short sVar1;
-  int iVar2;
+  cls_105c136c *pcVar2;
   uint32_t uVar3;
-  int iVar4;
+  void *puVar4;
   uintptr_t sp;
   uint32_t auStack_10 [2];
   
-  iVar2 = heap_alloc((void *)0x48);
-  if (iVar2 == 0) {
-    iVar2 = 0;
+  pcVar2 = (cls_105c136c *)heap_alloc((void *)0x48);
+  if (pcVar2 == (cls_105c136c *)0x0) {
+    pcVar2 = (cls_105c136c *)0x0;
   }
   else {
-    cls_105c136c_new((void *)iVar2);
+    cls_105c136c_new(pcVar2);
   }
-  iVar4 = *(int *)(iVar2 + 0xc);
-  sVar1 = *(short *)(iVar4 + 0x10);
-  uVar3 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_10,(uint32_t)param_3,(uint32_t)param_4);
-  (**(code **)(iVar4 + 0x14))(sVar1 + iVar2,uVar3);
+  puVar4 = (void *)((uintptr_t)(pcVar2->field_0xc));
+  sVar1 = *(short *)((char*)puVar4 + 0x10);
+  uVar3 = (uintptr_t)(alloc_two_word_pair_1045bc2e((uint32_t *)(auStack_10),(uint32_t)(param_3),(uint32_t)(param_4)));
+  (((vtbl_entry*)(puVar4))[2].fn)((int)&pcVar2->field_0x0 + (int)sVar1,uVar3);
   free_heap_block_if_flagged_1045bc54(auStack_10,2);
-  init_struct_and_set_flag(iVar2,param_2);
-  set_flag_and_call_helper_104e7640(iVar2,0);
-  invoke_virtual_slot_23(iVar2,8);
-  return iVar2;
+  init_struct_and_set_flag((int)(pcVar2),(uint16_t)(param_2));
+  set_flag_and_call_helper_104e7640((int)(pcVar2),(uint16_t)(0));
+  invoke_virtual_slot_23((int)(pcVar2),(uint32_t)(8));
+  return (int)pcVar2;
 }

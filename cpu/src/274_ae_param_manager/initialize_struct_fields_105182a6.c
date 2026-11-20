@@ -16,16 +16,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-void initialize_struct_fields_105182a6(int param_1)
+/* WARNING: Struct "cls_105d65d0": ignoring overlapping field "field_0x1e4" */
+
+void initialize_struct_fields_105182a6(cls_105d65d0 *param_1)
 
 {
-  iterate_and_invoke_virtual_method(param_1 + 0xc);
-  iterate_and_invoke_virtual_method(param_1 + 0x44);
-  iterate_and_invoke_virtual_method(param_1 + 0x7c);
-  iterate_and_invoke_virtual_method(param_1 + 0xb4);
-  iterate_and_invoke_virtual_method(*(uint32_t *)(param_1 + 0xf0));
-  call_with_field_at_offset_0x70(param_1 + 0x140);
-  (*(code *)0x104a199c/*ROM*/)(param_1 + 0x1b4);
-  release_two_handles(param_1 + 0x1e4);
+  iterate_and_invoke_virtual_method((int)(&param_1->field_0xc));
+  iterate_and_invoke_virtual_method((int)(&param_1->field_0x44));
+  iterate_and_invoke_virtual_method((int)(&param_1->field_0x7c));
+  iterate_and_invoke_virtual_method((int)(&param_1->field_0xb4));
+  iterate_and_invoke_virtual_method(param_1->field_0xf0);
+  call_with_field_at_offset_0x70((cls_105d6608 *)&param_1->field_0x140);
+  (*(code *)0x104a199c/*ROM*/)(&param_1->field_0x1b4);
+  release_two_handles((cls_105b6554 *)&((uint32_t *)&(param_1->field_0x1b4))[12]);
   return;
 }

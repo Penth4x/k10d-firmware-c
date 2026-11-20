@@ -21,7 +21,7 @@ uint32_t set_field_at_offset_0x14_1043506a(uint32_t param_1,int param_2,int para
 {
   uint32_t uVar1;
   
-  store_value_to_pointer_1043554a(param_2 + 0x14,0);
+  store_value_to_pointer_1043554a((uint32_t *)(param_2 + 0x14),(uint32_t)(0));
   if (param_3 != 0) {
     uVar1 = dispatch_param_two_recursive(param_1,param_3);
     write_field_at_offset_four_1043554e(param_2 + 0x14,uVar1);

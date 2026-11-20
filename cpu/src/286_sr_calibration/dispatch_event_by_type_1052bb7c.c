@@ -15,25 +15,25 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_event_by_type_1052bb7c(int *param_1)
+uint32_t dispatch_event_by_type_1052bb7c(cls_105f9e98 *param_1)
 
 {
   int iVar1;
   short sVar2;
   uint32_t uVar3;
   
-  release_object_members(param_1);
+  release_object_members((int *)param_1);
   iVar1 = validate_sequence_counter(param_1);
   uVar3 = 9;
   if (iVar1 == 0) {
     uVar3 = 9;
   }
   else {
-    sVar2 = get_object_field_at_offset_0x14(*param_1);
+    sVar2 = get_object_field_at_offset_0x14(param_1->field_0x0);
     if (sVar2 == 0x5011) {
       iVar1 = build_string_from_rodata_segments(__frv_reg_unset(4));
       dispatch_virtual_slot_two_104df936(param_1,0x1015,iVar1 + 0xc);
-      *(uint32_t *)(param_1[4] + 0x48) = 3;
+      *(uint32_t *)(param_1->field_0x10 + 0x48) = 3;
       uVar3 = 1;
     }
     else {

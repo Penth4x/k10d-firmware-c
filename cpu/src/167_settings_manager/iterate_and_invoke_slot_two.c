@@ -27,12 +27,12 @@ void iterate_and_invoke_slot_two(int param_1)
     do {
       piVar1 = (int *)read_bounded_array_element_10477358(param_1 + 0xc,uVar2 & 0xffff);
       if (piVar1 != (int *)0x0) {
-        (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+        (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
       }
       uVar2 = uVar2 + 1;
     } while ((int)uVar2 <= (int)(uint)*(ushort *)(param_1 + 0x12));
   }
-  zero_clear_struct_array((void *)(param_1 + 0xc));
+  zero_clear_struct_array((uint32_t *)(param_1 + 0xc));
   *(uint16_t *)(param_1 + 0x2e) = 0;
   *(uint16_t *)(param_1 + 0x2c) = 0;
   return;

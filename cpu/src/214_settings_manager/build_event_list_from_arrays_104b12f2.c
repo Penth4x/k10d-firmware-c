@@ -29,7 +29,7 @@ build_event_list_from_arrays_104b12f2(void *param_1,int param_2,int param_3,int 
   int *piVar8;
   
   piVar8 = (int *)&stack0xffffffc0;
-  uVar4 = (uint32_t)(uintptr_t)allocate_pixel_buffer_struct((uint32_t *)0x0,(short)param_2,0,0,(uint16_t *)0x0);
+  uVar4 = (uintptr_t)(allocate_pixel_buffer_struct((uint32_t *)0x0,(short)param_2,0,0,(uint16_t *)0x0));
   iVar5 = heap_alloc_2(param_2 << 2);
   uVar6 = 0;
   if (0 < param_2) {
@@ -42,8 +42,8 @@ build_event_list_from_arrays_104b12f2(void *param_1,int param_2,int param_3,int 
       piVar8[2] = iVar3;
       piVar8[1] = param_5;
       piVar8[3] = iVar2;
-      iVar2 = cls_105b7dfc_new((void *)0x0,(char)uVar6,(uint)bVar1,1,*piVar8,piVar8[1],piVar8[2],
-                               piVar8[3]);
+      iVar2 = cls_105b7dfc_new((cls_105b7dfc *)0x0,(char)uVar6,(uint)bVar1,1,*piVar8,piVar8[1],
+                               piVar8[2],piVar8[3]);
       *(int *)(iVar5 + iVar7) = iVar2;
       (*(code *)0x105207b2/*ROM*/)(uVar4,iVar2,uVar6,0);
       uVar6 = uVar6 + 1 & 0xff;

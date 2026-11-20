@@ -14,10 +14,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void reset_field_at_offset_0x9c(int param_1)
+/* WARNING: Struct "cls_105bb314": ignoring overlapping field "field_0x8" */
+
+void reset_field_at_offset_0x9c(cls_105bb314 *param_1)
 
 {
-  (*(code *)0x1052bdd2/*ROM*/)(param_1 + 0x9c,0);
-  check_flag_and_call_helper_104d849a(param_1 + 0x9c);
+  (*(code *)0x1052bdd2/*ROM*/)(&param_1->field_0x9c,0);
+  check_flag_and_call_helper_104d849a((uint)&param_1->field_0x9c);
   return;
 }

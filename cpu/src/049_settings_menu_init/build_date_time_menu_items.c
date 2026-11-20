@@ -133,7 +133,7 @@ LAB_103b1aa6:
   pvVar2 = (void *)menu_item_register(iVar1);
   glyph_draw(pvVar2,abStack_27 + 0xb);
   iVar1 = menu_item_register(iVar1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   free_heap_if_flag_set_1045c56c(auStack_10,2);
   return;
 }

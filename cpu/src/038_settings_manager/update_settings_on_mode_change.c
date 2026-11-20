@@ -40,7 +40,7 @@ uint32_t update_settings_on_mode_change(int param_1, uint32_t param_x1)
   puVar10 = auStack_30;
   if (iVar7 != 0) {
     *(uint32_t *)(param_1 + 0x60) = 0;
-    invoke_virtual_slot_10_1036b74c((void *)iVar7);
+    invoke_virtual_slot_10_1036b74c((int *)(iVar7));
     check_and_reset_object_field(param_1);
     puVar10 = puVar9;
   }

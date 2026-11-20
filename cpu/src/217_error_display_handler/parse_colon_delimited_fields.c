@@ -54,7 +54,7 @@ void parse_colon_delimited_fields(int param_1)
         }
       }
       if (0x50 < uVar10) {
-        cmd_error_report((void *)(*(uint32_t *)(param_1 + 4)),0x91);
+        cmd_error_report((uint32_t *)(*(uint32_t *)(param_1 + 4)),(uint32_t)(0x91));
         return;
       }
       iVar2 = iVar2 + 1;

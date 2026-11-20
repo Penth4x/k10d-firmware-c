@@ -18,8 +18,8 @@
 void init_object_and_dispatch_virtual(int param_1,void *param_2)
 
 {
-  (**(code **)(*(int *)((int)param_2 + 0x8d4) + 300))
-            ((int)*(short *)(*(int *)((int)param_2 + 0x8d4) + 0x128) + (int)param_2,
+  (((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[37].fn)
+            ((int)((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[37].adj + (int)param_2,
              *(uint16_t *)
               (*(int *)((int)param_2 + 0x24) * 2 + *(int *)((int)param_2 + 0x20) + 0xa0));
   *(uint32_t *)((int)param_2 + 0x10) = 0x800002;

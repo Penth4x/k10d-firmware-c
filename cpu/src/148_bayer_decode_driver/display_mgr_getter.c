@@ -21,7 +21,7 @@ uint32_t display_mgr_getter(void)
 {
   if (_DAT_80048748/*SDRAM*/ == 0) {
     _DAT_80048748/*SDRAM*/ = 1;
-    cls_105a8994_new((void *)0x80048740/*SDRAM*/);
+    cls_105a8994_new((cls_105a8994 *)0x80048740/*SDRAM*/);
     prepend_to_singly_linked_list((void *)0x8000fe8c/*SDRAM*/);
   }
   return 0x80048740/*SDRAM*/;

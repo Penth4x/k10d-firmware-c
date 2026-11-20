@@ -28,14 +28,14 @@ void evaluate_flash_readiness_flags(int param_1)
   *(uint8_t *)(param_1 + 0x29) = 0;
   *(uint8_t *)(param_1 + 0x2f) = 0;
   iVar4 = *(int *)(param_1 + 0x148);
-  cVar3 = (**(code **)(iVar4 + 0x14))((int)*(short *)(iVar4 + 0x10) + param_1 + 0x148,0);
+  cVar3 = (((vtbl_entry*)(iVar4))[2].fn)((int)((vtbl_entry*)(iVar4))[2].adj + param_1 + 0x148,0);
   if ((cVar3 == '\t') || (cVar3 == '\f')) {
     bVar1 = true;
   }
   else {
     bVar1 = false;
   }
-  iVar4 = get_TVD((void *)(param_1 + 0x164));
+  iVar4 = get_TVD((void*)(param_1 + 0x164));
   if ((iVar4 < 0x55) || (bVar1)) {
     cVar3 = settings_getter(param_1 + 0x2ac,0xc0);
     if (cVar3 == '\0') {
@@ -43,14 +43,14 @@ void evaluate_flash_readiness_flags(int param_1)
     }
   }
   uVar2 = get_sysparam_store_instance();
-  iVar4 = get_sysparam_store_byte((void *)uVar2,0x19);
+  iVar4 = get_sysparam_store_byte((void*)(uVar2),0x19);
   if (iVar4 != 0) {
     *(uint8_t *)(param_1 + 0x29) = 1;
   }
-  iVar4 = get_SVD((void *)(param_1 + 0x164));
+  iVar4 = get_SVD((void*)(param_1 + 0x164));
   if (0x30 < iVar4) {
     uVar2 = get_sysparam_store_instance();
-    iVar4 = get_sysparam_store_byte((void *)uVar2,0x15);
+    iVar4 = get_sysparam_store_byte((void*)(uVar2),0x15);
     if (iVar4 == 0) {
       *(uint8_t *)(param_1 + 0x2f) = 1;
     }

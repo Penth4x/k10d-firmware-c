@@ -15,12 +15,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t cpucom_rx_isr_method(int param_1)
+/* WARNING: Struct "cls_105a04cc": ignoring multiple overlapping fields */
+
+uint32_t cpucom_rx_isr_method(cls_105a04cc *param_1)
 
 {
   uint32_t uVar1;
   
-  uVar1 = dispatch_single_subobj(param_1 + 8);
-  sci_clear_status(param_1);
+  uVar1 = dispatch_single_subobj(&param_1->field_0x8);
+  sci_clear_status((int)(param_1));
   return uVar1;
 }

@@ -45,9 +45,9 @@ int transfer_data_blocks_with_checksum(int param_1,uint param_2,uint param_3,voi
   iStack_2c = *(int *)(param_1 + 0x10);
   uVar2 = *(uint *)((int)param_4 + 0x10);
   auStack_4c[0] = param_2;
-  pvStack_58 = (void *)alloc_pool2_block(uVar2);
+  pvStack_58 = (void *)alloc_pool2_block((void *)(uVar2));
   iVar1 = 0;
-  if (pvStack_58 == (void *)0x0) {
+  if (pvStack_58 == 0) {
     iVar1 = -0xc;
   }
   else {

@@ -15,12 +15,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void toggle_byte_and_call_helper(void *param_1,int param_2)
+void toggle_byte_and_call_helper(cls_105a0828 *param_1,int param_2)
 
 {
   if (param_2 != 0) {
-    **(byte **)((int)param_1 + 0x118) = *(byte *)((int)param_1 + 0x127) ^ 0xff;
+    *(byte *)param_1->field_0x118 = param_1->field_0x127 ^ 0xff;
   }
-  update_byte_field_in_object(param_1,*(byte *)((int)param_1 + 0x126),*(byte *)((int)param_1 + 0x126));
+  update_byte_field_in_object(param_1,param_1->field_0x126,param_1->field_0x126);
   return;
 }

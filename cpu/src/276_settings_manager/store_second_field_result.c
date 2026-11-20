@@ -6,12 +6,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t store_second_field_result(uint32_t *param_1)
+uint32_t store_second_field_result(cls_105d6c88 *param_1)
 
 {
   uint32_t uVar1;
   
-  uVar1 = read_struct_field_by_index_104a2a78((void *)*param_1,2);
-  param_1[0xc] = uVar1;
+  uVar1 = read_struct_field_by_index_104a2a78(*(void **)param_1,2);
+  param_1->field_0x30 = uVar1;
   return 1;
 }

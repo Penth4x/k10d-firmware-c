@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t allocate_pool_block_if_null(int *param_1,int param_2,void *param_3)
+uint32_t allocate_pool_block_if_null(cls_105aaebc *param_1,int param_2,void *param_3)
 
 {
   void *pvVar1;
@@ -14,12 +14,12 @@ uint32_t allocate_pool_block_if_null(int *param_1,int param_2,void *param_3)
   uint32_t uVar3;
   
   uVar3 = 0;
-  if ((*param_1 == 0) && (param_3 != (void *)0x0)) {
+  if ((param_1->field_0x0 == 0) && (param_3 != 0)) {
     pvVar1 = (void *)get_system_heap();
     iVar2 = mempool_get_block(pvVar1,param_3,param_2);
-    *param_1 = iVar2;
+    param_1->field_0x0 = iVar2;
     if (iVar2 != 0) {
-      param_1[1] = (int)param_3;
+      param_1->field_0x4 = (uintptr_t)(param_3);
       uVar3 = 1;
     }
   }

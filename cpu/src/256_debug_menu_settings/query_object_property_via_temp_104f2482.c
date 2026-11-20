@@ -21,12 +21,12 @@ uint32_t query_object_property_via_temp_104f2482(int param_1)
 {
   uint32_t uVar1;
   uintptr_t sp;
-  uint8_t auStack_10 [8];
+  cls_105a6eac cStack_10;
   
   empty_stub_function_103b76f0();
-  cls_105a6eac_new((void *)auStack_10);
-  copy_four_bytes_from_struct_field_1045e59a(*(int *)(param_1 + 8),auStack_10);
-  uVar1 = test_field_bit_or_nonzero(auStack_10,4);
-  cls_105a6eac_delete((void *)auStack_10,2);
+  cls_105a6eac_new(&cStack_10);
+  copy_four_bytes_from_struct_field_1045e59a(*(int *)(param_1 + 8),&cStack_10);
+  uVar1 = test_field_bit_or_nonzero(&cStack_10,4);
+  cls_105a6eac_delete(&cStack_10,2);
   return uVar1;
 }

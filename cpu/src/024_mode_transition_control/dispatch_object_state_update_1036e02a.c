@@ -31,9 +31,9 @@ void dispatch_object_state_update_1036e02a(void *param_1,int param_2)
   }
   else {
     uVar1 = get_or_init_sram_block_1052b6fc();
-    dispatch_event_with_two_helpers((void *)uVar1,0xfe,4);
+    dispatch_event_with_two_helpers((uint32_t *)(uVar1),(uint32_t)(0xfe),(uint32_t)(4));
     uVar1 = get_or_init_sram_block_1052b6fc();
-    call_three_helpers_on_struct_1052b72e((void *)uVar1,1,6);
+    call_three_helpers_on_struct_1052b72e((uint32_t *)(uVar1),(uint32_t)(1),(uint32_t)(6));
   }
   return;
 }

@@ -9,6 +9,6 @@
 void call_virtual_slot_two_1045962a(int param_1)
 
 {
-  (**(code **)(*(int *)(param_1 + 8) + 0x14))(*(short *)(*(int *)(param_1 + 8) + 0x10) + param_1);
+  (((vtbl_entry*)(*(int *)(param_1 + 8)))[2].fn)(((vtbl_entry*)(*(int *)(param_1 + 8)))[2].adj + param_1);
   return;
 }

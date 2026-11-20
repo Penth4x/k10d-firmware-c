@@ -22,7 +22,7 @@ int process_buffer_state_transition_1053f676(char *param_1,void *param_2,int par
   uintptr_t sp;
   char *pcStack_1c;
   
-  if ((param_2 == (void *)0x0) || (param_3 == 0)) {
+  if ((param_2 == 0) || (param_3 == 0)) {
     iVar1 = -0x16;
   }
   else {

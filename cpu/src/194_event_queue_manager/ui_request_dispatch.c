@@ -13,7 +13,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t ui_request_dispatch(int *param_1,uint32_t param_2,uint32_t *param_3)
+uint32_t ui_request_dispatch(cls_105b4254 *param_1,uint32_t param_2,uint32_t *param_3)
 
 {
   bool bVar3;
@@ -57,11 +57,12 @@ uint32_t ui_request_dispatch(int *param_1,uint32_t param_2,uint32_t *param_3)
               else {
                 bVar3 = test_flag_bits_in_struct((int)param_3,0x100);
                 if (!bVar3) {
-                  iVar1 = (**(code **)(*param_1 + 0x14))
-                                    ((int)*(short *)(*param_1 + 0x10) + (int)param_1);
+                  iVar1 = (((vtbl_entry*)(param_1->field_0x0))[2].fn)
+                                    ((int)&param_1->field_0x0 +
+                                     (int)((vtbl_entry*)(param_1->field_0x0))[2].adj);
                   if (iVar1 != 0) {
                     piVar2 = (int *)return_first_word_10491ed2(param_3);
-                    poll_input_and_dispatch_event(param_1,piVar2);
+                    poll_input_and_dispatch_event((int *)param_1,piVar2);
                   }
                   goto LAB_104924b6;
                 }

@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint check_status_item_release(int param_1,int param_2)
+uint check_status_item_release(cls_105b5410 *param_1,int param_2)
 
 {
   int iVar1;
@@ -26,7 +26,7 @@ uint check_status_item_release(int param_1,int param_2)
   bool bVar6;
   
   if (param_2 == 0x1a) {
-    iVar1 = test_status_item_bit_1046b1a2(param_1 + 4,uRam105b532c);
+    iVar1 = test_status_item_bit_1046b1a2(&param_1->field_0x4,iRam105b532c);
     iVar3 = iRam80010534;
     if (iVar1 == 0) {
       return 0;
@@ -40,7 +40,7 @@ uint check_status_item_release(int param_1,int param_2)
   }
   else {
     if (param_2 == 0x1e) {
-      iVar3 = test_status_item_bit_1046b1a2(param_1 + 4,uRam105b533c);
+      iVar3 = test_status_item_bit_1046b1a2(&param_1->field_0x4,iRam105b533c);
       if (iVar3 == 0) {
         return 0;
       }
@@ -52,10 +52,10 @@ uint check_status_item_release(int param_1,int param_2)
       return (uint)bVar6;
     }
     if (param_2 != 0xb) {
-      uVar4 = status_item_newly_released(param_1 + 4,*(uint32_t *)(param_2 * 4 + 0x105b52c4/*ROM*/));
+      uVar4 = status_item_newly_released(&param_1->field_0x4,*(uint32_t *)(param_2 * 4 + 0x105b52c4/*ROM*/));
       return uVar4;
     }
-    iVar1 = test_status_item_bit_1046b1a2(param_1 + 4,uRam105b52f0);
+    iVar1 = test_status_item_bit_1046b1a2(&param_1->field_0x4,iRam105b52f0);
     iVar3 = iRam80010544;
     if (iVar1 == 0) {
       return 0;
@@ -67,6 +67,6 @@ uint check_status_item_release(int param_1,int param_2)
     uVar2 = get_or_init_sram_block_105342fe();
     uVar5 = 0xb;
   }
-  write_field_by_id((void *)uVar2,uVar5,0);
+  write_field_by_id((uint32_t *)(uVar2),(int)(uVar5),(uint32_t)(0));
   return (uint)(iVar3 != 0xffff);
 }

@@ -26,18 +26,18 @@ int read_four_values_and_call_helper(int param_1)
   uintptr_t sp;
   uint8_t *puVar6;
   uint8_t auStack_6c [4];
-  uint32_t auStack_54 [19];
+  cls_105a6cfc acStack_54 [19];
   
   puVar6 = auStack_6c;
-  cls_105a6cfc_new(auStack_54);
-  copy_0x45_byte_block(*(int *)(param_1 + 8),auStack_54);
-  uVar1 = extract_field_from_struct_1045fc62(auStack_54,0x14);
-  uVar2 = extract_field_from_struct_1045fc62(auStack_54,0x36);
-  uVar3 = extract_field_from_struct_1045fc62(auStack_54,1);
-  iVar4 = extract_field_from_struct_1045fc62(auStack_54,8);
+  cls_105a6cfc_new(acStack_54);
+  copy_0x45_byte_block(*(int *)(param_1 + 8),acStack_54);
+  uVar1 = extract_field_from_struct_1045fc62(acStack_54,0x14);
+  uVar2 = extract_field_from_struct_1045fc62(acStack_54,0x36);
+  uVar3 = extract_field_from_struct_1045fc62(acStack_54,1);
+  iVar4 = extract_field_from_struct_1045fc62(acStack_54,8);
   uVar5 = get_or_init_heap_block();
   *(short *)(puVar6 + 2) = (short)iVar4;
   iVar4 = compute_exposure_value_from_table(uVar5,uVar1 & 0xff,uVar2 & 0xff,uVar3 & 0xff,*(short *)(puVar6 + 2));
-  cls_105a6cfc_delete(auStack_54,2);
+  cls_105a6cfc_delete(acStack_54,2);
   return iVar4;
 }

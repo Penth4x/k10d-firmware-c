@@ -25,7 +25,7 @@ bool initialize_exposure_state_block(int param_1,int param_2,int param_3)
   int iVar2;
   
   if (param_3 == 0) {
-    reset_object_state_fields_1047dd22(param_1 + 0x94);
+    reset_object_state_fields_1047dd22((cls_105aadf4 *)(param_1 + 0x94));
   }
   *(int *)(param_1 + 0x1b4) = *(int *)(param_2 + 0xe4) + 0x164;
   copy_eight_bytes_1045c584((uint16_t *)(param_1 + 0x1b8),(uint16_t *)(*(int *)(param_2 + 0xe4) + 0x4a8));
@@ -36,8 +36,8 @@ bool initialize_exposure_state_block(int param_1,int param_2,int param_3)
   puVar1 = (uint32_t *)(param_1 + 0x328);
   eventflag_clr_flg(puVar1,1);
   iVar2 = **(int **)(param_1 + 0x2fc);
-  (**(code **)(iVar2 + 0x2c))
-            ((int)*(int **)(param_1 + 0x2fc) + (int)*(short *)(iVar2 + 0x28),param_1 + 4,
+  (((vtbl_entry*)(iVar2))[5].fn)
+            ((int)*(int **)(param_1 + 0x2fc) + (int)((vtbl_entry*)(iVar2))[5].adj,param_1 + 4,
              param_1 + 0x94);
   eventflag_wai_flg(puVar1,1,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,1);

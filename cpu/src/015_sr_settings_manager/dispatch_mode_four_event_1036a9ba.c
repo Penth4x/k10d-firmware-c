@@ -18,11 +18,12 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void dispatch_mode_four_event_1036a9ba(void *param_1,int *param_2)
+cls_10557ba8 * dispatch_mode_four_event_1036a9ba(cls_10557ba8 *param_1,int *param_2)
 
 {
   int iVar1;
   uint uVar2;
+  cls_10557ba8 *extraout_r4;
   uint32_t uVar3;
   
   iVar1 = *param_2;
@@ -32,12 +33,12 @@ void dispatch_mode_four_event_1036a9ba(void *param_1,int *param_2)
     if (uVar2 != 3) {
       if (uVar2 < 4) {
         if ((uVar2 != 0) && (uVar2 != 1)) {
-          return;
+          return param_1;
         }
       }
       else if ((uVar2 != 7) && (uVar2 != 10)) {
         if (uVar2 != 0x29) {
-          return;
+          return param_1;
         }
         if (DAT_800043a1/*SDRAM*/ != '\0') {
           uVar3 = _DAT_105bb5f8/*ROM*/;
@@ -45,6 +46,7 @@ void dispatch_mode_four_event_1036a9ba(void *param_1,int *param_2)
       }
     }
     forward_param_to_global_offset(param_1,uVar3);
+    param_1 = extraout_r4;
   }
-  return;
+  return param_1;
 }

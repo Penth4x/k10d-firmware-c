@@ -60,13 +60,13 @@ void dispatch_state_transition_1039ed80(int param_1,int *param_2)
       piVar2 = *(int **)(param_1 + 0x38);
       *(uint32_t *)(param_1 + 0x38) = 0;
       iVar3 = *piVar2;
-      (**(code **)(iVar3 + 0x84))((int)piVar2 + (int)*(short *)(iVar3 + 0x80));
+      (((vtbl_entry*)(iVar3))[16].fn)((int)piVar2 + (int)((vtbl_entry*)(iVar3))[16].adj);
     }
     if (param_2 != (int *)0x0) {
       iVar3 = *param_2;
       sVar1 = *(short *)(iVar3 + 0x60);
       uVar5 = get_mode_flag_and_notify(param_1,param_2);
-      (**(code **)(iVar3 + 100))((int)sVar1 + (int)param_2,uVar5);
+      (((vtbl_entry*)(iVar3))[12].fn)((int)sVar1 + (int)param_2,uVar5);
       *(int **)(param_1 + 0x38) = param_2;
       if (param_2 != *(int **)(param_1 + 0x60)) {
         check_heap_alloc_success((int *)(param_1 + 0x20),param_2[0xd]);

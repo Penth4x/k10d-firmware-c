@@ -25,8 +25,8 @@ void queue_event_with_state(int param_1,void *param_2)
     uVar1 = 0;
   }
   else {
-    (**(code **)(*(int *)((int)param_2 + 0x8d4) + 0x134))
-              ((int)*(short *)(*(int *)((int)param_2 + 0x8d4) + 0x130) + (int)param_2);
+    (((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[38].fn)
+              ((int)((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[38].adj + (int)param_2);
     *(uint32_t *)((int)param_2 + 0x10) = 1;
     *(int *)((int)param_2 + 8) = param_1 + 4;
     uVar1 = *(uint32_t *)((int)param_2 + 0x828);

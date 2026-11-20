@@ -6,12 +6,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_two_virtual_methods_1037066a(int param_1)
+void invoke_two_virtual_methods_1037066a(cls_10557fec *param_1)
 
 {
-  (**(code **)(*(int *)(param_1 + 0x18) + 0x3c))
-            (param_1 + 0x18 + (int)*(short *)(*(int *)(param_1 + 0x18) + 0x38),0);
-  (**(code **)(*(int *)(param_1 + 0x40) + 0x3c))
-            (param_1 + 0x40 + (int)*(short *)(*(int *)(param_1 + 0x40) + 0x38),0);
+  (((vtbl_entry*)(param_1->field_0x18))[7].fn)
+            ((int)&param_1->field_0x18 + (int)((vtbl_entry*)(param_1->field_0x18))[7].adj,0);
+  (((vtbl_entry*)(param_1->field_0x40))[7].fn)
+            ((int)&param_1->field_0x40 + (int)((vtbl_entry*)(param_1->field_0x40))[7].adj,0);
   return;
 }

@@ -17,7 +17,7 @@
 void delete_object_if_owned(void *param_1,uint param_2)
 
 {
-  if ((param_1 != (void *)0x0) && (cls_105a5c2c_delete(param_1,2), (param_2 & 1) != 0)) {
+  if ((param_1 != 0) && (cls_105a5c2c_delete(param_1,2), (param_2 & 1) != 0)) {
     heap_free((int)param_1);
   }
   return;

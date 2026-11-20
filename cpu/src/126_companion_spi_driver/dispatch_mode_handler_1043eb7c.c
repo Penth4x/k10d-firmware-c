@@ -16,21 +16,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_mode_handler_1043eb7c(void *param_1)
+uint32_t dispatch_mode_handler_1043eb7c(cls_105a09fc *param_1)
 
 {
   int iVar1;
   
   clear_gpio_pin_bits(param_1);
-  iVar1 = *(int *)((int)param_1 + 0x54);
+  iVar1 = param_1->field_0x54;
   if (iVar1 == 0) {
-    set_bit24_in_6b000014(*(uint32_t *)((int)param_1 + 0x5c),1);
+    set_bit24_in_6b000014(param_1->field_0x5c,1);
   }
   else if (iVar1 == 1) {
-    set_bit29_in_6b000014(*(uint32_t *)((int)param_1 + 0x5c),1);
+    set_bit29_in_6b000014(param_1->field_0x5c,1);
   }
   else if (iVar1 == 2) {
-    set_bit26_in_6b000014(*(uint32_t *)((int)param_1 + 0x5c),1);
+    set_bit26_in_6b000014(param_1->field_0x5c,1);
   }
   return 1;
 }

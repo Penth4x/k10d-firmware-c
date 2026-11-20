@@ -26,10 +26,10 @@ void process_pending_update_queue(void)
     iVar1 = *caller_r8;
     *caller_r8 = *(int *)*caller_r8;
     if (*(int *)(iVar1 + 4) == 0) {
-      (**(code **)(iVar1 + 8))();
+      (((vtbl_entry*)(iVar1))[1].fn)();
     }
     else {
-      (**(code **)(iVar1 + 8))(*(int *)(iVar1 + 4),2);
+      (((vtbl_entry*)(iVar1))[1].fn)(*(int *)(iVar1 + 4),2);
     }
     iVar1 = *caller_r8;
   }

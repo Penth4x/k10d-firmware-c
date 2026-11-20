@@ -11,13 +11,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_10621600_new(uint32_t *param_1)
+cls_105bde1c * cls_10621600_new(cls_10621600 *param_1)
 
 {
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x24), param_1 != (uint32_t *)0x0)) {
-    cls_105bde1c_new(param_1);
-    param_1[2] = (uint32_t)&DAT_10621600;
+  if ((param_1 != (cls_10621600 *)0x0) ||
+     (param_1 = (cls_10621600 *)heap_alloc((void *)0x24), param_1 != (cls_10621600 *)0x0)) {
+    cls_105bde1c_new((cls_105bde1c *)param_1);
+    ((cls_105bde1c *)param_1)->field_0x8 = (uint32_t)&DAT_10621600;
   }
-  return param_1;
+  return (cls_105bde1c *)param_1;
 }

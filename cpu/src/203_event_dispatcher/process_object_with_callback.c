@@ -28,7 +28,7 @@ uint32_t process_object_with_callback(int param_1,int param_2)
   iVar1 = process_event_queue_item_10499f16(param_1);
   if (iVar1 != 0) {
     *(uint32_t *)(param_2 + 0x14) = 0;
-    uVar2 = read_byte_at_offset_0x20_1051b650(param_1 + 0x14);
+    uVar2 = read_byte_at_offset_0x20_1051b650((cls_105d677c *)(param_1 + 0x14));
     *(uint8_t *)(param_2 + 0x10) = uVar2;
     initialize_struct_fields_1049a69c(*(void **)(param_1 + 4));
     iVar1 = allocate_and_bind_object_10499df4(param_1,param_2);

@@ -24,7 +24,7 @@ uint32_t dispatch_virtual_event_handler(int param_1,int param_2,uint32_t param_3
   int iVar3;
   int iVar4;
   
-  iVar1 = find_entry_by_ushort_key(param_3,0xc634);
+  iVar1 = (uint32_t)(find_entry_by_ushort_key(param_3,0xc634));
   uVar2 = 0;
   if (iVar1 != 0) {
     iVar4 = 0x48;
@@ -32,19 +32,19 @@ uint32_t dispatch_virtual_event_handler(int param_1,int param_2,uint32_t param_3
       iVar4 = 0x44;
     }
     iVar3 = **(int **)(iVar4 + param_1);
-    iVar1 = (**(code **)(iVar3 + 0x14))
-                      ((int)*(short *)(iVar3 + 0x10) + (int)*(int **)(iVar4 + param_1),
+    iVar1 = (((vtbl_entry*)(iVar3))[2].fn)
+                      ((int)((vtbl_entry*)(iVar3))[2].adj + (int)*(int **)(iVar4 + param_1),
                        *(uint32_t *)(iVar1 + 8),param_1 + 0x14);
     if (iVar1 != 0) {
       *(int *)(param_2 + 0xc) = iVar1;
       iVar4 = **(int **)(param_1 + 0x4c);
-      uVar2 = (**(code **)(iVar4 + 0x14))
-                        ((int)*(int **)(param_1 + 0x4c) + (int)*(short *)(iVar4 + 0x10),iVar1,
+      uVar2 = (((vtbl_entry*)(iVar4))[2].fn)
+                        ((int)*(int **)(param_1 + 0x4c) + (int)((vtbl_entry*)(iVar4))[2].adj,iVar1,
                          *(uint32_t *)(param_1 + 4));
       if (*(int *)(*(int *)(param_1 + 4) + 0x1b0) != 0) {
         iVar4 = **(int **)(param_1 + 0x50);
-        uVar2 = (**(code **)(iVar4 + 0x14))
-                          ((int)*(int **)(param_1 + 0x50) + (int)*(short *)(iVar4 + 0x10),iVar1);
+        uVar2 = (((vtbl_entry*)(iVar4))[2].fn)
+                          ((int)*(int **)(param_1 + 0x50) + (int)((vtbl_entry*)(iVar4))[2].adj,iVar1);
       }
     }
   }

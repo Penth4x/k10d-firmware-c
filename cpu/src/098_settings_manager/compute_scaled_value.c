@@ -12,7 +12,7 @@ uint compute_scaled_value(void *param_1)
   int iVar1;
   
   iVar1 = *(int *)(*(int *)((int)param_1 + 0x2c) + 4);
-  iVar1 = (**(code **)(iVar1 + 0x14c))
-                    (*(int *)((int)param_1 + 0x2c) + (int)*(short *)(iVar1 + 0x148));
+  iVar1 = (((vtbl_entry*)(iVar1))[41].fn)
+                    (*(int *)((int)param_1 + 0x2c) + (int)((vtbl_entry*)(iVar1))[41].adj);
   return (uint)(*(int *)((int)param_1 + 0x9c) * iVar1) / 10;
 }

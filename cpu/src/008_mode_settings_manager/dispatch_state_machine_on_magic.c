@@ -55,7 +55,7 @@ int dispatch_state_machine_on_magic(void *param_1)
       return (int)param_1;
     }
     if (iVar1 == 1) {
-      iVar1 = read_field_at_offset_100(param_1);
+      iVar1 = read_field_at_offset_100((uint32_t)(param_1));
       if (iVar1 == 0xb) goto LAB_10366c3c;
       uVar2 = get_or_create_singleton_object_1036c796();
       uVar3 = 0xd;
@@ -67,7 +67,7 @@ int dispatch_state_machine_on_magic(void *param_1)
     }
   }
   else {
-    iVar1 = read_field_at_offset_100(param_1);
+    iVar1 = read_field_at_offset_100((uint32_t)(param_1));
     if (iVar1 == 0xb) {
 LAB_10366c3c:
       forward_param_to_global_offset(param_1,_DAT_105bb5ac/*ROM*/);

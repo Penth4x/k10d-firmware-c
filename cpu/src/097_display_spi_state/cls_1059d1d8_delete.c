@@ -11,19 +11,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_1059d1d8_delete(uint32_t *param_1,uint param_2)
+void cls_1059d1d8_delete(cls_1059d1d8 *param_1,uint param_2)
 
 {
-  if (param_1 != (uint32_t *)0x0) {
-    *param_1 = 0x1059d1d8/*ROM*/;
-    param_1[1] = 0x1059d2d0/*ROM*/;
-    param_1[2] = 0x1059d2f0/*ROM*/;
-    param_1[8] = 0x1059d318/*ROM*/;
-    param_1[0x25] = 0x1059d330/*ROM*/;
-    cls_105a2af8_delete(param_1 + 0x33,2);
-    cls_105a2af8_delete(param_1 + 0x31,2);
-    cls_105a2a8c_delete(param_1 + 0x24,0);
-    cls_1059cbf0_delete(param_1,0);
+  if (param_1 != (cls_1059d1d8 *)0x0) {
+    param_1->field_0x0 = (uint32_t)((void *)0x1059d1d8/*ROM*/);
+    param_1->field_0x4 = 0x1059d2d0/*ROM*/;
+    param_1->field_0x8 = 0x1059d2f0/*ROM*/;
+    param_1->field_0x20 = 0x1059d318/*ROM*/;
+    param_1->field_0x94 = 0x1059d330/*ROM*/;
+    cls_105a2af8_delete(&param_1->field_0xcc,2);
+    cls_105a2af8_delete(&param_1->field_0xc4,2);
+    cls_105a2a8c_delete(&param_1->field_0x90,0);
+    cls_1059cbf0_delete((cls_1059cbf0 *)param_1,0);
     if ((param_2 & 1) != 0) {
       heap_free((int)param_1);
     }

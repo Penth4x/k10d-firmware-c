@@ -13,10 +13,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void clear_two_word_fields_1051d02a(int param_1)
+void clear_two_word_fields_1051d02a(cls_105d6ce0 *param_1)
 
 {
-  *(uint32_t *)(param_1 + 0x5c) = 0;
-  *(uint32_t *)(param_1 + 0x58) = 0;
+  param_1->field_0x5c = 0;
+  param_1->field_0x58 = 0;
   return;
 }

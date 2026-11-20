@@ -23,9 +23,9 @@ bool invoke_virtual_slot_and_dispatch(void *param_1,uint32_t param_2,void *param
   uint32_t extraout_r5;
   
   iVar1 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   iVar1 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   register_error_menu_item(param_1,extraout_r5,param_3,param_4);
   format_and_render_menu_item_103b1afc(param_1);
   bVar2 = check_heap_alloc_success((int *)((int)param_1 + 0x40),*(int *)((int)param_1 + 0x54));

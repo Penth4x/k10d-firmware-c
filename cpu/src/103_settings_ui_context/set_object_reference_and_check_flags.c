@@ -27,17 +27,17 @@ bool set_object_reference_and_check_flags(uint param_1,int *param_2)
   if (param_2 == (int *)0x0) {
     piVar3 = *(int **)(param_1 + 0x3c);
     *(uint32_t *)(param_1 + 0x3c) = 0;
-    uVar1 = (**(code **)(*piVar3 + 0x34))((int)*(short *)(*piVar3 + 0x30) + (int)piVar3);
-    bVar2 = (**(code **)(*piVar3 + 0x24))((int)*(short *)(*piVar3 + 0x20) + (int)piVar3,0);
+    uVar1 = (((vtbl_entry*)(*piVar3))[6].fn)((int)((vtbl_entry*)(*piVar3))[6].adj + (int)piVar3);
+    bVar2 = (((vtbl_entry*)(*piVar3))[4].fn)((int)((vtbl_entry*)(*piVar3))[4].adj + (int)piVar3,0);
     bVar4 = true;
     if ((bVar2 & (uVar1 & 1) != 0) == 0) {
       bVar4 = false;
     }
   }
   else {
-    uVar1 = (**(code **)(*param_2 + 0x24))
-                      ((int)*(short *)(*param_2 + 0x20) + (int)param_2,param_1 + 0x34);
-    bVar2 = (**(code **)(*param_2 + 0x2c))((int)*(short *)(*param_2 + 0x28) + (int)param_2);
+    uVar1 = (((vtbl_entry*)(*param_2))[4].fn)
+                      ((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,param_1 + 0x34);
+    bVar2 = (((vtbl_entry*)(*param_2))[5].fn)((int)((vtbl_entry*)(*param_2))[5].adj + (int)param_2);
     bVar4 = (bVar2 & (uVar1 & 1) != 0) != 0;
     *(int **)(param_1 + 0x3c) = param_2;
   }

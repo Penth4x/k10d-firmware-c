@@ -15,15 +15,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_and_clear_byte_10384b54(int param_1,int param_2)
+void invoke_virtual_slot_and_clear_byte_10384b54(cls_105590b8 *param_1,int param_2)
 
 {
   int iVar1;
   
-  iVar1 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
-  iVar1 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
-  *(uint8_t *)(param_1 + 0x74 + param_2) = 0;
+  iVar1 = menu_item_register((int)param_1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  iVar1 = menu_item_register((int)param_1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  (&param_1->field_0x74)[param_2] = 0;
   return;
 }

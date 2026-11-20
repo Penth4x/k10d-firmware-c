@@ -2,11 +2,15 @@
  * name: verified (structural evidence: emulator: runs on the UI "show" request (0x104924e6 code 0x80 -> 0x104927f6 -> 0x1052b904); the earlier SR-actuator reading was wrong)
  * unit: 192_sr_cal_transfer (unit names are model-proposed)
  * purpose:
- *   Turns the rear display output on: checks the controller state (0x40040004 & 0xc000),
- *   programs the layer banks, posts the display flag, sets obj+0x37 = 1 (on).
+ *   Configures and enables display output based on object state flags.
  * summary:
- *   VERIFIED: emulator: runs on the UI "show" request (0x104924e6 code 0x80 -> 0x104927f6
- *   -> 0x1052b904); the earlier SR-actuator reading was wrong
+ *   Checks a status value from read_display_controller_status_bits; if not 0xc000, calls
+ *   one of two setup functions (reset_display_layer_registers_10445262 or
+ *   reset_display_layer_registers_104452ba) based on a flag at offset 0x34, then calls
+ *   call_helper_with_0x4000_10445e54. Based on a flag at offset 0x35, either calls
+ *   set_flag_with_notify or a sequence of configure_display_layer_params,
+ *   call_single_helper_with_param_104436da, and clear_flag_with_notify. Finally sets a flag
+ *   at offset 0x37 to 1.
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"

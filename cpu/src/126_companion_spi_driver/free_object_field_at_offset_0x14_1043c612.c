@@ -16,7 +16,7 @@
 void free_object_field_at_offset_0x14_1043c612(int param_1)
 
 {
-  if (*(void **)(param_1 + 0x14) != (void *)0x0) {
+  if (*(void **)(param_1 + 0x14) != 0) {
     set_flag2_with_notify(*(void **)(param_1 + 0x14));
   }
   return;

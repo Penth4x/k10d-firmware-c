@@ -11,22 +11,25 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_105bb314_new(uint32_t *param_1)
+/* WARNING: Struct "cls_105bb314": ignoring overlapping field "field_0x8" */
+/* WARNING: Struct "cls_105bb0ec": ignoring overlapping field "field_0x8" */
+
+cls_105bb0ec * cls_105bb314_new(cls_105bb314 *param_1)
 
 {
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x2c1c), param_1 != (uint32_t *)0x0)) {
-    cls_105bb0ec_new(param_1);
-    cls_105d74ac_new(param_1 + 0x26);
-    *param_1 = 0x105bb314/*ROM*/;
-    param_1[1] = 0x105bb444/*ROM*/;
-    param_1[6] = 0x105bb464/*ROM*/;
-    param_1[0xb] = 0x105bb494/*ROM*/;
-    param_1[0xc] = 0x105bb4ac/*ROM*/;
-    param_1[0xd] = 0x105bb4cc/*ROM*/;
-    param_1[0x10] = 0x105bb50c/*ROM*/;
-    param_1[0x26] = 0x105bb554/*ROM*/;
-    cls_105f9f74_new(param_1 + 0x27);
+  if ((param_1 != (cls_105bb314 *)0x0) || (param_1 = (cls_105bb314 *)heap_alloc((void *)0x2c1c), (cls_105bb0ec *)param_1 != (cls_105bb0ec *)0x0))
+  {
+    cls_105bb0ec_new((cls_105bb0ec *)param_1);
+    cls_105d74ac_new((cls_105d74ac *)&((cls_105bb0ec *)param_1)->field_0x98);
+    ((cls_105bb0ec *)param_1)->field_0x0 = (uintptr_t)((void *)0x105bb314/*ROM*/);
+    ((uint32_t *)&((((cls_105bb0ec *)param_1)->field_0x4)))[0] = (uint32_t)((void *)0x105bb444/*ROM*/);
+    ((cls_105bb0ec *)param_1)->field_0x18 = (uintptr_t)((void *)0x105bb464/*ROM*/);
+    ((cls_105bb0ec *)param_1)->field_0x2c = (uintptr_t)((void *)0x105bb494/*ROM*/);
+    ((uint32_t *)&((((cls_105bb0ec *)param_1)->field_0x30)))[0] = (uint32_t)((void *)0x105bb4ac/*ROM*/);
+    ((cls_105bb0ec *)param_1)->field_0x34 = (uintptr_t)((void *)0x105bb4cc/*ROM*/);
+    ((uint32_t *)&((((cls_105bb0ec *)param_1)->field_0x40)))[0] = 0x105bb50c/*ROM*/;
+    ((cls_105bb0ec *)param_1)->field_0x98 = 0x105bb554/*ROM*/;
+    cls_105f9f74_new(&((cls_105bb0ec *)param_1)->field_0x9c);
   }
-  return param_1;
+  return (cls_105bb0ec *)param_1;
 }

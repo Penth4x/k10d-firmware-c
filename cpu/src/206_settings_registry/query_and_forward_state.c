@@ -15,8 +15,8 @@ void query_and_forward_state(int param_1,int param_2)
   
   uVar2 = 0;
   iVar3 = **(int **)(param_1 + 0x14);
-  uVar1 = (**(code **)(iVar3 + 0x14))
-                    ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar3 + 0x10),0x15);
+  uVar1 = (((vtbl_entry*)(iVar3))[2].fn)
+                    ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar3))[2].adj,0x15);
   switch(uVar1) {
   case 0:
     uVar2 = 0;

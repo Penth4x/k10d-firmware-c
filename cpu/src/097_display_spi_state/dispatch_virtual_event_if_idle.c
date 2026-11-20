@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_virtual_event_if_idle(int param_1)
+void dispatch_virtual_event_if_idle(cls_1059be70 *param_1)
 
 {
   uint8_t *puVar1;
@@ -23,11 +23,12 @@ void dispatch_virtual_event_if_idle(int param_1)
   
   puVar1 = (uint8_t *)get_sysparam_store_instance();
   cVar2 = read_sysparam_byte(puVar1);
-  if ((cVar2 == '\0') && (*(char *)(param_1 + 0x9f) == '\0')) {
-    (**(code **)(*(int *)(param_1 + 4) + 0x11c))
-              (*(short *)(*(int *)(param_1 + 4) + 0x118) + param_1,0xf);
-    (**(code **)(*(int *)(param_1 + 4) + 0xfc))(*(short *)(*(int *)(param_1 + 4) + 0xf8) + param_1);
+  if ((cVar2 == '\0') && (param_1->field_0x9f == '\0')) {
+    (((vtbl_entry*)(param_1->field_0x4))[35].fn)
+              (&param_1->field_0x0 + ((vtbl_entry*)(param_1->field_0x4))[35].adj,0xf);
+    (((vtbl_entry*)(param_1->field_0x4))[31].fn)
+              (&param_1->field_0x0 + ((vtbl_entry*)(param_1->field_0x4))[31].adj);
   }
-  send_two_word_pair_over_ch2(param_1,0x1428,3,1);
+  send_two_word_pair_over_ch2((int)(param_1),(uint32_t)(0x1428),(uint32_t)(3),(int)(1));
   return;
 }

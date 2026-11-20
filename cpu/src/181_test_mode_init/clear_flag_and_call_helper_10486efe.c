@@ -10,6 +10,6 @@ void clear_flag_and_call_helper_10486efe(int param_1)
 
 {
   *(uint8_t *)(param_1 + 0x58) = 0;
-  check_kernel_object_id_valid((void *)(param_1 + 0x4c));
+  check_kernel_object_id_valid((int *)(param_1 + 0x4c));
   return;
 }

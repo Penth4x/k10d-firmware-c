@@ -9,7 +9,7 @@
 uint32_t set_two_flags_on_object_field(void *param_1)
 
 {
-  write_object_field_byte((void *)(*(uint32_t *)((int)param_1 + 0x1c)),0xe,1);
-  write_object_field_byte((void *)(*(uint32_t *)((int)param_1 + 0x1c)),2,1);
+  write_object_field_byte((int *)(*(uint32_t *)((int)param_1 + 0x1c)),(int)(0xe),(uint)(1));
+  write_object_field_byte((int *)(*(uint32_t *)((int)param_1 + 0x1c)),(int)(2),(uint)(1));
   return 1;
 }

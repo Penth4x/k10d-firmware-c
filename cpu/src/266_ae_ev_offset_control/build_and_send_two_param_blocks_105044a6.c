@@ -159,14 +159,14 @@ void build_and_send_two_param_blocks_105044a6(int param_1,int *param_2,int *para
   uStack_23 = 0;
   eventflag_clr_flg(puVar2,3);
   iVar1 = param_1 + 4;
-  build_sensor_readout_params(*(uint32_t *)(param_1 + 0x24),0,iVar1,&uStack_84);
-  build_sensor_readout_params(*(uint32_t *)(param_1 + 0x24),1,iVar1,&uStack_48);
+  build_sensor_readout_params((int)(*(uint32_t *)(param_1 + 0x24)),(int)(0),(void *)(iVar1),(int *)(&uStack_84));
+  build_sensor_readout_params((int)(*(uint32_t *)(param_1 + 0x24)),(int)(1),(void *)(iVar1),(int *)(&uStack_48));
   eventflag_wai_flg(puVar2,2,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar2,2);
   configure_timer_channel_state(*(uint32_t *)(param_1 + 0x24),1);
   iStack_44 = param_2[3];
   iStack_38 = param_3[3];
-  build_sensor_readout_params(*(uint32_t *)(param_1 + 0x24),1,iVar1,&uStack_48);
+  build_sensor_readout_params((int)(*(uint32_t *)(param_1 + 0x24)),(int)(1),(void *)(iVar1),(int *)(&uStack_48));
   twai_flg_obj(puVar2,3,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar2,3);
   configure_timer_channel_state(*(uint32_t *)(param_1 + 0x24),0);

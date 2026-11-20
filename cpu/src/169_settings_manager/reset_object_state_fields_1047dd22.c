@@ -15,12 +15,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void reset_object_state_fields_1047dd22(int param_1)
+void reset_object_state_fields_1047dd22(cls_105aadf4 *param_1)
 
 {
   (*(code *)0x1047dfc8/*ROM*/)();
-  *(uint32_t *)(param_1 + 0x120) = 0;
-  *(uint16_t *)(param_1 + 300) = 0;
-  *(uint16_t *)(param_1 + 0x12e) = 0;
+  param_1->field_0x120 = 0;
+  param_1->field_0x12c = 0;
+  param_1->field_0x12e = 0;
   return;
 }

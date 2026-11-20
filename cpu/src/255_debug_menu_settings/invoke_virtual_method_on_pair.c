@@ -15,11 +15,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_method_on_pair(int param_1,int param_2,int *param_3)
+void invoke_virtual_method_on_pair(cls_105c2c2c *param_1,int param_2,int *param_3)
 
 {
   (*(code *)0x1044e772/*ROM*/)
-            (*(uint32_t *)(param_1 + 8),*(uint16_t *)(*param_3 + param_2 * 2),
+            (param_1->field_0x8,*(uint16_t *)(*param_3 + param_2 * 2),
              *(uint16_t *)(param_3[1] + param_2 * 2));
   return;
 }

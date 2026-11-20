@@ -13,7 +13,7 @@ uint32_t invoke_virtual_method_and_store_result(int *param_1,int param_2)
   int iVar2;
   
   iVar2 = *(int *)(*param_1 + 4);
-  iVar2 = (**(code **)(iVar2 + 0x4c))(*param_1 + (int)*(short *)(iVar2 + 0x48));
+  iVar2 = (((vtbl_entry*)(iVar2))[9].fn)(*param_1 + (int)((vtbl_entry*)(iVar2))[9].adj);
   if (iVar2 == 0) {
     uVar1 = 3;
   }

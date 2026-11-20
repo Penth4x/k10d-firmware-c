@@ -22,10 +22,10 @@ void invoke_vtable_slot_by_flag_104fa86a(int param_1,int param_2)
   
   iVar1 = *(int *)(param_1 + 0x110);
   if (param_2 == 0) {
-    (**(code **)(*(int *)(iVar1 + 4) + 0x54))(iVar1 + *(short *)(*(int *)(iVar1 + 4) + 0x50));
+    (((vtbl_entry*)(*(int *)(iVar1 + 4)))[10].fn)(iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 4)))[10].adj);
   }
   else {
-    (**(code **)(*(int *)(iVar1 + 4) + 0x4c))(iVar1 + *(short *)(*(int *)(iVar1 + 4) + 0x48));
+    (((vtbl_entry*)(*(int *)(iVar1 + 4)))[9].fn)(iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 4)))[9].adj);
   }
   return;
 }

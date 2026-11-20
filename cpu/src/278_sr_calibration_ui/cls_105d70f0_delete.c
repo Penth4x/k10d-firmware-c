@@ -11,13 +11,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_105d70f0_delete(uint32_t *param_1,uint param_2)
+void cls_105d70f0_delete(cls_105d70f0 *param_1,uint param_2)
 
 {
-  if (param_1 != (uint32_t *)0x0) {
-    *param_1 = 0x105d70f0/*ROM*/;
+  if (param_1 != (cls_105d70f0 *)0x0) {
+    param_1->field_0x0 = 0x105d70f0/*ROM*/;
     clear_member_at_offset_4(param_1);
-    reset_vtable_and_free_if_flagged_104b2852(param_1,0);
+    reset_vtable_and_free_if_flagged_104b2852((void *)param_1,0);
     if ((param_2 & 1) != 0) {
       heap_free((int)param_1);
     }

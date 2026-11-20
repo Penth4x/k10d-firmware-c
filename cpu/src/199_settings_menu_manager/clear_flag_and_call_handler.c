@@ -6,13 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void clear_flag_and_call_handler(int param_1)
+void clear_flag_and_call_handler(cls_105b4dac *param_1)
 
 {
-  invoke_virtual_method_on_range_104938a2(__frv_reg_unset(4));
-  if (*(char *)(param_1 + 0xac) != '\0') {
-    dispatch_virtual_event_callback(param_1);
-    *(uint8_t *)(param_1 + 0xac) = 0;
+  invoke_virtual_method_on_range_104938a2((cls_105b47b4 *)param_1);
+  if (param_1->field_0xac != '\0') {
+    dispatch_virtual_event_callback((int)param_1);
+    param_1->field_0xac = 0;
   }
   return;
 }

@@ -109,9 +109,9 @@ LAB_104be494:
         iVar4 = invoke_object_callback_with_lock(param_1,uVar3 & 0xffff,param_1 + 0x4a4);
         if (iVar4 != 0) {
           iVar4 = **(int **)(param_1 + 0x4a4);
-          pcVar5 = (char *)(**(code **)(iVar4 + 0x14))
+          pcVar5 = (char *)(((vtbl_entry*)(iVar4))[2].fn)
                                      ((int)*(int **)(param_1 + 0x4a4) +
-                                      (int)*(short *)(iVar4 + 0x10));
+                                      (int)((vtbl_entry*)(iVar4))[2].adj);
           copy_bytes_with_offset(puVar10,pcVar5);
         }
         iVar8 = iVar8 + 1;

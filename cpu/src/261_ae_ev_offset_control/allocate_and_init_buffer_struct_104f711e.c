@@ -64,7 +64,7 @@ void allocate_and_init_buffer_struct_104f711e(int param_1, int param_2, uint32_t
   uVar2 = *(ushort *)(param_2 + 0x12);
   pvVar3 = (void *)get_system_heap();
   pvVar3 = (void *)mempool_get_block(pvVar3,(void *)((uint)uVar1 * (uint)uVar2),0);
-  if (pvVar3 != (void *)0x0) {
+  if (pvVar3 != 0) {
     uStack_46 = 0;
     uStack_44 = 0;
     uStack_42 = 0;
@@ -97,7 +97,7 @@ void allocate_and_init_buffer_struct_104f711e(int param_1, int param_2, uint32_t
     uStack_c = 0;
     pvStack_50 = pvVar3;
     eventflag_clr_flg(puVar5,1);
-    build_and_send_param_struct_10505a10(*(uint32_t *)(param_1 + 0x28),0,(void *)(param_1 + 4),&uStack_5c);
+    build_and_send_param_struct_10505a10((int)(*(uint32_t *)(param_1 + 0x28)),(int)(0),(void *)(param_1 + 4),(int *)(&uStack_5c));
     eventflag_wai_flg(puVar5,1,&uStack_c,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar5,1);
     configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),0);
@@ -112,7 +112,7 @@ void allocate_and_init_buffer_struct_104f711e(int param_1, int param_2, uint32_t
     uStack_16 = *(uint16_t *)(param_2 + 0x14);
     pvStack_24 = pvVar3;
     eventflag_clr_flg(puVar5,1);
-    imgp_c_program_and_start_104fe5ce(*(uint32_t *)(param_1 + 0x24),(void *)(param_1 + 4),(void *)&pvStack_24);
+    imgp_c_program_and_start_104fe5ce((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(param_1 + 4),(uint32_t *)(&pvStack_24));
     eventflag_wai_flg(puVar5,1,&uStack_c,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar5,1);
     imgp_a_stop_and_reset(*(uint32_t *)(param_1 + 0x24));

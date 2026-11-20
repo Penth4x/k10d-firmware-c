@@ -14,12 +14,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_four_initializers_104eabd0(uint32_t param_1)
+void call_four_initializers_104eabd0(cls_105c26f0 *param_1)
 
 {
   destroy_object_members_104eb792(__frv_reg_unset(4));
-  invoke_virtual_slot_two_on_members_104eb276(param_1);
-  invoke_virtual_slot_two_on_two_objects_104eb596(param_1);
-  invoke_virtual_slot_4_104eb672(param_1);
+  invoke_virtual_slot_two_on_members_104eb276((int)param_1);
+  invoke_virtual_slot_two_on_two_objects_104eb596((int)param_1);
+  invoke_virtual_slot_4_104eb672((int)param_1);
   return;
 }

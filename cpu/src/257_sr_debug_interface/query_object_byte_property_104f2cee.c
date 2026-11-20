@@ -20,11 +20,11 @@ uint query_object_byte_property_104f2cee(int param_1)
 {
   uint uVar1;
   uintptr_t sp;
-  uint8_t auStack_18 [16];
+  cls_105a6b04 acStack_18 [4];
   
-  cls_105a6b04_new((void *)auStack_18);
-  copy_twelve_bytes_to_buffer(*(int *)(param_1 + 8),auStack_18);
-  uVar1 = extract_field_from_param_table(auStack_18,0xd);
-  cls_105a6b04_delete((void *)auStack_18,2);
+  cls_105a6b04_new(acStack_18);
+  copy_twelve_bytes_to_buffer(*(int *)(param_1 + 8),acStack_18);
+  uVar1 = extract_field_from_param_table(acStack_18,0xd);
+  cls_105a6b04_delete(acStack_18,2);
   return uVar1 & 0xff;
 }

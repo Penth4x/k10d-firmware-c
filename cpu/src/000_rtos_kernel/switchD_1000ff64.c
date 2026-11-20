@@ -1,4 +1,4 @@
-/* @k10d switchD @ 0x1000ff64
+/* @k10d switchD_1000ff64 @ 0x1000ff64
  * name: earlier (carried from an earlier Ghidra session, not re-verified; the model, reading only this decompile, proposed dispatch_unrecovered_jumptable)
  * unit: 000_rtos_kernel (unit names are model-proposed)
  * purpose:

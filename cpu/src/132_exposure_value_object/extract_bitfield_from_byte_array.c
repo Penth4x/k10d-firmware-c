@@ -6,12 +6,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-int extract_bitfield_from_byte_array(void *param_1,int param_2)
+int extract_bitfield_from_byte_array(cls_105a6abc *param_1,int param_2)
 
 {
   int iVar1;
   
   iVar1 = param_2 * 8;
-  return (int)(uint)(*(byte *)((int)param_1 + *(int *)(&DAT_105a5f04/*ROM*/ + iVar1) + 4) &
+  return (int)(uint)(*(byte *)((int)&param_1[1].field_0x0 + *(int *)(&DAT_105a5f04/*ROM*/ + iVar1)) &
                     (&DAT_105a5f08/*ROM*/)[iVar1]) >> ((byte)(&DAT_105a5f09/*ROM*/)[iVar1] & 0x1f);
 }

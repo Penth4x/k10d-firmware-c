@@ -16,7 +16,7 @@
 void free_object_field_pointer_1043bf20(int param_1)
 
 {
-  if (*(void **)(param_1 + 0x10) != (void *)0x0) {
+  if (*(void **)(param_1 + 0x10) != 0) {
     set_flag_with_notify(*(void **)(param_1 + 0x10));
   }
   return;

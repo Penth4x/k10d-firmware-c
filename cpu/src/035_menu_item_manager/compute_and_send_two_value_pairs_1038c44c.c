@@ -18,7 +18,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void compute_and_send_two_value_pairs_1038c44c(int param_1)
+void compute_and_send_two_value_pairs_1038c44c(cls_10559b1c *param_1)
 
 {
   short sVar1;
@@ -38,15 +38,15 @@ void compute_and_send_two_value_pairs_1038c44c(int param_1)
   uint8_t auStack_30 [4];
   uint32_t auStack_2c [9];
   
-  iVar3 = menu_item_register(param_1);
-  iVar4 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0x2c))
-            (auStack_48,*(short *)(*(int *)(iVar3 + 0xc) + 0x28) + iVar3);
-  (**(code **)(*(int *)(iVar4 + 0xc) + 0x2c))
-            (auStack_40,*(short *)(*(int *)(iVar4 + 0xc) + 0x28) + iVar4);
+  iVar3 = menu_item_register((int)param_1);
+  iVar4 = menu_item_register((int)param_1);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[5].fn)
+            (auStack_48,((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[5].adj + iVar3);
+  (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[5].fn)
+            (auStack_40,((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[5].adj + iVar4);
   iStack_54 = 0x18;
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0x1c))
-            (auStack_38,*(short *)(*(int *)(iVar3 + 0xc) + 0x18) + iVar3);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[3].fn)
+            (auStack_38,((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[3].adj + iVar3);
   psVar2 = (short *)(*(int *)(iVar4 + 0xc) + iStack_54);
   (**(code **)(psVar2 + 2))(auStack_30,*psVar2 + iVar4);
   iVar5 = return_first_word_1045c514(auStack_40);
@@ -64,7 +64,7 @@ void compute_and_send_two_value_pairs_1038c44c(int param_1)
     *(uint32_t *)(local_50 + iVar5 + -4) = *(uint32_t *)((int)auStack_2c + iVar5);
     iVar5 = iVar8;
   } while (iVar8 != 0);
-  (**(code **)(iVar6 + 0x14))(iVar3 + sVar1,local_50);
+  (((vtbl_entry*)(iVar6))[2].fn)(iVar3 + sVar1,local_50);
   free_heap_block_if_flagged_1045bc54(local_50,2);
   iVar6 = *(int *)(iVar4 + 0xc);
   sVar1 = *(short *)(iVar6 + 0x10);
@@ -74,7 +74,7 @@ void compute_and_send_two_value_pairs_1038c44c(int param_1)
     *(uint32_t *)(local_50 + iVar5 + -4) = *(uint32_t *)((int)auStack_2c + iVar5 + 8);
     iVar5 = iVar3;
   } while (iVar3 != 0);
-  (**(code **)(iVar6 + 0x14))(sVar1 + iVar4,local_50);
+  (((vtbl_entry*)(iVar6))[2].fn)(sVar1 + iVar4,local_50);
   free_heap_block_if_flagged_1045bc54(local_50,2);
   free_heap_block_if_flagged_1045bc54(auStack_2c + 3,2);
   free_heap_block_if_flagged_1045bc54(auStack_2c + 1,2);

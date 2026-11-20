@@ -20,14 +20,13 @@ bool call_helper_with_temp_object(int param_1,void *param_2,uint32_t *param_3)
 {
   int iVar1;
   uintptr_t sp;
-  uint8_t auStack_28 [16];
-  uint32_t uStack_18;
+  cls_105ab468 cStack_28;
   
-  cls_105ab468_new(auStack_28);
-  iVar1 = call_with_offset_lock_1048101c(*(void **)(param_1 + 0x248),param_2,auStack_28);
+  cls_105ab468_new(&cStack_28);
+  iVar1 = call_with_offset_lock_1048101c(*(void **)(param_1 + 0x248),param_2,&cStack_28);
   if (iVar1 != 0) {
-    *param_3 = uStack_18;
+    *param_3 = cStack_28.field_0x10;
   }
-  cls_105ab468_delete(auStack_28,2);
+  cls_105ab468_delete(&cStack_28,2);
   return iVar1 != 0;
 }

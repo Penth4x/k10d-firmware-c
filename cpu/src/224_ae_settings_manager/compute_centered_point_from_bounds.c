@@ -35,7 +35,7 @@ void compute_centered_point_from_bounds(uint32_t param_1,uint32_t *param_2,uint3
   compute_two_16bit_deltas(&uStack_28,param_2);
   iVar1 = read_first_word_1045bd4c(&uStack_28);
   ppuVar5 = apuStack_3c + 3;
-  iVar2 = return_first_word_1045c514((uint32_t *)ppuVar5);
+  iVar2 = return_first_word_1045c514(ppuVar5);
   iVar3 = get_second_word_of_struct(&uStack_28);
   iVar4 = read_struct_field_at_offset_4(ppuVar5);
   apuStack_3c[0] = auStack_24 + 1;

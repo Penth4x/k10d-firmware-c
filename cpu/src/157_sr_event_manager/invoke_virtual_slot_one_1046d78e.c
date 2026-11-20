@@ -22,6 +22,6 @@ void invoke_virtual_slot_one_1046d78e(int param_1,int param_2)
   
   write_pattern_to_offset_0x10(*(int *)(param_1 + 0x1c),param_2);
   iVar1 = **(int **)(param_1 + 0x18);
-  (**(code **)(iVar1 + 0x24))((int)*(int **)(param_1 + 0x18) + (int)*(short *)(iVar1 + 0x20),1);
+  (((vtbl_entry*)(iVar1))[4].fn)((int)*(int **)(param_1 + 0x18) + (int)((vtbl_entry*)(iVar1))[4].adj,1);
   return;
 }

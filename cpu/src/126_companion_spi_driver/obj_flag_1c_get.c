@@ -13,8 +13,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool obj_flag_1c_get(void *param_1)
+/* WARNING: Struct "cls_105a023c": ignoring multiple overlapping fields */
+
+bool obj_flag_1c_get(cls_105a023c *param_1)
 
 {
-  return *(char *)((int)param_1 + 0x1c) != '\0';
+  return param_1->field_0x1c != '\0';
 }

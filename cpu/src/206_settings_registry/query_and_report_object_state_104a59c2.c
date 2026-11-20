@@ -27,8 +27,8 @@ void query_and_report_object_state_104a59c2(int param_1,int param_2)
   
   uVar2 = 0;
   iVar3 = **(int **)(param_1 + 0x18);
-  uVar1 = (**(code **)(iVar3 + 0x14))
-                    ((int)*(int **)(param_1 + 0x18) + (int)*(short *)(iVar3 + 0x10),1);
+  uVar1 = (((vtbl_entry*)(iVar3))[2].fn)
+                    ((int)*(int **)(param_1 + 0x18) + (int)((vtbl_entry*)(iVar3))[2].adj,1);
   switch(uVar1) {
   case 0:
     uVar2 = 0;
@@ -59,11 +59,11 @@ void query_and_report_object_state_104a59c2(int param_1,int param_2)
   }
   write_byte_to_struct_offset_104a8be2(param_2,0,uVar2);
   iVar3 = **(int **)(param_1 + 0x18);
-  uVar2 = (**(code **)(iVar3 + 0x14))
-                    ((int)*(int **)(param_1 + 0x18) + (int)*(short *)(iVar3 + 0x10),8);
+  uVar2 = (((vtbl_entry*)(iVar3))[2].fn)
+                    ((int)*(int **)(param_1 + 0x18) + (int)((vtbl_entry*)(iVar3))[2].adj,8);
   write_byte_to_struct_offset_104a8be2(param_2,1,uVar2);
   iVar3 = **(int **)(param_1 + 0x18);
-  (**(code **)(iVar3 + 0x14))((int)*(int **)(param_1 + 0x18) + (int)*(short *)(iVar3 + 0x10),8);
+  (((vtbl_entry*)(iVar3))[2].fn)((int)*(int **)(param_1 + 0x18) + (int)((vtbl_entry*)(iVar3))[2].adj,8);
   write_byte_to_struct_offset_104a8be2(param_2,2,extraout_var);
   write_byte_to_struct_offset_104a8be2(param_2,3,0);
   return;

@@ -9,9 +9,9 @@
 void release_object_if_allocated_1051655c(int param_1)
 
 {
-  if (*(void **)(param_1 + 700) != (void *)0x0) {
+  if (*(void **)(param_1 + 700) != 0) {
     set_param2_offset_1c_to_four(*(int *)(param_1 + 0x58),*(void **)(param_1 + 700));
-    set_two_flags_and_call_helper((void *)(param_1 + 0x2b8));
+    set_two_flags_and_call_helper((char *)(param_1 + 0x2b8));
   }
   return;
 }

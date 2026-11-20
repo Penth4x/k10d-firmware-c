@@ -39,17 +39,17 @@ uint32_t poll_input_and_dispatch_event(int *param_1,int *param_2)
         iVar2 = iVar3;
       } while (iVar3 != 0);
       if ((aiStack_1c[1] == 0xffff) ||
-         (iVar2 = (**(code **)(*param_1 + 0x14))((int)*(short *)(*param_1 + 0x10) + (int)param_1),
+         (iVar2 = (((vtbl_entry*)(*param_1))[2].fn)((int)((vtbl_entry*)(*param_1))[2].adj + (int)param_1),
          iVar2 == 0)) break;
       iVar2 = param_1[4];
       if (((iVar2 == 0) ||
-          (iVar2 = (**(code **)(*(int *)(iVar2 + 0xc) + 0xa4))
-                             (*(short *)(*(int *)(iVar2 + 0xc) + 0xa0) + iVar2,iVar1), iVar2 == 0))
+          (iVar2 = (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[20].fn)
+                             (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[20].adj + iVar2,iVar1), iVar2 == 0))
          && ((iVar2 = *(int *)(param_1[3] + 8),
              (**(code **)(iVar2 + 0x2c))
                        (param_1[3] + (int)*(short *)(iVar2 + 0x28),iVar1,aiStack_1c[2]),
              iVar1 == 0x1e || (iVar1 == 0xe6)))) {
-        get_and_process_pointer((int)param_1);
+        get_and_process_pointer((uint32_t)(param_1));
       }
     }
   }

@@ -13,11 +13,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool check_field_at_offset_0x70(int param_1)
+/* WARNING: Struct "cls_105bb0ec": ignoring overlapping field "field_0x8" */
+
+bool check_field_at_offset_0x70(cls_105bb0ec *param_1)
 
 {
   int iVar1;
   
-  iVar1 = eventflag_clr_flg(*(uint32_t *)(param_1 + 0x70),0xffffffff);
+  iVar1 = eventflag_clr_flg((void *)(param_1->field_0x70), 0xffffffff);
   return iVar1 != 0;
 }

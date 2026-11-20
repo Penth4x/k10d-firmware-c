@@ -28,13 +28,13 @@ void dispatch_virtual_event_callback(int param_1)
   if (piVar2 != (int *)0x0) {
     iVar5 = *piVar2;
     sVar1 = *(short *)(iVar5 + 0x28);
-    uVar3 = (**(code **)(*(int *)(param_1 + 0xc) + 0x8c))
-                      (*(short *)(*(int *)(param_1 + 0xc) + 0x88) + param_1);
+    uVar3 = (((vtbl_entry*)(*(int *)(param_1 + 0xc)))[17].fn)
+                      (((vtbl_entry*)(*(int *)(param_1 + 0xc)))[17].adj + param_1);
     iVar4 = *(int *)(param_1 + 0x7c);
     if (*(int *)(param_1 + 0x7c) == 0) {
       iVar4 = iRam80010500;
     }
-    (**(code **)(iVar5 + 0x2c))((int)sVar1 + (int)piVar2,uVar3,iVar4);
+    (((vtbl_entry*)(iVar5))[5].fn)((int)sVar1 + (int)piVar2,uVar3,iVar4);
     *(uint32_t *)(param_1 + 0x7c) = 0;
   }
   return;

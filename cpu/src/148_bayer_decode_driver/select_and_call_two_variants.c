@@ -24,12 +24,12 @@ void select_and_call_two_variants(int param_1,int param_2)
   byte *pbVar3;
   
   if (param_2 == 1) {
-    pbVar3 = (byte *)&DAT_105a836c/*ROM*/;
+    pbVar3 = &DAT_105a836c/*ROM*/;
     uVar2 = (uint)*(ushort *)(param_1 + 0x262);
     uVar1 = 4;
   }
   else {
-    pbVar3 = (byte *)&DAT_105a8380/*ROM*/;
+    pbVar3 = &DAT_105a8380/*ROM*/;
     uVar1 = 7;
     uVar2 = 0;
   }

@@ -66,8 +66,8 @@ void compute_and_store_pair_values(int *param_1,int param_2)
     iVar1 = dispatch_event_with_payload_1050c0e0(param_1[0xe],0x8001acbc/*SDRAM*/,&iStack_18);
     if (iVar1 == 0) {
       iVar1 = *(int *)(param_1[0x1a] + 0xc);
-      (**(code **)(iVar1 + 0xc))(param_1[0x1a] + (int)*(short *)(iVar1 + 8),0);
-      (**(code **)(*param_1 + 0x74))((int)*(short *)(*param_1 + 0x70) + (int)param_1,0x1120004,0);
+      (((vtbl_entry*)(iVar1))[1].fn)(param_1[0x1a] + (int)*(short *)(iVar1 + 8),0);
+      (((vtbl_entry*)(*param_1))[14].fn)((int)((vtbl_entry*)(*param_1))[14].adj + (int)param_1,0x1120004,0);
       return;
     }
     uVar5 = *(uint *)(iStack_18 * 4 + -0x7ffe5344);
@@ -88,7 +88,7 @@ void compute_and_store_pair_values(int *param_1,int param_2)
                  *(ushort *)((int)puVar10 + 6),*(ushort *)((int)puVar10 + 10));
     free_heap_if_flagged_1045c402(auStack_24,2);
     free_heap_if_flagged_1045c402(auStack_2c,2);
-    puVar6 = (uint8_t *)&DAT_8001a78c/*SDRAM*/;
+    puVar6 = &DAT_8001a78c/*SDRAM*/;
     _DAT_8001a78c/*SDRAM*/ = 0x8001a7ac/*SDRAM*/;
     copy_virtual_result_to_buffer_10493ea4(auStack_24,(int *)param_1[0x1a]);
     uVar2 = return_first_word_1045c514(auStack_24);
@@ -104,14 +104,14 @@ void compute_and_store_pair_values(int *param_1,int param_2)
     iVar1 = dispatch_event_with_payload_1050c0e0(param_1[0xe],0x8001acbc/*SDRAM*/,&iStack_18);
     if (iVar1 == 0) {
       iVar1 = *(int *)(param_1[0x1d] + 0xc);
-      (**(code **)(iVar1 + 0xc))(param_1[0x1d] + (int)*(short *)(iVar1 + 8),0);
+      (((vtbl_entry*)(iVar1))[1].fn)(param_1[0x1d] + (int)*(short *)(iVar1 + 8),0);
       iVar1 = *(int *)(param_1[0x1e] + 0xc);
-      (**(code **)(iVar1 + 0xc))(param_1[0x1e] + (int)*(short *)(iVar1 + 8),0);
+      (((vtbl_entry*)(iVar1))[1].fn)(param_1[0x1e] + (int)*(short *)(iVar1 + 8),0);
       iVar1 = *(int *)(param_1[0x1f] + 0xc);
-      (**(code **)(iVar1 + 0xc))(param_1[0x1f] + (int)*(short *)(iVar1 + 8),0);
+      (((vtbl_entry*)(iVar1))[1].fn)(param_1[0x1f] + (int)*(short *)(iVar1 + 8),0);
       iVar1 = *(int *)(param_1[0x20] + 0xc);
-      (**(code **)(iVar1 + 0xc))(param_1[0x20] + (int)*(short *)(iVar1 + 8),0);
-      (**(code **)(*param_1 + 0x74))((int)*(short *)(*param_1 + 0x70) + (int)param_1,0x1120004,0);
+      (((vtbl_entry*)(iVar1))[1].fn)(param_1[0x20] + (int)*(short *)(iVar1 + 8),0);
+      (((vtbl_entry*)(*param_1))[14].fn)((int)((vtbl_entry*)(*param_1))[14].adj + (int)param_1,0x1120004,0);
       return;
     }
     uVar5 = *(uint *)(iStack_18 * 4 + -0x7ffe5344);
@@ -169,14 +169,14 @@ void compute_and_store_pair_values(int *param_1,int param_2)
                          (uint *)piVar9[2]);
     if (uVar5 == 0) {
       iVar1 = *(int *)(param_1[0x1d] + 0xc);
-      (**(code **)(iVar1 + 0xc))(param_1[0x1d] + (int)*(short *)(iVar1 + 8),0);
+      (((vtbl_entry*)(iVar1))[1].fn)(param_1[0x1d] + (int)*(short *)(iVar1 + 8),0);
       iVar1 = *(int *)(param_1[0x1e] + 0xc);
-      (**(code **)(iVar1 + 0xc))(param_1[0x1e] + (int)*(short *)(iVar1 + 8),0);
+      (((vtbl_entry*)(iVar1))[1].fn)(param_1[0x1e] + (int)*(short *)(iVar1 + 8),0);
       iVar1 = *(int *)(param_1[0x1f] + 0xc);
-      (**(code **)(iVar1 + 0xc))(param_1[0x1f] + (int)*(short *)(iVar1 + 8),0);
+      (((vtbl_entry*)(iVar1))[1].fn)(param_1[0x1f] + (int)*(short *)(iVar1 + 8),0);
       iVar1 = *(int *)(param_1[0x20] + 0xc);
-      (**(code **)(iVar1 + 0xc))(param_1[0x20] + (int)*(short *)(iVar1 + 8),0);
-      (**(code **)(*param_1 + 0x74))((int)*(short *)(*param_1 + 0x70) + (int)param_1,0x1120004,0);
+      (((vtbl_entry*)(iVar1))[1].fn)(param_1[0x20] + (int)*(short *)(iVar1 + 8),0);
+      (((vtbl_entry*)(*param_1))[14].fn)((int)((vtbl_entry*)(*param_1))[14].adj + (int)param_1,0x1120004,0);
       return;
     }
     uVar5 = *(uint *)(uStack_14 * 4 + -0x7ffe4f44);
@@ -292,7 +292,7 @@ void compute_and_store_pair_values(int *param_1,int param_2)
                  *(ushort *)((int)piVar9 + 6),*(ushort *)((int)piVar9 + 10));
     free_heap_if_flagged_1045c402(local_3c,2);
     free_heap_if_flagged_1045c402(local_34,2);
-    puVar6 = (uint8_t *)&DAT_8001a7a4/*SDRAM*/;
+    puVar6 = &DAT_8001a7a4/*SDRAM*/;
     _DAT_8001a7a4/*SDRAM*/ = 0x8001aba4/*SDRAM*/;
     copy_virtual_result_to_buffer_10493ea4(local_34,(int *)param_1[0x20]);
     uVar2 = return_first_word_1045c514((uint32_t *)local_34);

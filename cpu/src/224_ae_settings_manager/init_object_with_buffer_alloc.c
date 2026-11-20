@@ -25,9 +25,9 @@ int init_object_with_buffer_alloc(int param_1,uint32_t param_2,uint32_t param_3)
   process_three_string_slots_per_entry(param_1);
   store_value_at_two_offsets(param_1,*(uint32_t *)(param_1 + 0x8d0));
   write_two_words_to_struct_104c1ff4(param_1,param_2,param_3);
-  iVar1 = copy_object_state_to_buffer(param_1,(void *)(*(int *)(param_1 + 0x8d0) * 0xb34 + param_1 + 0x2118));
+  iVar1 = copy_object_state_to_buffer((int)(param_1),(uint16_t *)(*(int *)(param_1 + 0x8d0) * 0xb34 + param_1 + 0x2118));
   if (iVar1 != 0) {
-    poll_and_update_entry_state(param_1,(void *)(*(int *)(param_1 + 0x8d0) * 0xb34 + param_1 + 0x2118));
+    poll_and_update_entry_state((int)(param_1),(void *)(*(int *)(param_1 + 0x8d0) * 0xb34 + param_1 + 0x2118));
   }
   return iVar1;
 }

@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void configure_device_with_two_params(void *param_1,uint32_t param_2,void *param_3,void *param_4)
+void configure_device_with_two_params(cls_10563c60 *param_1,uint32_t param_2,void *param_3,void *param_4)
 
 {
   void *pvVar1;

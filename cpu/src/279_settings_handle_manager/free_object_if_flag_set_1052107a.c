@@ -9,7 +9,7 @@
 void free_object_if_flag_set_1052107a(void *param_1,uint param_2)
 
 {
-  if ((param_1 != (void *)0x0) && (heap_free_2(*(int *)((int)param_1 + 0xc)), (param_2 & 1) != 0))
+  if ((param_1 != 0) && (heap_free_2(*(int *)((int)param_1 + 0xc)), (param_2 & 1) != 0))
   {
     heap_free((int)param_1);
   }

@@ -6,11 +6,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void reset_two_fields_after_base_call(int param_1)
+void reset_two_fields_after_base_call(cls_105d77cc *param_1)
 
 {
   call_0x10521cba();
-  *(uint32_t *)(param_1 + 0x10) = 0;
-  *(uint32_t *)(param_1 + 0x14) = 0;
+  param_1->field_0x10 = 0;
+  param_1->field_0x14 = 0;
   return;
 }

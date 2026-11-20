@@ -23,7 +23,7 @@ int apply_param_table_to_target(int param_1,uint16_t *param_2)
 {
   int iVar1;
   
-  iVar1 = read_eeprom_bytes_via_bitbang(param_1,(void *)(param_1 + 0x24));
+  iVar1 = read_eeprom_bytes_via_bitbang((int)(param_1),(uint8_t *)(param_1 + 0x24));
   if (iVar1 != 0) {
     if ((*(byte *)(param_1 + 0x25) & 0x10) == 0) {
       store_clamped_byte_at_offset_7(param_2,(uint)(byte)(&DAT_105a1548/*ROM*/)[*(byte *)(param_1 + 0x26)]);

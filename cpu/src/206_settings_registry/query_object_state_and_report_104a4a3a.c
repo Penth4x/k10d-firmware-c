@@ -22,8 +22,8 @@ void query_object_state_and_report_104a4a3a(int param_1,int param_2)
   
   uVar1 = 0;
   iVar2 = **(int **)(param_1 + 0x10);
-  iVar2 = (**(code **)(iVar2 + 0x14))
-                    ((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar2 + 0x10),8);
+  iVar2 = (((vtbl_entry*)(iVar2))[2].fn)
+                    ((int)*(int **)(param_1 + 0x10) + (int)((vtbl_entry*)(iVar2))[2].adj,8);
   if (iVar2 == 0) {
     uVar1 = 3;
   }

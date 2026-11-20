@@ -2,15 +2,15 @@
  * name: earlier (carried from an earlier Ghidra session, not re-verified; the model, reading only this decompile, proposed run_sd_init_step_table)
  * unit: 126_companion_spi_driver (unit names are model-proposed)
  * purpose:
- *   Iterates a table of 12 function pointers at param_1+0x1c, calling each until one
- *   returns a value other than 1.
+ *   Iterates through a table of 12 SD/MMC initialization step descriptors, calling each
+ *   until one fails or the table ends.
  * summary:
- *   The function clears a 4-byte field at param_1+0x3c4 and then loops 12 times (0x60 bytes
- *   / 8-byte stride). Each iteration resolves a function pointer from the table, handling a
- *   potential vtable indirection if the second word of the descriptor is negative, and
- *   invokes it with the base object pointer. The loop terminates early if the callee
- *   returns anything other than 1. Given the caller is sd_card_init_worker, this executes
- *   the sequence of SD/MMC initialization commands (e.g., CMD8, ACMD41, etc.).
+ *   The function walks an array of 12 8-byte descriptors starting at param_1 + 0x1c. Each
+ *   descriptor contains a function pointer and a context/argument. It calls the function
+ *   pointer with the context as an argument. The loop continues as long as the return value
+ *   is 1 (success) and the index is less than 0x60. It clears a status word at param_1 +
+ *   0x3c4 before starting. This is a standard state-machine or step-table driver for SD
+ *   card initialization sequences (CMD8, ACMD41, etc.).
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"

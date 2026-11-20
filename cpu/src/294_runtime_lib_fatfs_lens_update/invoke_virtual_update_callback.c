@@ -25,7 +25,7 @@ void invoke_virtual_update_callback(int param_1)
   
   copy_sysparam_record(&uStack_18,*(uint32_t **)(param_1 + 0x10));
   iVar1 = **(int **)(param_1 + 0xc);
-  (**(code **)(iVar1 + 0xc))
+  (((vtbl_entry*)(iVar1))[1].fn)
             ((int)*(int **)(param_1 + 0xc) + (int)*(short *)(iVar1 + 8),uStack_18,uStack_14,0);
   return;
 }

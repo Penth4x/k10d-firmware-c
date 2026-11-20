@@ -14,7 +14,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_event_and_set_flag(int param_1,int param_2)
+uint32_t dispatch_event_and_set_flag(cls_105b9274 *param_1,int param_2)
 
 {
   if (param_2 != 0x104000d) {
@@ -33,7 +33,7 @@ uint32_t dispatch_event_and_set_flag(int param_1,int param_2)
     else {
       if (param_2 == 0x1040013) {
 code_r0x104b7b0c:
-        invoke_listener_slot_two((int *)(param_1 + 0x2c));
+        invoke_listener_slot_two((int *)&param_1->field_0x2c);
         return 0;
       }
       if (param_2 < 0x1040014) {
@@ -50,6 +50,6 @@ code_r0x104b7b0c:
       }
     }
   }
-  set_flg_obj((uint32_t *)(param_1 + 0x24));
+  set_flg_obj(&param_1->field_0x24);
   return 0;
 }

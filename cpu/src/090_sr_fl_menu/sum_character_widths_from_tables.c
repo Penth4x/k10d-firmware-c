@@ -35,8 +35,8 @@ short sum_character_widths_from_tables(void *param_1,byte *param_2)
     if (iVar6 == 0) {
       if (*(char *)((int)param_1 + 0x58) == '\r') {
         uVar4 = 0xffff;
-        sVar7 = *psRam10363170;
-        psVar5 = psRam10363170;
+        sVar7 = *(short *)psRam10363170;
+        psVar5 = (short *)(psRam10363170);
         while (sVar7 != 0) {
           if (*psVar5 == *(short *)param_2) {
             uVar4 = (uint)(ushort)psVar5[1];

@@ -16,20 +16,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-int sdhc_transfer_blocks(void *param_1,int param_2,uint param_3,uint param_4)
+int sdhc_transfer_blocks(cls_105a1a84 *param_1,int param_2,uint param_3,uint param_4)
 
 {
   int iVar1;
   
   iVar1 = 0;
-  if (param_2 + param_3 <= *(uint *)((int)param_1 + 0x14)) {
-    if (*(char *)((int)param_1 + 0xdd) == '\0') {
-      *(uint32_t *)((int)param_1 + 0x120) = 6;
+  if (param_2 + param_3 <= (uint)param_1->field_0x14) {
+    if (param_1->field_0xdd == '\0') {
+      param_1->field_0x120 = 6;
     }
     else {
-      *(uint32_t *)((int)param_1 + 0x120) = 0;
+      param_1->field_0x120 = 0;
       set_flag_and_notify_object(param_1,1);
-      sdhc_set_block_size(*(void **)((int)param_1 + 0x110),0x200);
+      sdhc_set_block_size((char*)(param_1) ->field_0x110,0x200);
       if (param_3 == 1) {
         iVar1 = select_and_call_based_on_param3((int)param_1,param_2,param_4);
       }
@@ -38,7 +38,7 @@ int sdhc_transfer_blocks(void *param_1,int param_2,uint param_3,uint param_4)
       }
       set_flag_and_notify_object(param_1,0);
       if (iVar1 == 0) {
-        *(uint32_t *)((int)param_1 + 0x120) = 2;
+        param_1->field_0x120 = 2;
       }
     }
   }

@@ -29,7 +29,7 @@ void build_and_register_menu_items(int param_1,uint32_t param_2,uint32_t param_3
     uVar1 = heap_alloc_2(8);
     *(uint32_t *)(param_1 + 0x37c) = uVar1;
   }
-  extract_four_short_fields(*(uint32_t *)(param_1 + 0x28),(void *)(uint)*(uint32_t *)(param_1 + 0x37c));
+  extract_four_short_fields((int)(*(uint32_t *)(param_1 + 0x28)),(uint16_t *)(*(uint32_t *)(param_1 + 0x37c)));
   format_string_to_buffer_10545140((byte *)(param_1 + 0x2d9),(char *)0x1059a5f4/*ROM*/,
                (void *)(uint)**(ushort **)(param_1 + 0x37c),param_4);
   format_string_to_buffer_10545140((byte *)(param_1 + 0x2e3),(char *)0x1059a5fc/*ROM*/,
@@ -48,6 +48,6 @@ void build_and_register_menu_items(int param_1,uint32_t param_2,uint32_t param_3
   pvVar2 = (void *)menu_item_register(iVar3);
   glyph_draw(pvVar2,(byte *)(param_1 + 0x2f7));
   iVar3 = menu_item_register(iVar3);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
   return;
 }

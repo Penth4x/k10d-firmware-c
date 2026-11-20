@@ -13,12 +13,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint extract_field_from_status_word(int param_1)
+uint extract_field_from_status_word(cls_105a0828 *param_1)
 
 {
   uint uVar1;
   
   uVar1 = read_offset_0x110(__frv_reg_unset(4));
-  return (int)(uVar1 & *(ushort *)(param_1 + 0x124)) >> (*(uint *)(param_1 + 0x120) & 0x1f) & 0xffff
-  ;
+  return (int)(uVar1 & (ushort)param_1->field_0x124) >> (param_1->field_0x120 & 0x1fU) & 0xffff;
 }

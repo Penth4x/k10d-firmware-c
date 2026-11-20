@@ -59,7 +59,7 @@ uint parse_exposure_mode_char(uint32_t *param_1,byte *param_2)
     }
   }
   else {
-    iVar2 = parse_and_mask_hex_string((int)param_1,(char *)param_2,r6_in,r7_in);
+    iVar2 = parse_and_mask_hex_string((int)param_1,(char *)param_2,(uint32_t)(r6_in),(void *)(r7_in));
     param_1[0x86] = iVar2;
     if (iVar2 == 0) {
       uVar4 = 0x11;
@@ -75,7 +75,7 @@ uint parse_exposure_mode_char(uint32_t *param_1,byte *param_2)
   }
   strip_whitespace_and_check_comment(param_1,(char *)param_2);
   if (0x1a < uVar4) {
-    cmd_error_report(param_1[1],0x90);
+    cmd_error_report((uint32_t *)(param_1[1]),(uint32_t)(0x90));
   }
   return uVar4;
 }

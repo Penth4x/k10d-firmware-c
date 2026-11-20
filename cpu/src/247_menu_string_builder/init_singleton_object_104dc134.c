@@ -19,7 +19,7 @@ uint32_t init_singleton_object_104dc134(void)
 {
   if (iRam80059e80 == 0) {
     iRam80059e80 = 1;
-    cls_105bb0b8_new((void *)0x80059dc0/*SDRAM*/);
+    cls_105bb0b8_new((cls_105bb0b8 *)0x80059dc0/*SDRAM*/);
     uRam80059ddc = 0x105ba2d8/*ROM*/;
     prepend_to_singly_linked_list((void *)0x80010884/*SDRAM*/);
   }

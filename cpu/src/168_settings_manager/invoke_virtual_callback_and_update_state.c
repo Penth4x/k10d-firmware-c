@@ -28,8 +28,8 @@ void invoke_virtual_callback_and_update_state(int param_1)
   *(uint32_t *)(param_1 + 0x60) = puVar1[1];
   uStack_c = 0;
   iVar2 = **(int **)(param_1 + 0x28);
-  iVar2 = (**(code **)(iVar2 + 0x2c))
-                    ((int)*(int **)(param_1 + 0x28) + (int)*(short *)(iVar2 + 0x28),0,0,&uStack_c);
+  iVar2 = (((vtbl_entry*)(iVar2))[5].fn)
+                    ((int)*(int **)(param_1 + 0x28) + (int)((vtbl_entry*)(iVar2))[5].adj,0,0,&uStack_c);
   if (iVar2 == 0) {
     *(uint32_t *)(param_1 + 0x2c) = 1;
   }

@@ -29,11 +29,11 @@ void set_mode_index_and_dispatch_10407a52(void *param_1,uint32_t param_2)
   iVar5 = (int)param_1 + 8;
   iVar2 = menu_item_register(iVar5);
   bVar1 = false;
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
   pvVar3 = (void *)menu_item_register(iVar5);
   switch(param_2) {
   case 0:
-    pbVar4 = (byte *)&DAT_1059938c/*ROM*/;
+    pbVar4 = &DAT_1059938c/*ROM*/;
     *(uint8_t *)((int)param_1 + 0x57) = 0;
     break;
   case 1:
@@ -62,9 +62,9 @@ void set_mode_index_and_dispatch_10407a52(void *param_1,uint32_t param_2)
     break;
   case 7:
     *(uint8_t *)((int)param_1 + 0x57) = 7;
-    glyph_draw(pvVar3,(void *)&DAT_105993a8/*ROM*/);
+    glyph_draw(pvVar3,&DAT_105993a8/*ROM*/);
     iVar2 = menu_item_register(iVar5);
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
     goto LAB_10407bc0;
   case 8:
     pbVar4 = (byte *)0x105993ac/*ROM*/;
@@ -106,14 +106,14 @@ void set_mode_index_and_dispatch_10407a52(void *param_1,uint32_t param_2)
   glyph_draw(pvVar3,pbVar4);
 LAB_10407bc0:
   iVar2 = menu_item_register(iVar5);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   if (*(char *)((int)param_1 + 0x57) != '\x0e') {
     iVar2 = menu_item_register(iVar5);
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   }
   if (*(char *)((int)param_1 + 0x57) != '\0') {
     iVar2 = menu_item_register(iVar5);
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   }
   if (!bVar1) {
     set_mode_dependent_settings(*(uint32_t *)((int)param_1 + 0x28),*(uint8_t *)((int)param_1 + 0x57),

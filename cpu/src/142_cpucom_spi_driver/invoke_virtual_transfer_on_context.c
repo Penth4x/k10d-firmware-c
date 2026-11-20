@@ -20,7 +20,7 @@ void invoke_virtual_transfer_on_context(void *param_1,uint32_t param_2)
   int iVar1;
   
   iVar1 = *(int *)(*(int *)((int)param_1 + 0x18) + 4);
-  (**(code **)(iVar1 + 0x4c))
-            (*(int *)((int)param_1 + 0x18) + (int)*(short *)(iVar1 + 0x48),param_2,0,0);
+  (((vtbl_entry*)(iVar1))[9].fn)
+            (*(int *)((int)param_1 + 0x18) + (int)((vtbl_entry*)(iVar1))[9].adj,param_2,0,0);
   return;
 }

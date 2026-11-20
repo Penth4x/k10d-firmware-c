@@ -24,23 +24,23 @@ uint8_t dispatch_state_change_callbacks(int param_1,uint param_2)
   if ((*(uint *)(param_1 + 0x68) & param_2) == 0) {
     if ((*(uint *)(param_1 + 0x54) & param_2) != 0) {
       iVar1 = **(int **)(param_1 + 0x78);
-      (**(code **)(iVar1 + 0x24))((int)*(int **)(param_1 + 0x78) + (int)*(short *)(iVar1 + 0x20));
+      (((vtbl_entry*)(iVar1))[4].fn)((int)*(int **)(param_1 + 0x78) + (int)((vtbl_entry*)(iVar1))[4].adj);
     }
     if ((*(uint *)(param_1 + 0x4c) & param_2) != 0) {
       iVar1 = **(int **)(param_1 + 0x78);
-      (**(code **)(iVar1 + 0xc))((int)*(int **)(param_1 + 0x78) + (int)*(short *)(iVar1 + 8));
+      (((vtbl_entry*)(iVar1))[1].fn)((int)*(int **)(param_1 + 0x78) + (int)*(short *)(iVar1 + 8));
     }
     if (((*(uint *)(param_1 + 100) & param_2) != 0) &&
        (*(int *)(param_1 + 0x8c) != *(int *)(param_1 + 0x88))) {
       *(int *)(param_1 + 0x8c) = *(int *)(param_1 + 0x88);
       iVar1 = **(int **)(param_1 + 0x78);
-      (**(code **)(iVar1 + 0x14))((int)*(int **)(param_1 + 0x78) + (int)*(short *)(iVar1 + 0x10));
+      (((vtbl_entry*)(iVar1))[2].fn)((int)*(int **)(param_1 + 0x78) + (int)((vtbl_entry*)(iVar1))[2].adj);
       iVar1 = **(int **)(param_1 + 0x78);
-      (**(code **)(iVar1 + 0x1c))
-                ((int)*(int **)(param_1 + 0x78) + (int)*(short *)(iVar1 + 0x18),
+      (((vtbl_entry*)(iVar1))[3].fn)
+                ((int)*(int **)(param_1 + 0x78) + (int)((vtbl_entry*)(iVar1))[3].adj,
                  *(uint32_t *)(param_1 + 0x8c));
       iVar1 = **(int **)(param_1 + 0x78);
-      (**(code **)(iVar1 + 0xc))((int)*(int **)(param_1 + 0x78) + (int)*(short *)(iVar1 + 8));
+      (((vtbl_entry*)(iVar1))[1].fn)((int)*(int **)(param_1 + 0x78) + (int)*(short *)(iVar1 + 8));
     }
   }
   else {

@@ -17,19 +17,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_mode_event_request(void *param_1,uint param_2)
+void dispatch_mode_event_request(cls_105c2050 *param_1,uint param_2)
 
 {
   int iVar1;
   
   if ((param_2 & 0xffff0000) == 0x130000) {
-    iVar1 = **(int **)((int)param_1 + 0x14);
-    (**(code **)(iVar1 + 0x5c))((int)*(int **)((int)param_1 + 0x14) + (int)*(short *)(iVar1 + 0x58))
-    ;
+    iVar1 = *(uint32_t *)(param_1->field_0x14);
+    (((vtbl_entry*)(iVar1))[11].fn)((int)param_1->field_0x14 + (int)((vtbl_entry*)(iVar1))[11].adj);
   }
   else {
-    iVar1 = **(int **)((int)param_1 + 0xc);
-    (**(code **)(iVar1 + 0x1c))((int)*(int **)((int)param_1 + 0xc) + (int)*(short *)(iVar1 + 0x18));
+    iVar1 = *(uint32_t *)(param_1->field_0xc);
+    (((vtbl_entry*)(iVar1))[3].fn)((int)param_1->field_0xc + (int)((vtbl_entry*)(iVar1))[3].adj);
   }
   return;
 }

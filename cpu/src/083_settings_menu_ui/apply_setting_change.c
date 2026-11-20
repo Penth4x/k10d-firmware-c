@@ -15,19 +15,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-void apply_setting_change(int param_1,int param_2)
+void apply_setting_change(cls_10597214 *param_1,int param_2)
 
 {
   uint8_t uVar1;
   uint32_t uVar2;
   uint uVar3;
   
-  *(int *)(param_1 + 0x18) = param_2;
+  param_1->field_0x18 = param_2;
   uVar1 = uRam1059720c;
   if ((((param_2 == 0x1850012) || (uVar1 = uRam1059720d, param_2 == 0x1850014)) ||
       (uVar1 = uRam1059720e, param_2 == 0x1850016)) || (uVar1 = uRam1059720f, param_2 == 0x1850018))
   {
-    *(uint8_t *)(param_1 + 0x20) = uVar1;
+    param_1->field_0x20 = uVar1;
     render_two_objects_by_setting_103e703e((int *)__frv_reg_unset(4));
   }
   else {
@@ -50,7 +50,7 @@ void apply_setting_change(int param_1,int param_2)
       uVar3 = (uint)bRam10597213;
       uVar2 = 0x75;
     }
-    setting_set(*(int *)(param_1 + 8),uVar2,uVar3);
+    setting_set(param_1->field_0x8,uVar2,uVar3);
   }
   return;
 }

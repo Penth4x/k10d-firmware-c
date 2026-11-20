@@ -32,7 +32,7 @@ int call_virtual_method_if_flag_set(char *param_1,int *param_2,uint32_t param_3)
   bVar1 = query_object_via_virtual_call_1049c39c(param_1,param_2);
   if (bVar1) {
     iStack_c = 0;
-    (**(code **)(*param_2 + 0x24))((int)*(short *)(*param_2 + 0x20) + (int)param_2,&iStack_c,1,4);
+    (((vtbl_entry*)(*param_2))[4].fn)((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,&iStack_c,1,4);
     if (iStack_c != 0) {
       *puVar3 = param_3;
       iVar2 = iterate_and_process_object_list(param_1,(int *)0x0,iStack_c,param_2,(int *)*puVar3);

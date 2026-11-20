@@ -6,22 +6,22 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_4_on_three_objects_104a783e(int param_1)
+void invoke_virtual_slot_4_on_three_objects_104a783e(cls_105b6938 *param_1)
 
 {
   int *piVar1;
   
-  if (*(int *)(param_1 + 4) != 0) {
+  if (param_1->field_0x4 != 0) {
     piVar1 = (int *)get_or_create_singleton_object_1049aca6();
-    (**(code **)(*piVar1 + 0x24))((int)piVar1 + (int)*(short *)(*piVar1 + 0x20));
+    (((vtbl_entry*)(*piVar1))[4].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[4].adj);
   }
-  if (*(int *)(param_1 + 8) != 0) {
+  if (param_1->field_0x8 != 0) {
     piVar1 = (int *)get_or_create_singleton_object_104a2fde();
-    (**(code **)(*piVar1 + 0x24))((int)piVar1 + (int)*(short *)(*piVar1 + 0x20));
+    (((vtbl_entry*)(*piVar1))[4].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[4].adj);
   }
-  if (*(int *)(param_1 + 0xc) != 0) {
+  if (param_1->field_0xc != 0) {
     piVar1 = (int *)get_or_create_singleton_104ceb32();
-    (**(code **)(*piVar1 + 0x24))((int)piVar1 + (int)*(short *)(*piVar1 + 0x20));
+    (((vtbl_entry*)(*piVar1))[4].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[4].adj);
   }
   return;
 }

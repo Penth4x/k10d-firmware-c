@@ -24,21 +24,21 @@ bool dispatch_three_param_via_vtable(int param_1,void *param_2,int param_3)
   iVar1 = 0;
   if (param_3 == 1) {
     iVar1 = read_field_at_offset_0x78(param_1);
-    (**(code **)(*(int *)((int)param_2 + 0x8d4) + 0x24))
-              ((int)*(short *)(*(int *)((int)param_2 + 0x8d4) + 0x20) + (int)param_2,iVar1);
+    (((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[4].fn)
+              ((int)((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[4].adj + (int)param_2,iVar1);
     bVar2 = iVar1 == 0;
   }
   else if (param_3 == 2) {
     iVar1 = read_field_at_offset_248(param_1);
-    (**(code **)(*(int *)((int)param_2 + 0x8d4) + 0x4c))
-              ((int)*(short *)(*(int *)((int)param_2 + 0x8d4) + 0x48) + (int)param_2,iVar1);
+    (((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[9].fn)
+              ((int)((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[9].adj + (int)param_2,iVar1);
     bVar2 = iVar1 == 0;
   }
   else {
     if (param_3 == 3) {
       iVar1 = read_field_at_offset_0x178(param_1);
-      (**(code **)(*(int *)((int)param_2 + 0x8d4) + 0x54))
-                ((int)*(short *)(*(int *)((int)param_2 + 0x8d4) + 0x50) + (int)param_2,iVar1);
+      (((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[10].fn)
+                ((int)((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[10].adj + (int)param_2,iVar1);
     }
     bVar2 = iVar1 == 0;
   }

@@ -51,7 +51,7 @@ allocate_pixel_buffer_struct(uint32_t *param_1,short param_2,ushort param_3,int 
            param_2 * (ushort)*(byte *)(param_1 + 2) + (ushort)*(byte *)(param_1 + 1);
     }
     puVar4 = (uint32_t *)heap_alloc_2((uint)*(ushort *)((int)param_1 + 6) << 2);
-    *param_1 = (uint32_t)puVar4;
+    *param_1 = (uintptr_t)(puVar4);
     uVar2 = 0;
     if (*(short *)((int)param_1 + 6) != 0) {
       do {
@@ -62,7 +62,8 @@ allocate_pixel_buffer_struct(uint32_t *param_1,short param_2,ushort param_3,int 
     }
     if (*(byte *)(param_1 + 2) != 0) {
       piVar6 = (int *)*param_1;
-      iVar5 = cls_105d6d30_new((void *)0x0,(uint16_t *)param_1[3],(uint)*(byte *)(param_1 + 2));
+      iVar5 = cls_105d6d30_new((cls_105d6d30 *)0x0,(uint16_t *)param_1[3],
+                               (uint)*(byte *)(param_1 + 2));
       *piVar6 = iVar5;
     }
   }

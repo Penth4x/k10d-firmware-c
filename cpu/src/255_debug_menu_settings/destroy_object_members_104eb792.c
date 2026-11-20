@@ -31,11 +31,11 @@ void destroy_object_members_104eb792(int param_1)
   }
   iVar1 = *(int *)(param_1 + 8);
   if (iVar1 != 0) {
-    (**(code **)(*(int *)(iVar1 + 8) + 0xc))(*(short *)(*(int *)(iVar1 + 8) + 8) + iVar1,3);
+    (((vtbl_entry*)(*(int *)(iVar1 + 8)))[1].fn)(*(short *)(*(int *)(iVar1 + 8) + 8) + iVar1,3);
   }
   piVar2 = *(int **)(param_1 + 0xc);
   if (piVar2 != (int *)0x0) {
-    (**(code **)(*piVar2 + 0xc))((int)*(short *)(*piVar2 + 8) + (int)piVar2,3);
+    (((vtbl_entry*)(*piVar2))[1].fn)((int)*(short *)(*piVar2 + 8) + (int)piVar2,3);
   }
   if (*(int *)(param_1 + 0x14) != 0) {
     heap_free(*(int *)(param_1 + 0x14));
@@ -48,15 +48,15 @@ void destroy_object_members_104eb792(int param_1)
   }
   iVar1 = *(int *)(param_1 + 0x34);
   if (iVar1 != 0) {
-    (**(code **)(*(int *)(iVar1 + 8) + 0xc))(*(short *)(*(int *)(iVar1 + 8) + 8) + iVar1,3);
+    (((vtbl_entry*)(*(int *)(iVar1 + 8)))[1].fn)(*(short *)(*(int *)(iVar1 + 8) + 8) + iVar1,3);
   }
   iVar1 = *(int *)(param_1 + 0x38);
   if (iVar1 != 0) {
-    (**(code **)(*(int *)(iVar1 + 0x40) + 0xc))(*(short *)(*(int *)(iVar1 + 0x40) + 8) + iVar1,3);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0x40)))[1].fn)(*(short *)(*(int *)(iVar1 + 0x40) + 8) + iVar1,3);
   }
   iVar1 = *(int *)(param_1 + 0x3c);
   if (iVar1 != 0) {
-    (**(code **)(*(int *)(iVar1 + 0x40) + 0xc))(*(short *)(*(int *)(iVar1 + 0x40) + 8) + iVar1,3);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0x40)))[1].fn)(*(short *)(*(int *)(iVar1 + 0x40) + 8) + iVar1,3);
   }
   if (*(int *)(param_1 + 0x1c) != 0) {
     heap_free(*(int *)(param_1 + 0x1c));

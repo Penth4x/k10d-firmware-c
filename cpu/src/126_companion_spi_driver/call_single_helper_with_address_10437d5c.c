@@ -16,6 +16,6 @@
 void call_single_helper_with_address_10437d5c(void)
 
 {
-  check_magic_sentinel_10436f0e((void*)0x10006880/*ROM*/);
+  check_magic_sentinel_10436f0e((void *)0x10006880/*ROM*/);
   return;
 }

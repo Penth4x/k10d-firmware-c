@@ -18,7 +18,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_event_by_type_103abf16(int *param_1,int param_2,uint32_t param_3)
+void dispatch_event_by_type_103abf16(cls_10565770 *param_1,int param_2,uint32_t param_3)
 
 {
   byte bVar1;
@@ -26,8 +26,9 @@ void dispatch_event_by_type_103abf16(int *param_1,int param_2,uint32_t param_3)
   uint uVar3;
   uint32_t uVar4;
   int iVar5;
+  void *puVar6;
   
-  dispatch_event_0x29_via_vtable(param_1,param_2,param_3);
+  dispatch_event_0x29_via_vtable((cls_105643d0 *)param_1,param_2,param_3);
   uVar4 = 0;
   switch(param_2) {
   case 0:
@@ -73,8 +74,9 @@ LAB_103abf98:
     bVar2 = false;
     break;
   case 0xc:
-    iVar5 = *(int *)param_1[0xb];
-    (**(code **)(iVar5 + 0x14))(param_1[0xb] + (int)*(short *)(iVar5 + 0x10),0x1120066,0);
+    iVar5 = *(uint32_t *)(param_1->field_0x2c);
+    (((vtbl_entry*)(iVar5))[2].fn)
+              ((int)param_1->field_0x2c + (int)((vtbl_entry*)(iVar5))[2].adj,0x1120066,0);
     bVar2 = true;
     break;
   case 0x18:
@@ -82,17 +84,17 @@ LAB_103abf98:
     bVar2 = false;
     break;
   case 0x2b:
-    bVar1 = *(byte *)(param_1 + 0x12);
-    uVar3 = call_two_helpers_in_sequence_104f1b02(param_1[10]);
+    bVar1 = param_1->field_0x48;
+    uVar3 = call_two_helpers_in_sequence_104f1b02(param_1->field_0x28);
     if (bVar1 == uVar3) goto LAB_103abf98;
     uVar4 = 0x112000b;
-    iVar5 = *param_1;
+    puVar6 = (void *)(param_1->field_0x0);
     goto LAB_103abf9e;
   }
   if (!bVar2) {
-    iVar5 = *param_1;
+    puVar6 = (void *)(param_1->field_0x0);
 LAB_103abf9e:
-    (**(code **)(iVar5 + 0x74))((int)*(short *)(iVar5 + 0x70) + (int)param_1,uVar4,0);
+    (((vtbl_entry*)(puVar6))[14].fn)((int)&param_1->field_0x0 + (int)((vtbl_entry*)(puVar6))[14].adj,uVar4,0);
   }
   return;
 }

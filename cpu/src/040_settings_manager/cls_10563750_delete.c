@@ -11,14 +11,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_10563750_delete(uint32_t *param_1,uint param_2)
+void cls_10563750_delete(cls_10563750 *param_1,uint param_2)
 
 {
-  if (param_1 != (uint32_t *)0x0) {
-    *param_1 = (uint32_t)&DAT_10563750/*ROM*/;
-    param_1[1] = (uint32_t)&DAT_105637c0/*ROM*/;
-    param_1[2] = (uint32_t)&DAT_105637e8/*ROM*/;
-    cls_10563dd8_delete(param_1,0);
+  if (param_1 != (cls_10563750 *)0x0) {
+    *(uint32_t *)&param_1->field_0x0 = (uint32_t)&DAT_10563750/*ROM*/;
+    *(uint32_t *)&param_1->field_0x4 = (uint32_t)&DAT_105637c0/*ROM*/;
+    *(uint32_t *)&param_1->field_0x8 = (uint32_t)&DAT_105637e8/*ROM*/;
+    cls_10563dd8_delete((cls_10563dd8 *)param_1,0);
     if ((param_2 & 1) != 0) {
       heap_free((int)param_1);
     }

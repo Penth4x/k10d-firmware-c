@@ -22,6 +22,6 @@ uint32_t get_second_field_via_helper(void)
   uint32_t uVar2;
   
   iVar1 = get_or_init_singleton_10491684();
-  uVar2 = select_channel_by_index(*(uint32_t *)(iVar1 + 4));
+  uVar2 = select_channel_by_index((void *)(*(uint32_t *)(iVar1 + 4)));
   return uVar2;
 }

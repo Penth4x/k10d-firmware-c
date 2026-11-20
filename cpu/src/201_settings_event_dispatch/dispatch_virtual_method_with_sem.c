@@ -28,15 +28,15 @@ uint32_t dispatch_virtual_method_with_sem(int param_1, uint32_t param_x1, uint32
   uint8_t auStack_20 [20];
   uint uStack_c;
   
-  twai_sem_obj((void *)(param_1 + 0x18),_DAT_105a2bf0/*ROM*/);
+  twai_sem_obj((uint32_t *)(param_1 + 0x18),(int)(_DAT_105a2bf0/*ROM*/));
   uStack_c = 0;
   alloc_and_init_small_object(auStack_20);
   iVar1 = get_or_create_camera_object();
   piVar3 = *(int **)(iVar1 + 4);
   eventflag_clr_flg((uint32_t *)(param_1 + 8),0x18);
   iVar1 = *piVar3;
-  (**(code **)(iVar1 + 0xd4))
-            ((int)piVar3 + (int)*(short *)(iVar1 + 0xd0),param_1,*(uint32_t *)(param_1 + 4),
+  (((vtbl_entry*)(iVar1))[26].fn)
+            ((int)piVar3 + (int)((vtbl_entry*)(iVar1))[26].adj,param_1,*(uint32_t *)(param_1 + 4),
              auStack_20);
   eventflag_wai_flg((uint32_t *)(param_1 + 8),0x18,&uStack_c,_DAT_105a2af0/*ROM*/);
   if ((uStack_c & 8) == 0) {
@@ -45,7 +45,7 @@ uint32_t dispatch_virtual_method_with_sem(int param_1, uint32_t param_x1, uint32
   else {
     uVar2 = combine_two_helper_results(auStack_20);
   }
-  sig_sem_obj((void *)(param_1 + 0x18));
+  sig_sem_obj((uint32_t *)(param_1 + 0x18));
   destroy_and_maybe_free_object(auStack_20,2);
   return uVar2;
 }

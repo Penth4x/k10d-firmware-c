@@ -30,7 +30,7 @@ char acquire_sem_and_invoke_virtual(int param_1,uint32_t *param_2,uint32_t *para
   char cStack_14;
   uint uStack_c;
   
-  twai_sem_obj((void *)(param_1 + 0x18),_DAT_105a2bf0/*ROM*/);
+  twai_sem_obj((uint32_t *)(param_1 + 0x18),(int)(_DAT_105a2bf0/*ROM*/));
   uStack_c = 0;
   *param_2 = 0;
   *param_3 = 0;
@@ -40,8 +40,8 @@ char acquire_sem_and_invoke_virtual(int param_1,uint32_t *param_2,uint32_t *para
   piVar2 = *(int **)(iVar1 + 4);
   eventflag_clr_flg((uint32_t *)(param_1 + 8),0x18);
   iVar1 = *piVar2;
-  (**(code **)(iVar1 + 0xd4))
-            ((int)piVar2 + (int)*(short *)(iVar1 + 0xd0),param_1,*(uint32_t *)(param_1 + 4),
+  (((vtbl_entry*)(iVar1))[26].fn)
+            ((int)piVar2 + (int)((vtbl_entry*)(iVar1))[26].adj,param_1,*(uint32_t *)(param_1 + 4),
              &uStack_20);
   eventflag_wai_flg((uint32_t *)(param_1 + 8),0x18,&uStack_c,_DAT_105a2af0/*ROM*/);
   cVar3 = '\0';
@@ -50,7 +50,7 @@ char acquire_sem_and_invoke_virtual(int param_1,uint32_t *param_2,uint32_t *para
     *param_3 = uStack_1c;
     *param_4 = uStack_18;
   }
-  sig_sem_obj((void *)(param_1 + 0x18));
+  sig_sem_obj((uint32_t *)(param_1 + 0x18));
   destroy_and_maybe_free_object(&uStack_20,2);
   return cVar3;
 }

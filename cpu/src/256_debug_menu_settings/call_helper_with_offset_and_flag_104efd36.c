@@ -17,6 +17,6 @@
 void call_helper_with_offset_and_flag_104efd36(int param_1,int param_2)
 
 {
-  write_object_field_byte(*(uint32_t *)(param_1 + 0x10),0x16,param_2 != 0);
+  write_object_field_byte((int *)(*(uint32_t *)(param_1 + 0x10)),(int)(0x16),(uint)(param_2 != 0));
   return;
 }

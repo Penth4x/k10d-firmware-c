@@ -13,7 +13,7 @@ uint32_t select_and_copy_string_by_index(uint32_t param_1,uint32_t param_2,void 
   
   switch(param_2) {
   case 0:
-    pcVar1 = (char *)&DAT_105c322c/*ROM*/;
+    pcVar1 = &DAT_105c322c/*ROM*/;
     break;
   case 1:
     pcVar1 = (char *)0x105c3234/*ROM*/;

@@ -18,15 +18,15 @@ uint32_t * cls_105a7ea0_new(uint32_t *param_1)
      (param_1 = (uint32_t *)heap_alloc((void *)0x54), param_1 != (uint32_t *)0x0)) {
     cls_1059e4e0_new(param_1);
     cls_1059e478_new(param_1 + 1);
-    cls_1059e458_new(param_1 + 2);
-    cls_105a2c1c_new(param_1 + 3);
-    cls_1059e408_new(param_1 + 8);
+    cls_1059e458_new((void *)(param_1 + 2));
+    cls_105a2c1c_new((void *)(param_1 + 3));
+    cls_1059e408_new((void *)(param_1 + 8));
     *param_1 = 0x105a7ea0/*ROM*/;
     param_1[1] = 0x105a7ef0/*ROM*/;
     param_1[2] = 0x105a7f08/*ROM*/;
     param_1[7] = 0x105a7f28/*ROM*/;
     param_1[8] = 0x105a7f40/*ROM*/;
-    cls_105a2af8_new(param_1 + 10);
+    cls_105a2af8_new((void *)(param_1 + 10));
     param_1[0xc] = 0;
     param_1[0xd] = 0;
     param_1[0xe] = 0;

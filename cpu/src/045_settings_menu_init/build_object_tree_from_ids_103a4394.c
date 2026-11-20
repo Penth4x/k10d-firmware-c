@@ -20,7 +20,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void build_object_tree_from_ids_103a4394(int param_1,uint32_t param_2,void *param_3,void *param_4)
+void build_object_tree_from_ids_103a4394(cls_10564c80 *param_1,uint32_t param_2,void *param_3,void *param_4)
 
 {
   short sVar1;
@@ -54,14 +54,14 @@ void build_object_tree_from_ids_103a4394(int param_1,uint32_t param_2,void *para
   void *pvVar29;
   void *pvVar30;
   
-  *(uint8_t *)(param_1 + 4) = 1;
+  param_1->field_0x4 = 1;
   sVar1 = 0x27f - _DAT_10567624/*ROM*/;
   sVar2 = 0x1c8 - _DAT_10567624/*ROM*/;
-  *(uint32_t *)(param_1 + 0x40) = *(uint32_t *)(*(int *)(param_1 + 0x3c) + 4);
-  *(uint32_t *)(param_1 + 0x44) = *(uint32_t *)(*(int *)(param_1 + 0x3c) + 8);
-  *(uint32_t *)(param_1 + 0x48) = *(uint32_t *)(*(int *)(param_1 + 0x3c) + 0xc);
-  *(uint16_t *)(param_1 + 0x4c) = 0x280;
-  *(uint16_t *)(param_1 + 0x4e) = 0x1e0;
+  *(uint32_t *)&param_1->field_0x40 = *(uint32_t *)(param_1->field_0x3c + 4);
+  *(uint32_t *)&param_1->field_0x44 = *(uint32_t *)(param_1->field_0x3c + 8);
+  *(uint32_t *)&param_1->field_0x48 = *(uint32_t *)(param_1->field_0x3c + 0xc);
+  *(uint16_t *)&param_1->field_0x4c = 0x280;
+  param_1->field_0x4e = 0x1e0;
   pvVar3 = (void *)get_or_init_static_buffer_10495746();
   iterate_range_and_call_match(pvVar3,(uint *)0x1056762c/*ROM*/,param_3,param_4);
   pvVar4 = (void *)app_obj_factory(pvVar3,(void *)0x2080000,0,0);
@@ -74,8 +74,8 @@ void build_object_tree_from_ids_103a4394(int param_1,uint32_t param_2,void *para
   pvVar11 = (void *)app_obj_factory(pvVar3,(void *)0x2080008,(void *)0x230,(void *)0xd8);
   pvVar12 = (void *)app_obj_factory(pvVar3,(void *)0x2080009,(void *)0x20,(void *)0xd8);
   pvVar13 = (void *)app_obj_factory(pvVar3,(void *)0x208000a,0,(void *)0x18);
-  pvVar14 = (void *)app_obj_factory(pvVar3,(void *)0x208000b,0,(void *)sVar2);
-  pvVar15 = (void *)app_obj_factory(pvVar3,(void *)0x208000c,(void *)sVar1,(void *)0x18);
+  pvVar14 = (void *)app_obj_factory((int *)(pvVar3),(void *)0x208000b,(void *)(0),(void *)(sVar2));
+  pvVar15 = (void *)app_obj_factory((int *)(pvVar3),(void *)0x208000c,(void *)(sVar1),(void *)0x18);
   pvVar16 = (void *)app_obj_factory(pvVar3,(void *)0x208000d,0,(void *)0x18);
   pvVar17 = (void *)app_obj_factory(pvVar3,(void *)0x208000e,0,0);
   pvVar18 = (void *)app_obj_factory(pvVar3,(void *)0x208000f,0,0);
@@ -118,13 +118,13 @@ void build_object_tree_from_ids_103a4394(int param_1,uint32_t param_2,void *para
   iterate_and_remove_list_entry(pvVar4,pvVar22,pvVar29,pvVar30);
   iterate_and_remove_list_entry(pvVar4,pvVar25,pvVar29,pvVar30);
   iterate_and_remove_list_entry(pvVar4,pvVar26,pvVar29,pvVar30);
-  set_object_field_at_offset_0x10((void *)(param_1 + 8),pvVar4);
+  set_object_field_at_offset_0x10(&param_1->field5_0x8,pvVar4);
   call_helper_and_set_flag_10494b88(puVar8);
-  (**(code **)(*(int *)((int)pvVar5 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar5 + 0xc)))[1].fn)
             ((int)pvVar5 + (int)*(short *)(*(int *)((int)pvVar5 + 0xc) + 8),0);
-  (**(code **)(*(int *)((int)pvVar6 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar6 + 0xc)))[1].fn)
             ((int)pvVar6 + (int)*(short *)(*(int *)((int)pvVar6 + 0xc) + 8),0);
-  (**(code **)(*(int *)((int)pvVar7 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar7 + 0xc)))[1].fn)
             ((int)pvVar7 + (int)*(short *)(*(int *)((int)pvVar7 + 0xc) + 8),0);
   return;
 }

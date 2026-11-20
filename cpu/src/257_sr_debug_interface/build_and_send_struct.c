@@ -75,7 +75,7 @@ void build_and_send_struct(int param_1,uint32_t *param_2)
   uStack_e = *(uint16_t *)((int)param_2 + 0x36);
   puVar1 = (uint32_t *)(param_1 + 0x38);
   eventflag_clr_flg(puVar1,1);
-  configure_sensor_readout_params_104f3de0(*(uint32_t *)(param_1 + 0x24),param_1 + 4,&uStack_58);
+  configure_sensor_readout_params_104f3de0((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(param_1 + 4),(uint32_t *)(&uStack_58));
   eventflag_wai_flg(puVar1,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,1);
   initialize_object_fields_104f4184(*(uint32_t *)(param_1 + 0x24));

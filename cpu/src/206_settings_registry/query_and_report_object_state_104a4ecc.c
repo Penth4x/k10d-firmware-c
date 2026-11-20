@@ -25,12 +25,12 @@ void query_and_report_object_state_104a4ecc(int param_1,int param_2)
   
   uVar2 = 0;
   iVar3 = **(int **)(param_1 + 0x10);
-  iVar3 = (**(code **)(iVar3 + 0x1c))
-                    ((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar3 + 0x18),0xf);
+  iVar3 = (((vtbl_entry*)(iVar3))[3].fn)
+                    ((int)*(int **)(param_1 + 0x10) + (int)((vtbl_entry*)(iVar3))[3].adj,0xf);
   if (iVar3 != 0) {
     iVar3 = **(int **)(param_1 + 0x10);
-    uVar1 = (**(code **)(iVar3 + 0x14))
-                      ((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar3 + 0x10),0x11);
+    uVar1 = (((vtbl_entry*)(iVar3))[2].fn)
+                      ((int)*(int **)(param_1 + 0x10) + (int)((vtbl_entry*)(iVar3))[2].adj,0x11);
     switch(uVar1) {
     case 0:
       uVar2 = 0;

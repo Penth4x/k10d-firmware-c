@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_state_transition_104adcea(int *param_1,int *param_2,uint param_3,int *param_4)
+uint32_t dispatch_state_transition_104adcea(cls_105b7648 *param_1,int *param_2,uint param_3,int *param_4)
 
 {
   int iVar1;
@@ -35,7 +35,7 @@ uint32_t dispatch_state_transition_104adcea(int *param_1,int *param_2,uint param
     if (iVar1 != 0) {
       *param_2 = iVar1;
       param_2[1] = param_4[2];
-      uVar2 = invoke_virtual_slot_two_104af0c8(param_1,param_2,8);
+      uVar2 = invoke_virtual_slot_two_104af0c8(&param_1->field_0x0,param_2,8);
       invoke_virtual_slot_two_104ae294(param_1);
       return uVar2;
     }
@@ -52,6 +52,6 @@ uint32_t dispatch_state_transition_104adcea(int *param_1,int *param_2,uint param
   }
   invoke_virtual_slot_two_104ae334(param_1);
 LAB_104add78:
-  uVar2 = invoke_virtual_slot_4_104af106(param_1);
+  uVar2 = invoke_virtual_slot_4_104af106(&param_1->field_0x0);
   return uVar2;
 }

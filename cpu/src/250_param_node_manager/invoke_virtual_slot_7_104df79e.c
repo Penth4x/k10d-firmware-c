@@ -25,7 +25,7 @@ uint32_t invoke_virtual_slot_7_104df79e(int param_1, uint32_t param_x1, uint32_t
     uVar2 = 0x81;
   }
   else {
-    uVar2 = (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1);
+    uVar2 = (((vtbl_entry*)(*piVar1))[3].fn)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1);
   }
   return uVar2;
 }

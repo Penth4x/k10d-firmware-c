@@ -60,7 +60,7 @@ void build_and_send_event_packet_104f83ee(int param_1,uint32_t param_2,uint16_t 
   uStack_20 = param_3;
   uStack_1c = param_2;
   eventflag_clr_flg(puVar1,1);
-  apply_param_struct_to_object(*(uint32_t *)(param_1 + 0x2c),(void *)(param_1 + 4),&uStack_34);
+  apply_param_struct_to_object((int)(*(uint32_t *)(param_1 + 0x2c)),(void *)(param_1 + 4),(int *)(&uStack_34));
   eventflag_wai_flg(puVar1,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,1);
   reset_object_three_fields(*(uint32_t *)(param_1 + 0x2c));

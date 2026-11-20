@@ -34,7 +34,7 @@ int prepare_and_dispatch_two_structs(void *param_1,void *param_2)
   iVar2 = *(int *)((int)param_2 + 0xc);
   *(uint32_t *)((int)param_2 + 0x10) = 0;
   *(uint32_t *)((int)param_2 + 0xc) = 0;
-  call_single_helper_1047f97e((int)&iStack_2c);
+  call_single_helper_1047f97e((uint32_t)(&iStack_2c));
   *(ushort *)((int)param_2 + 0x16) =
        (ushort)(iStack_2c / 2) | (ushort)(iStack_28 << 5) | (ushort)(iStack_24 << 0xb);
   *(ushort *)((int)param_2 + 0x14) =

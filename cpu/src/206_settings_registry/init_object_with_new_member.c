@@ -21,7 +21,7 @@ void init_object_with_new_member(int param_1)
 {
   int iVar1;
   
-  iVar1 = cls_105c1268_new((uint32_t *)0x0);
+  iVar1 = cls_105c1268_new((cls_105c1268 *)0x0);
   *(int *)(param_1 + 0x24) = iVar1;
   initialize_object_subsystem_104a33da(param_1);
   initialize_object_subsystem_104a347e(param_1);

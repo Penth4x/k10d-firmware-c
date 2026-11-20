@@ -26,6 +26,6 @@ void reset_object_fields_and_call_vtable(int param_1)
   (*(code *)0x10452b14/*ROM*/)(*(uint32_t *)(param_1 + 0x14),0);
   set_ram_flag_40030001(*(int *)(param_1 + 0x14) + 0x11,0);
   set_bit_14_in_ram40030400(*(int *)(param_1 + 0x14) + 0x10,0);
-  delete_signal_semaphore((void *)(param_1 + 0x1c));
+  delete_signal_semaphore((int *)(param_1 + 0x1c));
   return;
 }

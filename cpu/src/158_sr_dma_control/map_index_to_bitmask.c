@@ -11,11 +11,11 @@ uint32_t map_index_to_bitmask(int param_1)
 {
   uint32_t uVar1;
   uintptr_t sp;
-  uint8_t auStack_14 [12];
+  cls_105a6f84 cStack_14;
   
-  cls_105a6f84_new((void *)auStack_14);
-  copy_eight_bytes_from_struct(*(int *)(param_1 + 0x30),(void *)auStack_14);
-  uVar1 = invoke_virtual_slot_two_10460a5c((void *)auStack_14);
+  cls_105a6f84_new(&cStack_14);
+  copy_eight_bytes_from_struct(*(int *)(param_1 + 0x30),&cStack_14);
+  uVar1 = invoke_virtual_slot_two_10460a5c((void *)&cStack_14);
   switch(uVar1) {
   case 0:
     uVar1 = 0;
@@ -47,6 +47,6 @@ uint32_t map_index_to_bitmask(int param_1)
   default:
     uVar1 = 0;
   }
-  cls_105a6f84_delete((void *)auStack_14,2);
+  cls_105a6f84_delete(&cStack_14,2);
   return uVar1;
 }

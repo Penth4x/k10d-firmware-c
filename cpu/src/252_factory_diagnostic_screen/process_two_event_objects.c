@@ -29,43 +29,43 @@ bool process_two_event_objects(int param_1,int *param_2,int *param_3)
   uintptr_t sp;
   bool bVar6;
   char acStack_88 [64];
-  uint8_t auStack_48 [32];
-  uint8_t auStack_28 [32];
+  cls_105ab468 cStack_48;
+  cls_105ab468 cStack_28;
   
-  cls_105ab468_new(auStack_48);
+  cls_105ab468_new(&cStack_48);
   bVar6 = false;
-  copy_null_terminated_string(acStack_88,pvRam80010bb8);
-  copy_string_to_buffer(acStack_88,pvRam80010bc4);
-  copy_string_to_buffer(acStack_88,pvRam80010bbc);
-  iVar1 = call_with_offset_lock_1048101c(*(void **)(param_1 + 0x4c),acStack_88,auStack_48);
+  copy_null_terminated_string((void *)(acStack_88),(void *)(pvRam80010bb8));
+  copy_string_to_buffer((char *)(acStack_88),(void *)(pvRam80010bc4));
+  copy_string_to_buffer((char *)(acStack_88),(void *)(pvRam80010bbc));
+  iVar1 = call_with_offset_lock_1048101c(*(void **)(param_1 + 0x4c),acStack_88,&cStack_48);
   if (iVar1 != 0) {
     uVar2 = allocate_queue_slot(param_1);
     pvVar3 = (void *)insert_node_into_array(param_1,100, __frv_reg_unset(6));
     *param_2 = *param_2 + 1;
-    (**(code **)(*(int *)((int)pvVar3 + 0x18) + 0x44))
-              ((int)*(short *)(*(int *)((int)pvVar3 + 0x18) + 0x40) + (int)pvVar3,pvRam80010bbc);
-    copy_string_to_buffer(acStack_88,pvRam80010bc8);
-    copy_string_to_buffer(acStack_88,pvRam80010bc0);
+    (((vtbl_entry*)(*(int *)((int)pvVar3 + 0x18)))[8].fn)
+              ((int)((vtbl_entry*)(*(int *)((int)pvVar3 + 0x18)))[8].adj + (int)pvVar3,pvRam80010bbc);
+    copy_string_to_buffer((char *)(acStack_88),(void *)(pvRam80010bc8));
+    copy_string_to_buffer((char *)(acStack_88),(void *)(pvRam80010bc0));
     invoke_virtual_slot_14_104e6148((void *)param_1,pvVar3);
-    cls_105ab468_new(auStack_28);
-    iVar1 = call_with_offset_lock_1048101c(*(void **)(param_1 + 0x4c),acStack_88,auStack_28);
+    cls_105ab468_new(&cStack_28);
+    iVar1 = call_with_offset_lock_1048101c(*(void **)(param_1 + 0x4c),acStack_88,&cStack_28);
     bVar6 = iVar1 != 0;
     if (bVar6) {
       uVar4 = allocate_queue_slot(param_1);
       iRam80010b74 = uVar4 + 100;
-      uVar5 = allocate_and_link_entry(param_1,uVar2 + 100, __frv_reg_unset(6));
+      uVar5 = (uintptr_t)(allocate_and_link_entry(param_1,uVar2 + 100, __frv_reg_unset(6)));
       *(uint32_t *)(param_1 + 0x48) = uVar5;
       *param_3 = *param_3 + 1;
       increment_field_at_offset_0x18(param_1);
       iVar1 = *(int *)(*(int *)(param_1 + 0x48) + 0x18);
-      (**(code **)(iVar1 + 0x44))
-                (*(int *)(param_1 + 0x48) + (int)*(short *)(iVar1 + 0x40),pvRam80010bc0);
+      (((vtbl_entry*)(iVar1))[8].fn)
+                (*(int *)(param_1 + 0x48) + (int)((vtbl_entry*)(iVar1))[8].adj,pvRam80010bc0);
       invoke_virtual_slot_14_104e612e((void *)param_1,*(int *)(param_1 + 0x48));
       (*(code *)0x104e62b2/*ROM*/)(pvVar3,*(uint32_t *)(param_1 + 0x48));
     }
     (*(code *)0x104e62b2/*ROM*/)(**(uint32_t **)(param_1 + 0x40),pvVar3);
-    cls_105ab468_delete(auStack_28,2);
+    cls_105ab468_delete(&cStack_28,2);
   }
-  cls_105ab468_delete(auStack_48,2);
+  cls_105ab468_delete(&cStack_48,2);
   return bVar6;
 }

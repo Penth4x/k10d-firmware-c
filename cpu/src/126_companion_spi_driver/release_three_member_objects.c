@@ -14,35 +14,35 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_three_member_objects(void *param_1)
+void release_three_member_objects(cls_105a0b64 *param_1)
 
 {
-  int *piVar1;
-  int iVar2;
+  void **ppuVar1;
   
-  piVar1 = (int *)((int)param_1 + 4);
-  if ((*piVar1 != 0) &&
-     ((**(code **)(*(int *)(*piVar1 + 4) + 0x24))
-                (*piVar1 + (int)*(short *)(*(int *)(*piVar1 + 4) + 0x20)), *piVar1 != 0)) {
-    (**(code **)(*(int *)(*piVar1 + 4) + 0xc))
-              (*piVar1 + (int)*(short *)(*(int *)(*piVar1 + 4) + 8),3);
+  ppuVar1 = &param_1->field_0x4;
+  if ((*ppuVar1 != 0) &&
+     ((((vtbl_entry*)(*(int *)((char*)*ppuVar1 + 4)))[4].fn)
+                ((char*)*ppuVar1 + ((vtbl_entry*)(*(int *)((char*)*ppuVar1 + 4)))[4].adj), *ppuVar1 != 0
+     )) {
+    (**(code **)(*(int *)((char*)*ppuVar1 + 4) + 0xc))((char*)*ppuVar1 + *(short *)(*(int *)((char*)*ppuVar1 + 4) + 8),3)
+    ;
   }
-  *(uint32_t *)((int)param_1 + 4) = 0;
-  if ((*(int *)((int)param_1 + 8) != 0) &&
-     (iVar2 = *(int *)(*(int *)((int)param_1 + 8) + 4),
-     (**(code **)(iVar2 + 0x24))(*(int *)((int)param_1 + 8) + (int)*(short *)(iVar2 + 0x20)),
-     *(int *)((int)param_1 + 8) != 0)) {
-    iVar2 = *(int *)(*(int *)((int)param_1 + 8) + 4);
-    (**(code **)(iVar2 + 0xc))(*(int *)((int)param_1 + 8) + (int)*(short *)(iVar2 + 8),3);
+  param_1->field_0x4 = (uintptr_t)((void *)0x0);
+  if ((param_1->field_0x8 != 0) &&
+     ((((vtbl_entry*)(*(int *)(param_1->field_0x8 + 4)))[4].fn)
+                (param_1->field_0x8 + ((vtbl_entry*)(*(int *)(param_1->field_0x8 + 4)))[4].adj),
+     param_1->field_0x8 != 0)) {
+    (**(code **)(*(int *)(param_1->field_0x8 + 4) + 0xc))
+              (param_1->field_0x8 + *(short *)(*(int *)(param_1->field_0x8 + 4) + 8),3);
   }
-  *(uint32_t *)((int)param_1 + 8) = 0;
-  if ((*(int *)((int)param_1 + 0xc) != 0) &&
-     (iVar2 = *(int *)(*(int *)((int)param_1 + 0xc) + 4),
-     (**(code **)(iVar2 + 0x24))(*(int *)((int)param_1 + 0xc) + (int)*(short *)(iVar2 + 0x20)),
-     *(int *)((int)param_1 + 0xc) != 0)) {
-    iVar2 = *(int *)(*(int *)((int)param_1 + 0xc) + 4);
-    (**(code **)(iVar2 + 0xc))(*(int *)((int)param_1 + 0xc) + (int)*(short *)(iVar2 + 8),3);
+  param_1->field_0x8 = (uintptr_t)((void *)0x0);
+  if ((param_1->field_0xc != 0) &&
+     ((((vtbl_entry*)(*(int *)(param_1->field_0xc + 4)))[4].fn)
+                (param_1->field_0xc + ((vtbl_entry*)(*(int *)(param_1->field_0xc + 4)))[4].adj),
+     param_1->field_0xc != 0)) {
+    (**(code **)(*(int *)(param_1->field_0xc + 4) + 0xc))
+              (param_1->field_0xc + *(short *)(*(int *)(param_1->field_0xc + 4) + 8),3);
   }
-  *(uint32_t *)((int)param_1 + 0xc) = 0;
+  param_1->field_0xc = (uintptr_t)((void *)0x0);
   return;
 }

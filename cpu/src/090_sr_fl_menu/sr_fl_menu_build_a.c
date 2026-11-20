@@ -39,15 +39,15 @@ void sr_fl_menu_build_a(void)
   else if (uVar1 < 10) {
     uVar4 = 1;
   }
-  menu_list_build((void *)uVar2, (void *)(caller_r14 + -2), uVar4, 1);
+  menu_list_build((int *)(uVar2),(uint16_t *)(caller_r14 + -2),(uint8_t)(uVar4),(uint8_t)(1));
   iVar3 = menu_item_register(*caller_r8);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
   send_mode_specific_commands(caller_r8,caller_r9);
   if (caller_r9 == 0x21) {
     iVar3 = menu_item_register(*caller_r8);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
     iVar3 = menu_item_register(*caller_r8);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
   }
   else {
     uVar1 = *(ushort *)(&DAT_10598388/*ROM*/ + (caller_r9 + 1) * 2);
@@ -60,9 +60,9 @@ void sr_fl_menu_build_a(void)
       uVar2 = 1;
     }
     uVar4 = menu_item_register(*caller_r8);
-    menu_list_build((void *)uVar4, (void *)(caller_r14 + -2), uVar2, 1);
+    menu_list_build((int *)(uVar4),(uint16_t *)(caller_r14 + -2),(uint8_t)(uVar2),(uint8_t)(1));
     iVar3 = menu_item_register(*caller_r8);
-    (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
   }
   return;
 }

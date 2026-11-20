@@ -20,15 +20,15 @@ uint32_t dispatch_virtual_method_chain_10481c96(int param_1, uint32_t param_x1)
   uint16_t uStack_a;
   
   iVar1 = lookup_table_entry_by_index_10482026(*(void **)(param_1 + 8));
-  iVar2 = (**(code **)(*(int *)(iVar1 + 4) + 0x4c))(*(short *)(*(int *)(iVar1 + 4) + 0x48) + iVar1);
+  iVar2 = (((vtbl_entry*)(*(int *)(iVar1 + 4)))[9].fn)(((vtbl_entry*)(*(int *)(iVar1 + 4)))[9].adj + iVar1);
   if ((iVar2 == 0) ||
-     (iVar2 = (**(code **)(*(int *)(iVar1 + 4) + 0x54))
-                        (*(short *)(*(int *)(iVar1 + 4) + 0x50) + iVar1), iVar2 != 0)) {
+     (iVar2 = (((vtbl_entry*)(*(int *)(iVar1 + 4)))[10].fn)
+                        (((vtbl_entry*)(*(int *)(iVar1 + 4)))[10].adj + iVar1), iVar2 != 0)) {
     uVar3 = 0;
   }
   else {
-    iVar2 = (**(code **)(*(int *)(iVar1 + 4) + 0x1c))
-                      (*(short *)(*(int *)(iVar1 + 4) + 0x18) + iVar1,0);
+    iVar2 = (((vtbl_entry*)(*(int *)(iVar1 + 4)))[3].fn)
+                      (((vtbl_entry*)(*(int *)(iVar1 + 4)))[3].adj + iVar1,0);
     if (iVar2 == 0) {
       uVar3 = 0;
     }
@@ -39,7 +39,7 @@ uint32_t dispatch_virtual_method_chain_10481c96(int param_1, uint32_t param_x1)
       iStack_14 = param_1 + 4;
       iStack_18 = iVar1;
       uVar3 = read_struct_field_by_index_10481d78(param_1,*(uint32_t *)(iVar1 + 0x10));
-      uVar3 = dispatch_virtual_then_table(uVar3,&iStack_18);
+      uVar3 = dispatch_virtual_then_table((void*)(uVar3),&iStack_18);
     }
   }
   return uVar3;

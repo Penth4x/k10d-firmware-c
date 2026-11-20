@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void initialize_subsystem_sequence(uint32_t param_1)
+void initialize_subsystem_sequence(cls_10562d94 *param_1)
 
 {
   int iVar1;
@@ -25,6 +25,6 @@ void initialize_subsystem_sequence(uint32_t param_1)
   iVar1 = get_value_from_object();
   iVar1 = add_offset_to_pointer_104df392(iVar1);
   toggle_object_state_by_flag(iVar1,0);
-  call_single_helper_10395a3a(param_1);
+  call_single_helper_10395a3a((int)param_1);
   return;
 }

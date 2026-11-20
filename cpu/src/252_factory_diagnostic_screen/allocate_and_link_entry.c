@@ -11,11 +11,11 @@ int * allocate_and_link_entry(int param_1,int param_2,int param_3)
 {
   int *piVar1;
   
-  piVar1 = (int *)advance_pairwise_buffer_pointers(*(uint32_t *)(param_1 + 0x74));
+  piVar1 = (int *)advance_pairwise_buffer_pointers((int *)(*(uint32_t *)(param_1 + 0x74)));
   *piVar1 = param_3 + 100;
   *(int **)(*(int *)(param_1 + 0x40) + param_3 * 4) = piVar1;
-  (**(code **)(piVar1[6] + 0x3c))
-            ((int)*(short *)(piVar1[6] + 0x38) + (int)piVar1,
+  (((vtbl_entry*)(piVar1[6]))[7].fn)
+            ((int)((vtbl_entry*)(piVar1[6]))[7].adj + (int)piVar1,
              *(uint32_t *)(*(int *)(param_1 + 0x40) + (param_2 + -100) * 4));
   increment_field_at_offset_0x10(param_1);
   return piVar1;

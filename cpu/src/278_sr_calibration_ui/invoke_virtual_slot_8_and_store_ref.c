@@ -19,7 +19,7 @@ void invoke_virtual_slot_8_and_store_ref(int param_1,int *param_2)
 {
   int iVar1;
   
-  iVar1 = (**(code **)(*param_2 + 0x44))((int)*(short *)(*param_2 + 0x40) + (int)param_2,0,0);
+  iVar1 = (((vtbl_entry*)(*param_2))[8].fn)((int)((vtbl_entry*)(*param_2))[8].adj + (int)param_2,0,0);
   if (iVar1 != 3) {
     *(int **)(param_1 + 4) = param_2;
   }

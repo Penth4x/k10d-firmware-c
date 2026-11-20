@@ -15,7 +15,7 @@
 void free_pointer_at_offset_0x10_1043bf0a(int param_1)
 
 {
-  if (*(void **)(param_1 + 0x10) != (void *)0x0) {
+  if (*(void **)(param_1 + 0x10) != 0) {
     clear_flag_with_notify(*(void **)(param_1 + 0x10));
   }
   return;

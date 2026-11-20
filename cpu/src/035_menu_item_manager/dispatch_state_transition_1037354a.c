@@ -18,7 +18,7 @@ int * dispatch_state_transition_1037354a(int *param_1)
       copy_two_words_and_set_flag(param_1);
       param_1[8] = 1;
       param_1[9] = 0;
-      (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1);
+      (((vtbl_entry*)(*param_1))[8].fn)((int)((vtbl_entry*)(*param_1))[8].adj + (int)param_1);
       request_ui_sync_code_4(param_1 + 0x119);
       write_second_field_via_helper_1036c486(param_1,param_1[6]);
       poll_and_update_state_entry(param_1,1);
@@ -32,7 +32,7 @@ int * dispatch_state_transition_1037354a(int *param_1)
     if (*(char *)((int)param_1 + 0x29) == '\0') {
       if (*(char *)((int)param_1 + 0x2a) == '\0') {
         param_1[9] = 1;
-        (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1);
+        (((vtbl_entry*)(*param_1))[8].fn)((int)((vtbl_entry*)(*param_1))[8].adj + (int)param_1);
         request_ui_sync_code_4(param_1 + 0x119);
         write_second_field_via_helper_1036c486(param_1,param_1[6]);
         return param_1;
@@ -42,7 +42,7 @@ int * dispatch_state_transition_1037354a(int *param_1)
          (iVar1 = check_two_short_pairs_equal(param_1), iVar1 != 0)) {
         copy_two_words_and_set_flag(param_1);
         param_1[9] = 2;
-        (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1);
+        (((vtbl_entry*)(*param_1))[8].fn)((int)((vtbl_entry*)(*param_1))[8].adj + (int)param_1);
         request_ui_sync_code_4(param_1 + 0x119);
         write_second_field_via_helper_1036c486(param_1,param_1[6]);
         poll_and_update_state_entry(param_1,1);

@@ -21,7 +21,7 @@ uint32_t * cls_10599b14_new(uint32_t *param_1)
   if ((param_1 != (uint32_t *)0x0) ||
      (param_1 = (uint32_t *)heap_alloc((void *)0x74), param_1 != (uint32_t *)0x0)) {
     cls_1059e478_new(param_1);
-    cls_105a2c1c_new((uint32_t *)__frv_reg_unset(4));
+    cls_105a2c1c_new((cls_105a2c1c *)__frv_reg_unset(4));
     *param_1 = 0x10599b14/*ROM*/;
     param_1[5] = 0x10599b34/*ROM*/;
     piVar3 = param_1 + 6;
@@ -42,12 +42,12 @@ uint32_t * cls_10599b14_new(uint32_t *param_1)
     param_1[0x16] = 0;
     *(uint16_t *)(param_1 + 0x17) = 0;
     *(uint16_t *)((int)param_1 + 0x5e) = 0;
-    cls_105a2af8_new((uint32_t *)__frv_reg_unset(4));
+    cls_105a2af8_new(param_1 + 0x18);
     *(uint8_t *)(param_1 + 0x1a) = 0;
     *(uint8_t *)((int)param_1 + 0x69) = 0;
     *(uint16_t *)((int)param_1 + 0x6a) = 0;
     *(uint16_t *)(param_1 + 0x1b) = 0;
-    zero_four_byte_buffer((void *)((int)param_1 + 0x6e));
+    zero_four_byte_buffer((uint16_t *)((int)param_1 + 0x6e));
     if (param_1[8] == 0) {
       uVar1 = get_or_create_singleton_object_104bcd88();
       param_1[8] = uVar1;

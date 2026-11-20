@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_settings_change_command(int param_1,uint32_t param_2,int param_3)
+uint32_t dispatch_settings_change_command(cls_105b9e6c *param_1,uint32_t param_2,int param_3)
 
 {
   uint8_t uVar1;
@@ -27,7 +27,7 @@ uint32_t dispatch_settings_change_command(int param_1,uint32_t param_2,int param
   uVar1 = *(uint8_t *)(param_3 + 0x859);
   set_struct_field_at_offset_4(param_3,0);
   uVar9 = 0x81;
-  iVar3 = read_virtual_property_field((void *)(*(uint32_t *)(param_1 + 0x10)),1);
+  iVar3 = read_virtual_property_field((int *)(param_1->field_0x10),(int)(1));
   bVar2 = false;
   if ((iVar3 == 2) || (iVar3 == 3)) {
     bVar2 = true;
@@ -35,33 +35,33 @@ uint32_t dispatch_settings_change_command(int param_1,uint32_t param_2,int param
   if (!bVar2) {
     return 0x84;
   }
-  settings_refresh_working_copy(*(void **)(param_1 + 0x14));
+  settings_refresh_working_copy((void *)(param_1->field_0x14));
   switch(uVar1) {
   case 0:
     uVar9 = add_eight_to_param(param_3);
-    uVar9 = build_settings_output_array(param_1,(void *)uVar9);
+    uVar9 = build_settings_output_array((int)(param_1),(int *)(uVar9));
     goto LAB_104d1d82;
   case 1:
     set_struct_field_at_offset_4(param_3,0);
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
     uVar8 = read_struct_field_at_index_1046c7ca(param_3,1);
-    uVar9 = set_setting_from_lookup(param_1,uVar9,uVar8);
+    uVar9 = set_setting_from_lookup((int)(param_1),(int)(uVar9),(uint8_t)(uVar8));
     break;
   case 2:
     set_struct_field_at_offset_4(param_3,0);
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
-    uVar9 = return_constant_0x81(param_1,uVar9);
+    uVar9 = return_constant_0x81((uint32_t)(param_1),(uint32_t)(uVar9));
     break;
   case 3:
     set_struct_field_at_offset_4(param_3,0);
-    uVar8 = *(uint32_t *)(param_1 + 0xc);
+    uVar8 = param_1->field_0xc;
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
     guarded_call_with_lock_104b8484(uVar8,uVar9);
     goto LAB_104d21a8;
   case 4:
     set_struct_field_at_offset_4(param_3,0);
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
-    uVar9 = compute_and_store_setting_value_104d3af8(param_1,uVar9);
+    uVar9 = compute_and_store_setting_value_104d3af8((int)(param_1),(uint)(uVar9));
     break;
   case 5:
   case 6:
@@ -69,7 +69,7 @@ uint32_t dispatch_settings_change_command(int param_1,uint32_t param_2,int param
     goto LAB_104d2224;
   case 7:
     set_struct_field_at_offset_4(param_3,0);
-    uVar8 = *(uint32_t *)(param_1 + 0xc);
+    uVar8 = param_1->field_0xc;
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
     iVar3 = send_two_byte_command(uVar8,uVar9);
     goto joined_r0x104d21a6;
@@ -150,15 +150,15 @@ uint32_t dispatch_settings_change_command(int param_1,uint32_t param_2,int param
     uVar4 = read_struct_field_at_index_1046c7ca(param_3,2);
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,3);
     *puVar10 = uVar9;
-    uVar9 = write_setting_entry_with_index(param_1,uVar6,uVar7 & 0xffff,uVar4 & 0xffff,*puVar10);
+    uVar9 = write_setting_entry_with_index((int)param_1,uVar6,uVar7 & 0xffff,uVar4 & 0xffff,*puVar10);
     break;
   case 0x10:
     set_struct_field_at_offset_4(param_3,0);
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
-    uVar9 = write_setting_by_index_and_value(param_1,uVar9);
-    iVar3 = read_virtual_property_field((void *)(*(uint32_t *)(param_1 + 0x10)),3);
+    uVar9 = write_setting_by_index_and_value((int)(param_1),(uint)(uVar9));
+    iVar3 = read_virtual_property_field((int *)(param_1->field_0x10),(int)(3));
     if (iVar3 == 1) {
-      uVar5 = *(uint32_t *)(param_1 + 0xc);
+      uVar5 = param_1->field_0xc;
       uVar8 = read_struct_field_at_index_1046c7ca(param_3,0);
       send_message_with_timeout_104b8a3c(uVar5,uVar8);
       return uVar9;
@@ -169,43 +169,43 @@ uint32_t dispatch_settings_change_command(int param_1,uint32_t param_2,int param
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
     uVar8 = read_struct_field_at_index_1046c7ca(param_3,1);
     uVar5 = read_struct_field_at_index_1046c7ca(param_3,2);
-    uVar9 = write_setting_pair_by_id(param_1,uVar9,uVar8,uVar5);
+    uVar9 = write_setting_pair_by_id((int)(param_1),(int)(uVar9),(uint)(uVar8),(uint)(uVar5));
     break;
   case 0x12:
     set_struct_field_at_offset_4(param_3,0);
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
     uVar8 = read_struct_field_at_index_1046c7ca(param_3,1);
-    uVar9 = compute_and_store_setting_value_104d40cc(param_1,uVar9,uVar8);
+    uVar9 = compute_and_store_setting_value_104d40cc((int)(param_1),(uint32_t)(uVar9),(uint)(uVar8));
     break;
   case 0x13:
     set_struct_field_at_offset_4(param_3,0);
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
     uVar8 = read_struct_field_at_index_1046c7ca(param_3,1);
-    uVar9 = compute_and_store_setting_value_104d413a(param_1,uVar9,uVar8);
+    uVar9 = compute_and_store_setting_value_104d413a((int)(param_1),(uint32_t)(uVar9),(uint)(uVar8));
     break;
   case 0x14:
     set_struct_field_at_offset_4(param_3,0);
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
     uVar8 = read_struct_field_at_index_1046c7ca(param_3,1);
-    uVar9 = compute_and_store_setting_value_104d41a8(param_1,uVar9,uVar8);
+    uVar9 = compute_and_store_setting_value_104d41a8((int)(param_1),(uint32_t)(uVar9),(uint)(uVar8));
     break;
   case 0x15:
     set_struct_field_at_offset_4(param_3,0);
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
     uVar8 = read_struct_field_at_index_1046c7ca(param_3,1);
     uVar5 = read_struct_field_at_index_1046c7ca(param_3,2);
-    uVar9 = apply_three_setting_groups(param_1,uVar9,uVar8,uVar5);
+    uVar9 = apply_three_setting_groups((int)(param_1),(uint)(uVar9),(uint)(uVar8),(uint)(uVar5));
     break;
   case 0x16:
     set_struct_field_at_offset_4(param_3,0);
-    uVar9 = *(uint32_t *)(param_1 + 0xc);
+    uVar9 = param_1->field_0xc;
     uVar6 = read_struct_field_at_index_1046c7ca(param_3,0);
     uVar7 = read_struct_field_at_index_1046c7ca(param_3,1);
     iVar3 = process_event_with_two_params(uVar9,uVar6 & 0xffff,uVar7 & 0xffff);
     goto joined_r0x104d21a6;
   case 0x17:
     set_struct_field_at_offset_4(param_3,0);
-    uVar9 = *(uint32_t *)(param_1 + 0xc);
+    uVar9 = param_1->field_0xc;
     iVar3 = read_struct_field_at_index_1046c7ca(param_3,2);
     uVar6 = read_struct_field_at_index_1046c7ca(param_3,0);
     uVar7 = read_struct_field_at_index_1046c7ca(param_3,1);
@@ -221,11 +221,11 @@ LAB_104d21a8:
     set_struct_field_at_offset_4(param_3,0);
     uVar6 = read_struct_field_at_index_1046c7ca(param_3,0);
     uVar7 = read_struct_field_at_index_1046c7ca(param_3,1);
-    uVar9 = compute_and_store_setting_value_104d39dc(param_1,uVar6 & 0xffff,uVar7 & 0xffff);
+    uVar9 = compute_and_store_setting_value_104d39dc((int)(param_1),(short)(uVar6 & 0xffff),(int)(uVar7 & 0xffff));
     break;
   case 0x19:
     set_struct_field_at_offset_4(param_3,0);
-    uVar8 = *(uint32_t *)(param_1 + 0xc);
+    uVar8 = param_1->field_0xc;
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
     acquire_lock_and_dispatch_event(uVar8,uVar9);
 LAB_104d2224:
@@ -235,74 +235,74 @@ LAB_104d2224:
     set_struct_field_at_offset_4(param_3,0);
     uVar6 = read_struct_field_at_index_1046c7ca(param_3,0);
     uVar7 = read_struct_field_at_index_1046c7ca(param_3,1);
-    uVar9 = write_setting_pair_from_object(param_1,uVar6 & 0xffff,uVar7 & 0xffff);
+    uVar9 = write_setting_pair_from_object((int)(param_1),(short)(uVar6 & 0xffff),(int)(uVar7 & 0xffff));
     break;
   case 0x1b:
     set_struct_field_at_offset_4(param_3,0);
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
-    uVar9 = compute_and_store_setting_value_104d4284(param_1,uVar9);
+    uVar9 = compute_and_store_setting_value_104d4284((int)(param_1),(uint)(uVar9));
     break;
   case 0x1c:
     set_struct_field_at_offset_4(param_3,0);
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
-    uVar9 = compute_and_store_setting_value_104d3a8a(param_1,uVar9);
+    uVar9 = compute_and_store_setting_value_104d3a8a((int)(param_1),(uint)(uVar9));
     break;
   case 0x1d:
     set_struct_field_at_offset_4(param_3,0);
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
-    uVar9 = compute_and_store_setting_value_104d3e0a(param_1,uVar9);
+    uVar9 = compute_and_store_setting_value_104d3e0a((int)(param_1),(uint)(uVar9));
     break;
   case 0x1e:
     set_struct_field_at_offset_4(param_3,0);
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
     uVar8 = read_struct_field_at_index_1046c7ca(param_3,1);
-    uVar9 = write_setting_from_index(param_1,uVar9,uVar8);
+    uVar9 = write_setting_from_index((int)(param_1),(int)(uVar9),(uint)(uVar8));
     break;
   case 0x1f:
     set_struct_field_at_offset_4(param_3,0);
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
     uVar8 = read_struct_field_at_index_1046c7ca(param_3,1);
-    uVar9 = compute_and_store_setting_value_104d4216(param_1,uVar9,uVar8);
+    uVar9 = compute_and_store_setting_value_104d4216((int)(param_1),(uint32_t)(uVar9),(uint)(uVar8));
     break;
   case 0x20:
     set_struct_field_at_offset_4(param_3,0);
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
     uVar8 = read_struct_field_at_index_1046c7ca(param_3,1);
-    uVar9 = set_mode_dependent_setting_104d42f2(param_1,uVar9,uVar8);
+    uVar9 = set_mode_dependent_setting_104d42f2((int)(param_1),(int)(uVar9),(uint)(uVar8));
     break;
   case 0x21:
     set_struct_field_at_offset_4(param_3,0);
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
     uVar8 = read_struct_field_at_index_1046c7ca(param_3,1);
-    uVar9 = compute_and_set_setting_value(param_1,uVar9,uVar8);
+    uVar9 = compute_and_set_setting_value((int)(param_1),(int)(uVar9),(uint)(uVar8));
     break;
   case 0x22:
     set_struct_field_at_offset_4(param_3,0);
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
     uVar8 = read_struct_field_at_index_1046c7ca(param_3,1);
-    uVar9 = set_mode_dependent_setting_104d451a(param_1,uVar9,uVar8);
+    uVar9 = set_mode_dependent_setting_104d451a((int)(param_1),(int)(uVar9),(uint)(uVar8));
     break;
   case 0x24:
     set_struct_field_at_offset_4(param_3,0);
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
     uVar8 = read_struct_field_at_index_1046c7ca(param_3,1);
-    uVar9 = set_setting_by_index_and_flag(param_1,uVar9,uVar8);
+    uVar9 = set_setting_by_index_and_flag((int)(param_1),(int)(uVar9),(uint16_t)(uVar8));
     break;
   case 0x32:
     set_struct_field_at_offset_4(param_3,0);
     uVar9 = add_eight_to_param(param_3);
-    uVar9 = write_exposure_settings_block(param_1,(void *)uVar9);
+    uVar9 = write_exposure_settings_block((int)(param_1),(int *)(uVar9));
     break;
   case 0x33:
     uVar9 = read_struct_field_at_index_1046c7ca(param_3,0);
     uStack_c = 0;
     uVar8 = add_eight_to_param(param_3);
-    uVar9 = query_exposure_status_block(param_1,uVar9,&uStack_c,(void *)uVar8);
+    uVar9 = query_exposure_status_block((int)(param_1),(int)(uVar9),(uint32_t *)(&uStack_c),(int *)(uVar8));
     set_struct_field_at_offset_4(param_3,uStack_c);
     return uVar9;
   case 100:
     uVar9 = add_eight_to_param(param_3);
-    uVar9 = build_mode_settings_snapshot_104d25d0(param_1,(void *)uVar9);
+    uVar9 = build_mode_settings_snapshot_104d25d0((int)(param_1),(int *)(uVar9));
 LAB_104d1d82:
     set_struct_field_at_offset_4(param_3,uVar9);
     goto LAB_104d21a8;

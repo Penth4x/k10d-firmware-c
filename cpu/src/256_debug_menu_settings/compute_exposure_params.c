@@ -30,21 +30,21 @@ uint32_t compute_exposure_params(int param_1,int param_2)
   uintptr_t sp;
   uint8_t *puVar7;
   uint8_t auStack_54 [4];
-  uint32_t auStack_38 [7];
-  uint8_t auStack_1c [20];
+  cls_105a6d8c acStack_38 [7];
+  cls_105a6abc acStack_1c [5];
   
   puVar7 = auStack_54;
-  cls_105a6d8c_new(auStack_38);
-  copy_status_block_bytes(*(int *)(param_1 + 8),auStack_38);
-  iVar1 = extract_field_from_struct_1045ff0e((int)auStack_38,0);
+  cls_105a6d8c_new(acStack_38);
+  copy_status_block_bytes(*(int *)(param_1 + 8),acStack_38);
+  iVar1 = extract_field_from_struct_1045ff0e(acStack_38,0);
   if (param_2 == 0) {
-    uVar2 = extract_field_from_struct_1045ff0e((int)auStack_38,0x30);
+    uVar2 = extract_field_from_struct_1045ff0e(acStack_38,0x30);
   }
   else {
-    cls_105a6abc_new((void *)auStack_1c);
-    copy_buffer_with_lock_1045e22a(*(int *)(param_1 + 8),auStack_1c);
-    uVar2 = extract_bitfield_from_byte_array(auStack_1c,2);
-    cls_105a6abc_delete((void *)auStack_1c,2);
+    cls_105a6abc_new(acStack_1c);
+    copy_buffer_with_lock_1045e22a(*(int *)(param_1 + 8),acStack_1c);
+    uVar2 = extract_bitfield_from_byte_array(acStack_1c,2);
+    cls_105a6abc_delete(acStack_1c,2);
   }
   uVar3 = get_or_init_heap_block();
   iVar4 = classify_state_by_two_checks(param_1);
@@ -52,6 +52,6 @@ uint32_t compute_exposure_params(int param_1,int param_2)
   puVar7[3] = (char)iVar1;
   uVar6 = lookup_two_byte_table_entry_1045a6c0(uVar3,uVar2 & 0xff,iVar4,iVar5,puVar7[3]);
   uVar3 = map_iso_to_index(param_1,uVar6);
-  cls_105a6d8c_delete(auStack_38,2);
+  cls_105a6d8c_delete(acStack_38,2);
   return uVar3;
 }

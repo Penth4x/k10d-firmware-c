@@ -24,11 +24,11 @@ void handle_status_two_failure_104dda92(uint32_t param_1,int *param_2,uint32_t p
   
   iVar1 = (*(code *)0x104d6dbc/*ROM*/)(param_3);
   if (iVar1 != 2) {
-    append_string_to_buffer(param_2,(void *)0x105bafc0/*ROM*/);
+    append_string_to_buffer((int *)(param_2),(char *)(0x105bafc0/*ROM*/));
     add_offset_to_pointer_104d6882(param_3);
     uVar2 = (*(code *)0x104d8aca/*ROM*/)();
-    build_and_apply_param_string(param_2,(void *)uVar2,0,(void *)r7_in);
-    append_string_to_buffer(param_2,(void *)0x105bafcc/*ROM*/);
+    build_and_apply_param_string((int *)(param_2),(void *)(uVar2),(int)(0),(void *)(r7_in));
+    append_string_to_buffer((int *)(param_2),(char *)(0x105bafcc/*ROM*/));
   }
   return;
 }

@@ -13,8 +13,8 @@ void invoke_virtual_and_clear_slots(int param_1,int param_2)
   int iVar2;
   
   iVar2 = **(int **)(param_1 + 0x20);
-  uVar1 = (**(code **)(iVar2 + 0x14))
-                    ((int)*(int **)(param_1 + 0x20) + (int)*(short *)(iVar2 + 0x10),0);
+  uVar1 = (((vtbl_entry*)(iVar2))[2].fn)
+                    ((int)*(int **)(param_1 + 0x20) + (int)((vtbl_entry*)(iVar2))[2].adj,0);
   write_byte_to_struct_offset_104a8be2(param_2,0,uVar1);
   write_byte_to_struct_offset_104a8be2(param_2,1,0);
   write_byte_to_struct_offset_104a8be2(param_2,2,0);

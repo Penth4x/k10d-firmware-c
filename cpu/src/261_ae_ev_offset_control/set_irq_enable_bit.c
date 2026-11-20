@@ -132,11 +132,11 @@ void set_irq_enable_bit(int param_1,int param_2,uint param_3)
     break;
   case -0x7fffffe6:
     iVar3 = *(int *)(*(int *)(param_1 + 0x110) + 4);
-    (**(code **)(iVar3 + 0x6c))(*(int *)(param_1 + 0x110) + (int)*(short *)(iVar3 + 0x68),1);
+    (((vtbl_entry*)(iVar3))[13].fn)(*(int *)(param_1 + 0x110) + (int)((vtbl_entry*)(iVar3))[13].adj,1);
     break;
   case -0x7fffffe5:
     iVar3 = *(int *)(*(int *)(param_1 + 0x114) + 4);
-    (**(code **)(iVar3 + 0x6c))(*(int *)(param_1 + 0x114) + (int)*(short *)(iVar3 + 0x68),1);
+    (((vtbl_entry*)(iVar3))[13].fn)(*(int *)(param_1 + 0x114) + (int)((vtbl_entry*)(iVar3))[13].adj,1);
     break;
   default:
   }

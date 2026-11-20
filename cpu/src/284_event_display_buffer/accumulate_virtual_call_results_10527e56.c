@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int accumulate_virtual_call_results_10527e56(uint32_t *param_1)
+int accumulate_virtual_call_results_10527e56(cls_105f9250 *param_1)
 
 {
   int iVar1;
@@ -17,16 +17,17 @@ int accumulate_virtual_call_results_10527e56(uint32_t *param_1)
   
   iVar3 = 0;
   iVar4 = 0;
-  if (0 < (int)param_1[0x83]) {
+  if (0 < (int)param_1->field_0x20c) {
     iVar2 = 0;
     do {
-      iVar1 = *(int *)((int)param_1 + iVar2 + 0x214);
+      iVar1 = *(int *)((int)&param_1[1].field_0x0 + iVar2);
       iVar5 = *(int *)(iVar1 + 0x208);
-      iVar1 = (**(code **)(iVar5 + 0x6c))(iVar1 + *(short *)(iVar5 + 0x68),*param_1);
+      iVar1 = (((vtbl_entry*)(iVar5))[13].fn)(iVar1 + ((vtbl_entry*)(iVar5))[13].adj,param_1->field_0x0);
       iVar2 = iVar2 + 4;
       iVar4 = iVar1 + iVar4;
       iVar3 = iVar3 + 1;
-    } while (iVar3 < (int)param_1[0x83]);
+    } while (iVar3 < (int)param_1->field_0x20c);
   }
-  return (int)(((uint)(iVar4 * param_1[0x84] >> 7) >> 0x18) + iVar4 * param_1[0x84]) >> 8;
+  iVar4 = iVar4 * param_1->field_0x210;
+  return (int)(((uint)(iVar4 >> 7) >> 0x18) + iVar4) >> 8;
 }

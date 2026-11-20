@@ -29,12 +29,12 @@ uint32_t allocate_and_fill_buffer_1049b4ba(uint32_t param_1,uint32_t param_2,int
   else {
     uVar1 = ((uint32_t *)_DAT_80048fe8)/*SDRAM*/[5];
   }
-  (**(code **)(*param_3 + 0x14))
-            ((int)*(short *)(*param_3 + 0x10) + (int)param_3,iVar2,uVar1,param_2);
-  iVar3 = check_string_at_fixed_address(_DAT_80048fe8/*SDRAM*/,(void *)iVar2);
+  (((vtbl_entry*)(*param_3))[2].fn)
+            ((int)((vtbl_entry*)(*param_3))[2].adj + (int)param_3,iVar2,uVar1,param_2);
+  iVar3 = check_string_at_fixed_address((uint32_t)(_DAT_80048fe8/*SDRAM*/),(void *)(iVar2));
   uVar4 = 0;
   if (iVar3 == 0) {
-    iVar3 = check_virtual_method_result(_DAT_80048fe8/*SDRAM*/,(void *)iVar2);
+    iVar3 = check_virtual_method_result((int)(_DAT_80048fe8/*SDRAM*/),(void *)(iVar2));
     if (iVar3 != 0) {
       uVar4 = 2;
     }

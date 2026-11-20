@@ -21,7 +21,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int * initialize_object_with_mode_dispatch(int *param_1)
+cls_10558104 * initialize_object_with_mode_dispatch(cls_10558104 *param_1)
 
 {
   int iVar1;
@@ -29,14 +29,14 @@ int * initialize_object_with_mode_dispatch(int *param_1)
   uint uVar3;
   bool bVar4;
   uint32_t uVar5;
-  int *piVar6;
+  uint32_t *puVar6;
   uintptr_t sp;
   int iStack_c;
   
-  *(uint8_t *)(param_1 + 5) = 0;
-  *(uint8_t *)((int)param_1 + 0x15) = 0;
-  param_1[6] = 0;
-  param_1[0x14] = 0;
+  param_1->field_0x14 = 0;
+  param_1->field_0x15 = 0;
+  param_1->field_0x18 = 0;
+  param_1->field_0x50 = 0;
   iStack_c = 5;
   iVar1 = query_state_and_flag_range(param_1,&iStack_c);
   if (iVar1 == 0) {
@@ -44,7 +44,7 @@ int * initialize_object_with_mode_dispatch(int *param_1)
       init_object_with_sram_ref_103722e0(param_1,6);
       return param_1;
     }
-    allocate_and_link_heap_blocks(param_1 + 0x12a);
+    allocate_and_link_heap_blocks(&param_1->field_0x4a8);
     uVar3 = init_sram_block_and_store_param(param_1);
     bVar4 = false;
     iVar1 = -1;
@@ -52,9 +52,9 @@ int * initialize_object_with_mode_dispatch(int *param_1)
       if ((uVar3 & 8) == 0) goto LAB_10371590;
       iVar1 = 3;
 LAB_10371594:
-      iVar1 = dispatch_event_and_return_offset(param_1,param_1 + 0x1f,iVar1);
-      if (((iVar1 != 0) && (iVar1 = read_struct_field_at_index_104c2890((void *)param_1[0x1f],0x28), iVar1 == 1)) &&
-         (iVar1 = read_struct_field_at_index_104c2890((void *)param_1[0x1f],0x29), iVar1 == 1)) {
+      iVar1 = dispatch_event_and_return_offset(param_1,&param_1->field_0x7c,iVar1);
+      if (((iVar1 != 0) && (iVar1 = read_struct_field_at_index_104c2890((char*)(param_1) ->field_0x7c,0x28), iVar1 == 1)) &&
+         (iVar1 = read_struct_field_at_index_104c2890((char*)(param_1) ->field_0x7c,0x29), iVar1 == 1)) {
         bVar4 = dispatch_object_state_change_10372604(param_1,1);
       }
     }
@@ -64,29 +64,31 @@ LAB_10371590:
       if (iVar1 != -1) goto LAB_10371594;
     }
     if (bVar4 == false) {
-      if (*(char *)(param_1 + 5) == '\0') {
+      if (param_1->field_0x14 == '\0') {
         init_object_with_sram_ref_103722e0(param_1,0x13);
       }
     }
     else {
-      piVar6 = param_1 + 8;
-      register_and_activate_menu_items_10403552(piVar6,0);
-      register_and_configure_six_menu_items(piVar6,*(int *)(param_1[0x1f] + 8));
-      register_three_menu_items_10404a44(piVar6,*(uint16_t *)(param_1[0x1f] + 4),*(uint16_t *)(param_1[0x1f] + 6));
-      read_two_shorts_from_param2_10372684(param_1,param_1 + 0x20);
+      puVar6 = &param_1->field_0x20;
+      register_and_activate_menu_items_10403552(puVar6,0);
+      register_and_configure_six_menu_items(puVar6,*(int *)(param_1->field_0x7c + 8));
+      register_three_menu_items_10404a44(puVar6,*(uint16_t *)(param_1->field_0x7c + 4),
+                   *(uint16_t *)(param_1->field_0x7c + 6));
+      read_two_shorts_from_param2_10372684(param_1,&param_1->field_0x80);
       init_object_with_offset_0x20(param_1);
     }
-    if (param_1[6] == 0) {
-      if (*(char *)((int)param_1 + 0x15) != '\0') {
-        (**(code **)(*param_1 + 0x54))((int)*(short *)(*param_1 + 0x50) + (int)param_1);
+    if (param_1->field_0x18 == 0) {
+      if (param_1->field_0x15 != '\0') {
+        (((vtbl_entry*)(param_1->field_0x0))[10].fn)
+                  ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[10].adj);
         uVar2 = get_or_create_singleton_object_1036c796();
         uVar5 = 0xd;
         goto code_r0x1037166a;
       }
     }
     else {
-      *(uint8_t *)(param_1 + 5) = 0;
-      *(uint8_t *)((int)param_1 + 0x15) = 0;
+      param_1->field_0x14 = 0;
+      param_1->field_0x15 = 0;
     }
     if (bVar4 != false) {
       write_second_field_via_helper_1036c486(param_1,180000);
@@ -97,7 +99,7 @@ LAB_10371590:
     uVar2 = get_or_create_singleton_object_1036c796();
     uVar5 = 1;
 code_r0x1037166a:
-    param_1 = (int *)read_array_element_bounded(uVar2,uVar5);
+    param_1 = (cls_10558104 *)read_array_element_bounded(uVar2,uVar5);
   }
   return param_1;
 }

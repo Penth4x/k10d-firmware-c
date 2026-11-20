@@ -26,11 +26,11 @@ uint32_t invoke_virtual_method_on_object_10427056(int param_1,uint32_t param_2,u
   piVar1 = *(int **)(param_1 + 0x38);
   uVar3 = 0;
   if ((piVar1 != (int *)0x0) &&
-     (iVar2 = (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1),
+     (iVar2 = (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1),
      iVar2 != 0)) {
     iVar2 = **(int **)(param_1 + 0x38);
-    uVar3 = (**(code **)(iVar2 + 0x1c))
-                      ((int)*(int **)(param_1 + 0x38) + (int)*(short *)(iVar2 + 0x18),param_2,
+    uVar3 = (((vtbl_entry*)(iVar2))[3].fn)
+                      ((int)*(int **)(param_1 + 0x38) + (int)((vtbl_entry*)(iVar2))[3].adj,param_2,
                        param_3);
   }
   return uVar3;

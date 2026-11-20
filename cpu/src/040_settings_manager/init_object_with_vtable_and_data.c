@@ -19,29 +19,30 @@
 #include "globals.h"
 #include "funcs.h"
 
-int * init_object_with_vtable_and_data(int *param_1)
+cls_10562850 * init_object_with_vtable_and_data(cls_10562850 *param_1)
 
 {
   int iVar1;
-  int *piVar2;
+  cls_10562850 *pcVar2;
   int iVar3;
   uintptr_t sp;
   uint32_t uStack_14;
   uint32_t uStack_10;
   byte bStack_9;
   
-  *(uint8_t *)(param_1 + 0x20) = 0;
+  param_1->field_0x80 = 0;
   init_two_sram_objects();
   iVar1 = 8;
   do {
     iVar3 = iVar1 + -4;
-    *(uint32_t *)((int)param_1 + iVar1 + 0x70) = *(uint32_t *)(iVar1 + -0x7ffe5b5c);
+    *(uint32_t *)(&param_1->field_0x70 + iVar1) = *(uint32_t *)(iVar1 + -0x7ffe5b5c);
     iVar1 = iVar3;
   } while (iVar3 != 0);
-  param_1[2] = (int)(param_1 + 3);
+  param_1->field_0x8 = (uintptr_t)(&param_1->field_0xc);
   iVar1 = call_two_helpers_and_return_10394a0c();
   if (iVar1 == 0) {
-    (**(code **)(*param_1 + 0x34))((int)*(short *)(*param_1 + 0x30) + (int)param_1);
+    (((vtbl_entry*)(param_1->field_0x0))[6].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[6].adj);
   }
   else {
     bStack_9 = 0;
@@ -52,13 +53,14 @@ int * init_object_with_vtable_and_data(int *param_1)
       set_three_fields_at_offset_c(param_1,(uint)bStack_9,(short)uStack_14,(short)uStack_10);
       call_three_init_helpers_10392d02(param_1);
       init_object_with_two_ids_10392cb2(param_1);
-      request_ui_sync_code_4((void *)param_1[2]);
+      request_ui_sync_code_4((char*)(param_1) ->field_0x8);
       get_or_create_sram_object_1040a240();
       init_object_flag_and_subobj(__frv_reg_unset(4));
       return param_1;
     }
-    (**(code **)(*param_1 + 0x34))((int)*(short *)(*param_1 + 0x30) + (int)param_1);
+    (((vtbl_entry*)(param_1->field_0x0))[6].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[6].adj);
   }
-  piVar2 = (int *)create_and_configure_object_10393b48(6,1,param_1);
-  return piVar2;
+  pcVar2 = (cls_10562850 *)create_and_configure_object_10393b48(6,1,param_1);
+  return pcVar2;
 }

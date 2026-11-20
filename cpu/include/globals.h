@@ -1,6 +1,7 @@
 #ifndef FRV_GLOBALS_H
 #define FRV_GLOBALS_H
 #include <stdint.h>
+#include "structs.h"
 extern undefined1 DAT_0000000c;
 extern uint32_t _DAT_0000000c;
 extern undefined1 DAT_00000038;
@@ -1503,15 +1504,15 @@ extern byte DAT_105a72fd;
 extern uint32_t _DAT_105a72fd;
 extern undefined1 DAT_105a7304;
 extern uint32_t _DAT_105a7304;
-extern undefined1 DAT_105a7305;
+extern byte DAT_105a7305;
 extern uint32_t _DAT_105a7305;
 extern undefined1 DAT_105a7306;
 extern uint32_t _DAT_105a7306;
-extern undefined1 DAT_105a7307;
+extern byte DAT_105a7307;
 extern uint32_t _DAT_105a7307;
 extern undefined1 DAT_105a7308;
 extern uint32_t _DAT_105a7308;
-extern undefined1 DAT_105a7309;
+extern byte DAT_105a7309;
 extern uint32_t _DAT_105a7309;
 extern uint32_t DAT_105a73c9;
 extern uint32_t _DAT_105a73c9;
@@ -7146,9 +7147,6 @@ extern uint32_t uRam105a7f78;
 extern uint32_t uRam105a7f7c;
 extern uint32_t uRam105a7f80;
 extern uint32_t uRam105a7f84;
-extern uint32_t uRam105b52f0;
-extern uint32_t uRam105b532c;
-extern uint32_t uRam105b533c;
 extern uint32_t uRam105b8cac;
 extern uint32_t uRam105b8cb0;
 extern uint32_t uRam105b8cb4;

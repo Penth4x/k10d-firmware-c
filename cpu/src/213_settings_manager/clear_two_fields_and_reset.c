@@ -12,7 +12,7 @@ void clear_two_fields_and_reset(uint32_t *param_1,int param_2)
   param_1[3] = 0;
   param_1[2] = 0;
   if (param_2 != 0) {
-    zero_memory_region((void *)*param_1,param_1[1],0);
+    zero_memory_region((uint32_t *)(*param_1),(uint)(param_1[1]),(uint32_t)(0));
   }
   return;
 }

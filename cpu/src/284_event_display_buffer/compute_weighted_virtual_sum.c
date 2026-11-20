@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint compute_weighted_virtual_sum(uint32_t *param_1)
+uint compute_weighted_virtual_sum(cls_105f9250 *param_1)
 
 {
   int iVar1;
@@ -26,16 +26,16 @@ uint compute_weighted_virtual_sum(uint32_t *param_1)
   
   iVar3 = 0;
   iVar4 = 0;
-  if (0 < (int)param_1[0x83]) {
+  if (0 < (int)param_1->field_0x20c) {
     iVar2 = 0;
     do {
-      iVar1 = *(int *)((int)param_1 + iVar2 + 0x214);
+      iVar1 = *(int *)((int)&param_1[1].field_0x0 + iVar2);
       iVar5 = *(int *)(iVar1 + 0x208);
-      iVar1 = (**(code **)(iVar5 + 100))(iVar1 + *(short *)(iVar5 + 0x60),*param_1);
+      iVar1 = (((vtbl_entry*)(iVar5))[12].fn)(iVar1 + ((vtbl_entry*)(iVar5))[12].adj,param_1->field_0x0);
       iVar2 = iVar2 + 4;
       iVar4 = iVar1 + iVar4;
       iVar3 = iVar3 + 1;
-    } while (iVar3 < (int)param_1[0x83]);
+    } while (iVar3 < (int)param_1->field_0x20c);
   }
-  return (uint)(iVar4 * param_1[0x84]) >> 8;
+  return (uint)(iVar4 * param_1->field_0x210) >> 8;
 }

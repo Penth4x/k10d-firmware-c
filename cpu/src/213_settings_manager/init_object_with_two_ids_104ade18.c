@@ -17,18 +17,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_with_two_ids_104ade18(int param_1,uint32_t param_2,uint32_t param_3,int param_4)
+void init_object_with_two_ids_104ade18(cls_105b7670 *param_1,uint32_t param_2,uint32_t param_3,int param_4)
 
 {
   int iVar1;
   uint uVar2;
   
-  iVar1 = dispatch_virtual_slot_two_104af096(param_1,2,4);
-  uVar2 = dispatch_virtual_slot_two_104af096(param_1,7,2);
-  *(uint32_t *)(param_1 + 0x34) = *(uint32_t *)(param_4 + 8);
-  *(uint32_t *)(param_1 + 0x20) = param_2;
-  *(uint32_t *)(param_1 + 0x24) = param_3;
-  *(int *)(param_1 + 0x28) = param_4;
-  dispatch_buffer_write_request(param_1,iVar1,uVar2);
+  iVar1 = dispatch_virtual_slot_two_104af096((int)param_1,2,4);
+  uVar2 = dispatch_virtual_slot_two_104af096((int)param_1,7,2);
+  param_1->field_0x34 = *(uint32_t *)(param_4 + 8);
+  param_1->field_0x20 = param_2;
+  param_1->field_0x24 = param_3;
+  param_1->field_0x28 = param_4;
+  dispatch_buffer_write_request((int)param_1,iVar1,uVar2);
   return;
 }

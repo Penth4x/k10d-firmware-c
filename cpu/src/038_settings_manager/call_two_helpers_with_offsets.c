@@ -15,12 +15,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_two_helpers_with_offsets(int param_1)
+void call_two_helpers_with_offsets(cls_1055a4d4 *param_1)
 
 {
   int iVar1;
   
-  kernel_diag_taskstack((void *)(*(int *)(param_1 + 4) + 0x1c));
+  kernel_diag_taskstack((void *)(param_1->field_0x4 + 0x1c));
   iVar1 = get_or_init_singleton_1036e58a();
   kernel_diag_taskstack((void *)(iVar1 + 0x14));
   return;

@@ -14,14 +14,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t virtual_slot3_check_and_notify(uint32_t param_1)
+uint32_t virtual_slot3_check_and_notify(cls_105a20cc *param_1)
 
 {
   int iVar1;
   
   iVar1 = read_gpio_key_bit15();
   if (iVar1 != 0) {
-    set_gpio_key_port_bit15(param_1,0);
+    set_gpio_key_port_bit15((int)param_1,0);
   }
   return 1;
 }

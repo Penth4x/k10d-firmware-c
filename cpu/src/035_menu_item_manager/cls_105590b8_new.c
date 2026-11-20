@@ -11,51 +11,51 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_105590b8_new(uint32_t *param_1)
+cls_10559c4c * cls_105590b8_new(cls_105590b8 *param_1)
 
 {
   int iVar1;
   int iVar2;
   int iVar3;
   
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0xac), param_1 != (uint32_t *)0x0)) {
-    cls_10559c4c_new(param_1);
-    *param_1 = (uint32_t)&DAT_105590b8/*ROM*/;
-    param_1[1] = (uint32_t)&DAT_105591d0/*ROM*/;
-    param_1[2] = (uint32_t)&DAT_105591f8/*ROM*/;
-    param_1[0xc] = 0;
+  if ((param_1 != (cls_105590b8 *)0x0) ||
+     (param_1 = (cls_105590b8 *)heap_alloc((void *)0xac), (cls_10559c4c *)param_1 != (cls_10559c4c *)0x0)) {
+    cls_10559c4c_new((cls_10559c4c *)param_1);
+    ((cls_10559c4c *)param_1)->field_0x0 = (uintptr_t)(&DAT_105590b8/*ROM*/);
+    ((cls_10559c4c *)param_1)->field_0x4 = (uintptr_t)(&DAT_105591d0/*ROM*/);
+    ((cls_10559c4c *)param_1)->field_0x8 = (uintptr_t)(&DAT_105591f8/*ROM*/);
+    ((cls_10559c4c *)param_1)->field_0x30 = 0;
     iVar1 = 0;
-    *(uint16_t *)(param_1 + 0x21) = 0;
-    *(uint16_t *)((int)param_1 + 0x86) = 0;
-    param_1[0x22] = 0;
-    param_1[0x23] = 0;
-    param_1[0x24] = 0;
-    param_1[0x25] = 0;
-    param_1[0x26] = 0;
-    param_1[0x27] = 0;
-    param_1[0x28] = 0;
-    param_1[0x29] = 0;
-    param_1[0x2a] = 0;
+    *(uint16_t *)&((cls_10559c4c *)param_1)->field_0x84 = 0;
+    ((cls_10559c4c *)param_1)->field_0x86 = 0;
+    ((cls_10559c4c *)param_1)->field_0x88 = 0;
+    ((cls_10559c4c *)param_1)->field_0x8c = 0;
+    ((cls_10559c4c *)param_1)->field_0x90 = 0;
+    ((cls_10559c4c *)param_1)->field_0x94 = 0;
+    ((cls_10559c4c *)param_1)->field_0x98 = 0;
+    ((cls_10559c4c *)param_1)->field_0x9c = 0;
+    ((cls_10559c4c *)param_1)->field_0xa0 = 0;
+    ((cls_10559c4c *)param_1)->field_0xa4 = 0;
+    ((cls_10559c4c *)param_1)->field_0xa8 = 0;
     iVar2 = 0;
     iVar3 = 3;
     do {
-      *(uint16_t *)((int)param_1 + iVar1 + 0x34) = 0;
-      *(uint16_t *)((int)param_1 + iVar1 + 0x54) = 0;
-      *(uint8_t *)((int)param_1 + iVar2 + 0x74) = 0;
-      *(uint16_t *)((int)param_1 + iVar1 + 0x36) = 0;
-      *(uint16_t *)((int)param_1 + iVar1 + 0x56) = 0;
-      *(uint8_t *)((int)param_1 + iVar2 + 0x75) = 0;
-      *(uint16_t *)((int)param_1 + iVar1 + 0x38) = 0;
-      *(uint16_t *)((int)param_1 + iVar1 + 0x58) = 0;
-      *(uint8_t *)((int)param_1 + iVar2 + 0x76) = 0;
-      *(uint16_t *)((int)param_1 + iVar1 + 0x3a) = 0;
-      *(uint16_t *)((int)param_1 + iVar1 + 0x5a) = 0;
-      *(uint8_t *)((int)param_1 + iVar2 + 0x77) = 0;
+      *(uint16_t *)(&((cls_10559c4c *)param_1)->field_0x34 + iVar1) = 0;
+      *(uint16_t *)((int)&((cls_10559c4c *)param_1)->field_0x54 + iVar1) = 0;
+      *(uint8_t *)((int)&((cls_10559c4c *)param_1)->field_0x74 + iVar2) = 0;
+      *(uint16_t *)(&((cls_10559c4c *)param_1)->field_0x36 + iVar1) = 0;
+      *(uint16_t *)((int)&((cls_10559c4c *)param_1)->field_0x54 + iVar1 + 2) = 0;
+      *(uint8_t *)((int)&((cls_10559c4c *)param_1)->field_0x74 + iVar2 + 1) = 0;
+      *(uint16_t *)((int)&((cls_10559c4c *)param_1)->field_0x38 + iVar1) = 0;
+      *(uint16_t *)(&((cls_10559c4c *)param_1)->field_0x58 + iVar1) = 0;
+      *(uint8_t *)((int)&((cls_10559c4c *)param_1)->field_0x74 + iVar2 + 2) = 0;
+      *(uint16_t *)((int)&((cls_10559c4c *)param_1)->field_0x3a + iVar1) = 0;
+      *(uint16_t *)((int)&((cls_10559c4c *)param_1)->field_0x5a + iVar1) = 0;
+      *(uint8_t *)((int)&((cls_10559c4c *)param_1)->field_0x74 + iVar2 + 3) = 0;
       iVar2 = iVar2 + 4;
       iVar3 = iVar3 + -1;
       iVar1 = iVar1 + 8;
     } while (-1 < iVar3);
   }
-  return param_1;
+  return (cls_10559c4c *)param_1;
 }

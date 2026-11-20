@@ -16,12 +16,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_with_three_subcalls(int param_1)
+void init_object_with_three_subcalls(cls_10558104 *param_1)
 
 {
-  reset_object_fields_and_call_base((void *)(param_1 + 0x80));
-  reset_object_fields_and_call_base((void *)(param_1 + 0x294));
-  release_object_resources_1052cfd2(param_1 + 0x4a8);
-  empty_noop_stub_103719cc(param_1);
+  reset_object_fields_and_call_base((cls_105b9458 *)&param_1->field_0x80);
+  reset_object_fields_and_call_base((cls_105b9458 *)&param_1->field_0x294);
+  release_object_resources_1052cfd2((uint)(uintptr_t)&param_1->field_0x4a8);
+  empty_noop_stub_103719cc((uint)(uintptr_t)param_1);
   return;
 }

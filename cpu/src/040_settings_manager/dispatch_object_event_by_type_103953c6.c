@@ -6,12 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-int dispatch_object_event_by_type_103953c6(int *param_1,int *param_2)
+void * dispatch_object_event_by_type_103953c6(cls_10562cbc *param_1,int *param_2)
 
 {
   int iVar1;
+  void *puVar2;
   
-  param_1[0x1d] = (int)param_1;
+  param_1->field_0x74 = (uint32_t)((void *)param_1);
   iVar1 = *param_2;
   if (iVar1 == 3) {
     if (param_2[1] == 0x11) {
@@ -22,12 +23,14 @@ int dispatch_object_event_by_type_103953c6(int *param_1,int *param_2)
     }
   }
   else if (iVar1 == 7) {
-    iVar1 = get_or_create_singleton_object_10396af8();
-    param_1[0x1d] = iVar1;
+    puVar2 = (void *)get_or_create_singleton_object_10396af8();
+    param_1->field_0x74 = (uint32_t)(puVar2);
   }
   else if (iVar1 == 8) {
-    iVar1 = (**(code **)(*param_1 + 0x6c))((int)*(short *)(*param_1 + 0x68) + (int)param_1,0,0);
-    param_1[0x1d] = iVar1;
+    puVar2 = (void *)
+             (((vtbl_entry*)(param_1->field_0x0))[13].fn)
+                       ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[13].adj,0,0);
+    param_1->field_0x74 = (uint32_t)(puVar2);
   }
-  return param_1[0x1d];
+  return (void*)(param_1->field_0x74);
 }

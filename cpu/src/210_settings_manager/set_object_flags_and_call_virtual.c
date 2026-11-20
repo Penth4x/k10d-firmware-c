@@ -16,15 +16,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t set_object_flags_and_call_virtual(int param_1)
+uint32_t set_object_flags_and_call_virtual(cls_105b71d4 *param_1)
 
 {
-  **(uint **)(param_1 + 0x28) = **(uint **)(param_1 + 0x28) | 0x20;
-  (**(code **)(*(int *)(param_1 + 4) + 0x1c))(*(short *)(*(int *)(param_1 + 4) + 0x18) + param_1,0);
-  invoke_virtual_on_two_object_lists(param_1,0);
-  **(uint **)(param_1 + 0x28) = **(uint **)(param_1 + 0x28) | 0x4000;
-  *(uint32_t *)(param_1 + 0x18) = 0;
-  *(uint8_t *)(param_1 + 0x16) = 0;
-  *(uint8_t *)(param_1 + 0x17) = 0;
+  *(uint *)param_1->field_0x28 = *(uint *)param_1->field_0x28 | 0x20;
+  (((vtbl_entry*)(param_1->field_0x4))[3].fn)
+            (&param_1->field_0x0 + ((vtbl_entry*)(param_1->field_0x4))[3].adj,0);
+  invoke_virtual_on_two_object_lists((int)param_1,0);
+  *(uint *)param_1->field_0x28 = *(uint *)param_1->field_0x28 | 0x4000;
+  param_1->field_0x18 = 0;
+  param_1->field_0x16 = 0;
+  param_1->field_0x17 = 0;
   return 1;
 }

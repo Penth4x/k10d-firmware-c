@@ -15,15 +15,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t register_menu_item_if_enabled_103c8ed4(int *param_1,int param_2)
+uint32_t register_menu_item_if_enabled_103c8ed4(cls_10595818 *param_1,int param_2)
 
 {
   int iVar1;
   
-  if (((*(char *)((int)param_1 + 0x27) != '\0') && ((*(ushort *)(param_1 + 3) & 2) != 2)) &&
-     (iVar1 = menu_item_register(*param_1), param_2 == 0x1160002)) {
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0x74))(*(short *)(*(int *)(iVar1 + 0xc) + 0x70) + iVar1,1);
-    *(uint8_t *)((int)param_1 + 0x27) = 0;
+  if (((param_1->field_0x27 != '\0') && ((param_1->field_0xc & 2) != 2)) &&
+     (iVar1 = menu_item_register((int)param_1->field_0x0), param_2 == 0x1160002)) {
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].fn)(((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].adj + iVar1,1);
+    param_1->field_0x27 = 0;
   }
   return 0;
 }

@@ -22,7 +22,7 @@ uint32_t check_state_and_dispatch_1042e6ea(int param_1,uint32_t param_2,uint32_t
   int iVar2;
   uint32_t uVar3;
   
-  iVar2 = read_virtual_property_field(*(uint32_t *)(param_1 + 0xc),1);
+  iVar2 = read_virtual_property_field((int *)(*(uint32_t *)(param_1 + 0xc)),(int)(1));
   bVar1 = false;
   if ((iVar2 == 2) || (iVar2 == 3)) {
     bVar1 = true;

@@ -30,20 +30,20 @@ void destroy_object_with_two_lists(int *param_1,uint param_2)
       iVar2 = iVar2 + -1;
       piVar1 = *(int **)(param_1[4] + iVar2 * 4);
       if (piVar1 != (int *)0x0) {
-        (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+        (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
       }
       *(uint32_t *)(param_1[4] + iVar2 * 4) = 0;
     } while (iVar2 != 0);
     heap_free_2(param_1[4]);
     param_1[3] = 0;
-    zero_four_words_and_maybe_free((int *)param_1[2],3);
+    zero_four_words_and_maybe_free((uint32_t *)(param_1[2]),(uint)(3));
     heap_free_2(param_1[1]);
     iVar2 = 0x10;
     do {
       iVar2 = iVar2 + -1;
       piVar1 = *(int **)(*param_1 + iVar2 * 4);
       if (piVar1 != (int *)0x0) {
-        (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+        (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
       }
       *(uint32_t *)(*param_1 + iVar2 * 4) = 0;
     } while (iVar2 != 0);

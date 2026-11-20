@@ -22,9 +22,9 @@ void init_object_with_stack_copy_and_vcall(int param_1)
     *(uint32_t *)(iVar3 + param_1 + 0x9c) = *(uint32_t *)(&stack0xffffffec + iVar4);
     iVar4 = iVar3;
   } while (iVar3 != 0);
-  uVar2 = (**(code **)(*piVar1 + 0x24))((int)*(short *)(*piVar1 + 0x20) + (int)piVar1,1);
+  uVar2 = (((vtbl_entry*)(*piVar1))[4].fn)((int)((vtbl_entry*)(*piVar1))[4].adj + (int)piVar1,1);
   forward_two_params_to_helper_104a874a(param_1 + 0x7c,uVar2);
-  uVar2 = (**(code **)(*piVar1 + 0x24))((int)*(short *)(*piVar1 + 0x20) + (int)piVar1,2);
+  uVar2 = (((vtbl_entry*)(*piVar1))[4].fn)((int)((vtbl_entry*)(*piVar1))[4].adj + (int)piVar1,2);
   forward_two_params_to_helper_104a874a(param_1 + 0x7c,uVar2);
   return;
 }

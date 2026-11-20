@@ -26,19 +26,19 @@ void query_exposure_mode_state_104a4900(int param_1,int param_2)
   
   uVar3 = 0;
   iVar4 = **(int **)(param_1 + 0x1c);
-  iVar4 = (**(code **)(iVar4 + 0x14))
-                    ((int)*(int **)(param_1 + 0x1c) + (int)*(short *)(iVar4 + 0x10),4);
+  iVar4 = (((vtbl_entry*)(iVar4))[2].fn)
+                    ((int)*(int **)(param_1 + 0x1c) + (int)((vtbl_entry*)(iVar4))[2].adj,4);
   if ((iVar4 == 0) &&
      (iVar4 = **(int **)(param_1 + 0x1c),
-     iVar4 = (**(code **)(iVar4 + 0x14))
-                       ((int)*(int **)(param_1 + 0x1c) + (int)*(short *)(iVar4 + 0x10),10),
+     iVar4 = (((vtbl_entry*)(iVar4))[2].fn)
+                       ((int)*(int **)(param_1 + 0x1c) + (int)((vtbl_entry*)(iVar4))[2].adj,10),
      iVar4 == 0)) {
     uVar3 = 1;
   }
   else {
     iVar4 = **(int **)(param_1 + 0x1c);
-    uVar1 = (**(code **)(iVar4 + 0x14))
-                      ((int)*(int **)(param_1 + 0x1c) + (int)*(short *)(iVar4 + 0x10),6);
+    uVar1 = (((vtbl_entry*)(iVar4))[2].fn)
+                      ((int)*(int **)(param_1 + 0x1c) + (int)((vtbl_entry*)(iVar4))[2].adj,6);
     switch(uVar1) {
     case 0:
       uVar3 = 2;
@@ -63,8 +63,8 @@ void query_exposure_mode_state_104a4900(int param_1,int param_2)
       break;
     case 7:
       iVar4 = **(int **)(param_1 + 0x1c);
-      iVar4 = (**(code **)(iVar4 + 0x14))
-                        ((int)*(int **)(param_1 + 0x1c) + (int)*(short *)(iVar4 + 0x10),7);
+      iVar4 = (((vtbl_entry*)(iVar4))[2].fn)
+                        ((int)*(int **)(param_1 + 0x1c) + (int)((vtbl_entry*)(iVar4))[2].adj,7);
       if (iVar4 == 8) {
         uVar3 = 6;
       }
@@ -82,8 +82,8 @@ void query_exposure_mode_state_104a4900(int param_1,int param_2)
       uVar3 = 0xb;
     }
     iVar4 = **(int **)(param_1 + 0x1c);
-    iVar4 = (**(code **)(iVar4 + 0x1c))
-                      ((int)*(int **)(param_1 + 0x1c) + (int)*(short *)(iVar4 + 0x18),3);
+    iVar4 = (((vtbl_entry*)(iVar4))[3].fn)
+                      ((int)*(int **)(param_1 + 0x1c) + (int)((vtbl_entry*)(iVar4))[3].adj,3);
     if (iVar4 != 0) {
       uVar3 = uVar3 | 0x100;
     }
@@ -91,11 +91,11 @@ void query_exposure_mode_state_104a4900(int param_1,int param_2)
   write_word_to_dynamic_array(param_2,0,uVar3);
   if (*(int *)(param_2 + 4) == 2) {
     iVar4 = **(int **)(param_1 + 0x1c);
-    sVar2 = (**(code **)(iVar4 + 0x14))
-                      ((int)*(int **)(param_1 + 0x1c) + (int)*(short *)(iVar4 + 0x10),10);
+    sVar2 = (((vtbl_entry*)(iVar4))[2].fn)
+                      ((int)*(int **)(param_1 + 0x1c) + (int)((vtbl_entry*)(iVar4))[2].adj,10);
     iVar4 = **(int **)(param_1 + 0x1c);
-    uVar3 = (**(code **)(iVar4 + 0x14))
-                      ((int)*(int **)(param_1 + 0x1c) + (int)*(short *)(iVar4 + 0x10),9);
+    uVar3 = (((vtbl_entry*)(iVar4))[2].fn)
+                      ((int)*(int **)(param_1 + 0x1c) + (int)((vtbl_entry*)(iVar4))[2].adj,9);
     write_word_to_dynamic_array(param_2,1,sVar2 << 8 | uVar3);
   }
   return;

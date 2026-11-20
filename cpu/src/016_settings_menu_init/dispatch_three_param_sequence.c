@@ -20,7 +20,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int * dispatch_three_param_sequence(int *param_1)
+cls_10557ba8 * dispatch_three_param_sequence(cls_10557ba8 *param_1)
 
 {
   int iVar1;
@@ -37,15 +37,15 @@ int * dispatch_three_param_sequence(int *param_1)
     if (iVar1 == 1) {
       *puVar4 = 0x80015af0/*SDRAM*/;
       puVar4[1] = 0x800158dc/*SDRAM*/;
-      iVar1 = retry_operation_five_times_1036ad5e((int)param_1,0,0x80018058/*SDRAM*/,0x80015d04/*SDRAM*/,*puVar4,puVar4[1]);
+      iVar1 = retry_operation_five_times_1036ad5e((int)param_1,(uint32_t)(0),(void *)(0x80018058/*SDRAM*/),(uint32_t)(0x80015d04/*SDRAM*/),(uint32_t)(*puVar4),(uint32_t)(puVar4[1]));
       if (iVar1 == 0) {
         *puVar4 = 0x80015af0/*SDRAM*/;
         puVar4[1] = 0x800158dc/*SDRAM*/;
-        iVar1 = retry_operation_five_times_1036ad5e((int)param_1,1,0x80018058/*SDRAM*/,0x80015d04/*SDRAM*/,*puVar4,puVar4[1]);
+        iVar1 = retry_operation_five_times_1036ad5e((int)param_1,(uint32_t)(1),(void *)(0x80018058/*SDRAM*/),(uint32_t)(0x80015d04/*SDRAM*/),(uint32_t)(*puVar4),(uint32_t)(puVar4[1]));
         if (iVar1 == 0) {
           *puVar4 = 0x80015af0/*SDRAM*/;
           puVar4[1] = 0x800158dc/*SDRAM*/;
-          iVar1 = retry_operation_five_times_1036ad5e((int)param_1,2,0x80018058/*SDRAM*/,0x80015d04/*SDRAM*/,*puVar4,puVar4[1]);
+          iVar1 = retry_operation_five_times_1036ad5e((int)param_1,(uint32_t)(2),(void *)(0x80018058/*SDRAM*/),(uint32_t)(0x80015d04/*SDRAM*/),(uint32_t)(*puVar4),(uint32_t)(puVar4[1]));
           if (iVar1 == 0) {
             uVar2 = get_or_create_singleton_object_1036c796();
             uVar3 = 2;
@@ -58,7 +58,8 @@ int * dispatch_three_param_sequence(int *param_1)
       write_four_values_and_interval(param_1);
       init_object_with_three_params_1036aec2(param_1);
     }
-    (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1);
+    (((vtbl_entry*)(param_1->field_0x0))[8].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[8].adj);
     init_object_with_offset_field_1036add0(param_1);
     write_second_field_via_helper_1036c486(param_1,180000);
     write_second_field_of_struct(param_1,0);
@@ -67,7 +68,7 @@ int * dispatch_three_param_sequence(int *param_1)
     uVar2 = get_or_create_singleton_object_1036c796();
     uVar3 = 1;
 LAB_1036aad8:
-    param_1 = (int *)read_array_element_bounded(uVar2,uVar3);
+    param_1 = (cls_10557ba8 *)read_array_element_bounded(uVar2,uVar3);
   }
   return param_1;
 }

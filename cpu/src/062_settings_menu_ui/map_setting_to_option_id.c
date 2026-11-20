@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t map_setting_to_option_id(int *param_1,int param_2)
+uint32_t map_setting_to_option_id(cls_105958e8 *param_1,int param_2)
 
 {
   uint uVar1;
@@ -29,20 +29,20 @@ uint32_t map_setting_to_option_id(int *param_1,int param_2)
   uint32_t auStack_6c [25];
   
   if (param_2 == 0x1050080) {
-    if (*(char *)((int)param_1 + 0x21) == '\v') {
+    if (param_1->field_0x21 == '\v') {
       uVar5 = 0x1050010;
     }
     else {
       uVar5 = 0x1050071;
     }
-    iVar2 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
-    iVar2 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+    iVar2 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+    iVar2 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
     return uVar5;
   }
   if (param_2 == 0x105001a) {
-    uVar3 = setting_get(param_1[2],0x9c);
+    uVar3 = setting_get(param_1->field_0x8,0x9c);
     iVar2 = 0xff;
     if (bRam105958c8 == uVar3) {
       iVar2 = 0;
@@ -53,7 +53,7 @@ uint32_t map_setting_to_option_id(int *param_1,int param_2)
     cVar6 = -0x80;
   }
   else if (param_2 == 0x1050027) {
-    uVar3 = setting_get(param_1[2],0x99);
+    uVar3 = setting_get(param_1->field_0x8,0x99);
     iVar2 = 0xff;
     if (bRam105958ca == uVar3) {
       iVar2 = 0;
@@ -67,7 +67,7 @@ uint32_t map_setting_to_option_id(int *param_1,int param_2)
     cVar6 = -0x78;
   }
   else if (param_2 == 0x1050032) {
-    uVar3 = setting_get(param_1[2],0xaa);
+    uVar3 = setting_get(param_1->field_0x8,0xaa);
     iVar2 = 0xff;
     if (bRam105958cd == uVar3) {
       iVar2 = 0;
@@ -79,8 +79,8 @@ uint32_t map_setting_to_option_id(int *param_1,int param_2)
   }
   else {
     if (param_2 == 0x105005d) {
-      uVar5 = setting_get(param_1[2],0x98);
-      *(char *)((int)param_1 + 0x23) = (char)uVar5;
+      uVar5 = setting_get(param_1->field_0x8,0x98);
+      param_1->field_0x23 = (char)uVar5;
       return 0x1050037;
     }
     if (param_2 == 0x1050037) {
@@ -99,7 +99,7 @@ uint32_t map_setting_to_option_id(int *param_1,int param_2)
       auStack_6c[0xc] = 0x1050050;
       auStack_6c[0xd] = 0x1050052;
       auStack_6c[0xe] = 0x1050054;
-      return auStack_6c[*(byte *)((int)param_1 + 0x23)];
+      return auStack_6c[(byte)param_1->field_0x23];
     }
     if (param_2 == 0x1050070) {
       auStack_6c[0xf] = 0x1050062;
@@ -108,7 +108,7 @@ uint32_t map_setting_to_option_id(int *param_1,int param_2)
       auStack_6c[0x12] = 0x1050068;
       auStack_6c[0x13] = 0x105006a;
       auStack_6c[0x14] = 0x105006c;
-      uVar4 = setting_get(param_1[2],0x9b);
+      uVar4 = setting_get(param_1->field_0x8,0x9b);
       uVar1 = 0xff;
       uVar3 = 0;
       iVar2 = 1;
@@ -134,7 +134,7 @@ uint32_t map_setting_to_option_id(int *param_1,int param_2)
     auStack_6c[0x16] = 0x1050077;
     auStack_6c[0x17] = 0x1050079;
     auStack_6c[0x18] = 0x105007b;
-    uVar3 = setting_get(param_1[2],0x97);
+    uVar3 = setting_get(param_1->field_0x8,0x97);
     iVar2 = 0xff;
     if (bRam105958d5 == uVar3) {
       iVar2 = 0;

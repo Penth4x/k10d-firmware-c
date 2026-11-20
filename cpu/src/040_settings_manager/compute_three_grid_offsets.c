@@ -16,8 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void compute_three_grid_offsets(int param_1,int param_2,void *param_3,void *param_4,void *param_5,short param_6,
-                 short param_7,int param_8)
+void compute_three_grid_offsets(int param_1,int param_2,void *param_3,void *param_4,void *param_5,short param_6, short param_7,int param_8)
 
 {
   int iVar1;
@@ -31,30 +30,24 @@ void compute_three_grid_offsets(int param_1,int param_2,void *param_3,void *para
   uStack_18 = 0;
   if (param_8 == 1) {
     sVar2 = (param_6 + -1) * 0x18 + 0x20;
-    uStack_14 = (uint32_t)app_obj_factory((void *)(*(uint32_t *)(param_1 + 0x20)),param_3,(void *)(int)sVar2,
-                             (void *)((param_7 + -1) * 0x18 + 0x18));
-    uStack_18 = (uint32_t)app_obj_factory((void *)(*(uint32_t *)(param_1 + 0x20)),param_4,(void *)(int)sVar2,
-                             (void *)((param_7 + 1) * 0x18 + 0x18));
+    uStack_14 = (uint32_t)(app_obj_factory((int *)(*(uint32_t *)(param_1 + 0x20)),(void *)(param_3),(void *)(sVar2), (void *)((param_7 + -1) * 0x18 + 0x18)));
+    uStack_18 = (uint32_t)(app_obj_factory((int *)(*(uint32_t *)(param_1 + 0x20)),(void *)(param_4),(void *)(sVar2), (void *)((param_7 + 1) * 0x18 + 0x18)));
     sVar3 = param_7 + 3;
   }
   else if (param_8 == 2) {
     sVar2 = (param_6 + -1) * 0x18 + 0x20;
-    uStack_14 = (uint32_t)app_obj_factory((void *)(*(uint32_t *)(param_1 + 0x20)),param_3,(void *)(int)sVar2,
-                             (void *)((param_7 + -1) * 0x18 + 0x18));
-    uStack_18 = (uint32_t)app_obj_factory((void *)(*(uint32_t *)(param_1 + 0x20)),param_4,(void *)(int)sVar2,
-                             (void *)((param_7 + -3) * 0x18 + 0x18));
+    uStack_14 = (uint32_t)(app_obj_factory((int *)(*(uint32_t *)(param_1 + 0x20)),(void *)(param_3),(void *)(sVar2), (void *)((param_7 + -1) * 0x18 + 0x18)));
+    uStack_18 = (uint32_t)(app_obj_factory((int *)(*(uint32_t *)(param_1 + 0x20)),(void *)(param_4),(void *)(sVar2), (void *)((param_7 + -3) * 0x18 + 0x18)));
     sVar3 = param_7 + 1;
   }
   else {
     if (param_8 != 3) goto LAB_1039cd2e;
     sVar2 = (param_6 + -1) * 0x18 + 0x20;
-    uStack_14 = (uint32_t)app_obj_factory((void *)(*(uint32_t *)(param_1 + 0x20)),param_3,(void *)(int)sVar2,
-                             (void *)((param_7 + -1) * 0x18 + 0x18));
-    uStack_18 = (uint32_t)app_obj_factory((void *)(*(uint32_t *)(param_1 + 0x20)),param_4,(void *)(int)sVar2,
-                             (void *)((param_7 + -5) * 0x18 + 0x18));
+    uStack_14 = (uint32_t)(app_obj_factory((int *)(*(uint32_t *)(param_1 + 0x20)),(void *)(param_3),(void *)(sVar2), (void *)((param_7 + -1) * 0x18 + 0x18)));
+    uStack_18 = (uint32_t)(app_obj_factory((int *)(*(uint32_t *)(param_1 + 0x20)),(void *)(param_4),(void *)(sVar2), (void *)((param_7 + -5) * 0x18 + 0x18)));
     sVar3 = param_7 + -3;
   }
-  iVar1 = (int)app_obj_factory((void *)(*(uint32_t *)(param_1 + 0x20)),param_5,(void *)(int)sVar2,(void *)(sVar3 * 0x18 + 0x18));
+  iVar1 = (uintptr_t)(app_obj_factory((int *)(*(uint32_t *)(param_1 + 0x20)),(void *)(param_5),(void *)(sVar2),(void *)(sVar3 * 0x18 + 0x18)));
 LAB_1039cd2e:
   invoke_virtual_then_call_helper_10494188(param_2,uStack_14);
   invoke_virtual_then_call_helper_10494188(param_2,uStack_18);

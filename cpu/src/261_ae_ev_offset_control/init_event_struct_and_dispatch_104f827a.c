@@ -8,8 +8,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void init_event_struct_and_dispatch_104f827a(int param_1,void *param_2,void *param_3,uint16_t param_4,uint16_t param_5,
-                 uint32_t param_6)
+void init_event_struct_and_dispatch_104f827a(int param_1,void *param_2,void *param_3,uint16_t param_4,uint16_t param_5, uint32_t param_6)
 
 {
   uint32_t *puVar1;
@@ -49,7 +48,7 @@ void init_event_struct_and_dispatch_104f827a(int param_1,void *param_2,void *par
   uStack_28 = param_4;
   uStack_26 = param_4;
   eventflag_clr_flg(puVar1,1);
-  build_and_send_param_struct_1050584a(*(uint32_t *)(param_1 + 0x28),1,(void *)(param_1 + 4),&uStack_38);
+  build_and_send_param_struct_1050584a((int)(*(uint32_t *)(param_1 + 0x28)),(int)(1),(void *)(param_1 + 4),(int *)(&uStack_38));
   eventflag_wai_flg(puVar1,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,1);
   configure_timer_channel_state(*(uint32_t *)(param_1 + 0x28),1);

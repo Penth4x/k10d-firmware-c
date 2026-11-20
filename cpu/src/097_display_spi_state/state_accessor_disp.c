@@ -16,36 +16,45 @@
 /* Generic state-field accessor dispatcher: 25-arm jmp table @0x1059cd40; arms read index slots
    [obj+0xa8/0xb0/0xb8/0xc0]. */
 
-uint32_t state_accessor_disp(int *param_1,uint32_t param_2)
+uint32_t state_accessor_disp(cls_1059d1d8 *param_1,uint32_t param_2)
 
 {
   switch(param_2) {
   case 0x80000003/*SDRAM*/:
-    (**(code **)(*param_1 + 0xac))((int)*(short *)(*param_1 + 0xa8) + (int)param_1);
+    (((vtbl_entry*)(param_1->field_0x0))[21].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[21].adj);
     break;
   case 0x80000004/*SDRAM*/:
-    (**(code **)(*param_1 + 0xac))((int)*(short *)(*param_1 + 0xa8) + (int)param_1);
+    (((vtbl_entry*)(param_1->field_0x0))[21].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[21].adj);
     break;
   case 0x80000005/*SDRAM*/:
-    (**(code **)(*param_1 + 0xac))((int)*(short *)(*param_1 + 0xa8) + (int)param_1);
+    (((vtbl_entry*)(param_1->field_0x0))[21].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[21].adj);
     break;
   case 0x80000006/*SDRAM*/:
-    (**(code **)(*param_1 + 0xac))((int)*(short *)(*param_1 + 0xa8) + (int)param_1);
+    (((vtbl_entry*)(param_1->field_0x0))[21].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[21].adj);
     break;
   case 0x80000008/*SDRAM*/:
-    (**(code **)(*param_1 + 0xb4))((int)*(short *)(*param_1 + 0xb0) + (int)param_1);
+    (((vtbl_entry*)(param_1->field_0x0))[22].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[22].adj);
     break;
   case 0x80000009/*SDRAM*/:
-    (**(code **)(*param_1 + 0xb4))((int)*(short *)(*param_1 + 0xb0) + (int)param_1);
+    (((vtbl_entry*)(param_1->field_0x0))[22].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[22].adj);
     break;
   case 0x8000000b/*SDRAM*/:
-    (**(code **)(*param_1 + 0xbc))((int)*(short *)(*param_1 + 0xb8) + (int)param_1);
+    (((vtbl_entry*)(param_1->field_0x0))[23].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[23].adj);
     break;
   case 0x8000000c/*SDRAM*/:
-    (**(code **)(*param_1 + 0xbc))((int)*(short *)(*param_1 + 0xb8) + (int)param_1);
+    (((vtbl_entry*)(param_1->field_0x0))[23].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[23].adj);
     break;
   case 0x8000001a/*SDRAM*/:
-    (**(code **)(*param_1 + 0xc4))((int)*(short *)(*param_1 + 0xc0) + (int)param_1);
+    (((vtbl_entry*)(param_1->field_0x0))[24].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[24].adj);
   default:
   }
   return 0;

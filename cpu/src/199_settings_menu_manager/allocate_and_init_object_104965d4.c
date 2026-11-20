@@ -19,23 +19,23 @@
 int allocate_and_init_object_104965d4(void *param_1,int param_2,uint32_t param_3,uint32_t param_4)
 
 {
-  uint16_t *puVar1;
+  cls_105b3e0c *pcVar1;
   uint32_t uVar2;
   uintptr_t sp;
   uint32_t auStack_10 [2];
   
-  puVar1 = (uint16_t *)heap_alloc((void *)0x28);
-  if (puVar1 == (uint16_t *)0x0) {
-    puVar1 = (uint16_t *)0x0;
+  pcVar1 = (cls_105b3e0c *)heap_alloc((void *)0x28);
+  if (pcVar1 == (cls_105b3e0c *)0x0) {
+    pcVar1 = (cls_105b3e0c *)0x0;
   }
   else {
-    cls_105b3e0c_new(puVar1);
+    cls_105b3e0c_new(pcVar1);
   }
-  uVar2 = (uint32_t)alloc_two_word_pair_1045bc2e(auStack_10,param_3,param_4);
-  copy_two_shorts_from_source(puVar1,(void *)uVar2);
+  uVar2 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_10,param_3,param_4));
+  copy_two_shorts_from_source((uint16_t *)(pcVar1),(uint32_t *)(uVar2));
   free_heap_block_if_flagged_1045bc54(auStack_10,2);
   if (param_2 != 0) {
-    store_value_at_offset_0x24_1048d938((int)puVar1,param_2);
+    store_value_at_offset_0x24_1048d938((int)pcVar1,param_2);
   }
-  return (int)puVar1;
+  return (int)pcVar1;
 }

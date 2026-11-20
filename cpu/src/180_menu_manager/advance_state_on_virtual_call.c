@@ -21,10 +21,10 @@ uint32_t advance_state_on_virtual_call(int param_1,int *param_2)
   int iVar1;
   uint32_t uVar2;
   
-  iVar1 = (**(code **)(*param_2 + 0x24))((int)*(short *)(*param_2 + 0x20) + (int)param_2,0x11);
+  iVar1 = (((vtbl_entry*)(*param_2))[4].fn)((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,0x11);
   uVar2 = 0;
   if (iVar1 == 0) {
-    iVar1 = (**(code **)(*param_2 + 0x14))((int)*(short *)(*param_2 + 0x10) + (int)param_2,0x11);
+    iVar1 = (((vtbl_entry*)(*param_2))[2].fn)((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,0x11);
     if (iVar1 == 0) {
       iVar1 = 0;
     }

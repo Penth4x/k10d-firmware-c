@@ -26,7 +26,7 @@ uint32_t transmit_buffer_segment(int param_1,uint32_t param_2,void *param_3,void
   iVar3 = *(int *)(param_1 + 0x70);
   memcpy_bytes((void *)(iVar3 + 4),param_3,(int)param_4);
   fill_byte_array((void *)(iVar3 + 4 + (int)param_4),0,0x200 - (int)param_4);
-  iVar3 = (**(code **)(param_1 + 0x5c))(*(uint32_t *)(param_1 + 0x60),param_2,1,iVar3 + 4);
+  iVar3 = (((vtbl_entry*)(param_1))[11].fn)(*(uint32_t *)(param_1 + 0x60),param_2,1,iVar3 + 4);
   uVar2 = 0;
   if (iVar3 != 0) {
     if (iVar3 == -1000) {

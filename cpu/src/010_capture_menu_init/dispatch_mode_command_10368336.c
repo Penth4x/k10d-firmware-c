@@ -16,21 +16,21 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void * dispatch_mode_command_10368336(void *param_1,int *param_2)
+cls_10557a18 * dispatch_mode_command_10368336(cls_10557a18 *param_1,int *param_2)
 
 {
   int iVar1;
   uint32_t uVar2;
-  void *pvVar3;
+  cls_10557a18 *pcVar3;
   uint32_t uVar4;
   
   update_index_from_lookup((int)param_1);
   iVar1 = *param_2;
-  pvVar3 = param_1;
+  pcVar3 = param_1;
   if (((iVar1 == 1) || (iVar1 == 2)) || (iVar1 != 4)) goto LAB_103683ec;
   switch(param_2[1]) {
   case 0xc:
-    *(uint8_t *)((int)param_1 + 0x15) = 1;
+    param_1->field_0x15 = 1;
     goto LAB_103683ec;
   case 0xd:
     iVar1 = dispatch_mode_change_event_10368890(param_1,3);
@@ -65,11 +65,11 @@ void * dispatch_mode_command_10368336(void *param_1,int *param_2)
     uVar2 = get_or_create_singleton_object_1036c796();
     uVar4 = 1;
 LAB_103683e2:
-    pvVar3 = (void *)read_array_element_bounded(uVar2,uVar4);
+    pcVar3 = (cls_10557a18 *)read_array_element_bounded(uVar2,uVar4);
   }
 LAB_103683ec:
-  if (*(char *)((int)param_1 + 0x15) != '\0') {
+  if (param_1->field_0x15 != '\0') {
     forward_param_to_global_offset(param_1,_DAT_105bb5ac/*ROM*/);
   }
-  return pvVar3;
+  return pcVar3;
 }

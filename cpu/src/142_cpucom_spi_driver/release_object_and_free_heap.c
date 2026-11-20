@@ -18,7 +18,7 @@
 void release_object_and_free_heap(void *param_1,uint param_2)
 
 {
-  if (param_1 != (void *)0x0) {
+  if (param_1 != 0) {
     if ((*(int *)((int)param_1 + 0xc) != 0) && (*(int *)((int)param_1 + 4) != 0)) {
       heap_free_2(*(int *)((int)param_1 + 4));
     }

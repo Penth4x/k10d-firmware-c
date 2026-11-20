@@ -25,14 +25,14 @@ uint32_t dispatch_virtual_call_on_param1_104d84ca(int param_1)
   int iVar1;
   uint32_t uVar2;
   uintptr_t sp;
-  uint8_t auStack_28 [32];
+  cls_105bb0b8 cStack_28;
   
-  cls_105bb0b8_new((void *)auStack_28);
-  iVar1 = (**(code **)(*(int *)(param_1 + 0x2b18) + 100))
-                    (*(short *)(*(int *)(param_1 + 0x2b18) + 0x60) + param_1,auStack_28);
+  cls_105bb0b8_new(&cStack_28);
+  iVar1 = (((vtbl_entry*)(*(int *)(param_1 + 0x2b18)))[12].fn)
+                    (((vtbl_entry*)(*(int *)(param_1 + 0x2b18)))[12].adj + param_1,&cStack_28);
   if (iVar1 != 0) {
     uVar2 = return_r4_passthrough_104d800e();
-    iVar1 = invoke_virtual_slot_six_104d6dc4(uVar2,auStack_28);
+    iVar1 = invoke_virtual_slot_six_104d6dc4(uVar2,&cStack_28);
     if (iVar1 == 0) {
       uVar2 = return_r4_passthrough_104d800e();
       iVar1 = invoke_virtual_slot_seven_104d6d54(uVar2,param_1 + 0x2b1c);
@@ -56,11 +56,11 @@ uint32_t dispatch_virtual_call_on_param1_104d84ca(int param_1)
     }
     if (iVar1 != 0) {
       uVar2 = invoke_virtual_then_check_helper(param_1,param_1 + 0x2b1c);
-      reset_vtable_and_free_if_flagged_104ddfe6(auStack_28,2);
+      reset_vtable_and_free_if_flagged_104ddfe6(&cStack_28,2);
       return uVar2;
     }
   }
 LAB_104d8586:
-  reset_vtable_and_free_if_flagged_104ddfe6(auStack_28,2);
+  reset_vtable_and_free_if_flagged_104ddfe6(&cStack_28,2);
   return 0;
 }

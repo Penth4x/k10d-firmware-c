@@ -7,7 +7,7 @@
  * summary:
  *   Calls sr_driver_singleton to obtain a pointer, then calls module_array_getter with the
  *   second field of that structure and zero. Subsequently calls
- *   return_sram_address_10436eda and returns the result of read_offset_0x14. The specific
+ *   return_sram_address_0x8001e720 and returns the result of read_offset_0x14. The specific
  *   subsystem is not identifiable from the provided pseudocode and unknown callees.
  * @end */
 #include "frv_intrinsics.h"
@@ -22,7 +22,7 @@ uint32_t reset_and_query_state(void)
   
   iVar1 = sr_driver_singleton();
   module_array_getter(*(void **)(iVar1 + 4),0);
-  return_sram_address_10436eda();
+  return_sram_address_0x8001e720();
   uVar2 = read_offset_0x14(__frv_reg_unset(4));
   return uVar2;
 }

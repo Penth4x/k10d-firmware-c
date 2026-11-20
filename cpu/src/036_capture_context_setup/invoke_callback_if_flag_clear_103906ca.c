@@ -19,7 +19,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_callback_if_flag_clear_103906ca(int param_1,uint32_t param_2,uint32_t param_3)
+void invoke_callback_if_flag_clear_103906ca(cls_1055a304 *param_1,uint32_t param_2,uint32_t param_3)
 
 {
   short sVar1;
@@ -28,15 +28,15 @@ void invoke_callback_if_flag_clear_103906ca(int param_1,uint32_t param_2,uint32_
   uintptr_t sp;
   uint8_t auStack_14 [12];
   
-  if (*(char *)(param_1 + 0x80) == '\0') {
-    update_three_field_record((void *)(param_1 + 0x68),3,param_2,param_3);
-    piVar2 = *(int **)(param_1 + 0x60);
+  if (param_1->field_0x80 == '\0') {
+    update_three_field_record(&param_1->field_0x68,3,param_2,param_3);
+    piVar2 = (int *)param_1->field_0x60;
     if (piVar2 != (int *)0x0) {
       iVar3 = *piVar2;
       sVar1 = *(short *)(iVar3 + 0x20);
-      swap_three_words_with_callbacks_10390e74(auStack_14,param_1 + 0x68);
-      (**(code **)(iVar3 + 0x24))((int)sVar1 + (int)piVar2,auStack_14);
-      set_flg_obj((uint32_t *)(param_1 + 0x4c));
+      swap_three_words_with_callbacks_10390e74(auStack_14,(int)&param_1->field_0x68);
+      (((vtbl_entry*)(iVar3))[4].fn)((int)sVar1 + (int)piVar2,auStack_14);
+      set_flg_obj(&param_1->field_0x4c);
     }
   }
   return;

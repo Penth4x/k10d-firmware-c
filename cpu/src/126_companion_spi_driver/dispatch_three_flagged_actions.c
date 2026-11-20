@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_three_flagged_actions(int param_1)
+uint32_t dispatch_three_flagged_actions(cls_105a0d5c *param_1)
 
 {
   ushort uVar1;
@@ -24,19 +24,19 @@ uint32_t dispatch_three_flagged_actions(int param_1)
   uint32_t uVar3;
   
   uVar3 = 0;
-  uVar1 = **(ushort **)(param_1 + 0x18);
-  uVar2 = **(ushort **)(param_1 + 0x14);
+  uVar1 = *(ushort *)param_1->field_0x18;
+  uVar2 = *(ushort *)param_1->field_0x14;
   if (((uVar2 & 0x1000) != 0) && ((uVar1 & 8) != 0)) {
-    uVar3 = dispatch_single_subobj(param_1 + 8);
-    set_field_at_offset_0x18_to_six(param_1);
+    uVar3 = dispatch_single_subobj((cls_1059e408 *)&param_1->field_0x8);
+    set_field_at_offset_0x18_to_six((int)(param_1));
   }
   if (((uVar2 & 0x800) != 0) && ((uVar1 & 4) != 0)) {
-    uVar3 = dispatch_single_subobj(param_1 + 8);
-    set_field_at_offset_0x18_to_10(param_1);
+    uVar3 = dispatch_single_subobj((cls_1059e408 *)&param_1->field_0x8);
+    set_field_at_offset_0x18_to_10((int)(param_1));
   }
   if (((uVar2 & 0x400) != 0) && ((uVar1 & 2) != 0)) {
-    uVar3 = dispatch_single_subobj(param_1 + 8);
-    set_field_at_offset_0x18_to_0xc(param_1);
+    uVar3 = dispatch_single_subobj((cls_1059e408 *)&param_1->field_0x8);
+    set_field_at_offset_0x18_to_0xc((int)(param_1));
   }
   return uVar3;
 }

@@ -18,7 +18,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-uint32_t imaging_isr_vec50(int param_1,int param_2)
+uint32_t imaging_isr_vec50(cls_105a0978 *param_1,int param_2)
 
 {
   uint32_t uVar1;
@@ -28,13 +28,13 @@ uint32_t imaging_isr_vec50(int param_1,int param_2)
   if (param_2 == 0x22) {
     uVar2 = (_DAT_6b00000c ^ 0xffffffff) & uRam6b00002c;
     if (((uVar2 & 0x1000000) != 0) && ((uRam5c004000 & 0x1800) == 0x1800)) {
-      uVar1 = dispatch_event_to_registered_handlers(param_1,0x41,0);
+      uVar1 = dispatch_event_to_registered_handlers((int)param_1,0x41,0);
     }
     if (((uVar2 & 0x2000000) != 0) && ((uRam5c004020 & 0x1800) == 0x1800)) {
-      uVar1 = dispatch_event_to_registered_handlers(param_1,0x42,0);
+      uVar1 = dispatch_event_to_registered_handlers((int)param_1,0x42,0);
     }
     if (((uVar2 & 0x4000000) != 0) && ((uRam5c004040 & 0x1800) == 0x1800)) {
-      uVar1 = dispatch_event_to_registered_handlers(param_1,0x43,0);
+      uVar1 = dispatch_event_to_registered_handlers((int)param_1,0x43,0);
     }
   }
   return uVar1;

@@ -23,11 +23,11 @@ void invoke_two_virtual_methods_1051d0bc(int param_1,int param_2)
   int iVar3;
   
   iVar3 = **(int **)(param_1 + 0x60);
-  pvVar1 = (void *)(**(code **)(iVar3 + 0x1c))
-                             ((int)*(int **)(param_1 + 0x60) + (int)*(short *)(iVar3 + 0x18));
+  pvVar1 = (void *)(((vtbl_entry*)(iVar3))[3].fn)
+                             ((int)*(int **)(param_1 + 0x60) + (int)((vtbl_entry*)(iVar3))[3].adj);
   iVar3 = **(int **)(param_1 + 0x60);
-  uVar2 = (**(code **)(iVar3 + 0x14))
-                    ((int)*(int **)(param_1 + 0x60) + (int)*(short *)(iVar3 + 0x10));
+  uVar2 = (((vtbl_entry*)(iVar3))[2].fn)
+                    ((int)*(int **)(param_1 + 0x60) + (int)((vtbl_entry*)(iVar3))[2].adj);
   copy_bytes_to_struct_field(param_2,pvVar1,uVar2);
   return;
 }

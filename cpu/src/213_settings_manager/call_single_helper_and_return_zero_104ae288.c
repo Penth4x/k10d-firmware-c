@@ -13,7 +13,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_single_helper_and_return_zero_104ae288(void *param_1)
+uint32_t call_single_helper_and_return_zero_104ae288(cls_105b77c0 *param_1)
 
 {
   invoke_virtual_slot_two_104ae294(param_1);

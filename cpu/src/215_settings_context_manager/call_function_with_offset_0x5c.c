@@ -6,9 +6,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_function_with_offset_0x5c(int param_1)
+/* WARNING: Struct "cls_105b8354": ignoring overlapping field "field_0x8" */
+
+void call_function_with_offset_0x5c(cls_105b8354 *param_1)
 
 {
-  (*(code *)0x104b5c0c/*ROM*/)(*(uint32_t *)(param_1 + 0x5c));
+  (*(code *)0x104b5c0c/*ROM*/)(*(uint32_t *)&param_1->field_0x5c);
   return;
 }

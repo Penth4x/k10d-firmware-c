@@ -22,7 +22,7 @@
     */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-int find_index_in_static_array(int param_1,uint32_t param_2)
+int find_index_in_static_array(cls_105b5410 *param_1,uint32_t param_2)
 
 {
   int iVar1;
@@ -68,14 +68,14 @@ int find_index_in_static_array(int param_1,uint32_t param_2)
     break;
   case 0x25:
   case 0x26:
-    iVar3 = extract_status_bitfield((void *)(param_1 + 4),0x29);
+    iVar3 = extract_status_bitfield(&param_1->field_0x4,0x29);
     if (iVar3 < 0) {
       iVar3 = -iVar3;
     }
     break;
   case 0x27:
   case 0x28:
-    iVar3 = extract_status_bitfield((void *)(param_1 + 4),0x2a);
+    iVar3 = extract_status_bitfield(&param_1->field_0x4,0x2a);
     if (iVar3 < 0) {
       iVar3 = -iVar3;
     }
@@ -86,7 +86,7 @@ int find_index_in_static_array(int param_1,uint32_t param_2)
     do {
       if (*(int *)(&DAT_105b534c/*ROM*/ + iVar1) == _DAT_80010518/*SDRAM*/) {
         uVar2 = get_or_init_sram_block_105342fe();
-        write_field_by_id((void *)uVar2,0x29,iVar3);
+        write_field_by_id((uint32_t *)(uVar2),(int)(0x29),(uint32_t)(iVar3));
         return iVar3;
       }
       iVar1 = iVar1 + 4;

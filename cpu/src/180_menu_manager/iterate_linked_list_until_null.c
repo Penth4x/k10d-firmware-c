@@ -27,15 +27,15 @@ uint32_t iterate_linked_list_until_null(int param_1, uint32_t param_x1, uint32_t
   iVar2 = *(int *)(param_1 + 0x54);
   uVar3 = 1;
   if (iVar2 != 0) {
-    iVar1 = (**(code **)(*(int *)(iVar2 + 0x48) + 0x14))
-                      (*(short *)(*(int *)(iVar2 + 0x48) + 0x10) + iVar2);
+    iVar1 = (((vtbl_entry*)(*(int *)(iVar2 + 0x48)))[2].fn)
+                      (((vtbl_entry*)(*(int *)(iVar2 + 0x48)))[2].adj + iVar2);
     while (*(int *)(param_1 + 0x54) = iVar1, iVar1 != iVar2) {
-      (**(code **)(*(int *)(iVar2 + 0x48) + 0x24))
-                (*(short *)(*(int *)(iVar2 + 0x48) + 0x20) + iVar2);
+      (((vtbl_entry*)(*(int *)(iVar2 + 0x48)))[4].fn)
+                (((vtbl_entry*)(*(int *)(iVar2 + 0x48)))[4].adj + iVar2);
       iVar2 = *(int *)(param_1 + 0x54);
       if (iVar2 == 0) break;
-      iVar1 = (**(code **)(*(int *)(iVar2 + 0x48) + 0x1c))
-                        (*(short *)(*(int *)(iVar2 + 0x48) + 0x18) + iVar2);
+      iVar1 = (((vtbl_entry*)(*(int *)(iVar2 + 0x48)))[3].fn)
+                        (((vtbl_entry*)(*(int *)(iVar2 + 0x48)))[3].adj + iVar2);
     }
     if (*(int *)(param_1 + 0x54) == 0) {
       uVar3 = 0;

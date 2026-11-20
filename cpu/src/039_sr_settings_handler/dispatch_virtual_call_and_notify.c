@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_virtual_call_and_notify(int param_1)
+void dispatch_virtual_call_and_notify(cls_10562400 *param_1)
 
 {
   short sVar1;
@@ -29,7 +29,7 @@ void dispatch_virtual_call_and_notify(int param_1)
   uRam8001986c = 5;
   uRam80019870 = 0;
   uRam80019874 = 0;
-  piVar2 = *(int **)(param_1 + 0x2c48);
+  piVar2 = (int *)param_1[0x46].field_0x88;
   if (piVar2 != (int *)0x0) {
     iVar3 = *piVar2;
     sVar1 = *(short *)(iVar3 + 0x20);
@@ -39,8 +39,8 @@ void dispatch_virtual_call_and_notify(int param_1)
       *(uint32_t *)(&stack0xffffffe8 + iVar5) = *(uint32_t *)(&DAT_80019868/*SDRAM*/ + iVar5);
       iVar5 = iVar4;
     } while (iVar4 != 0);
-    (**(code **)(iVar3 + 0x24))((int)sVar1 + (int)piVar2,auStack_14);
+    (((vtbl_entry*)(iVar3))[4].fn)((int)sVar1 + (int)piVar2,auStack_14);
   }
-  call_single_helper_104df450(param_1,*(uint32_t *)(param_1 + 0x2c34));
+  call_single_helper_104df450((int)(param_1),(uint32_t)(param_1[0x46].field_0x74));
   return;
 }

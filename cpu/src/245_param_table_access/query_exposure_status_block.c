@@ -144,7 +144,7 @@ code_r0x104d4f32:
   iVar3 = 0;
   puVar1 = &DAT_105b9d04/*ROM*/;
   do {
-    if (*(int *)(puVar1 + 0xb4) == iVar6) {
+    if (*(int *)((char*)puVar1 + 0xb4) == iVar6) {
       iVar3 = (*(code *)0x1051db2e/*ROM*/)(uVar9,*(uint32_t *)(&DAT_105b9dbc/*ROM*/ + iVar5 * 0xc),param_2);
       param_4[0x11] = iVar3;
       iVar3 = (*(code *)0x1051db2e/*ROM*/)(uVar9,*(uint32_t *)(&DAT_105b9dc0/*ROM*/ + iVar5 * 0xc),param_2);
@@ -154,7 +154,7 @@ code_r0x104d4f32:
     }
     iVar5 = iVar5 + 1;
     iVar3 = iVar3 + 0xc;
-    puVar1 = puVar1 + 0xc;
+    puVar1 = (char*)puVar1 + 0xc;
   } while (iVar3 < 0xb4);
   iVar3 = (*(code *)0x1051db2e/*ROM*/)(uVar9,0x161,param_2);
   param_4[0x13] = iVar3;
@@ -191,7 +191,7 @@ code_r0x104d4f32:
     uVar8 = 0x153;
   }
   uVar9 = (*(code *)0x1051db2e/*ROM*/)(uVar9,uVar8,param_2);
-  iVar3 = read_two_byte_table_entry_1045b5f2(uVar2,uVar9);
+  iVar3 = read_two_byte_table_entry(uVar2,uVar9);
   param_4[0x1b] = iVar3;
   *param_3 = 0x1c;
   return uVar4;

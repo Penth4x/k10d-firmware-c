@@ -12,11 +12,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_if_pointer_non_null(uint32_t *param_1,uint32_t param_2)
+void call_if_pointer_non_null(cls_1061e4c0 *param_1,uint32_t param_2)
 
 {
-  if ((void *)*param_1 != (void *)0x0) {
-    store_value_at_offset_0x1c_1048cc92((void *)*param_1,param_2);
+  if (param_1->field_0x0 != 0) {
+    store_value_at_offset_0x1c_1048cc92((void *)(param_1->field_0x0),(uint32_t)(param_2));
   }
   return;
 }

@@ -19,15 +19,15 @@
 void dispatch_eight_subroutines(uint32_t param_1,int *param_2,uint32_t param_3)
 
 {
-  append_string_to_buffer(param_2,(void*)0x105bafd8/*ROM*/);
-  empty_stub_104dd9c8(param_1,(uint32_t)param_2,param_3);
+  append_string_to_buffer((int *)(param_2),(char *)(0x105bafd8/*ROM*/));
+  empty_stub_104dd9c8((uint32_t)(param_1),(uint32_t)(param_2),(uint32_t)(param_3));
   call_two_helpers_and_dispatch(param_1,param_2,param_3);
-  empty_stub_104dda18(param_1,(uint32_t)param_2,param_3);
+  empty_stub_104dda18((uint32_t)(param_1),(uint32_t)(param_2),(uint32_t)(param_3));
   handle_status_check_failure(param_1,param_2,param_3);
   handle_status_two_failure_104dda92(param_1,param_2,param_3);
-  empty_stub_function_104ddaee(param_1,(uint32_t)param_2,param_3);
-  empty_stub_104ddaf0(param_1,(uint32_t)param_2,param_3);
-  empty_stub_104ddaf2(param_1,(uint32_t)param_2,param_3);
-  append_string_to_buffer(param_2,(void*)0x105bafe8/*ROM*/);
+  empty_stub_function_104ddaee((uint32_t)(param_1),(uint32_t)(param_2),(uint32_t)(param_3));
+  empty_stub_104ddaf0((uint32_t)(param_1),(uint32_t)(param_2),(uint32_t)(param_3));
+  empty_stub_104ddaf2((uint32_t)(param_1),(uint32_t)(param_2),(uint32_t)(param_3));
+  append_string_to_buffer((int *)(param_2),(char *)(0x105bafe8/*ROM*/));
   return;
 }

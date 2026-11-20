@@ -25,8 +25,8 @@ uint32_t sdhc_virtual_write(void *param_1,uint32_t param_2,uint32_t param_3)
   if (*(char *)((int)param_1 + 0xf0) != '\0') {
     iVar2 = sdhc_buffer_port_addr(*(void **)((int)param_1 + 0x110));
     iVar3 = *(int *)(*(int *)((int)param_1 + 0x11c) + 4);
-    uVar1 = (**(code **)(iVar3 + 0x2c))
-                      (*(int *)((int)param_1 + 0x11c) + (int)*(short *)(iVar3 + 0x28),param_2,iVar2,
+    uVar1 = (((vtbl_entry*)(iVar3))[5].fn)
+                      (*(int *)((int)param_1 + 0x11c) + (int)((vtbl_entry*)(iVar3))[5].adj,param_2,iVar2,
                        param_3);
   }
   return uVar1;

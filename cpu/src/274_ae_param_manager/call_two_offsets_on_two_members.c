@@ -12,10 +12,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_two_offsets_on_two_members(void *param_1)
+void call_two_offsets_on_two_members(cls_105d6450 *param_1)
 
 {
-  kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 4) + 0x14));
-  kernel_diag_taskstack((void *)(*(int *)((int)param_1 + 0xc) + 0xc));
+  kernel_diag_taskstack((void *)(param_1->field_0x4 + 0x14));
+  kernel_diag_taskstack((void *)(param_1->field_0xc + 0xc));
   return;
 }

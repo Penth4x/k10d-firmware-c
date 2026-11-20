@@ -14,17 +14,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t clear_flag_and_invoke_virtual_103a48e2(int param_1)
+uint32_t clear_flag_and_invoke_virtual_103a48e2(cls_10564c80 *param_1)
 
 {
   int iVar1;
   
-  if (*(char *)(param_1 + 0x65) != '\0') {
-    *(uint8_t *)(param_1 + 0x65) = 0;
-    iVar1 = **(int **)(param_1 + 0x2c);
-    (**(code **)(iVar1 + 0x14))
-              ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar1 + 0x10),0x1120069,0);
+  if (param_1->field_0x65 != '\0') {
+    param_1->field_0x65 = '\0';
+    iVar1 = *(uint32_t *)(param_1->field_0x2c);
+    (((vtbl_entry*)(iVar1))[2].fn)
+              ((int)param_1->field_0x2c + (int)((vtbl_entry*)(iVar1))[2].adj,0x1120069,0);
   }
-  clear_struct_field_at_offset_8(param_1);
+  clear_struct_field_at_offset_8((cls_10564e90 *)param_1);
   return 0;
 }

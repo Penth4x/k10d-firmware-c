@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_args_5_0(int *param_1)
+void call_helper_with_args_5_0(cls_105bce58 *param_1)
 
 {
-  dispatch_state_handler(param_1,5,0);
+  dispatch_state_handler((void *)param_1,5,0);
   return;
 }

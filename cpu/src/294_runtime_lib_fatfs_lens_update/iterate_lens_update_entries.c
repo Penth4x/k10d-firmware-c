@@ -26,8 +26,8 @@ void iterate_lens_update_entries(void)
   uVar1 = 0;
   iVar2 = 0;
   do {
-    if (*(int *)(_DAT_800149fc/*SDRAM*/ + iVar2) == 1) {
-      reset_lens_update_context((int *)(_DAT_800149fc/*SDRAM*/ + iVar2));
+    if (*(int *)((char*)_DAT_800149fc/*SDRAM*/ + iVar2) == 1) {
+      reset_lens_update_context((int *)((char*)_DAT_800149fc/*SDRAM*/ + iVar2));
     }
     uVar1 = uVar1 + 1;
     iVar2 = iVar2 + 0x1c;

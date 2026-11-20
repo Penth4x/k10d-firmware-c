@@ -30,13 +30,13 @@ void initialize_parameter_table(int param_1)
   puStack_18 = &stack0xfffffff8;
   uVar1 = heap_alloc_2(0x26);
   *(uint32_t *)(param_1 + 0x6c) = uVar1;
-  write_two_byte_value_104a7246(param_1,(void *)uVar1,5,1);
-  write_two_byte_value_104a7246(param_1,(void *)(*(int *)(param_1 + 0x6c) + 2),1,1);
-  write_two_byte_value_104a7246(param_1,(void *)(*(int *)(param_1 + 0x6c) + 4),2,1);
-  write_two_byte_value_104a7246(param_1,(void *)(*(int *)(param_1 + 0x6c) + 6),3,1);
-  write_two_byte_value_104a7246(param_1,(void *)(*(int *)(param_1 + 0x6c) + 8),0x80,1);
-  write_two_byte_value_104a7246(param_1,(void *)(*(int *)(param_1 + 0x6c) + 10),0x81,1);
-  write_two_byte_value_104a7246(param_1,(void *)(*(int *)(param_1 + 0x6c) + 0xc),2,1);
+  write_two_byte_value_104a7246((uint32_t)(param_1),(uint8_t *)(uVar1),(int)(5),(int)(1));
+  write_two_byte_value_104a7246((uint32_t)(param_1),(uint8_t *)(*(int *)(param_1 + 0x6c) + 2),(int)(1),(int)(1));
+  write_two_byte_value_104a7246((uint32_t)(param_1),(uint8_t *)(*(int *)(param_1 + 0x6c) + 4),(int)(2),(int)(1));
+  write_two_byte_value_104a7246((uint32_t)(param_1),(uint8_t *)(*(int *)(param_1 + 0x6c) + 6),(int)(3),(int)(1));
+  write_two_byte_value_104a7246((uint32_t)(param_1),(uint8_t *)(*(int *)(param_1 + 0x6c) + 8),(int)(0x80),(int)(1));
+  write_two_byte_value_104a7246((uint32_t)(param_1),(uint8_t *)(*(int *)(param_1 + 0x6c) + 10),(int)(0x81),(int)(1));
+  write_two_byte_value_104a7246((uint32_t)(param_1),(uint8_t *)(*(int *)(param_1 + 0x6c) + 0xc),(int)(2),(int)(1));
   iVar3 = 0xe;
   iStack_14 = 0;
   do {
@@ -44,11 +44,9 @@ void initialize_parameter_table(int param_1)
     iVar4 = *(int *)(puStack_18 + -8);
     iVar2 = 0;
     do {
-      write_two_byte_value_104a7246(param_1,(void *)(*(int *)(param_1 + 0x6c) + iVar3),*(uint16_t *)(iVar4 + iVar2),1);
-      write_two_byte_value_104a7246(param_1,(void *)(*(int *)(param_1 + 0x6c) + iVar3 + 2),*(uint16_t *)(iVar4 + iVar2 + 2),1
-                  );
-      write_two_byte_value_104a7246(param_1,(void *)(*(int *)(param_1 + 0x6c) + iVar3 + 4),*(uint16_t *)(iVar4 + iVar2 + 4),1
-                  );
+      write_two_byte_value_104a7246((uint32_t)(param_1),(uint8_t *)(*(int *)(param_1 + 0x6c) + iVar3),(int)(*(uint16_t *)(iVar4 + iVar2)),(int)(1));
+      write_two_byte_value_104a7246((uint32_t)(param_1),(uint8_t *)(*(int *)(param_1 + 0x6c) + iVar3 + 2),(int)(*(uint16_t *)(iVar4 + iVar2 + 2)),(int)(1));
+      write_two_byte_value_104a7246((uint32_t)(param_1),(uint8_t *)(*(int *)(param_1 + 0x6c) + iVar3 + 4),(int)(*(uint16_t *)(iVar4 + iVar2 + 4)),(int)(1));
       iVar2 = iVar2 + 6;
       iStack_1c = iStack_1c + -1;
       iVar3 = iVar3 + 6;

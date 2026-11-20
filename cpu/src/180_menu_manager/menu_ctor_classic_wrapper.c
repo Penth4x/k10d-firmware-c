@@ -22,7 +22,7 @@ uint32_t menu_ctor_classic_wrapper(void)
 {
   if (_DAT_800489b4/*SDRAM*/ == 0) {
     _DAT_800489b4/*SDRAM*/ = 1;
-    cls_105b2ed8_new((uint32_t *)0x80048940/*SDRAM*/);
+    cls_105b2ed8_new((cls_105b2ed8 *)0x80048940/*SDRAM*/);
     prepend_to_singly_linked_list((void *)0x800102fc/*SDRAM*/);
   }
   return 0x80048940/*SDRAM*/;

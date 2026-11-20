@@ -16,28 +16,28 @@
 #include "globals.h"
 #include "funcs.h"
 
-void register_and_activate_menu_item(int *param_1,uint16_t param_2)
+void register_and_activate_menu_item(cls_10595788 *param_1,uint16_t param_2)
 
 {
   int iVar1;
   int iVar2;
   bool bVar3;
   
-  *(uint16_t *)(param_1 + 3) = param_2;
-  iVar1 = menu_item_register(*param_1);
-  iVar2 = menu_item_register(*param_1);
-  if ((*(ushort *)(param_1 + 3) & 2) == 2) {
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0x74))(*(short *)(*(int *)(iVar1 + 0xc) + 0x70) + iVar1,0);
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0x74))(*(short *)(*(int *)(iVar2 + 0xc) + 0x70) + iVar2,0);
+  param_1->field_0xc = param_2;
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  iVar2 = menu_item_register((int)param_1->field_0x0);
+  if ((param_1->field_0xc & 2) == 2) {
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].fn)(((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].adj + iVar1,0);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].fn)(((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].adj + iVar2,0);
   }
   else {
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0x74))(*(short *)(*(int *)(iVar1 + 0xc) + 0x70) + iVar1,1);
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0x74))(*(short *)(*(int *)(iVar2 + 0xc) + 0x70) + iVar2,1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].fn)(((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].adj + iVar1,1);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].fn)(((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[14].adj + iVar2,1);
   }
-  bVar3 = check_object_field_via_helper((void *)param_1[2]);
+  bVar3 = check_object_field_via_helper((char*)(param_1) ->field_0x8);
   if (bVar3) {
-    settings_refresh_working_copy((void *)param_1[2]);
+    settings_refresh_working_copy((char*)(param_1) ->field_0x8);
   }
-  check_mode_transition_validity(param_1,0);
+  check_mode_transition_validity(&param_1->field_0x0,0);
   return;
 }

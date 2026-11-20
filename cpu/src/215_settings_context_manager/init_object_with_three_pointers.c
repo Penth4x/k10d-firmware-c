@@ -16,22 +16,24 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_with_three_pointers(int param_1)
+/* WARNING: Struct "cls_105b8354": ignoring overlapping field "field_0x8" */
+
+uint32_t init_object_with_three_pointers(cls_105b8354 *param_1)
 
 {
   uint32_t uVar1;
   int iVar2;
   
-  alloc_pool_and_init_task((int *)(param_1 + 0x1c),0xf,0x1000,4);
-  wait_flg_obj((void *)(param_1 + 100),0);
+  alloc_pool_and_init_task(&param_1->field_0x1c,0xf,0x1000,4);
+  wait_flg_obj(&param_1->field_0x64,0);
   uVar1 = get_or_init_sram_buffer_104b7278();
-  *(uint32_t *)(param_1 + 0x58) = uVar1;
+  param_1->field_0x58 = uVar1;
   uVar1 = get_or_init_ram_buffer_104b590a();
-  *(uint32_t *)(param_1 + 0x5c) = uVar1;
+  *(uint32_t *)&param_1->field_0x5c = uVar1;
   uVar1 = get_or_init_sram_buffer_104b55a6();
-  *(uint32_t *)(param_1 + 0x60) = uVar1;
-  create_kernel_object((int *)(param_1 + 0x40));
-  iVar2 = (*(code *)0x104b687e/*ROM*/)(*(uint32_t *)(param_1 + 0x5c));
-  create_message_box_104594ea((int *)(param_1 + 0x48),iVar2);
+  param_1->field_0x60 = uVar1;
+  create_kernel_object(&param_1->field_0x40);
+  iVar2 = (*(code *)0x104b687e/*ROM*/)(*(uint32_t *)&param_1->field_0x5c);
+  create_message_box_104594ea(&param_1->field_0x48,iVar2);
   return 1;
 }

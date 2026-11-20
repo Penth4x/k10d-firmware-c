@@ -63,7 +63,7 @@ void compute_orientation_adjustment(int param_1)
   select_two_parameter_values_by_index(pvVar5,0,&sStack_14,&sStack_12);
   select_two_parameter_values_by_index(pvVar5,1,&sStack_10,&sStack_e);
   select_two_parameter_values_by_index(pvVar5,2,&sStack_c,&sStack_a);
-  if (pvVar5 != (void *)0x0) {
+  if (pvVar5 != 0) {
     heap_free((int)pvVar5);
   }
   sVar1 = *(short *)(param_1 + 0xf0);
@@ -86,13 +86,13 @@ void compute_orientation_adjustment(int param_1)
   }
   iVar4 = 0;
 LAB_104c9cd0:
-  piVar6 = (int *)cls_1059e05c_new((uint32_t *)0x0);
+  piVar6 = (int *)cls_1059e05c_new((cls_1059e05c *)0x0);
   uVar2 = lookup_table_entry(piVar6,iVar7,iVar4);
   *(uint32_t *)(param_1 + 0x104) = uVar2;
   iVar4 = lookup_table_value_minus_offset(piVar6,iVar7,iVar4);
   *(int *)(param_1 + 0x108) = iVar4;
   if (piVar6 != (int *)0x0) {
-    (**(code **)(*piVar6 + 0xc))((int)*(short *)(*piVar6 + 8) + (int)piVar6,3);
+    (((vtbl_entry*)(*piVar6))[1].fn)((int)*(short *)(*piVar6 + 8) + (int)piVar6,3);
   }
   return;
 }

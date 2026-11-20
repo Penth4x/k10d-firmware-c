@@ -6,18 +6,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-int get_next_index_from_object(int param_1)
+int get_next_index_from_object(cls_105c1150 *param_1)
 
 {
   int iVar1;
   
-  iVar1 = *(int *)(param_1 + 0x10);
+  iVar1 = param_1->field_0x10;
   if (iVar1 == 0) {
     iVar1 = 0;
   }
   else {
-    iVar1 = (**(code **)(*(int *)(iVar1 + 0x18) + 0x5c))
-                      (*(short *)(*(int *)(iVar1 + 0x18) + 0x58) + iVar1);
+    iVar1 = (((vtbl_entry*)(*(int *)(iVar1 + 0x18)))[11].fn)
+                      (((vtbl_entry*)(*(int *)(iVar1 + 0x18)))[11].adj + iVar1);
     iVar1 = iVar1 + 1;
   }
   return iVar1;

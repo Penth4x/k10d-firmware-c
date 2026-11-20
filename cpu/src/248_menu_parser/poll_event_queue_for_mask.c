@@ -42,7 +42,7 @@ uint poll_event_queue_for_mask(int param_1,uint param_2,int param_3)
     if (!bVar3) {
       return 0xffffffff;
     }
-    eventflag_clr_flg(*(uint32_t **)(param_1 + 0x70),uStack_c);
+    eventflag_clr_flg((uint32_t *)(*(uint32_t *)(param_1 + 0x70)),(uint)(uStack_c));
     iVar2 = dispatch_state_change_callbacks(param_1,uStack_c);
     if (iVar2 == 0) break;
     uStack_c = uStack_c & (uVar1 ^ 0xffffffff);

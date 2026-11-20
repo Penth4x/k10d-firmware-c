@@ -28,15 +28,15 @@ void copy_struct_with_two_fields(uint32_t param_1,uint16_t *param_2,uint32_t par
   uint8_t auStack_10 [4];
   uint32_t uStack_c;
   
-  alloc_and_zero_two_words_1045bc0e((void *)auStack_28);
-  store_two_words_to_memory((void *)auStack_28,*param_2,param_2[1]);
+  alloc_and_zero_two_words_1045bc0e(auStack_28);
+  store_two_words_to_memory(auStack_28,*param_2,param_2[1]);
   apuStack_3c[0] = (uint8_t *)0xffffffe8;
-  allocate_and_init_widget((void *)auStack_20);
-  copy_eight_bytes_1045bf68((void *)auStack_20,(void *)auStack_28);
-  iVar1 = (int)search_short_table_for_value((int)param_2);
-  alloc_and_zero_two_words_1045c3bc((void *)auStack_10);
-  write_two_words_to_memory((void *)auStack_10,*(uint16_t *)(iVar1 + 0x14),*(uint16_t *)(iVar1 + 0x16));
-  copy_four_words((void *)auStack_20,(void *)auStack_10);
+  allocate_and_init_widget(auStack_20);
+  copy_eight_bytes_1045bf68(auStack_20,auStack_28);
+  iVar1 = (uintptr_t)(search_short_table_for_value((int)(param_2)));
+  alloc_and_zero_two_words_1045c3bc(auStack_10);
+  write_two_words_to_memory(auStack_10,*(uint16_t *)(iVar1 + 0x14),*(uint16_t *)(iVar1 + 0x16));
+  copy_four_words(auStack_20,auStack_10);
   apuStack_3c[0] = &stack0xfffffff8 + (int)apuStack_3c[0];
   iVar1 = 0x10;
   do {
@@ -44,9 +44,9 @@ void copy_struct_with_two_fields(uint32_t param_1,uint16_t *param_2,uint32_t par
     *(uint32_t *)((int)apuStack_3c + iVar1) = *(uint32_t *)(apuStack_3c[0] + iVar2);
     iVar1 = iVar2;
   } while (iVar2 != 0);
-  free_heap_if_flagged_1045c402((void *)auStack_10,2);
-  destroy_text_widget((void *)auStack_20,2);
-  free_heap_block_if_flagged_1045bc54((void *)auStack_28,2);
+  free_heap_if_flagged_1045c402(auStack_10,2);
+  destroy_text_widget(auStack_20,2);
+  free_heap_block_if_flagged_1045bc54(auStack_28,2);
   iVar1 = 0x10;
   do {
     iVar2 = iVar1 + -4;

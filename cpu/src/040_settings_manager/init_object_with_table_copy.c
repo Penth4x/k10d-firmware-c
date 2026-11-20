@@ -18,7 +18,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void * init_object_with_table_copy(void *param_1)
+cls_10562e10 * init_object_with_table_copy(cls_10562e10 *param_1)
 
 {
   int iVar1;
@@ -30,22 +30,22 @@ void * init_object_with_table_copy(void *param_1)
   
   puVar3 = (uint32_t *)auStack_14;
   process_four_param_blocks(__frv_reg_unset(4));
-  *(uint8_t *)((int)param_1 + 0xc4) = 0;
+  param_1->field_0xc4 = 0;
   init_two_sram_objects();
   iVar1 = 8;
   do {
     iVar2 = iVar1 + -4;
-    *(uint32_t *)(iVar2 + (int)param_1 + 0xbc) = *(uint32_t *)(iVar1 + -0x7ffe5b5c);
+    *(uint32_t *)(iVar2 + (int)&param_1->field_0xbc) = *(uint32_t *)(iVar1 + -0x7ffe5b5c);
     iVar1 = iVar2;
   } while (iVar2 != 0);
-  *(int *)((int)param_1 + 4) = (int)param_1 + 8;
+  param_1->field_0x4 = (uintptr_t)(&param_1->field_0x8);
   init_struct_with_offset_field_10395fe8(param_1);
   iVar1 = check_two_short_fields_match(param_1);
   if (iVar1 != 0) {
     invoke_virtual_slot2_on_four_objects_10394478();
     *puVar3 = 0x80019e6c/*SDRAM*/;
     puVar3[1] = 0x80019c58/*SDRAM*/;
-    forward_six_params_via_helper(param_1,0,(int)param_1 + 0xbc,0x8001a080/*SDRAM*/,*puVar3,puVar3[1]);
+    forward_six_params_via_helper((void *)(param_1),(uint32_t)(0),(uint32_t)(&param_1->field_0xbc),(uint32_t)(0x8001a080/*SDRAM*/),(uint32_t)(*puVar3),(uint32_t)(puVar3[1]));
     if (extraout_r4 == 2) {
       return param_1;
     }
@@ -53,7 +53,7 @@ void * init_object_with_table_copy(void *param_1)
       return param_1;
     }
   }
-  call_single_helper_10395f4e((int)param_1);
+  call_single_helper_10395f4e((uint32_t)(param_1));
   init_object_with_two_ids_10395e66(param_1);
   return param_1;
 }

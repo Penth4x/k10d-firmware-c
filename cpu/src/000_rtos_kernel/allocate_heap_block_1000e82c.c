@@ -39,7 +39,7 @@ uint32_t allocate_heap_block_1000e82c(uint32_t *param_1,int *param_2,uint param_
       else {
         *(int **)(iVar3 + 4) = piVar2;
       }
-      *param_1 = (uint32_t)(uintptr_t)param_2;
+      *param_1 = (uintptr_t)(param_2);
       *(uint *)(*(int *)(DAT_10011cf8/*ROM*/ + iVar5 + -4) + param_2[2] * 4) = param_3 | 0xc0000000;
       iVar3 = *(int *)(DAT_10011cf8/*ROM*/ + iVar5 + -4) + param_2[2] * 4;
       *(uint *)(param_3 * 4 + iVar3) = *(uint *)(param_3 * 4 + iVar3) | 0x40000000;
@@ -52,7 +52,7 @@ uint32_t allocate_heap_block_1000e82c(uint32_t *param_1,int *param_2,uint param_
   else {
     iVar3 = param_4 * 0x20;
     piVar2 = (int *)(uVar1 * *(int *)(DAT_10011cf8/*ROM*/ + iVar3 + -0xc) + (int)param_2);
-    *param_1 = (uint32_t)(uintptr_t)piVar2;
+    *param_1 = (uintptr_t)(piVar2);
     piVar2[-1] = (int)param_2;
     *(uint *)(*(int *)(DAT_10011cf8/*ROM*/ + iVar3 + -4) + param_2[2] * 4 + uVar1 * 4) =
          param_3 | 0x80000000/*SDRAM*/;

@@ -16,11 +16,11 @@ uint32_t * cls_10566724_new(uint32_t *param_1)
 {
   if ((param_1 != (uint32_t *)0x0) ||
      (param_1 = (uint32_t *)heap_alloc((void *)0x60), param_1 != (uint32_t *)0x0)) {
-    cls_105643d0_new(param_1);
-    cls_1059e478_new(param_1 + 0x10);
+    cls_105643d0_new((void *)param_1);
+    cls_1059e478_new((void *)(param_1 + 0x10));
     *param_1 = 0x10566724/*ROM*/;
     param_1[0x10] = 0x105667c4/*ROM*/;
-    initialize_lens_update_object(param_1 + 0x11,0x10);
+    initialize_lens_update_object((void *)(param_1 + 0x11),0x10);
     *(uint8_t *)(param_1 + 0x15) = 0;
     *(uint8_t *)((int)param_1 + 0x55) = 0;
     *(uint8_t *)((int)param_1 + 0x56) = 0;

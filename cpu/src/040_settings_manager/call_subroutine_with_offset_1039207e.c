@@ -6,9 +6,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_subroutine_with_offset_1039207e(int param_1)
+void call_subroutine_with_offset_1039207e(cls_10562758 *param_1)
 
 {
-  call_single_helper_1039c502(param_1 + 0xc);
+  call_single_helper_1039c502((void *)&param_1->field_0xc);
   return;
 }

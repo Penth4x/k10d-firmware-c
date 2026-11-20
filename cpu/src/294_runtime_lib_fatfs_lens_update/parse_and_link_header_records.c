@@ -40,7 +40,7 @@ int parse_and_link_header_records(void *param_1,char *param_2,int param_3,uint p
       break;
     }
     pvVar3 = (void *)alloc_pool2_block((void *)0x18);
-    if (pvVar3 == (void *)0x0) {
+    if (pvVar3 == 0) {
       iVar2 = -0xc;
       break;
     }
@@ -65,6 +65,6 @@ int parse_and_link_header_records(void *param_1,char *param_2,int param_3,uint p
     param_2 = param_2 + iStack_28 + 1;
     iStack_4 = iStack_4 + -1;
   }
-  free_linked_list_nodes((void *)*param_5);
+  free_linked_list_nodes((void *)(*param_5));
   return iVar2;
 }

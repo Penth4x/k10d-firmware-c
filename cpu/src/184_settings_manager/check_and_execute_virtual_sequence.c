@@ -17,30 +17,31 @@
 #include "globals.h"
 #include "funcs.h"
 
-int * check_and_execute_virtual_sequence(int *param_1,int *param_2)
+cls_105b3850 * check_and_execute_virtual_sequence(cls_105b3850 *param_1,int *param_2)
 
 {
   int iVar1;
   int iVar2;
   
-  iVar1 = (**(code **)(*param_1 + 0x1c))((int)*(short *)(*param_1 + 0x18) + (int)param_1);
+  iVar1 = (((vtbl_entry*)(param_1->field_0x0))[3].fn)
+                    ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[3].adj);
   if (iVar1 != 0) {
-    iVar1 = (**(code **)(*param_2 + 0x24))((int)*(short *)(*param_2 + 0x20) + (int)param_2,0x1f);
+    iVar1 = (((vtbl_entry*)(*param_2))[4].fn)((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,0x1f);
     if (iVar1 == 0) {
       iVar1 = 0;
       do {
-        iVar2 = (**(code **)(*param_2 + 0x2c))
-                          ((int)*(short *)(*param_2 + 0x28) + (int)param_2,
+        iVar2 = (((vtbl_entry*)(*param_2))[5].fn)
+                          ((int)((vtbl_entry*)(*param_2))[5].adj + (int)param_2,
                            *(uint32_t *)(iVar1 + 0x105b3828/*ROM*/));
         if (iVar2 != 0) {
           return param_1;
         }
         iVar1 = iVar1 + 4;
       } while (iVar1 < 8);
-      param_1 = (int *)get_or_create_sram_object_104899a6();
+      param_1 = (cls_105b3850 *)get_or_create_sram_object_104899a6();
     }
     else {
-      param_1 = (int *)get_or_create_singleton_object_10489718();
+      param_1 = (cls_105b3850 *)get_or_create_singleton_object_10489718();
     }
   }
   return param_1;

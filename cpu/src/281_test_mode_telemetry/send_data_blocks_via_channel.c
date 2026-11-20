@@ -46,7 +46,7 @@ void send_data_blocks_via_channel(uint32_t param_1,int param_2,int param_3,int p
           append_bytes_to_ring_buffer(param_2,0x105d90b4/*ROM*/,3);
           uVar1 = 0;
         }
-        parse_two_string_lists_into_array(param_2,(void *)((int)param_5 + 0x10),param_3 + 0x10,(void *)3);
+        parse_two_string_lists_into_array((int)(param_2),(void *)((int)param_5 + 0x10),(int)(param_3 + 0x10),(void *)3);
         append_newline_to_buffer(param_2,3);
         uVar1 = uVar1 + 1 & 0xffff;
         if (uVar1 == ((int)uVar1 >> 6) * 0x40) {
@@ -55,7 +55,7 @@ void send_data_blocks_via_channel(uint32_t param_1,int param_2,int param_3,int p
           append_bytes_to_ring_buffer(param_2,0x105d90b4/*ROM*/,3);
           uVar1 = 0;
         }
-        parse_two_string_lists_into_array(param_2,(void *)((int)param_5 + 0x20),param_3 + 0x20,(void *)3);
+        parse_two_string_lists_into_array((int)(param_2),(void *)((int)param_5 + 0x20),(int)(param_3 + 0x20),(void *)3);
         append_newline_to_buffer(param_2,3);
         param_3 = param_3 + 0x30;
         uVar1 = uVar1 + 1 & 0xffff;

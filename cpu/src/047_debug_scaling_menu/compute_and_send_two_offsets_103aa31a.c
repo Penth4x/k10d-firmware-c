@@ -36,10 +36,10 @@ void compute_and_send_two_offsets_103aa31a(void *param_1)
   
   iVar2 = menu_item_register((int)param_1 + 8);
   iVar3 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0x2c))
-            (auStack_30,*(short *)(*(int *)(iVar2 + 0xc) + 0x28) + iVar2);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0x2c))
-            (&uStack_28,*(short *)(*(int *)(iVar3 + 0xc) + 0x28) + iVar3);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[5].fn)
+            (auStack_30,((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[5].adj + iVar2);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[5].fn)
+            (&uStack_28,((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[5].adj + iVar3);
   iVar4 = return_first_word_1045c514(&uStack_28);
   puStack_3c = auStack_30;
   iVar5 = return_first_word_1045c514(puStack_3c);
@@ -54,7 +54,7 @@ void compute_and_send_two_offsets_103aa31a(void *param_1)
     *(uint32_t *)(auStack_38 + iVar4 + -4) = *(uint32_t *)((int)auStack_24 + iVar4);
     iVar4 = iVar6;
   } while (iVar6 != 0);
-  (**(code **)(iVar5 + 0x14))(iVar2 + sVar1,auStack_38);
+  (((vtbl_entry*)(iVar5))[2].fn)(iVar2 + sVar1,auStack_38);
   free_heap_block_if_flagged_1045bc54(auStack_38,2);
   iVar5 = *(int *)(iVar3 + 0xc);
   sVar1 = *(short *)(iVar5 + 0x10);
@@ -64,7 +64,7 @@ void compute_and_send_two_offsets_103aa31a(void *param_1)
     *(uint32_t *)(auStack_38 + iVar4 + -4) = *(uint32_t *)((int)auStack_24 + iVar4 + 8);
     iVar4 = iVar2;
   } while (iVar2 != 0);
-  (**(code **)(iVar5 + 0x14))(sVar1 + iVar3,auStack_38);
+  (((vtbl_entry*)(iVar5))[2].fn)(sVar1 + iVar3,auStack_38);
   free_heap_block_if_flagged_1045bc54(auStack_38,2);
   free_heap_block_if_flagged_1045bc54(auStack_24 + 3,2);
   free_heap_block_if_flagged_1045bc54(auStack_24 + 1,2);

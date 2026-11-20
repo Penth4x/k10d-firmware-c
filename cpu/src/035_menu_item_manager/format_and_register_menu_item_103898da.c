@@ -33,7 +33,7 @@ void format_and_register_menu_item_103898da(int param_1,uint param_2,void *param
   }
   else {
     bVar4 = 0;
-    bVar5 = param_3 == (void *)0x0;
+    bVar5 = param_3 == 0;
     if ((bool)bVar5) {
       pcVar3 = (char *)0x10559874/*ROM*/;
     }

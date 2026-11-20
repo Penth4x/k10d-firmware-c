@@ -15,12 +15,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool store_value_and_check_allocation(void *param_1,uint32_t *param_2)
+bool store_value_and_check_allocation(cls_105aaa50 *param_1,uint32_t *param_2)
 
 {
   int iVar1;
   
-  *(uint32_t *)((int)param_1 + 0x28) = *param_2;
-  iVar1 = alloc_pool_and_init_task((int *)((int)param_1 + 8),0x14,0x800,4);
+  param_1->field_0x28 = *param_2;
+  iVar1 = alloc_pool_and_init_task((int *)&param_1->field_0x8,0x14,0x800,4);
   return 0 < iVar1;
 }

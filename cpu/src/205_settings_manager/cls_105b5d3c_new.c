@@ -11,16 +11,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_105b5d3c_new(uint32_t *param_1)
+cls_105b6358 * cls_105b5d3c_new(cls_105b5d3c *param_1)
 
 {
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x5c), param_1 != (uint32_t *)0x0)) {
-    cls_105b6358_new(param_1);
-    param_1[7] = 0x105b5d3c/*ROM*/;
-    param_1[8] = 0;
-    cls_105b68e8_new(param_1 + 9);
+  if ((param_1 != (cls_105b5d3c *)0x0) ||
+     (param_1 = (cls_105b5d3c *)heap_alloc((void *)0x5c), param_1 != (cls_105b5d3c *)0x0)) {
+    cls_105b6358_new((cls_105b6358 *)param_1);
+    ((cls_105b6358 *)param_1)->field_0x1c = 0x105b5d3c/*ROM*/;
+    ((cls_105b6358 *)param_1)->field_0x20 = 0;
+    cls_105b68e8_new((cls_105b68e8 *)&((cls_105b6358 *)param_1)->field_0x24);
     get_lens_fw_update_status();
   }
-  return param_1;
+  return (cls_105b6358 *)param_1;
 }

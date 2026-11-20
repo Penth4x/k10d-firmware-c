@@ -17,12 +17,12 @@ void dispatch_state_change_virtual(int param_1,uint32_t param_2)
 
 {
   if (*(int *)(param_1 + 0x34) == *(int *)(param_1 + 0x44)) {
-    (**(code **)(*(int *)(param_1 + 0x8d4) + 0x34))
-              (*(short *)(*(int *)(param_1 + 0x8d4) + 0x30) + param_1,param_2);
+    (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[6].fn)
+              (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[6].adj + param_1,param_2);
   }
   if (*(int *)(param_1 + 0x34) == *(int *)(param_1 + 0x40)) {
-    (**(code **)(*(int *)(param_1 + 0x8d4) + 0x2c))
-              (*(short *)(*(int *)(param_1 + 0x8d4) + 0x28) + param_1,param_2);
+    (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[5].fn)
+              (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[5].adj + param_1,param_2);
   }
   *(uint32_t *)(param_1 + 0x34) = param_2;
   return;

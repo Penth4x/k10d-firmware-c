@@ -33,8 +33,8 @@ void init_object_with_hash_and_flag(void *param_1,int param_2)
   multiply_two_floats(extraout_r4,extraout_r5,0x3f847ae1,0x47ae147b);
   iVar1 = normalize_fixed_point_value_105448ac(extraout_r4_00,extraout_r5_00);
   uVar2 = read_struct_field_at_offset_4((uint32_t *)((int)param_1 + 0x40));
-  uVar2 = alloc_two_word_pair_1045c3dc(auStack_10,iVar1,uVar2);
-  dispatch_two_word_event((int)param_1 + 0x20,uVar2);
+  uVar2 = (uintptr_t)(alloc_two_word_pair_1045c3dc(auStack_10,iVar1,uVar2));
+  dispatch_two_word_event((uint32_t *)((int)param_1 + 0x20),(uint32_t *)(uVar2));
   free_heap_if_flagged_1045c402(auStack_10,2);
   *(uint8_t *)((int)param_1 + 9) = 1;
   return;

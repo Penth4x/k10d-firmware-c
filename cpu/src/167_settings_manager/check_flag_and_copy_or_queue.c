@@ -36,12 +36,12 @@ void check_flag_and_copy_or_queue(int param_1,int *param_2,uint32_t param_3,int 
     } while (iVar2 != 0);
     alloc_and_zero_20_bytes(auStack_20);
     auStack_20[0] = 0;
-    (**(code **)(*param_2 + 0x14))
-              ((int)*(short *)(*param_2 + 0x10) + (int)param_2,0x10036,auStack_20);
+    (((vtbl_entry*)(*param_2))[2].fn)
+              ((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,0x10036,auStack_20);
     free_heap_if_flagged_10482f3c(auStack_20,2);
   }
   else {
-    iVar2 = (int)alloc_dynamic_array_header(0,1);
+    iVar2 = (uintptr_t)(alloc_dynamic_array_header(0,1));
     *(int **)(iVar2 + 8) = param_2;
     *(uint32_t *)(iVar2 + 4) = 0x200000;
     **(int **)(iVar2 + 0xc) = param_4;

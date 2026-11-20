@@ -12,6 +12,6 @@ void invoke_virtual_slot_on_nested_object_10466170(int param_1)
   int iVar1;
   
   iVar1 = *(int *)(*(int *)(param_1 + 0x14) + 4);
-  (**(code **)(iVar1 + 100))(*(int *)(param_1 + 0x14) + (int)*(short *)(iVar1 + 0x60));
+  (((vtbl_entry*)(iVar1))[12].fn)(*(int *)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar1))[12].adj);
   return;
 }

@@ -23,12 +23,12 @@ uint32_t dispatch_three_virtual_calls_104a8d94(int param_1,int *param_2,int para
   int iVar1;
   uint32_t uVar2;
   
-  iVar1 = (**(code **)(*param_2 + 0x1c))
-                    ((int)*(short *)(*param_2 + 0x18) + (int)param_2,param_1,1,param_3);
+  iVar1 = (((vtbl_entry*)(*param_2))[3].fn)
+                    ((int)((vtbl_entry*)(*param_2))[3].adj + (int)param_2,param_1,1,param_3);
   uVar2 = 0;
   if (((iVar1 != 0) &&
-      (iVar1 = (**(code **)(*param_2 + 0x1c))
-                         ((int)*(short *)(*param_2 + 0x18) + (int)param_2,param_1 + 2,1,param_3 + 2)
+      (iVar1 = (((vtbl_entry*)(*param_2))[3].fn)
+                         ((int)((vtbl_entry*)(*param_2))[3].adj + (int)param_2,param_1 + 2,1,param_3 + 2)
       , uVar2 = 0, iVar1 != 0)) &&
      (iVar1 = (**(code **)(*param_2 + 0x24))
                         ((int)*(short *)(*param_2 + 0x20) + (int)param_2,param_1 + 4,1,param_3 + 4),
@@ -37,8 +37,8 @@ uint32_t dispatch_three_virtual_calls_104a8d94(int param_1,int *param_2,int para
       uVar2 = dispatch_virtual_method_by_type(param_1,param_2,param_3 + 8,param_1 + 8);
     }
     else {
-      iVar1 = (**(code **)(*param_2 + 0x24))
-                        ((int)*(short *)(*param_2 + 0x20) + (int)param_2,param_1 + 8,1,param_3 + 8);
+      iVar1 = (((vtbl_entry*)(*param_2))[4].fn)
+                        ((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,param_1 + 8,1,param_3 + 8);
       if (iVar1 == 0) {
         uVar2 = 0;
       }

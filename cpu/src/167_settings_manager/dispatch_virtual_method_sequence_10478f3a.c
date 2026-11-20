@@ -31,18 +31,18 @@ int dispatch_virtual_method_sequence_10478f3a(int param_1,char *param_2)
   call_with_offset_lock_10480e32(*(void **)(param_1 + 0x14),*(void **)(param_1 + 0xc));
   call_handler_with_lock_10480e6a(*(uint32_t *)(param_1 + 0x14),*(uint32_t *)(param_1 + 8));
   iVar4 = **(int **)(param_1 + 0x14);
-  iVar4 = (**(code **)(iVar4 + 0x2c))
-                    ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar4 + 0x28),
+  iVar4 = (((vtbl_entry*)(iVar4))[5].fn)
+                    ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar4))[5].adj,
                      *(uint32_t *)(param_1 + 0xc),0,&uStack_c);
   if (iVar4 != 0) {
     piVar3 = *(int **)(param_1 + 0x14);
     iVar2 = *piVar3;
     sVar1 = *(short *)(iVar2 + 0x40);
     iVar4 = count_string_bytes(param_2);
-    iVar4 = (**(code **)(iVar2 + 0x44))((int)piVar3 + (int)sVar1,uStack_c,param_2,iVar4);
+    iVar4 = (((vtbl_entry*)(iVar2))[8].fn)((int)piVar3 + (int)sVar1,uStack_c,param_2,iVar4);
     iVar2 = **(int **)(param_1 + 0x14);
-    (**(code **)(iVar2 + 0x34))
-              ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar2 + 0x30),uStack_c);
+    (((vtbl_entry*)(iVar2))[6].fn)
+              ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar2))[6].adj,uStack_c);
     if (iVar4 != 0) {
       return iVar4;
     }

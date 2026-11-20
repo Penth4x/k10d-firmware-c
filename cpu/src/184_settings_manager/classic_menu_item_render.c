@@ -18,7 +18,7 @@
 #include "funcs.h"
 
 uint32_t *
-classic_menu_item_register(uint32_t *param_1,uint32_t param_2,uint32_t param_3,void *param_4)
+classic_menu_item_render(uint32_t *param_1,uint32_t param_2,uint32_t param_3,void *param_4)
 
 {
   uint16_t uVar1;
@@ -64,7 +64,7 @@ classic_menu_item_register(uint32_t *param_1,uint32_t param_2,uint32_t param_3,v
       if (uVar2 != 5) {
         if (uVar2 == 6) {
           trigger_sr_cal_transfer_104867c0((int)param_1);
-          pvVar4 = (void *)get_kernel_object_id(&uStack_9);
+          pvVar4 = (void *)get_kernel_object_id((uint32_t)(&uStack_9));
           format_string_to_buffer_10545140(auStack_5c,&DAT_105b3514/*ROM*/,pvVar4,param_4);
           iVar3 = eeprom_adj_dump_0xa7(*param_1,auStack_5c);
           if (iVar3 == 0) {
@@ -77,7 +77,7 @@ classic_menu_item_register(uint32_t *param_1,uint32_t param_2,uint32_t param_3,v
         else {
           if (uVar2 != 7) goto LAB_10488ce2;
           trigger_sr_cal_transfer_104867c0((int)param_1);
-          pvVar4 = (void *)get_kernel_object_id(&uStack_9);
+          pvVar4 = (void *)get_kernel_object_id((uint32_t)(&uStack_9));
           format_string_to_buffer_10545140(auStack_5c,&DAT_105b353c/*ROM*/,pvVar4,param_4);
           bVar7 = read_eeprom_blocks_to_heap(*param_1,auStack_5c);
           if (bVar7) {

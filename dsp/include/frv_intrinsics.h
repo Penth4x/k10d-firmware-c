@@ -198,4 +198,12 @@ uint32_t __frv_reg_unset(int reg);
 #define SBORROW8(a,b) (((((int64_t)(a)-(int64_t)(b)) >> 63) ^ ((int64_t)(a) >> 63)) & (((int64_t)(a) ^ (int64_t)(b)) >> 63) & 1)
 #define POPCOUNT(a) __builtin_popcountll((uint64_t)(a))
 #define LZCOUNT(a) ((a) ? __builtin_clzll((uint64_t)(a)) : 64)
+#define builtin_strncpy __builtin_strncpy
+#define builtin_strcpy __builtin_strcpy
+#define builtin_strcat __builtin_strcat
+#define builtin_strncat __builtin_strncat
+#define builtin_memcpy __builtin_memcpy
+#define builtin_memset __builtin_memset
+#define builtin_memmove __builtin_memmove
+#define builtin_strlen __builtin_strlen
 #endif

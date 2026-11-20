@@ -10,8 +10,8 @@ void configure_object_with_seven_params_1043c10c(void *param_1,uint16_t param_2,
                  uint8_t param_5)
 
 {
-  (**(code **)(*(int *)((int)param_1 + 4) + 0x2c))
-            ((int)*(short *)(*(int *)((int)param_1 + 4) + 0x28) + (int)param_1);
+  (((vtbl_entry*)(*(int *)((int)param_1 + 4)))[5].fn)
+            ((int)((vtbl_entry*)(*(int *)((int)param_1 + 4)))[5].adj + (int)param_1);
   **(uint16_t **)((int)param_1 + 0x1c) = param_2;
   call_helper_with_0xe00(param_1,0xe00);
   call_helper_with_0x3000(param_1,param_3);

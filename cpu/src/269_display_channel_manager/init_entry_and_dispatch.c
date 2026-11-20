@@ -37,8 +37,8 @@ void init_entry_and_dispatch(int param_1,int param_2)
   else {
     iVar2 = 0;
   }
-  (**(code **)(iVar1 + 0xd4))
-            ((int)*(int **)(param_1 + 0x2fc) + (int)*(short *)(iVar1 + 0xd0),param_1 + 4,
+  (((vtbl_entry*)(iVar1))[26].fn)
+            ((int)*(int **)(param_1 + 0x2fc) + (int)((vtbl_entry*)(iVar1))[26].adj,param_1 + 4,
              param_2 != 0,iVar2 + 4);
   eventflag_wai_flg(puVar3,0x20,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar3,0x20);

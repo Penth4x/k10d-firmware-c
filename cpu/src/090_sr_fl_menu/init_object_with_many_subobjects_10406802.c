@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_with_many_subobjects_10406802(int param_1,uint32_t param_2,void *param_3,void *param_4)
+void init_object_with_many_subobjects_10406802(cls_105992d4 *param_1,uint32_t param_2,void *param_3,void *param_4)
 
 {
   void *pvVar1;
@@ -63,12 +63,12 @@ void init_object_with_many_subobjects_10406802(int param_1,uint32_t param_2,void
   void *pvVar52;
   void *pvVar53;
   
-  *(uint8_t *)(param_1 + 4) = 1;
-  *(uint32_t *)(param_1 + 0x44) = *(uint32_t *)(*(int *)(param_1 + 0x3c) + 4);
-  *(uint32_t *)(param_1 + 0x48) = *(uint32_t *)(*(int *)(param_1 + 0x3c) + 8);
-  *(uint32_t *)(param_1 + 0x4c) = *(uint32_t *)(*(int *)(param_1 + 0x3c) + 0xc);
-  *(uint16_t *)(param_1 + 0x50) = 0x280;
-  *(uint16_t *)(param_1 + 0x52) = 0x1e0;
+  param_1->field_0x4 = 1;
+  *(uint32_t *)&param_1->field_0x44 = *(uint32_t *)(param_1->field_0x3c + 4);
+  *(uint32_t *)&param_1->field_0x48 = *(uint32_t *)(param_1->field_0x3c + 8);
+  *(uint32_t *)&param_1->field_0x4c = *(uint32_t *)(param_1->field_0x3c + 0xc);
+  *(uint16_t *)&param_1->field_0x50 = 0x280;
+  param_1->field_0x52 = 0x1e0;
   pvVar1 = (void *)get_or_init_static_buffer_10495746();
   iterate_range_and_call_match(pvVar1,(uint *)0x10598df8/*ROM*/,param_3,param_4);
   pvVar2 = (void *)app_obj_factory(pvVar1,(void *)0x2070000,0,0);
@@ -175,8 +175,8 @@ void init_object_with_many_subobjects_10406802(int param_1,uint32_t param_2,void
   iterate_and_remove_list_entry(pvVar2,pvVar50,pvVar52,pvVar53);
   iterate_and_remove_list_entry(pvVar2,pvVar51,pvVar52,pvVar53);
   iterate_and_remove_list_entry(pvVar2,pvVar1,pvVar52,pvVar53);
-  set_object_field_at_offset_0x10((void *)(param_1 + 8),pvVar2);
+  set_object_field_at_offset_0x10(&param_1->field_0x8,pvVar2);
   call_helper_and_set_flag_10494b88(puVar7);
-  (**(code **)(puVar7[3] + 0xc))((int)puVar7 + (int)*(short *)(puVar7[3] + 8),0);
+  (((vtbl_entry*)(puVar7[3]))[1].fn)((int)puVar7 + (int)*(short *)(puVar7[3] + 8),0);
   return;
 }

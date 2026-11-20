@@ -21,7 +21,7 @@ void init_0x142_byte_buffer(void *param_1)
   int iVar1;
   int iVar2;
   
-  if ((param_1 != (void *)0x0) || (param_1 = (void *)heap_alloc((void *)0x142), param_1 != (void *)0x0)) {
+  if ((param_1 != 0) || (param_1 = (void *)heap_alloc((void *)0x142), param_1 != 0)) {
     *(uint16_t *)((int)param_1 + 0x140) = 1;
     iVar2 = 0xf;
     iVar1 = 0;

@@ -15,18 +15,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_owned_object_reference_103b951e(int param_1)
+void release_owned_object_reference_103b951e(cls_10594e04 *param_1)
 
 {
   int *piVar1;
   int iVar2;
   
-  iVar2 = **(int **)(param_1 + 4);
-  (**(code **)(iVar2 + 0x24))((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar2 + 0x20));
-  piVar1 = *(int **)(param_1 + 4);
+  iVar2 = *(int *)param_1->field_0x4;
+  (((vtbl_entry*)(iVar2))[4].fn)((int)param_1->field_0x4 + (int)((vtbl_entry*)(iVar2))[4].adj);
+  piVar1 = (int *)param_1->field_0x4;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+    (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
   }
-  *(uint32_t *)(param_1 + 4) = 0;
+  param_1->field_0x4 = 0;
   return;
 }

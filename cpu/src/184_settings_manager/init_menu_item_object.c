@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void * init_menu_item_object(void *param_1)
+cls_105b34ec * init_menu_item_object(cls_105b34ec *param_1)
 
 {
   set_byte_at_offset_0x4f(param_1,0);
@@ -24,6 +24,6 @@ void * init_menu_item_object(void *param_1)
   enable_display_output(param_1);
   clear_flag_at_offset_0x4c_10488f62(param_1);
   clear_byte_at_offset_0x4d_10488f82(param_1);
-  classic_menu_item_register(param_1);
+  classic_menu_item_render(param_1,__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
   return param_1;
 }

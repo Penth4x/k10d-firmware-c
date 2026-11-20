@@ -50,7 +50,7 @@ void register_event_handler_104f80dc(int param_1,void *param_2,uint32_t param_3,
   uStack_18 = param_4;
   uStack_16 = param_4;
   eventflag_clr_flg(puVar1,1);
-  imgp_c_program_and_start_104fe5ce(*(uint32_t *)(param_1 + 0x24),(void *)(param_1 + 4),(void *)&pvStack_24);
+  imgp_c_program_and_start_104fe5ce((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(param_1 + 4),(uint32_t *)(&pvStack_24));
   eventflag_wai_flg(puVar1,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,1);
   imgp_a_stop_and_reset(*(uint32_t *)(param_1 + 0x24));

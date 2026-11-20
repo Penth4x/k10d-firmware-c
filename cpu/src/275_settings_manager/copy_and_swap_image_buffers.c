@@ -102,10 +102,10 @@ void copy_and_swap_image_buffers(int param_1,int param_2,int param_3)
   iStack_48 = param_3;
   iStack_40 = param_3;
   puStack_14 = puStack_1c;
-  eventflag_clr_flg((void *)0x8005a15c/*SDRAM*/,1);
+  eventflag_clr_flg((uint32_t *)(0x8005a15c/*SDRAM*/),(uint)(1));
   reg_framework_send(iVar7 + 8);
   eventflag_wai_flg((uint32_t *)0x8005a15c/*SDRAM*/,1,&uStack_c,_DAT_105a2af0/*ROM*/);
-  eventflag_clr_flg((void *)0x8005a15c/*SDRAM*/,1);
+  eventflag_clr_flg((uint32_t *)(0x8005a15c/*SDRAM*/),(uint)(1));
   iVar4 = 0;
   if (*(short *)(param_1 + 0x28) != 0) {
     uVar3 = (uint)*(ushort *)(param_1 + 0x26);

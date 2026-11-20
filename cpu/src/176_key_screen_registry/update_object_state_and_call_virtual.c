@@ -19,7 +19,7 @@ uint32_t update_object_state_and_call_virtual(int param_1,int param_2)
     uVar2 = 0;
   }
   else {
-    uVar2 = (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,0x50000);
+    uVar2 = (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1,0x50000);
   }
   return uVar2;
 }

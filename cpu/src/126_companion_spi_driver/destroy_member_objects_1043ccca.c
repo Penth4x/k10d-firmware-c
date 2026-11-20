@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void destroy_member_objects_1043ccca(void *param_1)
+void destroy_member_objects_1043ccca(cls_105a06e8 *param_1)
 
 {
   bool bVar1;
@@ -27,15 +27,16 @@ void destroy_member_objects_1043ccca(void *param_1)
   iVar2 = 4;
   iVar3 = 5;
   do {
-    if ((*(int *)((int)param_1 + iVar2 + 4) != 0) &&
-       (iVar4 = *(int *)(*(int *)((int)param_1 + iVar2 + 4) + 4),
-       (**(code **)(iVar4 + 0x24))
-                 (*(int *)((int)param_1 + iVar2 + 4) + (int)*(short *)(iVar4 + 0x20)),
-       *(int *)((int)param_1 + iVar2 + 4) != 0)) {
-      iVar4 = *(int *)(*(int *)((int)param_1 + iVar2 + 4) + 4);
-      (**(code **)(iVar4 + 0xc))(*(int *)((int)param_1 + iVar2 + 4) + (int)*(short *)(iVar4 + 8),3);
+    if ((*(int *)((int)&param_1->field_0x4 + iVar2) != 0) &&
+       (iVar4 = *(int *)(*(int *)((int)&param_1->field_0x4 + iVar2) + 4),
+       (((vtbl_entry*)(iVar4))[4].fn)
+                 (*(int *)((int)&param_1->field_0x4 + iVar2) + (int)((vtbl_entry*)(iVar4))[4].adj),
+       *(int *)((int)&param_1->field_0x4 + iVar2) != 0)) {
+      iVar4 = *(int *)(*(int *)((int)&param_1->field_0x4 + iVar2) + 4);
+      (((vtbl_entry*)(iVar4))[1].fn)
+                (*(int *)((int)&param_1->field_0x4 + iVar2) + (int)*(short *)(iVar4 + 8),3);
     }
-    *(uint32_t *)((int)param_1 + iVar2 + 4) = 0;
+    *(uint32_t *)((int)&param_1->field_0x4 + iVar2) = 0;
     iVar4 = iVar3 + -1;
     bVar1 = 0 < iVar3;
     iVar2 = iVar2 + 4;

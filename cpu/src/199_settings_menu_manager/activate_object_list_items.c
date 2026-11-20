@@ -16,25 +16,25 @@
 #include "globals.h"
 #include "funcs.h"
 
-void activate_object_list_items(int param_1)
+void activate_object_list_items(cls_105b4ad4 *param_1)
 
 {
   int iVar1;
   int *piVar2;
   
-  iVar1 = (**(code **)(*(int *)(param_1 + 0xc) + 0x7c))
-                    (*(short *)(*(int *)(param_1 + 0xc) + 0x78) + param_1);
+  iVar1 = (((vtbl_entry*)(param_1->field_0xc))[15].fn)
+                    ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0xc))[15].adj);
   if (iVar1 != 0) {
-    piVar2 = *(int **)(param_1 + 0x18);
-    if (piVar2 != *(int **)(param_1 + 0x1c)) {
+    piVar2 = (void*)(param_1->field_0x18);
+    if ((uint32_t)(piVar2) != param_1->field_0x1c) {
       do {
         iVar1 = *(int *)(*piVar2 + 0xc);
-        (**(code **)(iVar1 + 0xc))(*piVar2 + (int)*(short *)(iVar1 + 8),1);
+        (((vtbl_entry*)(iVar1))[1].fn)(*piVar2 + (int)*(short *)(iVar1 + 8),1);
         piVar2 = piVar2 + 1;
-      } while (piVar2 != *(int **)(param_1 + 0x1c));
+      } while ((uint32_t)(piVar2) != param_1->field_0x1c);
     }
-    invoke_virtual_slot_3_on_member_104946a2(param_1);
-    *(uint8_t *)(param_1 + 9) = 1;
+    invoke_virtual_slot_3_on_member_104946a2((uint32_t)(param_1));
+    param_1->field_0x9 = 1;
   }
   return;
 }

@@ -59,21 +59,21 @@ int send_sensor_data_via_cpucom(int *param_1,void *param_2,uint *param_3,int par
         }
         uStack_a = (uint8_t)((uint)((int)uStack_34 >> (uint)bVar5) >> 8);
         uStack_9 = (uint8_t)((int)uStack_34 >> (uint)bVar5);
-        (**(code **)(*param_1 + 0x54))((int)*(short *)(*param_1 + 0x50) + (int)param_1,&uStack_c,4);
+        (((vtbl_entry*)(*param_1))[10].fn)((int)((vtbl_entry*)(*param_1))[10].adj + (int)param_1,&uStack_c,4);
         if (uStack_34 != 0) {
           cVar8 = '\x04';
           iStack_3c = uStack_34 - 3;
           iVar7 = iStack_24;
           if (2 < iStack_3c) {
             do {
-              (**(code **)(*param_1 + 0x4c))
-                        ((int)*(short *)(*param_1 + 0x48) + (int)param_1,cVar8,
+              (((vtbl_entry*)(*param_1))[9].fn)
+                        ((int)((vtbl_entry*)(*param_1))[9].adj + (int)param_1,cVar8,
                          *(uint8_t *)(uVar2 + iVar7),0xff);
-              (**(code **)(*param_1 + 0x4c))
-                        ((int)*(short *)(*param_1 + 0x48) + (int)param_1,cVar8 + '\x01',
+              (((vtbl_entry*)(*param_1))[9].fn)
+                        ((int)((vtbl_entry*)(*param_1))[9].adj + (int)param_1,cVar8 + '\x01',
                          *(uint8_t *)(uVar2 + iVar7 + 1),0xff);
-              (**(code **)(*param_1 + 0x4c))
-                        ((int)*(short *)(*param_1 + 0x48) + (int)param_1,cVar8 + '\x02',
+              (((vtbl_entry*)(*param_1))[9].fn)
+                        ((int)((vtbl_entry*)(*param_1))[9].adj + (int)param_1,cVar8 + '\x02',
                          *(uint8_t *)(uVar2 + iVar7 + 2),0xff);
               iVar7 = iVar7 + 3;
               cVar8 = cVar8 + '\x03';
@@ -81,8 +81,8 @@ int send_sensor_data_via_cpucom(int *param_1,void *param_2,uint *param_3,int par
             } while (-1 < iStack_3c);
           }
           for (iStack_3c = iStack_3c + 2; -1 < iStack_3c; iStack_3c = iStack_3c + -1) {
-            (**(code **)(*param_1 + 0x4c))
-                      ((int)*(short *)(*param_1 + 0x48) + (int)param_1,cVar8,
+            (((vtbl_entry*)(*param_1))[9].fn)
+                      ((int)((vtbl_entry*)(*param_1))[9].adj + (int)param_1,cVar8,
                        *(uint8_t *)(uVar2 + iVar7),0xff);
             iVar7 = iVar7 + 1;
             cVar8 = cVar8 + '\x01';
@@ -92,11 +92,11 @@ int send_sensor_data_via_cpucom(int *param_1,void *param_2,uint *param_3,int par
         if (param_4 != 0) {
           iVar7 = 8;
         }
-        cpucom_msg_set_cmd((void *)param_1[6],(&DAT_105a72fc/*ROM*/)[iVar7 * 2]);
+        cpucom_msg_set_cmd((void*)(param_1[6]),(&DAT_105a72fc/*ROM*/)[iVar7 * 2]);
         cpucom_resp_set_insize((void *)param_1[6],uStack_34 + 4);
         pvVar6 = (void *)param_1[6];
-        pvVar4 = (void *)(**(code **)(*param_1 + 0x6c))
-                                   ((int)*(short *)(*param_1 + 0x68) + (int)param_1);
+        pvVar4 = (void *)(((vtbl_entry*)(*param_1))[13].fn)
+                                   ((int)((vtbl_entry*)(*param_1))[13].adj + (int)param_1);
         set_ptr_if_field_is_null(pvVar6,pvVar4);
         set_object_field_at_offset_0x14((void *)param_1[6],param_1 + 1);
         write_word_at_offset_16((void *)param_1[6],0x1050004);

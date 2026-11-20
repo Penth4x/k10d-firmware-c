@@ -19,119 +19,120 @@
 /* WARNING: Instruction at (ram,0x1050749a) overlaps instruction at (ram,0x10507498)
     */
 
-uint32_t set_status_flag_by_code(int param_1,int param_2,int *param_3)
+uint32_t set_status_flag_by_code(cls_105d51fc *param_1,int param_2,int *param_3)
 
 {
-  int iVar1;
-  int iVar2;
+  uint32_t *puVar1;
+  uint32_t *puVar2;
+  int iVar3;
   
-  iVar2 = dispatch_mode_update_request_10507fb0(param_1,param_3);
-  if (iVar2 == 0) {
-    iVar1 = 0;
-    if (*(int *)(param_1 + 0x8c) < 2) {
-      iVar1 = param_1 + 0x24 + *(int *)(param_1 + 0x8c) * 0x34;
+  iVar3 = dispatch_mode_update_request_10507fb0((int)(param_1),(int *)(param_3));
+  if (iVar3 == 0) {
+    puVar1 = (uint32_t *)0x0;
+    if (param_1->field_0x8c < 2) {
+      puVar1 = &param_1->field_0x24 + param_1->field_0x8c * 0xd;
     }
-    *(uint32_t *)(iVar1 + 0x30) = 0;
+    puVar1[0xc] = 0;
   }
   if (param_2 == 0x10008) {
-    if (iVar2 != 0) {
-      iVar2 = 0;
-      if (*(int *)(param_1 + 0x8c) < 2) {
-        iVar2 = param_1 + 0x24 + *(int *)(param_1 + 0x8c) * 0x34;
+    if (iVar3 != 0) {
+      puVar1 = (uint32_t *)0x0;
+      if (param_1->field_0x8c < 2) {
+        puVar1 = &param_1->field_0x24 + param_1->field_0x8c * 0xd;
       }
-      iVar1 = 0;
-      if (*(int *)(param_1 + 0x8c) < 2) {
-        iVar1 = param_1 + 0x24 + *(int *)(param_1 + 0x8c) * 0x34;
+      puVar2 = (uint32_t *)0x0;
+      if (param_1->field_0x8c < 2) {
+        puVar2 = &param_1->field_0x24 + param_1->field_0x8c * 0xd;
       }
-      *(uint *)(iVar2 + 0x30) = *(uint *)(iVar1 + 0x30) | 0x40;
+      puVar1[0xc] = puVar2[0xc] | 0x40;
     }
   }
   else if (param_2 < 0x10009) {
     if (param_2 == 0x10000) {
-      if (iVar2 != 0) {
-        iVar2 = 0;
-        if (*(int *)(param_1 + 0x8c) < 2) {
-          iVar2 = param_1 + 0x24 + *(int *)(param_1 + 0x8c) * 0x34;
+      if (iVar3 != 0) {
+        puVar1 = (uint32_t *)0x0;
+        if (param_1->field_0x8c < 2) {
+          puVar1 = &param_1->field_0x24 + param_1->field_0x8c * 0xd;
         }
-        iVar1 = 0;
-        if (*(int *)(param_1 + 0x8c) < 2) {
-          iVar1 = param_1 + 0x24 + *(int *)(param_1 + 0x8c) * 0x34;
+        puVar2 = (uint32_t *)0x0;
+        if (param_1->field_0x8c < 2) {
+          puVar2 = &param_1->field_0x24 + param_1->field_0x8c * 0xd;
         }
-        *(uint *)(iVar2 + 0x30) = *(uint *)(iVar1 + 0x30) | 1;
+        puVar1[0xc] = puVar2[0xc] | 1;
       }
     }
     else if (param_2 == 0x10002) {
-      if (iVar2 != 0) {
-        iVar2 = 0;
-        if (*(int *)(param_1 + 0x8c) < 2) {
-          iVar2 = param_1 + 0x24 + *(int *)(param_1 + 0x8c) * 0x34;
+      if (iVar3 != 0) {
+        puVar1 = (uint32_t *)0x0;
+        if (param_1->field_0x8c < 2) {
+          puVar1 = &param_1->field_0x24 + param_1->field_0x8c * 0xd;
         }
-        iVar1 = 0;
-        if (*(int *)(param_1 + 0x8c) < 2) {
-          iVar1 = param_1 + 0x24 + *(int *)(param_1 + 0x8c) * 0x34;
+        puVar2 = (uint32_t *)0x0;
+        if (param_1->field_0x8c < 2) {
+          puVar2 = &param_1->field_0x24 + param_1->field_0x8c * 0xd;
         }
-        *(uint *)(iVar2 + 0x30) = *(uint *)(iVar1 + 0x30) | 2;
+        puVar1[0xc] = puVar2[0xc] | 2;
       }
     }
     else {
       if (param_2 != 0x10003) {
         return 0;
       }
-      if (iVar2 != 0) {
-        iVar2 = 0;
-        if (*(int *)(param_1 + 0x8c) < 2) {
-          iVar2 = param_1 + 0x24 + *(int *)(param_1 + 0x8c) * 0x34;
+      if (iVar3 != 0) {
+        puVar1 = (uint32_t *)0x0;
+        if (param_1->field_0x8c < 2) {
+          puVar1 = &param_1->field_0x24 + param_1->field_0x8c * 0xd;
         }
-        iVar1 = 0;
-        if (*(int *)(param_1 + 0x8c) < 2) {
-          iVar1 = param_1 + 0x24 + *(int *)(param_1 + 0x8c) * 0x34;
+        puVar2 = (uint32_t *)0x0;
+        if (param_1->field_0x8c < 2) {
+          puVar2 = &param_1->field_0x24 + param_1->field_0x8c * 0xd;
         }
-        *(uint *)(iVar2 + 0x30) = *(uint *)(iVar1 + 0x30) | 4;
+        puVar1[0xc] = puVar2[0xc] | 4;
       }
     }
   }
   else if (param_2 == 0x1000f) {
-    if (iVar2 != 0) {
-      iVar2 = 0;
-      if (*(int *)(param_1 + 0x8c) < 2) {
-        iVar2 = param_1 + 0x24 + *(int *)(param_1 + 0x8c) * 0x34;
+    if (iVar3 != 0) {
+      puVar1 = (uint32_t *)0x0;
+      if (param_1->field_0x8c < 2) {
+        puVar1 = &param_1->field_0x24 + param_1->field_0x8c * 0xd;
       }
-      iVar1 = 0;
-      if (*(int *)(param_1 + 0x8c) < 2) {
-        iVar1 = param_1 + 0x24 + *(int *)(param_1 + 0x8c) * 0x34;
+      puVar2 = (uint32_t *)0x0;
+      if (param_1->field_0x8c < 2) {
+        puVar2 = &param_1->field_0x24 + param_1->field_0x8c * 0xd;
       }
-      *(uint *)(iVar2 + 0x30) = *(uint *)(iVar1 + 0x30) | 0x20;
+      puVar1[0xc] = puVar2[0xc] | 0x20;
     }
   }
   else if (param_2 == 0x10036) {
-    if (iVar2 != 0) {
-      iVar2 = 0;
-      if (*(int *)(param_1 + 0x8c) < 2) {
-        iVar2 = param_1 + 0x24 + *(int *)(param_1 + 0x8c) * 0x34;
+    if (iVar3 != 0) {
+      puVar1 = (uint32_t *)0x0;
+      if (param_1->field_0x8c < 2) {
+        puVar1 = &param_1->field_0x24 + param_1->field_0x8c * 0xd;
       }
-      iVar1 = 0;
-      if (*(int *)(param_1 + 0x8c) < 2) {
-        iVar1 = param_1 + 0x24 + *(int *)(param_1 + 0x8c) * 0x34;
+      puVar2 = (uint32_t *)0x0;
+      if (param_1->field_0x8c < 2) {
+        puVar2 = &param_1->field_0x24 + param_1->field_0x8c * 0xd;
       }
-      *(uint *)(iVar2 + 0x30) = *(uint *)(iVar1 + 0x30) | 0x10;
+      puVar1[0xc] = puVar2[0xc] | 0x10;
     }
   }
   else {
     if (param_2 != 0x42000) {
       return 0;
     }
-    if (iVar2 != 0) {
-      iVar2 = 0;
-      if (*(int *)(param_1 + 0x8c) < 2) {
-        iVar2 = param_1 + 0x24 + *(int *)(param_1 + 0x8c) * 0x34;
+    if (iVar3 != 0) {
+      puVar1 = (uint32_t *)0x0;
+      if (param_1->field_0x8c < 2) {
+        puVar1 = &param_1->field_0x24 + param_1->field_0x8c * 0xd;
       }
-      iVar1 = 0;
-      if (*(int *)(param_1 + 0x8c) < 2) {
-        iVar1 = param_1 + 0x24 + *(int *)(param_1 + 0x8c) * 0x34;
+      puVar2 = (uint32_t *)0x0;
+      if (param_1->field_0x8c < 2) {
+        puVar2 = &param_1->field_0x24 + param_1->field_0x8c * 0xd;
       }
-      *(uint *)(iVar2 + 0x30) = *(uint *)(iVar1 + 0x30) | 8;
+      puVar1[0xc] = puVar2[0xc] | 8;
     }
   }
-  set_flg_obj((uint32_t *)(param_1 + 0x328));
+  set_flg_obj(&param_1->field_0x328);
   return 0;
 }

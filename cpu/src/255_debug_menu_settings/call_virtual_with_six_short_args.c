@@ -16,13 +16,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_virtual_with_six_short_args(int param_1,int param_2,int *param_3)
+void call_virtual_with_six_short_args(cls_105c2be4 *param_1,int param_2,int *param_3)
 
 {
-  param_2 = param_2 * 2;
+  int iVar1;
+  
+  iVar1 = param_2 * 2;
   (*(code *)0x1044e5f2/*ROM*/)
-            (*(uint32_t *)(param_1 + 8),*(uint16_t *)(*param_3 + param_2),
-             *(uint16_t *)(param_3[1] + param_2),*(uint16_t *)(param_3[2] + param_2),
-             *(uint16_t *)(param_3[3] + param_2),*(uint16_t *)(param_3[4] + param_2));
+            (param_1->field_0x8,*(uint16_t *)(*param_3 + iVar1),
+             *(uint16_t *)(param_3[1] + iVar1),*(uint16_t *)(param_3[2] + iVar1),
+             *(uint16_t *)(param_3[3] + iVar1),*(uint16_t *)(param_3[4] + iVar1));
   return;
 }

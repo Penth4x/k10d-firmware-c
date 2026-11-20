@@ -41,7 +41,7 @@ void copy_aligned_word_block(uint32_t *param_1,uint32_t *param_2,uint param_3)
   }
   if ((param_3 & 3) != 0) {
     uStack_c = *param_2;
-    copy_bytes_aligned((void *)param_1,(void *)&uStack_c,param_3 & 3,0);
+    copy_bytes_aligned(param_1,&uStack_c,param_3 & 3,0);
   }
   return;
 }

@@ -13,18 +13,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t reset_object_state_fields_1047cbe2(void *param_1)
+uint32_t reset_object_state_fields_1047cbe2(cls_105aaa50 *param_1)
 
 {
-  *(uint8_t *)((int)param_1 + 0x46) = 0;
-  *(uint8_t *)((int)param_1 + 0x45) = 1;
-  *(uint8_t *)((int)param_1 + 0x47) = 1;
-  *(uint8_t *)((int)param_1 + 0x48) = 0;
-  *(uint8_t *)((int)param_1 + 0x44) = 1;
-  *(uint8_t *)((int)param_1 + 0x49) = 0;
-  *(uint32_t *)((int)param_1 + 0x54) = 0x8000;
-  *(uint32_t *)((int)param_1 + 0x50) = 0xffffffff;
-  *(uint32_t *)((int)param_1 + 0x4c) = 0xffffffff;
-  *(uint8_t *)((int)param_1 + 0x58) = 1;
+  param_1->field_0x46 = 0;
+  param_1->field_0x45 = 1;
+  param_1->field_0x47 = 1;
+  param_1->field_0x48 = 0;
+  param_1->field_0x44 = 1;
+  param_1->field_0x49 = 0;
+  param_1->field_0x54 = 0x8000;
+  param_1->field_0x50 = 0xffffffff;
+  param_1->field_0x4c = 0xffffffff;
+  param_1->field_0x58 = 1;
   return 1;
 }

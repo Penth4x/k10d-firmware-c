@@ -19,7 +19,7 @@ void init_object_and_call_virtual_slot_10364ba6(int *param_1)
 {
   param_1[0x81] = 0;
   param_1[0x82] = 3;
-  (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1);
+  (((vtbl_entry*)(*param_1))[8].fn)((int)((vtbl_entry*)(*param_1))[8].adj + (int)param_1);
   release_object_at_offset_0x70(param_1);
   return;
 }

@@ -36,7 +36,7 @@ void send_two_config_blocks_and_compare(int param_1)
   uint16_t auStack_10 [4];
   
   puVar5 = auStackY_a8;
-  dispatch_actuator_drive_command(param_1,4,2,(void *)&DAT_105a9fcc/*ROM*/,6,0xff,'\0');
+  dispatch_actuator_drive_command(param_1,4,2,&DAT_105a9fcc/*ROM*/,6,0xff,'\0');
   iVar1 = get_or_create_singleton_object_1046d20c();
   iVar1 = *(int *)(iVar1 + 4);
   puVar5[3] = 0;
@@ -47,7 +47,7 @@ void send_two_config_blocks_and_compare(int param_1)
   iVar1 = call_helper_with_second_arg_1046c8d6(iVar1);
   bVar2 = read_byte_at_offset_six(auStack_18);
   bVar3 = read_byte_at_offset_seven(auStack_18);
-  format_string_to_buffer_10545140(auStack_68,(void *)&DAT_105a9fd8/*ROM*/,(void *)(uint)bVar2,(void *)(uint)bVar3);
+  format_string_to_buffer_10545140(auStack_68,&DAT_105a9fd8/*ROM*/,(void *)(uint)bVar2,(void *)(uint)bVar3);
   *(uint16_t *)(puVar5 + 2) = 6;
   *(uint16_t *)(puVar5 + 6) = 0xff;
   puVar5[0xb] = 0;
@@ -76,12 +76,12 @@ LAB_10472af8:
   *(uint16_t *)(puVar5 + 2) = 6;
   *(uint16_t *)(puVar5 + 6) = 0xff;
   puVar5[0xb] = 0;
-  dispatch_actuator_drive_command(param_1,4,2,(void *)&DAT_105a9ff0/*ROM*/,*(uint16_t *)(puVar5 + 2),*(uint16_t *)(puVar5 + 6),
+  dispatch_actuator_drive_command(param_1,4,2,&DAT_105a9ff0/*ROM*/,*(uint16_t *)(puVar5 + 2),*(uint16_t *)(puVar5 + 6),
                puVar5[0xb]);
   *(uint16_t *)(puVar5 + 2) = 6;
   *(uint16_t *)(puVar5 + 6) = 0xff;
   puVar5[0xb] = 0;
-  dispatch_actuator_drive_command(param_1,5,2,(void *)&DAT_105aa004/*ROM*/,*(uint16_t *)(puVar5 + 2),*(uint16_t *)(puVar5 + 6),
+  dispatch_actuator_drive_command(param_1,5,2,&DAT_105aa004/*ROM*/,*(uint16_t *)(puVar5 + 2),*(uint16_t *)(puVar5 + 6),
                puVar5[0xb]);
   free_heap_if_flag_set_1045c56c(auStack_10,2);
   free_heap_if_flag_set_1045c56c(auStack_18,2);

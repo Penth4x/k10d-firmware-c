@@ -24,7 +24,7 @@ void initialize_object_subsystem_104eb5da(int param_1)
   
   piVar2 = (int *)get_or_create_singleton_object_10521e8e();
   *(int **)(param_1 + 0x90) = piVar2;
-  (**(code **)(*piVar2 + 0x14))((int)piVar2 + (int)*(short *)(*piVar2 + 0x10),0);
+  (((vtbl_entry*)(*piVar2))[2].fn)((int)piVar2 + (int)((vtbl_entry*)(*piVar2))[2].adj,0);
   uVar3 = (*(code *)0x10522008/*ROM*/)(*(uint32_t *)(param_1 + 0x90));
   *(uint32_t *)(param_1 + 0x98) = uVar3;
   uVar3 = (*(code *)0x10522002/*ROM*/)(*(uint32_t *)(param_1 + 0x90));

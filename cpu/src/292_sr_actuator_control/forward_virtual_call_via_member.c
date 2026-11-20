@@ -22,6 +22,6 @@ void forward_virtual_call_via_member(void *param_1,uint32_t param_2)
   
   set_flag_and_value_at_offset_8(param_1,(char)param_2);
   iVar1 = *(int *)(*(int *)((int)param_1 + 0x10) + 0xc);
-  (**(code **)(iVar1 + 0xc))(*(int *)((int)param_1 + 0x10) + (int)*(short *)(iVar1 + 8),param_2);
+  (((vtbl_entry*)(iVar1))[1].fn)(*(int *)((int)param_1 + 0x10) + (int)*(short *)(iVar1 + 8),param_2);
   return;
 }

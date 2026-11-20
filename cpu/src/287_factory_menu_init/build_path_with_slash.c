@@ -20,13 +20,13 @@ void build_path_with_slash(uint32_t param_1,char *param_2)
 
 {
   uintptr_t sp;
-  uint8_t auStack_28 [32];
+  cls_105bb0b8 cStack_28;
   
-  cls_105bb0b8_new((void *)auStack_28);
-  initialize_pointer_pair_struct_104de02c((void *)auStack_28,param_2);
-  (*(code *)0x104de85c/*ROM*/)(auStack_28,0,0x43);
-  (*(code *)0x104de85c/*ROM*/)(auStack_28,1,0x3a);
-  (*(code *)0x104de838/*ROM*/)(auStack_28,0x2f,0x5c);
-  reset_vtable_and_free_if_flagged_104ddfe6(auStack_28,2);
+  cls_105bb0b8_new(&cStack_28);
+  initialize_pointer_pair_struct_104de02c(&cStack_28,param_2);
+  (*(code *)0x104de85c/*ROM*/)(&cStack_28,0,0x43);
+  (*(code *)0x104de85c/*ROM*/)(&cStack_28,1,0x3a);
+  (*(code *)0x104de838/*ROM*/)(&cStack_28,0x2f,0x5c);
+  reset_vtable_and_free_if_flagged_104ddfe6(&cStack_28,2);
   return;
 }

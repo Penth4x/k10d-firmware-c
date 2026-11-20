@@ -14,7 +14,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t get_setting_index_by_mode_103cd49a(int param_1,int param_2)
+uint32_t get_setting_index_by_mode_103cd49a(cls_10595af8 *param_1,int param_2)
 
 {
   uint32_t uVar1;
@@ -28,7 +28,7 @@ uint32_t get_setting_index_by_mode_103cd49a(int param_1,int param_2)
     auStack_14[0] = 0x19e000a;
     auStack_14[1] = 0x19e000f;
     auStack_14[2] = 0x19e0014;
-    uVar3 = setting_get(*(int *)(param_1 + 8),0xbc);
+    uVar3 = setting_get(param_1->field_0x8,0xbc);
     iVar2 = 0xff;
     if (bRam10595af4 == uVar3) {
       iVar2 = 0;

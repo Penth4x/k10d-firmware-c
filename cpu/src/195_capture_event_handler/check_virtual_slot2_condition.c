@@ -24,7 +24,7 @@ bool check_virtual_slot2_condition(void)
   byte bVar4;
   
   piVar1 = (int *)get_or_create_singleton_object_10492ade();
-  uVar2 = (**(code **)(*piVar1 + 0x14))((int)piVar1 + (int)*(short *)(*piVar1 + 0x10),0);
+  uVar2 = (((vtbl_entry*)(*piVar1))[2].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[2].adj,0);
   uVar3 = initialize_sram_block_1049229e();
   bVar4 = reset_sram_flag_at_0x8005a15c();
   return (bVar4 & (uVar2 & uVar3) != 0) != 0;

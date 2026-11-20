@@ -19,16 +19,17 @@ int create_object_with_init_call_10495f06(void *param_1,int param_2,void *param_
 
 {
   int iVar1;
-  uint32_t *puVar2;
+  cls_105b47b4 *pcVar2;
   
-  iVar1 = allocate_and_init_object_104962ea(param_1,param_2,(int)param_3,(int)param_4);
-  puVar2 = (uint32_t *)heap_alloc((void *)0x68);
-  if (puVar2 == (uint32_t *)0x0) {
-    puVar2 = (uint32_t *)0x0;
+  iVar1 = allocate_and_init_object_104962ea((void *)(param_1),(int)(param_2),(uint32_t)(param_3),(uint32_t)(param_4));
+  pcVar2 = (cls_105b47b4 *)heap_alloc((void *)0x68);
+  if (pcVar2 == (cls_105b47b4 *)0x0) {
+    pcVar2 = (cls_105b47b4 *)0x0;
   }
   else {
-    cls_105b47b4_new(puVar2);
+    cls_105b47b4_new(pcVar2);
   }
-  (**(code **)(puVar2[3] + 0x84))((int)*(short *)(puVar2[3] + 0x80) + (int)puVar2,iVar1,0);
-  return (int)puVar2;
+  (((vtbl_entry*)(pcVar2->field_0xc))[16].fn)
+            ((int)&pcVar2->field_0x0 + (int)((vtbl_entry*)(pcVar2->field_0xc))[16].adj,iVar1,0);
+  return (int)pcVar2;
 }

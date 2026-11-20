@@ -17,7 +17,7 @@
 /* WARNING: Instruction at (ram,0x103ff808) overlaps instruction at (ram,0x103ff806)
     */
 
-uint32_t dispatch_mode_event(int *param_1,int param_2)
+uint32_t dispatch_mode_event(cls_105983cc *param_1,int param_2)
 
 {
   short sVar1;
@@ -32,55 +32,55 @@ uint32_t dispatch_mode_event(int *param_1,int param_2)
   uint32_t auStack_10 [2];
   
   if (param_2 == 0x184002e) {
-    iVar3 = setting_get(param_1[2],0xa9);
+    iVar3 = setting_get(param_1->field_0x8,0xa9);
     if (iVar3 < 10) {
-      iVar3 = menu_item_register(*param_1);
+      iVar3 = menu_item_register((int)param_1->field_0x0);
       iVar7 = *(int *)(iVar3 + 0xc);
       sVar1 = *(short *)(iVar7 + 0x10);
       puVar4 = auStack_24 + 3;
-      uVar5 = alloc_two_word_pair_1045bc2e(puVar4,0x1e8,0x198);
-      (**(code **)(iVar7 + 0x14))(sVar1 + iVar3,uVar5);
+      uVar5 = (uintptr_t)(alloc_two_word_pair_1045bc2e(puVar4,0x1e8,0x198));
+      (((vtbl_entry*)(iVar7))[2].fn)(sVar1 + iVar3,uVar5);
       free_heap_block_if_flagged_1045bc54(puVar4,2);
-      (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
-      iVar3 = menu_item_register(*param_1);
+      (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
+      iVar3 = menu_item_register((int)param_1->field_0x0);
       iVar7 = *(int *)(iVar3 + 0xc);
       sVar1 = *(short *)(iVar7 + 0x10);
-      uVar5 = alloc_two_word_pair_1045bc2e(puVar4,0x230,0x198);
-      (**(code **)(iVar7 + 0x14))(sVar1 + iVar3,uVar5);
+      uVar5 = (uintptr_t)(alloc_two_word_pair_1045bc2e(puVar4,0x230,0x198));
+      (((vtbl_entry*)(iVar7))[2].fn)(sVar1 + iVar3,uVar5);
       free_heap_block_if_flagged_1045bc54(puVar4,2);
-      (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
     }
     else {
-      iVar3 = menu_item_register(*param_1);
+      iVar3 = menu_item_register((int)param_1->field_0x0);
       iVar7 = *(int *)(iVar3 + 0xc);
       sVar1 = *(short *)(iVar7 + 0x10);
-      uVar5 = alloc_two_word_pair_1045bc2e(auStack_10,0x1b8,0x198);
-      (**(code **)(iVar7 + 0x14))(sVar1 + iVar3,uVar5);
+      uVar5 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_10,0x1b8,0x198));
+      (((vtbl_entry*)(iVar7))[2].fn)(sVar1 + iVar3,uVar5);
       free_heap_block_if_flagged_1045bc54(auStack_10,2);
-      (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
-      iVar3 = menu_item_register(*param_1);
+      (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
+      iVar3 = menu_item_register((int)param_1->field_0x0);
       iVar7 = *(int *)(iVar3 + 0xc);
       sVar1 = *(short *)(iVar7 + 0x10);
-      uVar5 = alloc_two_word_pair_1045bc2e(auStack_10,0x200,0x198);
-      (**(code **)(iVar7 + 0x14))(sVar1 + iVar3,uVar5);
+      uVar5 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_10,0x200,0x198));
+      (((vtbl_entry*)(iVar7))[2].fn)(sVar1 + iVar3,uVar5);
       free_heap_block_if_flagged_1045bc54(auStack_10,2);
-      (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),1);
     }
     uVar5 = get_setting_by_index((int)param_1,0x13);
     uVar6 = 0x184000e;
-    *(char *)(param_1 + 8) = (char)uVar5;
+    param_1->field_0x20 = (char)uVar5;
   }
   else {
     uVar6 = 0;
     if (param_2 == 0x1840015) {
-      if (*(char *)((int)param_1 + 0x21) == -1) {
+      if (param_1->field_0x21 == -1) {
         uVar5 = get_setting_by_index((int)param_1,0x12);
-        *(char *)((int)param_1 + 0x21) = (char)uVar5;
+        param_1->field_0x21 = (char)uVar5;
       }
       auStack_24[0] = 0x1840018;
       auStack_24[1] = 0x184001b;
       auStack_24[2] = 0x184001e;
-      cVar2 = *(char *)((int)param_1 + 0x21);
+      cVar2 = param_1->field_0x21;
       iVar3 = 0xff;
       if (cRam10598384 == cVar2) {
         iVar3 = 0;
@@ -92,7 +92,7 @@ uint32_t dispatch_mode_event(int *param_1,int param_2)
         iVar3 = 2;
       }
       uVar6 = auStack_24[iVar3];
-      *(char *)((int)param_1 + 0x21) = cVar2;
+      param_1->field_0x21 = cVar2;
       register_and_configure_menu_item_103ffe78(param_1, __frv_reg_unset(5));
     }
   }

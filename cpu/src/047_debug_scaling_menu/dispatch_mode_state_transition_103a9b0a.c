@@ -23,7 +23,7 @@ void dispatch_mode_state_transition_103a9b0a(void *param_1,int param_2)
   uint32_t uVar2;
   
   iVar1 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
   if (param_2 == 0) {
     uVar2 = query_object_property_via_temp_104f15c4(*(uint32_t *)((int)param_1 + 0x28));
   }
@@ -111,6 +111,6 @@ switchD_103a9bfc_caseD_0:
     }
   }
   iVar1 = menu_item_register((int)param_1 + 8);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   return;
 }

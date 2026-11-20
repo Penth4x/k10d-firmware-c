@@ -28,6 +28,6 @@ void dispatch_virtual_call_with_param_10532876(int param_1,uint32_t param_2)
   iVar4 = *piVar3;
   sVar1 = *(short *)(iVar4 + 0x40);
   uVar2 = (*(code *)0x104a8c94/*ROM*/)(param_2);
-  (**(code **)(iVar4 + 0x44))((int)piVar3 + (int)sVar1,uVar2);
+  (((vtbl_entry*)(iVar4))[8].fn)((int)piVar3 + (int)sVar1,uVar2);
   return;
 }

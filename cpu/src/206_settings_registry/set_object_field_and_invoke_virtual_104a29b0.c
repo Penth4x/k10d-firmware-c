@@ -9,7 +9,7 @@
 void set_object_field_and_invoke_virtual_104a29b0(uint32_t *param_1,void *param_2)
 
 {
-  *param_1 = (uint32_t)param_2;
-  (**(code **)(param_1[1] + 0x34))((int)*(short *)(param_1[1] + 0x30) + (int)param_1);
+  *param_1 = (uintptr_t)(param_2);
+  (((vtbl_entry*)(param_1[1]))[6].fn)((int)((vtbl_entry*)(param_1[1]))[6].adj + (int)param_1);
   return;
 }

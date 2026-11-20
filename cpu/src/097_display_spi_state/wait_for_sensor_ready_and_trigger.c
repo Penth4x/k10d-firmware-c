@@ -70,10 +70,10 @@ LAB_10419a4c:
       } while (*(int *)(param_1 + 0x1504) != 2);
     }
     if (bVar2) {
-      eventflag_clr_flg(param_1 + 0x1548,1);
-      eventflag_clr_flg(param_1 + 0x1548,2);
+      eventflag_clr_flg((uint32_t *)(param_1 + 0x1548),(uint)(1));
+      eventflag_clr_flg((uint32_t *)(param_1 + 0x1548),(uint)(2));
       iVar3 = get_or_create_singleton_object_104bb22a();
-      uVar4 = dispatch_mode_transition_104b7cd0(*(uint32_t *)(iVar3 + 4),param_1 + 0x40,uVar4);
+      uVar4 = dispatch_mode_transition_104b7cd0((int)(*(uint32_t *)(iVar3 + 4)),(void *)(param_1 + 0x40),(int)(uVar4));
       check_kernel_call_success_10459fea();
     }
     else {

@@ -23,19 +23,19 @@ uint32_t process_object_with_helper_chain(int param_1,uint16_t *param_2,ushort *
   uintptr_t sp;
   uint32_t *puVar3;
   uint8_t auStack_1d8 [4];
-  uint8_t auStack_1c0 [440];
+  cls_105b572c cStack_1c0;
   
   puVar3 = (uint32_t *)auStack_1d8;
-  cls_105b572c_new((void *)auStack_1c0);
+  cls_105b572c_new(&cStack_1c0);
   iVar1 = call_helper_with_second_field_1047a570(*(int *)(param_1 + 0x54));
   uVar2 = 0;
-  if ((iVar1 != 0) && (iVar1 = configure_and_dispatch_event(param_1,param_2,0,(void *)auStack_1c0), iVar1 != 0)) {
-    *puVar3 = (uint32_t)(uintptr_t)auStack_1c0;
+  if ((iVar1 != 0) && (iVar1 = configure_and_dispatch_event(param_1,param_2,0,&cStack_1c0), iVar1 != 0)) {
+    *puVar3 = (uintptr_t)(&cStack_1c0);
     iVar1 = build_event_from_params(param_1,param_2,0,param_3,(int *)*puVar3);
     if (iVar1 != 0) {
       uVar2 = allocate_and_init_buffer_1047a664(*(uint32_t *)(param_1 + 0x54));
     }
   }
-  cls_105b572c_delete((void *)auStack_1c0,2);
+  cls_105b572c_delete(&cStack_1c0,2);
   return uVar2;
 }

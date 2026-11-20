@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int adjust_state_counter_and_dispatch(int *param_1,int param_2,int *param_3)
+int adjust_state_counter_and_dispatch(cls_105b3658 *param_1,int param_2,int *param_3)
 
 {
   int iVar1;
@@ -29,14 +29,14 @@ int adjust_state_counter_and_dispatch(int *param_1,int param_2,int *param_3)
     }
     return 0;
   }
-  iVar2 = param_1[0x11];
+  iVar2 = param_1->field_0x44;
   iVar1 = advance_state_on_virtual_ok((int)param_1,param_3);
   if (iVar1 == 0) {
     iVar1 = advance_state_on_virtual_event((int)param_1,param_3);
     if (iVar1 == 0) {
-      iVar1 = (**(code **)(*param_3 + 0x24))((int)*(short *)(*param_3 + 0x20) + (int)param_3,0x15);
+      iVar1 = (((vtbl_entry*)(*param_3))[4].fn)((int)((vtbl_entry*)(*param_3))[4].adj + (int)param_3,0x15);
       if (iVar1 == 0) {
-        iVar1 = (**(code **)(*param_3 + 0x24))((int)*(short *)(*param_3 + 0x20) + (int)param_3,0x17)
+        iVar1 = (((vtbl_entry*)(*param_3))[4].fn)((int)((vtbl_entry*)(*param_3))[4].adj + (int)param_3,0x17)
         ;
         if (iVar1 == 0) {
           return (int)param_1;
@@ -55,7 +55,7 @@ int adjust_state_counter_and_dispatch(int *param_1,int param_2,int *param_3)
         *(uint32_t *)(iVar1 + 0x44) = 2;
         return iVar1;
       }
-      param_1[0x11] = iVar2 + 1;
+      param_1->field_0x44 = iVar2 + 1;
     }
   }
   else {
@@ -64,8 +64,8 @@ int adjust_state_counter_and_dispatch(int *param_1,int param_2,int *param_3)
       *(uint32_t *)(iVar1 + 0x44) = 7;
       return iVar1;
     }
-    param_1[0x11] = iVar2 + -1;
+    param_1->field_0x44 = iVar2 + -1;
   }
-  iVar1 = sibling_item_register(param_1,__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  iVar1 = (uint32_t)(sibling_item_register((void*)(param_1),__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7)));
   return iVar1;
 }

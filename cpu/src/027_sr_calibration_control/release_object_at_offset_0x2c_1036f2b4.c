@@ -19,7 +19,7 @@ void release_object_at_offset_0x2c_1036f2b4(void *param_1)
 
 {
   call_helper_on_struct_field_1036c46c();
-  if (*(void **)((int)param_1 + 0x2c) != (void *)0x0) {
+  if (*(void **)((int)param_1 + 0x2c) != 0) {
     call_helper_on_struct_field_1036c41a(param_1,*(void **)((int)param_1 + 0x2c),1);
     call_helper_on_fetched_object(*(void **)((int)param_1 + 0x2c),0x10);
     call_helper_on_fetched_object(*(void **)((int)param_1 + 0x2c),0xf);

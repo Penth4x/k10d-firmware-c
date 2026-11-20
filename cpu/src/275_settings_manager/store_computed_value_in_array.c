@@ -23,7 +23,7 @@ void store_computed_value_in_array(int param_1,int param_2,byte *param_3)
   
   uVar1 = (*(code *)0x104ac894/*ROM*/)(param_3);
   iVar2 = *(int *)(param_1 + 4);
-  uVar1 = (uint32_t)allocate_and_init_buffer_struct_1051c0a8(0,param_3,(void *)uVar1);
+  uVar1 = (uint32_t)allocate_and_init_buffer_struct_1051c0a8(0,param_3,(byte *)uVar1);
   *(uint32_t *)(iVar2 + param_2 * 4) = uVar1;
   return;
 }

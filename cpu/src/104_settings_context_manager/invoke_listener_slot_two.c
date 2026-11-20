@@ -25,7 +25,7 @@ uint32_t invoke_listener_slot_two(int *param_1)
   piVar1 = (int *)*param_1;
   uVar2 = 0;
   if (piVar1 != (int *)0x0) {
-    iVar3 = (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1);
+    iVar3 = (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1);
     param_1[4] = iVar3;
     *param_1 = 0;
     param_1[3] = 0;

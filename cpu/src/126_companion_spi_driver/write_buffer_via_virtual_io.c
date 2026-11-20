@@ -14,13 +14,13 @@ void write_buffer_via_virtual_io(void *param_1,int param_2)
   int iVar3;
   
   iVar3 = *(int *)(*(int *)((int)param_1 + 0x10c) + 4);
-  uVar1 = (**(code **)(iVar3 + 0x6c))
-                    (*(int *)((int)param_1 + 0x10c) + (int)*(short *)(iVar3 + 0x68));
+  uVar1 = (((vtbl_entry*)(iVar3))[13].fn)
+                    (*(int *)((int)param_1 + 0x10c) + (int)((vtbl_entry*)(iVar3))[13].adj);
   for (; param_2 != 0; param_2 = param_2 - uVar2) {
     uVar2 = clamp_value_to_max_1044742e(param_2,uVar1);
     iVar3 = *(int *)(*(int *)((int)param_1 + 0x10c) + 4);
-    (**(code **)(iVar3 + 0x3c))
-              (*(int *)((int)param_1 + 0x10c) + (int)*(short *)(iVar3 + 0x38),uVar2 & 0xffff);
+    (((vtbl_entry*)(iVar3))[7].fn)
+              (*(int *)((int)param_1 + 0x10c) + (int)((vtbl_entry*)(iVar3))[7].adj,uVar2 & 0xffff);
   }
   return;
 }

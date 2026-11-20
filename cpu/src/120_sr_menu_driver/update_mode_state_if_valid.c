@@ -26,11 +26,11 @@ uint32_t update_mode_state_if_valid(int param_1,int param_2)
   uint32_t uVar3;
   bool bVar4;
   
-  iVar1 = read_virtual_property_field((void *)(param_1 + 0x1c),2);
+  iVar1 = read_virtual_property_field((int *)(*(uint32_t *)(param_1 + 0x1c)),(int)(2));
   uVar3 = 0;
-  if ((((iVar1 != 1) && (iVar1 = read_virtual_property_field((void *)(param_1 + 0x1c),0x14), iVar1 != 1)) &&
-      (iVar1 = read_virtual_property_field((void *)(param_1 + 0x1c),0), iVar1 != 1)) &&
-     (iVar1 = read_virtual_property_field((void *)(param_1 + 0x1c),0), iVar1 != 4)) {
+  if ((((iVar1 != 1) && (iVar1 = read_virtual_property_field((int *)(*(uint32_t *)(param_1 + 0x1c)),(int)(0x14)), iVar1 != 1)) &&
+      (iVar1 = read_virtual_property_field((int *)(*(uint32_t *)(param_1 + 0x1c)),(int)(0)), iVar1 != 1)) &&
+     (iVar1 = read_virtual_property_field((int *)(*(uint32_t *)(param_1 + 0x1c)),(int)(0)), iVar1 != 4)) {
     uVar2 = 0;
     if ((*(char *)(param_1 + 0x50) == '\x12') && (param_2 != 0x12)) {
       uVar2 = 0;

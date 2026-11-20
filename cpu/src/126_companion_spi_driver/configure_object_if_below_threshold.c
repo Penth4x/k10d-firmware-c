@@ -6,13 +6,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool configure_object_if_below_threshold(void *param_1,uint param_2,uint32_t param_3,uint32_t param_4)
+/* WARNING: Struct "cls_105a04cc": ignoring multiple overlapping fields */
+
+bool configure_object_if_below_threshold(cls_105a04cc *param_1,uint param_2,uint32_t param_3,uint32_t param_4)
 
 {
   if (param_2 < 0x7c2) {
-    (**(code **)(*(int *)((int)param_1 + 4) + 0x2c))
-              ((int)*(short *)(*(int *)((int)param_1 + 4) + 0x28) + (int)param_1);
-    **(short **)((int)param_1 + 0x1c) = (short)((int)((param_2 & 0xffff) * 0x42) >> 1) + -1;
+    (((vtbl_entry*)(param_1->field_0x4))[5].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x4))[5].adj);
+    *(short *)param_1->field_0x1c = (short)((int)((param_2 & 0xffff) * 0x42) >> 1) + -1;
     set_flag_with_fixed_length(param_1,param_4);
     call_helper_with_0xc000_1043bffa(param_1,0);
     call_helper_with_0xe00(param_1,0);

@@ -17,16 +17,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-int dispatch_state_update_by_id(int *param_1,int param_2,int param_3)
+int dispatch_state_update_by_id(cls_1059656c *param_1,int param_2,int param_3)
 
 {
   uint32_t uVar1;
   int iVar2;
   
-  param_1[5] = param_3;
+  param_1->field_0x14 = param_3;
   if ((param_3 == 0x11) || (param_3 == 0xe)) {
     if (param_2 == 0x1800027) {
-      apply_setting_from_table(param_1,0xb,(uint)*(byte *)(param_1 + 8));
+      apply_setting_from_table(param_1,0xb,(uint)(byte)param_1->field_0x20);
       uVar1 = get_setting_by_index((int)param_1,0xb);
       invoke_virtual_slot_one_on_objects(param_1,uVar1);
     }
@@ -46,16 +46,16 @@ int dispatch_state_update_by_id(int *param_1,int param_2,int param_3)
         }
         iVar2 = 0xf;
       }
-      apply_setting_from_table(param_1,iVar2,(uint)*(byte *)((int)param_1 + 0x21));
+      apply_setting_from_table(param_1,iVar2,(uint)(byte)param_1->field_0x21);
     }
   }
   else if ((((param_3 == 7) || (param_3 == 0)) || (param_3 == 1)) || (param_3 == 3)) {
     if (param_2 == 0x1800027) {
-      apply_setting_from_table(param_1,0xb,(uint)*(byte *)(param_1 + 8));
-      *(uint8_t *)((int)param_1 + 0x23) = 0x8c;
+      apply_setting_from_table(param_1,0xb,(uint)(byte)param_1->field_0x20);
+      param_1->field_0x23 = 0x8c;
       uVar1 = get_setting_by_index((int)param_1,0xb);
       invoke_virtual_slot_one_on_objects(param_1,uVar1);
-      param_1 = (int *)0x0;
+      param_1 = (cls_1059656c *)0x0;
     }
     else {
       if (param_2 == 0x180005a) {
@@ -73,9 +73,9 @@ int dispatch_state_update_by_id(int *param_1,int param_2,int param_3)
         }
         iVar2 = 0xf;
       }
-      apply_setting_from_table(param_1,iVar2,(uint)*(byte *)((int)param_1 + 0x21));
-      *(uint8_t *)((int)param_1 + 0x23) = 0x8c;
-      param_1 = (int *)0x0;
+      apply_setting_from_table(param_1,iVar2,(uint)(byte)param_1->field_0x21);
+      param_1->field_0x23 = 0x8c;
+      param_1 = (cls_1059656c *)0x0;
     }
   }
   return (int)param_1;

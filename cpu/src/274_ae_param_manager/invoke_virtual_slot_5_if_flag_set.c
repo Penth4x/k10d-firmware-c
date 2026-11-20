@@ -6,12 +6,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_5_if_flag_set(int param_1)
+void invoke_virtual_slot_5_if_flag_set(cls_105d6afc *param_1)
 
 {
-  if (*(int *)(param_1 + 4) != 0) {
-    (**(code **)(*(int *)(param_1 + 0x20) + 0x34))
-              (*(short *)(*(int *)(param_1 + 0x20) + 0x30) + param_1);
+  if (param_1->field_0x4 != 0) {
+    (((vtbl_entry*)(param_1->field_0x20))[6].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x20))[6].adj);
   }
   return;
 }

@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int extract_field_from_struct_104604e8(void *param_1,int param_2)
+int extract_field_from_struct_104604e8(cls_105a6ef4 *param_1,int param_2)
 
 {
   ushort uVar2;
@@ -23,15 +23,15 @@ int extract_field_from_struct_104604e8(void *param_1,int param_2)
   int iVar3;
   
   if ((param_2 == 0xc) || (param_2 == 0xd)) {
-    uVar2 = pack_two_byte_value_10496952(param_1,(ushort)*(byte *)((int)param_1 +
-                                                  *(int *)(&DAT_105a6718/*ROM*/ + param_2 * 8) + 5),
-                         (ushort)*(byte *)((int)param_1 + *(int *)(&DAT_105a6718/*ROM*/ + param_2 * 8) + 4)
-                        );
+    uVar2 = pack_two_byte_value_10496952(param_1,(ushort)*(byte *)((int)&param_1[1].field_0x0 +
+                                                  *(int *)(&DAT_105a6718/*ROM*/ + param_2 * 8) + 1),
+                         (ushort)*(byte *)((int)&param_1[1].field_0x0 +
+                                          *(int *)(&DAT_105a6718/*ROM*/ + param_2 * 8)));
     uVar1 = (uint)uVar2;
   }
   else {
     iVar3 = param_2 * 8;
-    uVar1 = (int)(uint)(*(byte *)((int)param_1 + *(int *)(&DAT_105a6718/*ROM*/ + iVar3) + 4) &
+    uVar1 = (int)(uint)(*(byte *)((int)&param_1[1].field_0x0 + *(int *)(&DAT_105a6718/*ROM*/ + iVar3)) &
                        (&DAT_105a671c/*ROM*/)[iVar3]) >> ((byte)(&DAT_105a671d/*ROM*/)[iVar3] & 0x1f);
   }
   return uVar1;

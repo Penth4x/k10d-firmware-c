@@ -6,14 +6,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_if_flag_set_10494962(int param_1)
+void invoke_virtual_slot_if_flag_set_10494962(cls_105b4ad4 *param_1)
 
 {
   int iVar1;
   
   iVar1 = (*(code *)0x10493dac/*ROM*/)();
-  if ((iVar1 == 0) && (iVar1 = *(int *)(param_1 + 0x48), iVar1 != 0)) {
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0x94))(*(short *)(*(int *)(iVar1 + 0xc) + 0x90) + iVar1);
+  if ((iVar1 == 0) && (iVar1 = param_1->field_0x48, iVar1 != 0)) {
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[18].fn)(((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[18].adj + iVar1);
   }
   return;
 }

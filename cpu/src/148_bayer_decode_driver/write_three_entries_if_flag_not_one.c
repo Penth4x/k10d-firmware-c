@@ -27,13 +27,13 @@ void write_three_entries_if_flag_not_one(void *param_1,int param_2)
   
   puVar2 = auStackY_14;
   if (param_2 != 1) {
-    forward_params_to_helper_1046a5be(param_1,0,(uint)(ushort)(_DAT_800042d0/*SDRAM*/ + 1),(void *)&DAT_105a8398/*ROM*/,7);
+    forward_params_to_helper_1046a5be(param_1,0,(uint)(ushort)(_DAT_800042d0/*SDRAM*/ + 1),&DAT_105a8398/*ROM*/,7);
     uVar1 = _DAT_800042d0/*SDRAM*/ + 1;
     *(uint16_t *)(puVar2 + 2) = 7;
-    forward_params_to_helper_1046a5be(param_1,1,(uint)uVar1,(void *)&DAT_105a83ac/*ROM*/,*(uint16_t *)(puVar2 + 2));
+    forward_params_to_helper_1046a5be(param_1,1,(uint)uVar1,&DAT_105a83ac/*ROM*/,*(uint16_t *)(puVar2 + 2));
     uVar1 = _DAT_800042d0/*SDRAM*/ + 1;
     *(uint16_t *)(puVar2 + 2) = 7;
-    forward_params_to_helper_1046a5be(param_1,2,(uint)uVar1,(void *)&DAT_105a83b4/*ROM*/,*(uint16_t *)(puVar2 + 2));
+    forward_params_to_helper_1046a5be(param_1,2,(uint)uVar1,&DAT_105a83b4/*ROM*/,*(uint16_t *)(puVar2 + 2));
   }
   return;
 }

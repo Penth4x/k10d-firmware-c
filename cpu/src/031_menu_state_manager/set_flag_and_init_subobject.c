@@ -22,7 +22,7 @@ void set_flag_and_init_subobject(void *param_1)
 {
   *(uint32_t *)((int)param_1 + 0x14) = 1;
   call_helper_on_struct_field_1036c46c();
-  compute_and_send_two_point_offsets_1038eab4((int)param_1 + 0x40);
-  call_helper_on_struct_field_1036c41a(param_1,(void *)((int)param_1 + 0x40),1);
+  compute_and_send_two_point_offsets_1038eab4((cls_1055a090 *)((int)param_1 + 0x40));
+  call_helper_on_struct_field_1036c41a(param_1,(cls_1055a090 *)((int)param_1 + 0x40),1);
   return;
 }

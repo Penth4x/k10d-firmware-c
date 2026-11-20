@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int read_pair_from_object(void *param_1,int param_2)
+int read_pair_from_object(cls_105a6cb4 *param_1,int param_2)
 
 {
   byte bVar1;
@@ -24,13 +24,13 @@ int read_pair_from_object(void *param_1,int param_2)
   
   uVar3 = 0;
   if (param_2 == 0) {
-    bVar1 = *(byte *)((int)param_1 + 5);
-    bVar2 = *(byte *)((int)param_1 + 4);
+    bVar1 = param_1->field_0x5;
+    bVar2 = param_1->field_0x4;
   }
   else {
     if (param_2 != 1) goto LAB_1045fb56;
-    bVar1 = *(byte *)((int)param_1 + 7);
-    bVar2 = *(byte *)((int)param_1 + 6);
+    bVar1 = param_1->field_0x7;
+    bVar2 = param_1->field_0x6;
   }
   uVar3 = pack_two_byte_value_10496952(param_1,(ushort)bVar1,(ushort)bVar2);
 LAB_1045fb56:

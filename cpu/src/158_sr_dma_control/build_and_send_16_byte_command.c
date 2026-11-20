@@ -68,7 +68,7 @@ int build_and_send_16_byte_command(int param_1,void *param_2)
   uStack_c = 0;
   call_with_offset_lock_10480e32(piVar3,param_2);
   puVar9 = &uStack_c;
-  iVar7 = (**(code **)(*piVar3 + 0x2c))((int)*(short *)(*piVar3 + 0x28) + (int)piVar3,param_2,0);
+  iVar7 = (((vtbl_entry*)(*piVar3))[5].fn)((int)((vtbl_entry*)(*piVar3))[5].adj + (int)piVar3,param_2,0);
   if (iVar7 != 0) {
     iVar8 = heap_alloc_2(0x800);
     uStack_18 = 0;
@@ -106,7 +106,7 @@ int build_and_send_16_byte_command(int param_1,void *param_2)
         iVar4 = *piVar3;
         sVar1 = *(short *)(iVar4 + 0x40);
         puVar9 = (uint32_t *)count_string_bytes(pcVar5);
-        (**(code **)(iVar4 + 0x44))((int)sVar1 + (int)piVar3,uStack_c,pcVar5);
+        (((vtbl_entry*)(iVar4))[8].fn)((int)sVar1 + (int)piVar3,uStack_c,pcVar5);
       }
       format_string_to_buffer_10545140(pcVar5,(char *)0x105a94c4/*ROM*/,pvStack_6c,puVar9);
       format_string_to_buffer_10545140(puVar6,(char *)0x105a94d0/*ROM*/,(void *)(uint)*(byte *)(iVar8 + iStack_2c),puVar9);
@@ -145,7 +145,7 @@ int build_and_send_16_byte_command(int param_1,void *param_2)
       sVar1 = *(short *)(iVar4 + 0x40);
       puVar9 = (uint32_t *)count_string_bytes(pcVar5);
       pcVar11 = pcVar5;
-      (**(code **)(iVar4 + 0x44))((int)sVar1 + (int)piVar3,uStack_c);
+      (((vtbl_entry*)(iVar4))[8].fn)((int)sVar1 + (int)piVar3,uStack_c);
       iStack_2c = iStack_2c + 0x10;
       iStack_30 = iStack_30 + 0x10;
       iStack_34 = iStack_34 + 0x10;
@@ -172,9 +172,9 @@ int build_and_send_16_byte_command(int param_1,void *param_2)
     iVar4 = *piVar3;
     sVar1 = *(short *)(iVar4 + 0x40);
     iVar10 = count_string_bytes(pcVar5);
-    (**(code **)(iVar4 + 0x44))((int)sVar1 + (int)piVar3,uStack_c,pcVar5,iVar10);
+    (((vtbl_entry*)(iVar4))[8].fn)((int)sVar1 + (int)piVar3,uStack_c,pcVar5,iVar10);
     heap_free_2(iVar8);
-    (**(code **)(*piVar3 + 0x34))((int)*(short *)(*piVar3 + 0x30) + (int)piVar3,uStack_c);
+    (((vtbl_entry*)(*piVar3))[6].fn)((int)((vtbl_entry*)(*piVar3))[6].adj + (int)piVar3,uStack_c);
   }
   heap_free_2((int)pcVar5);
   heap_free_2((int)puVar6);

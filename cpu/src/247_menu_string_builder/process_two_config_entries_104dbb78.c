@@ -24,12 +24,12 @@ uint32_t process_two_config_entries_104dbb78(uint32_t param_1,void *param_2,uint
   int iVar1;
   uint32_t uVar2;
   uintptr_t sp;
-  uint8_t auStack_4c [32];
-  uint8_t auStack_2c [32];
+  cls_105bb0b8 cStack_4c;
+  cls_105bb0b8 cStack_2c;
   uint32_t uStack_c;
   
-  cls_105bb0b8_new((void *)auStack_4c);
-  iVar1 = check_two_conditions_and_return_flag(param_2,auStack_4c,(char *)0x105bab4c/*ROM*/);
+  cls_105bb0b8_new(&cStack_4c);
+  iVar1 = check_two_conditions_and_return_flag(param_2,&cStack_4c,(char *)0x105bab4c/*ROM*/);
   if (iVar1 != 0) {
     uStack_c = 0;
     iVar1 = query_status_and_store_result(param_2,&uStack_c);
@@ -42,16 +42,16 @@ uint32_t process_two_config_entries_104dbb78(uint32_t param_1,void *param_2,uint
       (*(code *)0x104d7ad8/*ROM*/)(uVar2,uStack_c);
       uVar2 = add_offset_to_pointer_104d6862(param_3);
       (*(code *)0x104d7ae0/*ROM*/)(uVar2,1);
-      cls_105bb0b8_new((void *)auStack_2c);
-      iVar1 = check_and_process_two_params(param_2,auStack_2c,(char *)0x105bab54/*ROM*/);
+      cls_105bb0b8_new(&cStack_2c);
+      iVar1 = check_and_process_two_params(param_2,&cStack_2c,(char *)0x105bab54/*ROM*/);
       if (iVar1 != 0) {
-        reset_vtable_and_free_if_flagged_104ddfe6(auStack_2c,2);
-        reset_vtable_and_free_if_flagged_104ddfe6(auStack_4c,2);
+        reset_vtable_and_free_if_flagged_104ddfe6(&cStack_2c,2);
+        reset_vtable_and_free_if_flagged_104ddfe6(&cStack_4c,2);
         return 1;
       }
-      reset_vtable_and_free_if_flagged_104ddfe6(auStack_2c,2);
+      reset_vtable_and_free_if_flagged_104ddfe6(&cStack_2c,2);
     }
   }
-  reset_vtable_and_free_if_flagged_104ddfe6(auStack_4c,2);
+  reset_vtable_and_free_if_flagged_104ddfe6(&cStack_4c,2);
   return 0;
 }

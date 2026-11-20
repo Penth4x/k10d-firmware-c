@@ -13,10 +13,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void write_two_words_to_struct_10381f44(int param_1,uint16_t param_2,uint16_t param_3)
+void write_two_words_to_struct_10381f44(cls_10558e74 *param_1,uint16_t param_2,uint16_t param_3)
 
 {
-  *(uint16_t *)(param_1 + 0x58) = param_2;
-  *(uint16_t *)(param_1 + 0x5a) = param_3;
+  *(uint16_t *)&param_1->field_0x58 = param_2;
+  param_1->field_0x5a = param_3;
   return;
 }

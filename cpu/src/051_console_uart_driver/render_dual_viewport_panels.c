@@ -39,16 +39,16 @@ void render_dual_viewport_panels(void *param_1)
   iVar3 = (int)param_1 + 8;
   iVar4 = menu_item_register(iVar3);
   iVar5 = menu_item_register(iVar3);
-  (**(code **)(*(int *)(iVar4 + 0xc) + 0x2c))
-            (auStack_10,*(short *)(*(int *)(iVar4 + 0xc) + 0x28) + iVar4);
+  (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[5].fn)
+            (auStack_10,((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[5].adj + iVar4);
   iVar6 = 8;
   do {
     iVar7 = iVar6 + -4;
     *(uint32_t *)((int)auStack_54 + iVar6) = *(uint32_t *)((int)auStack_24 + iVar6 + 0x10);
     iVar6 = iVar7;
   } while (iVar7 != 0);
-  (**(code **)(*(int *)(iVar5 + 0xc) + 0x2c))
-            (auStack_10,*(short *)(*(int *)(iVar5 + 0xc) + 0x28) + iVar5);
+  (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[5].fn)
+            (auStack_10,((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[5].adj + iVar5);
   iVar6 = 8;
   do {
     iVar7 = iVar6 + -4;
@@ -70,7 +70,7 @@ void render_dual_viewport_panels(void *param_1)
     *(uint32_t *)(auStack_58 + iVar6 + -4) = *(uint32_t *)((int)auStack_54 + iVar6 + 0x10);
     iVar6 = iVar8;
   } while (iVar8 != 0);
-  (**(code **)(iVar7 + 0x14))(sVar1 + iVar4,auStack_58);
+  (((vtbl_entry*)(iVar7))[2].fn)(sVar1 + iVar4,auStack_58);
   free_heap_block_if_flagged_1045bc54(auStack_58,2);
   iVar4 = *(int *)(iVar5 + 0xc);
   sVar1 = *(short *)(iVar4 + 0x10);
@@ -80,14 +80,14 @@ void render_dual_viewport_panels(void *param_1)
     *(uint32_t *)(auStack_58 + iVar6 + -4) = *(uint32_t *)((int)auStack_54 + iVar6 + 0x18);
     iVar6 = iVar7;
   } while (iVar7 != 0);
-  (**(code **)(iVar4 + 0x14))(sVar1 + iVar5,auStack_58);
+  (((vtbl_entry*)(iVar4))[2].fn)(sVar1 + iVar5,auStack_58);
   free_heap_block_if_flagged_1045bc54(auStack_58,2);
   iVar4 = menu_item_register(iVar3);
   iVar5 = menu_item_register(iVar3);
-  (**(code **)(*(int *)(iVar4 + 0xc) + 0x2c))
-            (auStack_54 + 9,*(short *)(*(int *)(iVar4 + 0xc) + 0x28) + iVar4);
-  (**(code **)(*(int *)(iVar5 + 0xc) + 0x2c))
-            (&uStack_28,*(short *)(*(int *)(iVar5 + 0xc) + 0x28) + iVar5);
+  (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[5].fn)
+            (auStack_54 + 9,((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[5].adj + iVar4);
+  (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[5].fn)
+            (&uStack_28,((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[5].adj + iVar5);
   iVar6 = return_first_word_1045c514(&uStack_28);
   iVar3 = return_first_word_1045c514(auStack_54 + 9);
   alloc_two_word_pair_1045bc2e(auStack_24 + 1,(0x260 - iVar6) - iVar3,0x168);
@@ -101,7 +101,7 @@ void render_dual_viewport_panels(void *param_1)
     *(uint32_t *)(auStack_58 + iVar6 + -4) = *(uint32_t *)((int)auStack_24 + iVar6);
     iVar6 = iVar7;
   } while (iVar7 != 0);
-  (**(code **)(iVar3 + 0x14))(iVar4 + sVar1,auStack_58);
+  (((vtbl_entry*)(iVar3))[2].fn)(iVar4 + sVar1,auStack_58);
   free_heap_block_if_flagged_1045bc54(auStack_58,2);
   iVar3 = *(int *)(iVar5 + 0xc);
   sVar1 = *(short *)(iVar3 + 0x10);
@@ -111,7 +111,7 @@ void render_dual_viewport_panels(void *param_1)
     *(uint32_t *)(auStack_58 + iVar6 + -4) = *(uint32_t *)((int)auStack_24 + iVar6 + 8);
     iVar6 = iVar4;
   } while (iVar4 != 0);
-  (**(code **)(iVar3 + 0x14))(sVar1 + iVar5,auStack_58);
+  (((vtbl_entry*)(iVar3))[2].fn)(sVar1 + iVar5,auStack_58);
   free_heap_block_if_flagged_1045bc54(auStack_58,2);
   free_heap_block_if_flagged_1045bc54(auStack_24 + 3,2);
   free_heap_block_if_flagged_1045bc54(auStack_24 + 1,2);

@@ -11,6 +11,6 @@ void initialize_object_and_call_virtual_slot_2(uint32_t *param_1)
 {
   *param_1 = 0;
   param_1[1] = 0;
-  (**(code **)(param_1[2] + 0x14))((int)*(short *)(param_1[2] + 0x10) + (int)param_1);
+  (((vtbl_entry*)(param_1[2]))[2].fn)((int)((vtbl_entry*)(param_1[2]))[2].adj + (int)param_1);
   return;
 }

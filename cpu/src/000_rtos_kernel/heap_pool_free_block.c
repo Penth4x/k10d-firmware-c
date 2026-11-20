@@ -55,7 +55,7 @@ uint32_t heap_pool_free_block(int param_1,int *param_2)
           else {
             *param_2 = DAT_10011cf8/*ROM*/ + iVar5 + -0x1c;
             param_2[1] = *(int *)(DAT_10011cf8/*ROM*/ + iVar5 + -0x18);
-            **(uint32_t **)(DAT_10011cf8/*ROM*/ + iVar5 + -0x18) = param_2;
+            **(uint32_t **)(DAT_10011cf8/*ROM*/ + iVar5 + -0x18) = (uintptr_t)(param_2);
             *(int **)(DAT_10011cf8/*ROM*/ + iVar5 + -0x18) = param_2;
             param_2[2] = iVar7;
           }

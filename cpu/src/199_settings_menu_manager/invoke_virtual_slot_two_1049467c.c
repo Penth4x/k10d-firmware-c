@@ -17,7 +17,7 @@ uint32_t invoke_virtual_slot_two_1049467c(int param_1, uint32_t param_x1)
     uVar2 = 0;
   }
   else {
-    uVar2 = (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1);
+    uVar2 = (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1);
   }
   return uVar2;
 }

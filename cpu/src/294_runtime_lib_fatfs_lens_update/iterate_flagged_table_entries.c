@@ -26,8 +26,8 @@ void iterate_flagged_table_entries(int param_1)
   uVar1 = 0;
   iVar2 = 0;
   do {
-    if (*(int *)(_DAT_800149fc/*SDRAM*/ + iVar2) == 1) {
-      free_lens_fw_update_context((int *)(_DAT_800149fc/*SDRAM*/ + iVar2) + (uint)*(ushort *)(param_1 + 10) * 2 + 3);
+    if (*(int *)((char*)_DAT_800149fc/*SDRAM*/ + iVar2) == 1) {
+      free_lens_fw_update_context((int *)((char*)_DAT_800149fc/*SDRAM*/ + iVar2) + (uint)*(ushort *)(param_1 + 10) * 2 + 3);
     }
     uVar1 = uVar1 + 1;
     iVar2 = iVar2 + 0x1c;

@@ -15,30 +15,31 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_object_and_reset_vtable_refs(int param_1)
+void release_object_and_reset_vtable_refs(cls_105aadb0 *param_1)
 
 {
   int *piVar1;
   int iVar2;
   
   piVar1 = (int *)get_or_create_sram_object_1047dd7a();
-  (**(code **)(*piVar1 + 0x24))((int)piVar1 + (int)*(short *)(*piVar1 + 0x20));
-  iVar2 = **(int **)(param_1 + 4);
-  (**(code **)(iVar2 + 0x24))((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar2 + 0x20));
-  piVar1 = *(int **)(param_1 + 4);
+  (((vtbl_entry*)(*piVar1))[4].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[4].adj);
+  iVar2 = *(int *)param_1->field_0x4;
+  (((vtbl_entry*)(iVar2))[4].fn)
+            ((void *)((int)param_1->field_0x4 + (int)((vtbl_entry*)(iVar2))[4].adj));
+  piVar1 = (int *)param_1->field_0x4;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+    (((vtbl_entry*)(*piVar1))[1].fn)((void *)((int)*(short *)(*piVar1 + 8) + (int)piVar1),3);
   }
-  *(uint32_t *)(param_1 + 4) = 0;
+  param_1->field_0x4 = (uintptr_t)((void *)0x0);
   piVar1 = (int *)get_or_create_singleton_object_1047d00a();
-  (**(code **)(*piVar1 + 0x24))((int)piVar1 + (int)*(short *)(*piVar1 + 0x20));
+  (((vtbl_entry*)(*piVar1))[4].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[4].adj);
   piVar1 = (int *)get_or_create_singleton_object_1047c910();
-  (**(code **)(*piVar1 + 0x24))((int)piVar1 + (int)*(short *)(*piVar1 + 0x20));
+  (((vtbl_entry*)(*piVar1))[4].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[4].adj);
   piVar1 = (int *)get_or_create_singleton_object_1047a73e();
-  (**(code **)(*piVar1 + 0x24))((int)piVar1 + (int)*(short *)(*piVar1 + 0x20));
+  (((vtbl_entry*)(*piVar1))[4].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[4].adj);
   piVar1 = (int *)get_or_create_sram_object_10478100();
-  (**(code **)(*piVar1 + 0x24))((int)piVar1 + (int)*(short *)(*piVar1 + 0x20));
+  (((vtbl_entry*)(*piVar1))[4].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[4].adj);
   piVar1 = (int *)get_or_create_sram_object_1047dd7a();
-  (**(code **)(*piVar1 + 0x24))((int)piVar1 + (int)*(short *)(*piVar1 + 0x20));
+  (((vtbl_entry*)(*piVar1))[4].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[4].adj);
   return;
 }

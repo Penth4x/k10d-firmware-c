@@ -22,7 +22,7 @@ void initialize_four_config_blocks(void)
 {
   _DAT_00000640 = 0x40;
   _DAT_00000680 = 0x5504400;
-  _DAT_00000600 = (uint32_t)&DAT_10000165/*ROM*/;
+  _DAT_00000600 = (uintptr_t)(&DAT_10000165/*ROM*/);
   _DAT_00000648 = 0x40;
   _DAT_00000688 = 0x5504400;
   _DAT_00000608 = 0x20000165;

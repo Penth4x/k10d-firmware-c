@@ -24,8 +24,7 @@ uint32_t init_struct_and_call_helpers(int param_1)
   *(uint32_t *)(param_1 + 0x1c) = 0;
   *(uint32_t *)(param_1 + 0x20) = 0;
   copy_twenty_byte_struct(*(uint8_t **)(param_1 + 0x14),*(uint **)(param_1 + 0x10));
-  lookup_table_entry_by_index_104e31de(*(uint32_t *)(param_1 + 0xc),*(uint16_t *)(*(int *)(param_1 + 0x14) + 4),
-               (void *)(param_1 + 0x1c),(void *)(param_1 + 0x20));
+  lookup_table_entry_by_index_104e31de((int)(*(uint32_t *)(param_1 + 0xc)),(uint)(*(uint16_t *)(*(int *)(param_1 + 0x14) + 4)), (int *)(param_1 + 0x1c),(uint32_t *)(param_1 + 0x20));
   uVar1 = dispatch_event_via_vtable_104e08ce(param_1);
   return uVar1;
 }

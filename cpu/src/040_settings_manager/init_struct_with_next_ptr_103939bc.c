@@ -14,10 +14,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-int init_struct_with_next_ptr_103939bc(int param_1)
+cls_105629a8 * init_struct_with_next_ptr_103939bc(cls_105629a8 *param_1)
 
 {
-  *(int *)(param_1 + 4) = param_1 + 8;
+  param_1->field_0x4 = (uint32_t)(uintptr_t)&param_1->field_0x8;
   call_two_helpers_on_object_10393a2e((void *)__frv_reg_unset(4));
   return param_1;
 }

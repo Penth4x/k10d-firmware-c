@@ -14,13 +14,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_virtual_then_helper(int param_1)
+void call_virtual_then_helper(cls_105b4ad4 *param_1)
 
 {
   int iVar1;
   
-  iVar1 = *(int *)(*(int *)(param_1 + 0x48) + 0xc);
-  (**(code **)(iVar1 + 0x44))(*(int *)(param_1 + 0x48) + (int)*(short *)(iVar1 + 0x40));
-  invoke_virtual_destroy_on_range(param_1);
+  iVar1 = *(int *)(param_1->field_0x48 + 0xc);
+  (((vtbl_entry*)(iVar1))[8].fn)(param_1->field_0x48 + (int)((vtbl_entry*)(iVar1))[8].adj);
+  invoke_virtual_destroy_on_range((cls_105b48dc *)param_1);
   return;
 }

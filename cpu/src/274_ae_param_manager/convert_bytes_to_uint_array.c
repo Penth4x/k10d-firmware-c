@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t convert_bytes_to_uint_array(int param_1,uint *param_2,int param_3,int param_4)
+uint32_t convert_bytes_to_uint_array(cls_105d677c *param_1,uint *param_2,int param_3,int param_4)
 
 {
   byte bVar1;
@@ -31,14 +31,14 @@ uint32_t convert_bytes_to_uint_array(int param_1,uint *param_2,int param_3,int p
   uint32_t uStack_c;
   
   uStack_c = 0;
-  iVar8 = *(int *)(param_1 + 0x1c) + param_4 + *(int *)(param_1 + 0x24);
-  iVar7 = allocate_buffer_segment(param_1,iVar8,param_3 << 2);
+  iVar8 = param_1->field_0x1c + param_4 + param_1->field_0x24;
+  iVar7 = allocate_buffer_segment((int)(param_1),(uint)(iVar8),(uint)(param_3 << 2));
   if (iVar7 != 0) {
-    pbVar5 = (byte *)(*(int *)(param_1 + 4) + (iVar8 - *(int *)(param_1 + 0xc)));
-    if (*(char *)(param_1 + 0x20) == '\0') {
+    pbVar5 = (byte *)(param_1->field_0x4 + (iVar8 - param_1->field_0xc));
+    if (param_1->field_0x20 == '\0') {
       if (param_3 != 0) {
-        param_3 = param_3 + -3;
-        if (2 < param_3) {
+        iVar7 = param_3 + -3;
+        if (2 < iVar7) {
           do {
             *param_2 = (uint)pbVar5[3] << 0x18 | (uint)pbVar5[2] << 0x10 | (uint)pbVar5[1] << 8 |
                        (uint)*pbVar5;
@@ -51,11 +51,11 @@ uint32_t convert_bytes_to_uint_array(int param_1,uint *param_2,int param_3,int p
             pbVar5 = pbVar5 + 0xc;
             param_2[2] = (uint)*pbVar2 << 0x18 | (uint)*pbVar3 << 0x10 | (uint)*pbVar4 << 8 |
                          (uint)*pbVar6;
-            param_3 = param_3 + -3;
+            iVar7 = iVar7 + -3;
             param_2 = param_2 + 3;
-          } while (-1 < param_3);
+          } while (-1 < iVar7);
         }
-        for (param_3 = param_3 + 2; -1 < param_3; param_3 = param_3 + -1) {
+        for (iVar7 = iVar7 + 2; -1 < iVar7; iVar7 = iVar7 + -1) {
           pbVar2 = pbVar5 + 3;
           pbVar3 = pbVar5 + 2;
           pbVar4 = pbVar5 + 1;
@@ -68,8 +68,8 @@ uint32_t convert_bytes_to_uint_array(int param_1,uint *param_2,int param_3,int p
       }
     }
     else if (param_3 != 0) {
-      param_3 = param_3 + -3;
-      if (2 < param_3) {
+      iVar7 = param_3 + -3;
+      if (2 < iVar7) {
         do {
           *param_2 = (uint)*pbVar5 << 0x18 | (uint)pbVar5[1] << 0x10 | (uint)pbVar5[2] << 8 |
                      (uint)pbVar5[3];
@@ -82,11 +82,11 @@ uint32_t convert_bytes_to_uint_array(int param_1,uint *param_2,int param_3,int p
           pbVar5 = pbVar5 + 0xc;
           param_2[2] = (uint)*pbVar6 << 0x18 | (uint)*pbVar2 << 0x10 | (uint)*pbVar3 << 8 |
                        (uint)*pbVar4;
-          param_3 = param_3 + -3;
+          iVar7 = iVar7 + -3;
           param_2 = param_2 + 3;
-        } while (-1 < param_3);
+        } while (-1 < iVar7);
       }
-      for (param_3 = param_3 + 2; -1 < param_3; param_3 = param_3 + -1) {
+      for (iVar7 = iVar7 + 2; -1 < iVar7; iVar7 = iVar7 + -1) {
         bVar1 = *pbVar5;
         pbVar2 = pbVar5 + 1;
         pbVar3 = pbVar5 + 2;

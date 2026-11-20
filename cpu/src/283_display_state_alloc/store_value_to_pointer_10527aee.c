@@ -6,9 +6,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void store_value_to_pointer_10527aee(uint32_t *param_1,uint32_t param_2)
+void store_value_to_pointer_10527aee(cls_105f9250 *param_1,uint32_t param_2)
 
 {
-  *param_1 = param_2;
+  param_1->field_0x0 = param_2;
   return;
 }

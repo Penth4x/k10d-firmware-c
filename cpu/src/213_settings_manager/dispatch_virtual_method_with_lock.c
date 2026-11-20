@@ -26,8 +26,8 @@ int dispatch_virtual_method_with_lock(int *param_1,void *param_2,uint32_t param_
   if (iVar1 == 0) {
     call_subroutine_on_field_16_104ea70a((void *)param_1[1]);
     iVar2 = *(int *)(*param_1 + 4);
-    iVar2 = (**(code **)(iVar2 + 0x3c))
-                      (*param_1 + (int)*(short *)(iVar2 + 0x38),param_3,param_4,param_2);
+    iVar2 = (((vtbl_entry*)(iVar2))[7].fn)
+                      (*param_1 + (int)((vtbl_entry*)(iVar2))[7].adj,param_3,param_4,param_2);
     if (iVar2 == 0) {
       iVar1 = 10;
     }

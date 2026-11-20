@@ -17,6 +17,6 @@
 void call_helper_with_sram_address_10435b0a(void)
 
 {
-  collect_four_boolean_flags(0x8001e2e0/*SDRAM*/,(uint *)__frv_reg_unset(5));
+  collect_four_boolean_flags((void *)(0x8001e2e0/*SDRAM*/),(uint *)__frv_reg_unset(5));
   return;
 }

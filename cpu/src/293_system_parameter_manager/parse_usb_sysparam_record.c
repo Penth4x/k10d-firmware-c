@@ -34,7 +34,7 @@ void parse_usb_sysparam_record(void *param_1,int *param_2,int param_3)
     uVar2 = (uint)*(byte *)((int)pvVar3 + 0xe);
     param_2[3] = uVar2;
     if ((uVar1 == 0x43425355) && (uVar2 < 0x11)) {
-      copy_bytes_aligned((void *)param_2[2],(void *)((int)pvVar3 + 0xf),uVar2,0);
+      copy_bytes_aligned((uint8_t *)(param_2[2]),(uint8_t *)((int)pvVar3 + 0xf),(uint)(uVar2),(uint)(0));
       uVar1 = read_little_endian_word_104acb5e((void *)((int)pvVar3 + 4),4);
       uVar2 = read_little_endian_word_104acb5e((void *)((int)pvVar3 + 8),4);
       param_2[4] = uVar2;

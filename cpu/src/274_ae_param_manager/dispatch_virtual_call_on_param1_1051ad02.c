@@ -26,30 +26,30 @@ uint32_t dispatch_virtual_call_on_param1_1051ad02(int param_1,int param_2,uint32
   int iVar4;
   int iVar5;
   
-  iVar1 = find_entry_by_ushort_key(param_3,0x8769);
+  iVar1 = (uint32_t)(find_entry_by_ushort_key(param_3,0x8769));
   uVar3 = 0;
   if (iVar1 != 0) {
     uVar2 = read_array_element_by_index(iVar1,0);
-    iVar1 = find_entry_by_ushort_key(uVar2,0x927c);
+    iVar1 = (uint32_t)(find_entry_by_ushort_key(uVar2,0x927c));
     if (iVar1 != 0) {
       iVar5 = 0x48;
       if (*(int *)(param_1 + 0x54) != -1) {
         iVar5 = 0x44;
       }
       iVar4 = **(int **)(iVar5 + param_1);
-      iVar1 = (**(code **)(iVar4 + 0x14))
-                        ((int)*(short *)(iVar4 + 0x10) + (int)*(int **)(iVar5 + param_1),
+      iVar1 = (((vtbl_entry*)(iVar4))[2].fn)
+                        ((int)((vtbl_entry*)(iVar4))[2].adj + (int)*(int **)(iVar5 + param_1),
                          *(uint32_t *)(iVar1 + 8),param_1 + 0x14);
       if (iVar1 != 0) {
         *(int *)(param_2 + 0xc) = iVar1;
         iVar5 = **(int **)(param_1 + 0x4c);
-        uVar3 = (**(code **)(iVar5 + 0x14))
-                          ((int)*(int **)(param_1 + 0x4c) + (int)*(short *)(iVar5 + 0x10),iVar1,
+        uVar3 = (((vtbl_entry*)(iVar5))[2].fn)
+                          ((int)*(int **)(param_1 + 0x4c) + (int)((vtbl_entry*)(iVar5))[2].adj,iVar1,
                            *(uint32_t *)(param_1 + 4));
         if (*(int *)(*(int *)(param_1 + 4) + 0x1b0) != 0) {
           iVar5 = **(int **)(param_1 + 0x50);
-          uVar3 = (**(code **)(iVar5 + 0x14))
-                            ((int)*(int **)(param_1 + 0x50) + (int)*(short *)(iVar5 + 0x10),iVar1);
+          uVar3 = (((vtbl_entry*)(iVar5))[2].fn)
+                            ((int)*(int **)(param_1 + 0x50) + (int)((vtbl_entry*)(iVar5))[2].adj,iVar1);
         }
       }
     }

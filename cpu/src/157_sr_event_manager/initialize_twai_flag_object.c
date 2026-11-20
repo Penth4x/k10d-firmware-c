@@ -19,7 +19,7 @@ void initialize_twai_flag_object(int param_1)
 
 {
   eventflag_clr_flg((uint32_t *)(param_1 + 0x44),1);
-  send_cpucom_command_sequence_10462982(*(uint32_t *)(param_1 + 0x34),param_1 + 4);
+  send_cpucom_command_sequence_10462982((void *)(*(uint32_t *)(param_1 + 0x34)),(void *)(param_1 + 4));
   twai_flg_obj((uint32_t *)(param_1 + 0x44),1,(void *)0x0,_DAT_105a2af0/*ROM*/);
   return;
 }

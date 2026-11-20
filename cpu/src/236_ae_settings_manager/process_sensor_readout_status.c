@@ -51,7 +51,7 @@ int process_sensor_readout_status(int param_1)
       call_helper_with_offset_arg_1052d62e(*(uint32_t *)(param_1 + 0x1e0));
       iVar1 = (*(code *)0x1052d61c/*ROM*/)(*(uint32_t *)(param_1 + 0x1e0));
       uVar3 = (*(code *)0x104c287e/*ROM*/)(iVar2,3);
-      iVar4 = init_buffer_with_pool_alloc((void *)iVar1,uVar3);
+      iVar4 = init_buffer_with_pool_alloc((int *)(iVar1),(int)(uVar3));
       if (iVar4 == 0) {
         uVar3 = 3;
         if (*(int *)(iVar1 + 0x10) != 2) {
@@ -60,7 +60,7 @@ int process_sensor_readout_status(int param_1)
         *(uint32_t *)(param_1 + 0x214) = uVar3;
         return 0;
       }
-      eventflag_clr_flg((void *)(param_1 + 0x34),0xffffffff);
+      eventflag_clr_flg((uint32_t *)(param_1 + 0x34),(uint)(0xffffffff));
       iVar4 = *(int *)(param_1 + 0x48);
       uVar5 = get_aligned_next_pointer(iVar1);
       uVar3 = (*(code *)0x104bcd52/*ROM*/)(iVar1);

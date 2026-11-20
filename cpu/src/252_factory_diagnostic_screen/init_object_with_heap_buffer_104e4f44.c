@@ -37,7 +37,7 @@ void init_object_with_heap_buffer_104e4f44(void *param_1)
     iVar1 = 0;
   }
   else {
-    allocate_and_zero_struct_104e43a4(iVar1);
+    allocate_and_zero_struct_104e43a4((uint32_t *)(iVar1));
   }
   *(int *)((int)param_1 + 0x74) = iVar1;
   (*(code *)0x104e4422/*ROM*/)

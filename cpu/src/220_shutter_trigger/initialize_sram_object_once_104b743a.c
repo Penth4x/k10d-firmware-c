@@ -18,8 +18,8 @@ uint32_t initialize_sram_object_once_104b743a(void)
 {
   if (iRam80049e34 == 0) {
     iRam80049e34 = 1;
-    cls_105b8a04_new((void*)0x800495c0/*SDRAM*/);
-    prepend_to_singly_linked_list((void*)0x80010778/*SDRAM*/);
+    cls_105b8a04_new((cls_105b8a04 *)0x800495c0/*SDRAM*/);
+    prepend_to_singly_linked_list((uint32_t *)(0x80010778/*SDRAM*/));
   }
   return 0x800495c0/*SDRAM*/;
 }

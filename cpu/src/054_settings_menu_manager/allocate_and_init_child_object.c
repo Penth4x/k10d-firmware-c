@@ -17,19 +17,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-void allocate_and_init_child_object(int param_1)
+void allocate_and_init_child_object(cls_10594e04 *param_1)
 
 {
-  int *piVar1;
+  cls_10594c54 *pcVar1;
   
-  piVar1 = (int *)heap_alloc((void *)0x6c);
-  if (piVar1 == (int *)0x0) {
-    piVar1 = (int *)0x0;
+  pcVar1 = (cls_10594c54 *)heap_alloc((void *)0x6c);
+  if (pcVar1 == (cls_10594c54 *)0x0) {
+    pcVar1 = (cls_10594c54 *)0x0;
   }
   else {
-    cls_10594c54_new(piVar1);
+    cls_10594c54_new(pcVar1);
   }
-  *(int **)(param_1 + 4) = piVar1;
-  (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,0);
+  param_1->field_0x4 = (uintptr_t)(pcVar1);
+  (((vtbl_entry*)(pcVar1->field_0x0))[2].fn)
+            ((int)&pcVar1->field_0x0 + (int)((vtbl_entry*)(pcVar1->field_0x0))[2].adj,0);
   return;
 }

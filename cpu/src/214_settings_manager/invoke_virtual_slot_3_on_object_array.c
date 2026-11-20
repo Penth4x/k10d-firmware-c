@@ -17,48 +17,48 @@ void invoke_virtual_slot_3_on_object_array(int *param_1, uint32_t param_x1)
   do {
     iVar1 = uVar2 * 4;
     iVar3 = **(int **)(*param_1 + iVar1);
-    (**(code **)(iVar3 + 0x2c))((int)*(int **)(*param_1 + iVar1) + (int)*(short *)(iVar3 + 0x28),0);
+    (((vtbl_entry*)(iVar3))[5].fn)((int)*(int **)(*param_1 + iVar1) + (int)((vtbl_entry*)(iVar3))[5].adj,0);
     iVar3 = **(int **)(param_1[1] + iVar1);
     uVar2 = uVar2 + 1 & 0xff;
-    (**(code **)(iVar3 + 0x2c))
-              ((int)*(int **)(param_1[1] + iVar1) + (int)*(short *)(iVar3 + 0x28),0);
+    (((vtbl_entry*)(iVar3))[5].fn)
+              ((int)*(int **)(param_1[1] + iVar1) + (int)((vtbl_entry*)(iVar3))[5].adj,0);
     iVar3 = **(int **)(*param_1 + iVar1);
-    (**(code **)(iVar3 + 0x1c))((int)*(int **)(*param_1 + iVar1) + (int)*(short *)(iVar3 + 0x18),0);
+    (((vtbl_entry*)(iVar3))[3].fn)((int)*(int **)(*param_1 + iVar1) + (int)((vtbl_entry*)(iVar3))[3].adj,0);
     iVar3 = **(int **)(param_1[1] + iVar1);
-    (**(code **)(iVar3 + 0x1c))
-              ((int)*(int **)(param_1[1] + iVar1) + (int)*(short *)(iVar3 + 0x18),0);
+    (((vtbl_entry*)(iVar3))[3].fn)
+              ((int)*(int **)(param_1[1] + iVar1) + (int)((vtbl_entry*)(iVar3))[3].adj,0);
   } while (uVar2 < 2);
   uVar2 = 0;
   do {
     iVar1 = uVar2 * 4;
     iVar3 = **(int **)(param_1[2] + iVar1);
-    (**(code **)(iVar3 + 0x1c))
-              ((int)*(int **)(param_1[2] + iVar1) + (int)*(short *)(iVar3 + 0x18),0);
+    (((vtbl_entry*)(iVar3))[3].fn)
+              ((int)*(int **)(param_1[2] + iVar1) + (int)((vtbl_entry*)(iVar3))[3].adj,0);
     iVar3 = **(int **)(param_1[3] + iVar1);
     uVar2 = uVar2 + 1 & 0xff;
-    (**(code **)(iVar3 + 0x1c))
-              ((int)*(int **)(param_1[3] + iVar1) + (int)*(short *)(iVar3 + 0x18),0);
+    (((vtbl_entry*)(iVar3))[3].fn)
+              ((int)*(int **)(param_1[3] + iVar1) + (int)((vtbl_entry*)(iVar3))[3].adj,0);
     iVar3 = **(int **)(param_1[4] + iVar1);
-    (**(code **)(iVar3 + 0x1c))
-              ((int)*(int **)(param_1[4] + iVar1) + (int)*(short *)(iVar3 + 0x18),0);
+    (((vtbl_entry*)(iVar3))[3].fn)
+              ((int)*(int **)(param_1[4] + iVar1) + (int)((vtbl_entry*)(iVar3))[3].adj,0);
     iVar3 = **(int **)(param_1[0xd] + iVar1);
-    (**(code **)(iVar3 + 0x1c))
-              ((int)*(int **)(param_1[0xd] + iVar1) + (int)*(short *)(iVar3 + 0x18),0);
+    (((vtbl_entry*)(iVar3))[3].fn)
+              ((int)*(int **)(param_1[0xd] + iVar1) + (int)((vtbl_entry*)(iVar3))[3].adj,0);
   } while (uVar2 < 2);
   iVar1 = **(int **)param_1[5];
-  (**(code **)(iVar1 + 0x1c))((int)*(int **)param_1[5] + (int)*(short *)(iVar1 + 0x18),0);
+  (((vtbl_entry*)(iVar1))[3].fn)((int)*(int **)param_1[5] + (int)((vtbl_entry*)(iVar1))[3].adj,0);
   iVar1 = **(int **)(param_1[5] + 4);
-  (**(code **)(iVar1 + 0x1c))((int)*(int **)(param_1[5] + 4) + (int)*(short *)(iVar1 + 0x18),0);
+  (((vtbl_entry*)(iVar1))[3].fn)((int)*(int **)(param_1[5] + 4) + (int)((vtbl_entry*)(iVar1))[3].adj,0);
   iVar1 = **(int **)(param_1[5] + 8);
-  (**(code **)(iVar1 + 0x1c))((int)*(int **)(param_1[5] + 8) + (int)*(short *)(iVar1 + 0x18),0);
+  (((vtbl_entry*)(iVar1))[3].fn)((int)*(int **)(param_1[5] + 8) + (int)((vtbl_entry*)(iVar1))[3].adj,0);
   iVar1 = *(int *)param_1[0xf];
-  (**(code **)(iVar1 + 0x14))(param_1[0xf] + (int)*(short *)(iVar1 + 0x10));
+  (((vtbl_entry*)(iVar1))[2].fn)(param_1[0xf] + (int)((vtbl_entry*)(iVar1))[2].adj);
   iVar1 = *(int *)param_1[0x10];
-  (**(code **)(iVar1 + 0x14))(param_1[0x10] + (int)*(short *)(iVar1 + 0x10));
+  (((vtbl_entry*)(iVar1))[2].fn)(param_1[0x10] + (int)((vtbl_entry*)(iVar1))[2].adj);
   iVar1 = *(int *)param_1[0x11];
-  (**(code **)(iVar1 + 0x14))(param_1[0x11] + (int)*(short *)(iVar1 + 0x10));
+  (((vtbl_entry*)(iVar1))[2].fn)(param_1[0x11] + (int)((vtbl_entry*)(iVar1))[2].adj);
   (*(code *)0x104b423a/*ROM*/)(param_1[8]);
   iVar1 = *(int *)param_1[0x12];
-  (**(code **)(iVar1 + 0x1c))(param_1[0x12] + (int)*(short *)(iVar1 + 0x18),0);
+  (((vtbl_entry*)(iVar1))[3].fn)(param_1[0x12] + (int)((vtbl_entry*)(iVar1))[3].adj,0);
   return;
 }

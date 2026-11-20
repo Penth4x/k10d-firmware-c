@@ -34,7 +34,7 @@ void dispatch_state_change_event_103a9c3e(void *param_1)
   uVar1 = get_setting_by_mode_flag_104f07f4(*(int *)((int)param_1 + 0x28));
   iVar6 = (int)param_1 + 8;
   iVar2 = menu_item_register(iVar6);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),0);
   switch(uVar1) {
   case 0:
     break;
@@ -69,13 +69,13 @@ void dispatch_state_change_event_103a9c3e(void *param_1)
     glyph_draw(pvVar5,pbVar4);
   }
   iVar2 = menu_item_register(iVar6);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   read_setting_by_index(*(int *)((int)param_1 + 0x28),uVar1);
   if (((extraout_r4 != 7) || (iVar2 = get_setting_by_index_and_mode(*(int *)((int)param_1 + 0x28),uVar1), iVar2 != 7)
       ) && ((iVar2 = check_setting_0xbb_is_one(*(uint32_t *)((int)param_1 + 0x28)), iVar2 != 0 ||
             (iVar2 = get_setting_by_mode_flag_104f07f4(*(int *)((int)param_1 + 0x28)), iVar2 != 0)))) {
     iVar2 = menu_item_register(iVar6);
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   }
   return;
 }

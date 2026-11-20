@@ -22,7 +22,7 @@ void clear_struct_and_call_four_helpers(char *param_1)
     release_object_buffer(*(uint32_t *)(param_1 + 0x74));
     release_pointer_at_offset_0x2c(*(uint32_t *)(param_1 + 0x74));
     release_struct_resources(*(uint32_t *)(param_1 + 0x74));
-    release_pool_block_if_present(*(uint32_t *)(param_1 + 0x74),(void *)(*(uint32_t *)(param_1 + 0x40)));
+    release_pool_block_if_present((int)(*(uint32_t *)(param_1 + 0x74)),(void *)(*(uint32_t *)(param_1 + 0x40)));
     param_1[0x40] = '\0';
     param_1[0x41] = '\0';
     param_1[0x42] = '\0';

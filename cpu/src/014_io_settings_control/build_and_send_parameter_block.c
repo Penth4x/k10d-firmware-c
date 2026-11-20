@@ -37,7 +37,7 @@ void build_and_send_parameter_block(int param_1)
   dispatch_virtual_slot_two_10382654(iVar4,0);
   register_two_menu_items_10382b02(iVar4,_DAT_80015d3c/*SDRAM*/,_DAT_80015d3e/*SDRAM*/);
   puVar3 = (uint32_t *)(param_1 + 0x3c);
-  uVar2 = dispatch_by_mode_field(puVar3);
+  uVar2 = dispatch_by_mode_field_104bb922(puVar3);
   dispatch_two_object_virtual_calls(iVar4,uVar2,*(uint8_t *)(param_1 + 0x2b1));
   uVar2 = dispatch_on_mode_field_104bb9c2(puVar3);
   dispatch_virtual_command(iVar4,uVar2,*(uint8_t *)(param_1 + 0x2b3));
@@ -50,7 +50,7 @@ void build_and_send_parameter_block(int param_1)
   (*(code *)0x104bbbc2/*ROM*/)(auStack_38,puVar3);
   compute_two_16bit_deltas(auStack_30,puVar3);
   compute_signed_16bit_deltas(auStack_28,(int)puVar3);
-  *puVar5 = auStack_28;
+  *puVar5 = (uintptr_t)(auStack_28);
   configure_four_region_objects(iVar4,(uint)bVar1,auStack_38,auStack_30,(uint32_t *)*puVar5);
   free_heap_if_flagged_1045c402(auStack_28,2);
   free_heap_block_if_flagged_1045bc54(auStack_30,2);

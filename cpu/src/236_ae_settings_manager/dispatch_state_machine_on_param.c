@@ -24,7 +24,7 @@ void dispatch_state_machine_on_param(int param_1)
   
   switch(*(uint32_t *)(param_1 + 0x88)) {
   case 0:
-    store_byte_to_pointer_1051e4aa(*(uint32_t *)(param_1 + 0x8c),*(uint8_t *)(*(int *)(param_1 + 0x48) + 0x8a8));
+    store_byte_to_pointer_1051e4aa((uint8_t *)(*(uint32_t *)(param_1 + 0x8c)),(uint8_t)(*(uint8_t *)(*(int *)(param_1 + 0x48) + 0x8a8)));
     write_byte_at_offset_one(*(int *)(param_1 + 0x8c),*(uint8_t *)(*(int *)(param_1 + 0x48) + 0xeb88));
     write_byte_at_offset_four(*(uint32_t *)(param_1 + 0x8c),*(uint8_t *)(*(int *)(param_1 + 0x48) + 0xeb8e))
     ;

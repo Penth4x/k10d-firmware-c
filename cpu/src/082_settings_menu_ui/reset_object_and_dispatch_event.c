@@ -19,7 +19,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void reset_object_and_dispatch_event(int *param_1,uint16_t param_2)
+void reset_object_and_dispatch_event(cls_10596f7c *param_1,uint16_t param_2)
 
 {
   int iVar1;
@@ -28,36 +28,36 @@ void reset_object_and_dispatch_event(int *param_1,uint16_t param_2)
   int iStack_c;
   
   iStack_c = 0;
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  iVar1 = menu_item_register(*param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
-  *(uint16_t *)(param_1 + 3) = param_2;
-  check_mode_transition_validity(param_1,0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  iVar1 = menu_item_register((int)param_1->field_0x0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  param_1->field_0xc = param_2;
+  check_mode_transition_validity(&param_1->field_0x0,0);
   iVar1 = get_or_create_camera_object();
   piVar2 = *(int **)(iVar1 + 4);
-  param_1[0x11] = (int)piVar2;
-  (**(code **)(*piVar2 + 0x9c))
-            ((int)piVar2 + (int)*(short *)(*piVar2 + 0x98),param_1 + 5,param_1[0x10],
-             (int)param_1 + 0x37);
-  *(uint8_t *)((int)param_1 + 0x36) = 1;
-  eventflag_clr_flg(param_1 + 8,0xffffffff);
-  eventflag_wai_flg(param_1 + 8,3,&iStack_c,_DAT_105a2af0/*ROM*/);
+  param_1->field_0x44 = (uintptr_t)(piVar2);
+  (((vtbl_entry*)(*piVar2))[19].fn)
+            ((int)piVar2 + (int)((vtbl_entry*)(*piVar2))[19].adj,&param_1->field_0x14,param_1->field_0x40,
+             &param_1->field_0x37);
+  param_1->field_0x36 = 1;
+  eventflag_clr_flg(&param_1->field_0x20,0xffffffff);
+  eventflag_wai_flg((uint32_t *)&param_1->field_0x20,3,&iStack_c,_DAT_105a2af0/*ROM*/);
   if (iStack_c == 1) {
-    *(uint8_t *)((int)param_1 + 0x36) = 0;
-    check_heap_alloc_success(param_1 + 6,2000);
+    param_1->field_0x36 = 0;
+    check_heap_alloc_success(&param_1->field_0x18,2000);
   }
   else if (iStack_c == 2) {
     iVar1 = get_or_create_singleton_object_1050b118();
@@ -65,12 +65,13 @@ void reset_object_and_dispatch_event(int *param_1,uint16_t param_2)
       check_kernel_call_success_10459fea();
       iVar1 = get_or_create_singleton_object_1050b118();
     }
-    iVar1 = *(int *)param_1[0x11];
-    (**(code **)(iVar1 + 0x94))
-              (param_1[0x11] + (int)*(short *)(iVar1 + 0x90),param_1 + 5,param_1[0x10]);
+    iVar1 = *(int *)param_1->field_0x44;
+    (((vtbl_entry*)(iVar1))[18].fn)
+              ((int)param_1->field_0x44 + (int)((vtbl_entry*)(iVar1))[18].adj,&param_1->field_0x14,
+               param_1->field_0x40);
   }
   else {
-    *(uint8_t *)((int)param_1 + 0x36) = 0;
+    param_1->field_0x36 = 0;
   }
   return;
 }

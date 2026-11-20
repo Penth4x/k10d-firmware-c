@@ -43,13 +43,13 @@ uint32_t allocate_buffer_segment(int param_1,uint param_2,uint param_3)
         bVar1 = false;
       }
       iVar5 = **(int **)(param_1 + 0x14);
-      iVar5 = (**(code **)(iVar5 + 0x34))
-                        ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar5 + 0x30),
+      iVar5 = (((vtbl_entry*)(iVar5))[6].fn)
+                        ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar5))[6].adj,
                          *(uint32_t *)(param_1 + 0x18),param_2,0);
       if ((iVar5 == 0) ||
          (iVar5 = **(int **)(param_1 + 0x14),
-         iVar5 = (**(code **)(iVar5 + 0x24))
-                           ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar5 + 0x20),
+         iVar5 = (((vtbl_entry*)(iVar5))[4].fn)
+                           ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar5))[4].adj,
                             *(uint32_t *)(param_1 + 0x18),iStack_10,iVar3), iVar5 == 0)) {
         *(uint8_t *)(param_1 + 0x21) = 1;
         uVar4 = 0;

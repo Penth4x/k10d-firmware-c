@@ -25,15 +25,15 @@ void dispatch_two_virtual_flags_104b3a5e(int param_1,uint param_2)
     if ((param_2 & 0x40000000) != 0) {
       param_2 = param_2 & 0xbfffffff;
       iVar1 = *(int *)(*(int *)(param_1 + 0x24) + 4);
-      (**(code **)(iVar1 + 0x2c))
-                (*(int *)(param_1 + 0x24) + (int)*(short *)(iVar1 + 0x28),
+      (((vtbl_entry*)(iVar1))[5].fn)
+                (*(int *)(param_1 + 0x24) + (int)((vtbl_entry*)(iVar1))[5].adj,
                  *(uint32_t *)(param_1 + 0x40));
     }
     if ((param_2 & 0x80000000/*SDRAM*/) != 0) {
       param_2 = param_2 & 0x7fffffff;
       invoke_virtual_slot_and_clear_flags(param_1);
       iVar1 = **(int **)(param_1 + 0x48);
-      (**(code **)(iVar1 + 0x14))((int)*(int **)(param_1 + 0x48) + (int)*(short *)(iVar1 + 0x10));
+      (((vtbl_entry*)(iVar1))[2].fn)((int)*(int **)(param_1 + 0x48) + (int)((vtbl_entry*)(iVar1))[2].adj);
     }
   }
   return;

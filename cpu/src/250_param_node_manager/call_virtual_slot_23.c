@@ -6,9 +6,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_virtual_slot_23(int *param_1)
+/* WARNING: Struct "cls_105bb314": ignoring overlapping field "field_0x8" */
+
+void call_virtual_slot_23(cls_105bb314 *param_1)
 
 {
-  (**(code **)(*param_1 + 0xec))((int)*(short *)(*param_1 + 0xe8) + (int)param_1);
+  (((vtbl_entry*)(param_1->field_0x0))[29].fn)
+            ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[29].adj);
   return;
 }

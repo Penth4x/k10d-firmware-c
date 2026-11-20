@@ -241,7 +241,7 @@ void compute_exposure_adjustment(int param_1)
       uVar13 = uVar3;
       uStack_8c = uVar4;
     }
-    write_two_words_to_memory((uint32_t *)(param_1 + 0x20),uStack_8c & 0xfffffffe,uVar13 & 0xfffffffe);
+    write_two_words_to_memory((uint32_t *)(param_1 + 0x20),(uint32_t)(uStack_8c & 0xfffffffe),(uint32_t)(uVar13 & 0xfffffffe));
   }
   return;
 }

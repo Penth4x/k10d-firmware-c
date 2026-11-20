@@ -6,14 +6,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_on_three_objects_1036ecfe(int param_1)
+void invoke_virtual_slot_on_three_objects_1036ecfe(cls_10557f3c *param_1)
 
 {
-  (**(code **)(*(int *)(param_1 + 0x30) + 0x44))
-            (param_1 + 0x30 + (int)*(short *)(*(int *)(param_1 + 0x30) + 0x40),0);
-  (**(code **)(*(int *)(param_1 + 0x58) + 0x44))
-            (param_1 + 0x58 + (int)*(short *)(*(int *)(param_1 + 0x58) + 0x40),0);
-  (**(code **)(*(int *)(param_1 + 0x80) + 0x44))
-            (param_1 + 0x80 + (int)*(short *)(*(int *)(param_1 + 0x80) + 0x40),0);
+  (((vtbl_entry*)(param_1->field_0x30))[8].fn)
+            ((int)&param_1->field_0x30 + (int)((vtbl_entry*)(param_1->field_0x30))[8].adj,0);
+  (((vtbl_entry*)(*(int *)&param_1->field_0x58))[8].fn)
+            (&param_1->field_0x58 + ((vtbl_entry*)(*(int *)&param_1->field_0x58))[8].adj,0);
+  (((vtbl_entry*)(*(int *)&param_1->field_0x80))[8].fn)
+            (&param_1->field_0x80 + ((vtbl_entry*)(*(int *)&param_1->field_0x80))[8].adj,0);
   return;
 }

@@ -14,19 +14,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-void release_owned_object_slot_10390f7a(int param_1)
+void release_owned_object_slot_10390f7a(cls_1055a4d4 *param_1)
 
 {
   int *piVar1;
   
-  piVar1 = *(int **)(param_1 + 4);
+  piVar1 = (int *)param_1->field_0x4;
   if (piVar1 != (int *)0x0) {
-    (**(code **)(*piVar1 + 0x24))((int)*(short *)(*piVar1 + 0x20) + (int)piVar1);
-    piVar1 = *(int **)(param_1 + 4);
+    (((vtbl_entry*)(*piVar1))[4].fn)((int)((vtbl_entry*)(*piVar1))[4].adj + (int)piVar1);
+    piVar1 = (int *)param_1->field_0x4;
     if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0xc))((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
+      (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
     }
   }
-  *(uint32_t *)(param_1 + 4) = 0;
+  param_1->field_0x4 = 0;
   return;
 }

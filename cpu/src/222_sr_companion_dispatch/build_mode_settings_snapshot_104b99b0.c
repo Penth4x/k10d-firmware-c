@@ -167,7 +167,7 @@ void build_mode_settings_snapshot_104b99b0(int param_1,void *param_2,int param_3
     iVar3 = check_mode_setting_conflict(param_1,param_2,param_3);
     param_4[0x29] = iVar3 != 0;
     uVar5 = setting_get((int)param_2,0);
-    *puVar11 = (uint32_t)(uintptr_t)(param_4 + 0x2c);
+    *puVar11 = (uintptr_t)(param_4 + 0x2c);
     decode_mode_index_to_flags(param_1,uVar5,param_4 + 0x2a,param_4 + 0x2b,(uint8_t *)*puVar11);
     uVar5 = setting_get((int)param_2,0x51);
     uVar6 = setting_get((int)param_2,0x54);
@@ -333,7 +333,7 @@ void build_mode_settings_snapshot_104b99b0(int param_1,void *param_2,int param_3
     iVar3 = check_mode_setting_conflict(param_1,param_2,param_3);
     param_4[0x29] = iVar3 != 0;
     uVar5 = setting_get((int)param_2,iVar10 + 0x128);
-    *puVar11 = (uint32_t)(uintptr_t)(param_4 + 0x2c);
+    *puVar11 = (uintptr_t)(param_4 + 0x2c);
     decode_mode_index_to_flags(param_1,uVar5,param_4 + 0x2a,param_4 + 0x2b,(uint8_t *)*puVar11);
     uVar5 = setting_get((int)param_2,iVar10 + 0x161);
     uVar6 = setting_get((int)param_2,0x164);

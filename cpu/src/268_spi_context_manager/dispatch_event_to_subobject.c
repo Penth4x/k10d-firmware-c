@@ -16,29 +16,34 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t dispatch_event_to_subobject(int param_1,int param_2,uint32_t param_3)
+/* WARNING: Struct "cls_105d5104": ignoring multiple overlapping fields */
+
+uint32_t dispatch_event_to_subobject(cls_105d5104 *param_1,int param_2,uint32_t param_3)
 
 {
-  int iVar1;
+  int *piVar1;
+  int iVar2;
   
   if (param_2 == 0x40003) {
-    if (*(int *)(param_1 + 0x10) != 0) {
-      set_flg_obj((uint32_t *)(param_1 + 0x1c));
-      iVar1 = **(int **)(param_1 + 0x10);
-      (**(code **)(iVar1 + 0x1c))
-                ((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar1 + 0x18),0x80002,param_3);
+    if (((uint32_t *)&(param_1->field_0x8))[2] != 0) {
+      set_flg_obj(&param_1->field_0x1c);
+      piVar1 = (int *)((uint32_t *)&(param_1->field_0x8))[2];
+      iVar2 = *piVar1;
+      (((vtbl_entry*)(iVar2))[3].fn)
+                ((void *)((int)piVar1 + (int)((vtbl_entry*)(iVar2))[3].adj),0x80002,param_3);
     }
   }
   else if (param_2 < 0x40004) {
-    if ((param_2 == 0x40001) && (*(int *)(param_1 + 0x10) != 0)) {
-      eventflag_clr_flg((int *)(param_1 + 0x1c),3);
-      iVar1 = **(int **)(param_1 + 0x10);
-      (**(code **)(iVar1 + 0x1c))
-                ((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar1 + 0x18),0x80001,param_3);
+    if ((param_2 == 0x40001) && (((uint32_t *)&(param_1->field_0x8))[2] != 0)) {
+      eventflag_clr_flg(&param_1->field_0x1c,3);
+      piVar1 = (int *)((uint32_t *)&(param_1->field_0x8))[2];
+      iVar2 = *piVar1;
+      (((vtbl_entry*)(iVar2))[3].fn)
+                ((void *)((int)piVar1 + (int)((vtbl_entry*)(iVar2))[3].adj),0x80001,param_3);
     }
   }
   else if ((param_2 == 0xa0001) || (param_2 == 0xa0010)) {
-    set_flg_obj((uint32_t *)(param_1 + 0x1c));
+    set_flg_obj(&param_1->field_0x1c);
   }
   return 1;
 }

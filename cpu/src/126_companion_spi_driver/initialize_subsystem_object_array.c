@@ -15,15 +15,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t initialize_subsystem_object_array(void *param_1)
+uint32_t initialize_subsystem_object_array(cls_105a08e0 *param_1)
 
 {
-  void *pvVar1;
-  void *pvVar2;
+  void **ppuVar1;
+  void **ppuVar2;
   uint32_t uVar3;
   uint32_t uVar4;
   void *pvVar5;
-  int iVar6;
+  void *puVar6;
+  cls_105a071c *pcVar7;
+  cls_105a0920 *pcVar8;
+  cls_105a07cc *pcVar9;
+  cls_105a0774 *pcVar10;
+  cls_105a0978 *pcVar11;
+  int iVar12;
   uintptr_t sp;
   uint32_t uStack_28;
   uint32_t uStack_24;
@@ -32,13 +38,13 @@ uint32_t initialize_subsystem_object_array(void *param_1)
   uint32_t uStack_18;
   uint32_t uStack_14;
   uint32_t uStack_10;
-  void *pvStack_c;
+  void **ppuStack_c;
   
   pvVar5 = (void *)get_or_init_sram_buffer_104277bc();
-  pvVar1 = (void *)((int)param_1 + 0x34);
-  forward_three_args_to_helper_10459d64(pvVar1,1,0x1f);
-  pvVar2 = (void *)((int)param_1 + 0x3c);
-  forward_three_args_to_helper_10459d64(pvVar2,1,0x1f);
+  ppuVar1 = (void*)(&param_1->field_0x34);
+  forward_three_args_to_helper_10459d64(ppuVar1,1,0x1f);
+  ppuVar2 = (void*)(&param_1->field_0x3c);
+  forward_three_args_to_helper_10459d64(ppuVar2,1,0x1f);
   initialize_eight_word_struct(&uStack_28);
   uStack_28 = read_table_entry_field(pvVar5,0x47);
   uStack_24 = 0x42;
@@ -47,11 +53,11 @@ uint32_t initialize_subsystem_object_array(void *param_1)
   uStack_18 = 0;
   uStack_14 = 0;
   uStack_10 = 0;
-  pvStack_c = pvVar1;
-  iVar6 = cls_105a0828_new((uint32_t *)0x0,&uStack_28);
-  *(int *)((int)param_1 + 4) = iVar6;
-  iVar6 = *(int *)(*(int *)((int)param_1 + 4) + 4);
-  (**(code **)(iVar6 + 0x14))(*(int *)((int)param_1 + 4) + (int)*(short *)(iVar6 + 0x10),0);
+  ppuStack_c = ppuVar1;
+  puVar6 = (void *)cls_105a0828_new((cls_105a0828 *)0x0,&uStack_28);
+  param_1->field_0x4 = (uint32_t)(puVar6);
+  iVar12 = *(int *)(param_1->field_0x4 + 4);
+  (((vtbl_entry*)(iVar12))[2].fn)(param_1->field_0x4 + ((vtbl_entry*)(iVar12))[2].adj,0);
   uStack_28 = read_table_entry_field(pvVar5,0x48);
   uStack_24 = 0x42;
   uStack_20 = 0x41;
@@ -59,11 +65,11 @@ uint32_t initialize_subsystem_object_array(void *param_1)
   uStack_18 = 1;
   uStack_14 = 1;
   uStack_10 = 1;
-  pvStack_c = pvVar1;
-  iVar6 = cls_105a0828_new((uint32_t *)0x0,&uStack_28);
-  *(int *)((int)param_1 + 8) = iVar6;
-  iVar6 = *(int *)(*(int *)((int)param_1 + 8) + 4);
-  (**(code **)(iVar6 + 0x14))(*(int *)((int)param_1 + 8) + (int)*(short *)(iVar6 + 0x10),0);
+  ppuStack_c = ppuVar1;
+  puVar6 = (void *)cls_105a0828_new((cls_105a0828 *)0x0,&uStack_28);
+  param_1->field_0x8 = (uint32_t)(puVar6);
+  (((vtbl_entry*)(*(int *)(param_1->field_0x8 + 4)))[2].fn)
+            (param_1->field_0x8 + ((vtbl_entry*)(*(int *)(param_1->field_0x8 + 4)))[2].adj,0);
   uStack_28 = read_table_entry_field(pvVar5,0x49);
   uStack_24 = 0x42;
   uStack_20 = 0x41;
@@ -71,11 +77,11 @@ uint32_t initialize_subsystem_object_array(void *param_1)
   uStack_18 = 2;
   uStack_14 = 2;
   uStack_10 = 2;
-  pvStack_c = pvVar1;
-  iVar6 = cls_105a0828_new((uint32_t *)0x0,&uStack_28);
-  *(int *)((int)param_1 + 0xc) = iVar6;
-  iVar6 = *(int *)(*(int *)((int)param_1 + 0xc) + 4);
-  (**(code **)(iVar6 + 0x14))(*(int *)((int)param_1 + 0xc) + (int)*(short *)(iVar6 + 0x10),0);
+  ppuStack_c = ppuVar1;
+  puVar6 = (void *)cls_105a0828_new((cls_105a0828 *)0x0,&uStack_28);
+  param_1->field_0xc = (uint32_t)(puVar6);
+  (((vtbl_entry*)(*(int *)(param_1->field_0xc + 4)))[2].fn)
+            (param_1->field_0xc + ((vtbl_entry*)(*(int *)(param_1->field_0xc + 4)))[2].adj,0);
   uStack_28 = read_table_entry_field(pvVar5,0x4a);
   uStack_24 = 0x42;
   uStack_20 = 0x41;
@@ -83,11 +89,11 @@ uint32_t initialize_subsystem_object_array(void *param_1)
   uStack_18 = 3;
   uStack_14 = 3;
   uStack_10 = 3;
-  pvStack_c = pvVar1;
-  iVar6 = cls_105a0828_new((uint32_t *)0x0,&uStack_28);
-  *(int *)((int)param_1 + 0x10) = iVar6;
-  (**(code **)(*(int *)(iVar6 + 4) + 0x14))
-            (*(int *)((int)param_1 + 0x10) + (int)*(short *)(*(int *)(iVar6 + 4) + 0x10),0);
+  ppuStack_c = ppuVar1;
+  puVar6 = (void *)cls_105a0828_new((cls_105a0828 *)0x0,&uStack_28);
+  param_1->field_0x10 = (uint32_t)(puVar6);
+  (((vtbl_entry*)(*(int *)((char*)puVar6 + 4)))[2].fn)
+            (param_1->field_0x10 + ((vtbl_entry*)(*(int *)((char*)puVar6 + 4)))[2].adj,0);
   uStack_28 = read_table_entry_field(pvVar5,0x4b);
   uStack_24 = 0x42;
   uStack_20 = 0x41;
@@ -95,11 +101,11 @@ uint32_t initialize_subsystem_object_array(void *param_1)
   uStack_1c = 0x40;
   uStack_14 = 4;
   uStack_10 = 4;
-  pvStack_c = pvVar1;
-  iVar6 = cls_105a0828_new((uint32_t *)0x0,&uStack_28);
-  *(int *)((int)param_1 + 0x14) = iVar6;
-  (**(code **)(*(int *)(iVar6 + 4) + 0x14))
-            (*(int *)((int)param_1 + 0x14) + (int)*(short *)(*(int *)(iVar6 + 4) + 0x10),0);
+  ppuStack_c = ppuVar1;
+  puVar6 = (void *)cls_105a0828_new((cls_105a0828 *)0x0,&uStack_28);
+  param_1->field_0x14 = (uint32_t)(puVar6);
+  (((vtbl_entry*)(*(int *)((char*)puVar6 + 4)))[2].fn)
+            (param_1->field_0x14 + ((vtbl_entry*)(*(int *)((char*)puVar6 + 4)))[2].adj,0);
   uStack_28 = read_table_entry_field(pvVar5,0x4c);
   uStack_24 = 0x42;
   uStack_20 = 0x41;
@@ -107,11 +113,11 @@ uint32_t initialize_subsystem_object_array(void *param_1)
   uStack_1c = 0x40;
   uStack_14 = 5;
   uStack_10 = 5;
-  pvStack_c = pvVar1;
-  iVar6 = cls_105a0828_new((uint32_t *)0x0,&uStack_28);
-  *(int *)((int)param_1 + 0x18) = iVar6;
-  (**(code **)(*(int *)(iVar6 + 4) + 0x14))
-            (*(int *)((int)param_1 + 0x18) + (int)*(short *)(*(int *)(iVar6 + 4) + 0x10),0);
+  ppuStack_c = ppuVar1;
+  puVar6 = (void *)cls_105a0828_new((cls_105a0828 *)0x0,&uStack_28);
+  param_1->field_0x18 = (uint32_t)(puVar6);
+  (((vtbl_entry*)(*(int *)((char*)puVar6 + 4)))[2].fn)
+            (param_1->field_0x18 + ((vtbl_entry*)(*(int *)((char*)puVar6 + 4)))[2].adj,0);
   uStack_28 = read_table_entry_field(pvVar5,0x4d);
   uStack_24 = 0x42;
   uStack_20 = 0x41;
@@ -119,11 +125,11 @@ uint32_t initialize_subsystem_object_array(void *param_1)
   uStack_1c = 0x40;
   uStack_14 = 6;
   uStack_10 = 6;
-  pvStack_c = pvVar1;
-  iVar6 = cls_105a0828_new((uint32_t *)0x0,&uStack_28);
-  *(int *)((int)param_1 + 0x1c) = iVar6;
-  (**(code **)(*(int *)(iVar6 + 4) + 0x14))
-            (*(int *)((int)param_1 + 0x1c) + (int)*(short *)(*(int *)(iVar6 + 4) + 0x10),0);
+  ppuStack_c = ppuVar1;
+  puVar6 = (void *)cls_105a0828_new((cls_105a0828 *)0x0,&uStack_28);
+  param_1->field_0x1c = (uint32_t)(puVar6);
+  (((vtbl_entry*)(*(int *)((char*)puVar6 + 4)))[2].fn)
+            (param_1->field_0x1c + ((vtbl_entry*)(*(int *)((char*)puVar6 + 4)))[2].adj,0);
   uStack_28 = read_table_entry_field(pvVar5,0x4e);
   uStack_24 = 0x42;
   uStack_20 = 0x41;
@@ -131,11 +137,11 @@ uint32_t initialize_subsystem_object_array(void *param_1)
   uStack_1c = 0x40;
   uStack_14 = 7;
   uStack_10 = 7;
-  pvStack_c = pvVar1;
-  iVar6 = cls_105a0828_new((uint32_t *)0x0,&uStack_28);
-  *(int *)((int)param_1 + 0x20) = iVar6;
-  (**(code **)(*(int *)(iVar6 + 4) + 0x14))
-            (*(int *)((int)param_1 + 0x20) + (int)*(short *)(*(int *)(iVar6 + 4) + 0x10),0);
+  ppuStack_c = ppuVar1;
+  puVar6 = (void *)cls_105a0828_new((cls_105a0828 *)0x0,&uStack_28);
+  param_1->field_0x20 = (uint32_t)(puVar6);
+  (((vtbl_entry*)(*(int *)((char*)puVar6 + 4)))[2].fn)
+            (param_1->field_0x20 + ((vtbl_entry*)(*(int *)((char*)puVar6 + 4)))[2].adj,0);
   uStack_28 = read_table_entry_field(pvVar5,0x3f);
   uVar3 = 0x3a;
   uVar4 = 0x39;
@@ -145,11 +151,11 @@ uint32_t initialize_subsystem_object_array(void *param_1)
   uStack_10 = 0xe;
   uStack_24 = uVar3;
   uStack_20 = uVar4;
-  pvStack_c = pvVar2;
-  iVar6 = cls_105a0828_new((uint32_t *)0x0,&uStack_28);
-  *(int *)((int)param_1 + 0x24) = iVar6;
-  (**(code **)(*(int *)(iVar6 + 4) + 0x14))
-            (*(int *)((int)param_1 + 0x24) + (int)*(short *)(*(int *)(iVar6 + 4) + 0x10),0);
+  ppuStack_c = ppuVar2;
+  puVar6 = (void *)cls_105a0828_new((cls_105a0828 *)0x0,&uStack_28);
+  param_1->field_0x24 = (uint32_t)(puVar6);
+  (((vtbl_entry*)(*(int *)((char*)puVar6 + 4)))[2].fn)
+            (param_1->field_0x24 + ((vtbl_entry*)(*(int *)((char*)puVar6 + 4)))[2].adj,0);
   uStack_28 = read_table_entry_field(pvVar5,0x40);
   uStack_14 = 9;
   uStack_1c = 0x38;
@@ -157,11 +163,11 @@ uint32_t initialize_subsystem_object_array(void *param_1)
   uStack_10 = 0xf;
   uStack_24 = uVar3;
   uStack_20 = uVar4;
-  pvStack_c = pvVar2;
-  iVar6 = cls_105a0828_new((uint32_t *)0x0,&uStack_28);
-  *(int *)((int)param_1 + 0x28) = iVar6;
-  (**(code **)(*(int *)(iVar6 + 4) + 0x14))
-            (*(int *)((int)param_1 + 0x28) + (int)*(short *)(*(int *)(iVar6 + 4) + 0x10),0);
+  ppuStack_c = ppuVar2;
+  puVar6 = (void *)cls_105a0828_new((cls_105a0828 *)0x0,&uStack_28);
+  param_1->field_0x28 = (uint32_t)(puVar6);
+  (((vtbl_entry*)(*(int *)((char*)puVar6 + 4)))[2].fn)
+            (param_1->field_0x28 + ((vtbl_entry*)(*(int *)((char*)puVar6 + 4)))[2].adj,0);
   uStack_28 = 0;
   uStack_14 = 10;
   uStack_1c = 0x38;
@@ -169,11 +175,11 @@ uint32_t initialize_subsystem_object_array(void *param_1)
   uStack_18 = 2;
   uStack_24 = uVar3;
   uStack_20 = uVar4;
-  pvStack_c = pvVar2;
-  iVar6 = cls_105a0828_new((uint32_t *)0x0,&uStack_28);
-  *(int *)((int)param_1 + 0x2c) = iVar6;
-  (**(code **)(*(int *)(iVar6 + 4) + 0x14))
-            (*(int *)((int)param_1 + 0x2c) + (int)*(short *)(*(int *)(iVar6 + 4) + 0x10),0);
+  ppuStack_c = ppuVar2;
+  puVar6 = (void *)cls_105a0828_new((cls_105a0828 *)0x0,&uStack_28);
+  param_1->field_0x2c = (uint32_t)(puVar6);
+  (((vtbl_entry*)(*(int *)((char*)puVar6 + 4)))[2].fn)
+            (param_1->field_0x2c + ((vtbl_entry*)(*(int *)((char*)puVar6 + 4)))[2].adj,0);
   uStack_28 = 0;
   uStack_14 = 0xb;
   uStack_1c = 0x38;
@@ -181,72 +187,71 @@ uint32_t initialize_subsystem_object_array(void *param_1)
   uStack_18 = 3;
   uStack_24 = uVar3;
   uStack_20 = uVar4;
-  pvStack_c = pvVar2;
-  iVar6 = cls_105a0828_new((uint32_t *)0x0,&uStack_28);
-  *(int *)((int)param_1 + 0x30) = iVar6;
-  (**(code **)(*(int *)(iVar6 + 4) + 0x14))
-            (*(int *)((int)param_1 + 0x30) + (int)*(short *)(*(int *)(iVar6 + 4) + 0x10),0);
-  iVar6 = (int)heap_alloc((void *)0x10c);
-  if (iVar6 == 0) {
-    iVar6 = 0;
+  ppuStack_c = ppuVar2;
+  puVar6 = (void *)cls_105a0828_new((cls_105a0828 *)0x0,&uStack_28);
+  param_1->field_0x30 = (uint32_t)(puVar6);
+  (((vtbl_entry*)(*(int *)((char*)puVar6 + 4)))[2].fn)
+            (param_1->field_0x30 + ((vtbl_entry*)(*(int *)((char*)puVar6 + 4)))[2].adj,0);
+  pcVar7 = (cls_105a071c *)heap_alloc((void *)0x10c);
+  if (pcVar7 == (cls_105a071c *)0x0) {
+    pcVar7 = (cls_105a071c *)0x0;
   }
   else {
-    cls_105a071c_new((void *)iVar6);
+    cls_105a071c_new(pcVar7);
   }
-  *(int *)((int)param_1 + 0x44) = iVar6;
-  set_value_if_valid((void *)iVar6,0xc);
-  call_helper_with_offset_arg_1042778a(*(int *)((int)param_1 + 0x44),0x25);
-  iVar6 = *(int *)(*(int *)((int)param_1 + 0x44) + 4);
-  (**(code **)(iVar6 + 0x14))(*(int *)((int)param_1 + 0x44) + (int)*(short *)(iVar6 + 0x10),0);
-  iVar6 = (int)heap_alloc((void *)0x114);
-  if (iVar6 == 0) {
-    iVar6 = 0;
-  }
-  else {
-    cls_105a0920_new((void *)iVar6);
-  }
-  *(int *)((int)param_1 + 0x48) = iVar6;
-  set_value_if_valid((void *)iVar6,0xd);
-  call_helper_with_offset_arg_1042778a(*(int *)((int)param_1 + 0x48),0x24);
-  iVar6 = *(int *)(*(int *)((int)param_1 + 0x48) + 4);
-  (**(code **)(iVar6 + 0x14))(*(int *)((int)param_1 + 0x48) + (int)*(short *)(iVar6 + 0x10),0);
-  iVar6 = (int)heap_alloc((void *)0x10c);
-  if (iVar6 == 0) {
-    iVar6 = 0;
+  param_1->field_0x44 = (uint32_t)(pcVar7);
+  set_value_if_valid((void*)(pcVar7),0xc);
+  call_helper_with_offset_arg_1042778a(param_1->field_0x44,0x25);
+  iVar12 = *(int *)(param_1->field_0x44 + 4);
+  (((vtbl_entry*)(iVar12))[2].fn)(param_1->field_0x44 + (int)((vtbl_entry*)(iVar12))[2].adj,0);
+  pcVar8 = (cls_105a0920 *)heap_alloc((void *)0x114);
+  if (pcVar8 == (cls_105a0920 *)0x0) {
+    pcVar8 = (cls_105a0920 *)0x0;
   }
   else {
-    cls_105a07cc_new((void *)iVar6);
+    cls_105a0920_new(pcVar8);
   }
-  *(int *)((int)param_1 + 0x4c) = iVar6;
-  set_value_if_valid((void *)iVar6,0xe);
-  call_helper_with_offset_arg_1042778a(*(int *)((int)param_1 + 0x4c),0x20);
-  iVar6 = *(int *)(*(int *)((int)param_1 + 0x4c) + 4);
-  (**(code **)(iVar6 + 0x14))(*(int *)((int)param_1 + 0x4c) + (int)*(short *)(iVar6 + 0x10),0);
-  iVar6 = (int)heap_alloc((void *)0x10c);
-  if (iVar6 == 0) {
-    iVar6 = 0;
-  }
-  else {
-    cls_105a0774_new((void *)iVar6);
-  }
-  *(int *)((int)param_1 + 0x50) = iVar6;
-  set_value_if_valid((void *)iVar6,0xf);
-  call_helper_with_offset_arg_1042778a(*(int *)((int)param_1 + 0x50),0x23);
-  iVar6 = *(int *)(*(int *)((int)param_1 + 0x50) + 4);
-  (**(code **)(iVar6 + 0x14))(*(int *)((int)param_1 + 0x50) + (int)*(short *)(iVar6 + 0x10),0);
-  iVar6 = (int)heap_alloc((void *)0x10c);
-  if (iVar6 == 0) {
-    iVar6 = 0;
+  param_1->field_0x48 = (uint32_t)(pcVar8);
+  set_value_if_valid((void*)(pcVar8),0xd);
+  call_helper_with_offset_arg_1042778a(param_1->field_0x48,0x24);
+  iVar12 = *(int *)(param_1->field_0x48 + 4);
+  (((vtbl_entry*)(iVar12))[2].fn)(param_1->field_0x48 + (int)((vtbl_entry*)(iVar12))[2].adj,0);
+  pcVar9 = (cls_105a07cc *)heap_alloc((void *)0x10c);
+  if (pcVar9 == (cls_105a07cc *)0x0) {
+    pcVar9 = (cls_105a07cc *)0x0;
   }
   else {
-    cls_105a0978_new((void *)iVar6);
+    cls_105a07cc_new(pcVar9);
   }
-  *(int *)((int)param_1 + 0x54) = iVar6;
-  set_value_if_valid((void *)iVar6,0x10);
-  call_helper_with_offset_arg_1042778a(*(int *)((int)param_1 + 0x54),0x22);
-  iVar6 = *(int *)(*(int *)((int)param_1 + 0x54) + 4);
-  uVar3 = (**(code **)(iVar6 + 0x14))
-                    (*(int *)((int)param_1 + 0x54) + (int)*(short *)(iVar6 + 0x10),0);
+  param_1->field_0x4c = (uint32_t)(pcVar9);
+  set_value_if_valid((void*)(pcVar9),0xe);
+  call_helper_with_offset_arg_1042778a(param_1->field_0x4c,0x20);
+  iVar12 = *(int *)(param_1->field_0x4c + 4);
+  (((vtbl_entry*)(iVar12))[2].fn)(param_1->field_0x4c + (int)((vtbl_entry*)(iVar12))[2].adj,0);
+  pcVar10 = (cls_105a0774 *)heap_alloc((void *)0x10c);
+  if (pcVar10 == (cls_105a0774 *)0x0) {
+    pcVar10 = (cls_105a0774 *)0x0;
+  }
+  else {
+    cls_105a0774_new(pcVar10);
+  }
+  param_1->field_0x50 = (uint32_t)(pcVar10);
+  set_value_if_valid((void*)(pcVar10),0xf);
+  call_helper_with_offset_arg_1042778a(param_1->field_0x50,0x23);
+  iVar12 = *(int *)(param_1->field_0x50 + 4);
+  (((vtbl_entry*)(iVar12))[2].fn)(param_1->field_0x50 + (int)((vtbl_entry*)(iVar12))[2].adj,0);
+  pcVar11 = (cls_105a0978 *)heap_alloc((void *)0x10c);
+  if (pcVar11 == (cls_105a0978 *)0x0) {
+    pcVar11 = (cls_105a0978 *)0x0;
+  }
+  else {
+    cls_105a0978_new(pcVar11);
+  }
+  param_1->field_0x54 = (uint32_t)(pcVar11);
+  set_value_if_valid((void*)(pcVar11),0x10);
+  call_helper_with_offset_arg_1042778a(param_1->field_0x54,0x22);
+  iVar12 = *(int *)(param_1->field_0x54 + 4);
+  uVar3 = (((vtbl_entry*)(iVar12))[2].fn)(param_1->field_0x54 + (int)((vtbl_entry*)(iVar12))[2].adj,0);
   free_heap_block_if_flagged_1043d8ee(&uStack_28,2);
   return uVar3;
 }

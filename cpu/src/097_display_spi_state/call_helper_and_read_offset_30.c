@@ -14,9 +14,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint16_t call_helper_and_read_offset_30(int param_1,uint32_t param_2)
+uint16_t call_helper_and_read_offset_30(cls_1059be70 *param_1,uint32_t param_2)
 
 {
-  write_two_byte_pair_to_ch2(param_1,param_2,1);
-  return *(uint16_t *)(param_1 + 0x1e);
+  uint16_t uVar1;
+  
+  write_two_byte_pair_to_ch2((int)(param_1),(uint32_t)(param_2),(int)(1));
+  uVar1 = (uVar1 & ~(((uint64_t)0xff) << 0)) | ((((uint64_t)(param_1->field_0x1e)) & ((uint64_t)0xff)) << 0);
+  uVar1 = (uVar1 & ~(((uint64_t)0xff) << 8)) | ((((uint64_t)(param_1->field_0x1f)) & ((uint64_t)0xff)) << 8);
+  return uVar1;
 }

@@ -15,7 +15,7 @@ void copy_buffer_if_flag_set(int *param_1,int param_2)
   
   bVar3 = set_pointer_and_clear_flag(param_1 + 7,param_1 + 1);
   if (bVar3) {
-    iVar2 = (**(code **)(*param_1 + 0x6c))((int)*(short *)(*param_1 + 0x68) + (int)param_1);
+    iVar2 = (((vtbl_entry*)(*param_1))[13].fn)((int)((vtbl_entry*)(*param_1))[13].adj + (int)param_1);
     uVar1 = (uint)DAT_105a78c1/*ROM*/;
     while (uVar1 != 0) {
       uVar1 = uVar1 - 1;

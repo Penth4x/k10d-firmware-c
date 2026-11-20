@@ -31,8 +31,8 @@ uint32_t iterate_vtable_entries_104e506e(int param_1,int param_2,uint32_t param_
     if (iVar1 != 0) {
       iVar3 = 0;
       do {
-        uVar2 = (**(code **)(*(int *)(iVar1 + 0x18) + 0x54))
-                          (*(short *)(*(int *)(iVar1 + 0x18) + 0x50) + iVar1);
+        uVar2 = (((vtbl_entry*)(*(int *)(iVar1 + 0x18)))[10].fn)
+                          (((vtbl_entry*)(*(int *)(iVar1 + 0x18)))[10].adj + iVar1);
         *(uint32_t *)(param_2 + iVar3) = uVar2;
         iVar1 = *(int *)(iVar1 + 0xc);
         iVar3 = iVar3 + 4;

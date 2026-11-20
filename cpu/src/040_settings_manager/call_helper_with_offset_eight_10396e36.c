@@ -6,9 +6,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_offset_eight_10396e36(int param_1)
+void call_helper_with_offset_eight_10396e36(cls_10562fec *param_1)
 
 {
-  call_single_helper_1039c502(param_1 + 8);
+  call_single_helper_1039c502((void *)&param_1->field_0x8);
   return;
 }

@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int sum_loop_over_struct_array(uint32_t *param_1)
+int sum_loop_over_struct_array(cls_105f9250 *param_1)
 
 {
   int iVar1;
@@ -25,14 +25,15 @@ int sum_loop_over_struct_array(uint32_t *param_1)
   
   iVar3 = 0;
   iVar4 = 0;
-  if (0 < (int)param_1[0x83]) {
+  if (0 < (int)param_1->field_0x20c) {
     iVar2 = 0;
     do {
-      iVar1 = (*(code *)0x10526df0/*ROM*/)(*(uint32_t *)((int)param_1 + iVar2 + 0x214),*param_1);
+      iVar1 = (*(code *)0x10526df0/*ROM*/)
+                        (*(uint32_t *)((int)&param_1[1].field_0x0 + iVar2),param_1->field_0x0);
       iVar2 = iVar2 + 4;
       iVar4 = iVar1 + iVar4;
       iVar3 = iVar3 + 1;
-    } while (iVar3 < (int)param_1[0x83]);
+    } while (iVar3 < (int)param_1->field_0x20c);
   }
   return iVar4;
 }

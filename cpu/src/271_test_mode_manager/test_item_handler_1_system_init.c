@@ -50,17 +50,17 @@ void test_item_handler_1_system_init(void)
   *(bool *)(caller_r8 + 0x695) = cVar3 == '\0';
   *(uint8_t *)(caller_r8 + 0x6a4) = 1;
   *(uint8_t *)(caller_r8 + 0x6a5) = caller_r9;
-  (**(code **)(*(int *)(caller_r8 + 0x8d4) + 0x174))
-            (*(short *)(*(int *)(caller_r8 + 0x8d4) + 0x170) + caller_r8);
-  (**(code **)(*(int *)(caller_r8 + 0x8d4) + 0x164))
-            (*(short *)(*(int *)(caller_r8 + 0x8d4) + 0x160) + caller_r8);
-  (**(code **)(*(int *)(caller_r8 + 0x8d4) + 0x16c))
-            (*(short *)(*(int *)(caller_r8 + 0x8d4) + 0x168) + caller_r8);
-  (**(code **)(*(int *)(caller_r8 + 0x8d4) + 0x17c))
-            (*(short *)(*(int *)(caller_r8 + 0x8d4) + 0x178) + caller_r8);
-  (**(code **)(*(int *)(caller_r8 + 0x8d4) + 0x184))
-            (*(short *)(*(int *)(caller_r8 + 0x8d4) + 0x180) + caller_r8);
-  (**(code **)(*(int *)(caller_r8 + 0x8d4) + 0x194))
+  (((vtbl_entry*)(*(int *)(caller_r8 + 0x8d4)))[46].fn)
+            (((vtbl_entry*)(*(int *)(caller_r8 + 0x8d4)))[46].adj + caller_r8);
+  (((vtbl_entry*)(*(int *)(caller_r8 + 0x8d4)))[44].fn)
+            (((vtbl_entry*)(*(int *)(caller_r8 + 0x8d4)))[44].adj + caller_r8);
+  (((vtbl_entry*)(*(int *)(caller_r8 + 0x8d4)))[45].fn)
+            (((vtbl_entry*)(*(int *)(caller_r8 + 0x8d4)))[45].adj + caller_r8);
+  (((vtbl_entry*)(*(int *)(caller_r8 + 0x8d4)))[47].fn)
+            (((vtbl_entry*)(*(int *)(caller_r8 + 0x8d4)))[47].adj + caller_r8);
+  (((vtbl_entry*)(*(int *)(caller_r8 + 0x8d4)))[48].fn)
+            (((vtbl_entry*)(*(int *)(caller_r8 + 0x8d4)))[48].adj + caller_r8);
+  (((vtbl_entry*)(*(int *)(caller_r8 + 0x8d4)))[50].fn)
             (*(short *)(*(int *)(caller_r8 + 0x8d4) + 400) + caller_r8);
   if ((*(char *)(caller_r8 + 0x2a) == '\0') && (*(char *)(caller_r8 + 0x2b) == '\x01')) {
     *(int *)(caller_r8 + 0x70) =
@@ -114,30 +114,30 @@ void test_item_handler_1_system_init(void)
   }
   *(int *)(caller_r14 + -4) = caller_r8 + 0x148;
   iVar5 = *(int *)(caller_r8 + 0x25c);
-  iVar5 = (**(code **)(iVar5 + 0x1c))(caller_r8 + 0x25c + (int)*(short *)(iVar5 + 0x18),9);
+  iVar5 = (((vtbl_entry*)(iVar5))[3].fn)(caller_r8 + 0x25c + (int)((vtbl_entry*)(iVar5))[3].adj,9);
   if (iVar5 != 0) {
     *(uint32_t *)(caller_r8 + 0x698) = 0;
     *(uint32_t *)(caller_r8 + 0x69c) = 0;
     *(uint32_t *)(caller_r8 + 0x6a0) = 0;
   }
   if (*(char *)(caller_r8 + 0x6b8) == '\0') {
-    (**(code **)(*(int *)(caller_r8 + 0x8d4) + 0x8c))
-              (*(short *)(*(int *)(caller_r8 + 0x8d4) + 0x88) + caller_r8);
+    (((vtbl_entry*)(*(int *)(caller_r8 + 0x8d4)))[17].fn)
+              (((vtbl_entry*)(*(int *)(caller_r8 + 0x8d4)))[17].adj + caller_r8);
   }
   iVar5 = *(int *)(caller_r14 + -4);
   *(uint8_t *)(iVar5 + 0x4e6) = *(uint8_t *)(caller_r8 + 0x29);
   iVar4 = *(int *)(caller_r8 + 0x7f8);
   iVar5 = iVar5 + 0x164;
-  uVar2 = read_two_byte_table_entry_104284cc(iVar5,0,0);
+  uVar2 = read_two_byte_from_struct(iVar5,0,0);
   *(uint16_t *)(iVar4 + 0x120) = uVar2;
   iVar4 = *(int *)(caller_r8 + 0x7f8);
-  uVar2 = read_two_byte_table_entry_104284cc(iVar5,0,2);
+  uVar2 = read_two_byte_from_struct(iVar5,0,2);
   *(uint16_t *)(iVar4 + 0x122) = uVar2;
   iVar4 = *(int *)(caller_r8 + 0x7f8);
-  uVar2 = read_two_byte_table_entry_104284cc(iVar5,0,3);
+  uVar2 = read_two_byte_from_struct(iVar5,0,3);
   *(uint16_t *)(iVar4 + 0x124) = uVar2;
   iVar4 = *(int *)(caller_r8 + 0x7f8);
-  uVar2 = read_two_byte_table_entry_104284cc(iVar5,0,1);
+  uVar2 = read_two_byte_from_struct(iVar5,0,1);
   *(uint16_t *)(iVar4 + 0x126) = uVar2;
   return;
 }

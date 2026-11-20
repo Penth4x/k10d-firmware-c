@@ -21,7 +21,7 @@ int * allocate_and_init_ui_event(uint32_t param_1,uint32_t param_2)
 {
   int *piVar1;
   
-  piVar1 = (int *)cls_105b5410_new(0);
-  (**(code **)(*piVar1 + 0x44))((int)*(short *)(*piVar1 + 0x40) + (int)piVar1,param_2);
+  piVar1 = (int *)cls_105b5410_new((cls_105b5410 *)0x0);
+  (((vtbl_entry*)(*piVar1))[8].fn)((int)((vtbl_entry*)(*piVar1))[8].adj + (int)piVar1,param_2);
   return piVar1;
 }

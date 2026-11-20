@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int dispatch_virtual_slot_two_1049b41c(int param_1,uint32_t param_2,int *param_3)
+int dispatch_virtual_slot_two_1049b41c(cls_105b5814 *param_1,uint32_t param_2,int *param_3)
 
 {
   int iVar1;
@@ -25,19 +25,19 @@ int dispatch_virtual_slot_two_1049b41c(int param_1,uint32_t param_2,int *param_3
   int iVar3;
   bool bVar4;
   
-  *(uint8_t *)(param_1 + 4) = 1;
+  *(uint8_t *)&param_1->field_0x4 = 1;
   iVar1 = allocate_and_fill_buffer_1049b4ba(__frv_reg_unset(4),__frv_reg_unset(5),(int *)__frv_reg_unset(6));
-  iVar2 = allocate_and_fill_buffer_1049b4ba(param_1,param_2,param_3);
+  iVar2 = allocate_and_fill_buffer_1049b4ba((uint32_t)(param_1),(uint32_t)(param_2),(int *)(param_3));
   iVar3 = 0;
   if (iVar2 == 1) {
-    iVar3 = dispatch_virtual_method_with_helper_1049b54e(param_1,param_2,param_3);
+    iVar3 = dispatch_virtual_method_with_helper_1049b54e((int)(param_1),(int)(param_2),(int *)(param_3));
   }
   else {
     if (iVar2 != 2) {
       bVar4 = true;
       goto LAB_1049b460;
     }
-    iVar3 = dispatch_virtual_method_with_helper_1049b5da(param_1,param_2,param_3);
+    iVar3 = dispatch_virtual_method_with_helper_1049b5da((int)(param_1),(int)(param_2),(int *)(param_3));
   }
   bVar4 = iVar3 == 0;
 LAB_1049b460:
@@ -45,7 +45,7 @@ LAB_1049b460:
     iVar1 = 0;
   }
   else {
-    iVar1 = cls_105b6aa0_new(0,iVar1 == 2);
+    iVar1 = (uintptr_t)(cls_105b6aa0_new((cls_105b6aa0 *)0x0,iVar1 == 2));
     *(int *)(iVar1 + 4) = iVar3;
     *(uint32_t *)(iVar1 + 8) = param_2;
   }

@@ -26,7 +26,7 @@ bool advance_pointer_on_carriage_return(uint32_t *param_1,void *param_2)
   bVar4 = *(char *)*param_1 == '\r';
   if (bVar4) {
     pcVar3 = (char *)*param_1 + 1;
-    *param_1 = (uint32_t)pcVar3;
+    *param_1 = (uintptr_t)(pcVar3);
     sVar1 = *(short *)((int)param_2 + 4);
     uVar2 = compute_adjusted_value(param_1,(uint)*(ushort *)((int)param_2 + 0x12),
                          (uint)*(ushort *)((int)param_2 + 0x14),pcVar3);

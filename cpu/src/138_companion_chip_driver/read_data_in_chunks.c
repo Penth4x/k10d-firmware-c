@@ -68,7 +68,7 @@ int read_data_in_chunks(int *param_1,void *param_2,uint *param_3,int param_4)
         }
         uStack_a = (uint8_t)((uint)((int)uVar12 >> (uint)bVar7) >> 8);
         uStack_9 = (uint8_t)((int)uVar12 >> (uint)bVar7);
-        (**(code **)(*param_1 + 0x54))((int)*(short *)(*param_1 + 0x50) + (int)param_1,&uStack_c,4);
+        (((vtbl_entry*)(*param_1))[10].fn)((int)((vtbl_entry*)(*param_1))[10].adj + (int)param_1,&uStack_c,4);
         iVar5 = 2;
         if (param_4 == 0) {
           iVar9 = 2;
@@ -77,11 +77,11 @@ int read_data_in_chunks(int *param_1,void *param_2,uint *param_3,int param_4)
           iVar5 = 7;
           iVar9 = 7;
         }
-        cpucom_msg_set_cmd((void *)param_1[6],(&DAT_105a72fc/*ROM*/)[iVar5 * 2]);
+        cpucom_msg_set_cmd((void*)(param_1[6]),(&DAT_105a72fc/*ROM*/)[iVar5 * 2]);
         cpucom_resp_set_insize((void *)param_1[6],(uint)(byte)(&DAT_105a72fd/*ROM*/)[iVar9 * 2]);
         pvVar10 = (void *)param_1[6];
-        pvVar6 = (void *)(**(code **)(*param_1 + 0x6c))
-                                   ((int)*(short *)(*param_1 + 0x68) + (int)param_1);
+        pvVar6 = (void *)(((vtbl_entry*)(*param_1))[13].fn)
+                                   ((int)((vtbl_entry*)(*param_1))[13].adj + (int)param_1);
         set_ptr_if_field_is_null(pvVar10,pvVar6);
         set_object_field_at_offset_0x14((void *)param_1[6],param_1 + 1);
         write_word_at_offset_16((void *)param_1[6],0x1050003);
@@ -101,8 +101,8 @@ int read_data_in_chunks(int *param_1,void *param_2,uint *param_3,int param_4)
               else {
                 iVar2 = 7;
               }
-              uVar8 = (**(code **)(*param_1 + 0x3c))
-                                ((int)*(short *)(*param_1 + 0x38) + (int)param_1,
+              uVar8 = (((vtbl_entry*)(*param_1))[7].fn)
+                                ((int)((vtbl_entry*)(*param_1))[7].adj + (int)param_1,
                                  (&DAT_105a72fd/*ROM*/)[iVar2 * 2] + cVar11,0xff);
               *(uint8_t *)(uVar3 + iVar9) = uVar8;
               if (param_4 == 0) {
@@ -111,8 +111,8 @@ int read_data_in_chunks(int *param_1,void *param_2,uint *param_3,int param_4)
               else {
                 iVar2 = 7;
               }
-              uVar8 = (**(code **)(*param_1 + 0x3c))
-                                ((int)*(short *)(*param_1 + 0x38) + (int)param_1,
+              uVar8 = (((vtbl_entry*)(*param_1))[7].fn)
+                                ((int)((vtbl_entry*)(*param_1))[7].adj + (int)param_1,
                                  (&DAT_105a72fd/*ROM*/)[iVar2 * 2] + cVar11 + '\x01',0xff);
               *(uint8_t *)(uVar3 + iVar9 + 1) = uVar8;
               if (param_4 == 0) {
@@ -121,8 +121,8 @@ int read_data_in_chunks(int *param_1,void *param_2,uint *param_3,int param_4)
               else {
                 iVar2 = 7;
               }
-              uVar8 = (**(code **)(*param_1 + 0x3c))
-                                ((int)*(short *)(*param_1 + 0x38) + (int)param_1,
+              uVar8 = (((vtbl_entry*)(*param_1))[7].fn)
+                                ((int)((vtbl_entry*)(*param_1))[7].adj + (int)param_1,
                                  (&DAT_105a72fd/*ROM*/)[iVar2 * 2] + cVar11 + '\x02',0xff);
               cVar11 = cVar11 + '\x03';
               *(uint8_t *)(uVar3 + iVar9 + 2) = uVar8;
@@ -137,8 +137,8 @@ int read_data_in_chunks(int *param_1,void *param_2,uint *param_3,int param_4)
             else {
               iVar2 = 7;
             }
-            uVar8 = (**(code **)(*param_1 + 0x3c))
-                              ((int)*(short *)(*param_1 + 0x38) + (int)param_1,
+            uVar8 = (((vtbl_entry*)(*param_1))[7].fn)
+                              ((int)((vtbl_entry*)(*param_1))[7].adj + (int)param_1,
                                (&DAT_105a72fd/*ROM*/)[iVar2 * 2] + cVar11,0xff);
             cVar11 = cVar11 + '\x01';
             *(uint8_t *)(uVar3 + iVar9) = uVar8;

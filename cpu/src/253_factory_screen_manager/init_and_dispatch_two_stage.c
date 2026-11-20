@@ -16,21 +16,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_and_dispatch_two_stage(int *param_1,int *param_2,int param_3)
+uint32_t init_and_dispatch_two_stage(cls_105c1268 *param_1,int *param_2,int param_3)
 
 {
   uint32_t uVar1;
   int iVar2;
   
   iVar2 = *(int *)(param_3 + 8);
-  param_1[3] = iVar2;
-  param_1[1] = *(int *)(*(int *)(iVar2 + 8) + 0x28);
-  *param_1 = 0;
+  param_1->field_0xc = iVar2;
+  param_1->field_0x4 = *(uint32_t *)(*(int *)(iVar2 + 8) + 0x28);
+  param_1->field_0x0 = 0;
   iVar2 = write_two_byte_status_to_object((int)param_1,param_2);
   uVar1 = 0;
   if (iVar2 != 0) {
-    *param_1 = *param_1 + 8;
-    iVar2 = process_event_sequence_with_callbacks(param_1,param_2,*(int *)(param_1[3] + 8));
+    param_1->field_0x0 = param_1->field_0x0 + 8;
+    iVar2 = process_event_sequence_with_callbacks(param_1,param_2,*(int *)(param_1->field_0xc + 8));
     if (iVar2 != 0) {
       uVar1 = 1;
     }

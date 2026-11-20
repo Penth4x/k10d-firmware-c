@@ -38,25 +38,25 @@ void split_value_and_write_parts(int *param_1,uint8_t param_2,uint32_t param_3)
       iVar1 = iVar1 + -1;
     } while (-1 < iVar1);
     iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   }
   else if (sStack_c == 0) {
     iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
     uVar2 = menu_item_register(*param_1);
-    menu_list_build((void *)uVar2,&sStack_a,4,1);
+    menu_list_build((int *)(uVar2),(uint16_t *)(&sStack_a),(uint8_t)(4),(uint8_t)(1));
     iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   }
   else {
     uVar2 = menu_item_register(*param_1);
-    menu_list_build((void *)uVar2,&sStack_c,1,1);
+    menu_list_build((int *)(uVar2),(uint16_t *)(&sStack_c),(uint8_t)(1),(uint8_t)(1));
     iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     uVar2 = menu_item_register(*param_1);
-    menu_list_build((void *)uVar2,&sStack_a,4,0);
+    menu_list_build((int *)(uVar2),(uint16_t *)(&sStack_a),(uint8_t)(4),(uint8_t)(0));
     iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   }
   return;
 }

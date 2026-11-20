@@ -6,13 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_method_on_nested_object_10534202(int param_1,uint32_t param_2)
+void invoke_virtual_method_on_nested_object_10534202(cls_1061e4c0 *param_1,uint32_t param_2)
 
 {
   int iVar1;
   
   (*(code *)0x10493db4/*ROM*/)();
-  iVar1 = *(int *)(*(int *)(param_1 + 0x10) + 0xc);
-  (**(code **)(iVar1 + 0xac))(*(int *)(param_1 + 0x10) + (int)*(short *)(iVar1 + 0xa8),param_2);
+  iVar1 = *(int *)(param_1->field_0x10 + 0xc);
+  (((vtbl_entry*)(iVar1))[21].fn)(param_1->field_0x10 + (int)((vtbl_entry*)(iVar1))[21].adj,param_2);
   return;
 }

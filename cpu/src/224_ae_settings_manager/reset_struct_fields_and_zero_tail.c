@@ -25,10 +25,10 @@ void reset_struct_fields_and_zero_tail(int param_1)
   iVar1 = 0;
   do {
     iVar3 = param_1 + 0xdf8c;
-    zero_out_16_byte_buffer((void *)(iVar3 + iVar1));
-    zero_out_16_byte_buffer((void *)(iVar3 + iVar1 + 0xc));
-    zero_out_16_byte_buffer((void *)(iVar3 + iVar1 + 0x18));
-    zero_out_16_byte_buffer((void *)(iVar3 + iVar1 + 0x24));
+    zero_out_16_byte_buffer((uint16_t *)(iVar3 + iVar1));
+    zero_out_16_byte_buffer((uint16_t *)(iVar3 + iVar1 + 0xc));
+    zero_out_16_byte_buffer((uint16_t *)(iVar3 + iVar1 + 0x18));
+    zero_out_16_byte_buffer((uint16_t *)(iVar3 + iVar1 + 0x24));
     iVar2 = iVar2 + -1;
     iVar1 = iVar1 + 0x30;
   } while (-1 < iVar2);

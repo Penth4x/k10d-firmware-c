@@ -13,7 +13,7 @@ uint32_t get_or_init_singleton_10392e96(void)
 {
   if (_DAT_80019b08/*SDRAM*/ == 0) {
     _DAT_80019b08/*SDRAM*/ = 1;
-    cls_105628cc_new((void *)0x80019a10/*SDRAM*/);
+    cls_105628cc_new((cls_105628cc *)0x80019a10/*SDRAM*/);
     prepend_to_singly_linked_list((void *)0x80004554/*SDRAM*/);
   }
   return 0x80019a10/*SDRAM*/;

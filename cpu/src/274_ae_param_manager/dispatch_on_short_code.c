@@ -30,7 +30,7 @@ uint32_t dispatch_on_short_code(int param_1,short *param_2)
     dispatch_param3_handler(param_1 + 0x18,*(uint32_t *)(param_1 + 8), __frv_reg_unset(6));
   }
   else if (sVar1 == 0x112) {
-    query_mode_state_if_type_three(param_1 + 0x18,*(uint32_t *)(param_1 + 8), __frv_reg_unset(6));
+    query_mode_state_if_type_three((uint32_t)(param_1 + 0x18),(int *)(*(uint32_t *)(param_1 + 8)), (int)(__frv_reg_unset(6)));
   }
   else {
     dispatch_on_two_byte_code(param_1,*(uint32_t *)(param_1 + 0x10),(uint16_t *)__frv_reg_unset(6));

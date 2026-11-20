@@ -15,17 +15,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t invoke_virtual_slot_two_and_three(int param_1)
+uint32_t invoke_virtual_slot_two_and_three(cls_105c26f0 *param_1)
 
 {
   uint32_t uVar1;
   int iVar2;
   
-  initialize_object_and_call_virtual_slot_2(*(uint32_t *)(param_1 + 8));
-  iVar2 = **(int **)(param_1 + 0xc);
-  uVar1 = (**(code **)(iVar2 + 0x14))((int)*(int **)(param_1 + 0xc) + (int)*(short *)(iVar2 + 0x10))
-  ;
-  iVar2 = **(int **)(param_1 + 0x90);
-  (**(code **)(iVar2 + 0x1c))((int)*(int **)(param_1 + 0x90) + (int)*(short *)(iVar2 + 0x18),0);
+  initialize_object_and_call_virtual_slot_2((void*)(param_1->field_0x8));
+  iVar2 = *(int *)param_1->field_0xc;
+  uVar1 = (((vtbl_entry*)(iVar2))[2].fn)
+                    ((void *)((int)param_1->field_0xc + (int)((vtbl_entry*)(iVar2))[2].adj));
+  iVar2 = *(int *)param_1->field_0x90;
+  (((vtbl_entry*)(iVar2))[3].fn)((int)param_1->field_0x90 + (int)((vtbl_entry*)(iVar2))[3].adj,0);
   return uVar1;
 }

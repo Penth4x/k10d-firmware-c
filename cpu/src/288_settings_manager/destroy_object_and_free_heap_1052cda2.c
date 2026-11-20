@@ -18,8 +18,8 @@
 void destroy_object_and_free_heap_1052cda2(void *param_1,uint param_2)
 
 {
-  if (param_1 != (void *)0x0) {
-    cls_105b934c_delete((void *)((int)param_1 + 0x1dc),2);
+  if (param_1 != 0) {
+    cls_105b934c_delete((cls_105b934c *)((int)param_1 + 0x1dc),2);
     cls_105b9400_delete(param_1,2);
     if ((param_2 & 1) != 0) {
       heap_free((int)param_1);

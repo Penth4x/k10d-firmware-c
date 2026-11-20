@@ -90,20 +90,20 @@ code_r0x1050b9be:
       copy_settings_to_destination_buffer(uVar10,iVar9 + 0x148);
       iVar6 = *(int *)(iVar9 + 0x7f8);
       iVar13 = iVar9 + 0x2ac;
-      uVar11 = read_two_byte_table_entry_104284cc(iVar13,0,0);
+      uVar11 = read_two_byte_from_struct(iVar13,0,0);
       *(uint16_t *)(iVar6 + 0x120) = uVar11;
       iVar6 = *(int *)(iVar9 + 0x7f8);
-      uVar11 = read_two_byte_table_entry_104284cc(iVar13,0,2);
+      uVar11 = read_two_byte_from_struct(iVar13,0,2);
       *(uint16_t *)(iVar6 + 0x122) = uVar11;
       iVar6 = *(int *)(iVar9 + 0x7f8);
-      uVar11 = read_two_byte_table_entry_104284cc(iVar13,0,3);
+      uVar11 = read_two_byte_from_struct(iVar13,0,3);
       *(uint16_t *)(iVar6 + 0x124) = uVar11;
       iVar6 = *(int *)(iVar9 + 0x7f8);
-      uVar11 = read_two_byte_table_entry_104284cc(iVar13,0,1);
+      uVar11 = read_two_byte_from_struct(iVar13,0,1);
       *(uint16_t *)(iVar6 + 0x126) = uVar11;
       *(uint8_t *)(*(int *)(iVar9 + 0x7f8) + 0xe1) = 1;
-      (**(code **)(*(int *)(iVar9 + 0x8d4) + 0xc4))
-                (*(short *)(*(int *)(iVar9 + 0x8d4) + 0xc0) + iVar9,0,1,1);
+      (((vtbl_entry*)(*(int *)(iVar9 + 0x8d4)))[24].fn)
+                (((vtbl_entry*)(*(int *)(iVar9 + 0x8d4)))[24].adj + iVar9,0,1,1);
       *(uint8_t *)(*(int *)(iVar9 + 0x7f8) + 0xe1) = 1;
       if (*param_2 == '\x01') {
         *(uint8_t *)(*(int *)(iVar9 + 0x7f8) + 0xc0) = 1;
@@ -166,7 +166,7 @@ code_r0x1050b9be:
           pvVar8 = *(void **)(iVar6 + 8);
           settings_refresh_working_copy(pvVar8);
           iVar6 = *(int *)(iVar9 + 0x244);
-          iVar6 = (**(code **)(iVar6 + 0x14))(iVar9 + 0x244 + (int)*(short *)(iVar6 + 0x10),0x19);
+          iVar6 = (((vtbl_entry*)(iVar6))[2].fn)(iVar9 + 0x244 + (int)((vtbl_entry*)(iVar6))[2].adj,0x19);
           if (iVar6 == 0x12) {
             uVar2 = *(ushort *)(*(int *)(iVar9 + 0x7f8) + 0x120);
             *piVar14 = 0;

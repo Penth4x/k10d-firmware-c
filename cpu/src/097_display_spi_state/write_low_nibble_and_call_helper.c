@@ -6,13 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void write_low_nibble_and_call_helper(int param_1,ushort param_2)
+void write_low_nibble_and_call_helper(cls_1059be70 *param_1,ushort param_2)
 
 {
   ushort uVar1;
   
   uVar1 = param_2 & 0xf | 0x200;
-  *(ushort *)(param_1 + 0xcc) = param_2 & 0xf;
-  send_two_byte_pairs_over_ch2(param_1,0x45,uVar1,uVar1);
+  param_1->field_0xcc = param_2 & 0xf;
+  send_two_byte_pairs_over_ch2((uint)param_1,0x45,uVar1,uVar1);
   return;
 }

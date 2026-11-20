@@ -16,7 +16,7 @@ uint32_t check_node_in_linked_list(void *param_1)
   
   pvVar2 = *(void **)(*(int *)((int)param_1 + 0x10) + 0x1c);
   uVar4 = 0;
-  if (pvVar2 == (void *)0x0) {
+  if (pvVar2 == 0) {
     uVar4 = 0;
   }
   else {
@@ -26,7 +26,7 @@ uint32_t check_node_in_linked_list(void *param_1)
       uVar4 = 1;
     }
     else {
-      while (pvVar1 = pvVar2, pvVar1 != (void *)0x0) {
+      while (pvVar1 = pvVar2, pvVar1 != 0) {
         if (pvVar1 == param_1) {
           uVar4 = 1;
           *(uint32_t *)((int)pvVar3 + 0xc) = *(uint32_t *)((int)param_1 + 0xc);

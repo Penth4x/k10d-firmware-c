@@ -11,6 +11,6 @@
 void wait_cpucom_line_clear_10501778(int param_1)
 
 {
-  cpucom_wait_line_clear(*(uint32_t *)(param_1 + 4),_DAT_105a7de4/*ROM*/);
+  cpucom_wait_line_clear((void *)(*(uint32_t *)(param_1 + 4)),(int)(_DAT_105a7de4/*ROM*/));
   return;
 }

@@ -26,14 +26,14 @@ uint32_t sd_select_bus_width(void *param_1)
     if (((iVar1 != 0) &&
         (iVar1 = sd_cmd55_app_cmd(param_1,(uint)*(ushort *)((int)param_1 + 0xe0)), iVar1 != 0)) &&
        (iVar1 = sd_acmd6_set_bus_width(param_1,0), iVar1 != 0)) {
-      sdhc_set_data_width((void *)(*(uint32_t *)((int)param_1 + 0x110)),0);
+      sdhc_set_data_width((uint32_t *)(*(uint32_t *)((int)param_1 + 0x110)),(byte)(0));
       uVar2 = 1;
     }
   }
   else {
     iVar1 = sd_cmd55_app_cmd(param_1,(uint)*(ushort *)((int)param_1 + 0xe0));
     if ((iVar1 != 0) && (iVar1 = sd_acmd6_set_bus_width(param_1,2), iVar1 != 0)) {
-      sdhc_set_data_width((void *)(*(uint32_t *)((int)param_1 + 0x110)),2);
+      sdhc_set_data_width((uint32_t *)(*(uint32_t *)((int)param_1 + 0x110)),(byte)(2));
       uVar2 = 1;
     }
   }

@@ -14,7 +14,7 @@ bool invoke_virtual_slot_two_104272e4(int *param_1, uint32_t param_x1, uint32_t 
   
   piVar1 = (int *)*param_1;
   if (piVar1 != (int *)0x0) {
-    iVar2 = (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1);
+    iVar2 = (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1);
     param_1[4] = iVar2;
   }
   return piVar1 != (int *)0x0;

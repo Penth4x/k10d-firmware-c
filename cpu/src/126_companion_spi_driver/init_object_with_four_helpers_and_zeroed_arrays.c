@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_with_four_helpers_and_zeroed_arrays(void *param_1)
+uint32_t init_object_with_four_helpers_and_zeroed_arrays(cls_105a0f08 *param_1)
 
 {
   int iVar1;
@@ -17,13 +17,13 @@ uint32_t init_object_with_four_helpers_and_zeroed_arrays(void *param_1)
   call_helper_on_field_0x20_10443e96(param_1);
   call_subobject_method_at_offset_0x20(param_1);
   iVar1 = 0;
-  *(uint8_t *)((int)param_1 + 0x83) = 0;
-  *(uint8_t *)((int)param_1 + 0x84) = 0;
+  param_1->field_0x83 = 0;
+  param_1->field_0x84 = 0;
   iVar2 = 0x1e;
   do {
-    *(uint8_t *)((int)param_1 + iVar1 + 0x24) = 0;
-    *(uint8_t *)((int)param_1 + iVar1 + 0x25) = 0;
-    *(uint8_t *)((int)param_1 + iVar1 + 0x26) = 0;
+    (&param_1->field_0x24)[iVar1] = 0;
+    (&param_1->field_0x25)[iVar1] = 0;
+    (&param_1->field_0x26)[iVar1] = 0;
     iVar2 = iVar2 + -1;
     iVar1 = iVar1 + 3;
   } while (-1 < iVar2);

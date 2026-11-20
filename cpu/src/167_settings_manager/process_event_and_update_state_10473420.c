@@ -60,7 +60,7 @@ uint32_t process_event_and_update_state_10473420(int param_1,uint32_t *param_2,c
         iVar5 = *piVar9;
         sVar1 = *(short *)(iVar5 + 0x28);
         uVar3 = (*(code *)0x10477a62/*ROM*/)(iVar4);
-        iVar5 = (**(code **)(iVar5 + 0x2c))((int)piVar9 + (int)sVar1,uVar3,0,&uStack_c);
+        iVar5 = (((vtbl_entry*)(iVar5))[5].fn)((int)piVar9 + (int)sVar1,uVar3,0,&uStack_c);
         if (iVar5 != 0) {
           *param_2 = uStack_c;
           if (*(int *)(param_1 + 4) == 0) {

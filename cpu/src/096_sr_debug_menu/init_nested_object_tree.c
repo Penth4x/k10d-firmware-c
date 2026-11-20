@@ -74,7 +74,7 @@ void init_nested_object_tree(int param_1,uint32_t param_2,void *param_3,void *pa
   pvVar45 = (void *)0x20;
   pvVar3 = (void *)app_obj_factory(pvVar1,(void *)0x20d0001,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
   iterate_and_remove_list_entry(pvVar2,pvVar3,pvVar43,pvVar45);
-  (**(code **)(*(int *)((int)pvVar3 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar3 + 0xc)))[1].fn)
             ((int)pvVar3 + (int)*(short *)(*(int *)((int)pvVar3 + 0xc) + 8),0);
   pvVar3 = (void *)app_obj_factory(pvVar1,(void *)0x20d0002,0,0);
   pvVar43 = (void *)app_obj_factory(pvVar1,(void *)0x20d0003,0,0);
@@ -162,9 +162,9 @@ void init_nested_object_tree(int param_1,uint32_t param_2,void *param_3,void *pa
   iterate_and_remove_list_entry(pvVar43,pvVar42,pvVar44,pvVar46);
   iterate_and_remove_list_entry(pvVar2,pvVar3,pvVar44,pvVar46);
   iterate_and_remove_list_entry(pvVar2,pvVar43,pvVar44,pvVar46);
-  (**(code **)(*(int *)((int)pvVar3 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar3 + 0xc)))[1].fn)
             ((int)pvVar3 + (int)*(short *)(*(int *)((int)pvVar3 + 0xc) + 8),0);
-  (**(code **)(*(int *)((int)pvVar43 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar43 + 0xc)))[1].fn)
             ((int)pvVar43 + (int)*(short *)(*(int *)((int)pvVar43 + 0xc) + 8),0);
   pvVar3 = (void *)app_obj_factory(pvVar1,(void *)0x20d002c,0,0);
   pvVar43 = (void *)app_obj_factory(pvVar1,(void *)0x20d002d,(void *)0x128,(void *)0x18);
@@ -204,7 +204,7 @@ void init_nested_object_tree(int param_1,uint32_t param_2,void *param_3,void *pa
   iterate_and_remove_list_entry(pvVar3,pvVar17,pvVar19,pvVar20);
   iterate_and_remove_list_entry(pvVar3,pvVar18,pvVar19,pvVar20);
   iterate_and_remove_list_entry(pvVar2,pvVar3,pvVar19,pvVar20);
-  (**(code **)(*(int *)((int)pvVar3 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar3 + 0xc)))[1].fn)
             ((int)pvVar3 + (int)*(short *)(*(int *)((int)pvVar3 + 0xc) + 8),0);
   pvVar3 = (void *)app_obj_factory(pvVar1,(void *)0x20d003e,0,0);
   pvVar43 = (void *)app_obj_factory(pvVar1,(void *)0x20d003f,(void *)0x110,(void *)0x60);
@@ -252,7 +252,7 @@ void init_nested_object_tree(int param_1,uint32_t param_2,void *param_3,void *pa
   iterate_and_remove_list_entry(pvVar3,pvVar21,pvVar23,pvVar24);
   iterate_and_remove_list_entry(pvVar3,pvVar22,pvVar23,pvVar24);
   iterate_and_remove_list_entry(pvVar2,pvVar3,pvVar23,pvVar24);
-  (**(code **)(*(int *)((int)pvVar3 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar3 + 0xc)))[1].fn)
             ((int)pvVar3 + (int)*(short *)(*(int *)((int)pvVar3 + 0xc) + 8),0);
   pvVar3 = (void *)app_obj_factory(pvVar1,(void *)0x20d0054,0,0);
   pvVar43 = (void *)app_obj_factory(pvVar1,(void *)0x20d0055,(void *)0x20,(void *)0x30);
@@ -276,7 +276,7 @@ void init_nested_object_tree(int param_1,uint32_t param_2,void *param_3,void *pa
   iterate_and_remove_list_entry(pvVar3,pvVar9,pvVar11,pvVar12);
   iterate_and_remove_list_entry(pvVar3,pvVar10,pvVar11,pvVar12);
   iterate_and_remove_list_entry(pvVar2,pvVar3,pvVar11,pvVar12);
-  (**(code **)(*(int *)((int)pvVar3 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar3 + 0xc)))[1].fn)
             ((int)pvVar3 + (int)*(short *)(*(int *)((int)pvVar3 + 0xc) + 8),0);
   pvVar3 = (void *)app_obj_factory(pvVar1,(void *)0x20d005e,0,0);
   app_obj_factory(pvVar1,(void *)0x20d005f,(void *)0x80,(void *)0x18);
@@ -315,7 +315,7 @@ void init_nested_object_tree(int param_1,uint32_t param_2,void *param_3,void *pa
   iterate_and_remove_list_entry(pvVar3,pvVar16,pvVar18,pvVar19);
   iterate_and_remove_list_entry(pvVar3,pvVar17,pvVar18,pvVar19);
   iterate_and_remove_list_entry(pvVar2,pvVar3,pvVar18,pvVar19);
-  (**(code **)(*(int *)((int)pvVar3 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar3 + 0xc)))[1].fn)
             ((int)*(short *)(*(int *)((int)pvVar3 + 0xc) + 8) + (int)pvVar3,0);
   pvVar3 = (void *)app_obj_factory(pvVar1,(void *)0x20d0070,0,0);
   pvVar43 = (void *)app_obj_factory(pvVar1,(void *)0x20d0071,(void *)200,(void *)0x18);
@@ -339,7 +339,7 @@ void init_nested_object_tree(int param_1,uint32_t param_2,void *param_3,void *pa
   iterate_and_remove_list_entry(pvVar3,pvVar9,pvVar10,pvVar11);
   iterate_and_remove_list_entry(pvVar3,pvVar1,pvVar10,pvVar11);
   iterate_and_remove_list_entry(pvVar2,pvVar3,pvVar10,pvVar11);
-  (**(code **)(*(int *)((int)pvVar3 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar3 + 0xc)))[1].fn)
             ((int)pvVar3 + (int)*(short *)(*(int *)((int)pvVar3 + 0xc) + 8),0);
   set_object_field_at_offset_0x10((void *)(param_1 + 8),pvVar2);
   return;

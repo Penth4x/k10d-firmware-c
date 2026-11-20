@@ -45,12 +45,12 @@ void compute_mode_dependent_pair_values(int param_1,int param_2)
     uStack_a = 0;
     uVar2 = *(uint32_t *)(param_1 + 0x2c);
     iVar1 = **(int **)(param_1 + 0x14);
-    uVar3 = (**(code **)(iVar1 + 0x14))
-                      ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar1 + 0x10),0);
+    uVar3 = (((vtbl_entry*)(iVar1))[2].fn)
+                      ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar1))[2].adj,0);
     uVar4 = query_object_state_flag_104a28e4(param_1);
     iVar1 = **(int **)(param_1 + 0x14);
-    uVar5 = (**(code **)(iVar1 + 0x14))
-                      ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar1 + 0x10),5);
+    uVar5 = (((vtbl_entry*)(iVar1))[2].fn)
+                      ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar1))[2].adj,5);
     iVar1 = *(int *)(param_1 + 0x18);
     *piVar6 = (int)&uStack_c;
     piVar6[1] = (int)&uStack_a;

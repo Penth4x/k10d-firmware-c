@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_object_state_update_1041db34(int param_1)
+void dispatch_object_state_update_1041db34(cls_1059d1d8 *param_1)
 
 {
   char cVar3;
@@ -32,7 +32,7 @@ void dispatch_object_state_update_1041db34(int param_1)
   uint16_t uStack_e;
   uint32_t uStack_c;
   
-  cVar3 = read_sysparam_byte(*(uint8_t **)(param_1 + 0x48));
+  cVar3 = read_sysparam_byte((uint8_t *)param_1->field_0x48);
   if (cVar3 != '\0') {
     uStack_c = 0x1059cf38/*ROM*/;
     uStack_14 = 0;
@@ -41,24 +41,23 @@ void dispatch_object_state_update_1041db34(int param_1)
     uStack_11 = 0;
     uStack_10 = 0;
     uStack_e = 0;
-    iVar1 = get_sysparam_store_byte(*(uint32_t *)(param_1 + 0x48),6);
+    iVar1 = get_sysparam_store_byte((uint8_t *)(param_1->field_0x48),(uint32_t)(6));
     uStack_14 = iVar1 == 0;
-    uStack_13 = get_sysparam_store_byte(*(uint32_t *)(param_1 + 0x48),7);
+    uStack_13 = get_sysparam_store_byte((uint8_t *)(param_1->field_0x48),(uint32_t)(7));
     uStack_12 = 1;
-    uStack_11 = get_sysparam_store_byte(*(uint32_t *)(param_1 + 0x48),0xb);
-    uStack_10 = get_sysparam_store_byte(*(uint32_t *)(param_1 + 0x48),9);
-    uStack_e = *(uint16_t *)(*(int *)(param_1 + 0x48) + 0x20);
-    iVar1 = *(int *)(*(int *)(param_1 + 0x2c) + 4);
-    (**(code **)(iVar1 + 0xf4))(*(int *)(param_1 + 0x2c) + (int)*(short *)(iVar1 + 0xf0),&uStack_14)
-    ;
+    uStack_11 = get_sysparam_store_byte((uint8_t *)(param_1->field_0x48),(uint32_t)(0xb));
+    uStack_10 = get_sysparam_store_byte((uint8_t *)(param_1->field_0x48),(uint32_t)(9));
+    uStack_e = *(uint16_t *)(param_1->field_0x48 + 0x20);
+    iVar1 = *(int *)(param_1->field_0x2c + 4);
+    (((vtbl_entry*)(iVar1))[30].fn)(param_1->field_0x2c + (int)((vtbl_entry*)(iVar1))[30].adj,&uStack_14);
     uStack_c = 0x1059cf38/*ROM*/;
   }
-  iVar1 = *(int *)(*(int *)(param_1 + 0x2c) + 4);
-  (**(code **)(iVar1 + 0x74))(*(int *)(param_1 + 0x2c) + (int)*(short *)(iVar1 + 0x70));
-  iVar1 = *(int *)(*(int *)(param_1 + 0x2c) + 4);
-  (**(code **)(iVar1 + 0x6c))(*(int *)(param_1 + 0x2c) + (int)*(short *)(iVar1 + 0x68));
-  *(uint32_t *)(param_1 + 0xb8) = 1;
-  pvVar4 = *(void **)(param_1 + 0x44);
+  iVar1 = *(int *)(param_1->field_0x2c + 4);
+  (((vtbl_entry*)(iVar1))[14].fn)(param_1->field_0x2c + (int)((vtbl_entry*)(iVar1))[14].adj);
+  iVar1 = *(int *)(param_1->field_0x2c + 4);
+  (((vtbl_entry*)(iVar1))[13].fn)(param_1->field_0x2c + (int)((vtbl_entry*)(iVar1))[13].adj);
+  param_1->field_0xb8 = 1;
+  pvVar4 = (char*)(param_1) ->field_0x44;
   uVar2 = read_bounded_array_element_1051d696(pvVar4,0);
   update_camera_state_flags(pvVar4,0,uVar2 & 0xfffb);
   return;

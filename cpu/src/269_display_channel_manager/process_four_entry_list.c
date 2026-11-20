@@ -38,26 +38,26 @@ void process_four_entry_list(int param_1,void *param_2,void *param_3)
         format_string_to_buffer_10545140(auStack_5c,(char *)0x105d52d4/*ROM*/,
                      (void *)(*(int *)((int)param_2 + iVar2 + 0x20) + 8),param_3);
         iVar4 = **(int **)(param_1 + 0x300);
-        iVar4 = (**(code **)(iVar4 + 0x2c))
-                          ((int)*(int **)(param_1 + 0x300) + (int)*(short *)(iVar4 + 0x28),
+        iVar4 = (((vtbl_entry*)(iVar4))[5].fn)
+                          ((int)*(int **)(param_1 + 0x300) + (int)((vtbl_entry*)(iVar4))[5].adj,
                            auStack_5c,0,&uStack_c);
         if (iVar4 != 0) {
           if (*(int *)(*(int *)((int)param_2 + iVar2 + 0x20) + 0x58) != 0) {
             iVar4 = **(int **)(param_1 + 0x300);
-            (**(code **)(iVar4 + 0x44))
-                      ((int)*(int **)(param_1 + 0x300) + (int)*(short *)(iVar4 + 0x40),uStack_c,
+            (((vtbl_entry*)(iVar4))[8].fn)
+                      ((int)*(int **)(param_1 + 0x300) + (int)((vtbl_entry*)(iVar4))[8].adj,uStack_c,
                        *(uint32_t *)(*(int *)((int)param_2 + iVar2 + 0x20) + 0x5c),
                        *(uint32_t *)(*(int *)((int)param_2 + iVar2 + 0x20) + 0x58));
           }
           iVar4 = **(int **)(param_1 + 0x300);
-          (**(code **)(iVar4 + 0x44))
-                    ((int)*(int **)(param_1 + 0x300) + (int)*(short *)(iVar4 + 0x40),uStack_c,
+          (((vtbl_entry*)(iVar4))[8].fn)
+                    ((int)*(int **)(param_1 + 0x300) + (int)((vtbl_entry*)(iVar4))[8].adj,uStack_c,
                      *(uint32_t *)(*(int *)((int)param_2 + iVar2 + 0x20) + 4),
                      **(uint32_t **)((int)param_2 + iVar2 + 0x20));
         }
         iVar4 = **(int **)(param_1 + 0x300);
-        (**(code **)(iVar4 + 0x34))
-                  ((int)*(int **)(param_1 + 0x300) + (int)*(short *)(iVar4 + 0x30),uStack_c);
+        (((vtbl_entry*)(iVar4))[6].fn)
+                  ((int)*(int **)(param_1 + 0x300) + (int)((vtbl_entry*)(iVar4))[6].adj,uStack_c);
       }
     }
     iVar3 = iVar3 + 1;

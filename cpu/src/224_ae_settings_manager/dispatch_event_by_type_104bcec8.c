@@ -144,7 +144,7 @@ joined_r0x104bcff4:
       *(uint8_t *)(param_3 + 4) = 1;
     }
     iVar3 = **(int **)(param_1 + 4);
-    (**(code **)(iVar3 + 0x14))((int)*(int **)(param_1 + 4) + (int)*(short *)(iVar3 + 0x10),param_2)
+    (((vtbl_entry*)(iVar3))[2].fn)((int)*(int **)(param_1 + 4) + (int)((vtbl_entry*)(iVar3))[2].adj,param_2)
     ;
     return 0;
   }

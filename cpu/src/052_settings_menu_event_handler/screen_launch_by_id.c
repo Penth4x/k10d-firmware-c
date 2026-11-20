@@ -18,7 +18,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void screen_launch_by_id(int param_1)
+void screen_launch_by_id(cls_10594c54 *param_1)
 
 {
   uint32_t uVar1;
@@ -33,115 +33,122 @@ void screen_launch_by_id(int param_1)
     iVar3 = get_or_create_singleton_object_104fb12e();
     iVar3 = check_state_mismatch(*(uint32_t *)(iVar3 + 0x74));
     if (((iVar3 == 0) ||
-        ((((iVar3 = *(int *)(param_1 + 8), iVar3 == _DAT_105bb5bc/*ROM*/ || (iVar3 == _DAT_105bb5b8/*ROM*/)) ||
+        ((((iVar3 = param_1->field_0x8, iVar3 == _DAT_105bb5bc/*ROM*/ || (iVar3 == _DAT_105bb5b8/*ROM*/)) ||
           (iVar3 == _DAT_105bb5b4/*ROM*/)) && (iVar2 != 0)))) ||
        ((((iVar3 == _DAT_105bb5a0/*ROM*/ || (iVar3 == _DAT_105bb5a8/*ROM*/)) || (iVar3 == _DAT_105bb5ac/*ROM*/)) &&
         (iVar2 == 0)))) {
-      *(uint8_t *)(param_1 + 0x65) = 1;
+      param_1->field_0x65 = 1;
       return;
     }
   }
-  settings_refresh_working_copy(*(void **)(param_1 + 0x68));
-  *(uint16_t *)(param_1 + 0x5c) = 0;
-  if (*(int *)(param_1 + 0x60) == 1) {
-    *(ushort *)(param_1 + 0x5c) = *(ushort *)(param_1 + 0x5c) | 2;
+  settings_refresh_working_copy((char*)(param_1) ->field_0x68);
+  *(uint16_t *)&param_1->field_0x5c = 0;
+  if (param_1->field_0x60 == 1) {
+    *(ushort *)&param_1->field_0x5c = *(ushort *)&param_1->field_0x5c | 2;
   }
-  if (*(int *)(param_1 + 0x60) == 2) {
-    *(ushort *)(param_1 + 0x5c) = *(ushort *)(param_1 + 0x5c) | 4;
+  if (param_1->field_0x60 == 2) {
+    *(ushort *)&param_1->field_0x5c = *(ushort *)&param_1->field_0x5c | 4;
   }
-  iVar2 = *(int *)(param_1 + 8);
+  iVar2 = param_1->field_0x8;
   if (iVar2 == _DAT_105bb5a4/*ROM*/) {
-    iVar2 = first_run_flag_a_done(*(int *)(param_1 + 0x68));
+    iVar2 = first_run_flag_a_done(param_1->field_0x68);
     if (iVar2 == 0) {
       iVar2 = get_language_select_screen();
-      *(int *)(param_1 + 0x50) = iVar2;
-      (**(code **)(*(int *)(iVar2 + 0x10) + 0x6c))
-                (iVar2 + *(short *)(*(int *)(iVar2 + 0x10) + 0x68),0x3e);
-      iVar2 = *(int *)(*(int *)(param_1 + 0x50) + 0x10);
-      (**(code **)(iVar2 + 0x34))
-                (*(int *)(param_1 + 0x50) + (int)*(short *)(iVar2 + 0x30),
-                 *(uint16_t *)(param_1 + 0x5c));
+      param_1->field_0x50 = iVar2;
+      (((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[13].fn)
+                (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[13].adj,0x3e);
+      iVar2 = *(int *)(param_1->field_0x50 + 0x10);
+      (((vtbl_entry*)(iVar2))[6].fn)
+                (param_1->field_0x50 + (int)((vtbl_entry*)(iVar2))[6].adj,
+                 *(uint16_t *)&param_1->field_0x5c);
     }
     else {
-      iVar2 = first_run_flag_b_done(*(int *)(param_1 + 0x68));
+      iVar2 = first_run_flag_b_done(param_1->field_0x68);
       if (iVar2 == 0) {
-        iVar2 = get_first_run_screen_obj();
-        *(int *)(param_1 + 0x50) = iVar2;
-        (**(code **)(*(int *)(iVar2 + 0x10) + 0x6c))
-                  (iVar2 + *(short *)(*(int *)(iVar2 + 0x10) + 0x68),0x1b);
-        iVar2 = *(int *)(*(int *)(param_1 + 0x50) + 0x10);
-        (**(code **)(iVar2 + 0x34))
-                  (*(int *)(param_1 + 0x50) + (int)*(short *)(iVar2 + 0x30),
-                   *(uint16_t *)(param_1 + 0x5c));
+        iVar2 = get_or_init_second_first_run_screen();
+        param_1->field_0x50 = iVar2;
+        (((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[13].fn)
+                  (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[13].adj,0x1b);
+        iVar2 = *(int *)(param_1->field_0x50 + 0x10);
+        (((vtbl_entry*)(iVar2))[6].fn)
+                  (param_1->field_0x50 + (int)((vtbl_entry*)(iVar2))[6].adj,
+                   *(uint16_t *)&param_1->field_0x5c);
       }
       else {
         iVar2 = get_or_init_screen_object();
-        *(int *)(param_1 + 0x50) = iVar2;
-        (**(code **)(*(int *)(iVar2 + 0x10) + 0x6c))
-                  (iVar2 + *(short *)(*(int *)(iVar2 + 0x10) + 0x68),0x3e);
-        iVar2 = *(int *)(*(int *)(param_1 + 0x50) + 0x10);
-        (**(code **)(iVar2 + 0x34))
-                  (*(int *)(param_1 + 0x50) + (int)*(short *)(iVar2 + 0x30),
-                   *(uint16_t *)(param_1 + 0x5c));
+        param_1->field_0x50 = iVar2;
+        (((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[13].fn)
+                  (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[13].adj,0x3e);
+        iVar2 = *(int *)(param_1->field_0x50 + 0x10);
+        (((vtbl_entry*)(iVar2))[6].fn)
+                  (param_1->field_0x50 + (int)((vtbl_entry*)(iVar2))[6].adj,
+                   *(uint16_t *)&param_1->field_0x5c);
       }
     }
   }
   else if (iVar2 == _DAT_105bb5b0/*ROM*/) {
     iVar2 = get_manual_focal_length_list();
-    *(int *)(param_1 + 0x50) = iVar2;
-    (**(code **)(*(int *)(iVar2 + 0x10) + 0x6c))
-              (iVar2 + *(short *)(*(int *)(iVar2 + 0x10) + 0x68),0x19);
-    iVar2 = *(int *)(*(int *)(param_1 + 0x50) + 0x10);
-    (**(code **)(iVar2 + 0x34))
-              (*(int *)(param_1 + 0x50) + (int)*(short *)(iVar2 + 0x30),
-               *(uint16_t *)(param_1 + 0x5c));
+    param_1->field_0x50 = iVar2;
+    (((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[13].fn)
+              (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[13].adj,0x19);
+    iVar2 = *(int *)(param_1->field_0x50 + 0x10);
+    (((vtbl_entry*)(iVar2))[6].fn)
+              (param_1->field_0x50 + (int)((vtbl_entry*)(iVar2))[6].adj,
+               *(uint16_t *)&param_1->field_0x5c);
   }
   else if (iVar2 == _DAT_105bb5ac/*ROM*/) {
     iVar2 = get_or_init_singleton_object_103c74d0();
-    *(int *)(param_1 + 0x50) = iVar2;
-    (**(code **)(*(int *)(iVar2 + 0x10) + 0x34))
-              (iVar2 + *(short *)(*(int *)(iVar2 + 0x10) + 0x30),*(uint16_t *)(param_1 + 0x5c));
+    param_1->field_0x50 = iVar2;
+    (((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[6].fn)
+              (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[6].adj,*(uint16_t *)&param_1->field_0x5c
+              );
   }
   else if (iVar2 == _DAT_105bb5a8/*ROM*/) {
     iVar2 = get_or_init_ram_object_103b95ee();
-    *(int *)(param_1 + 0x50) = iVar2;
-    (**(code **)(*(int *)(iVar2 + 0x10) + 0x34))
-              (iVar2 + *(short *)(*(int *)(iVar2 + 0x10) + 0x30),*(uint16_t *)(param_1 + 0x5c));
+    param_1->field_0x50 = iVar2;
+    (((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[6].fn)
+              (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[6].adj,*(uint16_t *)&param_1->field_0x5c
+              );
   }
   else if (iVar2 == _DAT_105bb5a0/*ROM*/) {
     iVar2 = get_or_init_ram_object_103b95ee();
-    *(int *)(param_1 + 0x50) = iVar2;
-    (**(code **)(*(int *)(iVar2 + 0x10) + 0x34))
-              (iVar2 + *(short *)(*(int *)(iVar2 + 0x10) + 0x30),*(uint16_t *)(param_1 + 0x5c));
+    param_1->field_0x50 = iVar2;
+    (((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[6].fn)
+              (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[6].adj,*(uint16_t *)&param_1->field_0x5c
+              );
   }
   else if (iVar2 == _DAT_105bb5bc/*ROM*/) {
-    *(ushort *)(param_1 + 0x5c) = *(ushort *)(param_1 + 0x5c) | 1;
+    *(ushort *)&param_1->field_0x5c = *(ushort *)&param_1->field_0x5c | 1;
     iVar2 = get_or_init_singleton_object_103c74d0();
-    *(int *)(param_1 + 0x50) = iVar2;
-    (**(code **)(*(int *)(iVar2 + 0x10) + 0x34))
-              (iVar2 + *(short *)(*(int *)(iVar2 + 0x10) + 0x30),*(uint16_t *)(param_1 + 0x5c));
+    param_1->field_0x50 = iVar2;
+    (((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[6].fn)
+              (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[6].adj,*(uint16_t *)&param_1->field_0x5c
+              );
   }
   else if (iVar2 == _DAT_105bb5b8/*ROM*/) {
-    *(ushort *)(param_1 + 0x5c) = *(ushort *)(param_1 + 0x5c) | 1;
+    *(ushort *)&param_1->field_0x5c = *(ushort *)&param_1->field_0x5c | 1;
     iVar2 = get_or_init_ram_object_103b95ee();
-    *(int *)(param_1 + 0x50) = iVar2;
-    (**(code **)(*(int *)(iVar2 + 0x10) + 0x34))
-              (iVar2 + *(short *)(*(int *)(iVar2 + 0x10) + 0x30),*(uint16_t *)(param_1 + 0x5c));
+    param_1->field_0x50 = iVar2;
+    (((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[6].fn)
+              (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[6].adj,*(uint16_t *)&param_1->field_0x5c
+              );
   }
   else if (iVar2 == _DAT_105bb5b4/*ROM*/) {
-    *(ushort *)(param_1 + 0x5c) = *(ushort *)(param_1 + 0x5c) | 1;
+    *(ushort *)&param_1->field_0x5c = *(ushort *)&param_1->field_0x5c | 1;
     iVar2 = get_or_init_ram_object_103b95ee();
-    *(int *)(param_1 + 0x50) = iVar2;
-    (**(code **)(*(int *)(iVar2 + 0x10) + 0x34))
-              (iVar2 + *(short *)(*(int *)(iVar2 + 0x10) + 0x30),*(uint16_t *)(param_1 + 0x5c));
+    param_1->field_0x50 = iVar2;
+    (((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[6].fn)
+              (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[6].adj,*(uint16_t *)&param_1->field_0x5c
+              );
   }
   else {
     iVar2 = get_or_init_ram_object_103b95ee();
-    *(int *)(param_1 + 0x50) = iVar2;
-    (**(code **)(*(int *)(iVar2 + 0x10) + 0x34))
-              (iVar2 + *(short *)(*(int *)(iVar2 + 0x10) + 0x30),*(uint16_t *)(param_1 + 0x5c));
+    param_1->field_0x50 = iVar2;
+    (((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[6].fn)
+              (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0x10)))[6].adj,*(uint16_t *)&param_1->field_0x5c
+              );
   }
-  eventflag_clr_flg((void *)(param_1 + 0x48),0xffffffff);
-  *(uint32_t *)(param_1 + 0x54) = 0;
+  eventflag_clr_flg(&param_1->field_0x48,0xffffffff);
+  param_1->field_0x54 = 0;
   return;
 }

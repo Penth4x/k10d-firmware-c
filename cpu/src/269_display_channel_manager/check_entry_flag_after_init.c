@@ -28,8 +28,8 @@ bool check_entry_flag_after_init(int param_1)
   *(int *)(param_1 + 0x2e4) = param_1 + 0x94;
   eventflag_clr_flg(puVar1,8);
   iVar2 = **(int **)(param_1 + 0x304);
-  (**(code **)(iVar2 + 0x2c))
-            ((int)*(int **)(param_1 + 0x304) + (int)*(short *)(iVar2 + 0x28),param_1 + 4,
+  (((vtbl_entry*)(iVar2))[5].fn)
+            ((int)*(int **)(param_1 + 0x304) + (int)((vtbl_entry*)(iVar2))[5].adj,param_1 + 4,
              (int *)(param_1 + 0x2e4));
   eventflag_wai_flg(puVar1,8,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,8);

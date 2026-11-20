@@ -36,8 +36,8 @@ bool dispatch_state_handler_and_notify(int param_1)
 LAB_104743a4:
   piVar3 = *(int **)(*(int *)(param_1 + 0x18) + 0x14);
   iVar1 = *piVar3;
-  iVar1 = (**(code **)(iVar1 + 0x14))
-                    ((int)piVar3 + (int)*(short *)(iVar1 + 0x10),0x61000,
+  iVar1 = (((vtbl_entry*)(iVar1))[2].fn)
+                    ((int)piVar3 + (int)((vtbl_entry*)(iVar1))[2].adj,0x61000,
                      *(uint32_t *)(param_1 + 0x1c));
   return iVar1 == 0;
 }

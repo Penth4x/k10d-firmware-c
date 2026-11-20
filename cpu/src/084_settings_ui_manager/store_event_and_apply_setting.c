@@ -16,24 +16,24 @@
 #include "globals.h"
 #include "funcs.h"
 
-void store_event_and_apply_setting(int param_1,int param_2)
+void store_event_and_apply_setting(cls_105977ac *param_1,int param_2)
 
 {
   byte bVar1;
   uint8_t uVar2;
   
-  *(int *)(param_1 + 0x18) = param_2;
+  param_1->field_0x18 = param_2;
   uVar2 = uRam105977a4;
   if ((((param_2 == 0x1870012) || (uVar2 = uRam105977a5, param_2 == 0x1870014)) ||
       (uVar2 = uRam105977a6, param_2 == 0x1870016)) || (uVar2 = uRam105977a7, param_2 == 0x1870018))
   {
-    *(uint8_t *)(param_1 + 0x20) = uVar2;
+    param_1->field_0x20 = uVar2;
     update_two_object_states((int *)__frv_reg_unset(4));
   }
   else {
     bVar1 = bRam105977a8;
     if ((param_2 == 0x1870020) || (bVar1 = bRam105977a9, param_2 == 0x187001f)) {
-      setting_set(*(int *)(param_1 + 8),0x80,(uint)bVar1);
+      setting_set(param_1->field_0x8,0x80,(uint)bVar1);
     }
   }
   return;

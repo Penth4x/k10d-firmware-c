@@ -19,8 +19,8 @@
 void init_object_and_call_virtual(int param_1,void *param_2)
 
 {
-  (**(code **)(*(int *)((int)param_2 + 0x8d4) + 0xa4))
-            ((int)*(short *)(*(int *)((int)param_2 + 0x8d4) + 0xa0) + (int)param_2,
+  (((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[20].fn)
+            ((int)((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[20].adj + (int)param_2,
              *(short *)(*(int *)((int)param_2 + 0x20) + 0xa0 + *(int *)((int)param_2 + 0x24) * 2) ==
              1);
   *(uint32_t *)((int)param_2 + 0x10) = 0xa0000a;

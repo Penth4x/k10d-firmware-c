@@ -4,7 +4,7 @@
  * purpose:
  *   Under the display lock, turns the display output off if it is on.
  * summary:
- *   VERIFIED: decomp: lock; if get_display_on_flag -> deactivate_display_mode; unlock;
+ *   VERIFIED: decomp: lock; if read_display_on_flag -> deactivate_display_state; unlock;
  *   emulator: runs when a screen closes into display-off
  * @end */
 #include "frv_intrinsics.h"
@@ -17,9 +17,9 @@ void display_off_locked(uint32_t *param_1)
   int iVar1;
   
   call_kernel_with_short_id(param_1 + 1);
-  iVar1 = get_display_on_flag(*param_1);
+  iVar1 = read_display_on_flag(*param_1);
   if (iVar1 != 0) {
-    deactivate_display_mode(*param_1);
+    deactivate_display_state(*param_1);
   }
   check_kernel_call_success_10459d88(param_1 + 1);
   return;

@@ -13,10 +13,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_if_two_fields_set(int param_1)
+void call_helper_if_two_fields_set(cls_105b3e0c *param_1)
 
 {
-  if ((*(int *)(param_1 + 4) != 0) && (*(int *)(param_1 + 0x24) != 0)) {
+  if ((param_1->field_0x4 != 0) && (*(int *)&param_1->field_0x24 != 0)) {
     issue_three_region_commands((ushort *)__frv_reg_unset(4));
   }
   return;

@@ -9,7 +9,7 @@
  *   If offset 0x67 is set, it performs a virtual call via the vtable at offset 0x2c. It
  *   stores param_2 at offset 0x30 and uses a switch statement to map specific event IDs
  *   (0x2040006-0x2040014) to indices 0-8. If a valid index is found, it increments a
- *   counter at offset 0x68, potentially sets the flag at 0x67 and calls
+ *   counter at 0x68, potentially sets the flag at 0x67 and calls
  *   call_helper_on_fetched_pointer when the counter reaches 2, then calls
  *   update_setting_based_on_check with the object's field at 0x28 and the mapped index.
  * @end */
@@ -17,22 +17,22 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_event_to_handler_103b3e88(int param_1,uint32_t param_2)
+void dispatch_event_to_handler_103b3e88(cls_10566478 *param_1,uint32_t param_2)
 
 {
   bool bVar1;
   uint32_t uVar2;
   int iVar3;
   
-  if (*(char *)(param_1 + 0x66) != '\0') {
+  if (param_1->field_0x66 != '\0') {
     return;
   }
-  if (*(char *)(param_1 + 0x67) != '\0') {
-    iVar3 = **(int **)(param_1 + 0x2c);
-    (**(code **)(iVar3 + 0x14))
-              ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar3 + 0x10),0x1120065,0);
+  if (param_1->field_0x67 != '\0') {
+    iVar3 = *(int *)(param_1->field_0x2c);
+    (((vtbl_entry*)(iVar3))[2].fn)
+              ((int)param_1->field_0x2c + (int)((vtbl_entry*)(iVar3))[2].adj,0x1120065,0);
   }
-  *(uint32_t *)(param_1 + 0x30) = param_2;
+  param_1->field_0x30 = param_2;
   bVar1 = false;
   uVar2 = 0;
   switch(param_2) {
@@ -75,12 +75,13 @@ void dispatch_event_to_handler_103b3e88(int param_1,uint32_t param_2)
 LAB_103b3f06:
   if (bVar1) {
 LAB_103b3f0a:
-    if ((*(char *)(param_1 + 0x67) == '\0') &&
-       (iVar3 = *(int *)(param_1 + 0x68) + 1, *(int *)(param_1 + 0x68) = iVar3, iVar3 == 2)) {
-      *(uint8_t *)(param_1 + 0x67) = 1;
+    if ((param_1->field_0x67 == '\0') &&
+       (iVar3 = *(int *)&param_1->field_0x68 + 1, *(int *)&param_1->field_0x68 = iVar3, iVar3 == 2))
+    {
+      param_1->field_0x67 = '\x01';
       call_helper_on_fetched_pointer();
     }
-    update_setting_based_on_check(*(uint32_t *)(param_1 + 0x28),uVar2);
+    update_setting_based_on_check(param_1->field_0x28,uVar2);
   }
   return;
 }

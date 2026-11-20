@@ -18,13 +18,13 @@
 /* WARNING: Instruction at (ram,0x1047ebac) overlaps instruction at (ram,0x1047ebaa)
     */
 
-uint32_t build_raw_header_if_mode_0x20(int *param_1,uint8_t *param_2)
+uint32_t build_raw_header_if_mode_0x20(cls_105aaebc *param_1,uint8_t *param_2)
 
 {
   int iVar1;
   uint32_t uVar2;
   
-  if (*(short *)(param_1 + 10) == 0x20) {
+  if (param_1->field_0x28 == 0x20) {
     fill_byte_array(param_2,0,0x200);
     *param_2 = 0x52;
     param_2[1] = 0x52;
@@ -34,8 +34,8 @@ uint32_t build_raw_header_if_mode_0x20(int *param_1,uint8_t *param_2)
     param_2[0x1e5] = 0x72;
     param_2[0x1e6] = 0x41;
     param_2[0x1e7] = 0x61;
-    iVar1 = ((param_1[6] - (uint)*(ushort *)((int)param_1 + 0x1e)) -
-            (uint)*(byte *)(param_1 + 8) * param_1[9]) / (uint)*(byte *)(param_1 + 7) - 1;
+    iVar1 = ((param_1->field_0x18 - (uint)param_1->field_0x1e) -
+            (uint)param_1->field_0x20 * param_1->field_0x24) / (uint)param_1->field_0x1c - 1;
     param_2[0x1e8] = (char)iVar1;
     param_2[0x1e9] = (char)((uint)iVar1 >> 8);
     param_2[0x1ea] = (char)((uint)iVar1 >> 0x10);
@@ -49,8 +49,9 @@ uint32_t build_raw_header_if_mode_0x20(int *param_1,uint8_t *param_2)
     param_2[0x1fe] = 0x55;
     param_2[0x1ff] = 0xaa;
     uVar2 = 0;
-    iVar1 = call_virtual_slot_6_and_helper(param_1,param_1[5] + 1,1);
-    if ((iVar1 != 0) && (iVar1 = call_virtual_slot_6_and_helper(param_1,param_1[5] + 7,1), iVar1 != 0)) {
+    iVar1 = call_virtual_slot_6_and_helper((int *)param_1,param_1->field_0x14 + 1,1);
+    if ((iVar1 != 0) && (iVar1 = call_virtual_slot_6_and_helper((int *)param_1,param_1->field_0x14 + 7,1), iVar1 != 0)
+       ) {
       uVar2 = 1;
     }
   }

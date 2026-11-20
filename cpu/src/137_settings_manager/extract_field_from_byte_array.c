@@ -14,7 +14,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint extract_field_from_byte_array(void *param_1,uint32_t param_2)
+uint extract_field_from_byte_array(cls_105a6f84 *param_1,uint32_t param_2)
 
 {
   uint uVar1;
@@ -24,35 +24,35 @@ uint extract_field_from_byte_array(void *param_1,uint32_t param_2)
   uVar1 = 0;
   switch(param_2) {
   case 0:
-    uVar2 = (ushort)*(byte *)((int)param_1 + 5);
-    uVar3 = (ushort)*(byte *)((int)param_1 + 4);
+    uVar2 = (ushort)param_1->field_0x5;
+    uVar3 = (ushort)param_1->field_0x4;
     goto LAB_104607ce;
   case 1:
-    uVar2 = (ushort)*(byte *)((int)param_1 + 7);
-    uVar3 = (ushort)*(byte *)((int)param_1 + 6);
+    uVar2 = (ushort)param_1->field_0x7;
+    uVar3 = (ushort)param_1->field_0x6;
     goto LAB_104607ce;
   case 2:
-    uVar1 = pack_bytes_into_uint32(param_1,(uint)*(byte *)((int)param_1 + 7),(uint)*(byte *)((int)param_1 + 6)
-                         ,(uint)*(byte *)((int)param_1 + 5),*(byte *)((int)param_1 + 4));
+    uVar1 = pack_bytes_into_uint32(param_1,(uint)param_1->field_0x7,(uint)param_1->field_0x6,
+                         (uint)param_1->field_0x5,param_1->field_0x4);
     break;
   case 3:
-    uVar2 = (ushort)*(byte *)((int)param_1 + 9);
-    uVar3 = (ushort)*(byte *)((int)param_1 + 8);
+    uVar2 = (ushort)param_1->field_0x9;
+    uVar3 = (ushort)param_1->field_0x8;
 LAB_104607ce:
     uVar2 = pack_two_byte_value_10496952(param_1,uVar2,uVar3);
     uVar1 = (uint)uVar2;
     break;
   case 4:
-    uVar1 = (int)(*(byte *)((int)param_1 + 10) & 0xe0) >> 5;
+    uVar1 = (int)(param_1->field_0xa & 0xe0) >> 5;
     break;
   case 5:
-    uVar1 = *(byte *)((int)param_1 + 10) & 0x1f;
+    uVar1 = param_1->field_0xa & 0x1f;
     break;
   case 6:
-    uVar1 = (uint)*(byte *)((int)param_1 + 10);
+    uVar1 = (uint)param_1->field_0xa;
     break;
   case 7:
-    uVar1 = (uint)*(byte *)((int)param_1 + 0xb);
+    uVar1 = (uint)param_1->field_0xb;
   }
   return uVar1;
 }

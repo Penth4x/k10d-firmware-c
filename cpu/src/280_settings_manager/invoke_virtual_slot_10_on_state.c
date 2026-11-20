@@ -6,16 +6,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_10_on_state(int *param_1,int param_2)
+void invoke_virtual_slot_10_on_state(cls_105d86e0 *param_1,int param_2)
 
 {
   int iVar1;
   
-  if ((((param_1[1] == 1) || (param_1[1] == 2)) && ((*param_1 == param_2 || (*param_1 == 0)))) &&
-     (iVar1 = (**(code **)(param_1[3] + 0x54))
-                        ((int)*(short *)(param_1[3] + 0x50) + (int)param_1,param_2), iVar1 != 0)) {
-    *param_1 = param_2;
-    param_1[1] = 3;
+  if ((((param_1->field_0x4 == 1) || (param_1->field_0x4 == 2)) &&
+      ((param_1->field_0x0 == param_2 || (param_1->field_0x0 == 0)))) &&
+     (iVar1 = (((vtbl_entry*)(param_1->field_0xc))[10].fn)
+                        ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0xc))[10].adj,
+                         param_2), iVar1 != 0)) {
+    param_1->field_0x0 = param_2;
+    param_1->field_0x4 = 3;
   }
   return;
 }

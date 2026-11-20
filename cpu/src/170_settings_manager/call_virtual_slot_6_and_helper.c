@@ -22,7 +22,7 @@ uint32_t call_virtual_slot_6_and_helper(int *param_1,uint32_t param_2,uint32_t p
   int iVar2;
   
   iVar2 = *(int *)(param_1[1] + 4);
-  uVar1 = (**(code **)(iVar2 + 0x34))(param_1[1] + (int)*(short *)(iVar2 + 0x30));
+  uVar1 = (((vtbl_entry*)(iVar2))[6].fn)(param_1[1] + (int)((vtbl_entry*)(iVar2))[6].adj);
   invoke_virtual_slot_two_1047eeb0(param_1,param_3);
   return uVar1;
 }

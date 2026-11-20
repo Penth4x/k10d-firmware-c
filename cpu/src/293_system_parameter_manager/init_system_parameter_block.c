@@ -26,7 +26,7 @@ uint32_t * init_system_parameter_block(uint32_t *param_1)
     param_1[1] = 0;
     param_1[2] = 0;
     param_1[3] = 0;
-    uVar1 = cls_10621c28_new_10535e14(0);
+    uVar1 = (uintptr_t)(cls_10621c28_new_10535e14(0));
     param_1[4] = uVar1;
     *(uint8_t *)(param_1 + 5) = 0;
     param_1[6] = 0;

@@ -15,14 +15,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_virtual_slot_if_flags_clear(ushort *param_1)
+void dispatch_virtual_slot_if_flags_clear(cls_105b3d9c *param_1)
 
 {
-  if (*(int *)(param_1 + 2) != 0) {
-    if (((*param_1 & 0x1f) == 0) || (*param_1 == 0)) {
-      if ((param_1[0x13] & 0x1f) == 0) {
-        (**(code **)(*(int *)(param_1 + 0x10) + 0x34))
-                  ((int)*(short *)(*(int *)(param_1 + 0x10) + 0x30) + (int)param_1);
+  if (param_1->field_0x4 != 0) {
+    if (((param_1->field_0x0 & 0x1f) == 0) || (param_1->field_0x0 == 0)) {
+      if ((param_1->field_0x26 & 0x1f) == 0) {
+        (((vtbl_entry*)(param_1->field_0x20))[6].fn)
+                  ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x20))[6].adj);
       }
       else {
         fill_buffer_with_pattern((ushort *)__frv_reg_unset(4));

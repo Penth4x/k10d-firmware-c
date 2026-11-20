@@ -15,15 +15,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-void allocate_and_init_struct_with_params_1047cce0(int param_1,uint32_t param_2,uint32_t param_3)
+void allocate_and_init_struct_with_params_1047cce0(cls_105aaa50 *param_1,uint32_t param_2,uint32_t param_3)
 
 {
   int * iVar1;
   
   iVar1 = alloc_dynamic_array_header(0,1);
-  *(uint32_t *)(iVar1 + 8) = param_2;
-  *(uint32_t *)(iVar1 + 4) = 1;
-  **(uint32_t **)(iVar1 + 0xc) = param_3;
-  reg_framework_send(param_1 + 8);
+  *(uint32_t *)((int)iVar1 + 8) = param_2;
+  *(uint32_t *)((int)iVar1 + 4) = 1;
+  **(uint32_t **)((int)iVar1 + 0xc) = param_3;
+  reg_framework_send((int)&param_1->field_0x8);
   return;
 }

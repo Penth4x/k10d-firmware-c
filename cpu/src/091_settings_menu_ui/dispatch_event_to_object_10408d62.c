@@ -45,9 +45,9 @@ void dispatch_event_to_object_10408d62(int param_1,int param_2,void *param_3,int
      (piVar7 = piVar4, param_4 != 3)) {
     piVar7 = piVar1;
   }
-  (**(code **)(piVar7[3] + 0xc))((int)*(short *)(piVar7[3] + 8) + (int)piVar7,0);
-  (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(*(short *)(*(int *)(iVar5 + 0xc) + 8) + iVar5,0);
-  (**(code **)(*(int *)(iVar6 + 0xc) + 0xc))(*(short *)(*(int *)(iVar6 + 0xc) + 8) + iVar6,0);
+  (((vtbl_entry*)(piVar7[3]))[1].fn)((int)*(short *)(piVar7[3] + 8) + (int)piVar7,0);
+  (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar5 + 0xc) + 8) + iVar5,0);
+  (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar6 + 0xc) + 8) + iVar6,0);
   if (aiStack_14[0] != 0) {
     iVar9 = 8;
     do {
@@ -56,9 +56,9 @@ void dispatch_event_to_object_10408d62(int param_1,int param_2,void *param_3,int
       iVar9 = iVar8;
     } while (iVar8 != 0);
     copy_event_payload_and_notify(piVar7,aiStack_14 + 1);
-    (**(code **)(piVar7[3] + 0xc))((int)*(short *)(piVar7[3] + 8) + (int)piVar7,1);
-    (**(code **)(*(int *)(iVar5 + 0xc) + 0xc))(*(short *)(*(int *)(iVar5 + 0xc) + 8) + iVar5,1);
-    (**(code **)(*(int *)(iVar6 + 0xc) + 0xc))(*(short *)(*(int *)(iVar6 + 0xc) + 8) + iVar6,1);
+    (((vtbl_entry*)(piVar7[3]))[1].fn)((int)*(short *)(piVar7[3] + 8) + (int)piVar7,1);
+    (((vtbl_entry*)(*(int *)(iVar5 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar5 + 0xc) + 8) + iVar5,1);
+    (((vtbl_entry*)(*(int *)(iVar6 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar6 + 0xc) + 8) + iVar6,1);
   }
   return;
 }

@@ -6,14 +6,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_6_with_arg_3(int param_1)
+void invoke_virtual_slot_6_with_arg_3(cls_105b4254 *param_1)
 
 {
   int iVar1;
   
-  iVar1 = *(int *)(param_1 + 0x10);
+  iVar1 = param_1->field_0x10;
   if (iVar1 != 0) {
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0x34))(*(short *)(*(int *)(iVar1 + 0xc) + 0x30) + iVar1,3);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[6].fn)(((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[6].adj + iVar1,3);
   }
   return;
 }

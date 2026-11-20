@@ -13,9 +13,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_lens_update_helper_10547060(void)
+void call_lens_update_helper_10547060(int param_1,int param_2,int param_3,void *param_4,uint32_t param_5,
+                 uint32_t param_6,uint32_t param_7,uint32_t param_8)
 
 {
-  iterate_lens_fw_blocks();
+  iterate_lens_fw_blocks(param_1,param_2,param_3,param_4,1,param_7,param_8);
   return;
 }

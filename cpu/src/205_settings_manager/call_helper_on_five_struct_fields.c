@@ -16,13 +16,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_on_five_struct_fields(int param_1)
+void call_helper_on_five_struct_fields(cls_105b5b0c *param_1)
 
 {
-  iterate_and_invoke_virtual_method(param_1 + 0xc);
-  iterate_and_invoke_virtual_method(param_1 + 0x44);
-  iterate_and_invoke_virtual_method(param_1 + 0x7c);
-  iterate_and_invoke_virtual_method(param_1 + 0xb4);
-  iterate_and_invoke_virtual_method(*(uint32_t *)(param_1 + 0xf0));
+  iterate_and_invoke_virtual_method((uint)(uintptr_t)&param_1->field_0xc);
+  iterate_and_invoke_virtual_method((uint)(uintptr_t)&param_1->field_0x44);
+  iterate_and_invoke_virtual_method((uint)(uintptr_t)&param_1->field_0x7c);
+  iterate_and_invoke_virtual_method((uint)(uintptr_t)&param_1->field_0xb4);
+  iterate_and_invoke_virtual_method(param_1->field_0xf0);
   return;
 }

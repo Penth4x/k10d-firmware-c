@@ -14,20 +14,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t initialize_struct_offsets(int *param_1)
+uint32_t initialize_struct_offsets(cls_105b6174 *param_1)
 
 {
-  int iVar1;
+  uint32_t uVar1;
   
-  iVar1 = *(int *)(*param_1 + 4);
-  param_1[2] = iVar1;
-  param_1[3] = iVar1;
-  param_1[4] = param_1[2] + 0x30;
-  param_1[5] = param_1[2] + 0x1c;
-  param_1[6] = param_1[2] + 0x7c;
-  param_1[7] = param_1[2] + 0xfc;
-  param_1[8] = param_1[2] + 0x4bc;
-  param_1[9] = param_1[2] + 0x164;
-  param_1[10] = param_1[2] + 0x4a8;
+  uVar1 = *(uint32_t *)(param_1->field_0x0 + 4);
+  param_1->field_0x8 = uVar1;
+  param_1->field_0xc = uVar1;
+  param_1->field_0x10 = param_1->field_0x8 + 0x30;
+  param_1->field_0x14 = param_1->field_0x8 + 0x1c;
+  param_1->field_0x18 = param_1->field_0x8 + 0x7c;
+  param_1->field_0x1c = param_1->field_0x8 + 0xfc;
+  param_1->field_0x20 = param_1->field_0x8 + 0x4bc;
+  param_1->field_0x24 = param_1->field_0x8 + 0x164;
+  param_1->field_0x28 = param_1->field_0x8 + 0x4a8;
   return 1;
 }

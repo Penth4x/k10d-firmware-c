@@ -20,15 +20,15 @@ void initialize_subobject_with_params_1049b06c(int param_1)
   int iVar1;
   int iVar2;
   
-  iVar1 = cls_105b5694_new(0);
-  iVar2 = cls_105b5668_new((uint32_t *)0x0);
+  iVar1 = (uintptr_t)(cls_105b5694_new((cls_105b5694 *)0x0));
+  iVar2 = cls_105b5668_new((cls_105b5668 *)0x0);
   *(int *)(param_1 + 0x18) = iVar2;
   *(int *)(iVar1 + 0x40) = iVar2;
   *(uint32_t *)(iVar1 + 0x44) = *(uint32_t *)(param_1 + 0x20);
   *(uint32_t *)(iVar1 + 0x48) = *(uint32_t *)(param_1 + 0x24);
   *(uint32_t *)(iVar1 + 0x4c) = *(uint32_t *)(param_1 + 0x28);
   *(uint32_t *)(iVar1 + 0x50) = *(uint32_t *)(param_1 + 0x2c);
-  (**(code **)(*(int *)(iVar1 + 0x10) + 0x14))(*(short *)(*(int *)(iVar1 + 0x10) + 0x10) + iVar1,0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0x10)))[2].fn)(((vtbl_entry*)(*(int *)(iVar1 + 0x10)))[2].adj + iVar1,0);
   *(int *)(param_1 + 0xc) = iVar1;
   return;
 }

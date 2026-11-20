@@ -10,7 +10,7 @@
  *   configuration routines (sr_state_machine, sr_enable_channels, sr_cal_transfer) and
  *   enables the display output via display_output_enable. It then waits for 5000 units
  *   (likely ms) via check_kernel_call_success_10459fea before calling
- *   deactivate_display_mode. Finally, it releases both memory blocks and nulls the
+ *   deactivate_display_state. Finally, it releases both memory blocks and nulls the
  *   pointers.
  * @end */
 #include "frv_intrinsics.h"
@@ -47,7 +47,7 @@ void init_display_buffers_and_enable(int param_1)
     dispatch_two_param_operation(param_1,iVar3,uVar2);
     display_output_enable(*(uint32_t *)(param_1 + 0x20));
     check_kernel_call_success_10459fea();
-    deactivate_display_mode(*(int *)(param_1 + 0x20));
+    deactivate_display_state(*(int *)(param_1 + 0x20));
   }
   pvVar1 = (void *)get_system_heap();
   mempool_release_block(pvVar1,*(void **)(param_1 + 0x24));

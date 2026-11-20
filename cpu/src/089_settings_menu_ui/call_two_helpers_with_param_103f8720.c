@@ -12,10 +12,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_two_helpers_with_param_103f8720(int *param_1)
+void call_two_helpers_with_param_103f8720(cls_10597d1c *param_1)
 
 {
   update_state_and_notify((uint32_t *)__frv_reg_unset(4),__frv_reg_unset(5));
-  register_nine_menu_items_103fa390(param_1);
+  register_nine_menu_items_103fa390((void *)param_1);
   return;
 }

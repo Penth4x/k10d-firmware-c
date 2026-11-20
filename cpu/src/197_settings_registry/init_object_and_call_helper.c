@@ -17,7 +17,7 @@
 void init_object_and_call_helper(void)
 
 {
-  cls_105a5c2c_new(&DAT_80048f7c/*SDRAM*/,0);
+  cls_105a5c2c_new((cls_105a5c2c *)&DAT_80048f7c/*SDRAM*/,0);
   prepend_to_singly_linked_list((void *)0x800104f0/*SDRAM*/);
   return;
 }

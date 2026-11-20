@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t release_heap_block_if_set(int *param_1)
+uint32_t release_heap_block_if_set(cls_105aaebc *param_1)
 
 {
   void *pvVar1;
@@ -14,12 +14,12 @@ uint32_t release_heap_block_if_set(int *param_1)
   uint32_t uVar3;
   
   uVar3 = 0;
-  if (*param_1 != 0) {
+  if (param_1->field_0x0 != 0) {
     pvVar1 = (void *)get_system_heap();
-    iVar2 = mempool_release_block(pvVar1,(void *)*param_1);
+    iVar2 = mempool_release_block(pvVar1,(char*)(param_1) ->field_0x0);
     if (iVar2 != 0) {
-      *param_1 = 0;
-      param_1[1] = 0;
+      param_1->field_0x0 = 0;
+      param_1->field_0x4 = 0;
       uVar3 = 1;
     }
   }

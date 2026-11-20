@@ -14,7 +14,7 @@ void store_param_and_call_virtual_slot(int param_1,uint32_t param_2)
   *(uint32_t *)(param_1 + 0x4c) = param_2;
   uVar1 = align_down_to_32_bytes(__frv_reg_unset(4), __frv_reg_unset(5));
   *(uint32_t *)(param_1 + 0xa8) = uVar1;
-  (**(code **)(*(int *)(param_1 + 0x8d4) + 0xcc))
+  (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[25].fn)
             (*(short *)(*(int *)(param_1 + 0x8d4) + 200) + param_1);
   return;
 }

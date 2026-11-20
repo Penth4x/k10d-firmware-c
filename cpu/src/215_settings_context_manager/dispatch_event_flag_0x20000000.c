@@ -26,8 +26,8 @@ void dispatch_event_flag_0x20000000(int param_1,uint param_2)
       iVar1 = check_entry_condition_in_table(*(byte **)(param_1 + 0x34));
       if (iVar1 != 0) {
         iVar1 = **(int **)(param_1 + 0x48);
-        (**(code **)(iVar1 + 0x24))
-                  ((int)*(int **)(param_1 + 0x48) + (int)*(short *)(iVar1 + 0x20),
+        (((vtbl_entry*)(iVar1))[4].fn)
+                  ((int)*(int **)(param_1 + 0x48) + (int)((vtbl_entry*)(iVar1))[4].adj,
                    *(uint32_t *)(param_1 + 0x38),*(uint32_t *)(param_1 + 0x40));
       }
     }

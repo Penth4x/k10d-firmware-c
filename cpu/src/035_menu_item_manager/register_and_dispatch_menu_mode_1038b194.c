@@ -27,9 +27,9 @@ void register_and_dispatch_menu_mode_1038b194(int param_1,uint32_t param_2)
   
   iVar1 = menu_item_register(param_1);
   iVar2 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0x1c))
-            (auStack_18,*(short *)(*(int *)(iVar1 + 0xc) + 0x18) + iVar1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(*(short *)(*(int *)(iVar1 + 0xc) + 8) + iVar1,1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[3].fn)
+            (auStack_18,((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[3].adj + iVar1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar1 + 0xc) + 8) + iVar1,1);
   switch(param_2) {
   case 1:
     uVar3 = 1;
@@ -53,12 +53,12 @@ void register_and_dispatch_menu_mode_1038b194(int param_1,uint32_t param_2)
     uVar3 = 6;
     break;
   default:
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(*(short *)(*(int *)(iVar1 + 0xc) + 8) + iVar1,0);
-    (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(*(short *)(*(int *)(iVar2 + 0xc) + 8) + iVar2,0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar1 + 0xc) + 8) + iVar1,0);
+    (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar2 + 0xc) + 8) + iVar2,0);
     goto LAB_1038b264;
   }
-  dispatch_mode_update_request_1038b660(param_1,iVar2,(void *)auStack_18,uVar3);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(*(short *)(*(int *)(iVar2 + 0xc) + 8) + iVar2,1);
+  dispatch_mode_update_request_1038b660(param_1,iVar2,auStack_18,uVar3);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar2 + 0xc) + 8) + iVar2,1);
 LAB_1038b264:
   free_heap_block_if_flagged_1045bc54(auStack_18,2);
   return;

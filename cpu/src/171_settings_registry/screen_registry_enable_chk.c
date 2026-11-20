@@ -24,17 +24,17 @@ bool screen_registry_enable_chk(void *param_1,uint8_t *param_2)
   int iVar1;
   bool bVar3;
   
-  cVar2 = screen_registry_cur_enabled((void *)_DAT_80010030/*SDRAM*/,param_2);
+  cVar2 = screen_registry_cur_enabled((void *)(_DAT_80010030/*SDRAM*/),(uint8_t *)(param_2));
   bVar3 = true;
   if (cVar2 == '\0') {
-    iVar1 = screen_enable_by_key((void *)_DAT_80010030/*SDRAM*/,param_2);
+    iVar1 = screen_enable_by_key((void *)(_DAT_80010030/*SDRAM*/),(uint8_t *)(param_2));
     if (iVar1 == 0) {
       bVar3 = false;
     }
     else {
       bVar3 = screen_activate_ondemand(param_1,param_2);
       if (!bVar3) {
-        clear_entry_flags_in_table((void *)_DAT_80010030/*SDRAM*/,param_2);
+        clear_entry_flags_in_table((void *)(_DAT_80010030/*SDRAM*/),(uint8_t *)(param_2));
       }
     }
   }

@@ -18,9 +18,9 @@
 void initialize_sysparam_store_fields(uint32_t *param_1)
 
 {
-  zero_memory_region((void *)*param_1,0x1f,0);
-  zero_memory_region((void *)param_1[2],0x10,0);
-  zero_memory_region((void *)param_1[1],0xd,0);
+  zero_memory_region((void *)*param_1, 0x1f, 0);
+  zero_memory_region((void *)param_1[2], 0x10, 0);
+  zero_memory_region((void *)param_1[1], 0xd, 0);
   param_1[3] = 0;
   param_1[4] = 0;
   return;

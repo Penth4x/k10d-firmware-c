@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t read_three_word_values_into_struct(void *param_1)
+uint32_t read_three_word_values_into_struct(cls_105c2de4 *param_1)
 
 {
   void *pvVar1;
@@ -23,11 +23,11 @@ uint32_t read_three_word_values_into_struct(void *param_1)
   
   pvVar1 = (void *)get_or_init_sram_buffer_104277bc();
   uVar2 = read_table_entry_field(pvVar1,0xba);
-  *(uint32_t *)((int)param_1 + 4) = uVar2;
+  param_1->field_0x4 = uVar2;
   uVar2 = read_table_entry_field(pvVar1,0xb9);
-  *(uint32_t *)((int)param_1 + 8) = uVar2;
+  param_1->field_0x8 = uVar2;
   uVar2 = read_table_entry_field(pvVar1,0xc1);
-  *(uint32_t *)((int)param_1 + 0xc) = uVar2;
-  return_constant_one_104edd0a((int)param_1 + 0x10,0);
+  param_1->field_0xc = uVar2;
+  return_constant_one_104edd0a((uint32_t)(&param_1->field_0x10),(uint32_t)(0));
   return 1;
 }

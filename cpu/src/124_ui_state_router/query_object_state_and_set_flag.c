@@ -15,9 +15,9 @@ uint32_t query_object_state_and_set_flag(int param_1,int *param_2)
   uVar2 = 0;
   if (param_2 != (int *)0x0) {
     call_kernel_with_short_id((uint32_t *)(param_1 + 0x48));
-    iVar1 = (**(code **)(*param_2 + 0x24))((int)*(short *)(*param_2 + 0x20) + (int)param_2,5);
+    iVar1 = (((vtbl_entry*)(*param_2))[4].fn)((int)((vtbl_entry*)(*param_2))[4].adj + (int)param_2,5);
     if (iVar1 == 0) {
-      iVar1 = (**(code **)(*param_2 + 0x2c))((int)*(short *)(*param_2 + 0x28) + (int)param_2,5);
+      iVar1 = (((vtbl_entry*)(*param_2))[5].fn)((int)((vtbl_entry*)(*param_2))[5].adj + (int)param_2,5);
       if (iVar1 != 0) {
         *(uint32_t *)(param_1 + 0x44) = 1;
         uVar2 = 1;

@@ -29,7 +29,7 @@ int * cls_105a5c2c_new_2(int *param_1,int param_2,int param_3)
     init_object_with_optional_heap_field(param_1);
     iVar2 = *(int *)param_1[3];
     puVar1 = (uint32_t *)
-             (**(code **)(iVar2 + 0x14))(param_1[3] + (int)*(short *)(iVar2 + 0x10),param_2);
+             (((vtbl_entry*)(iVar2))[2].fn)(param_1[3] + (int)((vtbl_entry*)(iVar2))[2].adj,param_2);
     *param_1 = (int)puVar1;
     if (puVar1 != (uint32_t *)0x0) {
       uStack_c = 0;

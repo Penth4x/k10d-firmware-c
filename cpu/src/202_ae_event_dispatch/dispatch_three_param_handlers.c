@@ -21,7 +21,7 @@ uint32_t dispatch_three_param_handlers(int param_1,short *param_2)
   
   sVar1 = *param_2;
   if (sVar1 == 0x112) {
-    query_mode_state_if_type_three(param_1 + 0x14,*(uint32_t *)(param_1 + 8), __frv_reg_unset(6));
+    query_mode_state_if_type_three((uint32_t)(param_1 + 0x14),(int *)(*(uint32_t *)(param_1 + 8)), (int)(__frv_reg_unset(6)));
   }
   else if (sVar1 == 0x110) {
     process_type2_event_and_store_result(param_1 + 0x14,*(uint32_t *)(param_1 + 8), __frv_reg_unset(6));

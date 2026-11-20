@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_single_helper_103b7eb8(void)
+void call_single_helper_103b7eb8(cls_1056ac8c *param_1)
 
 {
-  clear_struct_field_at_offset_8(__frv_reg_unset(4));
+  clear_struct_field_at_offset_8((cls_10564e90 *)param_1);
   return;
 }

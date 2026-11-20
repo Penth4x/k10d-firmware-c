@@ -9,6 +9,6 @@
 void reset_subobject_at_offset_0x2c_104706b2(int param_1)
 
 {
-  call_helper_with_self_and_one((void *)(*(uint32_t *)(param_1 + 0x2c)));
+  call_helper_with_self_and_one((int *)(*(uint32_t *)(param_1 + 0x2c)));
   return;
 }

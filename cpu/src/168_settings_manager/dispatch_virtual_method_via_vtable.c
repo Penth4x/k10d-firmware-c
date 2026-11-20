@@ -15,13 +15,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_virtual_method_via_vtable(int param_1,uint32_t param_2,uint32_t param_3,uint32_t param_4)
+void dispatch_virtual_method_via_vtable(cls_105aac00 *param_1,uint32_t param_2,uint32_t param_3,uint32_t param_4)
 
 {
   int *piVar1;
   
-  piVar1 = (int *)dispatch_on_state_check(param_1,param_3);
-  (**(code **)(*piVar1 + 0xcc))
+  piVar1 = (int *)dispatch_on_state_check((int)param_1,param_3);
+  (((vtbl_entry*)(*piVar1))[25].fn)
             ((int)piVar1 + (int)*(short *)(*piVar1 + 200),param_2,param_3,param_4);
   return;
 }

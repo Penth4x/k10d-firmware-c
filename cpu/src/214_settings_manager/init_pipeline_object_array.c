@@ -59,11 +59,11 @@ uint32_t init_pipeline_object_array(uint32_t *param_1,int param_2)
   uVar7 = get_or_init_sram_block_1052b652();
   puVar8 = (uint8_t *)heap_alloc_2(2);
   puVar9 = (uint32_t *)heap_alloc_2(8);
-  uVar12 = read_first_byte_104b0a4e(**(uint32_t **)(param_2 + 4));
+  uVar12 = read_first_byte_104b0a4e((uint8_t *)(**(uint32_t **)(param_2 + 4)));
   *puVar8 = uVar12;
   uVar10 = get_field_at_offset_8_104b0a58(**(uint32_t **)(param_2 + 4));
   *puVar9 = uVar10;
-  uVar12 = read_first_byte_104b0a4e(*(uint32_t *)(*(int *)(param_2 + 4) + 8));
+  uVar12 = read_first_byte_104b0a4e((uint8_t *)(*(uint32_t *)(*(int *)(param_2 + 4) + 8)));
   puVar8[1] = uVar12;
   uVar10 = get_field_at_offset_8_104b0a58(*(uint32_t *)(*(int *)(param_2 + 4) + 8));
   puVar9[1] = uVar10;
@@ -79,7 +79,7 @@ uint32_t init_pipeline_object_array(uint32_t *param_1,int param_2)
   uVar10 = build_object_array_from_table(param_1,uVar7,1);
   param_1[2] = uVar10;
   puVar9 = (uint32_t *)heap_alloc_2(8);
-  param_1[3] = puVar9;
+  param_1[3] = (uintptr_t)(puVar9);
   uVar10 = build_class_array_from_ram_table(param_1,uVar7,0);
   *puVar9 = uVar10;
   iVar13 = param_1[3];

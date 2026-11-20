@@ -14,7 +14,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t resolve_state_transition_id(int param_1,int param_2)
+uint32_t resolve_state_transition_id(cls_105953cc *param_1,int param_2)
 
 {
   char cVar1;
@@ -26,7 +26,7 @@ uint32_t resolve_state_transition_id(int param_1,int param_2)
   uint32_t auStack_28 [8];
   
   if (param_2 == 0x10d002d) {
-    cVar1 = *(char *)(param_1 + 0x21);
+    cVar1 = param_1->field_0x21;
     if (cVar1 == 'a') {
       uVar3 = 0x10d0016;
     }
@@ -53,7 +53,7 @@ uint32_t resolve_state_transition_id(int param_1,int param_2)
     if (param_2 == 0x10d0016) {
       auStack_28[0] = 0x10d0018;
       auStack_28[1] = 0x10d0019;
-      uVar4 = setting_get(*(int *)(param_1 + 8),0xcf);
+      uVar4 = setting_get(param_1->field_0x8,0xcf);
       iVar2 = 0xff;
       if (bRam105953c4 == uVar4) {
         iVar2 = 0;
@@ -66,7 +66,7 @@ uint32_t resolve_state_transition_id(int param_1,int param_2)
     else if (param_2 == 0x10d001b) {
       auStack_28[2] = 0x10d001d;
       auStack_28[3] = 0x10d001e;
-      uVar4 = setting_get(*(int *)(param_1 + 8),0xd0);
+      uVar4 = setting_get(param_1->field_0x8,0xd0);
       iVar2 = 0xff;
       if (bRam105953c6 == uVar4) {
         iVar2 = 0;
@@ -79,7 +79,7 @@ uint32_t resolve_state_transition_id(int param_1,int param_2)
     else if (param_2 == 0x10d0020) {
       auStack_28[4] = 0x10d0022;
       auStack_28[5] = 0x10d0023;
-      uVar4 = setting_get(*(int *)(param_1 + 8),0xd2);
+      uVar4 = setting_get(param_1->field_0x8,0xd2);
       iVar2 = 0xff;
       if (bRam105953c8 == uVar4) {
         iVar2 = 0;
@@ -95,7 +95,7 @@ uint32_t resolve_state_transition_id(int param_1,int param_2)
       }
       auStack_28[6] = 0x10d0027;
       auStack_28[7] = 0x10d0028;
-      uVar4 = setting_get(*(int *)(param_1 + 8),0xc1);
+      uVar4 = setting_get(param_1->field_0x8,0xc1);
       iVar2 = 0xff;
       if (bRam105953ca == uVar4) {
         iVar2 = 0;

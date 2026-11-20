@@ -49,38 +49,38 @@ void toggle_state_machine(void *param_1,int param_2)
       *(uint32_t *)((int)param_1 + 0x70) = 0;
       clear_flag_with_notify(*(void **)((int)param_1 + 0x44));
       iVar1 = *(int *)(*(int *)((int)param_1 + 0x6c) + 4);
-      (**(code **)(iVar1 + 0x44))
-                (*(int *)((int)param_1 + 0x6c) + (int)*(short *)(iVar1 + 0x40),10,1,0);
+      (((vtbl_entry*)(iVar1))[8].fn)
+                (*(int *)((int)param_1 + 0x6c) + (int)((vtbl_entry*)(iVar1))[8].adj,10,1,0);
       twai_flg_obj((uint32_t *)((int)param_1 + 0x74),1,(void *)0x0,_DAT_105a2af0/*ROM*/);
       iVar1 = *(int *)(*(int *)((int)param_1 + 0x6c) + 4);
-      (**(code **)(iVar1 + 0x2c))(*(int *)((int)param_1 + 0x6c) + (int)*(short *)(iVar1 + 0x28));
+      (((vtbl_entry*)(iVar1))[5].fn)(*(int *)((int)param_1 + 0x6c) + (int)((vtbl_entry*)(iVar1))[5].adj);
     }
     else {
       *(uint32_t *)((int)param_1 + 0x70) = 0;
       clear_gpio_pin_bits(*(void **)((int)param_1 + 100));
       call_helper_if_flag_set_1043ee88(*(uint32_t *)((int)param_1 + 100),1);
       call_helper_if_flag_set_1043ee5c(*(uint32_t *)((int)param_1 + 100),0);
-      call_helper_with_two_twos(*(uint32_t *)((int)param_1 + 100));
+      call_helper_with_two_twos((void *)(*(uint32_t *)((int)param_1 + 100)));
       apply_range_swap_if_inverted(*(void **)((int)param_1 + 100),0,0x457,0x30a);
       puVar2 = (uint32_t *)((int)param_1 + 0x74);
       eventflag_clr_flg(puVar2,1);
       iVar1 = *(int *)(*(int *)((int)param_1 + 0x6c) + 4);
-      (**(code **)(iVar1 + 0x44))
-                (*(int *)((int)param_1 + 0x6c) + (int)*(short *)(iVar1 + 0x40),0x9c4,1,0);
+      (((vtbl_entry*)(iVar1))[8].fn)
+                (*(int *)((int)param_1 + 0x6c) + (int)((vtbl_entry*)(iVar1))[8].adj,0x9c4,1,0);
       twai_flg_obj(puVar2,1,(void *)0x0,_DAT_105a2af0/*ROM*/);
       iVar1 = *(int *)(*(int *)((int)param_1 + 0x6c) + 4);
-      (**(code **)(iVar1 + 0x2c))(*(int *)((int)param_1 + 0x6c) + (int)*(short *)(iVar1 + 0x28));
+      (((vtbl_entry*)(iVar1))[5].fn)(*(int *)((int)param_1 + 0x6c) + (int)((vtbl_entry*)(iVar1))[5].adj);
       call_single_helper_1043ed1e(*(uint32_t *)((int)param_1 + 100));
       apply_range_swap_if_inverted(*(void **)((int)param_1 + 100),0,0x457,999);
       eventflag_clr_flg(puVar2,1);
       iVar1 = *(int *)(*(int *)((int)param_1 + 0x6c) + 4);
-      (**(code **)(iVar1 + 0x44))
-                (*(int *)((int)param_1 + 0x6c) + (int)*(short *)(iVar1 + 0x40),0x5dc,1,0);
+      (((vtbl_entry*)(iVar1))[8].fn)
+                (*(int *)((int)param_1 + 0x6c) + (int)((vtbl_entry*)(iVar1))[8].adj,0x5dc,1,0);
       twai_flg_obj(puVar2,1,(void *)0x0,_DAT_105a2af0/*ROM*/);
       iVar1 = *(int *)(*(int *)((int)param_1 + 0x6c) + 4);
-      (**(code **)(iVar1 + 0x2c))(*(int *)((int)param_1 + 0x6c) + (int)*(short *)(iVar1 + 0x28));
+      (((vtbl_entry*)(iVar1))[5].fn)(*(int *)((int)param_1 + 0x6c) + (int)((vtbl_entry*)(iVar1))[5].adj);
       call_single_helper_1043ed1e(*(uint32_t *)((int)param_1 + 100));
-      call_helper_with_zero_and_two_1043ed7c(*(uint32_t *)((int)param_1 + 100));
+      call_helper_with_zero_and_two_1043ed7c((void *)(*(uint32_t *)((int)param_1 + 100)));
       call_helper_if_flag_set_1043ee88(*(uint32_t *)((int)param_1 + 100),0);
       call_helper_if_flag_set_1043ee5c(*(uint32_t *)((int)param_1 + 100),1);
     }

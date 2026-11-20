@@ -15,13 +15,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t store_and_init_pointer(void *param_1)
+uint32_t store_and_init_pointer(cls_105b7418 *param_1)
 
 {
   byte *pbVar1;
   
   pbVar1 = (byte *)get_or_init_ram_buffer_104aba0c();
-  *(byte **)((int)param_1 + 4) = pbVar1;
+  *(byte **)((byte *)param_1 + 4) = pbVar1;
   initialize_exposure_metering_state(pbVar1);
   return 1;
 }

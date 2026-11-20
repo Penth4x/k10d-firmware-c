@@ -35,8 +35,7 @@ uint32_t process_event_with_retry_10474a2e(int param_1,int param_2,int param_3)
   uint32_t uStack_40;
   uint32_t uStack_3c;
   uint8_t uStack_38;
-  uint8_t auStack_28 [13];
-  byte bStack_1b;
+  cls_105ab468 cStack_28;
   
   puVar7 = (uint32_t *)auStack_68;
   uStack_48 = 1;
@@ -45,24 +44,24 @@ uint32_t process_event_with_retry_10474a2e(int param_1,int param_2,int param_3)
     format_integer_as_four_digits_10477702(*(void **)(param_1 + 0x14),param_2);
     uStack_40 = 0;
     uStack_3c = 0;
-    cls_105ab468_new(auStack_28);
+    cls_105ab468_new(&cStack_28);
     uStack_38 = 0;
     iVar6 = *(int *)(param_1 + 4);
     pvVar2 = (void *)(*(code *)0x104779aa/*ROM*/)(*(uint32_t *)(param_1 + 0x10));
     uVar3 = (*(code *)0x10477aaa/*ROM*/)(*(uint32_t *)(param_1 + 0x14));
-    *puVar7 = &uStack_40;
-    iVar6 = call_inner_with_lock_pair(iVar6,pvVar2,uVar3,0,*puVar7);
+    *puVar7 = (uintptr_t)(&uStack_40);
+    iVar6 = call_inner_with_lock_pair((int)(iVar6),(void *)(pvVar2),(char *)(uVar3),(uint32_t)(0),(uint32_t)(*puVar7));
     if (iVar6 != 0) {
       iVar6 = 1;
       do {
-        iVar4 = validate_iso_code_string(*(uint32_t *)(param_1 + 0xc),auStack_28,(ushort *)0x0);
+        iVar4 = validate_iso_code_string(*(uint32_t *)(param_1 + 0xc),&cStack_28,(ushort *)0x0);
         if (iVar4 != 0) {
-          copy_12_bytes_if_length_12(*(uint32_t *)(param_1 + 0x10),auStack_28);
+          copy_12_bytes_if_length_12(*(uint32_t *)(param_1 + 0x10),&cStack_28);
           if (param_3 == 0) {
-            bVar5 = bStack_1b & 0xfe;
+            bVar5 = cStack_28.field_0xd & 0xfe;
           }
           else {
-            bVar5 = bStack_1b | 1;
+            bVar5 = cStack_28.field_0xd | 1;
           }
           iVar6 = *(int *)(param_1 + 4);
           pvVar2 = (void *)(*(code *)0x10477a62/*ROM*/)(*(uint32_t *)(param_1 + 0x10));
@@ -81,7 +80,7 @@ uint32_t process_event_with_retry_10474a2e(int param_1,int param_2,int param_3)
       }
     }
     call_three_helpers_on_param(*(int *)(param_1 + 4),&uStack_40);
-    cls_105ab468_delete(auStack_28,2);
+    cls_105ab468_delete(&cStack_28,2);
   }
   return uStack_48;
 }

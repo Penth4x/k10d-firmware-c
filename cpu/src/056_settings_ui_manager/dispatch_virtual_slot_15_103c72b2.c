@@ -11,8 +11,8 @@ int * dispatch_virtual_slot_15_103c72b2(int *param_1)
 {
   int *piVar1;
   
-  piVar1 = (int *)(**(code **)(param_1[4] + 0x7c))
-                            ((int)*(short *)(param_1[4] + 0x78) + (int)param_1);
+  piVar1 = (int *)(((vtbl_entry*)(param_1[4]))[15].fn)
+                            ((int)((vtbl_entry*)(param_1[4]))[15].adj + (int)param_1);
   if (piVar1 != param_1) {
     set_byte_at_offset_0x1c(*param_1,0);
   }

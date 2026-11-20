@@ -27,8 +27,8 @@ uint32_t invoke_event_handler_if_masked(int param_1,uint32_t param_2)
     *(uint32_t *)(param_1 + 0xc) = 0;
     if ((cVar1 == '\0') && ((uVar3 != 0 && ((*(uint *)(param_1 + 4) & uVar3) == 0)))) {
       iVar2 = **(int **)(param_1 + 8);
-      param_2 = (**(code **)(iVar2 + 0x34))
-                          ((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar2 + 0x30),1,0);
+      param_2 = (((vtbl_entry*)(iVar2))[6].fn)
+                          ((int)*(int **)(param_1 + 8) + (int)((vtbl_entry*)(iVar2))[6].adj,1,0);
     }
   }
   return param_2;

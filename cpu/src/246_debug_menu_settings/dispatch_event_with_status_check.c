@@ -38,8 +38,8 @@ uint32_t dispatch_event_with_status_check(int param_1,uint32_t param_2)
   uVar1 = 0;
 LAB_104d8690:
   *(uint8_t *)(param_1 + 0x2b6d) = uVar1;
-  iVar3 = (**(code **)(*(int *)(param_1 + 0x2b18) + 0x5c))
-                    (*(short *)(*(int *)(param_1 + 0x2b18) + 0x58) + param_1,param_2,0x105ba198/*ROM*/);
+  iVar3 = (((vtbl_entry*)(*(int *)(param_1 + 0x2b18)))[11].fn)
+                    (((vtbl_entry*)(*(int *)(param_1 + 0x2b18)))[11].adj + param_1,param_2,0x105ba198/*ROM*/);
   if (iVar3 == 0) {
     uVar2 = 0;
   }

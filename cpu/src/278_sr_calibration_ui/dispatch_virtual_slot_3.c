@@ -14,7 +14,8 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_virtual_slot_3(int param_1,uint param_2,uint32_t param_3,uint param_4,uint32_t param_5)
+void dispatch_virtual_slot_3(cls_105d7078 *param_1,uint param_2,uint32_t param_3,uint param_4,
+                 uint32_t param_5)
 
 {
   uint32_t *puVar1;
@@ -24,20 +25,19 @@ void dispatch_virtual_slot_3(int param_1,uint param_2,uint32_t param_3,uint para
   puVar1 = (uint32_t *)
            (*(code *)0x1052081e/*ROM*/)
                      (*(uint32_t *)
-                       (*(int *)(param_1 + 8) + (((int)(param_2 & 0xff00) >> 8) - 1U & 0xff) * 4),
+                       (param_1->field_0x8 + (((int)(param_2 & 0xff00) >> 8) - 1U & 0xff) * 4),
                       param_2 & 0xff);
   uVar2 = 0;
-  *(uint32_t *)(param_1 + 0xc) = param_5;
+  param_1->field_0xc = param_5;
   if (puVar1 != (uint32_t *)0x0) {
     if ((int)(uint)*(byte *)(puVar1 + 1) < (int)param_4) {
       param_4 = (uint)*(byte *)(puVar1 + 1);
     }
     uVar2 = 1;
-    (*(code *)0x104ad2ea/*ROM*/)(*(uint32_t *)(param_1 + 4),*puVar1,param_4,0);
+    (*(code *)0x104ad2ea/*ROM*/)(param_1->field_0x4,*puVar1,param_4,0);
   }
-  iVar3 = **(int **)(param_1 + 0xc);
-  (**(code **)(iVar3 + 0x44))
-            ((int)*(int **)(param_1 + 0xc) + (int)*(short *)(iVar3 + 0x40),uVar2,
-             *(uint32_t *)(param_1 + 4));
+  iVar3 = *(int *)param_1->field_0xc;
+  (((vtbl_entry*)(iVar3))[8].fn)
+            ((int)param_1->field_0xc + (int)((vtbl_entry*)(iVar3))[8].adj,uVar2,param_1->field_0x4);
   return;
 }

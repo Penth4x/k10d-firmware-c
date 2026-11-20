@@ -21,7 +21,7 @@ uint32_t copy_struct_and_invoke_virtual(int param_1,int param_2)
   if (*(int *)(param_1 + 0x34) == 3) {
     piVar1 = *(int **)(*(int *)(param_1 + 0x70) + 8);
     iVar3 = *piVar1;
-    uVar2 = (**(code **)(iVar3 + 0x14))((int)piVar1 + (int)*(short *)(iVar3 + 0x10),0x10034);
+    uVar2 = (((vtbl_entry*)(iVar3))[2].fn)((int)piVar1 + (int)((vtbl_entry*)(iVar3))[2].adj,0x10034);
   }
   else {
     uVar2 = 0;

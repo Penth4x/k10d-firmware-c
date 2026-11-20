@@ -24,7 +24,7 @@ void copy_field_from_struct_1045e622(int param_1,void *param_2)
   
   call_kernel_with_short_id((uint32_t *)(param_1 + 0xa4));
   iVar1 = *(int *)(param_1 + 0x88);
-  empty_stub_1045dd00((int)param_2,iVar1);
+  empty_stub_1045dd00((uint32_t)(param_2),(uint32_t)(iVar1));
   *(uint8_t *)((int)param_2 + 4) = *(uint8_t *)(iVar1 + 4);
   check_kernel_call_success_10459d88((uint32_t *)(param_1 + 0xa4));
   return;

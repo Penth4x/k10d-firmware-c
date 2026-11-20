@@ -16,16 +16,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_virtual_slot_if_flag_set_1049477e(int param_1)
+void call_virtual_slot_if_flag_set_1049477e(cls_105c136c *param_1)
 
 {
   int iVar1;
   
   iVar1 = read_byte_at_offset_8(__frv_reg_unset(4));
   if (iVar1 != 0) {
-    (**(code **)(*(int *)(param_1 + 0xc) + 0xe4))
-              (*(short *)(*(int *)(param_1 + 0xc) + 0xe0) + param_1,1);
+    (((vtbl_entry*)(param_1->field_0xc))[28].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0xc))[28].adj,1);
   }
-  *(uint8_t *)(param_1 + 9) = 0;
+  param_1->field_0x9 = 0;
   return;
 }

@@ -6,10 +6,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void reset_field_and_call_helper_105200da(int param_1)
+void reset_field_and_call_helper_105200da(cls_105d7078 *param_1)
 
 {
-  *(uint32_t *)(param_1 + 0xc) = 0;
-  (*(code *)0x104ad2ea/*ROM*/)(*(uint32_t *)(param_1 + 4),0,0,0);
+  param_1->field_0xc = 0;
+  (*(code *)0x104ad2ea/*ROM*/)(param_1->field_0x4,0,0,0);
   return;
 }

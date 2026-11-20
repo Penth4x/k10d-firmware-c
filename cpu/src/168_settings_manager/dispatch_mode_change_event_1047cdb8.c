@@ -19,37 +19,38 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_mode_change_event_1047cdb8(int param_1,uint32_t param_2)
+void dispatch_mode_change_event_1047cdb8(cls_105aaa50 *param_1,uint32_t param_2)
 
 {
   int iVar1;
   int *piVar2;
   uint32_t uVar3;
   
-  *(uint32_t *)(param_1 + 0x40) = param_2;
-  initialize_struct_header((void *)(param_1 + 0x2c));
-  iVar1 = *(int *)(*(int *)(param_1 + 0x40) + 4);
+  param_1->field_0x40 = param_2;
+  initialize_struct_header(&param_1->field_0x2c);
+  iVar1 = *(int *)(param_1->field_0x40 + 4);
   uVar3 = 0;
   if (iVar1 == 0) {
     uVar3 = 0x10000;
-    invoke_virtual_callback_and_update_state(param_1);
+    invoke_virtual_callback_and_update_state((int)(param_1));
   }
   else if (iVar1 == 1) {
     uVar3 = 0x10002;
-    invoke_virtual_method_on_subobject_1047cf4e(param_1);
+    invoke_virtual_method_on_subobject_1047cf4e((int)(param_1));
   }
   else if (iVar1 == 2) {
     uVar3 = 0x10036;
-    copy_six_bytes_from_object(param_1);
+    copy_six_bytes_from_object((int)(param_1));
   }
   else if (iVar1 == 3) {
     uVar3 = 0x1000f;
-    copy_struct_fields_to_target(param_1);
+    copy_struct_fields_to_target((int)(param_1));
   }
-  piVar2 = *(int **)(*(int *)(param_1 + 0x40) + 8);
+  piVar2 = *(int **)(param_1->field_0x40 + 8);
   iVar1 = *piVar2;
-  (**(code **)(iVar1 + 0x14))((int)piVar2 + (int)*(short *)(iVar1 + 0x10),uVar3,param_1 + 0x2c);
-  free_object_if_flag_set_1052107a(*(void **)(param_1 + 0x40),3);
-  *(uint32_t *)(param_1 + 0x40) = 0;
+  (((vtbl_entry*)(iVar1))[2].fn)
+            ((int)piVar2 + (int)((vtbl_entry*)(iVar1))[2].adj,uVar3,&param_1->field_0x2c);
+  free_object_if_flag_set_1052107a((char*)(param_1) ->field_0x40,3);
+  param_1->field_0x40 = 0;
   return;
 }

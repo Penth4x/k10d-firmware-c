@@ -35,7 +35,7 @@ uint32_t activate_timeout_queue_entry(int param_1)
     else {
       if ((*(ushort *)(iVar2 + -0xe) & 4) == 0) {
         if ((*(ushort *)(iVar2 + -0xe) & 2) != 0) {
-          insert_into_timeout_queue_10011644(iVar2 + -0x1c);
+          insert_into_timeout_queue_10011644((int *)(iVar2 + -0x1c));
         }
         *(uint32_t *)(DAT_10011cf4/*ROM*/ + iVar1 + -0x14) = *(uint32_t *)(DAT_10011cf4/*ROM*/ + iVar1 + -0xc)
         ;

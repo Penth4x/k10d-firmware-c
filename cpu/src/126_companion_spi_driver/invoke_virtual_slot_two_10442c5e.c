@@ -13,14 +13,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t invoke_virtual_slot_two_10442c5e(void *param_1)
+uint32_t invoke_virtual_slot_two_10442c5e(cls_105a0db4 *param_1)
 
 {
   int iVar1;
   
-  if (*(int *)((int)param_1 + 4) != 0) {
-    iVar1 = *(int *)(*(int *)((int)param_1 + 4) + 4);
-    (**(code **)(iVar1 + 0x1c))(*(int *)((int)param_1 + 4) + (int)*(short *)(iVar1 + 0x18),0);
+  if (param_1->field_0x4 != 0) {
+    iVar1 = *(int *)(param_1->field_0x4 + 4);
+    (((vtbl_entry*)(iVar1))[3].fn)(param_1->field_0x4 + ((vtbl_entry*)(iVar1))[3].adj,0);
   }
   return 1;
 }

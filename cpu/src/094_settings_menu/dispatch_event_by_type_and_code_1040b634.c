@@ -8,10 +8,11 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void dispatch_event_by_type_and_code_1040b634(void *param_1,int *param_2)
+cls_10599c24 * dispatch_event_by_type_and_code_1040b634(cls_10599c24 *param_1,int *param_2)
 
 {
   uint uVar1;
+  cls_10599c24 *extraout_r4;
   uint32_t uVar2;
   
   if (*param_2 == 4) {
@@ -20,12 +21,12 @@ void dispatch_event_by_type_and_code_1040b634(void *param_1,int *param_2)
     if (uVar1 != 7) {
       if (uVar1 < 8) {
         if (((uVar1 != 0) && (uVar1 != 1)) && (uVar1 != 3)) {
-          return;
+          return param_1;
         }
       }
       else if ((uVar1 != 10) && (uVar2 = _DAT_105bb5ac/*ROM*/, uVar1 != 0xc)) {
         if (uVar1 != 0x29) {
-          return;
+          return param_1;
         }
         uVar2 = _DAT_105bb5f4/*ROM*/;
         if (DAT_800043a1/*SDRAM*/ != '\0') {
@@ -34,6 +35,7 @@ void dispatch_event_by_type_and_code_1040b634(void *param_1,int *param_2)
       }
     }
     forward_param_to_global_offset(param_1,uVar2);
+    param_1 = extraout_r4;
   }
-  return;
+  return param_1;
 }

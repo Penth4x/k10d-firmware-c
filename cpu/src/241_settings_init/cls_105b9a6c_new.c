@@ -14,15 +14,16 @@
 /* WARNING: Instruction at (ram,0x104cf83a) overlaps instruction at (ram,0x104cf838)
     */
 
-int cls_105b9a6c_new(void *param_1)
+int cls_105b9a6c_new(cls_105b9a6c *param_1)
 
 {
-  if ((param_1 != (void *)0x0) || (param_1 = (void *)heap_alloc((void *)0x38), param_1 != (void *)0x0)) {
-    cls_105b9664_new(param_1,2);
-    *(uint32_t *)((int)param_1 + 0x28) = 0x105b9a6c/*ROM*/;
-    *(uint32_t *)((int)param_1 + 0x2c) = 0xffffffff;
-    *(uint32_t *)((int)param_1 + 0x30) = 0xffffffff;
-    *(uint32_t *)((int)param_1 + 0x34) = 0;
+  if ((param_1 != (cls_105b9a6c *)0x0) ||
+     (param_1 = (cls_105b9a6c *)heap_alloc((void *)0x38), param_1 != (cls_105b9a6c *)0x0)) {
+    cls_105b9664_new((cls_105b9664 *)param_1,2);
+    param_1->field_0x28 = 0x105b9a6c/*ROM*/;
+    param_1->field_0x2c = 0xffffffff;
+    param_1->field_0x30 = 0xffffffff;
+    param_1->field_0x34 = 0;
   }
   return (int)param_1;
 }

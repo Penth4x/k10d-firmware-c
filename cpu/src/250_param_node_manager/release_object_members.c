@@ -23,7 +23,7 @@ void release_object_members(int *param_1)
   copy_field_and_clear_offset(param_1[3]);
   iVar1 = param_1[4];
   if (iVar1 != 0) {
-    (**(code **)(*(int *)(iVar1 + 0x40) + 0x2c))(*(short *)(*(int *)(iVar1 + 0x40) + 0x28) + iVar1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0x40)))[5].fn)(((vtbl_entry*)(*(int *)(iVar1 + 0x40)))[5].adj + iVar1);
   }
   zero_struct_fields_104e0e38(param_1[1]);
   initialize_linked_struct_fields(param_1,0x2001);

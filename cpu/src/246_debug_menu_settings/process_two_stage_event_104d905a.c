@@ -26,15 +26,15 @@ uint32_t process_two_stage_event_104d905a(uint32_t param_1,int *param_2,uint32_t
   bool bVar1;
   int iVar2;
   uintptr_t sp;
-  uint8_t auStack_48 [32];
-  uint8_t auStack_28 [32];
+  cls_105bb0b8 cStack_48;
+  cls_105bb0b8 cStack_28;
   
-  cls_105bb0b8_new((void *)auStack_48);
-  iVar2 = retry_operation_until_success_104de540(param_2,auStack_48);
+  cls_105bb0b8_new(&cStack_48);
+  iVar2 = retry_operation_until_success_104de540(param_2,&cStack_48);
   if (iVar2 != 0) {
-    iVar2 = validate_and_copy_string((void *)auStack_48,(void *)0x105ba3dc/*ROM*/);
+    iVar2 = validate_and_copy_string((uint32_t *)(&cStack_48),(char *)(0x105ba3dc/*ROM*/));
     if (iVar2 == 0) {
-      iVar2 = validate_and_copy_string((void *)auStack_48,(void *)0x105ba3e4/*ROM*/);
+      iVar2 = validate_and_copy_string((uint32_t *)(&cStack_48),(char *)(0x105ba3e4/*ROM*/));
       if (iVar2 == 0) goto LAB_104d9130;
       bVar1 = false;
     }
@@ -43,25 +43,25 @@ uint32_t process_two_stage_event_104d905a(uint32_t param_1,int *param_2,uint32_t
     }
     if (((bVar1) || (iVar2 = read_two_config_values(param_1,param_2,param_3), iVar2 != 0)) &&
        (iVar2 = dispatch_event_to_handler_104d9160(param_1,param_2,param_3), iVar2 != 0)) {
-      cls_105bb0b8_new((void *)auStack_28);
-      iVar2 = extract_substring_from_buffer(param_2,(void *)auStack_28);
+      cls_105bb0b8_new(&cStack_28);
+      iVar2 = extract_substring_from_buffer(param_2,&cStack_28);
       if (iVar2 != 0) {
         if (bVar1) {
-          iVar2 = validate_and_copy_string((void *)auStack_28,(void *)0x105ba3ec/*ROM*/);
+          iVar2 = validate_and_copy_string((uint32_t *)(&cStack_28),(char *)(0x105ba3ec/*ROM*/));
         }
         else {
-          iVar2 = validate_and_copy_string((void *)auStack_28,(void *)0x105ba3f4/*ROM*/);
+          iVar2 = validate_and_copy_string((uint32_t *)(&cStack_28),(char *)(0x105ba3f4/*ROM*/));
         }
         if (iVar2 != 0) {
-          reset_vtable_and_free_if_flagged_104ddfe6(auStack_28,2);
-          reset_vtable_and_free_if_flagged_104ddfe6(auStack_48,2);
+          reset_vtable_and_free_if_flagged_104ddfe6(&cStack_28,2);
+          reset_vtable_and_free_if_flagged_104ddfe6(&cStack_48,2);
           return 1;
         }
       }
-      reset_vtable_and_free_if_flagged_104ddfe6(auStack_28,2);
+      reset_vtable_and_free_if_flagged_104ddfe6(&cStack_28,2);
     }
   }
 LAB_104d9130:
-  reset_vtable_and_free_if_flagged_104ddfe6(auStack_48,2);
+  reset_vtable_and_free_if_flagged_104ddfe6(&cStack_48,2);
   return 0;
 }

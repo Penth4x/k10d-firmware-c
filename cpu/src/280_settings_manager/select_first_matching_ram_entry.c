@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t select_first_matching_ram_entry(int param_1,int param_2)
+uint32_t select_first_matching_ram_entry(cls_105d77cc *param_1,int param_2)
 
 {
   uint32_t uVar1;
@@ -25,19 +25,19 @@ uint32_t select_first_matching_ram_entry(int param_1,int param_2)
   void *pvVar4;
   
   pvVar4 = *(void **)(param_2 + 0x224);
-  iVar2 = compare_null_terminated_strings(pvVar4,(void *)pvRam80013400);
+  iVar2 = compare_null_terminated_strings((void *)(pvVar4),(void *)(pvRam80013400));
   if (iVar2 == 0) {
     uVar3 = 2;
     uVar1 = 2;
   }
   else {
-    iVar2 = compare_null_terminated_strings(pvVar4,(void *)pvRam80013408);
+    iVar2 = compare_null_terminated_strings((void *)(pvVar4),(void *)(pvRam80013408));
     if (iVar2 == 0) {
       uVar3 = 4;
       uVar1 = 3;
     }
     else {
-      iVar2 = compare_null_terminated_strings(pvVar4,(void *)pvRam80013410);
+      iVar2 = compare_null_terminated_strings((void *)(pvVar4),(void *)(pvRam80013410));
       if (iVar2 != 0) {
         return 0;
       }
@@ -45,6 +45,6 @@ uint32_t select_first_matching_ram_entry(int param_1,int param_2)
       uVar1 = 4;
     }
   }
-  *(uint32_t *)(param_1 + 0x10) = uVar1;
+  param_1->field_0x10 = uVar1;
   return uVar3;
 }

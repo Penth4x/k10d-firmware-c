@@ -15,11 +15,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_subfields_103b8a18(int param_1)
+uint32_t init_object_subfields_103b8a18(cls_10594c54 *param_1)
 
 {
-  alloc_pool_and_init_task((int *)(param_1 + 0x1c),0x10,0x2000,4);
-  wait_flg_obj((void *)(param_1 + 0x48),0);
-  create_kernel_object((void *)(param_1 + 0x40));
+  alloc_pool_and_init_task(&param_1->field_0x1c,0x10,0x2000,4);
+  wait_flg_obj(&param_1->field_0x48,0);
+  create_kernel_object(&param_1->field_0x40);
   return 1;
 }

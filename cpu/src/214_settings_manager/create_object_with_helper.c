@@ -20,7 +20,7 @@ uint32_t create_object_with_helper(void *param_1,int param_2,uint32_t param_3,in
   int iVar2;
   
   uVar1 = (uint32_t)allocate_pixel_buffer_struct((uint32_t *)0x0,1,0,0,(uint16_t *)0x0);
-  iVar2 = cls_105b7e7c_new((void *)0x0,param_2,param_3,param_4);
+  iVar2 = cls_105b7e7c_new((cls_105b7e7c *)0x0,param_2,param_3,param_4);
   (*(code *)0x105207b2/*ROM*/)(uVar1,iVar2,0,0);
   return uVar1;
 }

@@ -41,7 +41,7 @@ int calculate_lens_fw_transfer_bounds(void *param_1,int *param_2,int *param_3)
       }
     }
     else {
-      iStack_10 = compute_lens_fw_offset(param_1,(void *)*param_3,param_2,&uStack_c);
+      iStack_10 = compute_lens_fw_offset((void *)(param_1),(void *)(*param_3),(int *)(param_2),(uint *)(&uStack_c));
       iVar6 = uVar5 - uStack_c * uVar1;
       if (iStack_10 < 0) {
         *in_stack_00000010 = *param_2 + uStack_c;

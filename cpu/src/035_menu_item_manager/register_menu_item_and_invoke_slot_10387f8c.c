@@ -20,6 +20,6 @@ void register_menu_item_and_invoke_slot_10387f8c(int param_1,uint32_t param_2)
   int iVar1;
   
   iVar1 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),param_2);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),param_2);
   return;
 }

@@ -29,7 +29,7 @@ int build_object_array_from_source(void *param_1,byte *param_2)
   iVar2 = heap_alloc_2(uVar5 << 2);
   if (uVar5 != 0) {
     do {
-      iVar3 = cls_105b8160_new(0);
+      iVar3 = (uintptr_t)(cls_105b8160_new((cls_105b8160 *)0x0));
       iVar1 = uVar4 * 4;
       *(int *)(iVar2 + iVar1) = iVar3;
       *(uint32_t *)(iVar3 + 4) = *(uint32_t *)(*(int *)(param_2 + 0x20) + iVar1);

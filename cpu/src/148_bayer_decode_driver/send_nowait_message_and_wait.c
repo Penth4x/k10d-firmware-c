@@ -21,19 +21,19 @@ uint32_t send_nowait_message_and_wait(void *param_1,uint32_t param_2,uint32_t pa
   uintptr_t sp;
   uint8_t *puVar2;
   uint8_t auStack_3c [4];
-  uint8_t auStack_28 [32];
+  cls_105ab468 cStack_28;
   
   puVar2 = auStack_3c;
-  cls_105ab468_new(auStack_28);
-  iVar1 = call_with_offset_lock_1048101c(*(void **)((int)param_1 + 0x248),s_C__NOWAIT_10547400,auStack_28);
+  cls_105ab468_new(&cStack_28);
+  iVar1 = call_with_offset_lock_1048101c(*(void **)((int)param_1 + 0x248),s_C__NOWAIT_10547400,&cStack_28);
   if (iVar1 == 0) {
     *(uint16_t *)(puVar2 + 2) = 6;
-    forward_params_to_helper_1046a5be(param_1,param_2,param_3,(void *)&DAT_105a8530/*ROM*/,*(uint16_t *)(puVar2 + 2));
+    forward_params_to_helper_1046a5be(param_1,param_2,param_3,&DAT_105a8530/*ROM*/,*(uint16_t *)(puVar2 + 2));
     iVar1 = call_helper_with_lock_104812d0(*(void **)((int)param_1 + 0x248),&DAT_1054739e/*ROM*/);
     while (iVar1 == 1) {
       iVar1 = call_helper_with_lock_104812d0(*(void **)((int)param_1 + 0x248),&DAT_1054739e/*ROM*/);
     }
   }
-  cls_105ab468_delete(auStack_28,2);
+  cls_105ab468_delete(&cStack_28,2);
   return 1;
 }

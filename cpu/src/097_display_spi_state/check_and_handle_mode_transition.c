@@ -30,7 +30,7 @@ uint32_t check_and_handle_mode_transition(int param_1)
       }
     }
     else {
-      eventflag_clr_flg((void *)(param_1 + 0x1540), 0x20);
+      eventflag_clr_flg((uint32_t *)(param_1 + 0x1540),(uint)(0x20));
       set_flag_at_offset_0x7c_1041b42e(*(uint32_t *)(param_1 + 0x4c));
       uVar1 = 1;
     }

@@ -14,7 +14,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t get_setting_mode_pair_103e8272(int param_1,int param_2)
+uint32_t get_setting_mode_pair_103e8272(cls_105973d0 *param_1,int param_2)
 
 {
   uint32_t uVar1;
@@ -27,7 +27,7 @@ uint32_t get_setting_mode_pair_103e8272(int param_1,int param_2)
   if (param_2 == 0x1a40014) {
     auStack_10[0] = 0x1a4000a;
     auStack_10[1] = 0x1a4000f;
-    uVar3 = setting_get(*(int *)(param_1 + 8),0xcb);
+    uVar3 = setting_get(param_1->field_0x8,0xcb);
     iVar2 = 0xff;
     if (bRam105973cc == uVar3) {
       iVar2 = 0;

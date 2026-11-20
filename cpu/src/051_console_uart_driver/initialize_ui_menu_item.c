@@ -16,66 +16,67 @@
 #include "globals.h"
 #include "funcs.h"
 
-void initialize_ui_menu_item(int *param_1,uint param_2)
+void initialize_ui_menu_item(cls_10566724 *param_1,uint param_2)
 
 {
   int iVar1;
-  int *piVar2;
+  uint8_t *puVar2;
   
-  *(uint8_t *)((int)param_1 + 0x57) = 0;
+  param_1->field_0x57 = '\0';
   iVar1 = get_or_create_singleton_object_1050b118();
-  *(int **)(iVar1 + 0x58) = param_1 + 0x10;
-  if (*(char *)(param_1 + 1) == '\0') {
-    (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1,0);
+  *(uint8_t **)(iVar1 + 0x58) = &param_1->field_0x40;
+  if (param_1->field_0x4 == '\0') {
+    (((vtbl_entry*)(param_1->field_0x0))[8].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[8].adj,0);
   }
-  *(uint8_t *)(param_1 + 0x16) = 0;
-  param_1[0x17] = 0;
-  piVar2 = param_1 + 2;
-  call_helper_on_fetched_object(piVar2,0x10);
-  call_helper_on_fetched_object(piVar2,0xf);
-  call_helper_on_fetched_object(piVar2,0xd);
-  call_helper_on_fetched_object(piVar2,0xe);
+  *(uint8_t *)&param_1->field_0x58 = 0;
+  *(uint32_t *)&param_1->field_0x5c = 0;
+  puVar2 = &param_1->field5_0x8;
+  call_helper_on_fetched_object(puVar2,0x10);
+  call_helper_on_fetched_object(puVar2,0xf);
+  call_helper_on_fetched_object(puVar2,0xd);
+  call_helper_on_fetched_object(puVar2,0xe);
   set_object_and_three_substates(param_1,0);
   dispatch_virtual_slot_two_103b6fe0(param_1);
   invoke_virtual_slot_two_103b70ce(param_1,0);
   render_dual_viewport_panels(param_1);
   iVar1 = get_or_create_singleton_object_1050b118();
   iVar1 = get_field_at_offset_0x28(iVar1);
-  *(bool *)(param_1 + 0x15) = iVar1 != 0;
-  *(bool *)((int)param_1 + 0x55) = (param_2 & 1) != 0;
-  *(bool *)((int)param_1 + 0x56) = (param_2 & 0x10) != 0;
-  forward_two_params_via_helper(piVar2,0,1);
-  forward_two_params_via_helper(piVar2,0xd,2);
-  forward_two_params_via_helper(piVar2,0xe,2);
-  forward_two_params_via_helper(piVar2,0xf,2);
-  forward_two_params_via_helper(piVar2,0x10,2);
-  if ((*(char *)(param_1 + 0x15) == '\0') && (*(char *)((int)param_1 + 0x55) == '\0')) {
-    iVar1 = menu_item_register((int)piVar2);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0x74))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 0x70),1);
-    iVar1 = menu_item_register((int)piVar2);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0x74))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 0x70),1);
+  param_1->field_0x54 = iVar1 != 0;
+  param_1->field_0x55 = (param_2 & 1) != 0;
+  param_1->field_0x56 = (param_2 & 0x10) != 0;
+  forward_two_params_via_helper(puVar2,0,1);
+  forward_two_params_via_helper(puVar2,0xd,2);
+  forward_two_params_via_helper(puVar2,0xe,2);
+  forward_two_params_via_helper(puVar2,0xf,2);
+  forward_two_params_via_helper(puVar2,0x10,2);
+  if ((param_1->field_0x54 == '\0') && (param_1->field_0x55 == '\0')) {
+    iVar1 = menu_item_register((int)puVar2);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].fn)(iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].adj,1);
+    iVar1 = menu_item_register((int)puVar2);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].fn)(iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].adj,1);
   }
   else {
-    iVar1 = menu_item_register((int)piVar2);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0x74))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 0x70),0);
-    iVar1 = menu_item_register((int)piVar2);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0x74))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 0x70),0);
+    iVar1 = menu_item_register((int)puVar2);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].fn)(iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].adj,0);
+    iVar1 = menu_item_register((int)puVar2);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].fn)(iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].adj,0);
   }
   if (((param_2 & 2) == 0) || ((param_2 & 8) == 0)) {
-    iVar1 = menu_item_register((int)piVar2);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+    iVar1 = menu_item_register((int)puVar2);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
   }
   else {
-    iVar1 = menu_item_register((int)(param_1 + 2));
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    iVar1 = menu_item_register((int)&param_1->field5_0x8);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   }
-  iVar1 = *(int *)param_1[0xb];
-  (**(code **)(iVar1 + 0x14))(param_1[0xb] + (int)*(short *)(iVar1 + 0x10),0x1120075,0);
-  dispatch_event_to_object_10492252(piVar2,param_1);
-  request_ui_sync_and_set_flag(piVar2);
-  request_ui_sync_with_flag_10491f5c(piVar2,1);
-  request_ui_sync_with_flag_10491f36(piVar2,0);
-  iVar1 = *(int *)param_1[0xb];
-  (**(code **)(iVar1 + 0x14))(param_1[0xb] + (int)*(short *)(iVar1 + 0x10),0x1120064,0);
+  iVar1 = *(uint32_t *)(param_1->field_0x2c);
+  (((vtbl_entry*)(iVar1))[2].fn)((int)param_1->field_0x2c + (int)((vtbl_entry*)(iVar1))[2].adj,0x1120075,0);
+  dispatch_event_to_object_10492252((cls_105b4254 *)puVar2,param_1);
+  request_ui_sync_and_set_flag((cls_105b4254 *)puVar2);
+  request_ui_sync_with_flag_10491f5c(puVar2,1);
+  request_ui_sync_with_flag_10491f36(puVar2,0);
+  iVar1 = *(uint32_t *)(param_1->field_0x2c);
+  (((vtbl_entry*)(iVar1))[2].fn)((int)param_1->field_0x2c + (int)((vtbl_entry*)(iVar1))[2].adj,0x1120064,0);
   return;
 }

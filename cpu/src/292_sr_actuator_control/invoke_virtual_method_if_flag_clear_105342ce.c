@@ -6,15 +6,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_method_if_flag_clear_105342ce(int param_1)
+void invoke_virtual_method_if_flag_clear_105342ce(cls_1061e4c0 *param_1)
 
 {
   int iVar1;
   
   iVar1 = (*(code *)0x10493dba/*ROM*/)();
   if (iVar1 == 0) {
-    iVar1 = *(int *)(*(int *)(param_1 + 0x10) + 0xc);
-    (**(code **)(iVar1 + 0xb4))(*(int *)(param_1 + 0x10) + (int)*(short *)(iVar1 + 0xb0));
+    iVar1 = *(int *)(param_1->field_0x10 + 0xc);
+    (((vtbl_entry*)(iVar1))[22].fn)(param_1->field_0x10 + (int)((vtbl_entry*)(iVar1))[22].adj);
   }
   return;
 }

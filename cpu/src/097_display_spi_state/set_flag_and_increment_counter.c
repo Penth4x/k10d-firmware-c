@@ -6,12 +6,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_flag_and_increment_counter(int param_1)
+void set_flag_and_increment_counter(cls_1059d1d8 *param_1)
 
 {
-  set_flg_obj((uint32_t *)(param_1 + 0xcc));
-  if (*(char *)(param_1 + 0x98) != '\0') {
-    *(int *)(param_1 + 0x9c) = *(int *)(param_1 + 0x9c) + 1;
+  set_flg_obj((void *)&param_1->field_0xcc);
+  if (param_1->field_0x98 != '\0') {
+    param_1->field_0x9c = param_1->field_0x9c + 1;
   }
   return;
 }

@@ -30,19 +30,19 @@ int process_event_with_two_objects(int param_1,int param_2,uint param_3,int para
   uint8_t auStack_70 [8];
   uint8_t uStack_3a;
   uint8_t uStack_39;
-  uint8_t auStack_38 [20];
-  uint32_t auStack_24 [7];
+  cls_105a6abc acStack_38 [5];
+  cls_105a6d8c acStack_24 [7];
   
   puVar5 = auStack_70;
   bVar3 = set_pointer_and_clear_flag((int *)(param_1 + 0x2c),(void *)(param_1 + 4));
   iVar4 = 0;
   if (bVar3) {
-    cls_105a6abc_new((void *)auStack_38);
-    copy_buffer_with_lock_1045e22a(*(int *)(param_1 + 0x1c),auStack_38);
-    iVar4 = extract_bitfield_from_byte_array(auStack_38,0x13);
-    cls_105a6d8c_new(auStack_24);
-    copy_status_block_bytes(*(int *)(param_1 + 0x1c),auStack_24);
-    uVar1 = extract_field_from_struct_1045ff0e((int)auStack_24,3);
+    cls_105a6abc_new(acStack_38);
+    copy_buffer_with_lock_1045e22a(*(int *)(param_1 + 0x1c),acStack_38);
+    iVar4 = extract_bitfield_from_byte_array(acStack_38,0x13);
+    cls_105a6d8c_new(acStack_24);
+    copy_status_block_bytes(*(int *)(param_1 + 0x1c),acStack_24);
+    uVar1 = extract_field_from_struct_1045ff0e(acStack_24,3);
     uVar2 = get_or_init_heap_block();
     puVar5[3] = param_2 != 0;
     puVar5[7] = (char)iVar4;
@@ -55,8 +55,8 @@ int process_event_with_two_objects(int param_1,int param_2,uint param_3,int para
       twai_flg_obj((uint32_t *)(param_1 + 0x24),1,(void *)0x0,_DAT_105a2af0/*ROM*/);
     }
     delete_signal_semaphore((int *)(param_1 + 0x2c));
-    cls_105a6d8c_delete(auStack_24,2);
-    cls_105a6abc_delete((void *)auStack_38,2);
+    cls_105a6d8c_delete(acStack_24,2);
+    cls_105a6abc_delete(acStack_38,2);
   }
   return iVar4;
 }

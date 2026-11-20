@@ -18,8 +18,8 @@ int allocate_and_init_object_10496254(void *param_1,uint32_t param_2)
 {
   int iVar1;
   
-  iVar1 = (int)cls_105b8bc4_new(0);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0x84))
-            (*(short *)(*(int *)(iVar1 + 0xc) + 0x80) + iVar1,param_2,0);
+  iVar1 = (uintptr_t)(cls_105b8bc4_new((cls_105b8bc4 *)0x0));
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[16].fn)
+            (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[16].adj + iVar1,param_2,0);
   return iVar1;
 }

@@ -17,14 +17,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t initialize_object_subcomponents_10518232(int *param_1)
+/* WARNING: Struct "cls_105d65d0": ignoring overlapping field "field_0x1e4" */
+
+uint32_t initialize_object_subcomponents_10518232(cls_105d65d0 *param_1)
 
 {
   uint32_t uVar1;
   
-  copy_string_to_heap_field((int)(param_1 + 0x50));
-  (*(code *)0x104a1998/*ROM*/)(param_1 + 0x6d,0);
-  uVar1 = initialize_object_state_104a387c((int)(param_1 + 0x79));
+  copy_string_to_heap_field((cls_105d6608 *)&param_1->field_0x140);
+  (*(code *)0x104a1998/*ROM*/)(&param_1->field_0x1b4,0);
+  uVar1 = initialize_object_state_104a387c((cls_105b6554 *)&((uint32_t *)&(param_1->field_0x1b4))[12]);
   query_camera_property_table((int)param_1);
   populate_event_handler_table((int)param_1);
   populate_struct_with_virtual_queries((int)param_1);

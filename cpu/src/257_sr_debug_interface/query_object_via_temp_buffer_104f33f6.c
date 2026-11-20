@@ -20,11 +20,11 @@ uint32_t query_object_via_temp_buffer_104f33f6(int param_1)
 {
   uint32_t uVar1;
   uintptr_t sp;
-  uint8_t auStack_10 [8];
+  cls_105a6e64 cStack_10;
   
-  cls_105a6e64_new((void *)auStack_10);
-  copy_four_bytes_from_struct_field_1045e556(*(int *)(param_1 + 8),auStack_10);
-  uVar1 = read_four_bytes_from_object((int)auStack_10);
-  cls_105a6e64_delete((void *)auStack_10,2);
+  cls_105a6e64_new(&cStack_10);
+  copy_four_bytes_from_struct_field_1045e556(*(int *)(param_1 + 8),&cStack_10);
+  uVar1 = read_four_bytes_from_object(&cStack_10);
+  cls_105a6e64_delete(&cStack_10,2);
   return uVar1;
 }

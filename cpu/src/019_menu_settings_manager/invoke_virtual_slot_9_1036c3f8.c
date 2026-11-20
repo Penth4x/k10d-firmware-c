@@ -9,6 +9,6 @@
 void invoke_virtual_slot_9_1036c3f8(void)
 
 {
-  (**(code **)(iRam80018060 + 0x4c))(*(short *)(iRam80018060 + 0x48) + -0x7ffe7fa0);
+  (((vtbl_entry*)(iRam80018060))[9].fn)(((vtbl_entry*)(iRam80018060))[9].adj + -0x7ffe7fa0);
   return;
 }

@@ -53,7 +53,7 @@ bool map_mode_code_to_index_103942e6(int param_1)
   }
   bVar3 = true;
 LAB_10394348:
-  reset_and_select_channel_1039a462((void *)(param_1 + 4),uVar2);
+  reset_and_select_channel_1039a462((void *)(param_1 + 4),(uint32_t)(uVar2));
   (*(code *)0x103949e0/*ROM*/)(param_1,bVar3);
   set_and_apply_object_flag(param_1,bVar3);
   return bVar3;

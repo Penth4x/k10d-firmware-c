@@ -25,27 +25,27 @@ uint32_t run_two_stage_operation_with_retry(uint32_t param_1,int *param_2,uint32
 {
   int iVar1;
   uintptr_t sp;
-  uint8_t auStack_48 [32];
-  uint8_t auStack_28 [32];
+  cls_105bb0b8 cStack_48;
+  cls_105bb0b8 cStack_28;
   
-  cls_105bb0b8_new((void *)auStack_48);
-  iVar1 = check_two_conditions_and_return_flag(param_2,auStack_48,(char *)0x105bac28/*ROM*/);
+  cls_105bb0b8_new(&cStack_48);
+  iVar1 = check_two_conditions_and_return_flag(param_2,&cStack_48,(char *)0x105bac28/*ROM*/);
   if (iVar1 != 0) {
     do {
       iVar1 = dispatch_seven_branches_on_lookup(param_1,param_2,param_3);
     } while (iVar1 != 0);
     iVar1 = check_four_conditions_in_sequence(param_1,param_3);
     if (iVar1 != 0) {
-      cls_105bb0b8_new((void *)auStack_28);
-      iVar1 = check_and_process_two_params(param_2,auStack_28,(char *)0x105bac3c/*ROM*/);
+      cls_105bb0b8_new(&cStack_28);
+      iVar1 = check_and_process_two_params(param_2,&cStack_28,(char *)0x105bac3c/*ROM*/);
       if (iVar1 != 0) {
-        reset_vtable_and_free_if_flagged_104ddfe6(auStack_28,2);
-        reset_vtable_and_free_if_flagged_104ddfe6(auStack_48,2);
+        reset_vtable_and_free_if_flagged_104ddfe6(&cStack_28,2);
+        reset_vtable_and_free_if_flagged_104ddfe6(&cStack_48,2);
         return 1;
       }
-      reset_vtable_and_free_if_flagged_104ddfe6(auStack_28,2);
+      reset_vtable_and_free_if_flagged_104ddfe6(&cStack_28,2);
     }
   }
-  reset_vtable_and_free_if_flagged_104ddfe6(auStack_48,2);
+  reset_vtable_and_free_if_flagged_104ddfe6(&cStack_48,2);
   return 0;
 }

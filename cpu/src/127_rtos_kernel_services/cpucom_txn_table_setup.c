@@ -44,7 +44,7 @@ void cpucom_txn_table_setup(void *param_1)
   aiStack_78[0] = -0x70;
   do {
     puVar3 = puVar5 + aiStack_78[0];
-    iVar6 = allocate_kernel_task_slot_1000d89c((void *)puVar3);
+    iVar6 = allocate_kernel_task_slot_1000d89c(puVar3);
     puVar2 = (uint8_t *)((int)param_1 + iVar4);
     if (iVar6 < 0) {
       *puVar2 = 0;

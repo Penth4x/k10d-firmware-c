@@ -17,7 +17,7 @@ void init_object_with_two_ids_1048caee(int param_1)
   uint32_t uStack_18;
   uint32_t auStack_14 [3];
   
-  uVar2 = select_buffer_by_index((void *)(*(uint32_t *)(param_1 + 0x1c)));
+  uVar2 = select_buffer_by_index((void*)(*(uint32_t *)(param_1 + 0x1c)));
   *(uint32_t *)(param_1 + 4) = uVar2;
   *(uint32_t *)(param_1 + 8) = 0;
   *(uint32_t *)(param_1 + 0xc) = 0;
@@ -55,9 +55,9 @@ void init_object_with_two_ids_1048caee(int param_1)
   *(short *)(param_1 + 0x16) = (short)uVar2;
   free_heap_if_flagged_1045c402(&uStack_18,2);
   iVar3 = *(int *)(*(int *)(param_1 + 0x1c) + 0x18);
-  uVar2 = (**(code **)(iVar3 + 0x24))(*(int *)(param_1 + 0x1c) + (int)*(short *)(iVar3 + 0x20));
+  uVar2 = (((vtbl_entry*)(iVar3))[4].fn)(*(int *)(param_1 + 0x1c) + (int)((vtbl_entry*)(iVar3))[4].adj);
   set_byte_at_offset_0x18(param_1,uVar2);
-  (**(code **)(*(int *)(param_1 + 0x20) + 0x14))
-            (*(short *)(*(int *)(param_1 + 0x20) + 0x10) + param_1);
+  (((vtbl_entry*)(*(int *)(param_1 + 0x20)))[2].fn)
+            (((vtbl_entry*)(*(int *)(param_1 + 0x20)))[2].adj + param_1);
   return;
 }

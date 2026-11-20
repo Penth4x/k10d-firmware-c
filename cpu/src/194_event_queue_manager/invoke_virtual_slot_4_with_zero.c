@@ -6,12 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t invoke_virtual_slot_4_with_zero(void *param_1)
+uint32_t invoke_virtual_slot_4_with_zero(cls_105b4094 *param_1)
 
 {
   int iVar1;
   
-  iVar1 = **(int **)((int)param_1 + 4);
-  (**(code **)(iVar1 + 0x24))((int)*(int **)((int)param_1 + 4) + (int)*(short *)(iVar1 + 0x20),0);
+  iVar1 = *(int *)param_1->field_0x4;
+  (((vtbl_entry*)(iVar1))[4].fn)
+            ((void *)((int)param_1->field_0x4 + (int)((vtbl_entry*)(iVar1))[4].adj),0);
   return 1;
 }

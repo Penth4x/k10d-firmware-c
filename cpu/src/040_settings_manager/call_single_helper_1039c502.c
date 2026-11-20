@@ -12,9 +12,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_single_helper_1039c502(uint32_t param_x0)
+void call_single_helper_1039c502(cls_105b4254 *param_1)
 
 {
-  invoke_virtual_slot_6_with_arg_3(__frv_reg_unset(4));
+  invoke_virtual_slot_6_with_arg_3(param_1);
   return;
 }

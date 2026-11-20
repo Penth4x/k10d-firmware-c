@@ -40,8 +40,8 @@ bool poll_sd_card_response(void *param_1)
   sVar1 = 200;
   while( true ) {
     uVar2 = return_r4_passthrough_1044b8ce();
-    iVar3 = p67_query_check(param_1,(void *)uVar2);
-    if ((iVar3 != 0) && (iVar3 = test_bit_7_of_byte((void *)((int)param_1 + 0x161)), iVar3 != 0)) break;
+    iVar3 = p67_query_check((void *)(param_1),(byte *)(uVar2));
+    if ((iVar3 != 0) && (iVar3 = test_bit_7_of_byte((byte *)((int)param_1 + 0x161)), iVar3 != 0)) break;
     write_buffer_via_virtual_io(param_1,5);
     sd_cmd55_app_cmd(param_1,0);
     sVar1 = sVar1 + -1;
@@ -54,7 +54,7 @@ LAB_1044a144:
       return sVar1 != 0;
     }
   }
-  uVar4 = test_bit_6_of_byte((void *)((int)param_1 + 0x161));
+  uVar4 = test_bit_6_of_byte((byte *)((int)param_1 + 0x161));
   *(uint8_t *)((int)param_1 + 0xf6) = uVar4;
   goto LAB_1044a144;
 }

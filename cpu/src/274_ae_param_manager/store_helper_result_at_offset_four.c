@@ -15,12 +15,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t store_helper_result_at_offset_four(void *param_1)
+uint32_t store_helper_result_at_offset_four(cls_105d6524 *param_1)
 
 {
-  uint32_t uVar1;
+  void *puVar1;
   
-  uVar1 = get_or_create_singleton_object_10516ff2();
-  *(uint32_t *)((int)param_1 + 4) = uVar1;
+  puVar1 = (void *)get_or_create_singleton_object_10516ff2();
+  *(uint32_t *)((uint8_t *)param_1 + 4) = (uint32_t)puVar1;
   return 1;
 }

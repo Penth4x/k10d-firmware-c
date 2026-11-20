@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_subroutine_with_offset_arg_10394262(int param_1)
+void call_subroutine_with_offset_arg_10394262(cls_10562b1c *param_1)
 
 {
-  (*(code *)0x1039a45e/*ROM*/)(param_1 + 4);
+  (*(code *)0x1039a45e/*ROM*/)(&param_1->field_0x4);
   return;
 }

@@ -25,7 +25,7 @@ uint32_t * cls_105aa8bc_new(uint32_t *param_1)
     cls_105a2af8_new(param_1 + 9);
     cls_105a2af8_new(param_1 + 0xb);
     alloc_and_zero_20_bytes(param_1 + 0xd);
-    zero_init_six_bytes((void *)(param_1 + 0x12));
+    zero_init_six_bytes(param_1 + 0x12);
     param_1[0x14] = 0;
     param_1[0x15] = 0;
     param_1[0x16] = 0;

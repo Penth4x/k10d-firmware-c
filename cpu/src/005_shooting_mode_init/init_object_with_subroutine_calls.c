@@ -21,14 +21,14 @@
 void init_object_with_subroutine_calls(void *param_1)
 
 {
-  void *pvVar1;
+  cls_10558b34 *pcVar1;
   
   *(uint32_t *)((int)param_1 + 0x68) = 0;
   *(uint32_t *)((int)param_1 + 0x14) = 0;
-  pvVar1 = (void *)((int)param_1 + 0x18);
-  register_ten_menu_items_1037bee4((int)pvVar1,(uint)*(byte *)((int)param_1 + 0x80));
+  pcVar1 = (cls_10558b34 *)((int)param_1 + 0x18);
+  register_ten_menu_items_1037bee4((int)pcVar1,(uint)*(byte *)((int)param_1 + 0x80));
   call_helper_on_struct_field_1036c46c();
-  register_two_menu_items_1037bc0e((int)pvVar1);
-  call_helper_on_struct_field_1036c41a(param_1,pvVar1,1);
+  register_two_menu_items_1037bc0e(pcVar1);
+  call_helper_on_struct_field_1036c41a(param_1,pcVar1,1);
   return;
 }

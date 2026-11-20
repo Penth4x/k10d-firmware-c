@@ -45,7 +45,7 @@ void allocate_and_configure_buffer_104f6c38(int param_1,int *param_2)
   uVar2 = *(ushort *)((int)param_2 + 0x12);
   pvVar4 = (void *)get_system_heap();
   pvVar4 = (void *)mempool_get_block(pvVar4,(void *)((uint)uVar1 * (uint)uVar2),0);
-  if (pvVar4 != (void *)0x0) {
+  if (pvVar4 != 0) {
     local_1a = 0xff00;
     uStack_18 = 0;
     uStack_16 = 0x100;

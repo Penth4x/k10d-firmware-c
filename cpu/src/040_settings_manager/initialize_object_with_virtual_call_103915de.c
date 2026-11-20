@@ -30,10 +30,10 @@ uint32_t initialize_object_with_virtual_call_103915de(int param_1, uint32_t para
     call_helper_with_fixed_args_10391bde((uint32_t *)(param_1 + 0x2c50));
     piVar1 = (int *)dispatch_by_mode_index(0);
     *(int **)(param_1 + 0x2c48) = piVar1;
-    piVar1 = (int *)(**(code **)(*piVar1 + 0x2c))((int)piVar1 + (int)*(short *)(*piVar1 + 0x28));
+    piVar1 = (int *)(((vtbl_entry*)(*piVar1))[5].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[5].adj);
     if (piVar1 != *(int **)(param_1 + 0x2c48)) {
       *(int **)(param_1 + 0x2c48) = piVar1;
-      (**(code **)(*piVar1 + 0x2c))((int)*(short *)(*piVar1 + 0x28) + (int)piVar1);
+      (((vtbl_entry*)(*piVar1))[5].fn)((int)((vtbl_entry*)(*piVar1))[5].adj + (int)piVar1);
     }
     iVar2 = (*(code *)0x103949ea/*ROM*/)(*(uint32_t *)(param_1 + 0x2c48));
     uVar3 = 1;

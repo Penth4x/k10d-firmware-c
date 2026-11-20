@@ -12,9 +12,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_four_and_zero(int *param_1)
+void call_helper_with_four_and_zero(cls_105bce58 *param_1)
 
 {
-  dispatch_state_handler(param_1,4,0);
+  dispatch_state_handler((void *)param_1,4,0);
   return;
 }

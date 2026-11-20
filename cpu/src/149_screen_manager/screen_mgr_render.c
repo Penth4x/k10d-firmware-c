@@ -68,9 +68,9 @@ void screen_mgr_render(int param_1)
     *(uint8_t *)(iVar16 + param_1 + 0x164) = *(uint8_t *)(iVar16 + param_1 + 0x118);
   } while (iVar16 != 0);
   copy_0x45_byte_block(*(int *)(param_1 + 0xb8),(void *)(param_1 + 0x114));
-  (**(code **)(*piVar14 + 0x24))((int)*(short *)(*piVar14 + 0x20) + (int)piVar14,abStack_20);
-  (**(code **)(*(int *)(param_1 + 0xcc) + 0x24))
-            ((int)piVar14 + *(short *)(*(int *)(param_1 + 0xcc) + 0x20) + 0x10,abStack_17);
+  (((vtbl_entry*)(*piVar14))[4].fn)((int)((vtbl_entry*)(*piVar14))[4].adj + (int)piVar14,abStack_20);
+  (((vtbl_entry*)(*(int *)(param_1 + 0xcc)))[4].fn)
+            ((int)piVar14 + ((vtbl_entry*)(*(int *)(param_1 + 0xcc)))[4].adj + 0x10,abStack_17);
   iVar2 = 0;
   iVar16 = 9;
   do {
@@ -142,15 +142,15 @@ void screen_mgr_render(int param_1)
   *(uint8_t *)(iVar2 + iVar16) = 0;
   *(uint8_t *)(iVar2 + iVar12) = 0;
   iVar2 = *(int *)(param_1 + 0xdc);
-  bStack_e = (**(code **)(iVar2 + 0x14))((int)*(short *)(iVar2 + 0x10) + param_1 + 0xdc,0);
+  bStack_e = (((vtbl_entry*)(iVar2))[2].fn)((int)((vtbl_entry*)(iVar2))[2].adj + param_1 + 0xdc,0);
   piVar14 = (int *)(param_1 + 0x114);
-  bStack_c = (**(code **)(*piVar14 + 0x14))((int)*(short *)(*piVar14 + 0x10) + (int)piVar14,1);
-  bStack_a = (**(code **)(*piVar14 + 0x14))((int)*(short *)(*piVar14 + 0x10) + (int)piVar14,5);
+  bStack_c = (((vtbl_entry*)(*piVar14))[2].fn)((int)((vtbl_entry*)(*piVar14))[2].adj + (int)piVar14,1);
+  bStack_a = (((vtbl_entry*)(*piVar14))[2].fn)((int)((vtbl_entry*)(*piVar14))[2].adj + (int)piVar14,5);
   iVar2 = *(int *)(param_1 + 0xf8);
-  bStack_d = (**(code **)(iVar2 + 0x14))(param_1 + 0xf8 + (int)*(short *)(iVar2 + 0x10),0);
+  bStack_d = (((vtbl_entry*)(iVar2))[2].fn)(param_1 + 0xf8 + (int)((vtbl_entry*)(iVar2))[2].adj,0);
   piVar14 = (int *)(param_1 + 0x160);
-  bStack_b = (**(code **)(*piVar14 + 0x14))((int)*(short *)(*piVar14 + 0x10) + (int)piVar14,1);
-  bStack_9 = (**(code **)(*piVar14 + 0x14))((int)piVar14 + (int)*(short *)(*piVar14 + 0x10),5);
+  bStack_b = (((vtbl_entry*)(*piVar14))[2].fn)((int)((vtbl_entry*)(*piVar14))[2].adj + (int)piVar14,1);
+  bStack_9 = (((vtbl_entry*)(*piVar14))[2].fn)((int)piVar14 + (int)((vtbl_entry*)(*piVar14))[2].adj,5);
   piVar14 = (int *)status_item_location(0x30);
   iVar2 = *piVar14;
   *(byte *)(iVar2 + iVar15) = bStack_e;

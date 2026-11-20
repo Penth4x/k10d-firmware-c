@@ -15,11 +15,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void store_value_if_flag_is_one(int param_1,int *param_2)
+void store_value_if_flag_is_one(cls_10563098 *param_1,int *param_2)
 
 {
   if (*param_2 == 1) {
-    *(int *)(param_1 + 0x48) = param_2[1];
+    param_1->field_0x48 = param_2[1];
     map_mode_code_to_index_103975a8(__frv_reg_unset(4));
   }
   return;

@@ -11,8 +11,8 @@ void set_field_and_invoke_virtual_1050eb50(int param_1,int param_2)
 {
   *(int *)(param_1 + 0x54) = param_2;
   if (param_2 != 0) {
-    (**(code **)(*(int *)(param_1 + 0x8d4) + 0x1a4))
-              (*(short *)(*(int *)(param_1 + 0x8d4) + 0x1a0) + param_1);
+    (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[52].fn)
+              (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[52].adj + param_1);
   }
   return;
 }

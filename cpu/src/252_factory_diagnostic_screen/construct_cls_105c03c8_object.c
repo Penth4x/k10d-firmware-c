@@ -18,13 +18,13 @@ int construct_cls_105c03c8_object(uint32_t *param_1)
 
 {
   if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)allocate_system_heap_block((void *)0x2c), param_1 != (uint32_t *)0x0)) {
-    cls_105c0074_new(param_1);
-    param_1[6] = 0x105c03c8/*ROM*/;
-    param_1[7] = 0xffffffff;
-    param_1[8] = 0;
-    param_1[9] = 0;
-    param_1[10] = 0;
+     (param_1 = (uint32_t *)allocate_system_heap_block((void *)0x2c), (cls_105c0074 *)param_1 != (cls_105c0074 *)0x0)) {
+    cls_105c0074_new((cls_105c0074 *)param_1);
+    ((cls_105c0074 *)param_1)->field_0x18 = 0x105c03c8/*ROM*/;
+    ((cls_105c0074 *)((int)param_1 + 0x1c))->field_0x0 = 0xffffffff;
+    ((cls_105c0074 *)((int)param_1 + 0x1c))->field_0x4 = 0;
+    ((cls_105c0074 *)((int)param_1 + 0x1c))->field_0x8 = (uintptr_t)((void *)0x0);
+    ((cls_105c0074 *)((int)param_1 + 0x1c))->field_0xc = 0;
   }
-  return (int)param_1;
+  return (int)(cls_105c0074 *)param_1;
 }

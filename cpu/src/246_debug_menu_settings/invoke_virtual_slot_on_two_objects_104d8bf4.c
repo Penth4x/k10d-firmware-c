@@ -13,15 +13,15 @@ uint32_t invoke_virtual_slot_on_two_objects_104d8bf4(void *param_1,void *param_2
   int iVar2;
   
   iVar2 = get_or_create_singleton_object_104d8cbe();
-  iVar2 = (**(code **)(*(int *)(iVar2 + 0x1c) + 0x14))
-                    (iVar2 + *(short *)(*(int *)(iVar2 + 0x1c) + 0x10),param_2,param_3);
+  iVar2 = (((vtbl_entry*)(*(int *)(iVar2 + 0x1c)))[2].fn)
+                    (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0x1c)))[2].adj,param_2,param_3);
   if (iVar2 == 0) {
     uVar1 = 0;
   }
   else {
     iVar2 = get_or_create_singleton_object_104d8e3e();
-    iVar2 = (**(code **)(*(int *)(iVar2 + 0x1c) + 0x14))
-                      (iVar2 + *(short *)(*(int *)(iVar2 + 0x1c) + 0x10),param_2,param_3);
+    iVar2 = (((vtbl_entry*)(*(int *)(iVar2 + 0x1c)))[2].fn)
+                      (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0x1c)))[2].adj,param_2,param_3);
     uVar1 = 1;
     if (iVar2 == 0) {
       uVar1 = 0;

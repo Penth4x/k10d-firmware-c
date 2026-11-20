@@ -81,7 +81,7 @@ LAB_1038e3fa:
   copy_string_with_limit((char *)0x8001981c/*SDRAM*/,(void *)0x10559f84/*ROM*/,6 - iVar1);
   pvVar2 = (void *)menu_item_register(param_1);
   glyph_draw(pvVar2,(byte *)0x8001981c/*SDRAM*/);
-  (**(code **)(*(int *)((int)pvVar2 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar2 + 0xc)))[1].fn)
             ((int)pvVar2 + (int)*(short *)(*(int *)((int)pvVar2 + 0xc) + 8),1);
   free_heap_if_flagged_10409d0a(&uStack_11,2);
   return;

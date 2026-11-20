@@ -13,6 +13,6 @@ void write_byte_to_object_field_104ad87a(int param_1)
   uint8_t uStack_9;
   
   uStack_9 = 0x80;
-  copy_bytes_aligned((void *)(*(int *)(param_1 + 0x20) + 1), &uStack_9, 1, 0);
+  copy_bytes_aligned((uint8_t *)(*(int *)(param_1 + 0x20) + 1),(uint8_t *)(&uStack_9),(uint)(1),(uint)(0));
   return;
 }

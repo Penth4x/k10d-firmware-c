@@ -79,7 +79,7 @@ uint32_t * cls_105d624c_new(uint32_t *param_1)
     zero_initialize_struct_fields(param_1 + 0xae);
     param_1[200] = 250000;
     param_1[0xc9] = 0;
-    param_1[0xce] = (uint32_t)&DAT_1059e4d0/*ROM*/;
+    param_1[0xce] = (uintptr_t)(&DAT_1059e4d0/*ROM*/);
     param_1[0xca] = 0;
     param_1[0xcb] = 0;
     param_1[0xcc] = 0;

@@ -19,7 +19,7 @@ uint32_t dispatch_display_mode_command(int param_1,uint32_t param_2,int param_3)
   
   uVar1 = *(uint8_t *)(param_3 + 0x859);
   set_struct_field_at_offset_4(param_3,0);
-  iVar3 = read_virtual_property_field(*(uint32_t *)(param_1 + 0x68),1);
+  iVar3 = read_virtual_property_field((int *)(*(uint32_t *)(param_1 + 0x68)),(int)(1));
   bVar2 = false;
   if ((iVar3 == 2) || (iVar3 == 3)) {
     bVar2 = true;
@@ -30,7 +30,7 @@ uint32_t dispatch_display_mode_command(int param_1,uint32_t param_2,int param_3)
   switch(uVar1) {
   case 0:
     set_struct_field_at_offset_4(param_3,1);
-    iVar3 = extract_bits_5_to_12_from_virtual_call(*(uint32_t *)(param_1 + 0x70));
+    iVar3 = extract_bits_5_to_12_from_virtual_call((int *)(*(uint32_t *)(param_1 + 0x70)));
     uVar4 = invoke_virtual_slot_11_10464cb2(*(int **)(param_1 + 0x70));
     uVar4 = (iVar3 << 5 | uVar4) & 0xff;
     goto LAB_1042ed4c;
@@ -58,7 +58,7 @@ uint32_t dispatch_display_mode_command(int param_1,uint32_t param_2,int param_3)
     iVar6 = *(int *)(iVar3 + 4);
     iVar3 = read_struct_field_at_index_1046c7ca(param_3,0);
     if (iVar3 == 0) {
-      deactivate_display_mode(iVar6);
+      deactivate_display_state(iVar6);
     }
     else {
       display_output_enable(__frv_reg_unset(4));
@@ -70,7 +70,7 @@ uint32_t dispatch_display_mode_command(int param_1,uint32_t param_2,int param_3)
     uVar7 = read_table_entry_field(pvVar5,0xa9);
     iVar3 = read_struct_field_at_index_1046c7ca(param_3,0);
     if (iVar3 == 0) {
-      call_single_helper_with_param_104436e2(uVar7);
+      call_single_helper_with_param_104436e2((void *)(uVar7));
     }
     else {
       call_single_helper_with_param_104436da(__frv_reg_unset(4));

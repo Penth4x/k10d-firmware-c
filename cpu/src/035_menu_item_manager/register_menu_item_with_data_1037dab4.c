@@ -14,16 +14,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-void register_menu_item_with_data_1037dab4(int param_1,int param_2,void *param_3)
+void register_menu_item_with_data_1037dab4(cls_10558c04 *param_1,int param_2,void *param_3)
 
 {
   uint32_t *puVar1;
   int iVar2;
   int iVar3;
   
-  puVar1 = (uint32_t *)menu_item_register(param_1);
+  puVar1 = (uint32_t *)menu_item_register((int)param_1);
   if (param_2 == 0) {
-    (**(code **)(puVar1[3] + 0xc))((int)*(short *)(puVar1[3] + 8) + (int)puVar1,0);
+    (((vtbl_entry*)(puVar1[3]))[1].fn)((int)*(short *)(puVar1[3] + 8) + (int)puVar1,0);
   }
   else {
     iVar3 = 0x10;
@@ -33,7 +33,7 @@ void register_menu_item_with_data_1037dab4(int param_1,int param_2,void *param_3
       iVar3 = iVar2;
     } while (iVar2 != 0);
     call_helper_and_set_flag_10494b88(puVar1);
-    (**(code **)(puVar1[3] + 0xc))((int)*(short *)(puVar1[3] + 8) + (int)puVar1,1);
+    (((vtbl_entry*)(puVar1[3]))[1].fn)((int)*(short *)(puVar1[3] + 8) + (int)puVar1,1);
   }
   return;
 }

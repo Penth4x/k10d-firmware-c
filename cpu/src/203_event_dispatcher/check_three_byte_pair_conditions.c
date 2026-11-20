@@ -36,11 +36,11 @@ uint32_t check_three_byte_pair_conditions(int param_1)
   uVar5 = 0;
   uVar4 = *(uint32_t *)**(uint32_t **)(param_1 + 4);
   iVar6 = **(int **)(param_1 + 8);
-  (**(code **)(iVar6 + 0x34))((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar6 + 0x30),uVar4,0,0)
+  (((vtbl_entry*)(iVar6))[6].fn)((int)*(int **)(param_1 + 8) + (int)((vtbl_entry*)(iVar6))[6].adj,uVar4,0,0)
   ;
   iVar6 = **(int **)(param_1 + 8);
-  iVar6 = (**(code **)(iVar6 + 0x24))
-                    ((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar6 + 0x20),uVar4,&cStack_14,
+  iVar6 = (((vtbl_entry*)(iVar6))[4].fn)
+                    ((int)*(int **)(param_1 + 8) + (int)((vtbl_entry*)(iVar6))[4].adj,uVar4,&cStack_14,
                      0xc);
   if (iVar6 != 0) {
     bVar1 = true;

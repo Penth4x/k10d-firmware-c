@@ -19,7 +19,7 @@
 int alloc_and_init_object_1049c2dc(void *param_1)
 
 {
-  if ((param_1 != (void *)0x0) || (param_1 = (void *)heap_alloc((void *)1), param_1 != (void *)0x0)) {
+  if ((param_1 != 0) || (param_1 = (void *)heap_alloc((void *)1), param_1 != 0)) {
     alloc_and_zero_byte(param_1);
   }
   return (int)param_1;

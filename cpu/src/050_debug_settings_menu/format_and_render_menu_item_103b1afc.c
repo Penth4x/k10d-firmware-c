@@ -52,7 +52,7 @@ void format_and_render_menu_item_103b1afc(void *param_1)
     case 8:
     case 10:
     case 0xc:
-      pcVar4 = (char *)&DAT_10565ecc/*ROM*/;
+      pcVar4 = &DAT_10565ecc/*ROM*/;
       break;
     default:
       format_ratio_with_special_cases(param_1,(void *)(uint)uStack_c,(void *)(uint)uStack_a,abStack_13);

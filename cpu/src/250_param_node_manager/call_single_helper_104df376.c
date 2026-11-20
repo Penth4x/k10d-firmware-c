@@ -12,9 +12,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_single_helper_104df376(void)
+/* WARNING: Struct "cls_105bb314": ignoring overlapping field "field_0x8" */
+/* WARNING: Struct "cls_105bb0ec": ignoring overlapping field "field_0x8" */
+
+void call_single_helper_104df376(cls_105bb314 *param_1,int param_2,int param_3)
 
 {
-  handle_event_0x50001(__frv_reg_unset(4), __frv_reg_unset(5), __frv_reg_unset(6));
+  handle_event_0x50001((cls_105bb0ec *)param_1,param_2,param_3);
   return;
 }

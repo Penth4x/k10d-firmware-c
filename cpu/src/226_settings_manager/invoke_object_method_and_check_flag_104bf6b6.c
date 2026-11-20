@@ -25,8 +25,8 @@ bool invoke_object_method_and_check_flag_104bf6b6(int param_1,uint32_t param_2)
   puVar1 = (uint32_t *)(param_1 + 0x20);
   eventflag_clr_flg(puVar1,1);
   iVar2 = **(int **)(param_1 + 0x480);
-  (**(code **)(iVar2 + 0x2c))
-            ((int)*(int **)(param_1 + 0x480) + (int)*(short *)(iVar2 + 0x28),param_1,param_2);
+  (((vtbl_entry*)(iVar2))[5].fn)
+            ((int)*(int **)(param_1 + 0x480) + (int)((vtbl_entry*)(iVar2))[5].adj,param_1,param_2);
   eventflag_wai_flg(puVar1,1,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,1);
   return *(int *)(param_1 + 0x28) == 1;

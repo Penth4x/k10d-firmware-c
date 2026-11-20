@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_destroy_on_range(int param_1)
+void invoke_virtual_destroy_on_range(cls_105b48dc *param_1)
 
 {
   int iVar1;
@@ -14,16 +14,16 @@ void invoke_virtual_destroy_on_range(int param_1)
   
   iVar1 = read_byte_at_offset_8(__frv_reg_unset(4));
   if (iVar1 != 0) {
-    piVar2 = *(int **)(param_1 + 0x18);
-    if (piVar2 != *(int **)(param_1 + 0x1c)) {
+    piVar2 = (int *)((uintptr_t)(param_1->field11_0x18));
+    if ((uint32_t)(piVar2) != param_1->field_0x1c) {
       do {
         iVar1 = *(int *)(*piVar2 + 0xc);
-        (**(code **)(iVar1 + 0xc))(*piVar2 + (int)*(short *)(iVar1 + 8),0);
+        (((vtbl_entry*)(iVar1))[1].fn)(*piVar2 + (int)*(short *)(iVar1 + 8),0);
         piVar2 = piVar2 + 1;
-      } while (piVar2 != *(int **)(param_1 + 0x1c));
+      } while ((uint32_t)(piVar2) != param_1->field_0x1c);
     }
-    invoke_virtual_method_on_nested_object_104946c6(param_1);
-    *(uint8_t *)(param_1 + 9) = 1;
+    invoke_virtual_method_on_nested_object_104946c6((int)(param_1));
+    param_1->field_0x9 = '\x01';
   }
   return;
 }

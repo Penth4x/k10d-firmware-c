@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void build_object_tree_with_18_nodes(int param_1,uint32_t param_2,void *param_3,void *param_4)
+void build_object_tree_with_18_nodes(cls_1056ac8c *param_1,uint32_t param_2,void *param_3,void *param_4)
 
 {
   void *pvVar1;
@@ -31,7 +31,7 @@ void build_object_tree_with_18_nodes(int param_1,uint32_t param_2,void *param_3,
   void *pvVar20;
   void *pvVar21;
   
-  *(uint8_t *)(param_1 + 4) = 1;
+  param_1->field_0x4 = 1;
   pvVar1 = (void *)get_or_init_static_buffer_10495746();
   iterate_range_and_call_match(pvVar1,(uint *)0x1056aed8/*ROM*/,param_3,param_4);
   pvVar2 = (void *)app_obj_factory(pvVar1,(void *)0x20c0000,0,0);
@@ -93,6 +93,6 @@ void build_object_tree_with_18_nodes(int param_1,uint32_t param_2,void *param_3,
   iterate_and_remove_list_entry(pvVar3,pvVar15,pvVar20,pvVar21);
   iterate_and_remove_list_entry(pvVar3,pvVar16,pvVar20,pvVar21);
   iterate_and_remove_list_entry(pvVar2,pvVar3,pvVar20,pvVar21);
-  set_object_field_at_offset_0x10((void *)(param_1 + 8),pvVar2);
+  set_object_field_at_offset_0x10(&param_1->field5_0x8,pvVar2);
   return;
 }

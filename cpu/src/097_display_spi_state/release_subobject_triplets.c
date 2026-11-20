@@ -41,7 +41,7 @@ void release_subobject_triplets(void *param_1)
     set_flag2_with_notify(*(void **)((int)param_1 + 0x44));
   }
   else {
-    call_helper_with_zero_and_two_1043ed7c(*(uint32_t *)((int)param_1 + 100));
+    call_helper_with_zero_and_two_1043ed7c((void *)(*(uint32_t *)((int)param_1 + 100)));
     call_helper_if_flag_set_1043ee88(*(uint32_t *)((int)param_1 + 100),1);
     call_helper_if_offset_0x14_set(*(uint32_t *)((int)param_1 + 100),1);
     call_helper_if_flag_set_1043ee5c(*(uint32_t *)((int)param_1 + 100),0);

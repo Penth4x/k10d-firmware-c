@@ -27,8 +27,8 @@ void populate_exposure_event_struct(int param_1,uint8_t param_2,uint8_t param_3,
   
   if ((*(char *)(param_1 + 0x2c) != '\0') && (*(char *)(*(int *)(param_1 + 0x7f8) + 0xe1) == '\0'))
   {
-    (**(code **)(*(int *)(param_1 + 0x8d4) + 0x18c))
-              (*(short *)(*(int *)(param_1 + 0x8d4) + 0x188) + param_1);
+    (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[49].fn)
+              (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[49].adj + param_1);
     *(short *)(param_1 + 0x678) = *(short *)(param_1 + 0x678) + 1;
   }
   **(uint32_t **)(param_1 + 0x7f8) = *(uint32_t *)(param_1 + 0xf4);
@@ -61,7 +61,7 @@ void populate_exposure_event_struct(int param_1,uint8_t param_2,uint8_t param_3,
   *(uint32_t *)(*(int *)(param_1 + 0x7f8) + 0x74) = *(uint32_t *)(param_1 + 0x94);
   *(uint32_t *)(*(int *)(param_1 + 0x7f8) + 0x78) = *(uint32_t *)(param_1 + 0x98);
   *(uint32_t *)(*(int *)(param_1 + 0x7f8) + 0x7c) = *(uint32_t *)(param_1 + 0x9c);
-  (**(code **)(*(int *)(param_1 + 0x8d4) + 0xcc))
+  (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[25].fn)
             (*(short *)(*(int *)(param_1 + 0x8d4) + 200) + param_1);
   iVar8 = *(int *)(param_1 + 0x7f8);
   iVar2 = param_1 + 0x2ac;
@@ -94,7 +94,7 @@ void populate_exposure_event_struct(int param_1,uint8_t param_2,uint8_t param_3,
     *(uint *)(iVar8 + 0x8c) = (uint)bVar5;
   }
   iVar8 = *(int *)(param_1 + 0x7f8);
-  uVar3 = get_SVD((int *)(param_1 + 0x164));
+  uVar3 = get_SVD((void*)(param_1 + 0x164));
   *(uint32_t *)(iVar8 + 0x94) = uVar3;
   iVar8 = *(int *)(param_1 + 0x7f8);
   bVar5 = settings_getter(iVar2,0xc2);
@@ -245,18 +245,18 @@ LAB_10510918:
   *(uint32_t *)(iVar8 + 0x10c) = uVar3;
   *(int *)(*(int *)(param_1 + 0x7f8) + 0x11c) = param_1 + 0x880;
   iVar8 = *(int *)(param_1 + 0x7f8);
-  uVar7 = (**(code **)(*piVar10 + 0x1c))((int)piVar10 + (int)*(short *)(*piVar10 + 0x18),0xe);
+  uVar7 = (((vtbl_entry*)(*piVar10))[3].fn)((int)piVar10 + (int)((vtbl_entry*)(*piVar10))[3].adj,0xe);
   *(uint8_t *)(iVar8 + 0x118) = uVar7;
   iVar2 = *(int *)(param_1 + 0x1c4);
   iVar8 = *(int *)(param_1 + 0x7f8);
-  uVar7 = (**(code **)(iVar2 + 0x1c))(param_1 + 0x1c4 + (int)*(short *)(iVar2 + 0x18),3);
+  uVar7 = (((vtbl_entry*)(iVar2))[3].fn)(param_1 + 0x1c4 + (int)((vtbl_entry*)(iVar2))[3].adj,3);
   *(uint8_t *)(iVar8 + 0x119) = uVar7;
-  cVar6 = (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,0);
+  cVar6 = (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1,0);
   if ((cVar6 == '\t') || (cVar6 == '\f')) {
     *(uint32_t *)(*(int *)(param_1 + 0x7f8) + 0x100) = 0;
   }
   if ((*(char *)(param_1 + 0x6b8) == '\0') ||
-     (iVar8 = (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1,0x10),
+     (iVar8 = (((vtbl_entry*)(*piVar1))[3].fn)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1,0x10),
      iVar8 == 0)) {
     *(uint16_t *)(*(int *)(param_1 + 0x7f8) + 0x2170) = 0x100;
     *(uint16_t *)(*(int *)(param_1 + 0x7f8) + 0x2172) = 0x100;

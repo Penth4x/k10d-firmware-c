@@ -9,7 +9,7 @@
 void clear_field_and_call_helper(int param_1)
 
 {
-  call_three_step_helper((void *)(uintptr_t)(*(uint32_t *)(param_1 + 4)));
+  call_three_step_helper((uint32_t *)(*(uint32_t *)(param_1 + 4)));
   *(uint32_t *)(param_1 + 0x28) = 0;
   return;
 }

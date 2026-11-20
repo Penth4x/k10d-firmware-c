@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t store_offset_from_helper(void *param_1)
+uint32_t store_offset_from_helper(cls_105d5370 *param_1)
 
 {
   void *pvVar1;
@@ -24,6 +24,6 @@ uint32_t store_offset_from_helper(void *param_1)
   
   pvVar1 = (void *)get_or_init_sram_buffer_104277bc();
   iVar2 = read_table_entry_field(pvVar1,0xc1);
-  *(int *)((int)param_1 + 0x18) = iVar2 + 0x14;
+  param_1->field_0x18 = iVar2 + 0x14;
   return 1;
 }

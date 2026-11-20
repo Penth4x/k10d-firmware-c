@@ -19,8 +19,8 @@ void invoke_object_method_and_set_status_104a2f5e(int param_1)
   piVar1 = (int *)read_struct_field_or_array(param_1,uVar3);
   *piVar1 = param_1 + 4;
   iVar2 = read_struct_field_or_array(param_1,uVar3);
-  iVar2 = (**(code **)(*(int *)(iVar2 + 0x1c) + 0x34))
-                    (iVar2 + *(short *)(*(int *)(iVar2 + 0x1c) + 0x30),puVar4);
+  iVar2 = (((vtbl_entry*)(*(int *)(iVar2 + 0x1c)))[6].fn)
+                    (iVar2 + ((vtbl_entry*)(*(int *)(iVar2 + 0x1c)))[6].adj,puVar4);
   if (iVar2 == 0) {
     if (*(char *)(param_1 + 0x50) == '\0') {
       *(uint8_t *)(puVar4[1] + 0x18) = 1;

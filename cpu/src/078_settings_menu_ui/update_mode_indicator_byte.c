@@ -15,15 +15,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-void update_mode_indicator_byte(int *param_1,int param_2)
+void update_mode_indicator_byte(cls_1059656c *param_1,uint32_t param_2)
 
 {
   int iVar1;
   uint8_t uVar2;
   
-  param_1[6] = param_2;
-  setting_get(param_1[2],0x5b);
-  iVar1 = param_1[6];
+  param_1->field_0x18 = param_2;
+  setting_get(param_1->field_0x8,0x5b);
+  iVar1 = param_1->field_0x18;
   uVar2 = uRam1059655c;
   if ((((iVar1 == 0x1800017) || (uVar2 = uRam1059655d, iVar1 == 0x180001a)) ||
       (uVar2 = uRam1059655e, iVar1 == 0x180001d)) ||
@@ -45,13 +45,13 @@ void update_mode_indicator_byte(int *param_1,int param_2)
            && (uVar2 = uRam10596566, iVar1 != 0x1800056)))))) {
         return;
       }
-      *(uint8_t *)((int)param_1 + 0x21) = uVar2;
+      param_1->field_0x21 = uVar2;
       empty_virtual_method();
       goto LAB_103d958e;
     }
     iVar1 = 0x21;
   }
-  *(uint8_t *)(iVar1 + (int)param_1) = uVar2;
+  *(uint8_t *)((int)&param_1->field_0x0 + iVar1) = uVar2;
 LAB_103d958e:
   render_two_objects_by_setting_103d9b2a(param_1);
   return;

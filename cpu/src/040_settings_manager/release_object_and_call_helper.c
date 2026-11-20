@@ -14,7 +14,7 @@ uint32_t release_object_and_call_helper(int param_1, uint32_t param_x1)
   piVar1 = *(int **)(param_1 + 0x2c48);
   if (piVar1 != (int *)0x0) {
     *(uint32_t *)(param_1 + 0x2c48) = 0;
-    (**(code **)(*piVar1 + 0x34))((int)*(short *)(*piVar1 + 0x30) + (int)piVar1);
+    (((vtbl_entry*)(*piVar1))[6].fn)((int)((vtbl_entry*)(*piVar1))[6].adj + (int)piVar1);
   }
   invoke_virtual_slot2_on_four_objects_10394478();
   return 1;

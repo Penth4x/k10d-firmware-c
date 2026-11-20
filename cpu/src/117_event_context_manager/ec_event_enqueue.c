@@ -23,7 +23,7 @@ void ec_event_enqueue(int param_1,int param_2)
   int iVar1;
   int iVar2;
   
-  twai_sem_obj((void *)(param_1 + 0x90),_DAT_105a2bf0/*ROM*/);
+  twai_sem_obj((uint32_t *)(param_1 + 0x90),(int)(_DAT_105a2bf0/*ROM*/));
   iVar1 = *(int *)(param_1 + 0x98);
   empty_stub_function_10433096(iVar1,param_2);
   iVar2 = 0xf;
@@ -50,6 +50,6 @@ void ec_event_enqueue(int param_1,int param_2)
     *(uint8_t *)(param_1 + 0x8c) = 1;
     set_flg_obj((uint32_t *)(param_1 + 0x7c));
   }
-  sig_sem_obj((void *)(param_1 + 0x90));
+  sig_sem_obj((uint32_t *)(param_1 + 0x90));
   return;
 }

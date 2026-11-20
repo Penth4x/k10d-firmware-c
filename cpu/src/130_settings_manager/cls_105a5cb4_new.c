@@ -22,8 +22,8 @@ uint32_t * cls_105a5cb4_new(uint32_t *param_1)
     allocate_cpucom_transaction_context(param_1,6,1);
     *param_1 = 0x105a5cb4/*ROM*/;
     param_1[1] = 0x105a5d44/*ROM*/;
-    cls_105a5d5c_new(param_1 + 0x12);
-    cls_105a2be0_new(param_1 + 0x15);
+    cls_105a5d5c_new((void *)(param_1 + 0x12));
+    cls_105a2be0_new((void *)(param_1 + 0x15));
     param_1[0x17] = 0;
     param_1[0x18] = 0;
     param_1[0x19] = 0;

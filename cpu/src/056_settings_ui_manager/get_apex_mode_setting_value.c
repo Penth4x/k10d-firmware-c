@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t get_apex_mode_setting_value(int param_1,int param_2)
+uint32_t get_apex_mode_setting_value(cls_10595294 *param_1,int param_2)
 
 {
   int iVar1;
@@ -27,7 +27,7 @@ uint32_t get_apex_mode_setting_value(int param_1,int param_2)
   uintptr_t sp;
   
   if (param_2 == 0x10a0040) {
-    cVar4 = *(char *)(param_1 + 0x21);
+    cVar4 = param_1->field_0x21;
     if (cVar4 == '^') {
       uVar2 = 0x10a0017;
     }
@@ -55,7 +55,7 @@ uint32_t get_apex_mode_setting_value(int param_1,int param_2)
   }
   else {
     if (param_2 == 0x10a0017) {
-      uVar3 = setting_get(*(int *)(param_1 + 8),0xc3);
+      uVar3 = setting_get(param_1->field_0x8,0xc3);
       iVar1 = 0xff;
       if (bRam1059527c == uVar3) {
         iVar1 = 0;
@@ -66,7 +66,7 @@ uint32_t get_apex_mode_setting_value(int param_1,int param_2)
       cVar4 = -0x5c;
     }
     else if (param_2 == 0x10a001c) {
-      uVar3 = setting_get(*(int *)(param_1 + 8),0xc4);
+      uVar3 = setting_get(param_1->field_0x8,0xc4);
       iVar1 = 0xff;
       if (bRam1059527e == uVar3) {
         iVar1 = 0;
@@ -86,7 +86,7 @@ uint32_t get_apex_mode_setting_value(int param_1,int param_2)
       cVar4 = -0x54;
     }
     else if (param_2 == 0x10a0024) {
-      uVar3 = setting_get(*(int *)(param_1 + 8),0xc5);
+      uVar3 = setting_get(param_1->field_0x8,0xc5);
       iVar1 = 0xff;
       if (bRam10595283 == uVar3) {
         iVar1 = 0;
@@ -100,7 +100,7 @@ uint32_t get_apex_mode_setting_value(int param_1,int param_2)
       cVar4 = -0x40;
     }
     else if (param_2 == 0x10a002a) {
-      uVar3 = setting_get(*(int *)(param_1 + 8),0xc6);
+      uVar3 = setting_get(param_1->field_0x8,0xc6);
       iVar1 = 0xff;
       if (bRam10595286 == uVar3) {
         iVar1 = 0;
@@ -120,7 +120,7 @@ uint32_t get_apex_mode_setting_value(int param_1,int param_2)
       cVar4 = -0x34;
     }
     else if (param_2 == 0x10a0032) {
-      uVar3 = setting_get(*(int *)(param_1 + 8),199);
+      uVar3 = setting_get(param_1->field_0x8,199);
       iVar1 = 0xff;
       if (bRam1059528b == uVar3) {
         iVar1 = 0;
@@ -143,7 +143,7 @@ uint32_t get_apex_mode_setting_value(int param_1,int param_2)
       if (param_2 != 0x10a003a) {
         return 0;
       }
-      uVar3 = setting_get(*(int *)(param_1 + 8),200);
+      uVar3 = setting_get(param_1->field_0x8,200);
       iVar1 = 0xff;
       if (bRam10595290 == uVar3) {
         iVar1 = 0;

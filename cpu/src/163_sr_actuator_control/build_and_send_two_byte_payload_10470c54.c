@@ -34,16 +34,16 @@ void build_and_send_two_byte_payload_10470c54(int param_1,int param_2)
   if (param_2 == 0) {
     uVar3 = return_global_word_104592ce();
     uVar4 = return_global_word_104592ce();
-    pcVar5 = (char *)&DAT_105a9778/*ROM*/;
+    pcVar5 = &DAT_105a9778/*ROM*/;
   }
   else {
     uVar3 = return_global_word_104592ce();
     uVar4 = return_global_word_104592ce();
-    iVar1 = return_global_word_104592d8((int)&uStack_9);
-    uVar2 = return_global_word_104592d8((int)&uStack_9);
+    iVar1 = return_global_word_104592d8((uint32_t)(&uStack_9));
+    uVar2 = return_global_word_104592d8((uint32_t)(&uStack_9));
     *piVar6 = iVar1 >> 8;
     piVar6[1] = uVar2 & 0xff;
-    pcVar5 = (char *)&DAT_105a975c/*ROM*/;
+    pcVar5 = &DAT_105a975c/*ROM*/;
   }
   format_string_to_buffer_10545140(auStack_5c,pcVar5,(void *)((int)(uint)uVar3 >> 8),(void *)(uVar4 & 0xff));
   *(uint16_t *)((int)piVar6 + 2) = 7;

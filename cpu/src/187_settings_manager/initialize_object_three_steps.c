@@ -14,7 +14,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void * initialize_object_three_steps(void *param_1)
+cls_105b3ae4 * initialize_object_three_steps(cls_105b3ae4 *param_1)
 
 {
   set_two_fields_to_four((int)param_1);

@@ -26,48 +26,48 @@ void set_object_and_three_substates(void *param_1,int param_2)
   
   iVar4 = (int)param_1 + 8;
   iVar1 = menu_item_register(iVar4);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
   iVar1 = menu_item_register(iVar4);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),param_2);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),param_2);
   if (param_2 != 0) {
     iVar1 = get_setting_by_mode_index_104f0e20(*(int *)((int)param_1 + 0x28),0xc);
     if (iVar1 == 0x58) {
       iVar1 = menu_item_register(iVar4);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     }
     else {
       pbVar2 = (byte *)select_and_copy_rodata_entry(*(uint32_t *)((int)param_1 + 0x28),iVar1);
       pvVar3 = (void *)menu_item_register(iVar4);
       glyph_draw(pvVar3,pbVar2);
       iVar1 = menu_item_register(iVar4);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     }
     iVar1 = get_setting_by_mode_index_104f0e20(*(int *)((int)param_1 + 0x28),0xd);
     if (iVar1 == 0x58) {
       iVar1 = menu_item_register(iVar4);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     }
     else {
       pbVar2 = (byte *)select_and_copy_rodata_entry(*(uint32_t *)((int)param_1 + 0x28),iVar1);
       pvVar3 = (void *)menu_item_register(iVar4);
       glyph_draw(pvVar3,pbVar2);
       iVar1 = menu_item_register(iVar4);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     }
     iVar1 = get_setting_by_mode_index_104f0e20(*(int *)((int)param_1 + 0x28),0xe);
     if (iVar1 == 0x58) {
       iVar1 = menu_item_register(iVar4);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     }
     else {
       pbVar2 = (byte *)select_and_copy_rodata_entry(*(uint32_t *)((int)param_1 + 0x28),iVar1);
       pvVar3 = (void *)menu_item_register(iVar4);
       glyph_draw(pvVar3,pbVar2);
       iVar1 = menu_item_register(iVar4);
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
     }
     iVar1 = menu_item_register(iVar4);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),1);
   }
   return;
 }

@@ -19,37 +19,38 @@ void initialize_object_with_vtable_1045b8d6(int *param_1)
 
 {
   int *piVar1;
-  int iVar2;
+  cls_105a5bf8 *pcVar2;
+  int iVar3;
   
   *param_1 = 0;
   *(uint8_t *)(param_1 + 3) = 0;
   param_1[2] = 0;
   piVar1 = (int *)param_1[1];
   if (piVar1 == (int *)0x0) {
-    iVar2 = heap_alloc((void *)4);
-    if (iVar2 == 0) {
-      iVar2 = 0;
+    pcVar2 = (cls_105a5bf8 *)heap_alloc((void *)4);
+    if (pcVar2 == (cls_105a5bf8 *)0x0) {
+      pcVar2 = (cls_105a5bf8 *)0x0;
     }
     else {
-      cls_105a5bf8_new((void *)iVar2);
+      cls_105a5bf8_new(pcVar2);
     }
-    param_1[1] = iVar2;
-    if (iVar2 != 0) {
+    param_1[1] = (int)pcVar2;
+    if (pcVar2 != (cls_105a5bf8 *)0x0) {
       *(uint8_t *)(param_1 + 3) = 1;
-      iVar2 = *(int *)param_1[1];
-      iVar2 = (**(code **)(iVar2 + 0x14))(param_1[1] + (int)*(short *)(iVar2 + 0x10));
-      *param_1 = iVar2;
-      if (iVar2 != 0) {
-        *(int *)(iVar2 + 4) = iVar2;
+      iVar3 = *(int *)param_1[1];
+      iVar3 = (((vtbl_entry*)(iVar3))[2].fn)(param_1[1] + (int)((vtbl_entry*)(iVar3))[2].adj);
+      *param_1 = iVar3;
+      if (iVar3 != 0) {
+        *(int *)(iVar3 + 4) = iVar3;
         *(int *)*param_1 = *param_1;
       }
     }
   }
   else {
-    iVar2 = (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1);
-    *param_1 = iVar2;
-    if (iVar2 != 0) {
-      *(int *)(iVar2 + 4) = iVar2;
+    iVar3 = (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1);
+    *param_1 = iVar3;
+    if (iVar3 != 0) {
+      *(int *)(iVar3 + 4) = iVar3;
       *(int *)*param_1 = *param_1;
     }
   }

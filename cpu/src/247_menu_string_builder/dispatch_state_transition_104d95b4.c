@@ -24,10 +24,10 @@ void dispatch_state_transition_104d95b4(uint32_t param_1,int *param_2,uint32_t p
   
   iVar1 = (*(code *)0x104d68a6/*ROM*/)(param_3);
   if (iVar1 == 0) {
-    append_string_to_buffer(param_2,(void *)0x105ba4e4/*ROM*/);
+    append_string_to_buffer((int *)(param_2),(char *)(0x105ba4e4/*ROM*/));
   }
   else {
-    append_string_to_buffer(param_2,(void *)0x105ba4f0/*ROM*/);
+    append_string_to_buffer((int *)(param_2),(char *)(0x105ba4f0/*ROM*/));
     dispatch_two_event_ids(param_1,param_2,param_3);
   }
   dispatch_virtual_call_by_index_104d967a(param_1,param_2,param_3);
@@ -38,6 +38,6 @@ void dispatch_state_transition_104d95b4(uint32_t param_1,int *param_2,uint32_t p
   else {
     uVar2 = 0x105ba508/*ROM*/;
   }
-  append_string_to_buffer(param_2,(void *)uVar2);
+  append_string_to_buffer((int *)(param_2),(char *)(uVar2));
   return;
 }

@@ -9,6 +9,6 @@
 void call_helper_with_offset_and_two_globals(int param_1)
 
 {
-  store_two_words_and_call_helper_10398386((void *)(param_1 + 0xc),uRam8001a0b8,uRam8001a0ba);
+  store_two_words_and_call_helper_10398386((void *)(param_1 + 0xc),(uint16_t)(uRam8001a0b8),(uint16_t)(uRam8001a0ba));
   return;
 }

@@ -15,7 +15,7 @@ int iterate_virtual_method_until_nonzero(int *param_1)
   param_1[2] = 0;
   uVar2 = 0;
   do {
-    iVar1 = (**(code **)(*param_1 + 0x1c))((int)*(short *)(*param_1 + 0x18) + (int)param_1,uVar2);
+    iVar1 = (((vtbl_entry*)(*param_1))[3].fn)((int)((vtbl_entry*)(*param_1))[3].adj + (int)param_1,uVar2);
     if (iVar1 != 0) {
       iVar1 = param_1[2];
       param_1[2] = iVar1 + 1;

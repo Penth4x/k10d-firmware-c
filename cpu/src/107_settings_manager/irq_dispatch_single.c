@@ -22,7 +22,7 @@ int irq_dispatch_single(int param_1)
   
   piVar1 = *(int **)(param_1 * 4 + -0x7ffe21d8);
   if (piVar1 != (int *)0x0) {
-    param_1 = (**(code **)(*piVar1 + 0x14))((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,param_1,0)
+    param_1 = (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1,param_1,0)
     ;
   }
   return param_1;

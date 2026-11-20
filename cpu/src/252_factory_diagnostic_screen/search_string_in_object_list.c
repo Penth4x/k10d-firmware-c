@@ -31,11 +31,11 @@ uint32_t search_string_in_object_list(int param_1,char *param_2)
            (iVar2 = (*(code *)0x104e3858/*ROM*/)(), iVar2 != 0)) {
           iVar2 = *(int *)(*(int *)(param_1 + 0x40) + iVar4);
           iVar6 = *(int *)(iVar2 + 0x18);
-          iStack_118 = (**(code **)(iVar6 + 0x5c))(iVar2 + *(short *)(iVar6 + 0x58),auStack_108);
+          iStack_118 = (((vtbl_entry*)(iVar6))[11].fn)(iVar2 + ((vtbl_entry*)(iVar6))[11].adj,auStack_108);
           if ((iStack_118 == iVar1) && (iVar2 = compare_null_terminated_strings(param_2,auStack_108), iVar2 == 0)) {
             iVar1 = *(int *)(*(int *)(param_1 + 0x40) + iVar5 * 4);
             iVar5 = *(int *)(iVar1 + 0x18);
-            uVar3 = (**(code **)(iVar5 + 0x54))(iVar1 + *(short *)(iVar5 + 0x50));
+            uVar3 = (((vtbl_entry*)(iVar5))[10].fn)(iVar1 + ((vtbl_entry*)(iVar5))[10].adj);
             return uVar3;
           }
         }

@@ -6,10 +6,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-int init_struct_with_next_ptr_1039273e(int param_1)
+cls_105627d4 * init_struct_with_next_ptr_1039273e(cls_105627d4 *param_1)
 
 {
-  *(int *)(param_1 + 4) = param_1 + 8;
+  *(uint32_t *)&param_1->field_0x4 = (uint32_t)&param_1->field_0x8;
   call_two_helpers_on_object_1039282a((void *)__frv_reg_unset(4));
   return param_1;
 }

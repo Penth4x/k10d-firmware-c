@@ -33,10 +33,10 @@ void parse_and_store_buffered_records(int param_1,void *param_2,uint param_3,int
   if (((*(char *)(param_1 + 0x40) != '\0') && (param_4 < 4)) &&
      (pvVar6 = (void *)param_4, uVar2 = compute_indexed_difference(param_1,param_4), 9 < uVar2)) {
     if (param_3 == 0) {
-      pcVar5 = (char *)&DAT_105c3b04/*ROM*/;
+      pcVar5 = &DAT_105c3b04/*ROM*/;
     }
     else {
-      pcVar5 = (char *)&DAT_105c3afc/*ROM*/;
+      pcVar5 = &DAT_105c3afc/*ROM*/;
     }
     format_string_to_buffer_10545140(acStack_58,pcVar5,param_2,pvVar6);
     iVar3 = count_string_bytes(acStack_58);

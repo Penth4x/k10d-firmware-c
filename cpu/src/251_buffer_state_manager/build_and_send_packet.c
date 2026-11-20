@@ -43,15 +43,15 @@ void build_and_send_packet(uint32_t *param_1)
   uStack_18 = 0;
   uStack_14 = 0;
   uStack_10 = 0;
-  copy_bytes_forward((void *)(param_1 + 3),(void *)&local_2c,4);
-  copy_bytes_forward((void *)&uStack_a,(void *)&uStack_28,2);
-  copy_bytes_forward((void *)(param_1 + 4),(void *)((int)&uStack_28 + 2),2);
-  copy_bytes_forward((void *)(param_1 + 6),(void *)&uStack_24,4);
+  copy_bytes_forward(param_1 + 3,&local_2c,4);
+  copy_bytes_forward(&uStack_a,&uStack_28,2);
+  copy_bytes_forward((uint8_t *)(param_1 + 4),(uint8_t *)((int)&uStack_28 + 2),(uint)(2));
+  copy_bytes_forward(param_1 + 6,&uStack_24,4);
   uVar2 = 0;
   if (param_1[0xc] != 0) {
     iVar1 = 0;
     do {
-      copy_bytes_forward((void *)((int)param_1 + iVar1 + 0x1c),(void *)((int)&uStack_20 + iVar1),4);
+      copy_bytes_forward((uint8_t *)((int)param_1 + iVar1 + 0x1c),(uint8_t *)((int)&uStack_20 + iVar1),(uint)(4));
       uVar2 = uVar2 + 1;
       iVar1 = iVar1 + 4;
     } while (uVar2 < (uint)param_1[0xc]);

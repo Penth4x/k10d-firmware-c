@@ -23,7 +23,7 @@ uint32_t write_data_via_virtual_interface(int param_1,uint32_t param_2,void *par
   int iVar4;
   
   iVar4 = *(int *)(param_1 + 0x70);
-  iVar2 = (**(code **)(param_1 + 0x58))(*(uint32_t *)(param_1 + 0x60),param_2,1,iVar4 + 4);
+  iVar2 = (((vtbl_entry*)(param_1))[11].fn)(*(uint32_t *)(param_1 + 0x60),param_2,1,iVar4 + 4);
   if (iVar2 == 0) {
     memcpy_bytes(param_3,(void *)(iVar4 + 4 + param_5),(int)param_4);
     uVar3 = 0;

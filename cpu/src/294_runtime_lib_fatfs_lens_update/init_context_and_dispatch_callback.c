@@ -30,7 +30,7 @@ int init_context_and_dispatch_callback(void *param_1,uint8_t *param_2,int param_
     *param_2 = 0;
     iVar1 = allocate_lens_update_slot(&iStack_c);
     if (iVar1 == 0) {
-      if (param_1 == (void *)0x0) {
+      if (param_1 == 0) {
         iStack_10 = *(int *)(iStack_c + 8);
       }
       else {

@@ -6,22 +6,22 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dispatch_event_with_state_flag(int *param_1,uint param_2,uint32_t param_3)
+void dispatch_event_with_state_flag(cls_10566724 *param_1,uint param_2,uint32_t param_3)
 
 {
   bool bVar1;
   uint32_t uVar2;
   int iVar3;
   
-  dispatch_event_0x29_via_vtable(param_1,param_2,param_3);
+  dispatch_event_0x29_via_vtable((cls_105643d0 *)param_1,param_2,param_3);
   uVar2 = 0;
-  if (*(char *)((int)param_1 + 0x57) != '\0') {
+  if (param_1->field_0x57 != '\0') {
     return;
   }
   if (param_2 == 0xd) {
-    if (((param_1[0xc] != 0x203000a) || (iVar3 = check_setting_0xbb_is_one(param_1[10]), iVar3 != 0)) &&
-       ((*(char *)((int)param_1 + 0x56) == '\0' || (iVar3 = check_value_in_range_9_to_11(param_1[10]), iVar3 == 0)))
-       ) {
+    if (((param_1->field_0x30 != 0x203000a) ||
+        (iVar3 = check_setting_0xbb_is_one(param_1->field_0x28), iVar3 != 0)) &&
+       ((param_1->field_0x56 == '\0' || (iVar3 = check_value_in_range_9_to_11(param_1->field_0x28), iVar3 == 0)))) {
       uVar2 = 0x1120009;
       goto LAB_103b68c6;
     }
@@ -38,8 +38,9 @@ LAB_103b68c0:
       if (param_2 == 7) goto LAB_103b68c0;
       if (param_2 == 9) goto LAB_103b684a;
       if (param_2 == 0xc) {
-        iVar3 = *(int *)param_1[0xb];
-        (**(code **)(iVar3 + 0x14))(param_1[0xb] + (int)*(short *)(iVar3 + 0x10),0x1120066,0);
+        iVar3 = *(uint32_t *)(param_1->field_0x2c);
+        (((vtbl_entry*)(iVar3))[2].fn)
+                  ((int)param_1->field_0x2c + (int)((vtbl_entry*)(iVar3))[2].adj,0x1120066,0);
         bVar1 = true;
       }
       else {
@@ -71,7 +72,8 @@ LAB_103b68c2:
     return;
   }
 LAB_103b68c6:
-  *(uint8_t *)((int)param_1 + 0x57) = 1;
-  (**(code **)(*param_1 + 0x74))((int)*(short *)(*param_1 + 0x70) + (int)param_1,uVar2,0);
+  param_1->field_0x57 = '\x01';
+  (((vtbl_entry*)(param_1->field_0x0))[14].fn)
+            ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[14].adj,uVar2,0);
   return;
 }

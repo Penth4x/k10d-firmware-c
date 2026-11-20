@@ -25,8 +25,8 @@ void kernel_panic(uint32_t param_1,uint32_t param_2)
   if (0 < DAT_10011d18/*ROM*/) {
     iVar1 = 0;
     do {
-      (**(code **)(PTR_DAT_10011cb8 + iVar1 + 8))
-                (0x10,param_1,param_2,*(uint32_t *)(PTR_DAT_10011cb8 + 4));
+      (((vtbl_entry*)((char*)PTR_DAT_10011cb8 + iVar1))[1].fn)
+                (0x10,param_1,param_2,*(uint32_t *)((char*)PTR_DAT_10011cb8 + 4));
       iVar2 = iVar2 + 1;
       iVar1 = iVar1 + 0xc;
     } while (iVar2 < DAT_10011d18/*ROM*/);

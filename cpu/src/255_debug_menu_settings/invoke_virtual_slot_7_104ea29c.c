@@ -14,14 +14,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t invoke_virtual_slot_7_104ea29c(int param_1)
+uint32_t invoke_virtual_slot_7_104ea29c(cls_105c2050 *param_1)
 
 {
   uint32_t uVar1;
   int iVar2;
   
-  iVar2 = **(int **)(param_1 + 0x14);
-  uVar1 = (**(code **)(iVar2 + 0x3c))
-                    ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar2 + 0x38));
+  iVar2 = *(uint32_t*)(param_1->field_0x14);
+  uVar1 = (((vtbl_entry*)(iVar2))[7].fn)((int)param_1->field_0x14 + (int)((vtbl_entry*)(iVar2))[7].adj);
   return uVar1;
 }

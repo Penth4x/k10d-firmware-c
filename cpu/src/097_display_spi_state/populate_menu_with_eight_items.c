@@ -68,6 +68,6 @@ void populate_menu_with_eight_items(int param_1,uint32_t param_2,uint32_t param_
   pvVar1 = (void *)menu_item_register(iVar2);
   glyph_draw(pvVar1,(byte *)(param_1 + 0x635));
   iVar2 = menu_item_register(iVar2);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),1);
   return;
 }

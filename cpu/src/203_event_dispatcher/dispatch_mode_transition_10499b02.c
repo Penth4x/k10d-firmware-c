@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint dispatch_mode_transition_10499b02(int *param_1,int param_2)
+uint dispatch_mode_transition_10499b02(cls_105b5694 *param_1,int param_2)
 
 {
   int iVar1;
@@ -24,33 +24,34 @@ uint dispatch_mode_transition_10499b02(int *param_1,int param_2)
   bool bVar3;
   uint uVar4;
   
-  param_1[1] = param_2;
+  param_1->field_0x4 = param_2;
   iVar1 = (*(code *)0x1049a528/*ROM*/)();
   uVar4 = 0;
   if (iVar1 != 0) {
-    iVar1 = *(int *)(param_1[1] + 4);
-    param_1[0x15] = iVar1;
+    iVar1 = *(int *)(param_1->field_0x4 + 4);
+    param_1->field_0x54 = iVar1;
     switch(iVar1) {
     case 0:
     case 1:
-      cVar2 = read_byte_from_struct_array(param_1[1],iVar1);
+      cVar2 = read_byte_from_struct_array(param_1->field_0x4,iVar1);
       if (cVar2 != '\0') {
-        uVar4 = dispatch_two_virtual_operations((int)param_1,param_1[0x15]);
+        uVar4 = dispatch_two_virtual_operations((int)param_1,param_1->field_0x54);
       }
       break;
     case 2:
     case 3:
-      cVar2 = read_byte_from_struct_array(param_1[1],iVar1);
+      cVar2 = read_byte_from_struct_array(param_1->field_0x4,iVar1);
       if (cVar2 != '\0') {
-        bVar3 = transfer_data_in_chunks_1049a44e(param_1,param_1[0x15]);
+        bVar3 = transfer_data_in_chunks_1049a44e((int *)param_1,param_1->field_0x54);
         uVar4 = (uint)bVar3;
       }
       break;
     case -2:
     case -1:
-      iVar1 = cls_105b9724_new((uint32_t *)0x0);
+      iVar1 = cls_105b9724_new((cls_105b9724 *)0x0);
       uVar4 = process_object_with_callback((int)param_1,iVar1);
-      (**(code **)(param_1[4] + 0x3c))((int)*(short *)(param_1[4] + 0x38) + (int)param_1,iVar1);
+      (((vtbl_entry*)(param_1->field_0x10))[7].fn)
+                ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x10))[7].adj,iVar1);
     }
   }
   return uVar4;

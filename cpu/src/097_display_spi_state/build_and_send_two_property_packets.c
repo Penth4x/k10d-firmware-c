@@ -62,64 +62,64 @@ void build_and_send_two_property_packets(void *param_1,int param_2,uint32_t *par
   uStack_c = 0;
   uStack_a = 0;
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_38 = (**(code **)(iVar1 + 0x244))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x240));
+  uStack_38 = (((vtbl_entry*)(iVar1))[72].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[72].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_37 = (**(code **)(iVar1 + 0x44))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x40));
+  uStack_37 = (((vtbl_entry*)(iVar1))[8].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[8].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_36 = (**(code **)(iVar1 + 0x4c))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x48));
+  uStack_36 = (((vtbl_entry*)(iVar1))[9].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[9].adj);
   uStack_34 = *(uint16_t *)(param_3 + 4);
   uStack_30 = param_3[5];
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_28 = (**(code **)(iVar1 + 0x24c))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x248));
+  uStack_28 = (((vtbl_entry*)(iVar1))[73].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[73].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_24 = (**(code **)(iVar1 + 0x26c))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x268));
+  uStack_24 = (((vtbl_entry*)(iVar1))[77].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[77].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_22 = (**(code **)(iVar1 + 0x274))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x270));
+  uStack_22 = (((vtbl_entry*)(iVar1))[78].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[78].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_20 = (**(code **)(iVar1 + 0x244))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x240));
+  uStack_20 = (((vtbl_entry*)(iVar1))[72].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[72].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_1f = (**(code **)(iVar1 + 0x44))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x40));
+  uStack_1f = (((vtbl_entry*)(iVar1))[8].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[8].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_1e = (**(code **)(iVar1 + 0x4c))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x48));
+  uStack_1e = (((vtbl_entry*)(iVar1))[9].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[9].adj);
   uStack_1c = *(uint16_t *)(param_3 + 4);
   uStack_18 = param_3[5];
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_10 = (**(code **)(iVar1 + 0x24c))
-                        ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x248));
+  uStack_10 = (((vtbl_entry*)(iVar1))[73].fn)
+                        ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[73].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_c = (**(code **)(iVar1 + 0x26c))
-                       ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x268));
+  uStack_c = (((vtbl_entry*)(iVar1))[77].fn)
+                       ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[77].adj);
   iVar1 = **(int **)((int)param_1 + 0x30);
-  uStack_a = (**(code **)(iVar1 + 0x274))
-                       ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x270));
+  uStack_a = (((vtbl_entry*)(iVar1))[78].fn)
+                       ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[78].adj);
   if (param_2 == 0) {
     uStack_2c = *param_3;
     uStack_14 = param_3[1];
     iVar1 = **(int **)((int)param_1 + 0x30);
-    uStack_26 = (**(code **)(iVar1 + 0x25c))
+    uStack_26 = (((vtbl_entry*)(iVar1))[75].fn)
                           ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 600));
     iVar1 = **(int **)((int)param_1 + 0x30);
-    uStack_e = (**(code **)(iVar1 + 0x25c))
+    uStack_e = (((vtbl_entry*)(iVar1))[75].fn)
                          ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 600));
   }
   else if (param_2 == 1) {
     uStack_2c = param_3[2];
     uStack_14 = param_3[3];
     iVar1 = **(int **)((int)param_1 + 0x30);
-    uStack_26 = (**(code **)(iVar1 + 0x264))
-                          ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x260));
+    uStack_26 = (((vtbl_entry*)(iVar1))[76].fn)
+                          ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[76].adj);
     iVar1 = **(int **)((int)param_1 + 0x30);
-    uStack_e = (**(code **)(iVar1 + 0x264))
-                         ((int)*(int **)((int)param_1 + 0x30) + (int)*(short *)(iVar1 + 0x260));
+    uStack_e = (((vtbl_entry*)(iVar1))[76].fn)
+                         ((int)*(int **)((int)param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[76].adj);
   }
   write_ten_mmio_registers(*(uint32_t *)((int)param_1 + 0x28),*(uint32_t *)((int)param_1 + 0xe4),&uStack_38)
   ;

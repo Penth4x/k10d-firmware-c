@@ -33,27 +33,27 @@ void send_twenty_identical_entries(void *param_1)
     *piVar2 = _DAT_800042c8/*SDRAM*/;
     *(uint16_t *)((int)piVar2 + 6) = 0xff;
     *(uint16_t *)((int)piVar2 + 10) = 0xff;
-    iterate_byte_list_and_call_helper(param_1,(void *)&DAT_105a8548/*ROM*/,0,sVar1,*piVar2,*(uint16_t *)((int)piVar2 + 6),
+    iterate_byte_list_and_call_helper(param_1,&DAT_105a8548/*ROM*/,0,sVar1,*piVar2,*(uint16_t *)((int)piVar2 + 6),
                  *(uint16_t *)((int)piVar2 + 10));
     *piVar2 = _DAT_800042c8/*SDRAM*/;
     *(uint16_t *)((int)piVar2 + 6) = 0xff;
     *(uint16_t *)((int)piVar2 + 10) = 0xff;
-    iterate_byte_list_and_call_helper(param_1,(void *)&DAT_105a8548/*ROM*/,0,sVar1 + 1,*piVar2,*(uint16_t *)((int)piVar2 + 6),
+    iterate_byte_list_and_call_helper(param_1,&DAT_105a8548/*ROM*/,0,sVar1 + 1,*piVar2,*(uint16_t *)((int)piVar2 + 6),
                  *(uint16_t *)((int)piVar2 + 10));
     *piVar2 = _DAT_800042c8/*SDRAM*/;
     *(uint16_t *)((int)piVar2 + 6) = 0xff;
     *(uint16_t *)((int)piVar2 + 10) = 0xff;
-    iterate_byte_list_and_call_helper(param_1,(void *)&DAT_105a8548/*ROM*/,0,sVar1 + 2,*piVar2,*(uint16_t *)((int)piVar2 + 6),
+    iterate_byte_list_and_call_helper(param_1,&DAT_105a8548/*ROM*/,0,sVar1 + 2,*piVar2,*(uint16_t *)((int)piVar2 + 6),
                  *(uint16_t *)((int)piVar2 + 10));
     *piVar2 = _DAT_800042c8/*SDRAM*/;
     *(uint16_t *)((int)piVar2 + 6) = 0xff;
     *(uint16_t *)((int)piVar2 + 10) = 0xff;
-    iterate_byte_list_and_call_helper(param_1,(void *)&DAT_105a8548/*ROM*/,0,sVar1 + 3,*piVar2,*(uint16_t *)((int)piVar2 + 6),
+    iterate_byte_list_and_call_helper(param_1,&DAT_105a8548/*ROM*/,0,sVar1 + 3,*piVar2,*(uint16_t *)((int)piVar2 + 6),
                  *(uint16_t *)((int)piVar2 + 10));
     *piVar2 = _DAT_800042c8/*SDRAM*/;
     *(uint16_t *)((int)piVar2 + 6) = 0xff;
     *(uint16_t *)((int)piVar2 + 10) = 0xff;
-    iterate_byte_list_and_call_helper(param_1,(void *)&DAT_105a8548/*ROM*/,0,sVar1 + 4,*piVar2,*(uint16_t *)((int)piVar2 + 6),
+    iterate_byte_list_and_call_helper(param_1,&DAT_105a8548/*ROM*/,0,sVar1 + 4,*piVar2,*(uint16_t *)((int)piVar2 + 6),
                  *(uint16_t *)((int)piVar2 + 10));
     iStack_c = iStack_c + -1;
     sVar1 = sVar1 + 5;

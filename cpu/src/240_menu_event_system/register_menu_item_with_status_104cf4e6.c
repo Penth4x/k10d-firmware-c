@@ -43,8 +43,8 @@ void register_menu_item_with_status_104cf4e6(int param_1,int param_2)
   else {
     uVar4 = return_global_word_104592ce();
     uVar5 = return_global_word_104592ce();
-    iVar1 = return_global_word_104592d8((int)&uStack_9);
-    uVar2 = return_global_word_104592d8((int)&uStack_9);
+    iVar1 = return_global_word_104592d8((uint32_t)(&uStack_9));
+    uVar2 = return_global_word_104592d8((uint32_t)(&uStack_9));
     *piVar7 = iVar1 >> 8;
     piVar7[1] = uVar2 & 0xff;
     pcVar6 = (char *)0x105b97e4/*ROM*/;
@@ -52,7 +52,7 @@ void register_menu_item_with_status_104cf4e6(int param_1,int param_2)
   format_string_to_buffer_10545140(abStack_5c,pcVar6,(void *)((int)(uint)uVar4 >> 8),(void *)(uVar5 & 0xff));
   pvVar3 = (void *)menu_item_register(*(int *)(param_1 + 0x38));
   glyph_draw(pvVar3,abStack_5c);
-  (**(code **)(*(int *)((int)pvVar3 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar3 + 0xc)))[1].fn)
             ((int)pvVar3 + (int)*(short *)(*(int *)((int)pvVar3 + 0xc) + 8),1);
   heap_free_if_flagged(&uStack_9,2);
   return;

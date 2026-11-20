@@ -26,10 +26,10 @@ bool invoke_virtual_method_with_result(int *param_1,void *param_2)
   
   uStack_c = 0;
   iVar1 = *(int *)*param_1;
-  iVar1 = (**(code **)(iVar1 + 0x2c))(*param_1 + (int)*(short *)(iVar1 + 0x28),param_2,1,&uStack_c);
+  iVar1 = (((vtbl_entry*)(iVar1))[5].fn)(*param_1 + (int)((vtbl_entry*)(iVar1))[5].adj,param_2,1,&uStack_c);
   if (iVar1 != 0) {
     iVar2 = *(int *)*param_1;
-    (**(code **)(iVar2 + 0x34))(*param_1 + (int)*(short *)(iVar2 + 0x30),uStack_c);
+    (((vtbl_entry*)(iVar2))[6].fn)(*param_1 + (int)((vtbl_entry*)(iVar2))[6].adj,uStack_c);
   }
   return iVar1 != 0;
 }

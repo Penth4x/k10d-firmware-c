@@ -6,10 +6,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-int init_object_and_call_five_helpers(int param_1)
+cls_10563098 * init_object_and_call_five_helpers(cls_10563098 *param_1)
 
 {
-  *(int *)(param_1 + 4) = param_1 + 8;
+  param_1->field_0x4 = (uint32_t)&param_1->field_0x8;
   init_object_with_four_calls_10397562((void *)__frv_reg_unset(4));
   get_or_init_global_object_103964f8();
   set_subfield_flag_pair(__frv_reg_unset(4));

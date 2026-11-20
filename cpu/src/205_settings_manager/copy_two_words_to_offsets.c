@@ -6,16 +6,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t copy_two_words_to_offsets(int param_1,uint32_t *param_2)
+uint32_t copy_two_words_to_offsets(cls_105b5d3c *param_1,uint32_t *param_2)
 
 {
   uint32_t uVar1;
   
-  *(uint32_t *)(param_1 + 0x14) = *param_2;
+  param_1->field_0x14 = *param_2;
   uVar1 = param_2[1];
-  *(uint32_t *)(param_1 + 0x18) = uVar1;
-  *(uint32_t *)(param_1 + 0x28) = *(uint32_t *)(param_1 + 0x14);
-  *(uint32_t *)(param_1 + 0x2c) = uVar1;
-  (*(code *)0x104a77a0/*ROM*/)(param_1 + 0x24,1);
+  param_1->field_0x18 = uVar1;
+  param_1->field_0x28 = param_1->field_0x14;
+  param_1->field_0x2c = uVar1;
+  (*(code *)0x104a77a0/*ROM*/)(&param_1->field_0x24,1);
   return 1;
 }

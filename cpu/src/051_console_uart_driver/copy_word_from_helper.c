@@ -15,12 +15,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t copy_word_from_helper(int param_1)
+uint32_t copy_word_from_helper(cls_10594c54 *param_1)
 
 {
   int iVar1;
   
   iVar1 = get_or_create_singleton_object_10485138();
-  *(uint32_t *)(param_1 + 0x68) = *(uint32_t *)(iVar1 + 0xc);
+  param_1->field_0x68 = *(uint32_t *)(iVar1 + 0xc);
   return 1;
 }

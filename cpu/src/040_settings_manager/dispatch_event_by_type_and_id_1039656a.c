@@ -6,12 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-int dispatch_event_by_type_and_id_1039656a(int *param_1,int *param_2)
+uint32_t dispatch_event_by_type_and_id_1039656a(cls_10562eec *param_1,int *param_2)
 
 {
   int iVar1;
+  uint32_t uVar2;
   
-  param_1[0x1f] = (int)param_1;
+  param_1->field_0x7c = (uint32_t)(param_1);
   iVar1 = *param_2;
   if (iVar1 == 3) {
     iVar1 = param_2[1];
@@ -38,18 +39,19 @@ int dispatch_event_by_type_and_id_1039656a(int *param_1,int *param_2)
     }
   }
   else if (iVar1 == 7) {
-    iVar1 = get_or_create_singleton_object_10396af8();
-    param_1[0x1f] = iVar1;
+    uVar2 = get_or_create_singleton_object_10396af8();
+    param_1->field_0x7c = uVar2;
   }
   else if (iVar1 == 8) {
-    iVar1 = (**(code **)(*param_1 + 0x6c))((int)*(short *)(*param_1 + 0x68) + (int)param_1,0,0);
-    param_1[0x1f] = iVar1;
+    uVar2 = (((vtbl_entry*)(param_1->field_0x0))[13].fn)
+                      ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[13].adj,0,0);
+    param_1->field_0x7c = uVar2;
   }
   else if ((iVar1 == 6) && (param_2[1] == 1)) {
     get_or_create_sram_object_1040a240();
     init_struct_field_at_offset_0x60(__frv_reg_unset(4));
     call_three_helpers_in_sequence_103968d6(param_1,1);
-    request_ui_sync_code_4((void *)param_1[2]);
+    request_ui_sync_code_4((char*)(param_1) ->field_0x8);
   }
-  return param_1[0x1f];
+  return param_1->field_0x7c;
 }

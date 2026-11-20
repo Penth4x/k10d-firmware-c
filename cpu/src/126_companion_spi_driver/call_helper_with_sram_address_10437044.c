@@ -16,6 +16,6 @@
 void call_helper_with_sram_address_10437044(void)
 
 {
-  write_fill_pattern_word_10436f20((void*)0x8001e760/*SDRAM*/, __frv_reg_unset(5));
+  write_fill_pattern_word_10436f20((void *)0x8001e760/*SDRAM*/, __frv_reg_unset(5));
   return;
 }

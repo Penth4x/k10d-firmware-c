@@ -19,7 +19,7 @@ uint32_t invoke_virtual_then_call_helper_10494188(int param_1,int param_2)
   uintptr_t sp;
   int iStack_c;
   
-  (**(code **)(*(int *)(param_2 + 0xc) + 0xc))(*(short *)(*(int *)(param_2 + 0xc) + 8) + param_2,0);
+  (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[1].fn)(*(short *)(*(int *)(param_2 + 0xc) + 8) + param_2,0);
   iStack_c = param_2;
   forward_struct_and_second_field((int *)(param_1 + 0x18),&iStack_c);
   return 1;

@@ -20,18 +20,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-void * resolve_object_state_pointer(void *param_1,int *param_2)
+cls_10562a24 * resolve_object_state_pointer(cls_10562a24 *param_1,int *param_2)
 
 {
-  void *pvVar1;
+  cls_10562a24 *pcVar1;
   int iVar2;
   int iVar3;
   uintptr_t sp;
   int iStack_c;
   
-  pvVar1 = (void *)dispatch_state_transition_10394958(param_1,param_2,0);
-  if (pvVar1 != param_1) {
-    return pvVar1;
+  pcVar1 = (cls_10562a24 *)dispatch_state_transition_10394958((cls_10563098 *)param_1,param_2);
+  if (pcVar1 != param_1) {
+    return pcVar1;
   }
   if (*param_2 != 6) {
     return param_1;
@@ -41,33 +41,31 @@ void * resolve_object_state_pointer(void *param_1,int *param_2)
   if (iVar2 == 0) {
     iVar2 = check_and_process_event_103947cc(param_1);
     if (iVar2 != 0) {
-      pvVar1 = (void *)get_or_create_singleton_object_103957d8(0);
-      return pvVar1;
+      pcVar1 = (cls_10562a24 *)get_or_create_singleton_object_103957d8(0);
+      return pcVar1;
     }
-    iVar3 = *(int *)((int)param_1 + 0x74);
+    iVar3 = param_1->field_0x74;
     iVar2 = get_or_init_sram_object_103973c4();
-    if ((iVar3 == iVar2) ||
-       (iVar3 = *(int *)((int)param_1 + 0x74), iVar2 = get_or_create_singleton_object_10396af8(), iVar3 == iVar2)) {
-      return *(void **)((int)param_1 + 0x74);
+    if ((iVar3 == iVar2) || (iVar3 = param_1->field_0x74, iVar2 = get_or_create_singleton_object_10396af8(), iVar3 == iVar2)) {
+      return (cls_10562a24 *)param_1->field_0x74;
     }
   }
   else {
     if ((iStack_c == 10) || (iStack_c == 9)) {
-      forward_param_to_helper_10394ad8(param_1,*(uint32_t *)((int)param_1 + 0x80));
+      forward_param_to_helper_10394ad8(param_1,param_1->field_0x80);
       return param_1;
     }
     iVar2 = check_and_process_event_103947cc(param_1);
     if (iVar2 != 0) {
       return param_1;
     }
-    iVar3 = *(int *)((int)param_1 + 0x74);
+    iVar3 = param_1->field_0x74;
     iVar2 = get_or_init_sram_object_103973c4();
-    if ((iVar3 == iVar2) ||
-       (iVar3 = *(int *)((int)param_1 + 0x74), iVar2 = get_or_create_singleton_object_10396af8(), iVar3 == iVar2)) {
-      return *(void **)((int)param_1 + 0x74);
+    if ((iVar3 == iVar2) || (iVar3 = param_1->field_0x74, iVar2 = get_or_create_singleton_object_10396af8(), iVar3 == iVar2)) {
+      return (cls_10562a24 *)param_1->field_0x74;
     }
   }
   iVar2 = get_or_init_sram_object_103973c4();
-  pvVar1 = (void *)dispatch_on_mode_value(iVar2);
-  return pvVar1;
+  pcVar1 = (cls_10562a24 *)dispatch_on_mode_value(iVar2);
+  return pcVar1;
 }

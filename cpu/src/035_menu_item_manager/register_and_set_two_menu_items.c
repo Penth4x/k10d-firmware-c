@@ -22,8 +22,8 @@ void register_and_set_two_menu_items(int param_1,int param_2)
   
   iVar1 = menu_item_register(param_1);
   iVar2 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar2 + 0xc) + 0xc))(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),param_2);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)(iVar2 + 0xc)))[1].fn)(iVar2 + *(short *)(*(int *)(iVar2 + 0xc) + 8),param_2);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)
             (iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),param_2 == 0);
   return;
 }

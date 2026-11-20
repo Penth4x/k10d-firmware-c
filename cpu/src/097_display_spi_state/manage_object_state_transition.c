@@ -6,20 +6,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-void manage_object_state_transition(void *param_1,int param_2)
+void manage_object_state_transition(cls_1059be70 *param_1,int param_2)
 
 {
   if (param_2 == 0) {
-    if (*(int *)((int)param_1 + 0x10) != 0) {
-      (**(code **)(*(int *)((int)param_1 + 4) + 0x7c))
-                ((int)*(short *)(*(int *)((int)param_1 + 4) + 0x78) + (int)param_1,1);
+    if (param_1->field_0x10 != 0) {
+      (((vtbl_entry*)(param_1->field_0x4))[15].fn)
+                (&param_1->field_0x0 + ((vtbl_entry*)(param_1->field_0x4))[15].adj,1);
       toggle_state_machine(param_1,1);
-      *(uint32_t *)((int)param_1 + 0x10) = 0;
+      param_1->field_0x10 = 0;
     }
   }
-  else if ((param_2 == 1) && (*(int *)((int)param_1 + 0x10) != 3)) {
+  else if ((param_2 == 1) && (param_1->field_0x10 != 3)) {
     toggle_state_machine(param_1,0);
-    *(uint32_t *)((int)param_1 + 0x10) = 3;
+    param_1->field_0x10 = 3;
   }
   return;
 }

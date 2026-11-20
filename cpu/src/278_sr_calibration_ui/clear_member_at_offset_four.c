@@ -14,9 +14,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void clear_member_at_offset_four(void *param_1)
+void clear_member_at_offset_four(cls_105d70c8 *param_1)
 
 {
-  *(uint32_t *)((int)param_1 + 4) = 0;
+  param_1->field_0x4 = 0;
   return;
 }

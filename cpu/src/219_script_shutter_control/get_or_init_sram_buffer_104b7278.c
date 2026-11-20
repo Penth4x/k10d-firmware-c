@@ -20,8 +20,8 @@ uint32_t get_or_init_sram_buffer_104b7278(void)
 {
   if (iRam800495bc == 0) {
     iRam800495bc = 1;
-    alloc_and_init_0x48_object(0x80049574/*SDRAM*/);
-    prepend_to_singly_linked_list((void*)0x80010764/*SDRAM*/);
+    alloc_and_init_0x48_object((void *)0x80049574/*SDRAM*/);
+    prepend_to_singly_linked_list((void *)0x80010764/*SDRAM*/);
   }
   return 0x80049574/*SDRAM*/;
 }

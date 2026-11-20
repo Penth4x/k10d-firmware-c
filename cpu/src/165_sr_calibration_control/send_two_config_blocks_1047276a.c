@@ -27,7 +27,7 @@ void send_two_config_blocks_1047276a(int param_1)
   uint8_t auStackY_28 [2];
   
   puVar2 = auStackY_28;
-  dispatch_actuator_drive_command(param_1,4,2,(void *)&DAT_105a9f48/*ROM*/,6,0xff,'\0');
+  dispatch_actuator_drive_command(param_1,4,2,&DAT_105a9f48/*ROM*/,6,0xff,'\0');
   pvVar1 = (void *)get_or_init_sram_buffer_104277bc();
   pvVar1 = (void *)read_table_entry_field(pvVar1,0xcd);
   call_subroutine_on_field_16_104ea70a(pvVar1);
@@ -40,7 +40,7 @@ void send_two_config_blocks_1047276a(int param_1)
   *(uint16_t *)(puVar2 + 2) = 6;
   *(uint16_t *)(puVar2 + 6) = 0xff;
   puVar2[0xb] = 0;
-  dispatch_actuator_drive_command(param_1,4,2,(void *)&DAT_105a9f5c/*ROM*/,*(uint16_t *)(puVar2 + 2),*(uint16_t *)(puVar2 + 6),
+  dispatch_actuator_drive_command(param_1,4,2,&DAT_105a9f5c/*ROM*/,*(uint16_t *)(puVar2 + 2),*(uint16_t *)(puVar2 + 6),
                puVar2[0xb]);
   return;
 }

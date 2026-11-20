@@ -6,16 +6,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_on_four_objects_1036cc12(int param_1)
+void invoke_virtual_slot_on_four_objects_1036cc12(cls_10557d80 *param_1)
 
 {
-  (**(code **)(*(int *)(param_1 + 0x74) + 0x4c))
-            (param_1 + 0x74 + (int)*(short *)(*(int *)(param_1 + 0x74) + 0x48));
-  (**(code **)(*(int *)(param_1 + 0xe4) + 0x4c))
-            (param_1 + 0xe4 + (int)*(short *)(*(int *)(param_1 + 0xe4) + 0x48));
-  (**(code **)(*(int *)(param_1 + 0x170) + 0x4c))
-            (param_1 + 0x170 + (int)*(short *)(*(int *)(param_1 + 0x170) + 0x48));
-  (**(code **)(*(int *)(param_1 + 0x21c) + 0x4c))
-            (param_1 + 0x21c + (int)*(short *)(*(int *)(param_1 + 0x21c) + 0x48));
+  (((vtbl_entry*)(param_1->field_0x74))[9].fn)
+            ((int)&param_1->field_0x74 + (int)((vtbl_entry*)(param_1->field_0x74))[9].adj);
+  (((vtbl_entry*)(param_1->field_0xe4))[9].fn)
+            ((int)&param_1->field_0xe4 + (int)((vtbl_entry*)(param_1->field_0xe4))[9].adj);
+  (((vtbl_entry*)(param_1->field_0x170))[9].fn)
+            ((int)&param_1->field_0x170 + (int)((vtbl_entry*)(param_1->field_0x170))[9].adj);
+  (((vtbl_entry*)(*(int *)&param_1->field_0x21c))[9].fn)
+            (&param_1->field_0x21c + ((vtbl_entry*)(*(int *)&param_1->field_0x21c))[9].adj);
   return;
 }

@@ -25,8 +25,8 @@ void report_two_virtual_states(int param_1,int param_2)
   
   uVar2 = 0;
   iVar3 = **(int **)(param_1 + 0x10);
-  uVar1 = (**(code **)(iVar3 + 0x14))
-                    ((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar3 + 0x10),0);
+  uVar1 = (((vtbl_entry*)(iVar3))[2].fn)
+                    ((int)*(int **)(param_1 + 0x10) + (int)((vtbl_entry*)(iVar3))[2].adj,0);
   switch(uVar1) {
   case 0:
     uVar2 = 0;
@@ -36,8 +36,8 @@ void report_two_virtual_states(int param_1,int param_2)
     break;
   case 2:
     iVar3 = **(int **)(param_1 + 0x10);
-    iVar3 = (**(code **)(iVar3 + 0x1c))
-                      ((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar3 + 0x18),4);
+    iVar3 = (((vtbl_entry*)(iVar3))[3].fn)
+                      ((int)*(int **)(param_1 + 0x10) + (int)((vtbl_entry*)(iVar3))[3].adj,4);
     uVar2 = 0;
     if (iVar3 == 0) {
       uVar2 = 2;
@@ -91,8 +91,8 @@ void report_two_virtual_states(int param_1,int param_2)
   write_byte_to_struct_offset_104a8be2(param_2,0,uVar2);
   uVar2 = 0;
   iVar3 = **(int **)(param_1 + 0x14);
-  uVar1 = (**(code **)(iVar3 + 0x14))
-                    ((int)*(int **)(param_1 + 0x14) + (int)*(short *)(iVar3 + 0x10),8);
+  uVar1 = (((vtbl_entry*)(iVar3))[2].fn)
+                    ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar3))[2].adj,8);
   switch(uVar1) {
   case 0:
     uVar2 = 0;

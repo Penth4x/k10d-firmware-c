@@ -27,30 +27,30 @@ uint32_t process_settings_event(int param_1,int *param_2)
   int iVar1;
   uint32_t uVar3;
   uintptr_t sp;
-  uint32_t auStack_54 [19];
+  cls_105a6cfc acStack_54 [19];
   
   bVar2 = check_object_field_via_helper(*(void **)(param_1 + 0xc));
   uVar3 = 0;
   if (bVar2) {
     settings_refresh_working_copy(*(void **)(param_1 + 0xc));
   }
-  cls_105a6cfc_new(auStack_54);
-  copy_0x45_byte_block(*(int *)(param_1 + 0x30),auStack_54);
-  iVar1 = (**(code **)(*param_2 + 0x14))((int)*(short *)(*param_2 + 0x10) + (int)param_2,0x1e);
+  cls_105a6cfc_new(acStack_54);
+  copy_0x45_byte_block(*(int *)(param_1 + 0x30),acStack_54);
+  iVar1 = (((vtbl_entry*)(*param_2))[2].fn)((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,0x1e);
   if (iVar1 != 0) {
-    iVar1 = extract_field_from_struct_1045fc62(auStack_54,1);
+    iVar1 = extract_field_from_struct_1045fc62(acStack_54,1);
     if ((iVar1 == 0) && (iVar1 = check_setting_0xd2_enabled(param_1), iVar1 != 0)) {
       uVar3 = 1;
     }
     else {
-      iVar1 = (**(code **)(*param_2 + 0x14))((int)*(short *)(*param_2 + 0x10) + (int)param_2,0x22);
+      iVar1 = (((vtbl_entry*)(*param_2))[2].fn)((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,0x22);
       if (((iVar1 != 0) || (iVar1 = check_setting_0xd2_enabled(param_1), iVar1 != 0)) &&
-         ((iVar1 = extract_field_from_struct_1045fc62(auStack_54,1), iVar1 == 1 ||
-          (iVar1 = extract_field_from_struct_1045fc62(auStack_54,1), iVar1 == 2)))) {
+         ((iVar1 = extract_field_from_struct_1045fc62(acStack_54,1), iVar1 == 1 ||
+          (iVar1 = extract_field_from_struct_1045fc62(acStack_54,1), iVar1 == 2)))) {
         uVar3 = 1;
       }
     }
   }
-  cls_105a6cfc_delete(auStack_54,2);
+  cls_105a6cfc_delete(acStack_54,2);
   return uVar3;
 }

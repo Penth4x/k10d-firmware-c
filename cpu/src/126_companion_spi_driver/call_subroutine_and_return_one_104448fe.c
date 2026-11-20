@@ -12,7 +12,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t call_subroutine_and_return_one_104448fe(void *param_1)
+/* WARNING: Struct "cls_105a1648": ignoring overlapping field "field_0x10" */
+
+uint32_t call_subroutine_and_return_one_104448fe(cls_105a1648 *param_1)
 
 {
   zero_struct_array_fields(param_1);

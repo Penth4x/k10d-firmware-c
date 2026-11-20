@@ -17,11 +17,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t initialize_four_child_objects(void *param_1)
+/* WARNING: Struct "cls_105a0cd0": ignoring multiple overlapping fields */
+
+uint32_t initialize_four_child_objects(cls_105a0d28 *param_1)
 
 {
   int iVar1;
-  uint32_t uVar2;
+  void *puVar2;
+  uint32_t uVar3;
   uintptr_t sp;
   uint32_t uStack_34;
   uint32_t uStack_30;
@@ -47,10 +50,10 @@ uint32_t initialize_four_child_objects(void *param_1)
   uStack_14 = 0xd1c;
   uStack_10 = 0x9c;
   uStack_c = 0x27;
-  iVar1 = cls_105a0cd0_new((uint32_t *)0x0,&uStack_34);
-  *(int *)((int)param_1 + 4) = iVar1;
-  iVar1 = *(int *)(*(int *)((int)param_1 + 4) + 4);
-  (**(code **)(iVar1 + 0x14))(*(int *)((int)param_1 + 4) + (int)*(short *)(iVar1 + 0x10),0);
+  puVar2 = (void *)cls_105a0cd0_new((cls_105a0cd0 *)0x0,&uStack_34);
+  param_1->field_0x4 = (uint32_t)(puVar2);
+  iVar1 = *(int *)(param_1->field_0x4 + 4);
+  (((vtbl_entry*)(iVar1))[2].fn)(param_1->field_0x4 + ((vtbl_entry*)(iVar1))[2].adj,0);
   uStack_34 = 0xd20;
   uStack_30 = 0xd22;
   uStack_2c = 0xd24;
@@ -62,10 +65,10 @@ uint32_t initialize_four_child_objects(void *param_1)
   uStack_14 = 0xd3c;
   uStack_10 = 0x9d;
   uStack_c = 0x28;
-  iVar1 = cls_105a0cd0_new((uint32_t *)0x0,&uStack_34);
-  *(int *)((int)param_1 + 8) = iVar1;
-  iVar1 = *(int *)(*(int *)((int)param_1 + 8) + 4);
-  (**(code **)(iVar1 + 0x14))(*(int *)((int)param_1 + 8) + (int)*(short *)(iVar1 + 0x10),0);
+  puVar2 = (void *)cls_105a0cd0_new((cls_105a0cd0 *)0x0,&uStack_34);
+  param_1->field_0x8 = (uint32_t)(puVar2);
+  (((vtbl_entry*)(*(int *)(param_1->field_0x8 + 4)))[2].fn)
+            (param_1->field_0x8 + ((vtbl_entry*)(*(int *)(param_1->field_0x8 + 4)))[2].adj,0);
   uStack_34 = 0xd40;
   uStack_30 = 0xd42;
   uStack_2c = 0xd44;
@@ -77,10 +80,10 @@ uint32_t initialize_four_child_objects(void *param_1)
   uStack_14 = 0xd5c;
   uStack_10 = 0x9e;
   uStack_c = 0x29;
-  iVar1 = cls_105a0cd0_new((uint32_t *)0x0,&uStack_34);
-  *(int *)((int)param_1 + 0xc) = iVar1;
-  iVar1 = *(int *)(*(int *)((int)param_1 + 0xc) + 4);
-  (**(code **)(iVar1 + 0x14))(*(int *)((int)param_1 + 0xc) + (int)*(short *)(iVar1 + 0x10),0);
+  puVar2 = (void *)cls_105a0cd0_new((cls_105a0cd0 *)0x0,&uStack_34);
+  param_1->field_0xc = (uint32_t)(puVar2);
+  (((vtbl_entry*)(*(int *)(param_1->field_0xc + 4)))[2].fn)
+            (param_1->field_0xc + ((vtbl_entry*)(*(int *)(param_1->field_0xc + 4)))[2].adj,0);
   uStack_34 = 0xd60;
   uStack_30 = 0xd62;
   uStack_2c = 0xd64;
@@ -92,10 +95,10 @@ uint32_t initialize_four_child_objects(void *param_1)
   uStack_10 = 0x9f;
   uStack_14 = 0xd7c;
   uStack_c = 0x2a;
-  iVar1 = cls_105a0cd0_new((uint32_t *)0x0,&uStack_34);
-  *(int *)((int)param_1 + 0x10) = iVar1;
-  uVar2 = (**(code **)(*(int *)(iVar1 + 4) + 0x14))
-                    (*(int *)((int)param_1 + 0x10) + (int)*(short *)(*(int *)(iVar1 + 4) + 0x10),0);
+  puVar2 = (void *)cls_105a0cd0_new((cls_105a0cd0 *)0x0,&uStack_34);
+  param_1->field_0x10 = (uint32_t)(puVar2);
+  uVar3 = (((vtbl_entry*)(*(int *)((char*)puVar2 + 4)))[2].fn)
+                    (param_1->field_0x10 + ((vtbl_entry*)(*(int *)((char*)puVar2 + 4)))[2].adj,0);
   free_if_flag_set_10442282(&uStack_34,2);
-  return uVar2;
+  return uVar3;
 }

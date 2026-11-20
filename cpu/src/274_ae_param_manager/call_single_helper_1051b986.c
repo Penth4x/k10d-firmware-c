@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_single_helper_1051b986(void)
+void call_single_helper_1051b986(cls_105d67fc *param_1)
 
 {
-  call_virtual_slot_if_flag_set_1049477e(__frv_reg_unset(4));
+  call_virtual_slot_if_flag_set_1049477e((cls_105c136c *)param_1);
   return;
 }

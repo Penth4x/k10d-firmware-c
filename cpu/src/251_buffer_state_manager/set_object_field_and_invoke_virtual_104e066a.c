@@ -14,6 +14,6 @@ uint32_t set_object_field_and_invoke_virtual_104e066a(int param_1,uint32_t param
   *(uint32_t *)(param_1 + 0x1028) = param_2;
   *(uint32_t *)(param_1 + 0x1024) = 0x4009;
   iVar1 = **(int **)(param_1 + 0x1020);
-  (**(code **)(iVar1 + 0x14))((int)*(int **)(param_1 + 0x1020) + (int)*(short *)(iVar1 + 0x10));
+  (((vtbl_entry*)(iVar1))[2].fn)((int)*(int **)(param_1 + 0x1020) + (int)((vtbl_entry*)(iVar1))[2].adj);
   return 1;
 }

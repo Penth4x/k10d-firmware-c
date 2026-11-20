@@ -30,15 +30,10 @@ uint32_t process_two_point_pair(int param_1,uint8_t *param_2,uint32_t *param_3,i
   uint32_t uVar9;
   int iVar10;
   int iVar11;
+  void **ppuVar12;
   uintptr_t sp;
-  uint8_t *puStack_294;
-  uint8_t auStack_274 [16];
-  int iStack_264;
-  uint32_t uStack_258;
-  uint32_t uStack_254;
-  uint32_t uStack_250;
-  uint32_t uStack_24c;
-  uint32_t auStack_248 [122];
+  cls_105b9458 *pcStack_294;
+  cls_105b9458 cStack_274;
   uint32_t auStack_60 [2];
   uint32_t auStack_58 [2];
   uint32_t auStack_50 [4];
@@ -61,7 +56,7 @@ uint32_t process_two_point_pair(int param_1,uint8_t *param_2,uint32_t *param_3,i
   uint16_t uStack_e;
   uint16_t uStack_c;
   
-  cls_105b9458_new((uint32_t *)__frv_reg_unset(4));
+  cls_105b9458_new(&cStack_274);
   puVar1 = (uint32_t *)(param_2 + 0x2c);
   uVar2 = return_first_word_1045c514(puVar1);
   uVar3 = read_struct_field_at_offset_4(puVar1);
@@ -75,13 +70,13 @@ uint32_t process_two_point_pair(int param_1,uint8_t *param_2,uint32_t *param_3,i
   uVar9 = compare_version_fields(uVar6,uVar7);
   iVar10 = test_two_mmio_writes(param_1,uVar8);
   iVar11 = test_two_mmio_writes(param_1,uVar9);
-  if ((iVar10 == 0) || (puStack_294 = param_2, iVar11 == 0)) {
+  if ((iVar10 == 0) || (pcStack_294 = (cls_105b9458 *)param_2, iVar11 == 0)) {
     alloc_two_word_pair_1045c3dc(auStack_60,uVar2 & 0xffff,uVar3 & 0xffff);
     alloc_two_word_pair_1045c3dc(auStack_58,uVar4 & 0xffff,uVar5 & 0xffff);
     (*(code *)0x104c6026/*ROM*/)(auStack_50,param_1,auStack_60,auStack_58);
-    iVar10 = compute_buffer_size_and_init(auStack_274,auStack_50,param_5);
+    iVar10 = compute_buffer_size_and_init(&cStack_274,auStack_50,param_5);
     if (iVar10 == 0) {
-      if (iStack_264 == 2) {
+      if (cStack_274.field_0x10 == 2) {
         *(uint8_t *)(param_1 + 0x219) = 1;
       }
     }
@@ -107,22 +102,23 @@ uint32_t process_two_point_pair(int param_1,uint8_t *param_2,uint32_t *param_3,i
       uStack_10 = 0;
       uStack_e = 0;
       uStack_c = 0;
-      uStack_20 = uStack_254;
-      uStack_1c = uStack_250;
-      uStack_18 = uStack_24c;
-      uStack_24 = uStack_258;
+      uStack_20 = cStack_274.field_0x20;
+      uStack_1c = cStack_274.field_0x24;
+      uStack_18 = cStack_274.field_0x28;
+      uStack_24 = cStack_274.field_0x1c;
+      ppuVar12 = &cStack_274.field_0x2c;
       uStack_2e = (short)uVar8;
-      uVar8 = return_first_word_1045c514(auStack_248);
+      uVar8 = return_first_word_1045c514(ppuVar12);
       uStack_10 = (short)uVar8;
-      uVar8 = return_first_word_1045c514(auStack_248);
+      uVar8 = return_first_word_1045c514(ppuVar12);
       uStack_14 = (short)uVar8;
-      uVar8 = read_struct_field_at_offset_4(auStack_248);
+      uVar8 = read_struct_field_at_offset_4(ppuVar12);
       uStack_e = 0;
       uStack_c = 0;
       uStack_12 = (short)uVar8;
       iVar10 = register_two_pointers_with_flags(*(uint32_t *)(param_1 + 0x4c),&uStack_40,&uStack_24);
       if (iVar10 != 0) {
-        puStack_294 = auStack_274;
+        pcStack_294 = &cStack_274;
         free_heap_if_flagged_1045c402(auStack_50,2);
         free_heap_if_flagged_1045c402(auStack_58,2);
         free_heap_if_flagged_1045c402(auStack_60,2);
@@ -146,14 +142,14 @@ code_r0x104ca2ce:
     }
     else {
       build_pair_comparison_record(param_1,param_2,param_4);
-      iVar10 = build_and_send_command_packet_104ca462(param_1,(int)puStack_294,param_4,1);
+      iVar10 = build_and_send_command_packet_104ca462(param_1,(int)pcStack_294,param_4,1);
       if (iVar10 != 0) {
-        cls_105b9458_delete(auStack_274,2);
+        cls_105b9458_delete(&cStack_274,2);
         return 1;
       }
       *(uint32_t *)(param_1 + 0x214) = 0;
     }
   }
-  cls_105b9458_delete(auStack_274,2);
+  cls_105b9458_delete(&cStack_274,2);
   return 0;
 }

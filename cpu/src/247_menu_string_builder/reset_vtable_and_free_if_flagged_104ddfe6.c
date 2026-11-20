@@ -17,7 +17,7 @@
 void reset_vtable_and_free_if_flagged_104ddfe6(void *param_1,uint param_2)
 
 {
-  if ((param_1 != (void *)0x0) &&
+  if ((param_1 != 0) &&
      (*(uint32_t *)((int)param_1 + 0x1c) = 0x105bb0b8/*ROM*/, (param_2 & 1) != 0)) {
     heap_free((int)param_1);
   }

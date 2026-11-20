@@ -6,10 +6,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void store_value_and_set_flag_104b367a(int param_1,uint32_t param_2)
+void store_value_and_set_flag_104b367a(cls_105b7f68 *param_1,uint32_t param_2)
 
 {
-  *(uint32_t *)(param_1 + 0x40) = param_2;
-  set_flg_obj(*(uint32_t **)(param_1 + 0x44));
+  param_1->field_0x40 = param_2;
+  set_flg_obj((void *)param_1->field_0x44);
   return;
 }

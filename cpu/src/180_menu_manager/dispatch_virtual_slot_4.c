@@ -16,33 +16,33 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * dispatch_virtual_slot_4(uint32_t *param_1,int param_2,int *param_3)
+cls_105b2ed8 * dispatch_virtual_slot_4(cls_105b2ed8 *param_1,int param_2,int *param_3)
 
 {
   int iVar1;
   uint32_t uVar2;
   
   if (param_2 == 2) {
-    iVar1 = (**(code **)(*param_3 + 0x24))((int)*(short *)(*param_3 + 0x20) + (int)param_3,0x17);
+    iVar1 = (((vtbl_entry*)(*param_3))[4].fn)((int)((vtbl_entry*)(*param_3))[4].adj + (int)param_3,0x17);
     if (iVar1 != 0) {
-      *(uint8_t *)((int)param_1 + 0x31) = 1;
-      set_flag_at_offset_0x12(*param_1);
-      if (param_1[0x1b] == 0) {
+      param_1->field_0x31 = 1;
+      set_flag_at_offset_0x12(param_1->field_0x0);
+      if (param_1->field_0x6c == 0) {
         uVar2 = get_or_create_singleton_10488998();
-        param_1[0x1c] = uVar2;
+        param_1->field_0x70 = uVar2;
       }
       else {
-        param_1[0x1c] = 0;
+        param_1->field_0x70 = 0;
       }
     }
-    if (*(char *)(param_1 + 0x1a) != '\0') {
-      param_1 = (uint32_t *)param_1[0x1c];
+    if (param_1->field_0x68 != '\0') {
+      param_1 = (cls_105b2ed8 *)param_1->field_0x70;
     }
   }
   else if (param_2 == 1) {
-    param_1[0x1c] = 0;
-    *(uint8_t *)((int)param_1 + 0x31) = 1;
-    set_flag_at_offset_0x12(*param_1);
+    param_1->field_0x70 = 0;
+    param_1->field_0x31 = 1;
+    set_flag_at_offset_0x12(param_1->field_0x0);
   }
   return param_1;
 }

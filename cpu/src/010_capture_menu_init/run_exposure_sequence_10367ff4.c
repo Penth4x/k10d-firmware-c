@@ -35,7 +35,7 @@ void run_exposure_sequence_10367ff4(void *param_1)
   *(uint32_t *)((int)param_1 + 0xa8) = 0x2e;
   *(uint8_t *)((int)param_1 + 0xa6) = 1;
   while (iVar5 = register_and_activate_event((int)param_1), iVar5 == 0xb) {
-    uVar4 = get_sram_field_at_offset_0x3c(param_1);
+    uVar4 = get_sram_field_at_offset_0x3c((uint32_t)(param_1));
     register_menu_item_with_limit(0x80018060/*SDRAM*/,uVar4);
   }
   *(uint8_t *)((int)param_1 + 0xa6) = 0;
@@ -43,16 +43,16 @@ void run_exposure_sequence_10367ff4(void *param_1)
     register_menu_item_with_limit(0x80018060/*SDRAM*/,100);
   }
   else if (iVar5 != 2) {
-    lookup_and_copy_result(param_1,0x80015910/*SDRAM*/);
-    lookup_and_copy_result(param_1,0x80015b24/*SDRAM*/);
-    lookup_and_copy_result(param_1,0x80015d38/*SDRAM*/);
+    lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015910/*SDRAM*/));
+    lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015b24/*SDRAM*/));
+    lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015d38/*SDRAM*/));
     init_object_with_two_ids_10368174(param_1,0x10);
     check_kernel_call_success_10459fea();
     goto LAB_103680f8;
   }
-  lookup_and_copy_result(param_1,0x80015910/*SDRAM*/);
-  lookup_and_copy_result(param_1,0x80015b24/*SDRAM*/);
-  lookup_and_copy_result(param_1,0x80015d38/*SDRAM*/);
+  lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015910/*SDRAM*/));
+  lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015b24/*SDRAM*/));
+  lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015d38/*SDRAM*/));
 LAB_103680f8:
   check_kernel_call_success_10459fea();
   set_flag_and_call_helper_10368282((int)param_1);

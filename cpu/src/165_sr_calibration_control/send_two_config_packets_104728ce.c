@@ -39,7 +39,7 @@ void send_two_config_packets_104728ce(int param_1)
     iVar1 = get_or_create_singleton_object_10470d84();
     iVar1 = *(int *)(iVar1 + 4);
     heap_alloc_one_byte_1045926e((int)&uStack_9);
-    pvVar3 = (void *)get_kernel_object_id(&uStack_9);
+    pvVar3 = (void *)get_kernel_object_id((uint32_t)(&uStack_9));
     format_string_to_buffer_10545140(auStack_5c,&DAT_105a9fa8/*ROM*/,pvVar3,puVar4);
     iVar1 = verify_card_data_integrity(iVar1,(int)auStack_5c,0);
     heap_free_if_flagged(&uStack_9,2);

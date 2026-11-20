@@ -15,19 +15,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-void iterate_range_and_call_virtual_1049463e(int param_1)
+void iterate_range_and_call_virtual_1049463e(cls_105b4dac *param_1)
 
 {
   int *piVar1;
   int iVar2;
   
-  piVar1 = *(int **)(param_1 + 0x18);
-  if (piVar1 != *(int **)(param_1 + 0x1c)) {
+  piVar1 = (int *)((uintptr_t)(param_1->field_0x18));
+  if ((uint32_t)(piVar1) != param_1->field_0x1c) {
     do {
       iVar2 = *(int *)(*piVar1 + 0xc);
-      (**(code **)(iVar2 + 0xc4))(*piVar1 + (int)*(short *)(iVar2 + 0xc0));
+      (((vtbl_entry*)(iVar2))[24].fn)(*piVar1 + (int)((vtbl_entry*)(iVar2))[24].adj);
       piVar1 = piVar1 + 1;
-    } while (piVar1 != *(int **)(param_1 + 0x1c));
+    } while ((uint32_t)(piVar1) != param_1->field_0x1c);
   }
   return;
 }

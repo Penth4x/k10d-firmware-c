@@ -23,7 +23,7 @@ void copy_status_flags_to_buffer(int param_1)
   uint uVar2;
   uint8_t uVar3;
   
-  release_heap_block_and_clear_104bcd58((void *)(param_1 + 0x1dc));
+  release_heap_block_and_clear_104bcd58((cls_105b934c *)(param_1 + 0x1dc));
   test_mode_state_reset(*(void **)(param_1 + 500));
   field_setter(*(int *)(param_1 + 500) + 0x164,0xb0,1);
   iVar1 = get_or_create_singleton_object_104fb12e();

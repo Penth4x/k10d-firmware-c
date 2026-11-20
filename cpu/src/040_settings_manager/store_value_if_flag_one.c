@@ -6,11 +6,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void store_value_if_flag_one(int param_1,int *param_2)
+void store_value_if_flag_one(cls_105628cc *param_1,int *param_2)
 
 {
   if (*param_2 == 1) {
-    *(int *)(param_1 + 0xf4) = param_2[1];
+    param_1->field_0xf4 = param_2[1];
     dispatch_on_four_state_ids(__frv_reg_unset(4));
   }
   return;

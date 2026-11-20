@@ -28,7 +28,7 @@ int iterate_object_array_until_match(int param_1,int param_2)
       if ((((*(int *)(*(int *)(param_1 + 0x40) + iVar2) != 0) &&
            (iVar1 = (*(code *)0x104e3858/*ROM*/)(), iVar1 != 0)) &&
           (iVar1 = *(int *)(*(int *)(param_1 + 0x40) + iVar2), iVar5 = *(int *)(iVar1 + 0x18),
-          iStack_10 = (**(code **)(iVar5 + 0x1c))(iVar1 + *(short *)(iVar5 + 0x18)), iStack_10 != 0)
+          iStack_10 = (((vtbl_entry*)(iVar5))[3].fn)(iVar1 + ((vtbl_entry*)(iVar5))[3].adj), iStack_10 != 0)
           ) && (iVar4 = iVar4 + 1, iVar4 == param_2)) break;
       iVar3 = iVar3 + 1;
       iVar2 = iVar2 + 4;

@@ -18,6 +18,6 @@
 void forward_two_fields_to_helper_104f243e(int param_1)
 
 {
-  call_single_helper_with_two_args_104baeec(*(uint32_t *)(param_1 + 0x20),(void *)(*(uint32_t *)(param_1 + 0xc)));
+  call_single_helper_with_two_args_104baeec(*(uint32_t *)(param_1 + 0x20), (void *)(*(uint32_t *)(param_1 + 0xc)));
   return;
 }

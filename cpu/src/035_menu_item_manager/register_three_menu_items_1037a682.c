@@ -15,7 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void register_three_menu_items_1037a682(int param_1,uint32_t param_2,int param_3,int param_4)
+void register_three_menu_items_1037a682(cls_10558830 *param_1,uint32_t param_2,int param_3,int param_4)
 
 {
   int iVar1;
@@ -40,12 +40,12 @@ void register_three_menu_items_1037a682(int param_1,uint32_t param_2,int param_3
   else {
     uVar2 = 1;
   }
-  iVar1 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),uVar2);
-  iVar1 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),uStack_c)
+  iVar1 = menu_item_register((int)param_1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),uVar2);
+  iVar1 = menu_item_register((int)param_1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),uStack_c)
   ;
-  iVar1 = menu_item_register(param_1);
-  (**(code **)(*(int *)(iVar1 + 0xc) + 0xc))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),uVar3);
+  iVar1 = menu_item_register((int)param_1);
+  (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),uVar3);
   return;
 }

@@ -17,7 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_four_object_methods(void *param_1)
+void call_four_object_methods(cls_105b34ec *param_1)
 
 {
   clear_flag_at_offset_0x4c_10488f62(param_1);

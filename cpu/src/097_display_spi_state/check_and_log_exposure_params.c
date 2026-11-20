@@ -36,13 +36,13 @@ uint32_t check_and_log_exposure_params(int param_1)
       iVar1 = call_single_helper_104185ec();
       if (iVar1 != 0) {
         uVar2 = get_sysparam_store_instance();
-        iVar1 = get_sysparam_store_byte(uVar2,0x18);
+        iVar1 = get_sysparam_store_byte((uint8_t *)(uVar2),(uint32_t)(0x18));
         if ((iVar1 != 0) &&
            (iVar1 = *(int *)(param_1 + 0x84) + 0x880,
            *(char *)(*(int *)(param_1 + 0x84) + 0x8c0) != '\0')) {
           append_bytes_to_ring_buffer(iVar1,0x1059c70c/*ROM*/,0);
-          copy_stream_bytes_into_struct(iVar1,*(uint32_t *)(param_1 + 0x14d0),1,0);
-          copy_stream_bytes_into_struct(iVar1,*(uint32_t *)(param_1 + 0x14d4),1,0);
+          copy_stream_bytes_into_struct((int)(iVar1),(void *)(*(uint32_t *)(param_1 + 0x14d0)),(int)(1),(void *)(0));
+          copy_stream_bytes_into_struct((int)(iVar1),(void *)(*(uint32_t *)(param_1 + 0x14d4)),(int)(1),(void *)(0));
           append_bytes_to_ring_buffer(iVar1,0x1059c72c/*ROM*/,0);
         }
       }

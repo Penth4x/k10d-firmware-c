@@ -40,7 +40,7 @@ void rtos_dispatch_tail_restore(void)
      (*(int *)(caller_r10 * 0x44 + 0x6a001c24) != 0)) {
     puVar4[0xb] = puVar4[0xd] & 0xffffffef;
     puVar5 = puVar4 + 10;
-    puVar4[10] = (uint32_t)rtos_context_switch;
+    puVar4[10] = (uintptr_t)(rtos_context_switch);
   }
   *DAT_10011c5c/*ROM*/ = 0;
   uVar3 = puVar5[5];

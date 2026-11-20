@@ -65,12 +65,12 @@ LAB_103b0c4e:
   }
   iVar6 = *(int *)(iVar4 + 0xc);
   sVar1 = *(short *)(iVar6 + 0x10);
-  uVar5 = alloc_two_word_pair_1045bc2e(auStack_10,uVar2,0x108);
-  (**(code **)(iVar6 + 0x14))(sVar1 + iVar4,uVar5);
+  uVar5 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_10,uVar2,0x108));
+  (((vtbl_entry*)(iVar6))[2].fn)(sVar1 + iVar4,uVar5);
   free_heap_block_if_flagged_1045bc54(auStack_10,2);
-  (**(code **)(*(int *)(iVar4 + 0xc) + 0xec))
-            (*(short *)(*(int *)(iVar4 + 0xc) + 0xe8) + iVar4,uStack_14);
-  (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,1);
+  (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[29].fn)
+            (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[29].adj + iVar4,uStack_14);
+  (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,1);
   uStack_18 = 6;
   uVar2 = 0x22eU - ((int)(uint)uRam10568dc8 >> 1) & 0xffff;
   iVar4 = menu_item_register(iVar3);
@@ -101,12 +101,12 @@ LAB_103b0d30:
   }
   iVar6 = *(int *)(iVar4 + 0xc);
   sVar1 = *(short *)(iVar6 + 0x10);
-  uVar5 = alloc_two_word_pair_1045bc2e(auStack_10,uVar2,0x138);
-  (**(code **)(iVar6 + 0x14))(sVar1 + iVar4,uVar5);
+  uVar5 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_10,uVar2,0x138));
+  (((vtbl_entry*)(iVar6))[2].fn)(sVar1 + iVar4,uVar5);
   free_heap_block_if_flagged_1045bc54(auStack_10,2);
-  (**(code **)(*(int *)(iVar4 + 0xc) + 0xec))
-            (*(short *)(*(int *)(iVar4 + 0xc) + 0xe8) + iVar4,uStack_18);
-  (**(code **)(*(int *)(iVar4 + 0xc) + 0xc))(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,1);
+  (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[29].fn)
+            (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[29].adj + iVar4,uStack_18);
+  (((vtbl_entry*)(*(int *)(iVar4 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar4 + 0xc) + 8) + iVar4,1);
   uStack_1c = 6;
   uVar2 = 0x22eU - ((int)(uint)uRam10568dc8 >> 1) & 0xffff;
   iVar3 = menu_item_register(iVar3);
@@ -140,11 +140,11 @@ LAB_103b0d30:
 switchD_103b0dd8_default:
   iVar4 = *(int *)(iVar3 + 0xc);
   sVar1 = *(short *)(iVar4 + 0x10);
-  uVar5 = alloc_two_word_pair_1045bc2e(auStack_10,uVar2,0x168);
-  (**(code **)(iVar4 + 0x14))(sVar1 + iVar3,uVar5);
+  uVar5 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_10,uVar2,0x168));
+  (((vtbl_entry*)(iVar4))[2].fn)(sVar1 + iVar3,uVar5);
   free_heap_block_if_flagged_1045bc54(auStack_10,2);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0xec))
-            (*(short *)(*(int *)(iVar3 + 0xc) + 0xe8) + iVar3,uStack_1c);
-  (**(code **)(*(int *)(iVar3 + 0xc) + 0xc))(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[29].fn)
+            (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[29].adj + iVar3,uStack_1c);
+  (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(*(short *)(*(int *)(iVar3 + 0xc) + 8) + iVar3,1);
   return;
 }

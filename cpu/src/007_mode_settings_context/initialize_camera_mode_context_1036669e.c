@@ -8,7 +8,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-int * initialize_camera_mode_context_1036669e(int *param_1)
+cls_105577f8 * initialize_camera_mode_context_1036669e(cls_105577f8 *param_1)
 
 {
   int iVar1;
@@ -16,7 +16,7 @@ int * initialize_camera_mode_context_1036669e(int *param_1)
   uint uVar3;
   int iVar4;
   void *pvVar5;
-  int *piVar6;
+  cls_105577f8 *pcVar6;
   uint32_t uVar7;
   uintptr_t sp;
   uint8_t *puVar8;
@@ -25,10 +25,10 @@ int * initialize_camera_mode_context_1036669e(int *param_1)
   int iStack_c;
   
   puVar8 = auStack_1c;
-  *(uint8_t *)(param_1 + 5) = 0;
-  *(uint8_t *)((int)param_1 + 0x15) = 0;
-  param_1[7] = 0;
-  param_1[0x14] = 0;
+  param_1->field_0x14 = 0;
+  param_1->field_0x15 = 0;
+  param_1->field_0x1c = 0;
+  param_1->field_0x50 = 0;
   iStack_c = 5;
   iVar1 = query_state_and_flag_range(param_1,&iStack_c);
   if (iVar1 != 0) {
@@ -46,21 +46,21 @@ int * initialize_camera_mode_context_1036669e(int *param_1)
     uVar7 = 1;
     goto code_r0x10366974;
   }
-  param_1[6] = 1;
+  param_1->field_0x18 = 1;
   uVar2 = refresh_and_read_setting_0x78((int *)0x800158d4/*SDRAM*/);
-  *(char *)(param_1 + 0x15) = (char)uVar2;
+  param_1->field_0x54 = (char)uVar2;
   uVar2 = get_setting_0x79_with_refresh((int *)0x800158d4/*SDRAM*/);
-  *(char *)((int)param_1 + 0x55) = (char)uVar2;
+  param_1->field_0x55 = (char)uVar2;
   uVar2 = get_setting_0x7a_with_refresh((int *)0x800158d4/*SDRAM*/);
-  *(char *)((int)param_1 + 0x56) = (char)uVar2;
+  param_1->field_0x56 = (char)uVar2;
   uVar2 = get_setting_0x7b_with_refresh((int *)0x800158d4/*SDRAM*/);
-  *(char *)((int)param_1 + 0x57) = (char)uVar2;
+  param_1->field_0x57 = (char)uVar2;
   uVar2 = get_setting_0x7c_with_refresh((int *)0x800158d4/*SDRAM*/);
-  *(char *)(param_1 + 0x16) = (char)uVar2;
+  param_1->field_0x58 = (char)uVar2;
   uVar2 = get_setting_0x7d_with_refresh((int *)0x800158d4/*SDRAM*/);
-  *(char *)((int)param_1 + 0x59) = (char)uVar2;
+  param_1->field_0x59 = (char)uVar2;
   uVar2 = get_setting_0x7e_with_refresh((int *)0x800158d4/*SDRAM*/);
-  *(char *)((int)param_1 + 0x5a) = (char)uVar2;
+  param_1->field_0x5a = (char)uVar2;
   uVar3 = init_sram_block_and_store_param(param_1);
   if ((uVar3 & 1) == 0) {
     if ((uVar3 & 2) == 0) {
@@ -74,14 +74,14 @@ int * initialize_camera_mode_context_1036669e(int *param_1)
     uVar2 = 0;
   }
   uVar3 = 0;
-  dispatch_event_and_return_offset(param_1,param_1 + 0x1a,uVar2);
-  iVar4 = read_field_at_offset_100((int)param_1);
-  pvVar5 = (void *)param_1[0x1a];
+  dispatch_event_and_return_offset(param_1,&param_1->field_0x68,uVar2);
+  iVar4 = read_field_at_offset_100((uint32_t)(param_1));
+  pvVar5 = (char*)(param_1) ->field_0x68;
   iVar1 = *(int *)((int)pvVar5 + 8);
   if (iVar4 == 0xb) {
     if ((((iVar1 == 0) || (iVar1 == 1)) && (iVar1 = read_struct_field_at_index_104c2890(pvVar5,0x28), iVar1 == 1)) &&
-       (iVar1 = read_struct_field_at_index_104c2890((void *)param_1[0x1a],0x29), iVar1 == 1)) {
-      reset_object_fields_and_call_base(param_1 + 0x1b);
+       (iVar1 = read_struct_field_at_index_104c2890((char*)(param_1) ->field_0x68,0x29), iVar1 == 1)) {
+      reset_object_fields_and_call_base((cls_105b9458 *)&param_1->field_0x6c);
       bVar9 = dispatch_mode_state_update_10367558(param_1);
       uVar3 = (uint)bVar9;
     }
@@ -95,7 +95,7 @@ int * initialize_camera_mode_context_1036669e(int *param_1)
       write_second_field_of_struct(param_1,1);
     }
     bVar9 = uVar3 == 0;
-    if (*(char *)(param_1 + 5) == '\0') {
+    if (param_1->field_0x14 == '\0') {
       if (!bVar9) goto LAB_103668ea;
       uVar2 = 0x11;
       goto LAB_103668e6;
@@ -104,12 +104,12 @@ int * initialize_camera_mode_context_1036669e(int *param_1)
   else {
     if ((iVar1 == 0) || (iVar1 == 1)) {
       iVar1 = read_struct_field_at_index_104c2890(pvVar5,0x28);
-      if ((iVar1 == 1) && (iVar1 = read_struct_field_at_index_104c2890((void *)param_1[0x1a],0x29), iVar1 == 1)) {
-        reset_object_fields_and_call_base(param_1 + 0x1b);
+      if ((iVar1 == 1) && (iVar1 = read_struct_field_at_index_104c2890((char*)(param_1) ->field_0x68,0x29), iVar1 == 1)) {
+        reset_object_fields_and_call_base((cls_105b9458 *)&param_1->field_0x6c);
         bVar9 = dispatch_mode_state_update_10367558(param_1);
         uVar3 = (uint)bVar9;
       }
-      if ((uVar3 == 0) && (*(char *)(param_1 + 5) == '\0')) {
+      if ((uVar3 == 0) && (param_1->field_0x14 == '\0')) {
         uVar2 = 0x12;
         goto LAB_103668e6;
       }
@@ -128,29 +128,30 @@ LAB_103668ea:
     bVar9 = uVar3 == 0;
   }
   if (!bVar9) {
-    set_object_flags_via_virtual_calls(param_1 + 8,0);
-    transition_mode_state(param_1 + 8,param_1[6]);
+    set_object_flags_via_virtual_calls(&param_1->field_0x20,0);
+    transition_mode_state(&param_1->field_0x20,param_1->field_0x18);
     dispatch_six_mode_cases(param_1);
-    read_two_shorts_from_param2_103674ca(param_1,param_1 + 0xa0);
+    read_two_shorts_from_param2_103674ca(param_1,&param_1->field_0x280);
     init_object_with_offset_field_10366c8a(param_1);
   }
-  if (param_1[7] == 0) {
-    if (*(char *)((int)param_1 + 0x15) != '\0') {
-      iVar1 = read_field_at_offset_100((int)param_1);
+  if (param_1->field_0x1c == 0) {
+    if (param_1->field_0x15 != '\0') {
+      iVar1 = read_field_at_offset_100((uint32_t)(param_1));
       if (iVar1 != 0xb) {
-        (**(code **)(*param_1 + 0x54))((int)*(short *)(*param_1 + 0x50) + (int)param_1);
+        (((vtbl_entry*)(param_1->field_0x0))[10].fn)
+                  ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[10].adj);
         uVar2 = get_or_create_singleton_object_1036c796();
         uVar7 = 2;
 code_r0x10366974:
-        piVar6 = (int *)read_array_element_bounded(uVar2,uVar7);
-        return piVar6;
+        pcVar6 = (cls_105577f8 *)read_array_element_bounded(uVar2,uVar7);
+        return pcVar6;
       }
       forward_param_to_global_offset(param_1,_DAT_105bb5ac/*ROM*/);
     }
   }
   else {
-    *(uint8_t *)(param_1 + 5) = 0;
-    *(uint8_t *)((int)param_1 + 0x15) = 0;
+    param_1->field_0x14 = 0;
+    param_1->field_0x15 = 0;
   }
   if (uVar3 == 0) {
     return param_1;

@@ -12,6 +12,6 @@ void invoke_virtual_slot_three_104acd2c(int param_1)
   int iVar1;
   
   iVar1 = **(int **)(param_1 + 0x10);
-  (**(code **)(iVar1 + 0x24))((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar1 + 0x20));
+  (((vtbl_entry*)(iVar1))[4].fn)((int)*(int **)(param_1 + 0x10) + (int)((vtbl_entry*)(iVar1))[4].adj);
   return;
 }

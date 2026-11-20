@@ -6,18 +6,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-void invoke_virtual_slot_3_three_times(int param_1)
+void invoke_virtual_slot_3_three_times(cls_1059cbf0 *param_1)
 
 {
-  int iVar1;
+  uint32_t *puVar1;
   int iVar2;
   
-  iVar2 = *(int *)(*(int *)(param_1 + 0x24) + 4);
-  iVar1 = param_1 + 8;
-  (**(code **)(iVar2 + 0x24))(*(int *)(param_1 + 0x24) + 4 + (int)*(short *)(iVar2 + 0x20),iVar1);
-  iVar2 = *(int *)(*(int *)(param_1 + 0x24) + 4);
-  (**(code **)(iVar2 + 0x24))(*(int *)(param_1 + 0x24) + 4 + (int)*(short *)(iVar2 + 0x20),iVar1);
-  iVar2 = *(int *)(*(int *)(param_1 + 0x24) + 4);
-  (**(code **)(iVar2 + 0x24))(*(int *)(param_1 + 0x24) + 4 + (int)*(short *)(iVar2 + 0x20),iVar1);
+  iVar2 = *(int *)(param_1->field_0x24 + 4);
+  puVar1 = &param_1->field_0x8;
+  (((vtbl_entry*)(iVar2))[4].fn)(param_1->field_0x24 + 4 + (int)((vtbl_entry*)(iVar2))[4].adj,puVar1);
+  iVar2 = *(int *)(param_1->field_0x24 + 4);
+  (((vtbl_entry*)(iVar2))[4].fn)(param_1->field_0x24 + 4 + (int)((vtbl_entry*)(iVar2))[4].adj,puVar1);
+  iVar2 = *(int *)(param_1->field_0x24 + 4);
+  (((vtbl_entry*)(iVar2))[4].fn)(param_1->field_0x24 + 4 + (int)((vtbl_entry*)(iVar2))[4].adj,puVar1);
   return;
 }

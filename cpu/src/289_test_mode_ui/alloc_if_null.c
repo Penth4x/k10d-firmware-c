@@ -9,7 +9,7 @@
 void alloc_if_null(void *param_1)
 
 {
-  if (param_1 == (void *)0x0) {
+  if (param_1 == 0) {
     heap_alloc((void *)1);
   }
   return;

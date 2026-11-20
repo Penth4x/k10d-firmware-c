@@ -15,18 +15,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t transition_state_via_virtual_call(int param_1,int param_2)
+uint32_t transition_state_via_virtual_call(cls_105d77cc *param_1,int param_2)
 
 {
   uint32_t uVar1;
   int iVar2;
   
   uVar1 = 1;
-  if (((*(int *)(param_1 + 0x10) == 2) && (*(int *)(param_1 + 0x14) == 1)) && (param_2 == 2)) {
-    *(uint32_t *)(param_1 + 0x14) = 2;
-    iVar2 = **(int **)(param_1 + 0x18);
-    (**(code **)(iVar2 + 0x24))((int)*(int **)(param_1 + 0x18) + (int)*(short *)(iVar2 + 0x20));
-    *(uint32_t *)(param_1 + 0x10) = 0;
+  if (((param_1->field_0x10 == 2) && (param_1->field_0x14 == 1)) && (param_2 == 2)) {
+    param_1->field_0x14 = 2;
+    iVar2 = *(int *)param_1->field_0x18;
+    (((vtbl_entry*)(iVar2))[4].fn)((int)param_1->field_0x18 + (int)((vtbl_entry*)(iVar2))[4].adj);
+    param_1->field_0x10 = 0;
     uVar1 = 0;
   }
   return uVar1;

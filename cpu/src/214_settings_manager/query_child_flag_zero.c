@@ -16,18 +16,18 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t query_child_flag_zero(int param_1)
+uint32_t query_child_flag_zero(cls_105b7f20 *param_1)
 
 {
   int *piVar1;
   uint uVar2;
   uint32_t uVar3;
   
-  clear_two_fields_and_reset((int *)(*(uint32_t *)(param_1 + 0x10)),1);
-  piVar1 = *(int **)(param_1 + 8);
+  clear_two_fields_and_reset((void*)(param_1->field_0x10),1);
+  piVar1 = (int *)param_1->field_0x8;
   uVar3 = 1;
   if (piVar1 != (int *)0x0) {
-    uVar2 = (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1,0);
+    uVar2 = (((vtbl_entry*)(*piVar1))[3].fn)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1,0);
     uVar3 = 1;
     if ((uVar2 & 1) == 0) {
       uVar3 = 0;

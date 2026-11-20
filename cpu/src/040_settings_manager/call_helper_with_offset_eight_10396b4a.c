@@ -13,9 +13,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_offset_eight_10396b4a(int param_1)
+void call_helper_with_offset_eight_10396b4a(cls_10562f68 *param_1)
 
 {
-  init_object_with_fixed_params((void *)(param_1 + 8),__frv_reg_unset(5),(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  uint32_t r5_in;
+  void *r6_in;
+  void *r7_in;
+  
+  init_object_with_fixed_params((cls_10563ba4 *)&param_1->field_0x8,r5_in,r6_in,r7_in);
   return;
 }

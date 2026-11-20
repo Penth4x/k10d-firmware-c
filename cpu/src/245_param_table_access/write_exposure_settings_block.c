@@ -172,7 +172,7 @@ LAB_104d4914:
   iVar9 = 0;
   puVar12 = &DAT_105b9d04/*ROM*/;
   do {
-    if (*(uint *)(puVar12 + 0xb4) == uVar2) {
+    if (*(uint *)((char*)puVar12 + 0xb4) == uVar2) {
       setting_set(*(int *)(param_1 + 0x14),*(int *)(&DAT_105b9dbc/*ROM*/ + iVar3 * 0xc) + iVar13,
                    param_2[0x12] & 0xff);
       setting_set(*(int *)(param_1 + 0x14),*(int *)(&DAT_105b9dc0/*ROM*/ + iVar3 * 0xc) + iVar13,
@@ -182,7 +182,7 @@ LAB_104d4914:
     }
     iVar3 = iVar3 + 1;
     iVar9 = iVar9 + 0xc;
-    puVar12 = puVar12 + 0xc;
+    puVar12 = (char*)puVar12 + 0xc;
   } while (iVar9 < 0xb4);
   setting_set(*(int *)(param_1 + 0x14),iVar13 + 0x161,param_2[0x14] & 0xff);
   setting_set(*(int *)(param_1 + 0x14),iVar13 + 0x162,param_2[0x15] & 0xff);

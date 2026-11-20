@@ -22,8 +22,8 @@ uint32_t invoke_virtual_method_on_object_104bfb44(int param_1,uint32_t param_2,v
   
   *(uint8_t *)(param_1 + 0x1c) = 1;
   iVar1 = **(int **)(param_1 + 0x480);
-  (**(code **)(iVar1 + 0x74))
-            ((int)*(int **)(param_1 + 0x480) + (int)*(short *)(iVar1 + 0x70),param_2,
+  (((vtbl_entry*)(iVar1))[14].fn)
+            ((int)*(int **)(param_1 + 0x480) + (int)((vtbl_entry*)(iVar1))[14].adj,param_2,
              *(uint32_t *)(param_1 + 0x34),param_3);
   return 1;
 }

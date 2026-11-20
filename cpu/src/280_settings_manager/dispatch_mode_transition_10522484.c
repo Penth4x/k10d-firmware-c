@@ -23,11 +23,11 @@ uint32_t dispatch_mode_transition_10522484(int *param_1,int param_2)
   if ((param_2 == 0) || (param_2 == 1)) {
     copy_struct_array(param_1[2],param_1 + 9,1,0);
     copy_struct_array(param_1[2],param_1 + 10,1,1);
-    (**(code **)(*param_1 + 0x14))((int)*(short *)(*param_1 + 0x10) + (int)param_1,0x1000000,0);
+    (((vtbl_entry*)(*param_1))[2].fn)((int)((vtbl_entry*)(*param_1))[2].adj + (int)param_1,0x1000000,0);
     uVar1 = 0;
   }
   else if ((param_2 == 2) && (param_1[10] != 0)) {
-    (**(code **)(*param_1 + 0x14))((int)*(short *)(*param_1 + 0x10) + (int)param_1,0x1000000,0);
+    (((vtbl_entry*)(*param_1))[2].fn)((int)((vtbl_entry*)(*param_1))[2].adj + (int)param_1,0x1000000,0);
     uVar1 = 1;
   }
   param_1[3] = 0;

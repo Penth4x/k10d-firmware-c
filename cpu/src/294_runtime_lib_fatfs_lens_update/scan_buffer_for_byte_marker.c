@@ -30,8 +30,8 @@ uint32_t scan_buffer_for_byte_marker(uint32_t *param_1)
   else {
     iVar3 = 0;
     do {
-      pcVar1 = (char *)(_DAT_80014980/*SDRAM*/ + iVar3);
-      *param_1 = (uint32_t)pcVar1;
+      pcVar1 = (char *)((char*)_DAT_80014980/*SDRAM*/ + iVar3);
+      *param_1 = (uintptr_t)(pcVar1);
       if (*pcVar1 == '\x01') {
         return 0;
       }

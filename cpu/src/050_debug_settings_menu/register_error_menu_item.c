@@ -45,7 +45,7 @@ void register_error_menu_item(void *param_1,uint32_t param_2,void *param_3,void 
     case 0xb:
     case 0xc:
     case 0xf:
-      pcVar4 = (char *)&DAT_10565f18/*ROM*/;
+      pcVar4 = &DAT_10565f18/*ROM*/;
       break;
     default:
       format_number_with_digit_placeholders(param_1,pvVar3,abStack_d);

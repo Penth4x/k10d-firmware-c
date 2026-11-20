@@ -32,35 +32,35 @@ void dispatch_pending_state_action(int param_1)
     iVar1 = *(int *)(param_1 + 0x38);
     if (iVar1 == *(int *)(param_1 + 0x74)) {
       iVar1 = **(int **)(param_1 + 0x2c);
-      (**(code **)(iVar1 + 0x1c))
-                ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar1 + 0x18),0x130068,2);
+      (((vtbl_entry*)(iVar1))[3].fn)
+                ((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar1))[3].adj,0x130068,2);
       dispatch_virtual_event_with_flag(*(uint32_t *)(param_1 + 0x74));
       iVar1 = **(int **)(param_1 + 0x2c);
-      (**(code **)(iVar1 + 0x1c))
-                ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar1 + 0x18),0x130068,0);
+      (((vtbl_entry*)(iVar1))[3].fn)
+                ((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar1))[3].adj,0x130068,0);
     }
     else if (iVar1 == *(int *)(param_1 + 0x90)) {
       iVar1 = **(int **)(param_1 + 0x2c);
-      (**(code **)(iVar1 + 0x1c))
-                ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar1 + 0x18),0x130068,2);
+      (((vtbl_entry*)(iVar1))[3].fn)
+                ((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar1))[3].adj,0x130068,2);
       notify_object_event_if_active(*(uint32_t *)(param_1 + 0x90));
       iVar1 = **(int **)(param_1 + 0x2c);
-      (**(code **)(iVar1 + 0x1c))
-                ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar1 + 0x18),0x130068,0);
+      (((vtbl_entry*)(iVar1))[3].fn)
+                ((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar1))[3].adj,0x130068,0);
     }
     else if ((iVar1 == *(int *)(param_1 + 0x78)) &&
             (cVar2 = read_byte_at_offset_0x65(*(int *)(param_1 + 0x78)), cVar2 == '\0')) {
       iVar1 = **(int **)(param_1 + 0x2c);
-      (**(code **)(iVar1 + 0x1c))
-                ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar1 + 0x18),0x130068,2);
+      (((vtbl_entry*)(iVar1))[3].fn)
+                ((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar1))[3].adj,0x130068,2);
       register_menu_item_on_state_change(*(uint32_t *)(param_1 + 0x78));
       iVar1 = **(int **)(param_1 + 0x2c);
-      (**(code **)(iVar1 + 0x1c))
-                ((int)*(int **)(param_1 + 0x2c) + (int)*(short *)(iVar1 + 0x18),0x130068,0);
+      (((vtbl_entry*)(iVar1))[3].fn)
+                ((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar1))[3].adj,0x130068,0);
     }
   }
   iVar1 = **(int **)(param_1 + 0x30);
-  (**(code **)(iVar1 + 0x14))
-            ((int)*(int **)(param_1 + 0x30) + (int)*(short *)(iVar1 + 0x10),0x1170005,0);
+  (((vtbl_entry*)(iVar1))[2].fn)
+            ((int)*(int **)(param_1 + 0x30) + (int)((vtbl_entry*)(iVar1))[2].adj,0x1170005,0);
   return;
 }

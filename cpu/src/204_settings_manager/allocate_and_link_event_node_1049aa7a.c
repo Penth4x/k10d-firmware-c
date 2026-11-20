@@ -19,9 +19,9 @@
 void allocate_and_link_event_node_1049aa7a(int param_1,uint32_t param_2,uint32_t param_3)
 
 {
-  int * iVar1;
+  int iVar1;
   
-  iVar1 = alloc_dynamic_array_header(0,1);
+  iVar1 = (uintptr_t)(alloc_dynamic_array_header(0,1));
   *(uint32_t *)(iVar1 + 8) = param_2;
   *(uint32_t *)(iVar1 + 4) = 2;
   **(uint32_t **)(iVar1 + 0xc) = param_3;

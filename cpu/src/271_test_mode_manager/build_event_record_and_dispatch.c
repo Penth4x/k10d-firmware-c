@@ -27,22 +27,22 @@ void build_event_record_and_dispatch(int param_1,int param_2,int param_3,int par
   int iVar2;
   
   if (param_2 != 0) {
-    (**(code **)(*(int *)(param_1 + 0x8d4) + 0x10c))
-              (*(short *)(*(int *)(param_1 + 0x8d4) + 0x108) + param_1,
+    (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[33].fn)
+              (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[33].adj + param_1,
                *(uint32_t *)(param_1 + 0x808));
-    (**(code **)(*(int *)(param_1 + 0x8d4) + 0x10c))
-              (*(short *)(*(int *)(param_1 + 0x8d4) + 0x108) + param_1,
+    (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[33].fn)
+              (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[33].adj + param_1,
                *(uint32_t *)(param_1 + 0x810));
   }
   if (param_3 != 0) {
     if (*(char *)(param_1 + 0x2c) != '\0') {
       *(int *)(param_1 + 0x64c) = *(int *)(param_1 + 0x64c) + 1;
     }
-    (**(code **)(*(int *)(param_1 + 0x8d4) + 0x11c))
-              (*(short *)(*(int *)(param_1 + 0x8d4) + 0x118) + param_1,
+    (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[35].fn)
+              (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[35].adj + param_1,
                *(uint32_t *)(param_1 + 0x80c));
-    (**(code **)(*(int *)(param_1 + 0x8d4) + 0x11c))
-              (*(short *)(*(int *)(param_1 + 0x8d4) + 0x118) + param_1,
+    (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[35].fn)
+              (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[35].adj + param_1,
                *(uint32_t *)(param_1 + 0x814));
   }
   **(uint32_t **)(param_1 + 0x804) = *(uint32_t *)(param_1 + 0x808);
@@ -103,23 +103,23 @@ void build_event_record_and_dispatch(int param_1,int param_2,int param_3,int par
   *(uint8_t *)(*(int *)(param_1 + 0x804) + 0x1e) = 0;
   *(uint8_t *)(*(int *)(param_1 + 0x804) + 0x1f) = 0;
   uVar1 = get_sysparam_store_instance();
-  iVar2 = get_sysparam_store_byte((void *)uVar1,0);
+  iVar2 = get_sysparam_store_byte((uint8_t *)(uVar1),(uint32_t)(0));
   if (iVar2 != 0) {
     iVar2 = param_1 + 0x880;
     *(uint8_t *)(*(int *)(param_1 + 0x804) + 0x16) = 1;
     append_bytes_to_ring_buffer(iVar2,0x105d5f34/*ROM*/,0);
     uVar1 = (*(code *)0x10511b1e/*ROM*/)(param_1);
-    copy_stream_bytes_into_struct(iVar2,(void *)uVar1,1,0);
+    copy_stream_bytes_into_struct((int)(iVar2),(void *)(uVar1),(int)(1),(void *)(0));
     append_newline_to_buffer(iVar2,0);
   }
   uVar1 = get_sysparam_store_instance();
-  iVar2 = get_sysparam_store_byte((void *)uVar1,1);
+  iVar2 = get_sysparam_store_byte((uint8_t *)(uVar1),(uint32_t)(1));
   if (iVar2 != 0) {
     uVar1 = test_mode_config_singleton();
     emit_state_values_to_stream(uVar1,param_1 + 0x880,param_1 + 0x148);
   }
   uVar1 = get_sysparam_store_instance();
-  iVar2 = get_sysparam_store_byte((void *)uVar1,0x11);
+  iVar2 = get_sysparam_store_byte((uint8_t *)(uVar1),(uint32_t)(0x11));
   if (iVar2 != 0) {
     *(uint32_t *)(*(int *)(param_1 + 0x818) + 4) = *(uint32_t *)(param_1 + 0x34);
     **(uint32_t **)(param_1 + 0x818) = *(uint32_t *)(param_1 + 0x104);
@@ -129,7 +129,7 @@ void build_event_record_and_dispatch(int param_1,int param_2,int param_3,int par
     *(uint8_t *)(*(int *)(param_1 + 0x804) + 0x1c) = 1;
   }
   uVar1 = get_sysparam_store_instance();
-  iVar2 = get_sysparam_store_byte((void *)uVar1,0x13);
+  iVar2 = get_sysparam_store_byte((uint8_t *)(uVar1),(uint32_t)(0x13));
   if (iVar2 != 0) {
     uVar1 = test_mode_config_singleton();
     serialize_state_to_buffer(uVar1,param_1 + 0x880);

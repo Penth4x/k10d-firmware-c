@@ -27,9 +27,9 @@ uint32_t send_data_via_cpucom(int *param_1,void *param_2)
   bVar3 = set_pointer_and_clear_flag(param_1 + 7,param_2);
   uVar4 = 0;
   if (bVar3) {
-    cpucom_msg_set_cmd((void *)param_1[6],DAT_105a76e8/*ROM*/);
+    cpucom_msg_set_cmd((void*)(param_1[6]),DAT_105a76e8/*ROM*/);
     cpucom_resp_set_insize((void *)param_1[6],(uint)DAT_105a76e9/*ROM*/);
-    iVar2 = (**(code **)(*param_1 + 0x6c))((int)*(short *)(*param_1 + 0x68) + (int)param_1);
+    iVar2 = (((vtbl_entry*)(*param_1))[13].fn)((int)((vtbl_entry*)(*param_1))[13].adj + (int)param_1);
     uVar1 = (uint)DAT_105a76e9/*ROM*/;
     while (uVar1 != 0) {
       uVar1 = uVar1 - 1;

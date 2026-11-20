@@ -36,7 +36,7 @@ int allocate_lens_update_slot(int *param_1)
     uVar2 = 0;
     iVar1 = 0;
     do {
-      piVar3 = (int *)(_DAT_800149fc/*SDRAM*/ + iVar1);
+      piVar3 = (int *)((char*)_DAT_800149fc/*SDRAM*/ + iVar1);
       *param_1 = (int)piVar3;
       if (*piVar3 == 1) {
         if (piVar3[1] == iStack_18) {
@@ -50,8 +50,8 @@ int allocate_lens_update_slot(int *param_1)
       iVar1 = iVar1 + 0x1c;
     } while ((int)uVar2 < 0x14);
     if (uVar4 < 0x14) {
-      *param_1 = (int)(_DAT_800149fc/*SDRAM*/ + uVar4 * 0x1c);
-      iVar1 = init_lens_update_context_1053e40a((void *)(*param_1),iStack_18);
+      *param_1 = (int)((char*)_DAT_800149fc/*SDRAM*/ + uVar4 * 0x1c);
+      iVar1 = init_lens_update_context_1053e40a((uint32_t *)(*param_1),(uint32_t)(iStack_18));
       if (iVar1 != 0) {
         *param_1 = 0;
       }

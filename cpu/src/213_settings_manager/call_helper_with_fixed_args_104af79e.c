@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_helper_with_fixed_args_104af79e(int *param_1)
+void call_helper_with_fixed_args_104af79e(cls_105b7838 *param_1)
 
 {
-  dispatch_by_type_field_104af7e6(param_1,0x40,0);
+  dispatch_by_type_field_104af7e6((void *)param_1,0x40,0);
   return;
 }

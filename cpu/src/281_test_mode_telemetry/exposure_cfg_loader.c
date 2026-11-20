@@ -39,7 +39,7 @@ void exposure_cfg_loader(int param_1,int *param_2,int param_3)
   }
   else {
     if (param_3 == 7) {
-      iVar4 = (**(code **)(*param_2 + 0x14))((int)*(short *)(*param_2 + 0x10) + (int)param_2,0x2b);
+      iVar4 = (((vtbl_entry*)(*param_2))[2].fn)((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,0x2b);
       if (iVar4 == 1) {
         uVar2 = settings_getter((int)piVar5,0x128);
         field_setter((int)piVar5,0,uVar2);
@@ -219,7 +219,7 @@ void exposure_cfg_loader(int param_1,int *param_2,int param_3)
         return;
       }
       iVar4 = param_2[0x1f];
-      iVar4 = (**(code **)(iVar4 + 0x1c))((int)(param_2 + 0x1f) + (int)*(short *)(iVar4 + 0x18),3);
+      iVar4 = (((vtbl_entry*)(iVar4))[3].fn)((int)(param_2 + 0x1f) + (int)((vtbl_entry*)(iVar4))[3].adj,3);
       if (iVar4 == 0) {
         return;
       }
@@ -227,7 +227,7 @@ void exposure_cfg_loader(int param_1,int *param_2,int param_3)
       uVar2 = 8;
     }
     else {
-      iVar4 = (**(code **)(*param_2 + 0x14))((int)*(short *)(*param_2 + 0x10) + (int)param_2,0x2b);
+      iVar4 = (((vtbl_entry*)(*param_2))[2].fn)((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,0x2b);
       if (iVar4 == 1) {
         uVar2 = settings_getter((int)piVar5,0x128);
         field_setter((int)piVar5,0,uVar2);
@@ -420,18 +420,18 @@ void exposure_cfg_loader(int param_1,int *param_2,int param_3)
       if (cVar3 != '\0') {
         field_setter((int)piVar5,0x5b,0);
       }
-      iVar4 = (**(code **)(*param_2 + 0x14))((int)*(short *)(*param_2 + 0x10) + (int)param_2,0x10);
+      iVar4 = (((vtbl_entry*)(*param_2))[2].fn)((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,0x10);
       if ((iVar4 != 1) ||
-         (iVar4 = (**(code **)(*param_2 + 0x14))
-                            ((int)*(short *)(*param_2 + 0x10) + (int)param_2,0x14), iVar4 == 0)) {
+         (iVar4 = (((vtbl_entry*)(*param_2))[2].fn)
+                            ((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,0x14), iVar4 == 0)) {
         field_setter((int)piVar5,0x60,0);
       }
-      iVar4 = (**(code **)(*param_2 + 0x14))((int)*(short *)(*param_2 + 0x10) + (int)param_2,0xf);
+      iVar4 = (((vtbl_entry*)(*param_2))[2].fn)((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,0xf);
       if (iVar4 == 1) {
-        iVar4 = (**(code **)(*param_2 + 0x14))((int)*(short *)(*param_2 + 0x10) + (int)param_2,0x12)
+        iVar4 = (((vtbl_entry*)(*param_2))[2].fn)((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,0x12)
         ;
         param_2[0x140] = iVar4;
-        iVar4 = (**(code **)(*param_2 + 0x14))((int)*(short *)(*param_2 + 0x10) + (int)param_2,0x13)
+        iVar4 = (((vtbl_entry*)(*param_2))[2].fn)((int)((vtbl_entry*)(*param_2))[2].adj + (int)param_2,0x13)
         ;
         param_2[0x141] = iVar4 + 1;
       }

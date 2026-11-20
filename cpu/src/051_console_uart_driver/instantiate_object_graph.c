@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void instantiate_object_graph(int param_1,uint32_t param_2,uint32_t param_3,void *param_4)
+void instantiate_object_graph(cls_10566724 *param_1,uint32_t param_2,uint32_t param_3,void *param_4)
 
 {
   short sVar1;
@@ -127,7 +127,7 @@ void instantiate_object_graph(int param_1,uint32_t param_2,uint32_t param_3,void
   short sVar106;
   short sVar107;
   
-  *(uint8_t *)(param_1 + 4) = 1;
+  param_1->field_0x4 = 1;
   sVar1 = 0xa0 - sRam1056a46a;
   sVar2 = 0xb8 - sRam1056a46a;
   sVar3 = 0x18 - sRam1056a46a;
@@ -144,14 +144,14 @@ void instantiate_object_graph(int param_1,uint32_t param_2,uint32_t param_3,void
   uVar102 = (uint)(ushort)(sRam1056a46a + 0x100);
   sVar101 = sRam1056a46a + 0x98;
   sVar11 = sRam1056a46a + 0x130;
-  *(uint32_t *)(param_1 + 0x44) = *(uint32_t *)(*(int *)(param_1 + 0x3c) + 4);
-  *(uint32_t *)(param_1 + 0x48) = *(uint32_t *)(*(int *)(param_1 + 0x3c) + 8);
-  *(uint32_t *)(param_1 + 0x4c) = *(uint32_t *)(*(int *)(param_1 + 0x3c) + 0xc);
-  *(uint16_t *)(param_1 + 0x50) = 0x280;
-  *(uint16_t *)(param_1 + 0x52) = 0x1e0;
+  *(uint32_t *)&param_1->field_0x44 = *(uint32_t *)(param_1->field_0x3c + 4);
+  *(uint32_t *)&param_1->field_0x48 = *(uint32_t *)(param_1->field_0x3c + 8);
+  *(uint32_t *)&param_1->field_0x4c = *(uint32_t *)(param_1->field_0x3c + 0xc);
+  *(uint16_t *)&param_1->field_0x50 = 0x280;
+  param_1->field_0x52 = 0x1e0;
   uVar103 = uVar102;
   pvVar12 = (void *)get_or_init_static_buffer_10495746();
-  iterate_range_and_call_match(pvVar12,(uint *)0x1056a46c/*ROM*/,uVar103,param_4);
+  iterate_range_and_call_match((void *)(pvVar12),(uint *)0x1056a46c/*ROM*/,(void *)(uVar103),(void *)(param_4));
   pvVar13 = (void *)app_obj_factory(pvVar12,(void *)0x2030000,0,0);
   pvVar14 = (void *)app_obj_factory(pvVar12,(void *)0x2030001,0,0);
   pvVar15 = (void *)app_obj_factory(pvVar12,(void *)0x2030002,0,0);
@@ -170,10 +170,10 @@ void instantiate_object_graph(int param_1,uint32_t param_2,uint32_t param_3,void
   pvVar28 = (void *)app_obj_factory(pvVar12,(void *)0x2030011,(void *)0x20,(void *)0x138);
   pvVar29 = (void *)app_obj_factory(pvVar12,(void *)0x2030012,(void *)0x20,(void *)0x168);
   pvVar30 = (void *)app_obj_factory(pvVar12,(void *)0x203000e,0,0);
-  uVar31 = app_obj_factory(pvVar12,(void *)0x203000f,(void *)0x20,(void *)0xd8);
+  uVar31 = (uintptr_t)(app_obj_factory(pvVar12,(void *)0x203000f,(void *)0x20,(void *)0xd8));
   write_field_at_offset_0x48(pvVar30,uVar31);
   pvVar32 = (void *)app_obj_factory(pvVar12,(void *)0x2030013,0,0);
-  uVar31 = app_obj_factory(pvVar12,(void *)0x2030014,(void *)0x20,(void *)0x198);
+  uVar31 = (uintptr_t)(app_obj_factory(pvVar12,(void *)0x2030014,(void *)0x20,(void *)0x198));
   write_field_at_offset_0x48(pvVar32,uVar31);
   pvVar33 = (void *)app_obj_factory(pvVar12,(void *)0x2030015,(void *)0x20,(void *)0x198);
   pvVar34 = (void *)app_obj_factory(pvVar12,(void *)0x2030016,(void *)0x20,(void *)0x198);
@@ -183,9 +183,9 @@ void instantiate_object_graph(int param_1,uint32_t param_2,uint32_t param_3,void
   pvVar38 = (void *)app_obj_factory(pvVar12,(void *)0x203001a,(void *)0x20,(void *)0xd8);
   pvVar39 = (void *)app_obj_factory(pvVar12,(void *)0x203001b,(void *)0x20,(void *)0xd8);
   pvVar40 = (void *)app_obj_factory(pvVar12,(void *)0x203001c,(void *)0x20,(void *)0xd8);
-  uVar31 = app_obj_factory(pvVar12,(void *)0x2030020,0,0);
-  uVar41 = app_obj_factory(pvVar12,(void *)0x2030021,0,0);
-  uVar42 = app_obj_factory(pvVar12,(void *)0x2030022,0,0);
+  uVar31 = (uintptr_t)(app_obj_factory(pvVar12,(void *)0x2030020,0,0));
+  uVar41 = (uintptr_t)(app_obj_factory(pvVar12,(void *)0x2030021,0,0));
+  uVar42 = (uintptr_t)(app_obj_factory(pvVar12,(void *)0x2030022,0,0));
   pvVar43 = (void *)app_obj_factory(pvVar12,(void *)0x203001d,0,0);
   pvVar44 = (void *)app_obj_factory(pvVar12,(void *)0x203001e,0,0);
   pvVar45 = (void *)app_obj_factory(pvVar12,(void *)0x203001f,0,0);
@@ -199,66 +199,66 @@ void instantiate_object_graph(int param_1,uint32_t param_2,uint32_t param_3,void
   pvVar50 = (void *)app_obj_factory(pvVar12,(void *)0x2030027,(void *)0xb8,(void *)0x168);
   pvVar51 = (void *)app_obj_factory(pvVar12,(void *)0x2030028,(void *)0xb8,(void *)0x198);
   pvVar52 = (void *)app_obj_factory(pvVar12,(void *)0x2030034,(void *)0xe0,(void *)0x18);
-  iVar53 = app_obj_factory(pvVar12,(void *)0x2030029,(void *)0xe0,(void *)0x48);
-  iVar54 = app_obj_factory(pvVar12,(void *)0x203002a,(void *)0xe0,(void *)0x48);
-  iVar55 = app_obj_factory(pvVar12,(void *)0x203002b,(void *)0xe0,(void *)0x48);
-  iVar56 = app_obj_factory(pvVar12,(void *)0x203002c,(void *)0xe0,(void *)0x48);
-  iVar57 = app_obj_factory(pvVar12,(void *)0x2030030,(void *)0xe0,(void *)0x48);
-  iVar58 = app_obj_factory(pvVar12,(void *)0x2030031,(void *)0xe0,(void *)0x48);
-  iVar59 = app_obj_factory(pvVar12,(void *)0x2030032,(void *)0xe0,(void *)0x48);
+  iVar53 = (uintptr_t)(app_obj_factory(pvVar12,(void *)0x2030029,(void *)0xe0,(void *)0x48));
+  iVar54 = (uintptr_t)(app_obj_factory(pvVar12,(void *)0x203002a,(void *)0xe0,(void *)0x48));
+  iVar55 = (uintptr_t)(app_obj_factory(pvVar12,(void *)0x203002b,(void *)0xe0,(void *)0x48));
+  iVar56 = (uintptr_t)(app_obj_factory(pvVar12,(void *)0x203002c,(void *)0xe0,(void *)0x48));
+  iVar57 = (uintptr_t)(app_obj_factory(pvVar12,(void *)0x2030030,(void *)0xe0,(void *)0x48));
+  iVar58 = (uintptr_t)(app_obj_factory(pvVar12,(void *)0x2030031,(void *)0xe0,(void *)0x48));
+  iVar59 = (uintptr_t)(app_obj_factory(pvVar12,(void *)0x2030032,(void *)0xe0,(void *)0x48));
   pvVar60 = (void *)app_obj_factory(pvVar12,(void *)0x2030033,(void *)0xe0,(void *)0x48);
   pvVar61 = (void *)app_obj_factory(pvVar12,(void *)0x203002d,(void *)0xe0,(void *)0x48);
   pvVar62 = (void *)app_obj_factory(pvVar12,(void *)0x203002e,(void *)0xe0,(void *)0x48);
   pvVar63 = (void *)app_obj_factory(pvVar12,(void *)0x203002f,(void *)0xe0,(void *)0x48);
   call_helper_and_set_flag_104b7726(pvVar52,0x180,1);
-  call_helper_and_set_flag_104b7726(iVar53,0x180,1);
-  call_helper_and_set_flag_104b7726(iVar54,0x180,1);
-  call_helper_and_set_flag_104b7726(iVar55,0x180,1);
-  call_helper_and_set_flag_104b7726(iVar56,0x180,1);
-  call_helper_and_set_flag_104b7726(iVar57,0x180,1);
-  call_helper_and_set_flag_104b7726(iVar58,0x180,1);
-  call_helper_and_set_flag_104b7726(iVar59,0x180,1);
+  call_helper_and_set_flag_104b7726((uint32_t *)(iVar53),(uint16_t)(0x180),(uint16_t)(1));
+  call_helper_and_set_flag_104b7726((uint32_t *)(iVar54),(uint16_t)(0x180),(uint16_t)(1));
+  call_helper_and_set_flag_104b7726((uint32_t *)(iVar55),(uint16_t)(0x180),(uint16_t)(1));
+  call_helper_and_set_flag_104b7726((uint32_t *)(iVar56),(uint16_t)(0x180),(uint16_t)(1));
+  call_helper_and_set_flag_104b7726((uint32_t *)(iVar57),(uint16_t)(0x180),(uint16_t)(1));
+  call_helper_and_set_flag_104b7726((uint32_t *)(iVar58),(uint16_t)(0x180),(uint16_t)(1));
+  call_helper_and_set_flag_104b7726((uint32_t *)(iVar59),(uint16_t)(0x180),(uint16_t)(1));
   call_helper_and_set_flag_104b7726(pvVar60,0x180,1);
   call_helper_and_set_flag_104b7726(pvVar61,0x180,1);
   call_helper_and_set_flag_104b7726(pvVar62,0x180,1);
   call_helper_and_set_flag_104b7726(pvVar63,0x180,1);
-  pvVar64 = (void *)app_obj_factory(pvVar12,(void *)0x2030036,sVar106,sVar3);
-  pvVar65 = (void *)app_obj_factory(pvVar12,(void *)0x2030037,sVar106,sVar4);
-  pvVar66 = (void *)app_obj_factory(pvVar12,(void *)0x2030038,sVar106,sVar5);
-  pvVar67 = (void *)app_obj_factory(pvVar12,(void *)0x2030039,sVar106,sVar6);
-  pvVar68 = (void *)app_obj_factory(pvVar12,(void *)0x203003a,sVar106,sVar9);
-  pvVar69 = (void *)app_obj_factory(pvVar12,(void *)0x203003c,sVar1,sVar6);
-  pvVar70 = (void *)app_obj_factory(pvVar12,(void *)0x203003d,sVar1,sVar9);
-  pvVar71 = (void *)app_obj_factory(pvVar12,(void *)0x203003e,sVar1,sVar7);
-  pvVar72 = (void *)app_obj_factory(pvVar12,(void *)0x203003f,sVar106,sVar7);
-  pvVar73 = (void *)app_obj_factory(pvVar12,(void *)0x2030040,sVar106,sVar8);
-  pvVar74 = (void *)app_obj_factory(pvVar12,(void *)0x2030041,sVar106,sVar10);
-  pvVar75 = (void *)app_obj_factory(pvVar12,(void *)0x2030042,sVar106,sVar100);
-  iVar76 = app_obj_factory(pvVar12,(void *)0x2030043,sVar2,sVar8);
-  iVar77 = app_obj_factory(pvVar12,(void *)0x2030044,sVar2,sVar10);
-  iVar78 = app_obj_factory(pvVar12,(void *)0x2030045,sVar2,sVar100);
-  iVar79 = app_obj_factory(pvVar12,(void *)0x2030046,sVar107,(void *)0x18);
-  iVar80 = app_obj_factory(pvVar12,(void *)0x2030047,sVar107,(void *)0x48);
-  iVar81 = app_obj_factory(pvVar12,(void *)0x2030048,sVar107,(void *)0x78);
-  iVar82 = app_obj_factory(pvVar12,(void *)0x2030049,sVar107,(void *)0xa8);
-  iVar83 = app_obj_factory(pvVar12,(void *)0x203004a,sVar107,(void *)0xd8);
-  iVar84 = app_obj_factory(pvVar12,(void *)0x203004b,uVar102,(void *)0xa8);
-  iVar85 = app_obj_factory(pvVar12,(void *)0x203004c,uVar102,(void *)0xd8);
-  iVar86 = app_obj_factory(pvVar12,(void *)0x203004d,uVar102,(void *)0x108);
-  iVar87 = app_obj_factory(pvVar12,(void *)0x203004e,sVar107,(void *)0x108);
-  iVar88 = app_obj_factory(pvVar12,(void *)0x203004f,sVar107,(void *)0x138);
-  iVar89 = app_obj_factory(pvVar12,(void *)0x2030050,sVar107,(void *)0x168);
-  iVar90 = app_obj_factory(pvVar12,(void *)0x2030051,sVar101,(void *)0x198);
-  iVar91 = app_obj_factory(pvVar12,(void *)0x2030052,sVar11,(void *)0x138);
-  iVar92 = app_obj_factory(pvVar12,(void *)0x2030053,sVar11,(void *)0x168);
-  iVar93 = app_obj_factory(pvVar12,(void *)0x2030054,sVar11,(void *)0x198);
+  pvVar64 = (void *)app_obj_factory((int *)(pvVar12),(void *)0x2030036,(void *)(sVar106),(void *)(sVar3));
+  pvVar65 = (void *)app_obj_factory((int *)(pvVar12),(void *)0x2030037,(void *)(sVar106),(void *)(sVar4));
+  pvVar66 = (void *)app_obj_factory((int *)(pvVar12),(void *)0x2030038,(void *)(sVar106),(void *)(sVar5));
+  pvVar67 = (void *)app_obj_factory((int *)(pvVar12),(void *)0x2030039,(void *)(sVar106),(void *)(sVar6));
+  pvVar68 = (void *)app_obj_factory((int *)(pvVar12),(void *)0x203003a,(void *)(sVar106),(void *)(sVar9));
+  pvVar69 = (void *)app_obj_factory((int *)(pvVar12),(void *)0x203003c,(void *)(sVar1),(void *)(sVar6));
+  pvVar70 = (void *)app_obj_factory((int *)(pvVar12),(void *)0x203003d,(void *)(sVar1),(void *)(sVar9));
+  pvVar71 = (void *)app_obj_factory((int *)(pvVar12),(void *)0x203003e,(void *)(sVar1),(void *)(sVar7));
+  pvVar72 = (void *)app_obj_factory((int *)(pvVar12),(void *)0x203003f,(void *)(sVar106),(void *)(sVar7));
+  pvVar73 = (void *)app_obj_factory((int *)(pvVar12),(void *)0x2030040,(void *)(sVar106),(void *)(sVar8));
+  pvVar74 = (void *)app_obj_factory((int *)(pvVar12),(void *)0x2030041,(void *)(sVar106),(void *)(sVar10));
+  pvVar75 = (void *)app_obj_factory((int *)(pvVar12),(void *)0x2030042,(void *)(sVar106),(void *)(sVar100));
+  iVar76 = (uintptr_t)(app_obj_factory((int *)(pvVar12),(void *)0x2030043,(void *)(sVar2),(void *)(sVar8)));
+  iVar77 = (uintptr_t)(app_obj_factory((int *)(pvVar12),(void *)0x2030044,(void *)(sVar2),(void *)(sVar10)));
+  iVar78 = (uintptr_t)(app_obj_factory((int *)(pvVar12),(void *)0x2030045,(void *)(sVar2),(void *)(sVar100)));
+  iVar79 = (uintptr_t)(app_obj_factory((int *)(pvVar12),(void *)0x2030046,(void *)(sVar107),(void *)0x18));
+  iVar80 = (uintptr_t)(app_obj_factory((int *)(pvVar12),(void *)0x2030047,(void *)(sVar107),(void *)0x48));
+  iVar81 = (uintptr_t)(app_obj_factory((int *)(pvVar12),(void *)0x2030048,(void *)(sVar107),(void *)0x78));
+  iVar82 = (uintptr_t)(app_obj_factory((int *)(pvVar12),(void *)0x2030049,(void *)(sVar107),(void *)0xa8));
+  iVar83 = (uintptr_t)(app_obj_factory((int *)(pvVar12),(void *)0x203004a,(void *)(sVar107),(void *)0xd8));
+  iVar84 = (uintptr_t)(app_obj_factory((int *)(pvVar12),(void *)0x203004b,(void *)(uVar102),(void *)0xa8));
+  iVar85 = (uintptr_t)(app_obj_factory((int *)(pvVar12),(void *)0x203004c,(void *)(uVar102),(void *)0xd8));
+  iVar86 = (uintptr_t)(app_obj_factory((int *)(pvVar12),(void *)0x203004d,(void *)(uVar102),(void *)0x108));
+  iVar87 = (uintptr_t)(app_obj_factory((int *)(pvVar12),(void *)0x203004e,(void *)(sVar107),(void *)0x108));
+  iVar88 = (uintptr_t)(app_obj_factory((int *)(pvVar12),(void *)0x203004f,(void *)(sVar107),(void *)0x138));
+  iVar89 = (uintptr_t)(app_obj_factory((int *)(pvVar12),(void *)0x2030050,(void *)(sVar107),(void *)0x168));
+  iVar90 = (uintptr_t)(app_obj_factory((int *)(pvVar12),(void *)0x2030051,(void *)(sVar101),(void *)0x198));
+  iVar91 = (uintptr_t)(app_obj_factory((int *)(pvVar12),(void *)0x2030052,(void *)(sVar11),(void *)0x138));
+  iVar92 = (uintptr_t)(app_obj_factory((int *)(pvVar12),(void *)0x2030053,(void *)(sVar11),(void *)0x168));
+  iVar93 = (uintptr_t)(app_obj_factory((int *)(pvVar12),(void *)0x2030054,(void *)(sVar11),(void *)0x198));
   pvVar94 = (void *)app_obj_factory(pvVar12,(void *)0x2030055,(void *)0x1a0,(void *)0xc0);
   pvVar95 = (void *)app_obj_factory(pvVar12,(void *)0x2030056,0,0);
   pvVar96 = (void *)app_obj_factory(pvVar12,(void *)0x2030057,(void *)0x158,(void *)0x138);
   pvVar97 = (void *)app_obj_factory(pvVar12,(void *)0x2030058,0,0);
   pvVar98 = (void *)app_obj_factory(pvVar12,(void *)0x203005a,(void *)0x20,(void *)0x198);
   pvVar99 = (void *)app_obj_factory(pvVar12,(void *)0x2030059,0,0);
-  uVar31 = app_obj_factory(pvVar12,(void *)0x203005b,(void *)0x158,(void *)0x168);
+  uVar31 = (uintptr_t)(app_obj_factory(pvVar12,(void *)0x203005b,(void *)0x158,(void *)0x168));
   pvVar104 = (void *)0x0;
   pvVar105 = (void *)0x0;
   pvVar12 = (void *)app_obj_factory(pvVar12,(void *)0x203005c,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
@@ -412,16 +412,16 @@ void instantiate_object_graph(int param_1,uint32_t param_2,uint32_t param_3,void
   graph_link_nextprev((int)pvVar43,(int)pvVar32,0xe,pvVar105);
   graph_link_nextprev((int)pvVar44,(int)pvVar32,0xe,pvVar105);
   graph_link_nextprev((int)pvVar45,(int)pvVar32,0xe,pvVar105);
-  set_object_field_at_offset_0x10((void *)(param_1 + 8),pvVar13);
+  set_object_field_at_offset_0x10(&param_1->field5_0x8,pvVar13);
   call_helper_and_set_flag_10494b88(puVar18);
-  (**(code **)(puVar18[3] + 0xc))((int)*(short *)(puVar18[3] + 8) + (int)puVar18,0);
-  (**(code **)(*(int *)((int)pvVar15 + 0xc) + 0xc))
+  (((vtbl_entry*)(puVar18[3]))[1].fn)((int)*(short *)(puVar18[3] + 8) + (int)puVar18,0);
+  (((vtbl_entry*)(*(int *)((int)pvVar15 + 0xc)))[1].fn)
             ((int)*(short *)(*(int *)((int)pvVar15 + 0xc) + 8) + (int)pvVar15,0);
-  (**(code **)(*(int *)((int)pvVar17 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar17 + 0xc)))[1].fn)
             ((int)*(short *)(*(int *)((int)pvVar17 + 0xc) + 8) + (int)pvVar17,0);
-  (**(code **)(*(int *)((int)pvVar33 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar33 + 0xc)))[1].fn)
             ((int)*(short *)(*(int *)((int)pvVar33 + 0xc) + 8) + (int)pvVar33,0);
-  (**(code **)(*(int *)((int)pvVar34 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)((int)pvVar34 + 0xc)))[1].fn)
             ((int)*(short *)(*(int *)((int)pvVar34 + 0xc) + 8) + (int)pvVar34,0);
   return;
 }

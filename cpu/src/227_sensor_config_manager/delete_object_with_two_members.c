@@ -18,8 +18,8 @@ void delete_object_with_two_members(int param_1,uint param_2)
 
 {
   if (param_1 != 0) {
-    cls_105b572c_delete((void *)(param_1 + 0x138),2);
-    cls_105aae7c_delete((void *)(param_1 + 0x18),2);
+    cls_105b572c_delete((cls_105b572c *)(param_1 + 0x138),2);
+    cls_105aae7c_delete((cls_105aae7c *)(param_1 + 0x18),2);
     if ((param_2 & 1) != 0) {
       heap_free(param_1);
     }

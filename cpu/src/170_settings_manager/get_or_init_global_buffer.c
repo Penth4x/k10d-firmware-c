@@ -23,7 +23,7 @@ uint32_t get_or_init_global_buffer(void)
   if (_DAT_80048838/*SDRAM*/ == 0) {
     _DAT_80048838/*SDRAM*/ = 1;
     alloc_one_byte_if_null_1047f0fe(0x80048834/*SDRAM*/);
-    prepend_to_singly_linked_list((void*)0x80010020/*SDRAM*/);
+    prepend_to_singly_linked_list((void *)0x80010020/*SDRAM*/);
   }
   return 0x80048834/*SDRAM*/;
 }

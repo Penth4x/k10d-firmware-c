@@ -8,40 +8,41 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-int * dispatch_event_by_type_10368f94(int *param_1,int *param_2)
+cls_10557b38 * dispatch_event_by_type_10368f94(cls_10557b38 *param_1,int *param_2)
 
 {
   int iVar1;
   uint32_t uVar2;
-  int *piVar3;
+  cls_10557b38 *pcVar3;
   
-  if ((((*(char *)((int)param_1 + 0x2b5) != '\0') || (*(char *)((int)param_1 + 0x2b6) != '\0')) ||
-      (*(char *)((int)param_1 + 0x2b7) != '\0')) || (*(char *)(param_1 + 0xae) != '\0')) {
-    *(uint8_t *)((int)param_1 + 0x2b5) = 0;
-    *(uint8_t *)((int)param_1 + 0x2b6) = 0;
-    *(uint8_t *)((int)param_1 + 0x2b7) = 0;
-    *(uint8_t *)(param_1 + 0xae) = 0;
-    (**(code **)(*param_1 + 0x44))((int)*(short *)(*param_1 + 0x40) + (int)param_1);
-    request_ui_sync_code_4(param_1 + 5);
+  if ((((param_1->field_0x2b5 != '\0') || (param_1->field_0x2b6 != '\0')) ||
+      (param_1->field_0x2b7 != '\0')) || (param_1->field_0x2b8 != '\0')) {
+    param_1->field_0x2b5 = 0;
+    param_1->field_0x2b6 = 0;
+    param_1->field_0x2b7 = 0;
+    param_1->field_0x2b8 = 0;
+    (((vtbl_entry*)(param_1->field_0x0))[8].fn)
+              ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[8].adj);
+    request_ui_sync_code_4(&param_1->field_0x14);
   }
   if (*param_2 != 4) {
     return param_1;
   }
   iVar1 = param_2[1];
   if (iVar1 == 0x27) {
-    if (*(char *)(param_1 + 0xaa) == '\0') {
+    if (param_1->field_0x2a8 == '\0') {
       return param_1;
     }
     check_and_dispatch_virtual_call(param_1,param_2[2] & 0xff);
     return param_1;
   }
   if (iVar1 == 0x28) {
-    if (*(char *)(param_1 + 0xaa) == '\0') goto LAB_1036911e;
+    if (param_1->field_0x2a8 == '\0') goto LAB_1036911e;
     iVar1 = check_and_invoke_virtual_slot(param_1,param_2[2] & 0xff);
   }
   else {
     if (iVar1 == 6) {
-      if (*(char *)(param_1 + 0xaa) == '\0') {
+      if (param_1->field_0x2a8 == '\0') {
         return param_1;
       }
       poll_until_flag_clear_10369650(param_1,param_2[2] & 0xff);
@@ -85,7 +86,7 @@ int * dispatch_event_by_type_10368f94(int *param_1,int *param_2)
       }
       goto LAB_1036911e;
     }
-    if (*(char *)(param_1 + 0xaa) == '\0') goto LAB_1036911e;
+    if (param_1->field_0x2a8 == '\0') goto LAB_1036911e;
     iVar1 = poll_until_flag_clears(param_1,param_2[2] & 0xff);
   }
   if (iVar1 != 0) {
@@ -94,6 +95,6 @@ int * dispatch_event_by_type_10368f94(int *param_1,int *param_2)
 LAB_1036911e:
   dispatch_state_based_on_flag_103694bc(param_1);
   uVar2 = get_or_create_singleton_object_1036c796();
-  piVar3 = (int *)read_array_element_bounded(uVar2,2);
-  return piVar3;
+  pcVar3 = (cls_10557b38 *)read_array_element_bounded(uVar2,2);
+  return pcVar3;
 }

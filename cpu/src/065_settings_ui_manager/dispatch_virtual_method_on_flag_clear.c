@@ -18,20 +18,20 @@
 /* WARNING: Instruction at (ram,0x103cc900) overlaps instruction at (ram,0x103cc8fe)
     */
 
-uint32_t dispatch_virtual_method_on_flag_clear(int *param_1,int param_2)
+uint32_t dispatch_virtual_method_on_flag_clear(cls_105959b0 *param_1,int param_2)
 
 {
   int iVar1;
   
-  if ((*(char *)((int)param_1 + 0x27) != '\0') && (param_2 == 0x1160002)) {
-    iVar1 = menu_item_register(*param_1);
-    (**(code **)(*(int *)(iVar1 + 0xc) + 0x74))(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 0x70),1);
-    iVar1 = menu_item_register(*param_1);
-    if (((*(ushort *)(param_1 + 3) & 2) != 2) || ((*(ushort *)(param_1 + 3) & 4) != 4)) {
-      (**(code **)(*(int *)(iVar1 + 0xc) + 0x74))
-                (*(short *)(*(int *)(iVar1 + 0xc) + 0x70) + iVar1,1);
+  if ((param_1->field_0x27 != '\0') && (param_2 == 0x1160002)) {
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].fn)(iVar1 + ((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].adj,1);
+    iVar1 = menu_item_register((int)param_1->field_0x0);
+    if (((param_1->field_0xc & 2) != 2) || ((param_1->field_0xc & 4) != 4)) {
+      (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].fn)
+                (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[14].adj + iVar1,1);
     }
-    *(uint8_t *)((int)param_1 + 0x27) = 0;
+    param_1->field_0x27 = 0;
   }
   return 0;
 }

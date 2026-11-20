@@ -27,13 +27,13 @@ uint32_t invoke_dual_object_slot2(int param_1,uint32_t param_2,uint32_t param_3)
     uVar2 = 0;
   }
   else {
-    uVar2 = (**(code **)(*piVar1 + 0x14))
-                      ((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,param_2,param_3);
+    uVar2 = (((vtbl_entry*)(*piVar1))[2].fn)
+                      ((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1,param_2,param_3);
   }
   piVar1 = *(int **)(param_1 + 0x6c);
   if (piVar1 != (int *)0x0) {
-    uVar2 = (**(code **)(*piVar1 + 0x14))
-                      ((int)*(short *)(*piVar1 + 0x10) + (int)piVar1,param_2,param_3);
+    uVar2 = (((vtbl_entry*)(*piVar1))[2].fn)
+                      ((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1,param_2,param_3);
   }
   return uVar2;
 }

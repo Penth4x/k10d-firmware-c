@@ -24,7 +24,7 @@ void destroy_lens_update_objects(int param_1)
   
   iVar1 = *(int *)(param_1 + 8);
   if (iVar1 != 0) {
-    (**(code **)(*(int *)(iVar1 + 0x18) + 0x24))(*(short *)(*(int *)(iVar1 + 0x18) + 0x20) + iVar1);
+    (((vtbl_entry*)(*(int *)(iVar1 + 0x18)))[4].fn)(((vtbl_entry*)(*(int *)(iVar1 + 0x18)))[4].adj + iVar1);
     *(uint32_t *)(param_1 + 8) = 0;
   }
   uVar2 = 0;
@@ -32,7 +32,7 @@ void destroy_lens_update_objects(int param_1)
     do {
       iVar1 = *(int *)(*(int *)(param_1 + 0x1c) + uVar2 * 4);
       iVar3 = *(int *)(iVar1 + 0x18);
-      (**(code **)(iVar3 + 0x24))(iVar1 + *(short *)(iVar3 + 0x20));
+      (((vtbl_entry*)(iVar3))[4].fn)(iVar1 + ((vtbl_entry*)(iVar3))[4].adj);
       uVar2 = uVar2 + 1 & 0xff;
     } while (uVar2 < *(byte *)(param_1 + 0x14));
   }

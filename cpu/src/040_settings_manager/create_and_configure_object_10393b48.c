@@ -28,7 +28,7 @@ void * create_and_configure_object_10393b48(uint32_t param_1,uint32_t param_2,vo
   call_helper_with_offset_eight_10393de4((int)pvVar1);
   iVar2 = check_and_process_event_103947cc(pvVar1);
   if (iVar2 != 0) {
-    iVar2 = check_and_retry_condition((int)pvVar1);
+    iVar2 = check_and_retry_condition((uint32_t)(pvVar1));
     uVar3 = 1;
     if (iVar2 == 0) goto LAB_10393b7a;
   }

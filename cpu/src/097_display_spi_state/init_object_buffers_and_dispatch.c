@@ -64,17 +64,17 @@ uint32_t init_object_buffers_and_dispatch(int param_1, uint32_t param_x1)
         pvVar9 = (void *)get_system_heap();
         pvVar5 = (void *)mempool_get_block(pvVar9,pvVar5,0);
         check_kernel_call_success_10459d88(puVar2);
-        if (((pvVar7 == (void *)0x0) || (pvVar8 == (void *)0x0)) || (pvVar5 == (void *)0x0)) {
+        if (((pvVar7 == 0) || (pvVar8 == 0)) || (pvVar5 == 0)) {
           call_kernel_with_short_id(puVar2);
-          if (pvVar7 != (void *)0x0) {
+          if (pvVar7 != 0) {
             pvVar9 = (void *)get_system_heap();
             mempool_release_block(pvVar9,pvVar7);
           }
-          if (pvVar8 != (void *)0x0) {
+          if (pvVar8 != 0) {
             pvVar7 = (void *)get_system_heap();
             mempool_release_block(pvVar7,pvVar8);
           }
-          if (pvVar5 != (void *)0x0) {
+          if (pvVar5 != 0) {
             pvVar7 = (void *)get_system_heap();
             mempool_release_block(pvVar7,pvVar5);
           }
@@ -83,25 +83,25 @@ uint32_t init_object_buffers_and_dispatch(int param_1, uint32_t param_x1)
         }
         else {
           iVar3 = *(int *)(*(int *)(param_1 + 0x84) + 0x8d4);
-          (**(code **)(iVar3 + 0x14))
-                    (*(int *)(param_1 + 0x84) + (int)*(short *)(iVar3 + 0x10),pvVar7);
+          (((vtbl_entry*)(iVar3))[2].fn)
+                    (*(int *)(param_1 + 0x84) + (int)((vtbl_entry*)(iVar3))[2].adj,pvVar7);
           iVar3 = *(int *)(*(int *)(param_1 + 0x84) + 0x8d4);
-          (**(code **)(iVar3 + 0x24))
-                    (*(int *)(param_1 + 0x84) + (int)*(short *)(iVar3 + 0x20),pvVar8);
+          (((vtbl_entry*)(iVar3))[4].fn)
+                    (*(int *)(param_1 + 0x84) + (int)((vtbl_entry*)(iVar3))[4].adj,pvVar8);
           iVar3 = *(int *)(*(int *)(param_1 + 0x84) + 0x8d4);
-          (**(code **)(iVar3 + 0x1c))
-                    (*(int *)(param_1 + 0x84) + (int)*(short *)(iVar3 + 0x18),pvVar5);
+          (((vtbl_entry*)(iVar3))[3].fn)
+                    (*(int *)(param_1 + 0x84) + (int)((vtbl_entry*)(iVar3))[3].adj,pvVar5);
           iVar3 = *(int *)(*(int *)(param_1 + 0x84) + 0x8d4);
-          (**(code **)(iVar3 + 0x34))
-                    (*(int *)(param_1 + 0x84) + (int)*(short *)(iVar3 + 0x30),
+          (((vtbl_entry*)(iVar3))[6].fn)
+                    (*(int *)(param_1 + 0x84) + (int)((vtbl_entry*)(iVar3))[6].adj,
                      *(uint32_t *)(param_1 + 0x156c));
           iVar3 = *(int *)(*(int *)(param_1 + 0x84) + 0x8d4);
-          (**(code **)(iVar3 + 0x54))
-                    (*(int *)(param_1 + 0x84) + (int)*(short *)(iVar3 + 0x50),
+          (((vtbl_entry*)(iVar3))[10].fn)
+                    (*(int *)(param_1 + 0x84) + (int)((vtbl_entry*)(iVar3))[10].adj,
                      *(uint32_t *)(param_1 + 0x1568));
           iVar3 = *(int *)(*(int *)(param_1 + 0x84) + 0x8d4);
-          (**(code **)(iVar3 + 0x5c))
-                    (*(int *)(param_1 + 0x84) + (int)*(short *)(iVar3 + 0x58),
+          (((vtbl_entry*)(iVar3))[11].fn)
+                    (*(int *)(param_1 + 0x84) + (int)((vtbl_entry*)(iVar3))[11].adj,
                      *(uint32_t *)(param_1 + 0x98));
           uStack_c = 1;
         }

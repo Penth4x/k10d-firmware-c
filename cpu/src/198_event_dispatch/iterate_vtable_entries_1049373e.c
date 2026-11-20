@@ -14,19 +14,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-void iterate_vtable_entries_1049373e(int param_1)
+void iterate_vtable_entries_1049373e(cls_105b47b4 *param_1)
 
 {
   int *piVar1;
   int iVar2;
   
-  piVar1 = *(int **)(param_1 + 0x48);
-  if (piVar1 != *(int **)(param_1 + 0x4c)) {
+  piVar1 = (int *)((uintptr_t)(param_1->field43_0x48));
+  if ((uint32_t)(piVar1) != param_1->field_0x4c) {
     do {
       iVar2 = *(int *)(*piVar1 + 0xc);
-      (**(code **)(iVar2 + 0xbc))(*piVar1 + (int)*(short *)(iVar2 + 0xb8));
+      (((vtbl_entry*)(iVar2))[23].fn)(*piVar1 + (int)((vtbl_entry*)(iVar2))[23].adj);
       piVar1 = piVar1 + 1;
-    } while (piVar1 != *(int **)(param_1 + 0x4c));
+    } while ((uint32_t)(piVar1) != param_1->field_0x4c);
   }
   return;
 }

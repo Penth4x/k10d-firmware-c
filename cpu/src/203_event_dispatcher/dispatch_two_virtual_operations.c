@@ -31,15 +31,15 @@ uint32_t dispatch_two_virtual_operations(int param_1,int param_2)
   uVar3 = *(uint32_t *)((int)*(void **)(param_1 + 4) + 8);
   uVar2 = read_struct_field_by_index_1049a7dc(*(void **)(param_1 + 4),param_2);
   iVar1 = **(int **)(param_1 + 8);
-  iVar1 = (**(code **)(iVar1 + 0x34))
-                    ((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar1 + 0x30),uVar4,uVar5,0);
+  iVar1 = (((vtbl_entry*)(iVar1))[6].fn)
+                    ((int)*(int **)(param_1 + 8) + (int)((vtbl_entry*)(iVar1))[6].adj,uVar4,uVar5,0);
   if (iVar1 == 0) {
     uVar2 = 0;
   }
   else {
     iVar1 = **(int **)(param_1 + 8);
-    uVar2 = (**(code **)(iVar1 + 0x24))
-                      ((int)*(int **)(param_1 + 8) + (int)*(short *)(iVar1 + 0x20),uVar4,uVar3,uVar2
+    uVar2 = (((vtbl_entry*)(iVar1))[4].fn)
+                      ((int)*(int **)(param_1 + 8) + (int)((vtbl_entry*)(iVar1))[4].adj,uVar4,uVar3,uVar2
                       );
   }
   return uVar2;

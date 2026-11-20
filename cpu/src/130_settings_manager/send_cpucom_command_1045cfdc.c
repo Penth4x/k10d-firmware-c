@@ -23,12 +23,12 @@ uint32_t send_cpucom_command_1045cfdc(int *param_1,void *param_2,int param_3,uin
   bVar2 = set_pointer_and_clear_flag(piVar5,param_2);
   if (bVar2) {
     uStack_10 = 1;
-    (**(code **)(*param_1 + 0x4c))((int)*(short *)(*param_1 + 0x48) + (int)param_1,0,param_4,0xff);
+    (((vtbl_entry*)(*param_1))[9].fn)((int)((vtbl_entry*)(*param_1))[9].adj + (int)param_1,0,param_4,0xff);
     iVar4 = (uint)(param_3 != 0) * 2;
-    cpucom_msg_set_cmd((void *)param_1[6],(&DAT_105a5c5c/*ROM*/)[iVar4]);
+    cpucom_msg_set_cmd((void*)(param_1[6]),(&DAT_105a5c5c/*ROM*/)[iVar4]);
     cpucom_resp_set_insize((void *)param_1[6],(uint)(byte)(&DAT_105a5c5d/*ROM*/)[iVar4]);
     pvVar3 = (void *)param_1[6];
-    pvVar1 = (void *)(**(code **)(*param_1 + 0x6c))((int)*(short *)(*param_1 + 0x68) + (int)param_1)
+    pvVar1 = (void *)(((vtbl_entry*)(*param_1))[13].fn)((int)((vtbl_entry*)(*param_1))[13].adj + (int)param_1)
     ;
     set_ptr_if_field_is_null(pvVar3,pvVar1);
     set_object_field_at_offset_0x14((void *)param_1[6],param_1 + 1);

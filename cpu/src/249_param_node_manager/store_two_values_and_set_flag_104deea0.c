@@ -6,11 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t store_two_values_and_set_flag_104deea0(int param_1,uint32_t param_2,uint32_t param_3)
+/* WARNING: Struct "cls_105bb314": ignoring overlapping field "field_0x8" */
+
+uint32_t store_two_values_and_set_flag_104deea0(cls_105bb314 *param_1,uint32_t param_2,uint32_t param_3)
 
 {
-  *(uint32_t *)(param_1 + 0x84) = param_2;
-  *(uint32_t *)(param_1 + 0x80) = param_3;
-  set_flg_obj(*(uint32_t **)(param_1 + 0x70));
+  param_1->field_0x84 = param_2;
+  param_1->field_0x80 = param_3;
+  set_flg_obj((void *)param_1->field_0x70);
   return 1;
 }

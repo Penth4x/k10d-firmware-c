@@ -13,12 +13,12 @@ void map_virtual_call_result_to_code(int param_1,int param_2)
   int iVar2;
   
   iVar2 = **(int **)(param_1 + 0x10);
-  iVar2 = (**(code **)(iVar2 + 0x14))
-                    ((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar2 + 0x10),9);
+  iVar2 = (((vtbl_entry*)(iVar2))[2].fn)
+                    ((int)*(int **)(param_1 + 0x10) + (int)((vtbl_entry*)(iVar2))[2].adj,9);
   if (iVar2 == 1) {
     iVar2 = **(int **)(param_1 + 0x10);
-    iVar2 = (**(code **)(iVar2 + 0x14))
-                      ((int)*(int **)(param_1 + 0x10) + (int)*(short *)(iVar2 + 0x10),10);
+    iVar2 = (((vtbl_entry*)(iVar2))[2].fn)
+                      ((int)*(int **)(param_1 + 0x10) + (int)((vtbl_entry*)(iVar2))[2].adj,10);
     if (iVar2 == 0x20) {
       uVar1 = 6;
     }

@@ -16,22 +16,22 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t initialize_object_from_context(void *param_1)
+uint32_t initialize_object_from_context(cls_105b6d94 *param_1)
 
 {
   int iVar1;
   void *pvVar2;
-  int iVar3;
+  uint32_t *puVar3;
   
   iVar1 = initialize_singleton_object_1045d6a0();
   pvVar2 = *(void **)(iVar1 + 0x20);
-  iVar3 = (int)param_1 + 4;
-  *(void **)((int)param_1 + 0x1c) = pvVar2;
-  allocate_first_free_slot(pvVar2,0,iVar3);
-  allocate_first_free_slot(*(void **)((int)param_1 + 0x1c),1,iVar3);
+  puVar3 = &param_1->field_0x4;
+  param_1->field_0x1c = (uintptr_t)(pvVar2);
+  allocate_first_free_slot((void *)(pvVar2),(int)(0),(uint32_t)(puVar3));
+  allocate_first_free_slot((void *)(param_1->field_0x1c),(int)(1),(uint32_t)(puVar3));
   pvVar2 = *(void **)(iVar1 + 0x1c);
-  *(void **)((int)param_1 + 0x20) = pvVar2;
-  allocate_free_slot_in_table_1045e7f2(pvVar2,0x15,iVar3);
-  create_kernel_object((void *)((int)param_1 + 0xc));
+  param_1->field_0x20 = (uintptr_t)(pvVar2);
+  allocate_free_slot_in_table_1045e7f2((void *)(pvVar2),(int)(0x15),(uint32_t)(puVar3));
+  create_kernel_object(&param_1->field_0xc);
   return 1;
 }

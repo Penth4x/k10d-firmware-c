@@ -9,7 +9,7 @@
 void invoke_virtual_slot_two_1039ca9a(void *param_1,int param_2,uint32_t param_3)
 
 {
-  (**(code **)(*(int *)(param_2 + 0xc) + 0xc))
+  (((vtbl_entry*)(*(int *)(param_2 + 0xc)))[1].fn)
             (*(short *)(*(int *)(param_2 + 0xc) + 8) + param_2,param_3);
   return;
 }

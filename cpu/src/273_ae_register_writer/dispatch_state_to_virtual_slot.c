@@ -23,28 +23,28 @@ void dispatch_state_to_virtual_slot(int param_1,void *param_2)
   
   sVar1 = *(short *)(*(int *)((int)param_2 + 0x20) + 0xa0 + *(int *)((int)param_2 + 0x24) * 2);
   if (sVar1 == 0) {
-    (**(code **)(*(int *)((int)param_2 + 0x8d4) + 0x104))
-              ((int)*(short *)(*(int *)((int)param_2 + 0x8d4) + 0x100) + (int)param_2,1,1,0);
+    (((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[32].fn)
+              ((int)((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[32].adj + (int)param_2,1,1,0);
   }
   else if (sVar1 == 1) {
-    (**(code **)(*(int *)((int)param_2 + 0x8d4) + 0x104))
-              ((int)*(short *)(*(int *)((int)param_2 + 0x8d4) + 0x100) + (int)param_2,1,0,0);
+    (((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[32].fn)
+              ((int)((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[32].adj + (int)param_2,1,0,0);
   }
   else if (sVar1 == 2) {
-    (**(code **)(*(int *)((int)param_2 + 0x8d4) + 0x104))
-              ((int)*(short *)(*(int *)((int)param_2 + 0x8d4) + 0x100) + (int)param_2,0,1,0);
+    (((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[32].fn)
+              ((int)((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[32].adj + (int)param_2,0,1,0);
   }
   else if (sVar1 == 3) {
-    (**(code **)(*(int *)((int)param_2 + 0x8d4) + 0x104))
-              ((int)*(short *)(*(int *)((int)param_2 + 0x8d4) + 0x100) + (int)param_2,1,0,1);
+    (((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[32].fn)
+              ((int)((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[32].adj + (int)param_2,1,0,1);
   }
   else if (sVar1 == 4) {
-    (**(code **)(*(int *)((int)param_2 + 0x8d4) + 0x104))
-              ((int)*(short *)(*(int *)((int)param_2 + 0x8d4) + 0x100) + (int)param_2,1,0,0);
+    (((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[32].fn)
+              ((int)((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[32].adj + (int)param_2,1,0,0);
   }
   else {
-    (**(code **)(*(int *)((int)param_2 + 0x8d4) + 0x104))
-              ((int)*(short *)(*(int *)((int)param_2 + 0x8d4) + 0x100) + (int)param_2,1,1,0);
+    (((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[32].fn)
+              ((int)((vtbl_entry*)(*(int *)((int)param_2 + 0x8d4)))[32].adj + (int)param_2,1,1,0);
   }
   *(uint32_t *)((int)param_2 + 0x10) = 0x800001;
   *(int *)((int)param_2 + 8) = param_1 + 4;

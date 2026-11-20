@@ -15,7 +15,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void * dispatch_on_pair_4_0xc(void *param_1,int *param_2)
+cls_10557c18 * dispatch_on_pair_4_0xc(cls_10557c18 *param_1,int *param_2)
 
 {
   if ((*param_2 == 4) && (param_2[1] == 0xc)) {

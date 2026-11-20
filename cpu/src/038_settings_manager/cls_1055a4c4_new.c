@@ -11,15 +11,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-int cls_1055a4c4_new(void *param_1)
+int cls_1055a4c4_new(cls_1055a4c4 *param_1)
 
 {
-  if ((param_1 != (void *)0x0) || (param_1 = (void *)heap_alloc((void *)0x18), param_1 != (uint32_t *)0x0)
-     ) {
-    *(uint32_t *)((int)param_1 + 0x14) = 0x1055a4c4/*ROM*/;
+  if ((param_1 != (cls_1055a4c4 *)0x0) ||
+     (param_1 = (cls_1055a4c4 *)heap_alloc((void *)0x18), param_1 != (cls_1055a4c4 *)0x0)) {
+    param_1->field_0x14 = 0x1055a4c4/*ROM*/;
     initialize_lens_update_object(param_1,0xc);
-    cls_105a2be0_new((uint32_t *)((int)param_1 + 0xc));
-    call_helper_with_fixed_args_10390ece(param_1);
+    cls_105a2be0_new((cls_105a2be0 *)&param_1->field_0xc);
+    call_helper_with_fixed_args_10390ece((uint32_t *)param_1);
   }
   return (int)param_1;
 }

@@ -31,17 +31,17 @@ int dispatch_mode_transition_104b7cd0(int param_1,void *param_2,int param_3)
   }
   eventflag_clr_flg((uint32_t *)(param_1 + 0x24),1);
   if (param_3 == 0) {
-    iVar2 = send_cpucom_command_104617b8((void *)(*(uint32_t *)(param_1 + 0xc)),(void *)(param_1 + 4));
+    iVar2 = send_cpucom_command_104617b8((int *)(*(uint32_t *)(param_1 + 0xc)),(void *)(param_1 + 4));
   }
   else if (param_3 == 1) {
-    iVar2 = send_control_message_sequence((void *)(*(uint32_t *)(param_1 + 0xc)),(void *)(param_1 + 4));
+    iVar2 = send_control_message_sequence((int *)(*(uint32_t *)(param_1 + 0xc)),(void *)(param_1 + 4));
   }
   else {
     if (param_3 != 2) {
       bVar1 = true;
       goto LAB_104b7d4a;
     }
-    iVar2 = send_cpucom_command_and_wait((void *)(*(uint32_t *)(param_1 + 0xc)),(void *)(param_1 + 4));
+    iVar2 = send_cpucom_command_and_wait((int *)(*(uint32_t *)(param_1 + 0xc)),(void *)(param_1 + 4));
   }
   bVar1 = iVar2 == 0;
 LAB_104b7d4a:

@@ -12,8 +12,8 @@ void invoke_virtual_slot_two_on_two_objects_1043930a(uint32_t param_x0, uint32_t
   int *piVar1;
   
   piVar1 = (int *)get_or_create_singleton_104e7b68();
-  (**(code **)(*piVar1 + 0x1c))((int)piVar1 + (int)*(short *)(*piVar1 + 0x18),0);
+  (((vtbl_entry*)(*piVar1))[3].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[3].adj,0);
   piVar1 = (int *)get_or_init_singleton_10433180();
-  (**(code **)(*piVar1 + 0x1c))((int)piVar1 + (int)*(short *)(*piVar1 + 0x18),0);
+  (((vtbl_entry*)(*piVar1))[3].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[3].adj,0);
   return;
 }

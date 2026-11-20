@@ -20,7 +20,7 @@ uint32_t * cls_105b9400_new_2(uint32_t *param_1,uint32_t *param_2)
   
   if ((param_1 != (uint32_t *)0x0) ||
      (param_1 = (uint32_t *)heap_alloc((void *)0x1dc), param_1 != (uint32_t *)0x0)) {
-    param_1[0x76] = (uint32_t)&DAT_105b9400/*ROM*/;
+    param_1[0x76] = (uintptr_t)(&DAT_105b9400/*ROM*/);
     *param_1 = *param_2;
     *(uint16_t *)(param_1 + 1) = *(uint16_t *)(param_2 + 1);
     *(uint16_t *)((int)param_1 + 6) = *(uint16_t *)((int)param_2 + 6);

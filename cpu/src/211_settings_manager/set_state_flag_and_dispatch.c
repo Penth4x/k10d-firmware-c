@@ -15,20 +15,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t set_state_flag_and_dispatch(int param_1,int param_2,int *param_3)
+uint32_t set_state_flag_and_dispatch(cls_105b7288 *param_1,int param_2,int *param_3)
 
 {
   uint32_t uVar1;
   
-  if (*(int *)(param_1 + 0x34) == 0) {
+  if (param_1->field_0x34 == 0) {
     if (param_2 == 0) {
-      *(uint32_t *)(param_1 + 0x34) = 0;
+      param_1->field_0x34 = 0;
       uVar1 = 4;
       call_seventh_vtable_slot(__frv_reg_unset(4));
     }
     else {
-      *(uint32_t *)(param_1 + 0x34) = 1;
-      store_and_dispatch_buffer_update(param_1,param_3);
+      param_1->field_0x34 = 1;
+      store_and_dispatch_buffer_update((int)param_1,param_3);
       uVar1 = 1;
     }
   }

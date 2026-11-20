@@ -16,7 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_object_with_two_params(int param_1,uint32_t param_2,uint32_t param_3)
+uint32_t init_object_with_two_params(cls_105b9b2c *param_1,uint32_t param_2,uint32_t param_3)
 
 {
   int iVar1;
@@ -24,17 +24,17 @@ uint32_t init_object_with_two_params(int param_1,uint32_t param_2,uint32_t param
   int iVar3;
   int iVar4;
   
-  *(uint32_t *)(param_1 + 4) = param_2;
-  *(uint32_t *)(param_1 + 8) = param_3;
-  *(uint32_t *)(param_1 + 0xc) = 8;
+  param_1->field_0x4 = param_2;
+  param_1->field_0x8 = param_3;
+  param_1->field_0xc = 8;
   iVar4 = 0;
-  iVar3 = *(int *)(*(int *)(param_1 + 8) + 8);
+  iVar3 = *(int *)(param_1->field_0x8 + 8);
   *(uint32_t *)(iVar3 + 0x28) = 8;
-  iVar1 = read_two_fields_and_store_sum(param_1,iVar3);
+  iVar1 = read_two_fields_and_store_sum((int)(param_1),(void *)(iVar3));
   iVar3 = *(int *)(iVar3 + 0x2c);
   if (iVar3 != 0) {
-    *(uint32_t *)(iVar3 + 0x28) = *(uint32_t *)(param_1 + 0xc);
-    iVar4 = accumulate_two_buffer_sizes(param_1,iVar3);
+    *(uint32_t *)(iVar3 + 0x28) = param_1->field_0xc;
+    iVar4 = accumulate_two_buffer_sizes((int)param_1,iVar3);
   }
   uVar2 = 0;
   if ((iVar1 != 0) && (iVar4 != 0)) {

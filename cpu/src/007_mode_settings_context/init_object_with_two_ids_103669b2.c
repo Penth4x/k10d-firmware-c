@@ -14,11 +14,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_with_two_ids_103669b2(int param_1)
+void init_object_with_two_ids_103669b2(cls_105577f8 *param_1)
 
 {
-  reset_object_fields_and_call_base((void *)(param_1 + 0x6c));
-  reset_object_fields_and_call_base((void *)(param_1 + 0x280));
-  empty_stub_10366cba(param_1);
+  reset_object_fields_and_call_base((cls_105b9458 *)&param_1->field_0x6c);
+  reset_object_fields_and_call_base((cls_105b9458 *)&param_1->field_0x280);
+  empty_stub_10366cba((int)param_1);
   return;
 }

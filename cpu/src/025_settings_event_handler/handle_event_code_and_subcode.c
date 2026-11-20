@@ -8,7 +8,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void handle_event_code_and_subcode(void *param_1,int *param_2)
+void handle_event_code_and_subcode(cls_10557f3c *param_1,int *param_2)
 
 {
   int iVar1;
@@ -28,11 +28,11 @@ void handle_event_code_and_subcode(void *param_1,int *param_2)
         }
         else if (uVar2 != 10) {
           if (uVar2 == 0xd) {
-            *(uint8_t *)((int)param_1 + 0xc6) = 1;
+            param_1->field_0xc6 = 1;
             return;
           }
           if (uVar2 == 0xe) {
-            *(uint8_t *)((int)param_1 + 0xc5) = 1;
+            param_1->field_0xc5 = 1;
             return;
           }
           if (uVar2 != 0x29) {
@@ -47,10 +47,10 @@ void handle_event_code_and_subcode(void *param_1,int *param_2)
     }
     else if (iVar1 == 5) {
       if (param_2[1] == 0xe) {
-        *(uint8_t *)((int)param_1 + 0xc5) = 0;
+        param_1->field_0xc5 = 0;
       }
       else if (param_2[1] == 0xd) {
-        *(uint8_t *)((int)param_1 + 0xc6) = 0;
+        param_1->field_0xc6 = 0;
       }
     }
   }

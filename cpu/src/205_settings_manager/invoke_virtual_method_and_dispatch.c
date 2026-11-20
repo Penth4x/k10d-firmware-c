@@ -22,8 +22,8 @@ uint32_t invoke_virtual_method_and_dispatch(int param_1)
   int iVar2;
   
   iVar2 = *(int *)(*(int *)(param_1 + 0x24) + 8);
-  iVar2 = (**(code **)(iVar2 + 0x34))
-                    (*(int *)(param_1 + 0x24) + (int)*(short *)(iVar2 + 0x30),param_1 + 0x28,
+  iVar2 = (((vtbl_entry*)(iVar2))[6].fn)
+                    (*(int *)(param_1 + 0x24) + (int)((vtbl_entry*)(iVar2))[6].adj,param_1 + 0x28,
                      *(uint32_t *)(param_1 + 8));
   uVar1 = 0;
   if (iVar2 != 0) {

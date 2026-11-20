@@ -13,9 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_lens_update_helper_10546fa8(void)
+void call_lens_update_helper_10546fa8(int param_1,int param_2,int param_3,void *param_4)
 
 {
-  alloc_and_init_lens_fw_buffer();
+  alloc_and_init_lens_fw_buffer(param_1,param_2,param_3,param_4,(void *)0x0,1);
   return;
 }

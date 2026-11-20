@@ -27,7 +27,7 @@ uint32_t write_buffer_in_chunks_100f0a94(int param_1,int param_2)
   init_p67_base_and_vectors();
   if (param_2 == 0) {
     iVar1 = check_status_is_zero_100f0b4e();
-    if ((iVar1 != 0) && (iVar1 = loop_call_helper_with_offset(0,1,param_1,(void *)auStack_c), iVar1 == 0)) {
+    if ((iVar1 != 0) && (iVar1 = loop_call_helper_with_offset(0,1,param_1,auStack_c), iVar1 == 0)) {
 LAB_100f0b08:
       invoke_function_pointer(0);
       return 1;
@@ -41,7 +41,7 @@ LAB_100f0b08:
       do {
         invoke_function_pointer(bVar3);
         bVar3 = !bVar3;
-        iVar1 = loop_call_helper_with_offset(uVar2,0x100,uVar2 * 0x200 + param_1,(void *)auStack_c);
+        iVar1 = loop_call_helper_with_offset(uVar2,0x100,uVar2 * 0x200 + param_1,auStack_c);
         if (iVar1 != 0) {
           return 0;
         }

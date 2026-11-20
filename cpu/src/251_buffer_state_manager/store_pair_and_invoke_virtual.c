@@ -14,6 +14,6 @@ uint32_t store_pair_and_invoke_virtual(int param_1,uint32_t param_2,uint32_t par
   *(uint32_t *)(param_1 + 0x1024) = param_2;
   *(uint32_t *)(param_1 + 0x1028) = param_3;
   iVar1 = **(int **)(param_1 + 0x1020);
-  (**(code **)(iVar1 + 0x14))((int)*(int **)(param_1 + 0x1020) + (int)*(short *)(iVar1 + 0x10));
+  (((vtbl_entry*)(iVar1))[2].fn)((int)*(int **)(param_1 + 0x1020) + (int)((vtbl_entry*)(iVar1))[2].adj);
   return 1;
 }

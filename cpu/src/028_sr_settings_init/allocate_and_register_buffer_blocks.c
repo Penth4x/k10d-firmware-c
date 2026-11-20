@@ -101,9 +101,9 @@ void allocate_and_register_buffer_blocks(int param_1,uint32_t *param_2,uint32_t 
     *(short *)((int)param_5 + 6) = (short)uVar3;
     uVar3 = read_struct_field_at_offset_4(auStack_10);
     *(short *)(param_5 + 1) = (short)uVar3;
-    *puVar9 = (uint32_t)(uintptr_t)param_3;
-    puVar9[2] = (uint32_t)(uintptr_t)param_5;
-    puVar9[1] = (uint32_t)(uintptr_t)param_4;
+    *puVar9 = (uint32_t)(param_3);
+    puVar9[2] = (uint32_t)(param_5);
+    puVar9[1] = (uint32_t)(param_4);
     dispatch_seven_param_call((void *)param_1,0x80015af0/*SDRAM*/,0xf,param_2,*puVar9,puVar9[1],puVar9[2]);
     free_heap_if_flagged_1045c402(auStack_10,2);
     free_heap_if_flagged_1045c402(puVar1,2);

@@ -14,21 +14,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t query_child_state_flag(int param_1)
+uint32_t query_child_state_flag(cls_105b7f38 *param_1)
 
 {
   int *piVar1;
   uint uVar2;
   uint32_t uVar3;
   
-  (*(code *)0x104ad2d4/*ROM*/)(*(uint32_t *)(param_1 + 0xc),0,0,0);
-  *(uint32_t *)(param_1 + 0x18) = 0;
-  piVar1 = *(int **)(param_1 + 8);
+  (*(code *)0x104ad2d4/*ROM*/)(param_1->field_0xc,0,0,0);
+  param_1->field_0x18 = 0;
+  piVar1 = (int *)param_1->field_0x8;
   if (piVar1 == (int *)0x0) {
     uVar3 = 1;
   }
   else {
-    uVar2 = (**(code **)(*piVar1 + 0x1c))((int)*(short *)(*piVar1 + 0x18) + (int)piVar1,0);
+    uVar2 = (((vtbl_entry*)(*piVar1))[3].fn)((int)((vtbl_entry*)(*piVar1))[3].adj + (int)piVar1,0);
     uVar3 = 1;
     if ((uVar2 & 1) == 0) {
       uVar3 = 0;

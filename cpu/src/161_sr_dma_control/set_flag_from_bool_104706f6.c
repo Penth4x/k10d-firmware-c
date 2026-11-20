@@ -25,6 +25,6 @@ void set_flag_from_bool_104706f6(int param_1,int param_2)
   else {
     uVar1 = 2;
   }
-  call_helper_with_offset_args_10463110(*(uint32_t *)(param_1 + 0x2c),uVar1);
+  call_helper_with_offset_args_10463110((int *)(*(uint32_t *)(param_1 + 0x2c)),(uint32_t)(uVar1));
   return;
 }

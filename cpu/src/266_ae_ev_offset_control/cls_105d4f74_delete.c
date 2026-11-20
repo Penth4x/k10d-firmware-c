@@ -11,15 +11,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_105d4f74_delete(uint32_t *param_1,uint param_2)
+/* WARNING: Struct "cls_105d4f74": ignoring multiple overlapping fields */
+
+void cls_105d4f74_delete(cls_105d4f74 *param_1,uint param_2)
 
 {
-  if (param_1 != (uint32_t *)0x0) {
-    *param_1 = 0x105d4f74/*ROM*/;
-    param_1[1] = 0x105d4fa4/*ROM*/;
-    cls_1059e288_delete(param_1 + 0xe,2);
-    cls_1059e288_delete(param_1 + 8,2);
-    cls_1059e408_delete(param_1 + 1,0);
+  if (param_1 != (cls_105d4f74 *)0x0) {
+    param_1->field_0x0 = (uintptr_t)((void *)0x105d4f74/*ROM*/);
+    ((uint32_t *)&(param_1->field_0x4))[0] = (uint32_t)((void *)0x105d4fa4/*ROM*/);
+    cls_1059e288_delete(&param_1->field_0x38,2);
+    cls_1059e288_delete(&param_1->field_0x20,2);
+    cls_1059e408_delete(&param_1->field_0x4,0);
     reset_vtable_and_free_if_flagged_10428264(param_1,0);
     if ((param_2 & 1) != 0) {
       heap_free((int)param_1);

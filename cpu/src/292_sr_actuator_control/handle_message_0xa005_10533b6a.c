@@ -13,11 +13,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool handle_message_0xa005_10533b6a(void *param_1,int param_2,void *param_3)
+bool handle_message_0xa005_10533b6a(cls_1061e3d0 *param_1,int param_2,void *param_3)
 
 {
   if (param_2 == 0xa005) {
-    *(void **)((int)param_1 + 4) = param_3;
+    *(void **)((char *)param_1 + 4) = param_3;
   }
   return param_2 == 0xa005;
 }

@@ -27,13 +27,13 @@ forward_params_to_helper_1036c258(void *param_1,uint32_t param_2,int param_3,uin
   uint8_t local_28 [12];
   
   puVar1 = (uint32_t *)local_28;
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,0x100000);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(0x100000));
   *puVar1 = param_4;
   puVar1[1] = param_5;
   *(uint8_t *)((int)puVar1 + 0xb) = param_6;
   init_struct_with_fields_and_flags(_DAT_8000439c/*SDRAM*/,param_1,param_2,param_3,*puVar1,puVar1[1],
                *(uint8_t *)((int)puVar1 + 0xb));
   eventflag_wai_flg((uint32_t *)0x80018088/*SDRAM*/,0x100000,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
-  eventflag_clr_flg((void *)0x80018088/*SDRAM*/,0x100000);
+  eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(0x100000));
   return *(uint32_t *)((int)param_1 + 8);
 }
