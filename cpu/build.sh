@@ -24,8 +24,20 @@ one(){ f="$1"; b=$(basename "$f" .c)
 export -f one w
 echo "[1] compile+assemble C (J=$J)"
 find "$HERE/src" -name '*.c' | xargs -P"$J" -I{} bash -c 'one "$@"' _ {} 2>&1 | grep -c FAIL | sed 's/^/   failures: /'
-echo "[2] assemble harvested non-code (crt0/vtables/syms)"
-for a in crt0 vtables syms; do (cd "$SOFTUNE" && wine BIN/FASM911S.EXE -cpu $CPU -o "$(w "$OBJ/$a.obj")" "$(w "$HERE/gen/$a.asm")") >/dev/null 2>&1; done
+# Under heavy parallel wine, ~some compiles exit 0 but write no .obj (wineserver contention),
+# not a real fcc error. Retry anything still missing an .obj at LOW parallelism to absorb that
+# flakiness, so the object set is complete for the link.
+for pass in 1 2 3; do
+  miss=$(find "$HERE/src" -name '*.c' | while read f; do b=$(basename "$f" .c); [ -s "$OBJ/$b.obj" ] || echo "$f"; done)
+  [ -z "$miss" ] && break
+  n=$(echo "$miss" | wc -l); echo "   [1b pass $pass] retry $n missing at J=4"
+  echo "$miss" | xargs -P4 -I{} bash -c 'one "$@"' _ {}
+done
+# Gate the link on a COMPLETE object set — a partial link only floods unresolved-symbol errors.
+STILL=$(find "$HERE/src" -name '*.c' | while read f; do b=$(basename "$f" .c); [ -s "$OBJ/$b.obj" ] || echo "$b"; done)
+if [ -n "$STILL" ]; then echo "   ABORT: $(echo "$STILL"|wc -l) functions still fail to compile:"; echo "$STILL"|sed 's/^/     /'|head; exit 1; fi
+echo "[2] assemble harvested non-code (crt0/vtables/syms/syscall_traps)"
+for a in crt0 vtables syms syscall_traps; do (cd "$SOFTUNE" && wine BIN/FASM911S.EXE -cpu $CPU -o "$(w "$OBJ/$a.obj")" "$(w "$HERE/gen/$a.asm")") >/dev/null 2>&1; done
 echo "[3] link (pack code at $CODEBASE)"
 OPT="$OUT/link.opt"; { echo "-cpu $CPU"; echo "-a"; echo "-e _reset_entry"; echo "-sc CODE=$CODEBASE";
   echo "-m $(w $OUT/firmware.map)"; echo "-o $(w $OUT/firmware.abs)"
