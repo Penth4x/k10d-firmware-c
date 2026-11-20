@@ -22,6 +22,11 @@
 uint32_t dispatch_lens_comm_command(cls_105c1610 *param_1,uint32_t param_2,int param_3)
 
 {
+  struct {
+    uint32_t uStack_20;
+    uint32_t uStack_1c;
+    uint uStack_18;
+  } _cfg_20;
   char cVar1;
   char cVar2;
   uint32_t *puVar3;
@@ -43,10 +48,6 @@ uint32_t dispatch_lens_comm_command(cls_105c1610 *param_1,uint32_t param_2,int p
   uint32_t uStack_2c;
   uint32_t uStack_28;
   uint uStack_24;
-  uint32_t uStack_20;
-  uint32_t uStack_1c;
-  uint uStack_18;
-  
   puVar13 = (uint32_t *)auStack_6c;
   cVar1 = *(char *)(param_3 + 0x858);
   cVar2 = *(char *)(param_3 + 0x859);
@@ -352,12 +353,12 @@ LAB_104e8244:
     *(bool *)(iVar6 + 0x1576) = iVar11 != 0;
     break;
   case '\x06':
-    invoke_virtual_method_on_object_10419afe(param_1->field_0x38,&uStack_20);
+    invoke_virtual_method_on_object_10419afe(param_1->field_0x38,&_cfg_20.uStack_20);
     set_struct_field_at_offset_4(param_3,3);
-    write_word_to_struct_array(param_3,uStack_20,0);
-    write_word_to_struct_array(param_3,uStack_1c,1);
+    write_word_to_struct_array(param_3,_cfg_20.uStack_20,0);
+    write_word_to_struct_array(param_3,_cfg_20.uStack_1c,1);
     iVar11 = 2;
-    uVar7 = uStack_18;
+    uVar7 = _cfg_20.uStack_18;
     goto LAB_104e8182;
   case '\a':
     set_struct_field_at_offset_4(param_3,0);

@@ -19,6 +19,11 @@
 int transfer_data_blocks_with_checksum(int param_1,uint param_2,uint param_3,void *param_4,int *param_5)
 
 {
+  struct {
+    void * pvStack_58;
+    uint uStack_54;
+    int iStack_50;
+  } _cfg_58;
   int iVar1;
   uint uVar2;
   uint uVar3;
@@ -27,9 +32,6 @@ int transfer_data_blocks_with_checksum(int param_1,uint param_2,uint param_3,voi
   int aiStack_68 [2];
   uint8_t auStack_60 [4];
   int iStack_5c;
-  void *pvStack_58;
-  uint uStack_54;
-  int iStack_50;
   uint auStack_4c [4];
   int iStack_3c;
   uint32_t uStack_38;
@@ -45,15 +47,15 @@ int transfer_data_blocks_with_checksum(int param_1,uint param_2,uint param_3,voi
   iStack_2c = *(int *)(param_1 + 0x10);
   uVar2 = *(uint *)((int)param_4 + 0x10);
   auStack_4c[0] = param_2;
-  pvStack_58 = (void *)alloc_pool2_block((void *)(uVar2));
+  _cfg_58.pvStack_58 = (void *)alloc_pool2_block((void *)(uVar2));
   iVar1 = 0;
-  if (pvStack_58 == 0) {
+  if (_cfg_58.pvStack_58 == 0) {
     iVar1 = -0xc;
   }
   else {
     uVar3 = 0;
-    iStack_50 = 0;
-    uStack_54 = uVar2;
+    _cfg_58.iStack_50 = 0;
+    _cfg_58.uStack_54 = uVar2;
     uStack_28 = uVar2;
     while (uVar2 = uStack_28, uVar3 < param_3) {
       uStack_30 = unsigned_divide(param_3 - uVar3,uStack_28);
@@ -78,16 +80,16 @@ int transfer_data_blocks_with_checksum(int param_1,uint param_2,uint param_3,voi
           goto code_r0x1054410e;
         }
         auStack_4c[2] = 0;
-        iVar1 = (*(code *)0x10542f3a/*ROM*/)(param_1,auStack_4c,&pvStack_58,auStack_60);
+        iVar1 = (*(code *)0x10542f3a/*ROM*/)(param_1,auStack_4c,&_cfg_58.pvStack_58,auStack_60);
         if (iVar1 != 0) {
           if (iVar1 != -0x1f5) goto code_r0x1054410e;
           if (iStack_5c == 0) {
             iVar1 = -0x390;
             goto code_r0x1054410e;
           }
-          fill_byte_array((void *)((int)pvStack_58 + iStack_5c),0,uStack_28 - iStack_5c);
+          fill_byte_array((void *)((int)_cfg_58.pvStack_58 + iStack_5c),0,uStack_28 - iStack_5c);
         }
-        iVar1 = compute_indexed_lookup_value((int)param_4,(int)pvStack_58,aiStack_68,&uStack_24);
+        iVar1 = compute_indexed_lookup_value((int)param_4,(int)_cfg_58.pvStack_58,aiStack_68,&uStack_24);
         if (iVar1 != 0) {
           if ((iVar1 != -5) || (iVar1 = merge_lens_fw_block_entry(param_4,(int *)(auStack_4c + 3)), iVar1 != 0))
           goto code_r0x1054410e;
@@ -98,9 +100,9 @@ int transfer_data_blocks_with_checksum(int param_1,uint param_2,uint param_3,voi
         }
         aiStack_68[0] = aiStack_68[0] + 1;
         uVar3 = uVar3 + iStack_5c;
-        iStack_50 = iStack_50 + iStack_5c;
-        if (iStack_50 == iStack_2c) {
-          iStack_50 = 0;
+        _cfg_58.iStack_50 = _cfg_58.iStack_50 + iStack_5c;
+        if (_cfg_58.iStack_50 == iStack_2c) {
+          _cfg_58.iStack_50 = 0;
           auStack_4c[0] = auStack_4c[2];
         }
       }
@@ -109,7 +111,7 @@ int transfer_data_blocks_with_checksum(int param_1,uint param_2,uint param_3,voi
       }
     }
 code_r0x1054410e:
-    release_heap_block_1047f9bc(pvStack_58);
+    release_heap_block_1047f9bc(_cfg_58.pvStack_58);
     if ((iVar1 != 0) && (*param_5 != 0)) {
       dispatch_lens_fw_update_step_1053d138(param_4,*param_5,*(uint32_t *)((int)param_4 + 0x54),0);
       *param_5 = 0;

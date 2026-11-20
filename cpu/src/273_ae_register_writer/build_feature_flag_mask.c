@@ -21,23 +21,24 @@
 uint build_feature_flag_mask(int param_1,int param_2)
 
 {
+  struct {
+    int iStack_1c;
+    int iStack_18;
+    uint32_t uStack_14;
+    uint32_t uStack_10;
+    void * puStack_c;
+  } _cfg_1c;
   int iVar1;
   int iVar2;
   uint32_t *puVar3;
   uint uVar4;
   uintptr_t sp;
-  int iStack_1c;
-  int iStack_18;
-  uint32_t uStack_14;
-  uint32_t uStack_10;
-  void *puStack_c;
-  
-  puStack_c = &DAT_1059e4d0/*ROM*/;
-  uStack_14 = 0x800004;
-  iStack_1c = param_1 + 4;
+  _cfg_1c.puStack_c = &DAT_1059e4d0/*ROM*/;
+  _cfg_1c.uStack_14 = 0x800004;
+  _cfg_1c.iStack_1c = param_1 + 4;
   puVar3 = (uint32_t *)(param_1 + 0x34c);
-  uStack_10 = 0;
-  iStack_18 = param_2;
+  _cfg_1c.uStack_10 = 0;
+  _cfg_1c.iStack_18 = param_2;
   eventflag_clr_flg(puVar3,0x40);
   reg_framework_send(*(int *)(param_1 + 0x44) + 8);
   uVar4 = 0;
@@ -76,6 +77,6 @@ uint build_feature_flag_mask(int param_1,int param_2)
   else {
     *(uint *)(param_1 + 0x340) = uVar4;
   }
-  virtual_destructor_free_10428222(&iStack_1c,2);
+  virtual_destructor_free_10428222(&_cfg_1c.iStack_1c,2);
   return uVar4;
 }

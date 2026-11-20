@@ -20,25 +20,26 @@ void initialize_sensor_readout_buffer(int param_1,uint32_t param_2,uint16_t para
                  uint16_t param_5)
 
 {
+  struct {
+    int iStack_1c;
+    uint32_t * puStack_18;
+    uint32_t uStack_14;
+    uint32_t uStack_10;
+    void * puStack_c;
+  } _cfg_1c;
   uint32_t *puVar1;
   uintptr_t sp;
   uint32_t uStack_28;
   uint16_t uStack_24;
   uint16_t uStack_22;
   uint16_t uStack_20;
-  int iStack_1c;
-  uint32_t *puStack_18;
-  uint32_t uStack_14;
-  uint32_t uStack_10;
-  void *puStack_c;
-  
-  puStack_c = &DAT_1059e4d0/*ROM*/;
-  puStack_18 = &uStack_28;
+  _cfg_1c.puStack_c = &DAT_1059e4d0/*ROM*/;
+  _cfg_1c.puStack_18 = &uStack_28;
   uStack_20 = param_5;
-  uStack_14 = 0xa00004;
-  iStack_1c = param_1 + 4;
+  _cfg_1c.uStack_14 = 0xa00004;
+  _cfg_1c.iStack_1c = param_1 + 4;
   puVar1 = (uint32_t *)(param_1 + 0x68);
-  uStack_10 = 0;
+  _cfg_1c.uStack_10 = 0;
   uStack_28 = param_2;
   uStack_24 = param_3;
   uStack_22 = param_4;
@@ -46,6 +47,6 @@ void initialize_sensor_readout_buffer(int param_1,uint32_t param_2,uint16_t para
   reg_framework_send(*(int *)(param_1 + 0x40) + 8);
   eventflag_wai_flg(puVar1,0x400000,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,0x400000);
-  virtual_destructor_free_10428222(&iStack_1c,2);
+  virtual_destructor_free_10428222(&_cfg_1c.iStack_1c,2);
   return;
 }

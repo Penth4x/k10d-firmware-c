@@ -19,17 +19,19 @@
 int write_matching_entry_field(void *param_1,int param_2,uint param_3,uint param_4)
 
 {
+  struct {
+    int iStack_38;
+    int iStack_34;
+    int iStack_30;
+    uint uStack_2c;
+    uint uStack_28;
+  } _cfg_38;
   void *pvVar1;
   int iVar2;
   uint uVar3;
   uintptr_t sp;
   uint32_t *puVar4;
   uint8_t auStack_3c [4];
-  int iStack_38;
-  int iStack_34;
-  int iStack_30;
-  uint uStack_2c;
-  uint uStack_28;
   int iStack_c;
   
   puVar4 = (uint32_t *)auStack_3c;
@@ -42,25 +44,25 @@ int write_matching_entry_field(void *param_1,int param_2,uint param_3,uint param
     if (param_2 != *(int *)((int)param_1 + 0x28)) {
       uVar3 = 3;
     }
-    uStack_28 = (param_4 & 0xffff) << 8 | (int)(param_4 & 0xffff) >> 8;
-    uStack_2c = (int)(param_4 >> 0x10) >> 8 | (param_4 >> 0x10) << 8;
+    _cfg_38.uStack_28 = (param_4 & 0xffff) << 8 | (int)(param_4 & 0xffff) >> 8;
+    _cfg_38.uStack_2c = (int)(param_4 >> 0x10) >> 8 | (param_4 >> 0x10) << 8;
     iStack_c = param_2;
     while( true ) {
       *puVar4 = (uintptr_t)(pvVar1);
-      iVar2 = process_32_byte_record_stream_10539d34(param_1,iStack_c,uVar3,&iStack_38,(void *)*puVar4);
+      iVar2 = process_32_byte_record_stream_10539d34(param_1,iStack_c,uVar3,&_cfg_38.iStack_38,(void *)*puVar4);
       if (iVar2 != 0) break;
-      iVar2 = iStack_30 + -1;
+      iVar2 = _cfg_38.iStack_30 + -1;
       if ((((int)(uint)*(ushort *)((int)pvVar1 + iVar2 * 0x20 + 0x14) >> 8 |
            (*(ushort *)((int)pvVar1 + iVar2 * 0x20 + 0x14) & 0xff) << 8) << 0x10 |
           (*(ushort *)((int)pvVar1 + iVar2 * 0x20 + 0x1a) & 0xff) << 8 |
           (int)(uint)*(ushort *)((int)pvVar1 + iVar2 * 0x20 + 0x1a) >> 8) == param_3) {
-        *(short *)((int)pvVar1 + iVar2 * 0x20 + 0x1a) = (short)uStack_28;
-        *(short *)((int)pvVar1 + iVar2 * 0x20 + 0x14) = (short)uStack_2c;
-        iVar2 = write_data_block_to_buffer(param_1,&iStack_38,pvVar1);
+        *(short *)((int)pvVar1 + iVar2 * 0x20 + 0x1a) = (short)_cfg_38.uStack_28;
+        *(short *)((int)pvVar1 + iVar2 * 0x20 + 0x14) = (short)_cfg_38.uStack_2c;
+        iVar2 = write_data_block_to_buffer(param_1,&_cfg_38.iStack_38,pvVar1);
         if (iVar2 != 0) goto LAB_1054283c;
-        iStack_c = iStack_38;
+        iStack_c = _cfg_38.iStack_38;
       }
-      uVar3 = iStack_34 + iStack_30;
+      uVar3 = _cfg_38.iStack_34 + _cfg_38.iStack_30;
     }
     if (iVar2 == -2) {
       iVar2 = 0;

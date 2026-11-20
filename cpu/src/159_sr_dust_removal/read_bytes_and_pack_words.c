@@ -22,6 +22,11 @@
 int read_bytes_and_pack_words(int param_1,uint32_t param_2,int param_3,int param_4)
 
 {
+  struct {
+    uint32_t uStack_14;
+    uint16_t uStack_10;
+    int iStack_c;
+  } _cfg_14;
   byte *pbVar1;
   int iVar2;
   int iVar3;
@@ -32,10 +37,6 @@ int read_bytes_and_pack_words(int param_1,uint32_t param_2,int param_3,int param
   int iVar8;
   int iVar9;
   uintptr_t sp;
-  uint32_t uStack_14;
-  uint16_t uStack_10;
-  int iStack_c;
-  
   if (param_3 < 1) {
     iVar9 = 0;
   }
@@ -63,10 +64,10 @@ int read_bytes_and_pack_words(int param_1,uint32_t param_2,int param_3,int param
         iVar2 = iVar2 + 1;
       }
     }
-    uStack_10 = (uint16_t)param_3;
-    uStack_14 = param_2;
-    iStack_c = iVar8;
-    iVar9 = call_subroutine_and_flag_on_error(param_1,&uStack_14,1);
+    _cfg_14.uStack_10 = (uint16_t)param_3;
+    _cfg_14.uStack_14 = param_2;
+    _cfg_14.iStack_c = iVar8;
+    iVar9 = call_subroutine_and_flag_on_error(param_1,&_cfg_14.uStack_14,1);
     if (0 < iVar3) {
       iVar2 = 0;
       iVar4 = 1;

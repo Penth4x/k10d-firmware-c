@@ -5,7 +5,7 @@
  *   Iterates over a stream of 32-byte records, dispatching each by its first byte and flags
  *   to skip, copy, or process the payload.
  * summary:
- *   The function loops over a buffer of 0x20-byte records (pbStack_14 += 0x20). It inspects
+ *   The function loops over a buffer of 0x20-byte records (_cfg_14.pbStack_14 += 0x20). It inspects
  *   the first byte of each record: 0xe5 is a marker that advances the index, 0x00 triggers
  *   a completion/return path, and other values are processed based on flags in byte 0xb
  *   (bit 0xf and bit 8). For non-trivial records it calls validate_block_sequence to
@@ -23,6 +23,11 @@
 int process_32_byte_record_stream_10539f74(void)
 
 {
+  struct {
+    byte * pbStack_14;
+    uint uStack_10;
+    uint uStack_c;
+  } _cfg_14;
   uint uVar1;
   int iVar2;
   uint uVar3;
@@ -43,10 +48,6 @@ int process_32_byte_record_stream_10539f74(void)
   uint uStack_20;
   int iStack_1c;
   uint uStack_18;
-  byte *pbStack_14;
-  uint uStack_10;
-  uint uStack_c;
-  
   piVar6 = (int *)auStack_2dc;
   uStack_20 = 0;
   uStack_24 = 0;
@@ -55,22 +56,22 @@ int process_32_byte_record_stream_10539f74(void)
   if (in_stack_00000014 != *(uint *)((int)in_stack_00000010 + 0x28)) {
     uVar3 = 3;
   }
-  uStack_10 = in_stack_00000014;
+  _cfg_14.uStack_10 = in_stack_00000014;
   uVar4 = uVar3;
   do {
-    uVar1 = uStack_10;
+    uVar1 = _cfg_14.uStack_10;
     if (in_stack_00000014 == 0) {
       if ((*(uint *)((int)in_stack_00000010 + 0x48) & 3) == 0) {
         return -999;
       }
-      pbStack_14 = abStack_2d4;
-      iStack_1c = validate_and_dispatch_lens_write(in_stack_00000010,uVar4,&pbStack_14,&uStack_18);
+      _cfg_14.pbStack_14 = abStack_2d4;
+      iStack_1c = validate_and_dispatch_lens_write(in_stack_00000010,uVar4,&_cfg_14.pbStack_14,&uStack_18);
       uVar1 = compute_modulo_10544c28(uVar4 - 1,uStack_18);
     }
     else {
       *piVar6 = (int)&uStack_18;
-      piVar6[1] = (int)&uStack_10;
-      iStack_1c = write_block_with_offset_check(in_stack_00000010,uVar1,uVar3,(int *)&pbStack_14,
+      piVar6[1] = (int)&_cfg_14.uStack_10;
+      iStack_1c = write_block_with_offset_check(in_stack_00000010,uVar1,uVar3,(int *)&_cfg_14.pbStack_14,
                                (uint32_t *)*piVar6,(uint *)piVar6[1]);
       for (; uStack_18 < uVar3; uVar3 = uVar3 - uStack_18) {
       }
@@ -102,19 +103,19 @@ code_r0x1053a2ae:
     if (0x10000 < uVar4) {
       return -0x38f;
     }
-    pbStack_14 = pbStack_14 + uVar1 * 0x20;
+    _cfg_14.pbStack_14 = _cfg_14.pbStack_14 + uVar1 * 0x20;
     uVar1 = uStack_18 - uVar1;
 LAB_1053a07c:
     do {
-      if (*pbStack_14 != 0xe5) {
-        if (*pbStack_14 == 0) goto code_r0x1053a2ae;
+      if (*_cfg_14.pbStack_14 != 0xe5) {
+        if (*_cfg_14.pbStack_14 == 0) goto code_r0x1053a2ae;
         if (((uStack_28 == 0) && (uStack_20 != 0)) && (in_stack_00000018[2] <= uStack_24)) {
           uStack_28 = uStack_20;
         }
         uStack_20 = 0;
         uStack_24 = 0;
-        if (pbStack_14[0xb] == 0xf) {
-          if ((*pbStack_14 & 0x40) == 0) {
+        if (_cfg_14.pbStack_14[0xb] == 0xf) {
+          if ((*_cfg_14.pbStack_14 & 0x40) == 0) {
             uVar4 = uVar4 + 1;
             if (uVar1 < 2) {
               uVar3 = uVar3 + 1;
@@ -122,10 +123,10 @@ LAB_1053a07c:
             }
             uVar3 = uVar3 + 1;
             uVar1 = uVar1 - 1;
-            pbStack_14 = pbStack_14 + 0x20;
+            _cfg_14.pbStack_14 = _cfg_14.pbStack_14 + 0x20;
             goto LAB_1053a07c;
           }
-          uVar5 = (*pbStack_14 & 0xffffffbf) + 1;
+          uVar5 = (*_cfg_14.pbStack_14 & 0xffffffbf) + 1;
           if (0x15 < uVar5) {
             uVar4 = uVar4 + 1;
             if (uVar1 < 2) {
@@ -134,21 +135,21 @@ LAB_1053a07c:
             }
             uVar3 = uVar3 + 1;
             uVar1 = uVar1 - 1;
-            pbStack_14 = pbStack_14 + 0x20;
+            _cfg_14.pbStack_14 = _cfg_14.pbStack_14 + 0x20;
             goto LAB_1053a07c;
           }
           if (uVar1 < uVar5) {
-            uStack_34 = uStack_10;
+            uStack_34 = _cfg_14.uStack_10;
             uStack_30 = uVar3;
             uStack_2c = uVar5;
             iStack_1c = dispatch_param2_command((int)in_stack_00000010,(int *)&uStack_34,abStack_2d4);
             if (iStack_1c != 0) {
               return iStack_1c;
             }
-            iVar2 = validate_block_sequence(abStack_2d4,uVar5,&uStack_c);
+            iVar2 = validate_block_sequence(abStack_2d4,uVar5,&_cfg_14.uStack_c);
             if (iVar2 != 0) {
-              uVar4 = uVar4 + uStack_c;
-              uVar3 = uVar3 + uStack_c;
+              uVar4 = uVar4 + _cfg_14.uStack_c;
+              uVar3 = uVar3 + _cfg_14.uStack_c;
               break;
             }
             iVar2 = match_lens_fw_info_fields(in_stack_00000018,abStack_2d4,uVar5);
@@ -160,29 +161,29 @@ LAB_1053a07c:
             swap_lens_info_fields(abStack_2d4,uVar5,in_stack_00000018);
           }
           else {
-            iStack_1c = validate_block_sequence(pbStack_14,uVar5,&uStack_c);
+            iStack_1c = validate_block_sequence(_cfg_14.pbStack_14,uVar5,&_cfg_14.uStack_c);
             if (iStack_1c != 0) {
-              uVar4 = uVar4 + uStack_c;
-              uVar3 = uVar3 + uStack_c;
-              if (uVar1 <= uStack_c) break;
-              uVar1 = uVar1 - uStack_c;
-              pbStack_14 = pbStack_14 + uStack_c * 0x20;
+              uVar4 = uVar4 + _cfg_14.uStack_c;
+              uVar3 = uVar3 + _cfg_14.uStack_c;
+              if (uVar1 <= _cfg_14.uStack_c) break;
+              uVar1 = uVar1 - _cfg_14.uStack_c;
+              _cfg_14.pbStack_14 = _cfg_14.pbStack_14 + _cfg_14.uStack_c * 0x20;
               goto LAB_1053a07c;
             }
-            iVar2 = match_lens_fw_info_fields(in_stack_00000018,pbStack_14,uVar5);
+            iVar2 = match_lens_fw_info_fields(in_stack_00000018,_cfg_14.pbStack_14,uVar5);
             if (iVar2 == -1) {
               uVar4 = uVar4 + uVar5;
               uVar3 = uVar3 + uVar5;
               if (uVar1 <= uVar5) break;
               uVar1 = uVar1 - uVar5;
-              pbStack_14 = pbStack_14 + uVar5 * 0x20;
+              _cfg_14.pbStack_14 = _cfg_14.pbStack_14 + uVar5 * 0x20;
               goto LAB_1053a07c;
             }
-            swap_lens_info_fields(pbStack_14,uVar5,in_stack_00000018);
+            swap_lens_info_fields(_cfg_14.pbStack_14,uVar5,in_stack_00000018);
           }
         }
         else {
-          if ((pbStack_14[0xb] & 8) != 0) {
+          if ((_cfg_14.pbStack_14[0xb] & 8) != 0) {
             uVar4 = uVar4 + 1;
             if (uVar1 < 2) {
               uVar3 = uVar3 + 1;
@@ -190,20 +191,20 @@ LAB_1053a07c:
             }
             uVar3 = uVar3 + 1;
             uVar1 = uVar1 - 1;
-            pbStack_14 = pbStack_14 + 0x20;
+            _cfg_14.pbStack_14 = _cfg_14.pbStack_14 + 0x20;
             goto LAB_1053a07c;
           }
           uVar5 = 1;
-          iVar2 = match_lens_fw_info_fields(in_stack_00000018,pbStack_14,1);
+          iVar2 = match_lens_fw_info_fields(in_stack_00000018,_cfg_14.pbStack_14,1);
           if (iVar2 == -1) {
             uVar4 = uVar4 + 1;
             uVar3 = uVar3 + 1;
             if (uVar1 < 2) break;
             uVar1 = uVar1 - 1;
-            pbStack_14 = pbStack_14 + 0x20;
+            _cfg_14.pbStack_14 = _cfg_14.pbStack_14 + 0x20;
             goto LAB_1053a07c;
           }
-          swap_lens_info_fields(pbStack_14,1,in_stack_00000018);
+          swap_lens_info_fields(_cfg_14.pbStack_14,1,in_stack_00000018);
         }
         *in_stack_00000018 = in_stack_00000014;
         in_stack_00000018[1] = uVar4;
@@ -217,7 +218,7 @@ LAB_1053a07c:
       uVar3 = uVar3 + 1;
       uStack_24 = uStack_24 + 1;
       uVar1 = uVar1 - 1;
-      pbStack_14 = pbStack_14 + 0x20;
+      _cfg_14.pbStack_14 = _cfg_14.pbStack_14 + 0x20;
     } while (uVar1 != 0);
   } while( true );
 }

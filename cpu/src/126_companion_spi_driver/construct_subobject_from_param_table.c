@@ -19,43 +19,44 @@
 uint32_t construct_subobject_from_param_table(cls_105a0adc *param_1)
 
 {
+  struct {
+    uint32_t uStack_3c;
+    uint32_t uStack_38;
+    uint32_t uStack_34;
+    uint32_t uStack_30;
+    uint32_t uStack_2c;
+    uint32_t uStack_28;
+    uint32_t uStack_24;
+    uint32_t uStack_20;
+    uint32_t uStack_1c;
+    uint32_t uStack_18;
+    uint32_t uStack_14;
+    uint32_t uStack_10;
+    uint32_t uStack_c;
+  } _cfg_3c;
   void *pvVar1;
   void *puVar2;
   uint32_t uVar3;
   uintptr_t sp;
-  uint32_t uStack_3c;
-  uint32_t uStack_38;
-  uint32_t uStack_34;
-  uint32_t uStack_30;
-  uint32_t uStack_2c;
-  uint32_t uStack_28;
-  uint32_t uStack_24;
-  uint32_t uStack_20;
-  uint32_t uStack_1c;
-  uint32_t uStack_18;
-  uint32_t uStack_14;
-  uint32_t uStack_10;
-  uint32_t uStack_c;
-  
   pvVar1 = (void *)get_or_init_sram_buffer_104277bc();
-  alloc_and_zero_struct_10440100(&uStack_3c);
-  uStack_34 = read_table_entry_field(pvVar1,0xf);
-  uStack_3c = read_table_entry_field(pvVar1,0x3e);
-  uStack_38 = read_table_entry_field(pvVar1,0x3d);
-  uStack_30 = 0x5c005000;
-  uStack_2c = 0x5c005001;
-  uStack_28 = 0x5c005002;
-  uStack_24 = 0x5c005004;
-  uStack_1c = 0x5c005006;
-  uStack_20 = 0x5c005007;
-  uStack_18 = 0x5c005009;
-  uStack_14 = 0x5c00500a;
-  uStack_c = 0x47;
-  uStack_10 = 0xb0;
-  puVar2 = (void *)cls_105a0a84_new((cls_105a0a84 *)0x0,&uStack_3c);
+  alloc_and_zero_struct_10440100(&_cfg_3c.uStack_3c);
+  _cfg_3c.uStack_34 = read_table_entry_field(pvVar1,0xf);
+  _cfg_3c.uStack_3c = read_table_entry_field(pvVar1,0x3e);
+  _cfg_3c.uStack_38 = read_table_entry_field(pvVar1,0x3d);
+  _cfg_3c.uStack_30 = 0x5c005000;
+  _cfg_3c.uStack_2c = 0x5c005001;
+  _cfg_3c.uStack_28 = 0x5c005002;
+  _cfg_3c.uStack_24 = 0x5c005004;
+  _cfg_3c.uStack_1c = 0x5c005006;
+  _cfg_3c.uStack_20 = 0x5c005007;
+  _cfg_3c.uStack_18 = 0x5c005009;
+  _cfg_3c.uStack_14 = 0x5c00500a;
+  _cfg_3c.uStack_c = 0x47;
+  _cfg_3c.uStack_10 = 0xb0;
+  puVar2 = (void *)cls_105a0a84_new((cls_105a0a84 *)0x0,&_cfg_3c.uStack_3c);
   param_1->field_0x4 = (uint32_t)(puVar2);
   uVar3 = (((vtbl_entry*)(*(int *)((char*)puVar2 + 4)))[2].fn)
                     ((char*)puVar2 + ((vtbl_entry*)(*(int *)((char*)puVar2 + 4)))[2].adj,0);
-  free_if_heap_flag_set_1044014c(&uStack_3c,2);
+  free_if_heap_flag_set_1044014c(&_cfg_3c.uStack_3c,2);
   return uVar3;
 }

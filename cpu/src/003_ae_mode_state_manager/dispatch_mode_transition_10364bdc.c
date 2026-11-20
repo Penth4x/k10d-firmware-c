@@ -21,6 +21,12 @@
 void dispatch_mode_transition_10364bdc(void *param_1)
 
 {
+  struct {
+    uint32_t uStack_28;
+    uint32_t uStack_24;
+    uint32_t uStack_20;
+    uint16_t uStack_1c;
+  } _cfg_28;
   uint16_t uVar1;
   int iVar2;
   uint extraout_r4;
@@ -30,10 +36,6 @@ void dispatch_mode_transition_10364bdc(void *param_1)
   uintptr_t sp;
   uint32_t *puVar7;
   uint8_t local_54 [8];
-  uint32_t uStack_28;
-  uint32_t uStack_24;
-  uint32_t uStack_20;
-  uint16_t uStack_1c;
   uint16_t uStack_1a;
   uint32_t auStack_18 [4];
   byte bVar5;
@@ -71,16 +73,16 @@ void dispatch_mode_transition_10364bdc(void *param_1)
       init_object_with_three_params_10364e66(param_1);
     }
     if (DAT_80015f14/*SDRAM*/ != '\0') {
-      uStack_28 = _DAT_80015d24/*SDRAM*/;
-      uStack_24 = _DAT_80015d28/*SDRAM*/;
-      uStack_20 = _DAT_80015d2c/*SDRAM*/;
+      _cfg_28.uStack_28 = _DAT_80015d24/*SDRAM*/;
+      _cfg_28.uStack_24 = _DAT_80015d28/*SDRAM*/;
+      _cfg_28.uStack_20 = _DAT_80015d2c/*SDRAM*/;
       copy_two_words_from_param2((int)auStack_18,-0x7ffea2fc);
       uVar4 = return_first_word_1045c514(auStack_18);
-      uStack_1c = (short)uVar4;
+      _cfg_28.uStack_1c = (short)uVar4;
       uVar4 = read_struct_field_at_offset_4(auStack_18);
       pcVar6 = (cls_10559218 *)((int)param_1 + 0x1b4);
       uStack_1a = (short)uVar4;
-      register_menu_item_with_data_10385198(pcVar6,1,&uStack_28);
+      register_menu_item_with_data_10385198(pcVar6,1,&_cfg_28.uStack_28);
       iVar2 = read_array_element_at_offset(iVar2,extraout_r4);
       bVar5 = *(byte *)(iVar2 + 4);
       iVar2 = read_table_entry_if_valid((int *)((int)param_1 + 0x224),(int)(uVar1));

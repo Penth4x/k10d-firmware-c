@@ -20,26 +20,28 @@
 void submit_request_and_handle_result(int param_1)
 
 {
+  struct {
+    uint32_t uStack_20;
+    uint32_t uStack_1c;
+    uint16_t uStack_18;
+  } _cfg_20;
   int iVar1;
   uint32_t uVar2;
   uint16_t *puVar3;
   uintptr_t sp;
-  uint32_t uStack_20;
-  uint32_t uStack_1c;
-  uint16_t uStack_18;
   uint16_t uStack_16;
   int iStack_c;
   
   iVar1 = check_flag_and_null_byte(param_1 + 0x48);
   if (iVar1 != 0) {
     puVar3 = (uint16_t *)**(uint32_t **)(*(int *)(param_1 + 0x70) + 0xc);
-    init_small_struct_fields(&uStack_20);
+    init_small_struct_fields(&_cfg_20.uStack_20);
     iStack_c = param_1 + 0x20;
-    uStack_20 = 1;
-    uStack_1c = 1;
-    uStack_18 = *puVar3;
+    _cfg_20.uStack_20 = 1;
+    _cfg_20.uStack_1c = 1;
+    _cfg_20.uStack_18 = *puVar3;
     uStack_16 = puVar3[1];
-    iVar1 = link_object_into_list_10477ee6(*(int *)(param_1 + 0x50),(int)&uStack_20);
+    iVar1 = link_object_into_list_10477ee6(*(int *)(param_1 + 0x50),(int)&_cfg_20.uStack_20);
     if (iVar1 == 0) {
       *(uint32_t *)(param_1 + 0x34) = 1;
     }
@@ -57,7 +59,7 @@ void submit_request_and_handle_result(int param_1)
       }
       *(uint32_t *)(param_1 + 0x34) = 0;
     }
-    free_heap_if_flag_set_1047e0e6(&uStack_20,2);
+    free_heap_if_flag_set_1047e0e6(&_cfg_20.uStack_20,2);
   }
   return;
 }

@@ -21,6 +21,11 @@
 int decode_byte_stream_to_words(int param_1,uint32_t param_2,int param_3,int param_4)
 
 {
+  struct {
+    uint32_t uStack_14;
+    uint16_t uStack_10;
+    int iStack_c;
+  } _cfg_14;
   byte *pbVar1;
   int iVar2;
   int iVar3;
@@ -31,10 +36,6 @@ int decode_byte_stream_to_words(int param_1,uint32_t param_2,int param_3,int par
   int iVar8;
   uintptr_t sp;
   int iStack_20;
-  uint32_t uStack_14;
-  uint16_t uStack_10;
-  int iStack_c;
-  
   if (param_3 < 1) {
     iStack_20 = 0;
   }
@@ -64,10 +65,10 @@ int decode_byte_stream_to_words(int param_1,uint32_t param_2,int param_3,int par
         iVar3 = iVar3 + 1;
       }
     }
-    uStack_10 = (uint16_t)param_3;
-    uStack_14 = param_2;
-    iStack_c = iVar8;
-    iStack_20 = dispatch_event_with_timeout_1046f01e(param_1,&uStack_14);
+    _cfg_14.uStack_10 = (uint16_t)param_3;
+    _cfg_14.uStack_14 = param_2;
+    _cfg_14.iStack_c = iVar8;
+    iStack_20 = dispatch_event_with_timeout_1046f01e(param_1,&_cfg_14.uStack_14);
     if (0 < iVar2) {
       iVar7 = 0;
       iVar3 = 1;

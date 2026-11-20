@@ -22,6 +22,13 @@
 bool init_buffer_and_dispatch_event_1050bfae(int param_1,uint16_t *param_2)
 
 {
+  struct {
+    int iStack_1c;
+    int * piStack_18;
+    uint32_t uStack_14;
+    uint32_t uStack_10;
+    void * puStack_c;
+  } _cfg_1c;
   int iVar1;
   uint32_t *puVar2;
   uintptr_t sp;
@@ -42,12 +49,6 @@ bool init_buffer_and_dispatch_event_1050bfae(int param_1,uint16_t *param_2)
   uint16_t uStack_24;
   uint16_t uStack_22;
   uint16_t uStack_20;
-  int iStack_1c;
-  int *piStack_18;
-  uint32_t uStack_14;
-  uint32_t uStack_10;
-  void *puStack_c;
-  
   call_kernel_with_short_id((uint32_t *)(param_1 + 0x60));
   iVar1 = get_value_if_flag_set_10514eb4(*(uint32_t *)(param_1 + 0x28));
   if (iVar1 != 0) {
@@ -64,16 +65,16 @@ bool init_buffer_and_dispatch_event_1050bfae(int param_1,uint16_t *param_2)
     uStack_2c = 0;
     uStack_28 = 0;
     uStack_4c = *(uint32_t *)(param_2 + 4);
-    piStack_18 = &iStack_50;
+    _cfg_1c.piStack_18 = &iStack_50;
     uStack_48 = param_2[2];
     uStack_46 = param_2[3];
     uStack_44 = *param_2;
     uStack_42 = param_2[1];
-    puStack_c = &DAT_1059e4d0/*ROM*/;
-    uStack_14 = 0x1130001;
-    iStack_1c = param_1 + 4;
+    _cfg_1c.puStack_c = &DAT_1059e4d0/*ROM*/;
+    _cfg_1c.uStack_14 = 0x1130001;
+    _cfg_1c.iStack_1c = param_1 + 4;
     puVar2 = (uint32_t *)(param_1 + 0x68);
-    uStack_10 = 0;
+    _cfg_1c.uStack_10 = 0;
     eventflag_clr_flg(puVar2,0x40000);
     reg_framework_send(*(int *)(param_1 + 0x50) + 8);
     eventflag_wai_flg(puVar2,0x40000,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
@@ -84,7 +85,7 @@ bool init_buffer_and_dispatch_event_1050bfae(int param_1,uint16_t *param_2)
     *(uint32_t *)(param_2 + 0xc) = uStack_30;
     *(uint32_t *)(param_2 + 0xe) = uStack_2c;
     *(uint32_t *)(param_2 + 0x10) = uStack_28;
-    virtual_destructor_free_10428222(&iStack_1c,2);
+    virtual_destructor_free_10428222(&_cfg_1c.iStack_1c,2);
   }
   check_kernel_call_success_10459d88((uint32_t *)(param_1 + 0x60));
   return iVar1 != 0;

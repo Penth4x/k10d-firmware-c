@@ -23,56 +23,57 @@
 int count_lens_fw_update_chars(byte *param_1,byte *param_2,void *param_3,void *param_4)
 
 {
+  struct {
+    byte * pbStack_10;
+    byte * pbStack_c;
+    void * pvStack_8;
+    void * pvStack_4;
+  } _cfg_10;
   int iVar1;
   int iVar2;
   uintptr_t sp;
   void **ppvStack_28;
-  byte *pbStack_10;
-  byte *pbStack_c;
-  void *pvStack_8;
-  void *pvStack_4;
-  
   iVar2 = 0;
   *(uint *)_DAT_80014a6c/*SDRAM*/ = 0;
   iVar1 = 0;
-  ppvStack_28 = &pvStack_8;
-  pbStack_10 = param_1;
-  pbStack_c = param_2;
-  pvStack_8 = param_3;
-  pvStack_4 = param_4;
+  ppvStack_28 = &_cfg_10.pvStack_8;
+  _cfg_10.pbStack_10 = param_1;
+  _cfg_10.pbStack_c = param_2;
+  _cfg_10.pvStack_8 = param_3;
+  _cfg_10.pvStack_4 = param_4;
 LAB_1054529e:
   do {
-    if (*pbStack_c == 0) {
+    if (*_cfg_10.pbStack_c == 0) {
 LAB_105452a6:
       if ((iVar2 == 0) && (iVar1 == -1)) {
         iVar2 = -1;
       }
       return iVar2;
     }
-    if (*pbStack_c != 0x25) {
-      if (((&DAT_106220f1)[*pbStack_c] & 4) == 0) {
-        if (*pbStack_c != *pbStack_10) {
-          if (*pbStack_10 == 0) {
+    if (*_cfg_10.pbStack_c != 0x25) {
+      if (((&DAT_106220f1)[*_cfg_10.pbStack_c] & 4) == 0) {
+        if (*_cfg_10.pbStack_c != *_cfg_10.pbStack_10) {
+          if (*_cfg_10.pbStack_10 == 0) {
             iVar1 = -1;
           }
           goto LAB_105452a6;
         }
-        pbStack_c = pbStack_c + 1;
-        pbStack_10 = pbStack_10 + 1;
+        _cfg_10.pbStack_c = _cfg_10.pbStack_c + 1;
+        _cfg_10.pbStack_10 = _cfg_10.pbStack_10 + 1;
         *(uint *)_DAT_80014a6c/*SDRAM*/ = *(uint *)_DAT_80014a6c/*SDRAM*/ + 1;
       }
       else {
         do {
-          pbStack_c = pbStack_c + 1;
-        } while (((&DAT_106220f1)[*pbStack_c] & 4) != 0);
-        while (((&DAT_106220f1)[*pbStack_10] & 4) != 0) {
-          pbStack_10 = pbStack_10 + 1;
+          _cfg_10.pbStack_c = _cfg_10.pbStack_c + 1;
+        } while (((&DAT_106220f1)[*_cfg_10.pbStack_c] & 4) != 0);
+        while (((&DAT_106220f1)[*_cfg_10.pbStack_10] & 4) != 0) {
+          _cfg_10.pbStack_10 = _cfg_10.pbStack_10 + 1;
           *(uint *)_DAT_80014a6c/*SDRAM*/ = *(uint *)_DAT_80014a6c/*SDRAM*/ + 1;
         }
       }
       goto LAB_1054529e;
     }
-    iVar1 = parse_lens_fw_update_format(&pbStack_10,&pbStack_c,&ppvStack_28);
+    iVar1 = parse_lens_fw_update_format(&_cfg_10.pbStack_10,&_cfg_10.pbStack_c,&ppvStack_28);
     if (iVar1 < 0) goto LAB_105452a6;
     iVar2 = iVar2 + iVar1;
   } while( true );

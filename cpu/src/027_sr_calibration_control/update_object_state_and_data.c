@@ -20,22 +20,24 @@
 void update_object_state_and_data(int param_1)
 
 {
+  struct {
+    uint32_t uStack_20;
+    uint32_t uStack_1c;
+    uint32_t uStack_18;
+    uint16_t uStack_14;
+  } _cfg_20;
   uint32_t uVar1;
   int iVar2;
   uintptr_t sp;
   uint32_t auStack_28 [2];
-  uint32_t uStack_20;
-  uint32_t uStack_1c;
-  uint32_t uStack_18;
-  uint16_t uStack_14;
   uint16_t uStack_12;
   
-  uStack_20 = _DAT_80015d24/*SDRAM*/;
-  uStack_1c = _DAT_80015d28/*SDRAM*/;
-  uStack_18 = _DAT_80015d2c/*SDRAM*/;
+  _cfg_20.uStack_20 = _DAT_80015d24/*SDRAM*/;
+  _cfg_20.uStack_1c = _DAT_80015d28/*SDRAM*/;
+  _cfg_20.uStack_18 = _DAT_80015d2c/*SDRAM*/;
   copy_two_words_from_param2((int)auStack_28,-0x7ffea2fc);
   uVar1 = return_first_word_1045c514(auStack_28);
-  uStack_14 = (short)uVar1;
+  _cfg_20.uStack_14 = (short)uVar1;
   free_heap_if_flagged_1045c402(auStack_28,2);
   copy_two_words_from_param2((int)auStack_28,-0x7ffea2fc);
   uVar1 = read_struct_field_at_offset_4(auStack_28);
@@ -45,7 +47,7 @@ void update_object_state_and_data(int param_1)
   (((vtbl_entry*)(iVar2))[15].fn)((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar2))[15].adj,0);
   iVar2 = **(int **)(param_1 + 0x2c);
   (((vtbl_entry*)(iVar2))[14].fn)
-            ((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar2))[14].adj,DAT_80015f14/*SDRAM*/,&uStack_20)
+            ((int)*(int **)(param_1 + 0x2c) + (int)((vtbl_entry*)(iVar2))[14].adj,DAT_80015f14/*SDRAM*/,&_cfg_20.uStack_20)
   ;
   if (*(char *)(param_1 + 0xb8) != '\0') {
     iVar2 = **(int **)(param_1 + 0x2c);

@@ -26,6 +26,12 @@
 void compute_and_store_pair_values(int *param_1,int param_2)
 
 {
+  struct {
+    int iStack_18;
+    uint uStack_14;
+    int iStack_10;
+    int iStack_c;
+  } _cfg_18;
   int iVar1;
   uint32_t uVar2;
   uint32_t uVar3;
@@ -52,25 +58,20 @@ void compute_and_store_pair_values(int *param_1,int param_2)
   uint8_t auStack_2c [8];
   uint32_t auStack_24 [2];
   uint8_t uStack_19;
-  int iStack_18;
-  uint uStack_14;
-  int iStack_10;
-  int iStack_c;
-  
   piVar9 = (int *)local_d4;
   puVar10 = (uint32_t *)local_d4;
   if (*(char *)(param_1 + 1) == '\0') {
     return;
   }
   if (param_2 == 0) {
-    iVar1 = dispatch_event_with_payload_1050c0e0(param_1[0xe],0x8001acbc/*SDRAM*/,&iStack_18);
+    iVar1 = dispatch_event_with_payload_1050c0e0(param_1[0xe],0x8001acbc/*SDRAM*/,&_cfg_18.iStack_18);
     if (iVar1 == 0) {
       iVar1 = *(int *)(param_1[0x1a] + 0xc);
       (((vtbl_entry*)(iVar1))[1].fn)(param_1[0x1a] + (int)*(short *)(iVar1 + 8),0);
       (((vtbl_entry*)(*param_1))[14].fn)((int)((vtbl_entry*)(*param_1))[14].adj + (int)param_1,0x1120004,0);
       return;
     }
-    uVar5 = *(uint *)(iStack_18 * 4 + -0x7ffe5344);
+    uVar5 = *(uint *)(_cfg_18.iStack_18 * 4 + -0x7ffe5344);
     copy_virtual_result_to_buffer_10493ea4(local_44,(int *)param_1[0x1a]);
     iVar1 = 8;
     do {
@@ -101,7 +102,7 @@ void compute_and_store_pair_values(int *param_1,int param_2)
     iVar1 = 0x68;
   }
   else {
-    iVar1 = dispatch_event_with_payload_1050c0e0(param_1[0xe],0x8001acbc/*SDRAM*/,&iStack_18);
+    iVar1 = dispatch_event_with_payload_1050c0e0(param_1[0xe],0x8001acbc/*SDRAM*/,&_cfg_18.iStack_18);
     if (iVar1 == 0) {
       iVar1 = *(int *)(param_1[0x1d] + 0xc);
       (((vtbl_entry*)(iVar1))[1].fn)(param_1[0x1d] + (int)*(short *)(iVar1 + 8),0);
@@ -114,7 +115,7 @@ void compute_and_store_pair_values(int *param_1,int param_2)
       (((vtbl_entry*)(*param_1))[14].fn)((int)((vtbl_entry*)(*param_1))[14].adj + (int)param_1,0x1120004,0);
       return;
     }
-    uVar5 = *(uint *)(iStack_18 * 4 + -0x7ffe5344);
+    uVar5 = *(uint *)(_cfg_18.iStack_18 * 4 + -0x7ffe5344);
     copy_virtual_result_to_buffer_10493ea4(local_54,(int *)param_1[0x1d]);
     iVar1 = 8;
     do {
@@ -162,10 +163,10 @@ void compute_and_store_pair_values(int *param_1,int param_2)
     free_heap_if_flagged_1045c402(puVar7,2);
     copy_four_words_and_call_helper((int *)param_1[0x1d],&DAT_8001a78c/*SDRAM*/);
     iVar1 = param_1[0xe];
-    *piVar9 = (int)&iStack_10;
+    *piVar9 = (int)&_cfg_18.iStack_10;
     piVar9[1] = -0x7ffe4744;
-    piVar9[2] = (int)&iStack_c;
-    uVar5 = configure_four_dma_channels(iVar1,0x8001b0bc/*SDRAM*/,&uStack_14,0x8001b4bc/*SDRAM*/,(uint *)*piVar9,piVar9[1],
+    piVar9[2] = (int)&_cfg_18.iStack_c;
+    uVar5 = configure_four_dma_channels(iVar1,0x8001b0bc/*SDRAM*/,&_cfg_18.uStack_14,0x8001b4bc/*SDRAM*/,(uint *)*piVar9,piVar9[1],
                          (uint *)piVar9[2]);
     if (uVar5 == 0) {
       iVar1 = *(int *)(param_1[0x1d] + 0xc);
@@ -179,15 +180,15 @@ void compute_and_store_pair_values(int *param_1,int param_2)
       (((vtbl_entry*)(*param_1))[14].fn)((int)((vtbl_entry*)(*param_1))[14].adj + (int)param_1,0x1120004,0);
       return;
     }
-    uVar5 = *(uint *)(uStack_14 * 4 + -0x7ffe4f44);
+    uVar5 = *(uint *)(_cfg_18.uStack_14 * 4 + -0x7ffe4f44);
     if (uVar5 == 0) {
       uVar5 = 0;
     }
-    uVar4 = *(uint *)(iStack_10 * 4 + -0x7ffe4b44);
+    uVar4 = *(uint *)(_cfg_18.iStack_10 * 4 + -0x7ffe4b44);
     if (uVar5 < uVar4) {
       uVar5 = uVar4;
     }
-    uVar4 = *(uint *)(iStack_c * 4 + -0x7ffe4744);
+    uVar4 = *(uint *)(_cfg_18.iStack_c * 4 + -0x7ffe4744);
     if (uVar5 < uVar4) {
       uVar5 = uVar4;
     }

@@ -25,13 +25,15 @@
 void configure_subobject_with_state(int param_1)
 
 {
+  struct {
+    uint32_t uStack_28;
+    uint32_t uStack_24;
+    uint32_t uStack_20;
+    uint16_t uStack_1c;
+  } _cfg_28;
   uint32_t uVar1;
   cls_10558b34 *pcVar2;
   uintptr_t sp;
-  uint32_t uStack_28;
-  uint32_t uStack_24;
-  uint32_t uStack_20;
-  uint16_t uStack_1c;
   uint16_t uStack_1a;
   uint32_t auStack_18 [4];
   
@@ -41,15 +43,15 @@ void configure_subobject_with_state(int param_1)
     invoke_virtual_method_on_object_1037be60((int)(pcVar2),(uint32_t)(0));
   }
   else {
-    uStack_28 = _DAT_80015d24/*SDRAM*/;
-    uStack_24 = _DAT_80015d28/*SDRAM*/;
-    uStack_20 = _DAT_80015d2c/*SDRAM*/;
+    _cfg_28.uStack_28 = _DAT_80015d24/*SDRAM*/;
+    _cfg_28.uStack_24 = _DAT_80015d28/*SDRAM*/;
+    _cfg_28.uStack_20 = _DAT_80015d2c/*SDRAM*/;
     copy_two_words_from_param2((int)auStack_18,-0x7ffea2fc);
     uVar1 = return_first_word_1045c514(auStack_18);
-    uStack_1c = (short)uVar1;
+    _cfg_28.uStack_1c = (short)uVar1;
     uVar1 = read_struct_field_at_offset_4(auStack_18);
     uStack_1a = (short)uVar1;
-    register_menu_item_with_data_1037bdfa(pcVar2,1,&uStack_28);
+    register_menu_item_with_data_1037bdfa(pcVar2,1,&_cfg_28.uStack_28);
     invoke_virtual_method_on_object_1037be60((int)(pcVar2),(uint32_t)(1));
     free_heap_if_flagged_1045c402(auStack_18,2);
   }

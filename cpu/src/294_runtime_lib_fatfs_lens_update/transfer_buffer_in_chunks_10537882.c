@@ -17,6 +17,11 @@
 int transfer_buffer_in_chunks_10537882(void *param_1,uint param_2,uint param_3,int *param_4)
 
 {
+  struct {
+    uint uStack_28;
+    uint uStack_24;
+    int iStack_20;
+  } _cfg_28;
   uint uVar1;
   int iVar2;
   int iVar3;
@@ -25,28 +30,24 @@ int transfer_buffer_in_chunks_10537882(void *param_1,uint param_2,uint param_3,i
   uintptr_t sp;
   uint auStack_40 [4];
   uint uStack_30;
-  uint uStack_28;
-  uint uStack_24;
-  int iStack_20;
-  
   auStack_40[2] = *param_4;
   for (iVar3 = (((uint)param_4[1] >> 5) - 1) * 0x20; -1 < iVar3; iVar3 = iVar3 + -0x20) {
     *(uint8_t *)(iVar3 + auStack_40[2]) = 0xe5;
   }
   uVar5 = *(uint *)((int)param_1 + 0x10);
   uVar1 = unsigned_divide(param_3,uVar5);
-  iVar3 = dispatch_lens_fw_update_step_1053d2bc((int)param_1,param_2,uVar1,&uStack_28);
+  iVar3 = dispatch_lens_fw_update_step_1053d2bc((int)param_1,param_2,uVar1,&_cfg_28.uStack_28);
   if (iVar3 == 0) {
     iVar3 = param_4[1];
     uStack_30 = uVar5;
     do {
-      if ((uStack_28 < 2) || (*(uint *)((int)param_1 + 0x4c) < uStack_28)) {
-        if (uStack_28 <= *(uint *)((int)param_1 + 0x50)) {
+      if ((_cfg_28.uStack_28 < 2) || (*(uint *)((int)param_1 + 0x4c) < _cfg_28.uStack_28)) {
+        if (_cfg_28.uStack_28 <= *(uint *)((int)param_1 + 0x50)) {
           return -0x38f;
         }
         break;
       }
-      iVar2 = lens_fw_get_block_ptr(param_1,uStack_28,&iStack_20);
+      iVar2 = lens_fw_get_block_ptr(param_1,_cfg_28.uStack_28,&_cfg_28.iStack_20);
       if (iVar2 != 0) {
         return iVar2;
       }
@@ -55,17 +56,17 @@ int transfer_buffer_in_chunks_10537882(void *param_1,uint param_2,uint param_3,i
       if (uStack_30 < (uint)(iVar4 + iVar3)) {
         iVar2 = uStack_30 - iVar4;
       }
-      memcpy_bytes((void *)(iStack_20 + 8 + iVar4),(void *)*param_4,iVar2);
-      auStack_40[0] = uStack_28;
+      memcpy_bytes((void *)(_cfg_28.iStack_20 + 8 + iVar4),(void *)*param_4,iVar2);
+      auStack_40[0] = _cfg_28.uStack_28;
       auStack_40[1] = 1;
-      iVar4 = compute_indexed_lookup_value((int)param_1,iStack_20 + 8,(int *)auStack_40,&uStack_24);
+      iVar4 = compute_indexed_lookup_value((int)param_1,_cfg_28.iStack_20 + 8,(int *)auStack_40,&_cfg_28.uStack_24);
       if (iVar4 != 0) {
         return iVar4;
       }
       *param_4 = *param_4 + iVar2;
       iVar3 = iVar3 - iVar2;
       param_4[2] = 0;
-      iVar2 = dispatch_lens_fw_update_step_1053d2bc((int)param_1,uStack_28,1,&uStack_28);
+      iVar2 = dispatch_lens_fw_update_step_1053d2bc((int)param_1,_cfg_28.uStack_28,1,&_cfg_28.uStack_28);
       if (iVar2 != 0) {
         return iVar2;
       }

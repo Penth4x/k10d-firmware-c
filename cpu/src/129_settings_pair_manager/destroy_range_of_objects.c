@@ -18,24 +18,25 @@
 void destroy_range_of_objects(int *param_1)
 
 {
+  struct {
+    uint32_t uStack_1c;
+    uint32_t uStack_18;
+    uint32_t uStack_14;
+    int iStack_10;
+    int iStack_c;
+  } _cfg_1c;
   uintptr_t sp;
   int iStack_24;
   int iStack_20;
-  uint32_t uStack_1c;
-  uint32_t uStack_18;
-  uint32_t uStack_14;
-  int iStack_10;
-  int iStack_c;
-  
   iStack_24 = *(int *)(*param_1 + 4);
   iStack_20 = *param_1;
   if (iStack_24 != iStack_20) {
-    iStack_10 = iStack_24;
-    iStack_c = iStack_20;
+    _cfg_1c.iStack_10 = iStack_24;
+    _cfg_1c.iStack_c = iStack_20;
     do {
-      swap_first_word_and_call_helper_1045b9e2(&uStack_1c,&iStack_24,0);
-      uStack_18 = uStack_1c;
-      unlink_and_copy_pointer(&uStack_14,param_1,&uStack_18);
+      swap_first_word_and_call_helper_1045b9e2(&_cfg_1c.uStack_1c,&iStack_24,0);
+      _cfg_1c.uStack_18 = _cfg_1c.uStack_1c;
+      unlink_and_copy_pointer(&_cfg_1c.uStack_14,param_1,&_cfg_1c.uStack_18);
     } while (iStack_24 != iStack_20);
   }
   return;

@@ -19,17 +19,18 @@
 void run_mode_event_loop(cls_1059c10c *param_1)
 
 {
+  struct {
+    uint uStack_14;
+    uint uStack_10;
+    uint uStack_c;
+  } _cfg_14;
   uint8_t *puVar1;
   uint32_t uVar2;
   int iVar3;
   uint uVar4;
   int iVar5;
   uintptr_t sp;
-  uint uStack_14;
-  uint uStack_10;
-  uint uStack_c;
-  
-  uStack_14 = 0;
+  _cfg_14.uStack_14 = 0;
   set_mode_state_and_notify(param_1->field_0x50,1,0);
   *(uint *)&param_1[1].field_0x578 =
        *(uint *)&param_1[1].field_0x578 &
@@ -79,7 +80,7 @@ void run_mode_event_loop(cls_1059c10c *param_1)
   dispatch_mode_event_flags((uint32_t)(param_1));
   set_mode_state_flag((uint32_t)(param_1),1,1);
   if (cRam8000fb95 != '\0') {
-    eventflag_wai_flg((uint32_t *)puVar1,4,&uStack_14,_DAT_105a2af0/*ROM*/);
+    eventflag_wai_flg((uint32_t *)puVar1,4,&_cfg_14.uStack_14,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg((void*)(puVar1),4);
     cRam8000fb95 = '\0';
     iVar5 = *(int *)param_1->field_0x4c;
@@ -97,13 +98,13 @@ void run_mode_event_loop(cls_1059c10c *param_1)
     }
     iVar5 = call_single_helper_104185ec();
     if ((iVar5 != 0) && (iVar5 = check_virtual_slot_15_result((uint32_t)(param_1)), iVar5 != 0)) {
-      uStack_10 = 0;
-      uStack_c = 0;
+      _cfg_14.uStack_10 = 0;
+      _cfg_14.uStack_c = 0;
       iVar5 = *(int *)param_1->field_0x4c;
       (((vtbl_entry*)(iVar5))[14].fn)
-                ((int)param_1->field_0x4c + (int)((vtbl_entry*)(iVar5))[14].adj,&uStack_10,&uStack_c);
-      uStack_c = uStack_c / 10000;
-      uStack_10 = uStack_10 / 10000 << 0x10 | uStack_c & 0xffff;
+                ((int)param_1->field_0x4c + (int)((vtbl_entry*)(iVar5))[14].adj,&_cfg_14.uStack_10,&_cfg_14.uStack_c);
+      _cfg_14.uStack_c = _cfg_14.uStack_c / 10000;
+      _cfg_14.uStack_10 = _cfg_14.uStack_10 / 10000 << 0x10 | _cfg_14.uStack_c & 0xffff;
     }
   }
   check_two_flags_and_write_values((uint32_t)(param_1));
@@ -113,10 +114,10 @@ void run_mode_event_loop(cls_1059c10c *param_1)
   while( true ) {
     do {
       puVar1 = (void*)(&param_1[1].field_0x580);
-      eventflag_wai_flg((uint32_t *)puVar1,0xfcf7ffff,&uStack_14,_DAT_105a2af0/*ROM*/);
-      eventflag_clr_flg((void*)(puVar1),uStack_14 & 0xfcf7ffff);
-      *(uint *)&param_1[1].field_0x574 = uStack_14;
-      if (((uStack_14 & 0x20) != 0) && (iVar5 = check_and_handle_mode_transition((uint32_t)(param_1)), iVar5 == 0)) {
+      eventflag_wai_flg((uint32_t *)puVar1,0xfcf7ffff,&_cfg_14.uStack_14,_DAT_105a2af0/*ROM*/);
+      eventflag_clr_flg((void*)(puVar1),_cfg_14.uStack_14 & 0xfcf7ffff);
+      *(uint *)&param_1[1].field_0x574 = _cfg_14.uStack_14;
+      if (((_cfg_14.uStack_14 & 0x20) != 0) && (iVar5 = check_and_handle_mode_transition((uint32_t)(param_1)), iVar5 == 0)) {
         check_kernel_call_success_10459fea();
         set_flg_obj((uint32_t *)puVar1);
       }
@@ -226,7 +227,7 @@ void run_mode_event_loop(cls_1059c10c *param_1)
   puVar1 = (void*)(&param_1[1].field_0x588);
   eventflag_clr_flg((void*)(puVar1),2);
   invoke_virtual_slot_13_104ea3ca((cls_105c2050 *)&param_1->field_0x60);
-  eventflag_wai_flg((uint32_t *)puVar1,2,&uStack_14,_DAT_105a2af0/*ROM*/);
+  eventflag_wai_flg((uint32_t *)puVar1,2,&_cfg_14.uStack_14,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg((void*)(puVar1),2);
   if (*(int *)&param_1[1].field_0x5ac != 1) {
     release_mode_event_resources((uint32_t)(param_1),(void*)(param_1->field_0x84));

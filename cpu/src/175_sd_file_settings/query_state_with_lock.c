@@ -20,26 +20,27 @@
 bool query_state_with_lock(int param_1,uint32_t param_2,uint32_t *param_3)
 
 {
+  struct {
+    uint32_t uStack_14;
+    uint32_t uStack_10;
+    uint32_t uStack_c;
+  } _cfg_14;
   int iVar1;
   bool bVar2;
   uintptr_t sp;
   int *piVar3;
   uint8_t auStack_28 [4];
-  uint32_t uStack_14;
-  uint32_t uStack_10;
-  uint32_t uStack_c;
-  
   piVar3 = (int *)auStack_28;
-  uStack_14 = 0;
-  uStack_10 = 0;
-  uStack_c = 0;
+  _cfg_14.uStack_14 = 0;
+  _cfg_14.uStack_10 = 0;
+  _cfg_14.uStack_c = 0;
   call_kernel_with_short_id((uint32_t *)(param_1 + 0xc));
   iVar1 = *(int *)(param_1 + 8);
-  *piVar3 = (int)&uStack_c;
-  bVar2 = store_result_and_decrement_counter(iVar1,param_2,&uStack_14,&uStack_10,(uint *)*piVar3);
+  *piVar3 = (int)&_cfg_14.uStack_c;
+  bVar2 = store_result_and_decrement_counter(iVar1,param_2,&_cfg_14.uStack_14,&_cfg_14.uStack_10,(uint *)*piVar3);
   check_kernel_call_success_10459d88((uint32_t *)(param_1 + 0xc));
-  *param_3 = uStack_14;
-  param_3[1] = uStack_10;
-  param_3[2] = uStack_c;
+  *param_3 = _cfg_14.uStack_14;
+  param_3[1] = _cfg_14.uStack_10;
+  param_3[2] = _cfg_14.uStack_c;
   return bVar2;
 }

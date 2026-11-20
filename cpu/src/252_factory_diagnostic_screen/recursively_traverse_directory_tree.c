@@ -11,6 +11,11 @@
 uint32_t recursively_traverse_directory_tree(int param_1,char *param_2,int param_3,int *param_4,int *param_5)
 
 {
+  struct {
+    uint32_t uStack_4c;
+    uint32_t uStack_48;
+    uint8_t uStack_44;
+  } _cfg_4c;
   int iVar1;
   uint32_t uVar2;
   int iVar3;
@@ -22,9 +27,6 @@ uint32_t recursively_traverse_directory_tree(int param_1,char *param_2,int param
   uint uStack_170;
   uint32_t uStack_150;
   char acStack_14c [256];
-  uint32_t uStack_4c;
-  uint32_t uStack_48;
-  uint8_t uStack_44;
   char acStack_35 [33];
   uint uStack_14;
   int iStack_10;
@@ -41,17 +43,17 @@ uint32_t recursively_traverse_directory_tree(int param_1,char *param_2,int param
     }
     fill_byte_array(acStack_14c + iVar1,0,0x100 - iVar1);
     acStack_14c[iVar1] = '\\';
-    uStack_4c = 0;
-    uStack_48 = 0;
+    _cfg_4c.uStack_4c = 0;
+    _cfg_4c.uStack_48 = 0;
     uStack_150 = -0x2c;
     cls_105ab468_new((cls_105ab468 *)((int)acStack_35 + 1));
-    uStack_44 = 0;
+    _cfg_4c.uStack_44 = 0;
     uStack_14 = 0;
     uStack_170 = 0;
     iStack_10 = 0;
     if (*(int *)(param_1 + 0x38) < *(int *)(param_1 + 0x34)) {
       iVar3 = *(int *)(param_1 + 0x4c);
-      *puVar6 = (uintptr_t)(&uStack_4c);
+      *puVar6 = (uintptr_t)(&_cfg_4c.uStack_4c);
       iVar3 = call_inner_with_lock_pair((int)(iVar3),(void *)(param_2),(char *)(uRam80010b98),(uint32_t)(1),(uint32_t)(*puVar6));
       if (iVar3 == 1) {
         do {
@@ -81,9 +83,9 @@ uint32_t recursively_traverse_directory_tree(int param_1,char *param_2,int param
             iVar3 = recursively_traverse_directory_tree(param_1,acStack_14c,uVar4,(int *)&uStack_14,(int *)*puVar6);
             if (iVar3 == 0) break;
           }
-          iVar3 = call_helper_with_lock_guard(*(int *)(param_1 + 0x4c),&uStack_4c);
+          iVar3 = call_helper_with_lock_guard(*(int *)(param_1 + 0x4c),&_cfg_4c.uStack_4c);
         } while (iVar3 != 0);
-        call_three_helpers_on_param(*(int *)(param_1 + 0x4c),&uStack_4c);
+        call_three_helpers_on_param(*(int *)(param_1 + 0x4c),&_cfg_4c.uStack_4c);
       }
     }
     empty_noop_stub_104e6164(param_1,uStack_170,uStack_14);

@@ -11,17 +11,18 @@
 uint32_t dispatch_mode_command_1042a3c6(cls_1059e680 *param_1,uint32_t param_2,int param_3)
 
 {
+  struct {
+    uint32_t uStack_18;
+    uint32_t uStack_14;
+    uint32_t uStack_10;
+    uint32_t uStack_c;
+  } _cfg_18;
   uint8_t uVar1;
   bool bVar2;
   int iVar3;
   uint32_t uVar4;
   uint32_t uVar5;
   uintptr_t sp;
-  uint32_t uStack_18;
-  uint32_t uStack_14;
-  uint32_t uStack_10;
-  uint32_t uStack_c;
-  
   uVar1 = *(uint8_t *)(param_3 + 0x859);
   set_struct_field_at_offset_4(param_3,0);
   iVar3 = read_virtual_property_field((int *)(param_1->field_0x14),(int)(1));
@@ -78,9 +79,9 @@ joined_r0x1042a51c:
   case 5:
     set_struct_field_at_offset_4(param_3,1);
     uVar5 = read_struct_field_at_index_1046c7ca(param_3,0);
-    uStack_18 = 0;
-    uVar5 = query_object_property((int)(param_1),(int)(uVar5),(uint *)(&uStack_18));
-    uVar4 = uStack_18;
+    _cfg_18.uStack_18 = 0;
+    uVar5 = query_object_property((int)(param_1),(int)(uVar5),(uint *)(&_cfg_18.uStack_18));
+    uVar4 = _cfg_18.uStack_18;
     goto LAB_1042a662;
   case 6:
     set_struct_field_at_offset_4(param_3,0);
@@ -90,10 +91,10 @@ joined_r0x1042a51c:
     break;
   case 7:
     uVar5 = read_struct_field_at_index_1046c7ca(param_3,0);
-    uStack_14 = 0;
+    _cfg_18.uStack_14 = 0;
     uVar4 = add_eight_to_param(param_3);
-    uVar5 = get_object_field_by_index((int)(param_1),(int)(uVar5),(uint32_t *)(&uStack_14),(uint32_t)(uVar4));
-    uVar4 = uStack_14;
+    uVar5 = get_object_field_by_index((int)(param_1),(int)(uVar5),(uint32_t *)(&_cfg_18.uStack_14),(uint32_t)(uVar4));
+    uVar4 = _cfg_18.uStack_14;
     goto LAB_1042a6dc;
   case 8:
     set_struct_field_at_offset_4(param_3,0);
@@ -112,9 +113,9 @@ joined_r0x1042a51c:
     if (iVar3 != 0) {
       uVar5 = 0x1c;
     }
-    uStack_10 = 0;
-    uVar5 = query_object_property((int)(param_1),(int)(uVar5),(uint *)(&uStack_10));
-    uVar4 = uStack_10;
+    _cfg_18.uStack_10 = 0;
+    uVar5 = query_object_property((int)(param_1),(int)(uVar5),(uint *)(&_cfg_18.uStack_10));
+    uVar4 = _cfg_18.uStack_10;
 LAB_1042a662:
     write_word_to_struct_array(param_3,uVar4,0);
     break;
@@ -134,10 +135,10 @@ LAB_1042a662:
     if (iVar3 != 0) {
       uVar5 = 0x1c;
     }
-    uStack_c = 0;
+    _cfg_18.uStack_c = 0;
     uVar4 = add_eight_to_param(param_3);
-    uVar5 = get_object_field_by_index((int)(param_1),(int)(uVar5),(uint32_t *)(&uStack_c),(uint32_t)(uVar4));
-    uVar4 = uStack_c;
+    uVar5 = get_object_field_by_index((int)(param_1),(int)(uVar5),(uint32_t *)(&_cfg_18.uStack_c),(uint32_t)(uVar4));
+    uVar4 = _cfg_18.uStack_c;
 LAB_1042a6dc:
     set_struct_field_at_offset_4(param_3,uVar4);
     break;

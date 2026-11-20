@@ -20,14 +20,16 @@
 char acquire_sem_and_invoke_virtual(int param_1,uint32_t *param_2,uint32_t *param_3,uint32_t *param_4)
 
 {
+  struct {
+    uint32_t uStack_20;
+    uint32_t uStack_1c;
+    uint32_t uStack_18;
+    char cStack_14;
+  } _cfg_20;
   int iVar1;
   int *piVar2;
   char cVar3;
   uintptr_t sp;
-  uint32_t uStack_20;
-  uint32_t uStack_1c;
-  uint32_t uStack_18;
-  char cStack_14;
   uint uStack_c;
   
   twai_sem_obj((uint32_t *)(param_1 + 0x18),(int)(_DAT_105a2bf0/*ROM*/));
@@ -35,22 +37,22 @@ char acquire_sem_and_invoke_virtual(int param_1,uint32_t *param_2,uint32_t *para
   *param_2 = 0;
   *param_3 = 0;
   *param_4 = 0;
-  alloc_and_init_small_object(&uStack_20);
+  alloc_and_init_small_object(&_cfg_20.uStack_20);
   iVar1 = get_or_create_camera_object();
   piVar2 = *(int **)(iVar1 + 4);
   eventflag_clr_flg((uint32_t *)(param_1 + 8),0x18);
   iVar1 = *piVar2;
   (((vtbl_entry*)(iVar1))[26].fn)
             ((int)piVar2 + (int)((vtbl_entry*)(iVar1))[26].adj,param_1,*(uint32_t *)(param_1 + 4),
-             &uStack_20);
+             &_cfg_20.uStack_20);
   eventflag_wai_flg((uint32_t *)(param_1 + 8),0x18,&uStack_c,_DAT_105a2af0/*ROM*/);
   cVar3 = '\0';
-  if (((uStack_c & 8) != 0) && (cVar3 = cStack_14, cStack_14 != '\0')) {
-    *param_2 = uStack_20;
-    *param_3 = uStack_1c;
-    *param_4 = uStack_18;
+  if (((uStack_c & 8) != 0) && (cVar3 = _cfg_20.cStack_14, _cfg_20.cStack_14 != '\0')) {
+    *param_2 = _cfg_20.uStack_20;
+    *param_3 = _cfg_20.uStack_1c;
+    *param_4 = _cfg_20.uStack_18;
   }
   sig_sem_obj((uint32_t *)(param_1 + 0x18));
-  destroy_and_maybe_free_object(&uStack_20,2);
+  destroy_and_maybe_free_object(&_cfg_20.uStack_20,2);
   return cVar3;
 }

@@ -21,21 +21,22 @@
 uint32_t create_and_init_subobject(cls_105a0e48 *param_1)
 
 {
+  struct {
+    uint32_t uStack_14;
+    uint32_t uStack_10;
+    uint32_t uStack_c;
+  } _cfg_14;
   void *puVar1;
   uint32_t uVar2;
   uintptr_t sp;
-  uint32_t uStack_14;
-  uint32_t uStack_10;
-  uint32_t uStack_c;
-  
-  alloc_and_zero_small_struct_10442e8e(&uStack_14);
-  uStack_14 = 0x5c001000/*DISPLAY-CTL*/;
-  uStack_10 = 0x5c001004/*DISPLAY-CTL*/;
-  uStack_c = 0xa5;
-  puVar1 = (void *)cls_105a0df8_new((cls_105a0df8 *)0x0,&uStack_14);
+  alloc_and_zero_small_struct_10442e8e(&_cfg_14.uStack_14);
+  _cfg_14.uStack_14 = 0x5c001000/*DISPLAY-CTL*/;
+  _cfg_14.uStack_10 = 0x5c001004/*DISPLAY-CTL*/;
+  _cfg_14.uStack_c = 0xa5;
+  puVar1 = (void *)cls_105a0df8_new((cls_105a0df8 *)0x0,&_cfg_14.uStack_14);
   param_1->field_0x4 = (uint32_t)(puVar1);
   uVar2 = (((vtbl_entry*)(*(int *)((char*)puVar1 + 4)))[2].fn)
                     ((char*)puVar1 + ((vtbl_entry*)(*(int *)((char*)puVar1 + 4)))[2].adj,0);
-  free_heap_block_if_flagged_10442eb4(&uStack_14,2);
+  free_heap_block_if_flagged_10442eb4(&_cfg_14.uStack_14,2);
   return uVar2;
 }

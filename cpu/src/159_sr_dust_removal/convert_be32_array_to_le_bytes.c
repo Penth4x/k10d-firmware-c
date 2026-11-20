@@ -23,6 +23,11 @@
 int convert_be32_array_to_le_bytes(int param_1,uint32_t param_2,int param_3,int param_4)
 
 {
+  struct {
+    uint32_t uStack_14;
+    uint16_t uStack_10;
+    int iStack_c;
+  } _cfg_14;
   int iVar1;
   int iVar2;
   int iVar3;
@@ -31,10 +36,6 @@ int convert_be32_array_to_le_bytes(int param_1,uint32_t param_2,int param_3,int 
   int iVar6;
   int iVar7;
   uintptr_t sp;
-  uint32_t uStack_14;
-  uint16_t uStack_10;
-  int iStack_c;
-  
   if (param_3 < 1) {
     iVar7 = 0;
   }
@@ -84,10 +85,10 @@ int convert_be32_array_to_le_bytes(int param_1,uint32_t param_2,int param_3,int 
         iVar3 = iVar3 + 4;
       }
     }
-    uStack_10 = (uint16_t)param_3;
-    uStack_14 = param_2;
-    iStack_c = iVar6;
-    iVar7 = dispatch_event_with_timeout_1046f1d8(param_1,&uStack_14);
+    _cfg_14.uStack_10 = (uint16_t)param_3;
+    _cfg_14.uStack_14 = param_2;
+    _cfg_14.iStack_c = iVar6;
+    iVar7 = dispatch_event_with_timeout_1046f1d8(param_1,&_cfg_14.uStack_14);
     heap_free_2(iVar6);
   }
   return iVar7;

@@ -23,6 +23,11 @@
 void run_test_mode_sequence(int param_1)
 
 {
+  struct {
+    uint32_t uStack_14;
+    uint32_t uStack_10;
+    uint32_t uStack_c;
+  } _cfg_14;
   uint32_t uVar1;
   int *piVar2;
   int iVar3;
@@ -31,18 +36,14 @@ void run_test_mode_sequence(int param_1)
   uintptr_t sp;
   int iStack_20;
   int iStack_18;
-  uint32_t uStack_14;
-  uint32_t uStack_10;
-  uint32_t uStack_c;
-  
-  uStack_14 = 0;
-  uStack_10 = 0;
-  uStack_c = 0;
+  _cfg_14.uStack_14 = 0;
+  _cfg_14.uStack_10 = 0;
+  _cfg_14.uStack_c = 0;
   iVar3 = *(int *)(param_1 + 0x84) + 0x880;
   if ((iVar3 != 0) && (*(char *)(*(int *)(param_1 + 0x84) + 0x8c0) != '\0')) {
     test_mode_state_reset((void *)(*(int *)(param_1 + 0x84) + 0x148));
     append_bytes_to_ring_buffer(iVar3,0x1059c7a4/*ROM*/,0);
-    invoke_virtual_method_on_object_10419afe(param_1,&uStack_14);
+    invoke_virtual_method_on_object_10419afe(param_1,&_cfg_14.uStack_14);
     uVar1 = reset_and_query_state();
     copy_stream_bytes_into_struct(iVar3,(void*)(uVar1),1,0);
     piVar2 = (int *)(*(int *)(param_1 + 0x84) + 0x1e4);
@@ -51,9 +52,9 @@ void run_test_mode_sequence(int param_1)
     copy_stream_bytes_into_struct(iVar3,(void*)(uVar1),1,0);
     copy_stream_bytes_into_struct(iVar3,0,1,0);
     copy_stream_bytes_into_struct(iVar3,0,1,0);
-    copy_stream_bytes_into_struct(iVar3,(void*)(uStack_14),1,0);
-    copy_stream_bytes_into_struct(iVar3,(void*)(uStack_10),1,0);
-    copy_stream_bytes_into_struct(iVar3,(void*)(uStack_c),1,0);
+    copy_stream_bytes_into_struct(iVar3,(void*)(_cfg_14.uStack_14),1,0);
+    copy_stream_bytes_into_struct(iVar3,(void*)(_cfg_14.uStack_10),1,0);
+    copy_stream_bytes_into_struct(iVar3,(void*)(_cfg_14.uStack_c),1,0);
     append_newline_to_buffer(iVar3,0);
     iStack_18 = 1;
     do {
@@ -62,7 +63,7 @@ void run_test_mode_sequence(int param_1)
       check_kernel_call_success_10459fea();
       iStack_20 = 4;
       while( true ) {
-        invoke_virtual_method_on_object_10419afe(param_1,&uStack_14);
+        invoke_virtual_method_on_object_10419afe(param_1,&_cfg_14.uStack_14);
         uVar1 = reset_and_query_state();
         copy_stream_bytes_into_struct(iVar3,(void*)(uVar1),1,0);
         piVar2 = (int *)(*(int *)(param_1 + 0x84) + 0x1e4);
@@ -71,11 +72,11 @@ void run_test_mode_sequence(int param_1)
         copy_stream_bytes_into_struct(iVar3,(void*)(uVar1),1,0);
         copy_stream_bytes_into_struct(iVar3,(void*)(iStack_18),1,0);
         copy_stream_bytes_into_struct(iVar3,(void*)(iVar4),1,0);
-        copy_stream_bytes_into_struct(iVar3,(void*)(uStack_14),1,0);
-        copy_stream_bytes_into_struct(iVar3,(void*)(uStack_10),1,0);
-        copy_stream_bytes_into_struct(iVar3,(void*)(uStack_c),1,0);
+        copy_stream_bytes_into_struct(iVar3,(void*)(_cfg_14.uStack_14),1,0);
+        copy_stream_bytes_into_struct(iVar3,(void*)(_cfg_14.uStack_10),1,0);
+        copy_stream_bytes_into_struct(iVar3,(void*)(_cfg_14.uStack_c),1,0);
         append_newline_to_buffer(iVar3,0);
-        invoke_virtual_method_on_object_10419afe(param_1,&uStack_14);
+        invoke_virtual_method_on_object_10419afe(param_1,&_cfg_14.uStack_14);
         uVar1 = reset_and_query_state();
         copy_stream_bytes_into_struct(iVar3,(void*)(uVar1),1,0);
         piVar2 = (int *)(*(int *)(param_1 + 0x84) + 0x1e4);
@@ -84,9 +85,9 @@ void run_test_mode_sequence(int param_1)
         copy_stream_bytes_into_struct(iVar3,(void*)(uVar1),1,0);
         copy_stream_bytes_into_struct(iVar3,(void*)(iStack_18),1,0);
         copy_stream_bytes_into_struct(iVar3,(void*)(iVar4 + 1),1,0);
-        copy_stream_bytes_into_struct(iVar3,(void*)(uStack_14),1,0);
-        copy_stream_bytes_into_struct(iVar3,(void*)(uStack_10),1,0);
-        copy_stream_bytes_into_struct(iVar3,(void*)(uStack_c),1,0);
+        copy_stream_bytes_into_struct(iVar3,(void*)(_cfg_14.uStack_14),1,0);
+        copy_stream_bytes_into_struct(iVar3,(void*)(_cfg_14.uStack_10),1,0);
+        copy_stream_bytes_into_struct(iVar3,(void*)(_cfg_14.uStack_c),1,0);
         append_newline_to_buffer(iVar3,0);
         iStack_20 = iStack_20 + -1;
         if (iStack_20 < 0) break;

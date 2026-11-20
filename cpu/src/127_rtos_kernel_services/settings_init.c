@@ -10,7 +10,7 @@
  *   resulting id in *param_1. If param_2 is non-zero, it calls validate_and_dispatch_event
  *   with the lower halfword of param_2, likely to wait on an existing semaphore. The return
  *   value is normalized: 0 remains 0, -0x21 (E_TIMEOUT) becomes -1, and any other error
- *   becomes -3. This fits the pattern of a wrapper around ÂµITRON semaphore primitives
+ *   becomes -3. This fits the pattern of a wrapper around ÃÂµITRON semaphore primitives
  *   (cre_sem/twai_sem) within the RTOS wrappers module.
  * @end */
 #include "frv_intrinsics.h"
@@ -21,25 +21,26 @@
 int settings_init(int *param_1,int param_2,uint32_t param_3,uint32_t param_4)
 
 {
+  struct {
+    uint32_t uStack_10;
+    uint32_t uStack_c;
+    uint32_t uStack_8;
+  } _cfg_10;
   int iVar1;
   uintptr_t sp;
-  uint32_t uStack_10;
-  uint32_t uStack_c;
-  uint32_t uStack_8;
-  
-  uStack_10 = 0;
+  _cfg_10.uStack_10 = 0;
   *param_1 = param_2;
-  uStack_c = param_3;
-  uStack_8 = param_4;
+  _cfg_10.uStack_c = param_3;
+  _cfg_10.uStack_8 = param_4;
   if (param_2 == 0) {
-    iVar1 = __trap_find_free_queue_slot_1000da18(&uStack_10);
+    iVar1 = __trap_find_free_queue_slot_1000da18(&_cfg_10.uStack_10);
     if (0 < iVar1) {
       *param_1 = iVar1;
       return iVar1;
     }
   }
   else {
-    iVar1 = __trap_validate_and_dispatch_event((int)(short)param_2,&uStack_10);
+    iVar1 = __trap_validate_and_dispatch_event((int)(short)param_2,&_cfg_10.uStack_10);
   }
   if (iVar1 == 0) {
     iVar1 = 0;

@@ -16,6 +16,11 @@ void text_widget_layout(uint32_t param_1,ushort *param_2,uint32_t param_3,uint32
                  int param_5)
 
 {
+  struct {
+    uint32_t uStack_48;
+    uint32_t uStack_44;
+    uint32_t uStack_40;
+  } _cfg_48;
   ushort uVar1;
   int iVar2;
   uint32_t uVar3;
@@ -25,9 +30,6 @@ void text_widget_layout(uint32_t param_1,ushort *param_2,uint32_t param_3,uint32
   uint32_t *puVar7;
   int iVar8;
   uintptr_t sp;
-  uint32_t uStack_48;
-  uint32_t uStack_44;
-  uint32_t uStack_40;
   uint32_t auStack_3c [5];
   uint32_t uStack_28;
   uint32_t auStack_24 [7];
@@ -36,10 +38,10 @@ void text_widget_layout(uint32_t param_1,ushort *param_2,uint32_t param_3,uint32
   iVar2 = setting_get(*(int *)(iVar2 + 0x10),0xa9);
   uVar6 = *(uint32_t *)(*(int *)(param_2 + 0x18) + iVar2 * 4);
   uVar3 = get_or_init_static_buffer_103fe528();
-  (*(code *)0x103fe66a/*ROM*/)(&uStack_48,uVar3,uVar6);
-  uStack_28 = uStack_48;
-  auStack_24[0] = uStack_44;
-  free_heap_if_flagged_1045c402(&uStack_48,2);
+  (*(code *)0x103fe66a/*ROM*/)(&_cfg_48.uStack_48,uVar3,uVar6);
+  uStack_28 = _cfg_48.uStack_48;
+  auStack_24[0] = _cfg_48.uStack_44;
+  free_heap_if_flagged_1045c402(&_cfg_48.uStack_48,2);
   uVar1 = param_2[0x13];
   uVar4 = return_first_word_1045c514(&uStack_28);
   if (uVar4 <= uVar1) {
@@ -53,9 +55,9 @@ void text_widget_layout(uint32_t param_1,ushort *param_2,uint32_t param_3,uint32
   puVar7 = auStack_24 + 1;
   allocate_and_init_widget(puVar7);
   copy_four_words(puVar7,&uStack_28);
-  pvVar5 = (void *)alloc_two_word_pair_1045bc2e(&uStack_40,(uint)*param_2,(uint)param_2[1]);
+  pvVar5 = (void *)alloc_two_word_pair_1045bc2e(&_cfg_48.uStack_40,(uint)*param_2,(uint)param_2[1]);
   copy_eight_bytes_1045bf68(puVar7,pvVar5);
-  free_heap_block_if_flagged_1045bc54(&uStack_40,2);
+  free_heap_block_if_flagged_1045bc54(&_cfg_48.uStack_40,2);
   iVar2 = 0x10;
   do {
     iVar8 = iVar2 + -4;

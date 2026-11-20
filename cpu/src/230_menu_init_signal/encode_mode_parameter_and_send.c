@@ -19,30 +19,31 @@
 uint32_t encode_mode_parameter_and_send(int param_1,void *param_2,int param_3,int param_4,int param_5)
 
 {
+  struct {
+    uint32_t uStack_14;
+    int iStack_10;
+    void * pvStack_c;
+  } _cfg_14;
   uintptr_t sp;
-  uint32_t uStack_14;
-  int iStack_10;
-  void *pvStack_c;
-  
-  uStack_14 = 0;
+  _cfg_14.uStack_14 = 0;
   if (param_3 == 0) {
-    uStack_14 = 0;
+    _cfg_14.uStack_14 = 0;
   }
   else if (param_3 == 1) {
-    uStack_14 = 1;
+    _cfg_14.uStack_14 = 1;
   }
   else if (param_3 == 2) {
     param_4 = param_4 * 3 + param_5;
-    uStack_14 = 2;
+    _cfg_14.uStack_14 = 2;
   }
   else if (param_3 == 3) {
-    uStack_14 = 4;
+    _cfg_14.uStack_14 = 4;
   }
   else if (param_3 == 4) {
-    uStack_14 = 3;
+    _cfg_14.uStack_14 = 3;
   }
-  iStack_10 = param_4;
-  pvStack_c = param_2;
-  configure_buffer_and_dispatch_event(param_1,&uStack_14,1);
+  _cfg_14.iStack_10 = param_4;
+  _cfg_14.pvStack_c = param_2;
+  configure_buffer_and_dispatch_event(param_1,&_cfg_14.uStack_14,1);
   return 1;
 }

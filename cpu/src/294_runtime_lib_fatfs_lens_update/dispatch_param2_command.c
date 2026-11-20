@@ -18,25 +18,26 @@
 int dispatch_param2_command(int param_1,int *param_2,void *param_3)
 
 {
+  struct {
+    void * pvStack_14;
+    int iStack_10;
+    int iStack_c;
+  } _cfg_14;
   int iVar1;
   uintptr_t sp;
-  void *pvStack_14;
-  int iStack_10;
-  int iStack_c;
-  
-  iStack_10 = param_2[2] << 5;
-  iStack_c = (param_2[1] + -1) * 0x20;
-  pvStack_14 = param_3;
+  _cfg_14.iStack_10 = param_2[2] << 5;
+  _cfg_14.iStack_c = (param_2[1] + -1) * 0x20;
+  _cfg_14.pvStack_14 = param_3;
   if (*param_2 == 0) {
     if ((*(uint *)(param_1 + 0x48) & 3) == 0) {
       iVar1 = -0x16;
     }
     else {
-      iVar1 = validate_lens_fw_chunk(param_1,&pvStack_14);
+      iVar1 = validate_lens_fw_chunk(param_1,&_cfg_14.pvStack_14);
     }
   }
   else {
-    iVar1 = transfer_buffer_in_chunks_10537284((void *)param_1,*param_2,&pvStack_14);
+    iVar1 = transfer_buffer_in_chunks_10537284((void *)param_1,*param_2,&_cfg_14.pvStack_14);
   }
   return iVar1;
 }

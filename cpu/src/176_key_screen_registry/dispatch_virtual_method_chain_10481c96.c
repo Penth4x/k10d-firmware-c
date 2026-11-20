@@ -9,14 +9,16 @@
 uint32_t dispatch_virtual_method_chain_10481c96(int param_1, uint32_t param_x1)
 
 {
+  struct {
+    int iStack_18;
+    int iStack_14;
+    uint32_t uStack_10;
+    uint16_t uStack_c;
+  } _cfg_18;
   int iVar1;
   int iVar2;
   uint32_t uVar3;
   uintptr_t sp;
-  int iStack_18;
-  int iStack_14;
-  uint32_t uStack_10;
-  uint16_t uStack_c;
   uint16_t uStack_a;
   
   iVar1 = lookup_table_entry_by_index_10482026(*(void **)(param_1 + 8));
@@ -33,13 +35,13 @@ uint32_t dispatch_virtual_method_chain_10481c96(int param_1, uint32_t param_x1)
       uVar3 = 0;
     }
     else {
-      uStack_10 = *(uint32_t *)(iVar1 + 0x14);
-      uStack_c = *(uint16_t *)(iVar1 + 0x18);
+      _cfg_18.uStack_10 = *(uint32_t *)(iVar1 + 0x14);
+      _cfg_18.uStack_c = *(uint16_t *)(iVar1 + 0x18);
       uStack_a = *(uint16_t *)(iVar1 + 0x1a);
-      iStack_14 = param_1 + 4;
-      iStack_18 = iVar1;
+      _cfg_18.iStack_14 = param_1 + 4;
+      _cfg_18.iStack_18 = iVar1;
       uVar3 = read_struct_field_by_index_10481d78(param_1,*(uint32_t *)(iVar1 + 0x10));
-      uVar3 = dispatch_virtual_then_table((void*)(uVar3),&iStack_18);
+      uVar3 = dispatch_virtual_then_table((void*)(uVar3),&_cfg_18.iStack_18);
     }
   }
   return uVar3;

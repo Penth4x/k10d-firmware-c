@@ -9,6 +9,12 @@
 uint32_t init_object_with_five_members(void *param_1)
 
 {
+  struct {
+    uint32_t uStack_18;
+    uint32_t uStack_14;
+    uint32_t uStack_10;
+    uint32_t uStack_c;
+  } _cfg_18;
   int *piVar1;
   void *pvVar2;
   int iVar3;
@@ -19,11 +25,6 @@ uint32_t init_object_with_five_members(void *param_1)
   char cVar8;
   uintptr_t sp;
   char acStack_1a [2];
-  uint32_t uStack_18;
-  uint32_t uStack_14;
-  uint32_t uStack_10;
-  uint32_t uStack_c;
-  
   piVar1 = (int *)cls_105ab5a8_new(0,1);
   *(int **)((int)param_1 + 4) = piVar1;
   (((vtbl_entry*)(*piVar1))[2].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[2].adj,0);
@@ -55,13 +56,13 @@ uint32_t init_object_with_five_members(void *param_1)
   uVar7 = *(uint32_t *)(iVar5 + 4);
   pvVar2 = (void *)get_or_init_sram_buffer_104277bc();
   uVar4 = read_table_entry_field(pvVar2,0xcd);
-  alloc_and_zero_small_struct_10480920(&uStack_18);
-  uStack_18 = *(uint32_t *)((int)param_1 + 4);
+  alloc_and_zero_small_struct_10480920(&_cfg_18.uStack_18);
+  _cfg_18.uStack_18 = *(uint32_t *)((int)param_1 + 4);
   iVar5 = **(int **)((int)param_1 + 8);
-  uStack_14 = uVar7;
-  uStack_10 = uVar4;
+  _cfg_18.uStack_14 = uVar7;
+  _cfg_18.uStack_10 = uVar4;
   (((vtbl_entry*)(iVar5))[2].fn)
-            ((int)*(int **)((int)param_1 + 8) + (int)((vtbl_entry*)(iVar5))[2].adj,&uStack_18);
+            ((int)*(int **)((int)param_1 + 8) + (int)((vtbl_entry*)(iVar5))[2].adj,&_cfg_18.uStack_18);
   iVar5 = (uint32_t)(cls_105ab47c_new(0));
   *(int *)((int)param_1 + 0xc) = iVar5;
   *(uint32_t *)(iVar5 + 8) = *(uint32_t *)((int)param_1 + 8);
@@ -69,13 +70,13 @@ uint32_t init_object_with_five_members(void *param_1)
   (((vtbl_entry*)(iVar5))[2].fn)((int)*(int **)((int)param_1 + 0xc) + (int)((vtbl_entry*)(iVar5))[2].adj,0);
   uVar4 = (uint32_t)(cls_105ab560_new(0));
   *(uint32_t *)((int)param_1 + 0x10) = uVar4;
-  uStack_c = *(uint32_t *)((int)param_1 + 4);
+  _cfg_18.uStack_c = *(uint32_t *)((int)param_1 + 4);
   iVar5 = **(int **)((int)param_1 + 0x10);
   (((vtbl_entry*)(iVar5))[2].fn)
-            ((int)*(int **)((int)param_1 + 0x10) + (int)((vtbl_entry*)(iVar5))[2].adj,&uStack_c);
+            ((int)*(int **)((int)param_1 + 0x10) + (int)((vtbl_entry*)(iVar5))[2].adj,&_cfg_18.uStack_c);
   piVar1 = (int *)cls_105ab720_new(0);
   *(int **)((int)param_1 + 0x14) = piVar1;
   uVar4 = (((vtbl_entry*)(*piVar1))[2].fn)((int)piVar1 + (int)((vtbl_entry*)(*piVar1))[2].adj,0);
-  free_heap_block_if_flagged_10480944(&uStack_18,2);
+  free_heap_block_if_flagged_10480944(&_cfg_18.uStack_18,2);
   return uVar4;
 }

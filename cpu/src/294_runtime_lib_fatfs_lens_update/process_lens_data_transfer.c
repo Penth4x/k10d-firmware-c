@@ -21,6 +21,11 @@
 int process_lens_data_transfer(void *param_1)
 
 {
+  struct {
+    uint32_t uStack_2c;
+    uint32_t uStack_28;
+    uint32_t uStack_24;
+  } _cfg_2c;
   int iVar1;
   int iVar2;
   uint uVar3;
@@ -31,9 +36,6 @@ int process_lens_data_transfer(void *param_1)
   uint32_t *puVar6;
   uint8_t auStack_40 [8];
   uint8_t auStack_38 [12];
-  uint32_t uStack_2c;
-  uint32_t uStack_28;
-  uint32_t uStack_24;
   int aiStack_20 [2];
   int iStack_18;
   int iStack_10;
@@ -41,7 +43,7 @@ int process_lens_data_transfer(void *param_1)
   
   puVar6 = (uint32_t *)auStack_40;
   iStack_10 = 1;
-  iVar2 = scan_record_array_for_marker(param_1,&uStack_2c,auStack_38);
+  iVar2 = scan_record_array_for_marker(param_1,&_cfg_2c.uStack_2c,auStack_38);
   if (iVar2 != 0) {
     if (iVar2 == -6) {
       return -6;
@@ -121,10 +123,10 @@ int process_lens_data_transfer(void *param_1)
     iVar2 = extraout_r4;
     if (extraout_r4 == 0) {
       if (iStack_10 == 1) {
-        uStack_2c = *(uint32_t *)((int)param_1 + 0x28);
-        uStack_28 = 1;
-        uStack_24 = 1;
-        iVar2 = (*(code *)0x1053a6e2/*ROM*/)(param_1,&uStack_2c,auStack_38);
+        _cfg_2c.uStack_2c = *(uint32_t *)((int)param_1 + 0x28);
+        _cfg_2c.uStack_28 = 1;
+        _cfg_2c.uStack_24 = 1;
+        iVar2 = (*(code *)0x1053a6e2/*ROM*/)(param_1,&_cfg_2c.uStack_2c,auStack_38);
         if (iVar2 != 0) {
           return iVar2;
         }

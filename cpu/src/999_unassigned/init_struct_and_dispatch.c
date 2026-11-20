@@ -18,12 +18,14 @@
 int init_struct_and_dispatch(int param_1,void *param_2)
 
 {
+  struct {
+    int iStack_38;
+    int iStack_34;
+    int iStack_30;
+  } _cfg_38;
   int iVar1;
   int iVar2;
   uintptr_t sp;
-  int iStack_38;
-  int iStack_34;
-  int iStack_30;
   ushort uStack_2a;
   short sStack_26;
   short sStack_22;
@@ -32,9 +34,9 @@ int init_struct_and_dispatch(int param_1,void *param_2)
   iVar2 = *(int *)((int)param_2 + 0xc);
   *(uint32_t *)((int)param_2 + 0x10) = 0;
   *(uint32_t *)((int)param_2 + 0xc) = 0;
-  call_single_helper_1047f97e((uint32_t)(&iStack_38));
+  call_single_helper_1047f97e((uint32_t)(&_cfg_38.iStack_38));
   *(ushort *)((int)param_2 + 0x16) =
-       (ushort)(iStack_38 / 2) | (ushort)(iStack_34 << 5) | (ushort)(iStack_30 << 0xb);
+       (ushort)(_cfg_38.iStack_38 / 2) | (ushort)(_cfg_38.iStack_34 << 5) | (ushort)(_cfg_38.iStack_30 << 0xb);
   *(ushort *)((int)param_2 + 0x14) =
        (sStack_26 + 1) * 0x20 | uStack_2a | (sStack_22 + -0x50) * 0x200;
   *(uint16_t *)((int)param_2 + 0x1c) = *(uint16_t *)((int)param_2 + 0x14);

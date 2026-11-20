@@ -11,35 +11,36 @@
 int format_string_to_buffer_10545140(uint8_t *param_1,char *param_2,void *param_3,void *param_4)
 
 {
+  struct {
+    char * pcStack_c;
+    void * pvStack_8;
+    void * pvStack_4;
+  } _cfg_c;
   char *pcVar1;
   int iVar2;
   uintptr_t sp;
   void **ppvStack_28;
-  char *pcStack_c;
-  void *pvStack_8;
-  void *pvStack_4;
-  
   *(uint *)_DAT_80014a6c/*SDRAM*/ = 0;
-  ppvStack_28 = &pvStack_8;
-  pcStack_c = param_2;
-  pvStack_8 = param_3;
-  pvStack_4 = param_4;
+  ppvStack_28 = &_cfg_c.pvStack_8;
+  _cfg_c.pcStack_c = param_2;
+  _cfg_c.pvStack_8 = param_3;
+  _cfg_c.pvStack_4 = param_4;
   do {
-    pcVar1 = pcStack_c;
-    if (*pcStack_c == '\0') {
+    pcVar1 = _cfg_c.pcStack_c;
+    if (*_cfg_c.pcStack_c == '\0') {
       *param_1 = 0;
       return *(uint *)_DAT_80014a6c/*SDRAM*/;
     }
-    if (*pcStack_c == '%') {
-      iVar2 = format_value_into_buffer(param_1,&pcStack_c,&ppvStack_28,0);
-      pcStack_c = pcStack_c + 1;
+    if (*_cfg_c.pcStack_c == '%') {
+      iVar2 = format_value_into_buffer(param_1,&_cfg_c.pcStack_c,&ppvStack_28,0);
+      _cfg_c.pcStack_c = _cfg_c.pcStack_c + 1;
     }
     else {
       do {
-        pcStack_c = pcStack_c + 1;
-        if (*pcStack_c == '%') break;
-      } while (*pcStack_c != '\0');
-      iVar2 = (int)pcStack_c - (int)pcVar1;
+        _cfg_c.pcStack_c = _cfg_c.pcStack_c + 1;
+        if (*_cfg_c.pcStack_c == '%') break;
+      } while (*_cfg_c.pcStack_c != '\0');
+      iVar2 = (int)_cfg_c.pcStack_c - (int)pcVar1;
       memcpy_bytes(param_1,pcVar1,iVar2);
     }
     *(uint *)_DAT_80014a6c/*SDRAM*/ = *(uint *)_DAT_80014a6c/*SDRAM*/ + iVar2;

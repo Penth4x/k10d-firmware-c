@@ -18,17 +18,18 @@
 uint32_t forward_three_arg_call(int param_1,uint32_t param_2,uint16_t param_3,void *param_4)
 
 {
+  struct {
+    uint32_t uStack_14;
+    uint16_t uStack_10;
+    void * pvStack_c;
+  } _cfg_14;
   int iVar1;
   uint32_t uVar2;
   uintptr_t sp;
-  uint32_t uStack_14;
-  uint16_t uStack_10;
-  void *pvStack_c;
-  
-  uStack_14 = param_2;
-  uStack_10 = param_3;
-  pvStack_c = param_4;
+  _cfg_14.uStack_14 = param_2;
+  _cfg_14.uStack_10 = param_3;
+  _cfg_14.pvStack_c = param_4;
   iVar1 = initialize_singleton_object_1045d6a0();
-  uVar2 = read_sensor_data_via_cpucom((void *)(*(uint32_t *)(iVar1 + 4)),(void *)(param_1 + 4),&uStack_14);
+  uVar2 = read_sensor_data_via_cpucom((void *)(*(uint32_t *)(iVar1 + 4)),(void *)(param_1 + 4),&_cfg_14.uStack_14);
   return uVar2;
 }
