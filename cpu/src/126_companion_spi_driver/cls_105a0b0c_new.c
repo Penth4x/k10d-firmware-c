@@ -25,8 +25,7 @@ int cls_105a0b0c_new(cls_105a0b0c *param_1,uint32_t *param_2)
     ((cls_1059e2e0 *)param_1)->field3_0x10 = *param_2;
     ((cls_1059e2e0 *)param_1)->field4_0x14 = param_2[1];
     uVar1 = param_2[2];
-    ((cls_1059e2e0 *)param_1)->field5_0x18 = (short)((uint)uVar1 >> 0x10);
-    ((cls_1059e2e0 *)param_1)->field6_0x1a = (short)uVar1;
+    *(uint32_t *)&((cls_1059e2e0 *)param_1)->field5_0x18 = uVar1;
     *(uint32_t *)&((cls_1059e2e0 *)param_1)->field_0x1c = param_2[3];
     *(uint32_t *)&((cls_1059e2e0 *)param_1)->field_0x20 = param_2[4];
     *(uint32_t *)&((cls_1059e2e0 *)param_1)->field_0x24 = param_2[5];

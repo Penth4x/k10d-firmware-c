@@ -26,8 +26,7 @@ int cls_105a0c1c_new(cls_105a0c1c *param_1,uint32_t *param_2)
     ((cls_1059e2e0 *)param_1)->field3_0x10 = *param_2;
     ((cls_1059e2e0 *)param_1)->field4_0x14 = param_2[1];
     uVar1 = param_2[3];
-    ((cls_1059e2e0 *)param_1)->field5_0x18 = (short)((uint)uVar1 >> 0x10);
-    ((cls_1059e2e0 *)param_1)->field6_0x1a = (short)uVar1;
+    *(uint32_t *)&((cls_1059e2e0 *)param_1)->field5_0x18 = uVar1;
     store_value_if_valid(param_1,param_2[2]);
     uVar1 = (uVar1 & ~(((uint64_t)0xffff) << 0)) | ((((uint64_t)(((cls_1059e2e0 *)param_1)->field5_0x18)) & ((uint64_t)0xffff)) << 0);
     uVar1 = (uVar1 & ~(((uint64_t)0xffff) << 16)) | ((((uint64_t)(((cls_1059e2e0 *)param_1)->field6_0x1a)) & ((uint64_t)0xffff)) << 16);
