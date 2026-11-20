@@ -15,7 +15,7 @@ void cls_105a0f58_delete(cls_105a0f58 *param_1,uint param_2)
 
 {
   if (param_1 != (cls_105a0f58 *)0x0) {
-    param_1->field_0x0 = (uint8_t)&DAT_105a0f58/*ROM*/;
+    param_1->field_0x0 = (uint32_t)&DAT_105a0f58/*ROM*/;
     release_owned_member(param_1);
     reset_vtable_and_free_if_owned_1042792a((void *)&param_1->field_0x0,0);
     if ((param_2 & 1) != 0) {

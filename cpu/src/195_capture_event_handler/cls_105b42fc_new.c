@@ -17,7 +17,7 @@ cls_1059e380 * cls_105b42fc_new(cls_105b42fc *param_1)
   if ((param_1 != (cls_105b42fc *)0x0) ||
      (param_1 = (cls_105b42fc *)heap_alloc((void *)4), (cls_1059e380 *)param_1 != (cls_1059e380 *)0x0)) {
     cls_1059e380_new((cls_1059e380 *)param_1);
-    ((cls_1059e380 *)param_1)->field_0x0 = (uint8_t)&DAT_105b42fc/*ROM*/;
+    ((cls_1059e380 *)param_1)->field_0x0 = (uint32_t)&DAT_105b42fc/*ROM*/;
   }
   return (cls_1059e380 *)param_1;
 }

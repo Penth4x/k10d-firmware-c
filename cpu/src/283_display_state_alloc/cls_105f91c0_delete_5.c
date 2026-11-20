@@ -21,7 +21,7 @@ void cls_105f91c0_delete_5(cls_105f91c0 *param_1,uint param_2)
   
   puVar1 = &uStack_18;
   if (param_1 != (cls_105f91c0 *)0x0) {
-    param_1->field_0x208 = (uint8_t)&DAT_105f91c0/*ROM*/;
+    param_1->field_0x208 = (uint32_t)&DAT_105f91c0/*ROM*/;
     uStack_18 = 0;
     uStack_14 = 0;
     lens_fw_update_teardown();

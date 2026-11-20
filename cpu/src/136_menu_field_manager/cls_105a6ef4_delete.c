@@ -15,7 +15,7 @@ void cls_105a6ef4_delete(cls_105a6ef4 *param_1,uint param_2)
 
 {
   if (param_1 != (cls_105a6ef4 *)0x0) {
-    param_1->field_0x0 = (uint8_t)&DAT_105a6ef4/*ROM*/;
+    param_1->field_0x0 = (uint32_t)&DAT_105a6ef4/*ROM*/;
     reset_vtable_and_free_if_flagged_10496932((void *)param_1,0);
     if ((param_2 & 1) != 0) {
       heap_free((int)param_1);

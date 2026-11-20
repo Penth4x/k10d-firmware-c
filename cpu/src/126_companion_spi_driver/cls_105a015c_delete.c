@@ -15,7 +15,7 @@ void cls_105a015c_delete(cls_105a015c *param_1,uint param_2)
 
 {
   if (param_1 != (cls_105a015c *)0x0) {
-    param_1->field_0x0 = (uint8_t)&DAT_105a015c/*ROM*/;
+    param_1->field_0x0 = (uint32_t)&DAT_105a015c/*ROM*/;
     reset_vtable_and_free_heap((void *)param_1,0);
     if ((param_2 & 1) != 0) {
       heap_free((int)param_1);

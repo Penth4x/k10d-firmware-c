@@ -15,7 +15,7 @@ void cls_105b2d48_delete(cls_105b2d48 *param_1,uint param_2)
 
 {
   if (param_1 != (cls_105b2d48 *)0x0) {
-    param_1->field_0x0 = (uint8_t)&DAT_105b2d48/*ROM*/;
+    param_1->field_0x0 = (uint32_t)&DAT_105b2d48/*ROM*/;
     destroy_member_object(param_1);
     reset_vtable_and_free_if_owned_1042792a((void *)&param_1->field_0x0,0);
     if ((param_2 & 1) != 0) {

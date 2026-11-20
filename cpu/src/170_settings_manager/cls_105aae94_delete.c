@@ -15,7 +15,7 @@ void cls_105aae94_delete(cls_105aae94 *param_1,uint param_2)
 
 {
   if (param_1 != (cls_105aae94 *)0x0) {
-    param_1->field_0xc = (uint8_t)&DAT_105aae94/*ROM*/;
+    param_1->field_0xc = (uint32_t)&DAT_105aae94/*ROM*/;
     cls_105aaebc_delete(param_1,0);
     if ((param_2 & 1) != 0) {
       heap_free((int)param_1);
