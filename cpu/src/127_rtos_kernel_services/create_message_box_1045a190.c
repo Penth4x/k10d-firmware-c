@@ -20,28 +20,29 @@
 int create_message_box_1045a190(int *param_1,int param_2,int param_3,uint32_t *param_4,int param_5)
 
 {
+  struct {
+    uint32_t local_1c;
+    int * piStack_18;
+    code * pcStack_14;
+    int iStack_10;
+    int iStack_c;
+    uint32_t * puStack_8;
+  } _cfg_1c;
   int iVar1;
   uintptr_t sp;
-  uint32_t local_1c;
-  int *piStack_18;
-  code *pcStack_14;
-  int iStack_10;
-  int iStack_c;
-  uint32_t *puStack_8;
-  
   param_1[1] = param_3;
   param_1[2] = (int)param_4;
   param_1[3] = param_5;
   *param_4 = 0x5aa55aa5;
   *param_1 = 0;
-  local_1c = 0;
-  iStack_10 = param_3 << 0x10;
-  iStack_c = param_5;
-  pcStack_14 = ui_task_body_common;
-  piStack_18 = param_1;
-  puStack_8 = param_4;
+  _cfg_1c.local_1c = 0;
+  _cfg_1c.iStack_10 = param_3 << 0x10;
+  _cfg_1c.iStack_c = param_5;
+  _cfg_1c.pcStack_14 = ui_task_body_common;
+  _cfg_1c.piStack_18 = param_1;
+  _cfg_1c.puStack_8 = param_4;
   if (param_2 == 0) {
-    iVar1 = __trap_allocate_kernel_task_slot_1000dac0(&local_1c);
+    iVar1 = __trap_allocate_kernel_task_slot_1000dac0(&_cfg_1c.local_1c);
     if (0 < iVar1) {
       *param_1 = iVar1;
       return iVar1;
@@ -49,7 +50,7 @@ int create_message_box_1045a190(int *param_1,int param_2,int param_3,uint32_t *p
   }
   else {
     *param_1 = param_2;
-    iVar1 = __trap_validate_and_store_task_params((int)(short)param_2,&local_1c);
+    iVar1 = __trap_validate_and_store_task_params((int)(short)param_2,&_cfg_1c.local_1c);
   }
   if (iVar1 == 0) {
     iVar1 = 0;

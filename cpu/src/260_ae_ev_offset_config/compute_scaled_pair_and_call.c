@@ -19,37 +19,38 @@
 void compute_scaled_pair_and_call(int param_1,int param_2,uint param_3)
 
 {
+  struct {
+    uint16_t local_20;
+    uint16_t uStack_1e;
+    uint16_t uStack_1c;
+    uint16_t uStack_1a;
+    uint16_t uStack_18;
+    uint16_t uStack_16;
+    uint16_t uStack_14;
+    short sStack_12;
+    uint16_t uStack_10;
+    uint16_t uStack_e;
+    uint16_t uStack_c;
+    short sStack_a;
+  } _cfg_20;
   uint32_t *puVar1;
   int iVar2;
   short sVar3;
   short sVar4;
   uintptr_t sp;
-  uint16_t local_20;
-  uint16_t uStack_1e;
-  uint16_t uStack_1c;
-  uint16_t uStack_1a;
-  uint16_t uStack_18;
-  uint16_t uStack_16;
-  uint16_t uStack_14;
-  short sStack_12;
-  uint16_t uStack_10;
-  uint16_t uStack_e;
-  uint16_t uStack_c;
-  short sStack_a;
-  
-  local_20 = 0x100;
-  uStack_1e = 0;
-  uStack_1c = 0;
-  uStack_1a = 0;
-  uStack_18 = 0;
-  uStack_14 = 0;
-  sStack_12 = 0;
-  uStack_10 = 0;
-  uStack_e = 0;
-  sStack_a = 0;
+  _cfg_20.local_20 = 0x100;
+  _cfg_20.uStack_1e = 0;
+  _cfg_20.uStack_1c = 0;
+  _cfg_20.uStack_1a = 0;
+  _cfg_20.uStack_18 = 0;
+  _cfg_20.uStack_14 = 0;
+  _cfg_20.sStack_12 = 0;
+  _cfg_20.uStack_10 = 0;
+  _cfg_20.uStack_e = 0;
+  _cfg_20.sStack_a = 0;
   sVar3 = 0;
-  uStack_16 = 0x100;
-  uStack_c = 0x100;
+  _cfg_20.uStack_16 = 0x100;
+  _cfg_20.uStack_c = 0x100;
   sVar4 = 0;
   iVar2 = get_or_init_sram_buffer_1052c5b8();
   puVar1 = *(uint32_t **)(iVar2 + 0x80);
@@ -78,9 +79,9 @@ void compute_scaled_pair_and_call(int param_1,int param_2,uint param_3)
     sVar3 = *(short *)puVar1[5];
     sVar4 = ((short *)puVar1[5])[1];
   }
-  sStack_a = (short)(param_3 % 3) + 2;
-  sStack_12 = sStack_a * sVar3;
-  sStack_a = sStack_a * sVar4;
-  build_and_send_event_packet_104f87d0(param_1,param_2,&local_20);
+  _cfg_20.sStack_a = (short)(param_3 % 3) + 2;
+  _cfg_20.sStack_12 = _cfg_20.sStack_a * sVar3;
+  _cfg_20.sStack_a = _cfg_20.sStack_a * sVar4;
+  build_and_send_event_packet_104f87d0(param_1,param_2,&_cfg_20.local_20);
   return;
 }

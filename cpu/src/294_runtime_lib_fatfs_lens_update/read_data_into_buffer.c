@@ -19,18 +19,19 @@
 int read_data_into_buffer(int param_1,int param_2)
 
 {
+  struct {
+    uint uStack_1c;
+    int iStack_18;
+    uint uStack_14;
+    int iStack_10;
+    int iStack_c;
+  } _cfg_1c;
   uint32_t uVar1;
   uint uVar2;
   int iVar3;
   uint uVar4;
   uintptr_t sp;
-  uint uStack_1c;
-  int iStack_18;
-  uint uStack_14;
-  int iStack_10;
-  int iStack_c;
-  
-  iStack_10 = 0;
+  _cfg_1c.iStack_10 = 0;
   *(uint32_t *)(param_2 + 0x28) = 0;
   uVar1 = alloc_pool2_block((void *)0x40);
   *(uint32_t *)(param_2 + 0x2c) = uVar1;
@@ -45,34 +46,34 @@ int read_data_into_buffer(int param_1,int param_2)
     if (uVar4 != 0) {
       uVar2 = uVar2 + 1;
     }
-    uStack_1c = *(uint *)(param_2 + 0x14);
-    iVar3 = iStack_10 << 3;
+    _cfg_1c.uStack_1c = *(uint *)(param_2 + 0x14);
+    iVar3 = _cfg_1c.iStack_10 << 3;
     while (uVar2 != 0) {
-      iStack_c = dispatch_lens_fw_update(param_1,uVar2,&uStack_1c);
-      if (iStack_c != 0) {
+      _cfg_1c.iStack_c = dispatch_lens_fw_update(param_1,uVar2,&_cfg_1c.uStack_1c);
+      if (_cfg_1c.iStack_c != 0) {
         release_heap_block_1047f9bc(*(void **)(param_2 + 0x2c));
         *(uint32_t *)(param_2 + 0x2c) = 0;
-        return iStack_c;
+        return _cfg_1c.iStack_c;
       }
       if (iVar3 < 0x40) {
-        *(uint *)(iVar3 + *(int *)(param_2 + 0x2c)) = uStack_1c;
-        *(int *)(*(int *)(param_2 + 0x2c) + iVar3 + 4) = iStack_18;
-        *(int *)(param_2 + 0x28) = *(int *)(param_2 + 0x28) + iStack_18;
+        *(uint *)(iVar3 + *(int *)(param_2 + 0x2c)) = _cfg_1c.uStack_1c;
+        *(int *)(*(int *)(param_2 + 0x2c) + iVar3 + 4) = _cfg_1c.iStack_18;
+        *(int *)(param_2 + 0x28) = *(int *)(param_2 + 0x28) + _cfg_1c.iStack_18;
         iVar3 = iVar3 + 8;
         if (iVar3 == 0x40) {
-          *(uint *)(param_2 + 0x30) = uStack_14;
+          *(uint *)(param_2 + 0x30) = _cfg_1c.uStack_14;
         }
       }
-      uVar2 = uVar2 - iStack_18;
-      iStack_c = 0;
-      if (*(uint *)(param_1 + 0x50) < uStack_14) {
+      uVar2 = uVar2 - _cfg_1c.iStack_18;
+      _cfg_1c.iStack_c = 0;
+      if (*(uint *)(param_1 + 0x50) < _cfg_1c.uStack_14) {
         if (uVar2 != 0) {
           return -0x390;
         }
-        *(uint *)(param_2 + 0x18) = uStack_1c + iStack_18 + -1;
+        *(uint *)(param_2 + 0x18) = _cfg_1c.uStack_1c + _cfg_1c.iStack_18 + -1;
       }
       else {
-        uStack_1c = uStack_14;
+        _cfg_1c.uStack_1c = _cfg_1c.uStack_14;
       }
     }
     if (*(int *)(param_2 + 0x18) == 0) {

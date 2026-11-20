@@ -20,43 +20,44 @@
 void build_and_send_packet(uint32_t *param_1)
 
 {
+  struct {
+    uint32_t local_2c;
+    uint32_t uStack_28;
+    uint32_t uStack_24;
+    uint32_t uStack_20;
+    uint32_t uStack_1c;
+    uint32_t uStack_18;
+    uint32_t uStack_14;
+    uint32_t uStack_10;
+    uint16_t uStack_a;
+  } _cfg_2c;
   int iVar1;
   uint uVar2;
   uintptr_t sp;
-  uint32_t local_2c;
-  uint32_t uStack_28;
-  uint32_t uStack_24;
-  uint32_t uStack_20;
-  uint32_t uStack_1c;
-  uint32_t uStack_18;
-  uint32_t uStack_14;
-  uint32_t uStack_10;
-  uint16_t uStack_a;
-  
   param_1[3] = param_1[0xc] * 4 + param_1[3];
-  uStack_a = 3;
-  local_2c = 0;
-  uStack_28 = 0;
-  uStack_24 = 0;
-  uStack_20 = 0;
-  uStack_1c = 0;
-  uStack_18 = 0;
-  uStack_14 = 0;
-  uStack_10 = 0;
-  copy_bytes_forward(param_1 + 3,&local_2c,4);
-  copy_bytes_forward(&uStack_a,&uStack_28,2);
-  copy_bytes_forward((uint8_t *)(param_1 + 4),(uint8_t *)((int)&uStack_28 + 2),(uint)(2));
-  copy_bytes_forward(param_1 + 6,&uStack_24,4);
+  _cfg_2c.uStack_a = 3;
+  _cfg_2c.local_2c = 0;
+  _cfg_2c.uStack_28 = 0;
+  _cfg_2c.uStack_24 = 0;
+  _cfg_2c.uStack_20 = 0;
+  _cfg_2c.uStack_1c = 0;
+  _cfg_2c.uStack_18 = 0;
+  _cfg_2c.uStack_14 = 0;
+  _cfg_2c.uStack_10 = 0;
+  copy_bytes_forward(param_1 + 3,&_cfg_2c.local_2c,4);
+  copy_bytes_forward(&_cfg_2c.uStack_a,&_cfg_2c.uStack_28,2);
+  copy_bytes_forward((uint8_t *)(param_1 + 4),(uint8_t *)((int)&_cfg_2c.uStack_28 + 2),(uint)(2));
+  copy_bytes_forward(param_1 + 6,&_cfg_2c.uStack_24,4);
   uVar2 = 0;
   if (param_1[0xc] != 0) {
     iVar1 = 0;
     do {
-      copy_bytes_forward((uint8_t *)((int)param_1 + iVar1 + 0x1c),(uint8_t *)((int)&uStack_20 + iVar1),(uint)(4));
+      copy_bytes_forward((uint8_t *)((int)param_1 + iVar1 + 0x1c),(uint8_t *)((int)&_cfg_2c.uStack_20 + iVar1),(uint)(4));
       uVar2 = uVar2 + 1;
       iVar1 = iVar1 + 4;
     } while (uVar2 < (uint)param_1[0xc]);
   }
-  bounded_byte_copy((uint *)*param_1,&local_2c,param_1[0xc] * 4 + 0xc,0);
+  bounded_byte_copy((uint *)*param_1,&_cfg_2c.local_2c,param_1[0xc] * 4 + 0xc,0);
   invoke_virtual_method_on_object_104e1232(param_1,param_1[3]);
   return;
 }

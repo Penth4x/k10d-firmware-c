@@ -21,15 +21,16 @@
 bool manage_kernel_object_handle(int *param_1,int param_2)
 
 {
+  struct {
+    uint32_t local_18;
+    int * piStack_14;
+    code * pcStack_10;
+    int iStack_c;
+    uint32_t uStack_8;
+  } _cfg_18;
   short sVar1;
   int iVar2;
   uintptr_t sp;
-  uint32_t local_18;
-  int *piStack_14;
-  code *pcStack_10;
-  int iStack_c;
-  uint32_t uStack_8;
-  
   iVar2 = -3;
   if (0 < *param_1) {
     sVar1 = (short)*param_1;
@@ -47,12 +48,12 @@ bool manage_kernel_object_handle(int *param_1,int param_2)
       iVar2 = __trap_remove_node_from_timeout_queue_1000e46c((int)(short)*param_1);
       if (iVar2 == 0) {
         *param_1 = 0;
-        local_18 = 0;
-        uStack_8 = 0;
-        pcStack_10 = call_virtual_slot_two_1045962a;
-        piStack_14 = param_1;
-        iStack_c = param_2;
-        iVar2 = __trap_find_free_tcb_slot_1000d6e4(&local_18);
+        _cfg_18.local_18 = 0;
+        _cfg_18.uStack_8 = 0;
+        _cfg_18.pcStack_10 = call_virtual_slot_two_1045962a;
+        _cfg_18.piStack_14 = param_1;
+        _cfg_18.iStack_c = param_2;
+        iVar2 = __trap_find_free_tcb_slot_1000d6e4(&_cfg_18.local_18);
         if (0 < iVar2) {
           *param_1 = iVar2;
           param_1[1] = param_2;
