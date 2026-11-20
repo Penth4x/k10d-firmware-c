@@ -40,6 +40,8 @@ uint32_t create_and_configure_twelve_objects(cls_105a0a54 *param_1)
     uint32_t uStack_1c;
     uint32_t uStack_18;
     uint32_t uStack_14;
+    uint32_t uStack_10;
+    uint32_t uStack_c;
   } _cfg_58;
   int iVar1;
   void *pvVar2;
@@ -47,8 +49,6 @@ uint32_t create_and_configure_twelve_objects(cls_105a0a54 *param_1)
   uint32_t uVar4;
   void *puVar5;
   uintptr_t sp;
-  void **ppuStack_10;
-  uint32_t uStack_c;
   
   forward_three_args_to_helper_10459d64(&param_1->field_0x38,1,0x1f);
   forward_three_args_to_helper_10459d64(&param_1->field_0x40,1,0x1f);
@@ -57,7 +57,7 @@ uint32_t create_and_configure_twelve_objects(cls_105a0a54 *param_1)
   alloc_and_zero_struct_1043ef7a(&_cfg_58.uStack_58);
   uVar3 = read_table_entry_field(pvVar2,0x32);
   uVar4 = read_table_entry_field(pvVar2,0x28);
-  uStack_c = read_table_entry_field(pvVar2,0xd);
+  _cfg_58.uStack_c = read_table_entry_field(pvVar2,0xd);
   _cfg_58.uStack_3c = 0x5c00300a;
   _cfg_58.uStack_44 = 0x5c003006;
   _cfg_58.uStack_40 = 0x5c003008;
@@ -76,7 +76,7 @@ uint32_t create_and_configure_twelve_objects(cls_105a0a54 *param_1)
   _cfg_58.uStack_18 = 0x90;
   _cfg_58.uStack_58 = uVar3;
   _cfg_58.uStack_54 = uVar4;
-  ppuStack_10 = (void*)(&param_1->field_0x38);
+  _cfg_58.uStack_10 = (uint32_t)&param_1->field_0x38;
   puVar5 = (void *)cls_105a09fc_new((cls_105a09fc *)0x0,&_cfg_58.uStack_58);
   param_1->field_0x4 = (uint32_t)(puVar5);
   iVar1 = *(int *)(param_1->field_0x4 + 4);
@@ -154,7 +154,7 @@ uint32_t create_and_configure_twelve_objects(cls_105a0a54 *param_1)
   _cfg_58.uStack_1c = 1;
   _cfg_58.uStack_18 = 0x94;
   _cfg_58.uStack_58 = uVar3;
-  ppuStack_10 = (void **)&param_1->field_0x40;
+  _cfg_58.uStack_10 = (uint32_t)&param_1->field_0x40;
   puVar5 = (void *)cls_105a09fc_new((cls_105a09fc *)0x0,&_cfg_58.uStack_58);
   param_1->field_0x14 = (uint32_t)(puVar5);
   (((vtbl_entry*)(*(int *)((char*)puVar5 + 4)))[2].fn)
@@ -226,7 +226,7 @@ uint32_t create_and_configure_twelve_objects(cls_105a0a54 *param_1)
   _cfg_58.uStack_1c = 2;
   _cfg_58.uStack_18 = 0x98;
   _cfg_58.uStack_58 = uVar3;
-  ppuStack_10 = (void **)&param_1->field_0x48;
+  _cfg_58.uStack_10 = (uint32_t)&param_1->field_0x48;
   puVar5 = (void *)cls_105a09fc_new((cls_105a09fc *)0x0,&_cfg_58.uStack_58);
   param_1->field_0x24 = (uint32_t)(puVar5);
   (((vtbl_entry*)(*(int *)((char*)puVar5 + 4)))[2].fn)
