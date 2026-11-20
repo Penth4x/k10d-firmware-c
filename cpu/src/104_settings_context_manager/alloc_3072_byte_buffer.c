@@ -19,7 +19,13 @@ int alloc_3072_byte_buffer(int param_1)
 
 {
   if ((param_1 != 0) || (param_1 = heap_alloc((void *)0xc00), param_1 != 0)) {
-    get_lens_fw_update_status();
+    /* The original sets up r4=buffer, r5=0x100, r6=0xc, r7=alloc_and_zero_struct_104278ce and
+       tail-forwards through get_lens_fw_update_status (an incoming-register passthrough the
+       decompiler mistyped as (void), dropping this register setup as dead stores). Reconstruct
+       the real call: init the 3072-byte buffer as 0x100 x 0xc-byte elements, each zeroed by
+       alloc_and_zero_struct_104278ce. (0x100*0xc == 0xc00 == the heap_alloc size.) */
+    alloc_and_init_lens_fw_buffer(param_1, 0x100, 0xc,
+                                  (code *)alloc_and_zero_struct_104278ce, (code *)0, 0);
   }
   return param_1;
 }
