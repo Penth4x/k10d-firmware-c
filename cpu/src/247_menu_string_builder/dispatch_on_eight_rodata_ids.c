@@ -64,11 +64,11 @@ uint32_t dispatch_on_eight_rodata_ids(uint32_t param_1,int *param_2,uint32_t par
                           uVar2 = try_two_step_operation(param_1,param_2);
                         }
                         else {
-                          uVar2 = forward_two_args_to_helper_104dae4e();
+                          uVar2 = forward_two_args_to_helper_104dae4e(param_1, param_2);
                         }
                       }
                       else {
-                        uVar2 = forward_two_args_to_helper_104dae40();
+                        uVar2 = forward_two_args_to_helper_104dae40(param_1, param_2);
                       }
                     }
                     else {
@@ -76,11 +76,11 @@ uint32_t dispatch_on_eight_rodata_ids(uint32_t param_1,int *param_2,uint32_t par
                     }
                   }
                   else {
-                    uVar2 = forward_two_args_to_helper_104dabfe();
+                    uVar2 = forward_two_args_to_helper_104dabfe(param_1, param_2);
                   }
                 }
                 else {
-                  uVar2 = forward_two_args_to_helper_104dabf0();
+                  uVar2 = forward_two_args_to_helper_104dabf0(param_1, param_2);
                 }
               }
               else {

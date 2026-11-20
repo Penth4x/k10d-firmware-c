@@ -14,12 +14,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t forward_two_args_to_helper_104dae4e(void)
+uint32_t forward_two_args_to_helper_104dae4e(uint32_t r4_in, int *r5_in)
 
 {
-  uint32_t r4_in;
   uint32_t uVar1;
-  int *r5_in;
   
   uVar1 = try_two_step_operation(r4_in,r5_in);
   return uVar1;

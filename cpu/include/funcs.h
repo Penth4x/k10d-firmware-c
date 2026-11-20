@@ -10483,11 +10483,11 @@ uint32_t iterate_and_process_param2_entries(uint32_t param_1,void *param_2,uint3
 uint32_t process_stream_into_buffer(uint32_t param_1,int *param_2,uint32_t param_3);
 uint32_t process_event_queue_items(uint32_t param_1,void *param_2,uint32_t param_3);
 uint32_t process_param2_entries(uint32_t param_1,void *param_2,uint32_t param_3);
-uint32_t forward_two_args_to_helper_104dabf0(void);
-uint32_t forward_two_args_to_helper_104dabfe(void);
+uint32_t forward_two_args_to_helper_104dabf0(uint32_t, int *);
+uint32_t forward_two_args_to_helper_104dabfe(uint32_t, int *);
 uint32_t process_event_queue_entries(uint32_t param_1,int *param_2,uint32_t param_3);
-uint32_t forward_two_args_to_helper_104dae40(void);
-uint32_t forward_two_args_to_helper_104dae4e(void);
+uint32_t forward_two_args_to_helper_104dae40(uint32_t, int *);
+uint32_t forward_two_args_to_helper_104dae4e(uint32_t, int *);
 void dispatch_mode_specific_setup(uint32_t param_1,int *param_2,int param_3);
 void cls_105ba1b8_delete_8(void *param_1,uint param_2);
 uint32_t get_or_init_sram_object_104daf88(void);
