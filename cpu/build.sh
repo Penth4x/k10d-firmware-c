@@ -1,17 +1,39 @@
 #!/bin/bash
-# Compile every src/*.c independently, in parallel. Writes compile-report.txt
-# (total/ok/fail) and errors.txt (per-file compiler output for failures).
-cd "$(dirname "$0")"
-rm -rf .build && mkdir -p .build
-find src -name '*.c' -print0 | xargs -0 -P "$(nproc)" -I{} sh -c '
-  f="{}"; b=$(basename "$f" .c)
-  if cc -c -w -std=gnu99 -Iinclude -fno-common "$f" -o /dev/null 2>".build/$b.err"; then
-    rm -f ".build/$b.err"; : > ".build/$b.ok"
-  fi
-  # L1: parses and every symbol resolves (type disagreements downgraded)
-  cc -c -w -fpermissive -std=gnu99 -Iinclude -fno-common "$f" -o /dev/null 2>/dev/null && : > ".build/$b.l1"'
-l1=$(find .build -name '*.l1' | wc -l)
-ok=$(find .build -name '*.ok' | wc -l); fail=$(find .build -name '*.err' | wc -l)
-: > errors.txt
-for e in .build/*.err; do [ -e "$e" ] || continue; b=$(basename "$e" .err); echo "=== src/$b.c ===" >> errors.txt; cat "$e" >> errors.txt; done
-echo "total=$((ok+fail)) L1(permissive)=$l1 L2(strict)=$ok fail_strict=$fail" | tee compile-report.txt
+# build.sh — build the recompiled K10D MAIN-CPU firmware entirely from the C in this repo.
+# SELF-CONTAINED: needs only (1) the SOFTUNE FR toolchain and (2) a copy of the original 1.31
+# firmware (FWDC162B.BIN) to harvest the non-code data (rodata / data / jump tables) from. The
+# recompiled CODE is packed at 0x10622400; code/vtables/crt0 are overlaid onto a copy of the
+# original, which supplies every non-code byte. No catalog or build database required.
+#
+#   SOFTUNE=/path/to/softune  FW131=/path/to/FWDC162B.BIN  bash cpu/build.sh
+#   -> out/firmware.abs (linked) and out/candidate_FWDC162B.BIN (flashable image)
+set -u
+HERE="$(cd "$(dirname "$0")" && pwd)"; ROOT="$(dirname "$HERE")"
+: "${SOFTUNE:?set SOFTUNE to the dir containing BIN/fcc911s.exe (FR toolchain)}"
+: "${FW131:?set FW131 to a copy of the original FWDC162B.BIN (1.31) to harvest non-code data}"
+CPU=MB91F128; COPT=${COPT:--O1}; J=${J:-$(nproc)}; CODEBASE=0x10622400
+OUT="$HERE/out"; OBJ="$OUT/obj"; mkdir -p "$OBJ"
+INC="-I Z:${HERE//\//\\}\\include"
+w(){ echo "Z:${1//\//\\}"; }
+export SOFTUNE CPU COPT INC OBJ HERE
+one(){ f="$1"; b=$(basename "$f" .c)
+  asm="$OBJ/$b.asm"; obj="$OBJ/$b.obj"
+  [ -s "$obj" ] && [ "$obj" -nt "$f" ] && return
+  (cd "$SOFTUNE" && wine BIN/fcc911s.exe -S $COPT -cpu $CPU $INC -o "$(echo "Z:${asm//\//\\}")" "$(echo "Z:${f//\//\\}")") >/dev/null 2>&1 || { echo "CC FAIL $b"; return; }
+  (cd "$SOFTUNE" && wine BIN/FASM911S.EXE -cpu $CPU -o "$(echo "Z:${obj//\//\\}")" "$(echo "Z:${asm//\//\\}")") >/dev/null 2>&1 || echo "ASM FAIL $b"; }
+export -f one w
+echo "[1] compile+assemble C (J=$J)"
+find "$HERE/src" -name '*.c' | xargs -P"$J" -I{} bash -c 'one "$@"' _ {} 2>&1 | grep -c FAIL | sed 's/^/   failures: /'
+echo "[2] assemble harvested non-code (crt0/vtables/syms)"
+for a in crt0 vtables syms; do (cd "$SOFTUNE" && wine BIN/FASM911S.EXE -cpu $CPU -o "$(w "$OBJ/$a.obj")" "$(w "$HERE/gen/$a.asm")") >/dev/null 2>&1; done
+echo "[3] link (pack code at $CODEBASE)"
+OPT="$OUT/link.opt"; { echo "-cpu $CPU"; echo "-a"; echo "-e _reset_entry"; echo "-sc CODE=$CODEBASE";
+  echo "-m $(w $OUT/firmware.map)"; echo "-o $(w $OUT/firmware.abs)"
+  for o in "$OBJ"/*.obj; do echo "$(w "$o")"; done; } > "$OPT"
+(cd "$SOFTUNE" && wine BIN/FLNK911S.EXE -f "$(w $OPT)") > "$OUT/link.log" 2>&1
+[ -s "$OUT/firmware.abs" ] || { echo "   LINK FAILED (see out/link.log)"; grep -iE 'unresolved|E[0-9]+L' "$OUT/link.log" | head; exit 1; }
+echo "   LINKED: $(stat -c%s $OUT/firmware.abs) bytes"
+echo "[4] S-records + overlay onto a copy of the 1.31 firmware (harvest non-code data)"
+(cd "$SOFTUNE" && wine BIN/F2MS.EXE -o "$(w $OUT/firmware.mhx)" "$(w $OUT/firmware.abs)") >/dev/null 2>&1
+python3 "$ROOT/scripts/overlay_fr.py" "$OUT/firmware.mhx" "$FW131" 0x100f0000 0x100f0000 "$OUT/candidate_FWDC162B.BIN"
+echo "   -> $OUT/candidate_FWDC162B.BIN"
