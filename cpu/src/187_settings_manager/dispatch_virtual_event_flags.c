@@ -38,7 +38,7 @@ void dispatch_virtual_event_flags(int *param_1,int *param_2)
           if (iVar1 != 0) {
             iVar1 = (((vtbl_entry*)(iVar2))[3].fn)((int)((vtbl_entry*)(iVar2))[3].adj + (int)param_2,0xc);
             if ((iVar1 != 0) || (iVar1 = query_object_flag_at_offset_0x1c_1046d73a(*param_1), iVar1 != 0)) {
-              run_sensor_readout_sequence(*param_1,(uint8_t *)1,0,(uint8_t *)__frv_reg_unset(7));
+              run_release_cycles_1046f9e4(*param_1,(uint8_t *)1,0,(uint8_t *)__frv_reg_unset(7));
             }
             iVar2 = *param_2;
           }

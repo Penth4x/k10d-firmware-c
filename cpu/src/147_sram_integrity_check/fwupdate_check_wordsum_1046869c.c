@@ -1,6 +1,12 @@
-/* @k10d check_array_sum_is_zero @ 0x1046869c
- * name: unnamed (no name assigned (model abstained or not yet seen))
+/* @k10d fwupdate_check_wordsum_1046869c @ 0x1046869c
+ * name: verified (structural evidence: passes if the word via 0x105a8028[section] is 0xFFFFFFFF; else 32-bit word sum over the range via 0x105a8030/0x105a8038[section] must be 0)
  * unit: 147_sram_integrity_check (unit names are model-proposed)
+ * purpose:
+ *   Word-sum check of one update-image section: the 32-bit sum over the section must be
+ *   0. Skipped (passes) when the section's compensation word is 0xFFFFFFFF.
+ * summary:
+ *   VERIFIED: passes if the word via 0x105a8028[section] is 0xFFFFFFFF; else 32-bit word sum
+ *   over the range via 0x105a8030/0x105a8038[section] must be 0
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"
@@ -8,7 +14,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-uint32_t check_array_sum_is_zero(void *param_1,int param_2)
+uint32_t fwupdate_check_wordsum_1046869c(void *param_1,int param_2)
 
 {
   int iVar1;

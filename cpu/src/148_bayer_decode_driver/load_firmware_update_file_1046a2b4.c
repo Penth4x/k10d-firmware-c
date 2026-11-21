@@ -1,17 +1,13 @@
-/* @k10d select_string_and_enable_display @ 0x1046a2b4
- * name: model (proposed by the local model from the decompile, confidence 0.85)
+/* @k10d load_firmware_update_file_1046a2b4 @ 0x1046a2b4
+ * name: verified (structural evidence: selects C:\FWDC162D.BIN / C:\FWDC162C.BIN / C:\FWDC162B.BIN (strings 0x105473d0/e0/f0) for param_2 = 3/4/5 with expected sizes 0x800000/0x40000/0x840000)
  * unit: 148_bayer_decode_driver (unit names are model-proposed)
  * purpose:
- *   Selects one of three string pointers by index, performs a virtual call on an object,
- *   and enables the display output if the call succeeds.
+ *   Load the firmware update file chosen by param_2 from the card: 3 = FWDC162D (main
+ *   image only), 4 = FWDC162C (control-CPU image only), 5 = FWDC162B (both). Returns true
+ *   only when the read size equals the expected image size.
  * summary:
- *   The function selects a string pointer and a size constant based on param_2 (3, 4, or
- *   5). It calls call_helper_and_store_result_1046a3ea with the object and selected string.
- *   If that succeeds, it makes a virtual call (slot 5) on the object at offset 0x248. If
- *   that call returns non-zero, it calls zero_and_fill_sram_buffers, sr_state_machine, and
- *   display_output_enable. It then makes two more virtual calls (slots 7 and 6) on the same
- *   object. It returns true if the first virtual call succeeded and the size from
- *   call_helper_and_store_result_1046a3ea matches the expected constant.
+ *   VERIFIED: selects C:\FWDC162D.BIN / C:\FWDC162C.BIN / C:\FWDC162B.BIN (strings
+ *   0x105473d0/e0/f0) for param_2 = 3/4/5 with expected sizes 0x800000/0x40000/0x840000
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"
@@ -19,7 +15,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-bool select_string_and_enable_display(void *param_1,int param_2,int param_3)
+bool load_firmware_update_file_1046a2b4(void *param_1,int param_2,int param_3)
 
 {
   bool bVar2;

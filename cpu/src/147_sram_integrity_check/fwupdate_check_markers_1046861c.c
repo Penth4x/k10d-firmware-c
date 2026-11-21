@@ -1,15 +1,14 @@
-/* @k10d check_table_entry_match @ 0x1046861c
- * name: model (proposed by the local model from the decompile, confidence 0.60)
+/* @k10d fwupdate_check_markers_1046861c @ 0x1046861c
+ * name: verified (structural evidence: model word via table 0x105a8008[section] must equal obj+0x254; three marker pairs via 0x105a8010 must be model*0x10001 followed by 0xA55A5AA5; then calls the word-sum check)
  * unit: 147_sram_integrity_check (unit names are model-proposed)
  * purpose:
- *   Checks if a table entry at param_2 matches a value in param_1 and calls a handler if
- *   so.
+ *   Integrity check of one loaded update-image section (param_2: 0 = main, 1 = control
+ *   CPU): model word, then three (model*0x10001, 0xA55A5AA5) marker pairs, then the
+ *   section word-sum (fwupdate_check_wordsum_1046869c).
  * summary:
- *   The function indexes into a table of pointers (DAT_105a8008) using param_2 to find a
- *   base address in SDRAM (DAT_800042c0). It compares the first word of that entry against
- *   a field at offset 0x254 in param_1. If they match, it iterates through three subsequent
- *   words, checking for a specific pattern (0x5aa5a55b). If the pattern is valid, it calls
- *   check_array_sum_is_zero with the original arguments; otherwise, it returns 0.
+ *   VERIFIED: model word via table 0x105a8008[section] must equal obj+0x254; three marker
+ *   pairs via 0x105a8010 must be model*0x10001 followed by 0xA55A5AA5; then calls the
+ *   word-sum check
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"
@@ -17,7 +16,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-uint32_t check_table_entry_match(void *param_1,int param_2)
+uint32_t fwupdate_check_markers_1046861c(void *param_1,int param_2)
 
 {
   int iVar1;
@@ -47,7 +46,7 @@ uint32_t check_table_entry_match(void *param_1,int param_2)
   }
   uVar4 = 0;
   if (bVar2) {
-    uVar4 = check_array_sum_is_zero(param_1,param_2);
+    uVar4 = fwupdate_check_wordsum_1046869c(param_1,param_2);
   }
   return uVar4;
 }

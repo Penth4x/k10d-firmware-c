@@ -1,23 +1,18 @@
-/* @k10d serialize_exposure_params_to_buffer @ 0x1048a0ec
- * name: model (proposed by the local model from the decompile, confidence 0.85)
+/* @k10d draw_eeprom_rw_screen_1048a0ec @ 0x1048a0ec
+ * name: verified (structural evidence: draws the title "EEPROM READ/WRITE" (0x105b3a00) and "*" cursor cells (0x105b39e0..0x105b39fc) via build_and_dispatch_draw_params)
  * unit: 186_sr_calibration_ui (unit names are model-proposed)
  * purpose:
- *   Packs exposure and aperture fields from the object into a fixed memory region using a
- *   register-write helper.
+ *   Draw the debug-menu "EEPROM READ/WRITE" page: title, field values and the "*"
+ *   cursor for the selected field.
  * summary:
- *   The function reads fields at indices 0x19-0x20 from the input object and writes them to
- *   a series of fixed addresses (0x105b3988-0x105b3a7c) via build_and_dispatch_draw_params.
- *   It handles different modes (uVar1 == 2, 4, 6, 7) to adjust how parameters are packed or
- *   sourced, including reading from stack-based tables for specific modes. It calls
- *   read_byte_at_offset_0x58_1048a714 to check a condition before proceeding and
- *   clear_flag_at_offset_0x58_1048a71a at the end, likely to finalize the transaction or
- *   update state.
+ *   VERIFIED: draws the title "EEPROM READ/WRITE" (0x105b3a00) and "*" cursor cells
+ *   (0x105b39e0..0x105b39fc) via build_and_dispatch_draw_params
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
 
-int * serialize_exposure_params_to_buffer(int *param_1)
+int * draw_eeprom_rw_screen_1048a0ec(int *param_1)
 
 {
   uint uVar1;

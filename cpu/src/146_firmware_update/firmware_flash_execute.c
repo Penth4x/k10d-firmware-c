@@ -9,7 +9,7 @@
  *   call_helper_with_string_arg_1046a466 and, if successful, proceeds through a series of
  *   initialization and verification steps (allocate_large_memory_pools,
  *   release_two_object_slots_10468866, etc.). It performs conditional checks using
- *   check_table_entry_match and check_param2_or_offset_limit, likely verifying flash
+ *   fwupdate_check_markers_1046861c and fwupdate_check_version_104686f2, likely verifying flash
  *   sectors or data integrity, before calling copy_564_bytes_to_sram and
  *   copy_rodata_to_sram_10008114 (likely boot ROM or reset handlers) and entering an
  *   infinite loop. The source module is identified as 'firmware_update', and the infinite
@@ -42,13 +42,13 @@ uint32_t firmware_flash_execute(void *param_1)
     }
     else {
       populate_update_status_fields((int)param_1);
-      iVar2 = check_table_entry_match(param_1,0);
-      if ((iVar2 == 0) || (iVar2 = check_table_entry_match(param_1,1), iVar2 == 0)) {
+      iVar2 = fwupdate_check_markers_1046861c(param_1,0);
+      if ((iVar2 == 0) || (iVar2 = fwupdate_check_markers_1046861c(param_1,1), iVar2 == 0)) {
         select_and_call_two_variants((int)param_1,0);
       }
       else {
-        iVar2 = check_param2_or_offset_limit((int)param_1,0);
-        if ((iVar2 == 0) || (iVar2 = check_param2_or_offset_limit((int)param_1,1), iVar2 == 0)) {
+        iVar2 = fwupdate_check_version_104686f2((int)param_1,0);
+        if ((iVar2 == 0) || (iVar2 = fwupdate_check_version_104686f2((int)param_1,1), iVar2 == 0)) {
           write_three_entries_if_flag_not_one(param_1,0);
         }
         else {

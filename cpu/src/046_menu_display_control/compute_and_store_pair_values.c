@@ -9,7 +9,7 @@
  *   (param_1[0x1a] vs 0x1d-0x20). For each, it calls copy_virtual_result_to_buffer_10493ea4
  *   to prepare a local buffer, then read_struct_field_at_offset_4 and
  *   return_first_word_1045c514 to extract two short values. These are packed into a struct
- *   and passed to apply_tone_curve_lut, which writes to memory addresses like 0x8001acbc.
+ *   and passed to resample_histogram_to_bars_1052c3a4, which writes to memory addresses like 0x8001acbc.
  *   It also updates global pointers (DAT_8001a78c, etc.) and calls
  *   copy_four_words_and_call_helper to finalize. The pattern suggests updating status or
  *   configuration fields in a data structure.
@@ -85,7 +85,7 @@ void compute_and_store_pair_values(int *param_1,int param_2)
     *puVar10 = 0x8001a7ac/*SDRAM*/;
     *(short *)((int)puVar10 + 6) = (short)uVar2;
     *(short *)((int)puVar10 + 10) = (short)uVar3;
-    apply_tone_curve_lut(&uStack_19,(int *)0x8001acbc/*SDRAM*/,uVar5,0x4b000,(uint8_t *)*puVar10,
+    resample_histogram_to_bars_1052c3a4(&uStack_19,(int *)0x8001acbc/*SDRAM*/,uVar5,0x4b000,(uint8_t *)*puVar10,
                  *(ushort *)((int)puVar10 + 6),*(ushort *)((int)puVar10 + 10));
     free_heap_if_flagged_1045c402(auStack_24,2);
     free_heap_if_flagged_1045c402(auStack_2c,2);
@@ -136,7 +136,7 @@ void compute_and_store_pair_values(int *param_1,int param_2)
     *piVar9 = 0x8001a7ac/*SDRAM*/;
     *(short *)((int)piVar9 + 6) = (short)uVar2;
     *(short *)((int)piVar9 + 10) = (short)uVar3;
-    apply_tone_curve_lut(&uStack_19,(int *)0x8001acbc/*SDRAM*/,uVar5,0x4b000,(uint8_t *)*piVar9,
+    resample_histogram_to_bars_1052c3a4(&uStack_19,(int *)0x8001acbc/*SDRAM*/,uVar5,0x4b000,(uint8_t *)*piVar9,
                  *(ushort *)((int)piVar9 + 6),*(ushort *)((int)piVar9 + 10));
     free_heap_if_flagged_1045c402(puVar7,2);
     free_heap_if_flagged_1045c402(local_5c,2);
@@ -211,7 +211,7 @@ void compute_and_store_pair_values(int *param_1,int param_2)
     *piVar9 = 0x8001a974/*SDRAM*/;
     *(short *)((int)piVar9 + 6) = (short)uVar2;
     *(short *)((int)piVar9 + 10) = (short)uVar3;
-    apply_tone_curve_lut(&uStack_19,(int *)0x8001b0bc/*SDRAM*/,uVar5,0x4b000,(uint8_t *)*piVar9,
+    resample_histogram_to_bars_1052c3a4(&uStack_19,(int *)0x8001b0bc/*SDRAM*/,uVar5,0x4b000,(uint8_t *)*piVar9,
                  *(ushort *)((int)piVar9 + 6),*(ushort *)((int)piVar9 + 10));
     free_heap_if_flagged_1045c402(local_34,2);
     free_heap_if_flagged_1045c402(local_3c,2);
@@ -250,7 +250,7 @@ void compute_and_store_pair_values(int *param_1,int param_2)
     *piVar9 = 0x8001aa8c/*SDRAM*/;
     *(short *)((int)piVar9 + 6) = (short)uStack_60;
     *(short *)((int)piVar9 + 10) = (short)uVar2;
-    apply_tone_curve_lut(&uStack_19,(int *)0x8001b4bc/*SDRAM*/,uVar5,0x4b000,(uint8_t *)*piVar9,
+    resample_histogram_to_bars_1052c3a4(&uStack_19,(int *)0x8001b4bc/*SDRAM*/,uVar5,0x4b000,(uint8_t *)*piVar9,
                  *(ushort *)((int)piVar9 + 6),*(ushort *)((int)piVar9 + 10));
     free_heap_if_flagged_1045c402(local_3c,2);
     free_heap_if_flagged_1045c402(local_34,2);
@@ -289,7 +289,7 @@ void compute_and_store_pair_values(int *param_1,int param_2)
     *piVar9 = 0x8001aba4/*SDRAM*/;
     *(short *)((int)piVar9 + 6) = (short)uVar2;
     *(short *)((int)piVar9 + 10) = (short)uVar3;
-    apply_tone_curve_lut(&uStack_19,(int *)0x8001b8bc/*SDRAM*/,uVar5,0x4b000,(uint8_t *)*piVar9,
+    resample_histogram_to_bars_1052c3a4(&uStack_19,(int *)0x8001b8bc/*SDRAM*/,uVar5,0x4b000,(uint8_t *)*piVar9,
                  *(ushort *)((int)piVar9 + 6),*(ushort *)((int)piVar9 + 10));
     free_heap_if_flagged_1045c402(local_3c,2);
     free_heap_if_flagged_1045c402(local_34,2);

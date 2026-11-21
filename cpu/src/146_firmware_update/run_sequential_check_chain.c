@@ -11,7 +11,7 @@
  *   deactivate_object_with_wait). It then performs a conditional check via
  *   call_helper_with_constant_three_1046a43e; if this fails, it calls
  *   select_and_send_mode_config. If it passes, it executes a nested sequence of checks
- *   (check_table_entry_match, check_param2_or_offset_limit, poll_object_state_until_change)
+ *   (fwupdate_check_markers_1046861c, fwupdate_check_version_104686f2, poll_object_state_until_change)
  *   and corresponding actions. On final success, it calls copy_564_bytes_to_sram,
  *   copy_rodata_to_sram_10008114, and a function at 0x8000067e, then enters an infinite
  *   loop. The specific subsystem is not identifiable from the code or callees.
@@ -42,12 +42,12 @@ uint32_t run_sequential_check_chain(void *param_1)
     }
     else {
       populate_update_status_fields((int)param_1);
-      iVar2 = check_table_entry_match(param_1,0);
+      iVar2 = fwupdate_check_markers_1046861c(param_1,0);
       if (iVar2 == 0) {
         select_and_call_two_variants((int)param_1,0);
       }
       else {
-        iVar2 = check_param2_or_offset_limit((int)param_1,0);
+        iVar2 = fwupdate_check_version_104686f2((int)param_1,0);
         if (iVar2 == 0) {
           write_three_entries_if_flag_not_one(param_1,0);
         }

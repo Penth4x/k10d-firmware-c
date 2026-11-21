@@ -9,7 +9,7 @@
  *   successful, proceeds through a series of setup and verification steps
  *   (allocate_large_memory_pools, release_two_object_slots_10468866,
  *   call_helper_with_constant_two_1046a27c). It branches based on status checks
- *   (check_table_entry_match, poll_and_query_object_state), invoking error handlers
+ *   (fwupdate_check_markers_1046861c, poll_and_query_object_state), invoking error handlers
  *   (populate_update_status_fields, release_object_with_wait) or additional processing
  *   steps (write_sequential_data_entries, write_exposure_param_blocks) on failure. The
  *   function concludes with cleanup calls (wait_and_release_subsystem,
@@ -42,8 +42,8 @@ uint32_t run_update_state_machine(void *param_1)
     }
     else {
       populate_update_status_fields((int)param_1);
-      iVar1 = check_table_entry_match(param_1,0);
-      if ((iVar1 == 0) || (iVar1 = check_table_entry_match(param_1,1), iVar1 == 0)) {
+      iVar1 = fwupdate_check_markers_1046861c(param_1,0);
+      if ((iVar1 == 0) || (iVar1 = fwupdate_check_markers_1046861c(param_1,1), iVar1 == 0)) {
         select_and_call_two_variants((int)param_1,1);
       }
       else {

@@ -152,7 +152,7 @@ void process_sensor_readout_buffers(int param_1)
       *piVar17 = *puVar14;
       *(uint16_t *)((int)piVar17 + 6) = uVar1;
       *(uint16_t *)((int)piVar17 + 10) = uVar2;
-      apply_tone_curve_lut(&uStack_11,piVar7,uVar11,uStack_38c * uStack_388,(uint8_t *)*piVar17,
+      resample_histogram_to_bars_1052c3a4(&uStack_11,piVar7,uVar11,uStack_38c * uStack_388,(uint8_t *)*piVar17,
                    *(ushort *)((int)piVar17 + 6),*(ushort *)((int)piVar17 + 10));
     }
     if ((*(uint *)(param_1 + 0x1fc) & 0xe) != 0) {
@@ -219,7 +219,7 @@ void process_sensor_readout_buffers(int param_1)
           *piVar17 = *puVar14;
           *(uint16_t *)((int)piVar17 + 6) = uVar1;
           *(uint16_t *)((int)piVar17 + 10) = uVar2;
-          apply_tone_curve_lut(&uStack_11,piVar8,uVar11,uStack_38c * uStack_388,(uint8_t *)*piVar17,
+          resample_histogram_to_bars_1052c3a4(&uStack_11,piVar8,uVar11,uStack_38c * uStack_388,(uint8_t *)*piVar17,
                        *(ushort *)((int)piVar17 + 6),*(ushort *)((int)piVar17 + 10));
         }
         if (((*(uint *)(param_1 + 0x1fc) & 4) != 0) &&
@@ -229,7 +229,7 @@ void process_sensor_readout_buffers(int param_1)
           *piVar17 = *puVar14;
           *(uint16_t *)((int)piVar17 + 6) = uVar1;
           *(uint16_t *)((int)piVar17 + 10) = uVar2;
-          apply_tone_curve_lut(&uStack_11,piVar9,uVar11,uStack_38c * uStack_388,(uint8_t *)*piVar17,
+          resample_histogram_to_bars_1052c3a4(&uStack_11,piVar9,uVar11,uStack_38c * uStack_388,(uint8_t *)*piVar17,
                        *(ushort *)((int)piVar17 + 6),*(ushort *)((int)piVar17 + 10));
         }
         if (((*(uint *)(param_1 + 0x1fc) & 8) != 0) &&
@@ -239,7 +239,7 @@ void process_sensor_readout_buffers(int param_1)
           *piVar17 = *puVar14;
           *(uint16_t *)((int)piVar17 + 6) = uVar1;
           *(uint16_t *)((int)piVar17 + 10) = uVar2;
-          apply_tone_curve_lut(&uStack_11,piVar10,uVar11,uStack_38c * uStack_388,(uint8_t *)*piVar17,
+          resample_histogram_to_bars_1052c3a4(&uStack_11,piVar10,uVar11,uStack_38c * uStack_388,(uint8_t *)*piVar17,
                        *(ushort *)((int)piVar17 + 6),*(ushort *)((int)piVar17 + 10));
         }
       }

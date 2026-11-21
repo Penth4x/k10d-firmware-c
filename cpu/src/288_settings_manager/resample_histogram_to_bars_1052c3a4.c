@@ -1,12 +1,19 @@
-/* @k10d apply_tone_curve_lut @ 0x1052c3a4
- * name: unnamed (no name assigned (model abstained or not yet seen))
+/* @k10d resample_histogram_to_bars_1052c3a4 @ 0x1052c3a4
+ * name: verified (structural evidence: reads 256 int bins (param_2[0..0xff]), interpolates to param_7 outputs, scales by param_6/param_3, clamps to min(0xff,param_6); callers pass bins at 0x8001acbc/b0bc/b4bc/b8bc with 0x4b000 (640*480))
  * unit: 288_settings_manager (unit names are model-proposed)
+ * purpose:
+ *   Resample a 256-bin int histogram into param_7 u8 bar heights (max param_6),
+ *   normalised by param_3. Used for the playback histogram; not a tone-curve LUT.
+ * summary:
+ *   VERIFIED: reads 256 int bins (param_2[0..0xff]), interpolates to param_7 outputs, scales
+ *   by param_6/param_3, clamps to min(0xff,param_6); callers pass bins at
+ *   0x8001acbc/b0bc/b4bc/b8bc with 0x4b000 (640*480)
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
 
-void apply_tone_curve_lut(void *param_1,int *param_2,uint param_3,uint32_t param_4,uint8_t *param_5,
+void resample_histogram_to_bars_1052c3a4(void *param_1,int *param_2,uint param_3,uint32_t param_4,uint8_t *param_5,
                  ushort param_6,ushort param_7)
 
 {

@@ -8,7 +8,7 @@
  *   The function takes an object pointer and calls a series of helper functions in a
  *   specific order. It checks the return values of several steps
  *   (call_helper_with_offset_620, call_helper_with_flag_one_1046a298,
- *   check_table_entry_match, poll_and_query_object_state, loop_process_blocks_with_checks).
+ *   fwupdate_check_markers_1046861c, poll_and_query_object_state, loop_process_blocks_with_checks).
  *   If a check fails, it calls a specific error handler (e.g.,
  *   populate_update_status_fields, select_and_call_two_variants) and enters an infinite
  *   loop. If all steps succeed, it calls a final handler (wait_and_release_subsystem) and
@@ -42,7 +42,7 @@ uint32_t run_sequential_state_machine_10467f2c(void *param_1)
   }
   else {
     populate_update_status_fields((int)param_1);
-    iVar1 = check_table_entry_match(param_1,1);
+    iVar1 = fwupdate_check_markers_1046861c(param_1,1);
     if (iVar1 == 0) {
       select_and_call_two_variants((int)param_1,1);
     }
