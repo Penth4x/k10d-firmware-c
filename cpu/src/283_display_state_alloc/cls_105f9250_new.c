@@ -35,10 +35,16 @@ cls_105f9250 * cls_105f9250_new(cls_105f9250 *param_1)
     iVar2 = 3;
     iVar1 = 0;
     do {
-      *(uint32_t *)((int)&param_1[1].field_0x0 + iVar1) = 0;
-      *(uint32_t *)((int)&param_1[1].field_0x4 + iVar1) = 0;
-      *(uint32_t *)(&param_1[1].field_0x8 + iVar1) = 0;
-      *(uint32_t *)(&param_1[1].field_0xc + iVar1) = 0;
+      /* B-6b: this contiguous clear starts at in-object offset 0x214, NOT param_1[1]
+         (= base+0x254, the end of this 0x254-byte object). The original (0x10527c0c)
+         loads r12=base+0x214 each iteration and a running offset r0 grows by 4 across
+         all four stores, tiling 0x214..0x254 exactly. The decompiler mis-based all four
+         stores as param_1[1], marching them 0x254..0x294 past the object and zeroing
+         adjacent heap objects' vtable pointers -> null-vtable crash in a later dispatch. */
+      *(uint32_t *)((int)param_1 + 0x214 + iVar1) = 0;
+      *(uint32_t *)((int)param_1 + 0x218 + iVar1) = 0;
+      *(uint32_t *)((int)param_1 + 0x21c + iVar1) = 0;
+      *(uint32_t *)((int)param_1 + 0x220 + iVar1) = 0;
       iVar2 = iVar2 + -1;
       iVar1 = iVar1 + 0x10;
     } while (-1 < iVar2);
