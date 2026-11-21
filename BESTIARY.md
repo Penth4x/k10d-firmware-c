@@ -87,19 +87,118 @@ Reliable measurement (prerequisite for all localization):
   the `PC=0x00000000` transition; the preceding `ld @r4,…` names the bad object pointer. Also
   grep the access history of that address (`@0x<addr>`) — if it is only ever written `0`, it is an
   uninitialised slot, not a constructed object.
-- **Root (two sub-cases):** (a) a constructor's vtable store was dropped (B-2-like) — but often the
+- **Root (three sub-cases):** (a) a constructor's vtable store was dropped (B-2-like) — but often the
   constructor is *correct*, so (b) the **object pointer itself is wrong**: a field that should hold
   a constructed object holds a zeroed slot, i.e. an earlier field-store was dropped or a getter
-  returned the wrong address. Verify the constructor first (cheap), then trace the pointer's origin.
-- **Instance (OPEN):** `initialize_camera_state_object` (0x10478132) crashes on a vtable-slot-2
-  call where the object pointer is `*(param_1+8) == 0x80048700`, a slot only ever written 0
-  (vtable 0). The sibling constructors (`cls_105aa4f0/40c/498_new`) all correctly write their
-  vtables, so the bug is upstream: why `param_1+8` holds a zeroed slot instead of the
-  `cls_105aa40c_new` object. **This is the current black-screen root.**
+  returned the wrong address; or (c) **a nearby stack buffer overran the spill slot that held the
+  object pointer** — see the B-6b sub-class below. Verify the constructor first (cheap: disasm the
+  PACKED copy via `map_packed.py`, confirm the `ldi:32 #<vtbl>; st @r8` store is emitted), then,
+  if the ctor is clean, capture a FULLREGS window at the call site and read the object pointer's
+  *source* load — if it loads `0` from an `@(r14,-N)` slot, that slot was clobbered (sub-case c).
+- **Instance (ROOT FOUND, fix applied):** `initialize_camera_state_object` (0x10478132) — **the
+  black-screen root.** After the FP-alias fix (B-4) and the `forward_second_field_call` arity fix
+  (B-3) advanced the co-run divergence to stock[7635], a FULLREGS window at packed `0x107549ca`
+  showed the block-B object pointer loaded as `0` from `@(r14,-40)`, then `ld @0 → vtable 0 →
+  call @0 → PC=0`. Cause = **B-6b**: block B calls `alloc_and_zero_small_block(&_cfg_84.pvStack_5c)`
+  which zeros **4 words**, but the decompiler struct `_cfg_84` had only `pvStack_5c`+`iStack_58`
+  (2 words) after that offset (the original contiguous 4-word buffer was split into 2 struct
+  members + loose local `iStack_50` + an unnamed gap). The 4-word zeroing overran 2 words past the
+  struct into fcc's spill slot `@(r14,-40)` (= `&param_1[0x14]`, the `cls_105aa39c` member ptr),
+  nulling it. Fix: declare the buffer as 4 contiguous members of `_cfg_84` (`+iStack_54`, folded
+  loose `iStack_50` into the struct) so the helper's write stays inside the addressable struct and
+  fcc places its spills outside it. Stock frame is `ENTER #0xa8`; the fix restores cand to `#0xa8`.
 - **Lesson:** "yields to idle" in a function-trace is NOT proof of a wait — confirm with an
-  instruction trace before theorising about semaphores/flags.
+  instruction trace before theorising about semaphores/flags. A single `FRN_FT_PC=<packed>
+  FRN_FT_WIN=N FRN_FT_FULLREGS=1` windowed capture is the right tool (not an iterative treadmill).
+
+## B-6b · zeroing-helper stack overrun (struct-split buffer under-sized) ← B-1/B-6 overlap
+- **Symptom:** a live value spilled to the stack (an object pointer, a saved `piVar`) is read back
+  as `0` or garbage, with no store to that slot in the source → downstream null-vtable crash (B-6).
+- **Decompiler signature:** the original contiguous N-word stack buffer is fragmented into a few
+  struct members + loose `iStack_*` locals (+ unnamed gaps). A memset-like helper
+  (`alloc_and_zero_*`, `init_zeroed_heap_struct`) is called with `&struct.lastMember` and zeroes
+  **more words than remain in the struct after that member**, so the tail of the write lands in
+  whatever fcc placed next (often a register spill slot).
+- **Detection:** for each `alloc_and_zero_*(…&buf…)` call, compare the helper's zero-count (read its
+  body: `param_1[k]=0` count, or its `heap_alloc` size /4) against the words from `buf`'s offset to
+  the end of its containing struct. `helper_words > words_remaining` ⇒ overrun.
+- **Fix:** extend the struct so the buffer has ≥ helper_words contiguous members (fold the split-off
+  loose locals back in). The struct is passed by address, so fcc keeps it intact and contiguous and
+  spills land outside it. Don't just enlarge the frame — the buffer must be addressable members.
+
+## B-7 · hardware poll-wait collapsed into `__halt()` (continuation dropped)
+- **Symptom:** the recompile spins forever at a `bra <self>` (1-instruction infinite loop); a PC
+  histogram over a trace window shows ~100% of instructions at one packed PC. Looks like a panic.
+- **Decompiler signature:** a `while ((*MMIO & bit) == 0) {}` hardware-ack poll becomes `__halt()`
+  (= `for(;;)` in `frv_intrinsics.h`), and the decompiler emits `/* Removing unreachable block ... */`
+  — it judged the spin un-exitable (it can't see hardware/another-IRQ changing the polled location)
+  and **deleted everything after it**, including the loop that consumes the ack and the normal return.
+- **Detection:** histogram cand PCs (`FRN_FT` → `awk 'match($0,/PC=0x[0-9a-f]+/)…'`); a single
+  dominant PC ⇒ disasm it. If it is `bra <self>`, find the containing function in the link map, then
+  **disassemble the STOCK original at its origVA** — a genuine panic halt stays a tight loop in stock
+  too, but a poll-wait shows a `lduh/ld <MMIO>; and <bit>; beq <back>` that *exits* and continues.
+- **Fix:** rewrite the C to the real poll-wait with a `volatile` MMIO pointer so fcc emits the load
+  each iteration, and restore the dropped continuation. `__halt()` is used by ~20 functions here —
+  **audit them**: some are real `halt_baddata()`/`halt_unimplemented()` panics (leave those), but any
+  on the boot/steady path whose stock original *exits* the loop is this bug.
+- **Instances (all 4 fixed — triage by the `Removing unreachable block` warning; the genuine
+  halts `idle_task`/`ready_list_insert_spin`/`kernel_panic`/`task_exit_stub` start with `bra <self>`
+  in stock and were left alone):**
+  - `set_error_flag_and_halt` (0x100f0a1e, unit 001): mailbox handshake — `0x80d`→`*0x48`,
+    `0x813`→`*0x4e`, wait `param_1`× for `*0x4e & 4` (vec31-IRQ ack), clear each, clear `*0x4e`.
+    This was the first hang after the B-6b fix (spun at packed `bra 0x107f07b0`).
+  - `set_flag_and_halt` (0x100f1c5e, unit 001): sibling handshake — `0x80e`→`*0x58`, `0x813`→`*0x5e`,
+    wait `param_1`× for `*0x5e & 4`, clear, clear `*0x5e`.
+  - `infinite_loop_100f1cb0` (0x100f1cb0, unit 001): single-ack handshake — `0x672`→`*0x58`,
+    `0x213`→`*0x5e`, wait once for `*0x5e & 4`, clear `*0x5e`.
+  - `halt_loop_infinite` (0x10439594, unit 126) and `infinite_loop_100f031c` (0x100f031c, unit 001,
+    byte-identical): companion/rear-LCD-controller init at `0x40070000` — program ~13 registers,
+    start (bit7 of `+0x0e`), **poll `*(0x4007000c) & 0x80` until ready**, return. The decompiler
+    dropped the *entire* body (claimed "no side effects").
+- **QEMU confirmation:** `hw/frn/k10d.c:688` documents that `0x4007000c` "is POLLED by app-main
+  (pc 0x10439600) and must read ready" — i.e. the emulator was built to ack exactly this poll, and
+  `set_error_flag_and_halt`'s mailbox ack already completed in-emulator (cand advanced past it), so
+  these reconstructions complete rather than hang. A B-7 fix is only correct if the emulator (or
+  real hardware) actually drives the awaited bit — verify that before assuming the poll exits.
 
 ---
+
+## B-8 · non-returning tail-jump inlined into a returning function (spurious ret/frame)
+- **Symptom:** a function runs an enormous amount of correct-looking work (millions of
+  instructions, boot reaches deep) and then crashes at its own epilogue — `ret` pops a poison
+  value (e.g. `0x1f1f1f1f`) → wild PC that slides through empty memory. The ".c" is far larger
+  than the original (e.g. 514-line C / 12 KB object for a 152-byte original) and carries
+  decompiler warnings like "This function may have set the stack pointer" / "Removing unreachable
+  block" / "Globals starting with '_' overlap".
+- **Cause:** the original ends with a **non-returning tail-jump** (`ldi #addr,r0; jmp @r0`), and is
+  entered by a **jump, not a call** (so no return address is ever pushed). Ghidra treats the
+  tail-jump target as a fall-through continuation and **inlines the jumped-to function** (and
+  whatever *it* tail-jumps to) into the body, then — because C functions return — invents an
+  `ENTER` frame and a `leave; ld @r15+,rp; ldm1; ret` epilogue the original never had. fcc faithfully
+  compiles that epilogue; at runtime the `ret` reads an uninitialized/poison stack slot → runaway.
+  The tail-jumped function also gets compiled a **second time** standalone (duplicate work).
+- **Instance (ROOT FOUND, fix applied):** `initialize_rtos_kernel` @ 0x10008000 (kernel entry).
+  152-byte boot trampoline — 7 peripheral-init calls, SDRAM clear/copy loops, set SP(`r15=0x8800`)
+  / `stilm #0x10` / TBR(`sr0=0x10003c00`), then `jmp @0x1000ea00`; crt0 **jumps** into it. Ghidra
+  inlined `initialize_rtos_kernel_state_1000ea00`. Emulator trace: ~5.9M insns of inlined init
+  (reaching ~fn 23260), then PC slides `0x1075fe64→fe6a` (the spurious epilogue) → `ret` →
+  `0x1f1f1f1f` → runaway to `0x20a7xxxx`.
+- **Fix:** such a function cannot be faithfully recompiled from C (no frame, sets SP, never returns,
+  reads incoming boot registers). Hand-write it as byte-faithful assembler under `cpu/gen/`, with
+  call/jump targets emitted as **symbols** (so the recompiled callee tree stays in the execution
+  path and the differential emulator still sees divergences inside them), everything else as
+  `.DATA.B`. Exclude the decompiled `.c` from the build (rename `*.c` → `*.c.handasm`) so it stops
+  emitting a duplicate symbol; add the asm basename to `cpu/build.sh`'s step-[2] gen list. See
+  `cpu/gen/initialize_rtos_kernel.asm`. (Mirrors the existing `crt0.asm` hand-asm pattern.)
+- **Detection rule:** when a function's `.c` dwarfs its original byte-size, or carries the
+  "set the stack pointer"/"unreachable block" warnings, disassemble the **original** VA first. If it
+  ends in `jmp @rN` (not `ret`) and is reached by a jump, it is a boot/trampoline — hand-asm it;
+  do not trust the inlined decompilation. Distinct from B-4 (which is pure FP-codegen on a normally
+  returning function); B-8 is a control-flow *structure* mismatch (fabricated return).
+- **Lesson (verify-don't-infer):** "ran far" does **not** mean "this early function is fine" — it can
+  mean the crash is the *last* thing a wrongly-inlined early function does. Confirm the crash PC
+  against the firmware.map packed range before attributing it; the earlier session misread this as a
+  hw_init_runner r14-clobber, which the raw trace disproved.
 
 ## TOOL-1 · trace reducer drops relocated functions (measurement bug, not firmware)
 - **Symptom:** co-run fdiff shows the candidate "skipping" functions it actually executes; inflated
