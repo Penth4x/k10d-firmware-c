@@ -41,7 +41,7 @@ uint64_t call_kernel_service_with_args_1000d4f4(uint32_t param_1,uint32_t param_
 uint64_t call_kernel_service_with_args_1000d50a(uint32_t param_1,uint32_t param_2,uint32_t param_3,uint32_t param_4);
 uint64_t call_kernel_service_with_four_args(uint32_t param_1,uint32_t param_2,uint32_t param_3,uint32_t param_4);
 uint64_t call_r13_and_return_r15_offset(void);
-uint32_t check_task_state_transition(uint param_1);
+uint32_t check_task_state_transition(uint param_1, uint32_t param_2);
 uint64_t rtos_context_switch(void);
 int find_free_queue_slot_1000d66c(ushort *param_1);
 int find_free_tcb_slot_1000d6e4(ushort *param_1);

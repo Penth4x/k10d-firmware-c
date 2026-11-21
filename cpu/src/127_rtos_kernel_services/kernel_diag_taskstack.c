@@ -26,7 +26,12 @@ bool kernel_diag_taskstack(int *param_1)
   
   iVar1 = -3;
   if (0 < *param_1) {
-    iVar1 = __trap_check_task_state_transition((int)(short)*param_1);
+    /* B-3: the int #0x40 syscall (ROM 0x1000d540) takes TWO register args — r4 = (short)*param_1
+     * and r5 = param_1 (the task start-arg / object pointer, set by stock's `mov r4,r5`). The
+     * decompiler dropped the r5 arg (the kernel routine reads it as `extraout_r5`), so fcc left
+     * the -3 temp in r5 and it became a bogus task start-arg -> ui_task_body_common(param_1=-3)
+     * null-vtable crash. Pass param_1 explicitly as the second arg so r5 carries the object. */
+    iVar1 = __trap_check_task_state_transition((int)(short)*param_1, (uint32_t)param_1);
   }
   return iVar1 == 0;
 }

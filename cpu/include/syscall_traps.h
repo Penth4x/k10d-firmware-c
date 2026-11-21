@@ -4,7 +4,7 @@
 #include "stdint.h"
 uint32_t __trap_validate_and_store_task_params(uint param_1,ushort *param_2);
 void __trap_rtos_sched_start_gate(void);
-uint32_t __trap_check_task_state_transition(uint param_1);
+uint32_t __trap_check_task_state_transition(uint param_1, uint32_t param_2);
 int __trap_find_free_queue_slot_1000d66c(ushort *param_1);
 int __trap_find_free_tcb_slot_1000d6e4(ushort *param_1);
 int __trap_find_free_tcb_slot_1000d770(ushort *param_1);

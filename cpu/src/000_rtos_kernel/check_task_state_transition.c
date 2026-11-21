@@ -18,12 +18,15 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-uint32_t check_task_state_transition(uint param_1)
+/* B-3: the real syscall takes a SECOND register arg in r5 (the task start-arg), which the
+ * decompiler dropped and read as the uninitialised `extraout_r5`. Declared here as param_2 so
+ * callers pass it in r5. (This recompiled copy is dead — the int #0x40 trap runs ROM 0x1000d540 —
+ * but the honest signature keeps the tree correct and matches the __trap_ declaration arity.) */
+uint32_t check_task_state_transition(uint param_1, uint32_t param_2)
 
 {
   int iVar1;
   uint32_t uVar2;
-  uint32_t extraout_r5;
   int caller_r14;
   
   if (param_1 == 0) {
@@ -61,6 +64,6 @@ uint32_t check_task_state_transition(uint param_1)
     }
   }
   DAT_6a003aa5 = DAT_6a003aa5 | 0x80;
-  _DAT_6a003aa0 = extraout_r5;
+  _DAT_6a003aa0 = param_2;
   return 0;
 }
