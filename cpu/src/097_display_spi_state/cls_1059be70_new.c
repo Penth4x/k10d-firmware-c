@@ -115,7 +115,14 @@ cls_1059be70 * cls_1059be70_new(cls_1059be70 *param_1)
       *(uint32_t *)((int)&param_1->field_0xd4 + iVar3) = 0;
       *(uint32_t *)((int)&param_1->field_0xd8 + iVar3) = 0;
       *(uint32_t *)((int)&param_1->field_0xdc + iVar3) = 0;
-      *(uint32_t *)(&param_1[1].field_0x0 + iVar3) = 0;
+      /* B-6b: the 5th store of this contiguous clear is offset 0xe0, NOT param_1[1]
+         (= base+0x288, the end of this 0x288-byte object). The original (0x1040f8c6)
+         resets r12=base+0xd0 each iteration while r13 grows by 4 continuously, so the
+         five stores/iteration are consecutive words 0xd0,0xd4,0xd8,0xdc,0xe0 tiling
+         0xd0..0x288 exactly. The decompiler mis-based the 5th as param_1[1], marching it
+         past the object and zeroing the next heap object's vtable pointer -> null-vtable
+         crash in a later virtual dispatch. 0xe0 = field_0xdc + 4. */
+      *(uint32_t *)((int)&param_1->field_0xdc + 4 + iVar3) = 0;
       iVar1 = iVar1 + -1;
       iVar3 = iVar3 + 0x14;
     } while (-1 < iVar1);
