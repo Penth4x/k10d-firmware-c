@@ -11,7 +11,7 @@
  *   advance_state_on_virtual_call) and virtual methods on param_3 to determine the next
  *   state. Depending on the mode (2 or 4) and the results of these queries, it increments
  *   or decrements the counter fields in param_1, wrapping them to zero or specific limits
- *   (3, 0xf). Finally, it calls serialize_exposure_params_to_buffer to finalize the state
+ *   (3, 0xf). Finally, it calls draw_eeprom_rw_screen_1048a0ec to finalize the state
  *   change.
  * @end */
 #include "frv_intrinsics.h"
@@ -188,6 +188,6 @@ int advance_nested_state_counters(cls_105b3998 *param_1,int param_2,int *param_3
   else {
     param_1->field_0x44 = iVar3 + -1;
   }
-  iVar1 = (uint32_t)(serialize_exposure_params_to_buffer((void*)(param_1)));
+  iVar1 = (uint32_t)(draw_eeprom_rw_screen_1048a0ec((void*)(param_1)));
   return iVar1;
 }

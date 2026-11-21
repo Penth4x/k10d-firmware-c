@@ -38,7 +38,7 @@ uint32_t run_update_task_loop(void *param_1)
     }
     else {
       populate_update_status_fields((int)param_1);
-      iVar1 = check_table_entry_match(param_1,0);
+      iVar1 = fwupdate_check_markers_1046861c(param_1,0);
       if (iVar1 == 0) {
         select_and_call_two_variants((int)param_1,1);
       }

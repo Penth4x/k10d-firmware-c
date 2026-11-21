@@ -1,16 +1,12 @@
-/* @k10d run_sensor_readout_sequence @ 0x1046f9e4
- * name: model (proposed by the local model from the decompile, confidence 0.65)
+/* @k10d run_release_cycles_1046f9e4 @ 0x1046f9e4
+ * name: verified (structural evidence: shows "RELEASE TIMES" and "%4d" / "%4d / %4d" (0x105a95d8..) when param_3 != 0; loops param_2 times, or until stopped when param_2 < 1)
  * unit: 159_sr_dust_removal (unit names are model-proposed)
  * purpose:
- *   Executes a multi-step sensor readout or exposure sequence with progress updates and
- *   timeout handling.
+ *   Debug-menu repeated release test: runs param_2 release cycles (param_2 < 1: until
+ *   stopped, i.e. aging) and, if param_3 is set, shows "RELEASE TIMES n / m".
  * summary:
- *   The function initializes a state object, creates a helper class instance, and enters a
- *   loop that iterates up to param_2 times. In each iteration, it calls a series of
- *   hardware control functions (release_context_two_fields, release_three_sub_objects,
- *   etc.) and waits for status flags to clear, using check_kernel_call_success_10459fea for
- *   delays. It sends progress or status messages via sr_dma_command if param_3 is non-zero.
- *   The sequence concludes by resetting the state and deleting the helper object.
+ *   VERIFIED: shows "RELEASE TIMES" and "%4d" / "%4d / %4d" (0x105a95d8..) when param_3 !=
+ *   0; loops param_2 times, or until stopped when param_2 < 1
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"
@@ -19,7 +15,7 @@
 /* WARNING: Instruction at (ram,0x1046fc76) overlaps instruction at (ram,0x1046fc74)
     */
 
-void run_sensor_readout_sequence(int param_1,uint8_t *param_2,int param_3,uint8_t *param_4)
+void run_release_cycles_1046f9e4(int param_1,uint8_t *param_2,int param_3,uint8_t *param_4)
 
 {
   char cVar1;

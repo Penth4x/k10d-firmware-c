@@ -7,7 +7,7 @@
  * summary:
  *   The function initiates a process by calling call_helper_with_string_arg_1046a482 and
  *   allocate_large_memory_pools, then proceeds through a series of conditional steps
- *   (check_table_entry_match, check_param2_or_offset_limit, poll_and_query_object_state,
+ *   (fwupdate_check_markers_1046861c, fwupdate_check_version_104686f2, poll_and_query_object_state,
  *   poll_object_state_until_change) that likely correspond to different phases of the
  *   operation. Each step checks for errors and calls specific error handlers
  *   (select_and_send_mode_config, select_and_call_two_variants, etc.) if a step fails. On
@@ -44,12 +44,12 @@ uint32_t run_sequential_state_machine_104682dc(void *param_1)
   }
   else {
     populate_update_status_fields((int)param_1);
-    iVar2 = check_table_entry_match(param_1,1);
+    iVar2 = fwupdate_check_markers_1046861c(param_1,1);
     if (iVar2 == 0) {
       select_and_call_two_variants((int)param_1,0);
     }
     else {
-      iVar2 = check_param2_or_offset_limit((int)param_1,1);
+      iVar2 = fwupdate_check_version_104686f2((int)param_1,1);
       if (iVar2 == 0) {
         write_three_entries_if_flag_not_one(param_1,0);
       }
