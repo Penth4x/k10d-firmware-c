@@ -38,3 +38,24 @@ method is the reliable fallback for arbitrary SDRAM writes.
 - `scripts/find_missplits.py` — detects decompiler-shredded functions (117 genuine; delay-slot-aware).
 - `scripts/harvest_asm.py` — byte-faithful harvest of fcc-can't-recompile fns (symbolic call targets).
   Only `initialize_rtos_kernel` is a genuine permanent asm case; mis-splits should re-decompile to C.
+
+## Update (d325, later): pool-handle lead was a boot-loop artifact — REJECTED
+Pool descriptor handles (desc+0xc) read 0 in candidate vs 1-7 in stock, BUT that is the
+*final* state after many boot-loop cycles. The zeroing PC is 0x1075efee = initialize_rtos_kernel's
+own word-clear loop (byte-faithful; stock clears 0x8002eff8 too). In CYCLE 1 the order is
+clear->cpucom_txn_table_setup (handle=1), so the pools are correctly set up when the deactivate
+crash occurs. Not the root.
+
+### The real root remains the cycle-1 HEAP OVERLAP
+cls_105a0828 (P, 0x12c) and cls_1059e430 occupy overlapping memory; cls_1059e430_new's clear
+zeroes P+8 (0x805527d8) AFTER cls_105a0828_new sets it. Open question: is P an intended EMBEDDED
+sub-object of cls_1059e430 (=> construction-ORDER bug in the caller) or SEPARATE allocations that
+collide (=> heap corruption)? MUST isolate to boot cycle 1 (the boot-loop confounds every
+multi-cycle trace). Determine cls_105a0828_new's param_1 for the P@0x805527d0 construction:
+NULL = separate heap_alloc; a pointer into cls_1059e430 = embedded.
+
+### Tooling gap found
+FRN_WRWATCH only fires for VERY WIDE ranges (16MB works; <=4KB and single-address return nothing,
+reason unknown — the range-check logic looks correct). FRN_WRVAL also unreliable. The RELIABLE
+method remains FULLREGS to a fifo + grep 'W4 @0xADDR'. The qemu-frn FRN_WRWATCH rp/cap improvement
+(commit c6c72dd) does NOT fix the narrow-range miss. Worth a real debug session on the watch path.
