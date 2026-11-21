@@ -42,6 +42,15 @@ def is_terminator(w):
     if t12 in (0x970,0x9F0): return True                  # jmp @r, jmp:d @r
     if (w>>12) in (0xE,0xF) and ((w>>8)&0xF)==0: return True  # bra / bra:d (unconditional)
     return False
+def is_delayed_terminator(w):
+    # a terminator whose delay slot follows it (ret:d, jmp:d, uncond bra:d); the real function
+    # boundary is AFTER the delay slot, so the instruction just before a boundary can be that
+    # delay slot rather than the terminator itself.
+    t12=(w>>4)&0xFFF
+    if w==0x9F20: return True                              # ret:d
+    if t12==0x9F0: return True                             # jmp:d @r
+    if (w>>12)==0xF and ((w>>8)&0xF)==0: return True       # bra:d (unconditional)
+    return False
 
 # all ldi:32 immediates in the code region = call/address-reference targets
 REF=set()
@@ -54,15 +63,16 @@ while a < END:
     else:
         a+=insn_len(w)
 
-def last_insn_before(va, floor):
-    # walk forward from floor, return the opcode of the instruction whose end == va (or None)
-    p=floor; last=None
+def two_before(va, floor):
+    # walk forward from floor; return (last, penult): the instruction whose end == va and the
+    # one before it. (None,None) if misaligned.
+    p=floor; prev=None
     while p < va:
         w=r16(p); L=insn_len(w)
-        if p+L==va: return w
-        if p+L>va: return None   # misaligned (overlap) -> treat as fall-through
-        last=w; p+=L
-    return last
+        if p+L==va: return (w, prev)
+        if p+L>va: return (None, None)   # overlap -> treat as fall-through
+        prev=w; p+=L
+    return (prev, None)
 
 frag=[]   # (va, name) that are mis-split fragments
 for i,va in enumerate(VAS):
@@ -70,8 +80,10 @@ for i,va in enumerate(VAS):
     if i==0: continue
     prev=VAS[i-1]
     if va-prev > 0x400: continue                 # too far to disassemble reliably
-    w=last_insn_before(va, prev)
-    if w is not None and is_terminator(w): continue   # preceded by a terminator -> real boundary
+    last, penult = two_before(va, prev)
+    if last is not None and is_terminator(last): continue          # preceded by a terminator
+    if penult is not None and is_delayed_terminator(penult) and last is not None:
+        continue                                                   # last is a :d terminator's delay slot
     frag.append(va)                              # falls through + not called = fragment
 
 # group fragments with the entry they belong to (nearest preceding non-fragment)
