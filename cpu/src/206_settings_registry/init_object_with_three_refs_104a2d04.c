@@ -19,9 +19,9 @@ void init_object_with_three_refs_104a2d04(cls_105b63b0 *param_1)
   iVar1 = 1;
   iVar2 = 0;
   do {
-    *(int *)(&param_1->field_0x24 + iVar2) = param_1->field_0x3c;
-    *(int *)(&param_1->field_0x28 + iVar2) = param_1->field_0x3c;
-    *(int *)(&param_1->field_0x2c + iVar2) = param_1->field_0x3c;
+    *(int *)((int)&param_1->field_0x24 + iVar2) = param_1->field_0x3c;
+    *(int *)((int)&param_1->field_0x28 + iVar2) = param_1->field_0x3c;
+    *(int *)((int)&param_1->field_0x2c + iVar2) = param_1->field_0x3c;
     iVar1 = iVar1 + -1;
     iVar2 = iVar2 + 0xc;
   } while (-1 < iVar1);

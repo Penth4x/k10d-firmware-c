@@ -72,15 +72,15 @@ void cls_105f9ab0_new(cls_105f9ab0 *param_1)
     iVar3 = 2;
     iVar1 = 0;
     do {
-      *(uint32_t *)(&param_1->field_0x228 + iVar1) = 0xffff;
+      *(uint32_t *)((int)&param_1->field_0x228 + iVar1) = 0xffff;
       *(uint32_t *)((int)(&param_1->field_0x228 + iVar1) + 4) = 0;
-      *(uint32_t *)(&param_1->field_0x230 + iVar1) = 0xffff;
+      *(uint32_t *)((int)&param_1->field_0x230 + iVar1) = 0xffff;
       *(uint32_t *)((int)(&param_1->field_0x230 + iVar1) + 4) = 0;
-      *(uint32_t *)(&param_1->field_0x238 + iVar1) = 0xffff;
+      *(uint32_t *)((int)&param_1->field_0x238 + iVar1) = 0xffff;
       *(uint32_t *)((int)(&param_1->field_0x238 + iVar1) + 4) = 0;
-      *(uint32_t *)(&param_1->field_0x240 + iVar1) = 0xffff;
+      *(uint32_t *)((int)&param_1->field_0x240 + iVar1) = 0xffff;
       *(uint32_t *)((int)(&param_1->field_0x240 + iVar1) + 4) = 0;
-      *(uint32_t *)(&param_1->field_0x248 + iVar1) = 0xffff;
+      *(uint32_t *)((int)&param_1->field_0x248 + iVar1) = 0xffff;
       *(uint32_t *)((int)(&param_1->field_0x248 + iVar1) + 4) = 0;
       iVar3 = iVar3 + -1;
       iVar1 = iVar1 + 0x28;
@@ -88,9 +88,9 @@ void cls_105f9ab0_new(cls_105f9ab0 *param_1)
     iVar3 = 0x16;
     iVar1 = 0;
     do {
-      *(uint32_t *)(&param_1->field_0x2a0 + iVar1) = 0xffff;
+      *(uint32_t *)((int)&param_1->field_0x2a0 + iVar1) = 0xffff;
       *(uint32_t *)((int)(&param_1->field_0x2a0 + iVar1) + 4) = 0;
-      *(uint32_t *)(&param_1->field_0x2a8 + iVar1) = 0xffff;
+      *(uint32_t *)((int)&param_1->field_0x2a8 + iVar1) = 0xffff;
       *(uint32_t *)((int)(&param_1->field_0x2a8 + iVar1) + 4) = 0;
       iVar3 = iVar3 + -1;
       iVar1 = iVar1 + 0x10;

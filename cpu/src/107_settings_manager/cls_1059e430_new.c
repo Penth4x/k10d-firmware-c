@@ -25,13 +25,20 @@ cls_1059e3e0 * cls_1059e430_new(cls_1059e430 *param_1)
     iVar2 = 7;
     iVar1 = 0;
     do {
+      /* All eight stores are BYTE-addressed: the original clears the whole 0x104-byte object with a
+       * uniform base+fieldoff+iVar1 stride (iVar1 steps 0x10; low block 0x4..0x80 and high block
+       * 0x84..0x100). Ghidra emitted `&field + iVar1` for six of them, and field being uint32_t that
+       * SCALES iVar1 by 4, turning the 0x10 step into a 0x40 stride that overruns the object and
+       * zeroes the adjacent object's vtable slots (the deactivate_dual_object_pair null-vtable crash:
+       * P+8 at 0x805527d8). Cast each `&field` to (int) before the add, exactly as the two faithful
+       * stores already do. Bug class B-9 pointer-arith-scaling: `&field + idx` for `(int)&field + idx`. */
       *(uint32_t *)((int)&((cls_1059e3e0 *)param_1)->field1_0x4 + iVar1) = 0;
-      *(uint32_t *)(&((cls_1059e3e0 *)param_1)->field_0x84 + iVar1) = 0;
-      *(uint32_t *)(&((cls_1059e3e0 *)param_1)->field_0x8 + iVar1) = 0;
-      *(uint32_t *)(&((cls_1059e3e0 *)param_1)->field_0x88 + iVar1) = 0;
-      *(uint32_t *)(&((cls_1059e3e0 *)param_1)->field_0xc + iVar1) = 0;
-      *(uint32_t *)(&((cls_1059e3e0 *)param_1)->field_0x8c + iVar1) = 0;
-      *(uint32_t *)(&((cls_1059e3e0 *)param_1)->field_0x10 + iVar1) = 0;
+      *(uint32_t *)((int)&((cls_1059e3e0 *)param_1)->field_0x84 + iVar1) = 0;
+      *(uint32_t *)((int)&((cls_1059e3e0 *)param_1)->field_0x8 + iVar1) = 0;
+      *(uint32_t *)((int)&((cls_1059e3e0 *)param_1)->field_0x88 + iVar1) = 0;
+      *(uint32_t *)((int)&((cls_1059e3e0 *)param_1)->field_0xc + iVar1) = 0;
+      *(uint32_t *)((int)&((cls_1059e3e0 *)param_1)->field_0x8c + iVar1) = 0;
+      *(uint32_t *)((int)&((cls_1059e3e0 *)param_1)->field_0x10 + iVar1) = 0;
       *(uint32_t *)((int)&((cls_1059e3e0 *)((int)param_1 + 0x90))->field_0x0 + iVar1) = 0;
       iVar2 = iVar2 + -1;
       iVar1 = iVar1 + 0x10;

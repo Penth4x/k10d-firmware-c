@@ -35,11 +35,11 @@ cls_105b2e98 * cls_105b2e98_new(cls_105b2e98 *param_1)
     iVar1 = 1;
     iVar2 = 0;
     do {
-      *(uint32_t *)(&param_1->field_0x8 + iVar2) = 0;
-      *(uint32_t *)(&param_1->field_0xc + iVar2) = 0;
-      *(uint32_t *)(&param_1->field_0x10 + iVar2) = 0;
-      *(uint32_t *)(&param_1->field_0x14 + iVar2) = 0;
-      *(uint32_t *)(&param_1->field_0x18 + iVar2) = 0;
+      *(uint32_t *)((int)&param_1->field_0x8 + iVar2) = 0;
+      *(uint32_t *)((int)&param_1->field_0xc + iVar2) = 0;
+      *(uint32_t *)((int)&param_1->field_0x10 + iVar2) = 0;
+      *(uint32_t *)((int)&param_1->field_0x14 + iVar2) = 0;
+      *(uint32_t *)((int)&param_1->field_0x18 + iVar2) = 0;
       iVar1 = iVar1 + -1;
       iVar2 = iVar2 + 0x14;
     } while (-1 < iVar1);

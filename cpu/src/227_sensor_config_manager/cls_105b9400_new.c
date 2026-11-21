@@ -73,11 +73,11 @@ cls_105b9400 * cls_105b9400_new(cls_105b9400 *param_1)
     iVar3 = 8;
     iVar1 = 0;
     do {
-      *(uint32_t *)(&param_1->field_0x118 + iVar1) = 0;
-      *(uint32_t *)(&param_1->field_0x11c + iVar1) = 0;
-      *(uint32_t *)(&param_1->field_0x120 + iVar1) = 0;
-      *(uint32_t *)(&param_1->field_0x124 + iVar1) = 0;
-      *(uint32_t *)(&param_1->field_0x128 + iVar1) = 0;
+      *(uint32_t *)((int)&param_1->field_0x118 + iVar1) = 0;
+      *(uint32_t *)((int)&param_1->field_0x11c + iVar1) = 0;
+      *(uint32_t *)((int)&param_1->field_0x120 + iVar1) = 0;
+      *(uint32_t *)((int)&param_1->field_0x124 + iVar1) = 0;
+      *(uint32_t *)((int)&param_1->field_0x128 + iVar1) = 0;
       iVar3 = iVar3 + -1;
       iVar1 = iVar1 + 0x14;
     } while (-1 < iVar3);

@@ -35,9 +35,9 @@ int cls_105b3ae4_new(cls_105b3ae4 *param_1)
     iVar1 = 0x10;
     iVar2 = 0;
     do {
-      *(uint32_t *)(&param_1->field_0x50 + iVar2) = 0;
-      *(uint32_t *)(&param_1->field_0x54 + iVar2) = 0;
-      *(uint32_t *)(&param_1->field_0x58 + iVar2) = 0;
+      *(uint32_t *)((int)&param_1->field_0x50 + iVar2) = 0;
+      *(uint32_t *)((int)&param_1->field_0x54 + iVar2) = 0;
+      *(uint32_t *)((int)&param_1->field_0x58 + iVar2) = 0;
       iVar1 = iVar1 + -1;
       iVar2 = iVar2 + 0xc;
     } while (-1 < iVar1);

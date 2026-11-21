@@ -25,8 +25,8 @@ void cls_105d6d90_new(cls_105d6d90 *param_1)
     iVar1 = 0xc;
     iVar2 = 0;
     do {
-      *(uint32_t *)(&param_1->field_0x0 + iVar2) = 0;
-      *(uint32_t *)(&param_1->field_0x4 + iVar2) = 0;
+      *(uint32_t *)((int)&param_1->field_0x0 + iVar2) = 0;
+      *(uint32_t *)((int)&param_1->field_0x4 + iVar2) = 0;
       iVar1 = iVar1 + -1;
       iVar2 = iVar2 + 8;
     } while (-1 < iVar1);

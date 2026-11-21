@@ -28,7 +28,7 @@ cls_10562758 * init_object_and_dispatch_state_10392166(cls_10562758 *param_1)
   iVar1 = 8;
   do {
     iVar2 = iVar1 + -4;
-    *(uint32_t *)(&param_1->field_0x78 + iVar1) = *(uint32_t *)(iVar1 + -0x7ffe5b5c);
+    *(uint32_t *)((int)&param_1->field_0x78 + iVar1) = *(uint32_t *)(iVar1 + -0x7ffe5b5c);
     iVar1 = iVar2;
   } while (iVar2 != 0);
   param_1->field_0x8 = (uintptr_t)(&param_1->field_0xc);

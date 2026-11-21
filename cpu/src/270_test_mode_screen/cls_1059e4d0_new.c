@@ -800,9 +800,9 @@ cls_1059e4d0 * cls_1059e4d0_new(cls_1059e4d0 *param_1)
     uVar1 = 0;
     do {
       iVar4 = uVar1 * 2;
-      *(uint16_t *)(&param_1->field_0x67c + iVar4) = 0;
+      *(uint16_t *)((int)&param_1->field_0x67c + iVar4) = 0;
       uVar1 = uVar1 + 1 & 0xffff;
-      *(uint16_t *)(&param_1->field_0x686 + iVar4) = 0;
+      *(uint16_t *)((int)&param_1->field_0x686 + iVar4) = 0;
     } while (uVar1 < 5);
     param_1->field_0x60c = (int)(param_1->field_0x7f8 + 0x48);
     param_1->field_0x610 = (int)(param_1->field_0x7f8 + 0xf);

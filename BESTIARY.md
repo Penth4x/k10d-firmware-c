@@ -200,6 +200,45 @@ Reliable measurement (prerequisite for all localization):
   against the firmware.map packed range before attributing it; the earlier session misread this as a
   hw_init_runner r14-clobber, which the raw trace disproved.
 
+## B-9 · pointer-arithmetic scaling (`&field + idx` where `(int)&field + idx` was meant) ← **widespread; 17 sightings**
+- **Symptom:** a constructor/clear/copy loop (or a one-shot select) overruns its object by a factor of
+  the field size, corrupting *adjacent* objects' fields — classically zeroing a neighbour's vtable
+  slot, which later surfaces as a B-6-style null-vtable `call @0` crash **far** from the writer.
+- **Cause:** Ghidra emits a byte-offset store as `*(T *)(&P->field + idx)`. Because `&P->field` has
+  the field's pointer type, C scales `idx` by `sizeof(*&P->field)` — so a loop index that steps by a
+  **byte** amount (e.g. `idx += 0x14` for five `uint32_t` words) is multiplied **again** by 4,
+  turning a contiguous 0x14 stride into a 0x50 stride that walks off the end of the object. The
+  original is uniform byte arithmetic. The tell is **inconsistency**: within one loop Ghidra writes
+  some stores as `*(T *)((int)&P->field + idx)` (byte, correct) and its siblings as
+  `*(T *)(&P->field + idx)` (scaled, wrong) — the author cannot have meant both strides for one `idx`.
+  A field typed `uint8_t` is byte-correct by accident (`sizeof==1`), which is why a parallel pair like
+  `&field_0x67c`(u32, scaled) / `&field_0x686`(u8, byte) diverges.
+- **Instance (ROOT of the boot blocker, confirmed by emulator + asm):** `cls_1059e430_new`
+  @ 0x10427d7a (`cpu/src/107_settings_manager/`). Six of eight clear-loop stores lacked the `(int)`
+  cast; `idx` stepped 0x10 but scaled to a 0x40 stride, overrunning the 0x104 object and zeroing
+  `P+8` (0x805527d8) — the secondary-base vtable slot of the adjacent multiply-derived
+  `cls_105a0828` object `P` at 0x805527d0. `deactivate_dual_object_pair` then reads `*(P+8)=0` as a
+  vtable, dispatches slot [3] → `call @0` → reset (the ~55-70×/25s boot-loop). FRN_NO_REBOOT single-
+  cycle trace: P+8 correctly built to 0x105a08b8, then zeroed at PC 0x1067fe54 (the clear loop).
+  Fixed loop asm (`cpu/out/obj/cls_1059e430_new.asm`): all 8 stores `param_1 + fieldoff + iVar1`,
+  no `LSL #2` — clears exactly 0x4..0x100.
+- **Class fix (grep the class, not the instance):** `scratchpad/classify_scaling.py` finds every
+  `*(T *)(&ptr->field + idx)` without an `(int)`/byte cast, then classifies by the loop increment —
+  a **byte-stride** increment (>=4) or a **mixed** `(int)&`/bare-`&` sibling => bug; a genuine unit
+  step (`idx++`) would be an intended typed-array walk (none found here). 17 functions confirmed
+  (constructors `cls_105b2e98/105b3ae4/105b9400/1062112c/105d6d90/105f9ab0/105a1a84/105b4dac/
+  1059e4d0_new`, `init_object_with_three_refs_1049a906/104a2d04`, `init_object_with_vtable_and_data/
+  _and_dispatch`, `init_object_and_dispatch_state_10392166`, `dispatch_event_queue_items`,
+  `initialize_apex_mode_state`). Each verified by a stride/sibling/field-type argument or the struct
+  layout (e.g. apex's scaled 0x110/0x190 land past the struct end; byte 0x44/0x64 are real fields).
+- **Fix form:** cast each unguarded `&field` to `(int)` before the add (matching Ghidra's own
+  faithful sibling stores), leaving already-byte offsets (`(int)puVar2 + k`) alone. Distinct from
+  B-1/B-6b (which are wrong *base*, not wrong *scale*).
+- **Detection rule:** DON'T blanket-add `(int)` to every `&sym + idx` — `&DAT_*`/`&stack0*` are
+  byte-typed and already correct, and a true `idx++` array walk needs the scale. Gate on: the index
+  is a byte-stride loop variable (or a byte-offset select), the pointee is multi-byte, and (ideally)
+  a sibling store or the source/dest stride proves byte arithmetic was intended.
+
 ## TOOL-1 · trace reducer drops relocated functions (measurement bug, not firmware)
 - **Symptom:** co-run fdiff shows the candidate "skipping" functions it actually executes; inflated
   "missing function" counts; phantom divergences that send you chasing the wrong place.

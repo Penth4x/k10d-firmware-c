@@ -81,139 +81,139 @@ int cls_105a1a84_new(cls_105a1a84 *param_1,uint32_t param_2)
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0x20 + iVar1) = *(uint32_t *)(iVar1 + 0x105a19e0/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0x20 + iVar1) = *(uint32_t *)(iVar1 + 0x105a19e0/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0x28 + iVar1) = *(uint32_t *)(iVar1 + 0x105a19e8/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0x28 + iVar1) = *(uint32_t *)(iVar1 + 0x105a19e8/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0x30 + iVar1) = *(uint32_t *)(iVar1 + 0x105a19f0/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0x30 + iVar1) = *(uint32_t *)(iVar1 + 0x105a19f0/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0x38 + iVar1) = *(uint32_t *)(iVar1 + 0x105a19f8/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0x38 + iVar1) = *(uint32_t *)(iVar1 + 0x105a19f8/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0x40 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a00/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0x40 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a00/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0x48 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a08/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0x48 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a08/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0x50 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a10/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0x50 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a10/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0x58 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a18/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0x58 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a18/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0x60 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a20/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0x60 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a20/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0x68 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a28/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0x68 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a28/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0x70 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a30/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0x70 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a30/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0x78 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a38/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0x78 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a38/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0x80 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a40/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0x80 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a40/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0x88 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a48/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0x88 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a48/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0x90 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a50/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0x90 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a50/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0x98 + iVar1) = *(uint32_t *)(iVar1 + 0x105a19f8/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0x98 + iVar1) = *(uint32_t *)(iVar1 + 0x105a19f8/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0xa0 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a58/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0xa0 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a58/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0xa8 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a20/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0xa8 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a20/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0xb0 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a30/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0xb0 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a30/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0xb8 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a60/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0xb8 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a60/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0xc0 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a68/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0xc0 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a68/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0xc8 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a30/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0xc8 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a30/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
     iVar1 = 8;
     do {
       iVar2 = iVar1 + -4;
-      *(uint32_t *)(&param_1->field_0xd0 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a70/*ROM*/);
+      *(uint32_t *)((int)&param_1->field_0xd0 + iVar1) = *(uint32_t *)(iVar1 + 0x105a1a70/*ROM*/);
       iVar1 = iVar2;
     } while (iVar2 != 0);
   }

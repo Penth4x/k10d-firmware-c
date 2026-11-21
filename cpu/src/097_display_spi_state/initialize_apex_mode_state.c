@@ -70,7 +70,7 @@ uint32_t initialize_apex_mode_state(cls_1059be70 *param_1)
     uVar5 = read_table_entry_field(pvVar4,0x93);
     iVar3 = 100;
   }
-  *(uint32_t *)(&param_1->field_0x0 + iVar3) = uVar5;
+  *(uint32_t *)((int)&param_1->field_0x0 + iVar3) = uVar5;
   uVar5 = read_table_entry_field(pvVar4,0x31);
   param_1->field_0x48 = uVar5;
   uVar5 = read_table_entry_field(pvVar4,0x32);

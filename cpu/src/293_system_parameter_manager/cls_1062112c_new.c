@@ -69,11 +69,11 @@ void cls_1062112c_new(cls_1062112c *param_1)
     param_1->field_0x40 = 0;
     iVar2 = 1;
     do {
-      *(uint32_t *)(&param_1->field_0x44 + iVar1) = 0;
-      *(uint32_t *)(&param_1->field_0x48 + iVar1) = 0;
-      *(uint32_t *)(&param_1->field_0x4c + iVar1) = 0;
-      *(uint32_t *)(&param_1->field_0x50 + iVar1) = 0;
-      *(uint32_t *)(&param_1->field_0x54 + iVar1) = 0;
+      *(uint32_t *)((int)&param_1->field_0x44 + iVar1) = 0;
+      *(uint32_t *)((int)&param_1->field_0x48 + iVar1) = 0;
+      *(uint32_t *)((int)&param_1->field_0x4c + iVar1) = 0;
+      *(uint32_t *)((int)&param_1->field_0x50 + iVar1) = 0;
+      *(uint32_t *)((int)&param_1->field_0x54 + iVar1) = 0;
       iVar2 = iVar2 + -1;
       iVar1 = iVar1 + 0x14;
     } while (-1 < iVar2);

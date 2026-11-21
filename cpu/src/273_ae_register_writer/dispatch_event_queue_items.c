@@ -49,10 +49,10 @@ void dispatch_event_queue_items(cls_105d624c *param_1)
       iVar14 = 0;
       do {
         *(uint32_t *)((int)&param_1->field_0x1f8 + iVar14) = 0;
-        *(uint32_t *)(&param_1->field_0x1fc + iVar14) = 0;
-        *(uint32_t *)(&param_1->field_0x200 + iVar14) = 0;
-        *(uint32_t *)(&param_1->field_0x204 + iVar14) = 0;
-        *(uint32_t *)(&param_1->field_0x208 + iVar14) = 0;
+        *(uint32_t *)((int)&param_1->field_0x1fc + iVar14) = 0;
+        *(uint32_t *)((int)&param_1->field_0x200 + iVar14) = 0;
+        *(uint32_t *)((int)&param_1->field_0x204 + iVar14) = 0;
+        *(uint32_t *)((int)&param_1->field_0x208 + iVar14) = 0;
         iVar4 = iVar4 + -1;
         iVar14 = iVar14 + 0x14;
       } while (-1 < iVar4);

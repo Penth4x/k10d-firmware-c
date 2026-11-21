@@ -32,7 +32,7 @@ int cls_105b4dac_new(cls_105b4dac *param_1,void *param_2,uint8_t param_3,uint32_
     iVar3 = 8;
     do {
       iVar2 = iVar3 + -4;
-      *(uint32_t *)(&param_1->field_0x84 + iVar3) = *(uint32_t *)((int)param_2 + iVar3 + 4);
+      *(uint32_t *)((int)&param_1->field_0x84 + iVar3) = *(uint32_t *)((int)param_2 + iVar3 + 4);
       iVar3 = iVar2;
     } while (iVar2 != 0);
     allocate_and_init_widget(&param_1->field_0x90);
