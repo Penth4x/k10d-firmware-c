@@ -32,13 +32,16 @@ find "$HERE/src" -name '*.c' | xargs -P"$J" -I{} bash -c 'one "$@"' _ {} 2>&1 | 
 # not a real fcc error. Retry anything still missing an .obj at LOW parallelism to absorb that
 # flakiness, so the object set is complete for the link.
 for pass in 1 2 3; do
-  miss=$(find "$HERE/src" -name '*.c' | while read f; do b=$(basename "$f" .c); [ -s "$OBJ/$b.obj" ] || echo "$f"; done)
+  # A silently-failed parallel-wine compile can leave a STALE .obj (exits 0, writes nothing),
+  # which "-s" alone treats as present -> old code links, masking an edited source. Count an obj
+  # that is NOT newer than its .c as missing too, so it gets retried / aborted on.
+  miss=$(find "$HERE/src" -name '*.c' | while read f; do b=$(basename "$f" .c); { [ -s "$OBJ/$b.obj" ] && [ "$OBJ/$b.obj" -nt "$f" ]; } || echo "$f"; done)
   [ -z "$miss" ] && break
   n=$(echo "$miss" | wc -l); echo "   [1b pass $pass] retry $n missing at J=4"
   echo "$miss" | xargs -P4 -I{} bash -c 'one "$@"' _ {}
 done
 # Gate the link on a COMPLETE object set — a partial link only floods unresolved-symbol errors.
-STILL=$(find "$HERE/src" -name '*.c' | while read f; do b=$(basename "$f" .c); [ -s "$OBJ/$b.obj" ] || echo "$b"; done)
+STILL=$(find "$HERE/src" -name '*.c' | while read f; do b=$(basename "$f" .c); { [ -s "$OBJ/$b.obj" ] && [ "$OBJ/$b.obj" -nt "$f" ]; } || echo "$b"; done)
 if [ -n "$STILL" ]; then echo "   ABORT: $(echo "$STILL"|wc -l) functions still fail to compile:"; echo "$STILL"|sed 's/^/     /'|head; exit 1; fi
 echo "[2] assemble harvested non-code (crt0/vtables/syms/syscall_traps)"
 for a in crt0 vtables syms syscall_traps initialize_rtos_kernel; do (cd "$SOFTUNE" && wine BIN/FASM911S.EXE -cpu $CPU -o "$(w "$OBJ/$a.obj")" "$(w "$HERE/gen/$a.asm")") >/dev/null 2>&1; done
