@@ -137,6 +137,9 @@ edit cpu/src/<module>/<fn>.c
 | `scripts/boot_diff.sh` | quick executed-PC diff (no symbol DB) |
 | `scripts/gen_syscall_traps.py` + `*.tsv` | regenerate the REALOS `int #0x40` trampolines + call-site rewrites |
 | `scripts/overlay_fr.py` | overlay recompiled code onto the original to make the flashable image |
+| `scripts/fw_verify.py` | offline check of an image against the 1.31 updater's rules (size, model, markers, sums, version); `--ref` diff flags protected regions |
+| `scripts/dump_image_tables.py` | extract the capture tone curves / colour matrices from your `FWDC162B.BIN` |
+| `docs/firmware-notes.md` | analysis notes: updater + boot block, MODSET / debug menu, switch record, release handshake, image pipeline, `0xC0000` AF assist |
 | `dsp/` | DSP partition source (build WIP) |
 
 ## Firmware is not included
