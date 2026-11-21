@@ -71,6 +71,29 @@ Reliable measurement (prerequisite for all localization):
 - **Fix:** restructure the loop so loop vars stay caller-saved (single index, fresh entry ptr).
 - **Status:** `mempool_release_block` (6819d5cf).
 
+## B-6 · null-vtable call → jump-to-0 crash (masquerades as "task blocks / yields to idle")
+- **Symptom:** in a function-entry trace the task appears to "yield to idle and never resume" —
+  but it is actually a **crash**, not a blocking wait. At instruction level the PC jumps to
+  `0x00000000` and executes low-memory garbage (PC = 2,4,6,…); a later timer IRQ recovers the
+  scheduler to the idle task, which is what looked like a clean yield.
+- **Signature (raw FRN_FT_FULLREGS):** `ld @r4,r12` with `*r4 == 0` (object has a NULL vtable),
+  then a vtable-slot call `call @r12` → `PC=0x00000000`.
+- **Detection:** capture `FRN_FT_FULLREGS` to a fifo, `awk` a window at the suspected PC, look for
+  the `PC=0x00000000` transition; the preceding `ld @r4,…` names the bad object pointer. Also
+  grep the access history of that address (`@0x<addr>`) — if it is only ever written `0`, it is an
+  uninitialised slot, not a constructed object.
+- **Root (two sub-cases):** (a) a constructor's vtable store was dropped (B-2-like) — but often the
+  constructor is *correct*, so (b) the **object pointer itself is wrong**: a field that should hold
+  a constructed object holds a zeroed slot, i.e. an earlier field-store was dropped or a getter
+  returned the wrong address. Verify the constructor first (cheap), then trace the pointer's origin.
+- **Instance (OPEN):** `initialize_camera_state_object` (0x10478132) crashes on a vtable-slot-2
+  call where the object pointer is `*(param_1+8) == 0x80048700`, a slot only ever written 0
+  (vtable 0). The sibling constructors (`cls_105aa4f0/40c/498_new`) all correctly write their
+  vtables, so the bug is upstream: why `param_1+8` holds a zeroed slot instead of the
+  `cls_105aa40c_new` object. **This is the current black-screen root.**
+- **Lesson:** "yields to idle" in a function-trace is NOT proof of a wait — confirm with an
+  instruction trace before theorising about semaphores/flags.
+
 ---
 
 ## TOOL-1 · trace reducer drops relocated functions (measurement bug, not firmware)
