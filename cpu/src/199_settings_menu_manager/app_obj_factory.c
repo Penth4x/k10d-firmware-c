@@ -38,7 +38,7 @@ void * app_obj_factory(int *param_1,void *param_2,void *param_3,void *param_4)
   uintptr_t sp;
   int *piVar12;
   uint64_t uVar13;
-  ulonglong uVar14;
+  void *objResult;
   uint8_t local_94 [8];
   int aiStack_60 [7];
   byte *pbStack_44;
@@ -92,7 +92,7 @@ void * app_obj_factory(int *param_1,void *param_2,void *param_3,void *param_4)
   pvVar7 = (void *)0x0;
   pvVar9 = (void *)0x0;
   allocate_and_init_object_1045bd94(piVar10,0,0,0,*piVar12);
-  uVar14 = (ulonglong)uVar5;
+  objResult = (void *)0;
   iVar2 = 0x14;
   do {
     iVar11 = iVar2 + -4;
@@ -104,59 +104,59 @@ void * app_obj_factory(int *param_1,void *param_2,void *param_3,void *param_4)
   case 1:
     uVar5 = (uint)pbStack_44 & 0xffff;
     uVar4 = chain_two_helper_calls_10495bd8(param_1);
-    uVar14 = CONCAT44(uVar4,uVar5);
+    objResult = (void *)uVar4;
     break;
   case 2:
     uVar5 = (uint)pbStack_44 & 0xffff;
     uVar4 = chain_two_helper_calls_10495bc4(param_1);
-    uVar14 = CONCAT44(uVar4,uVar5);
+    objResult = (void *)uVar4;
     break;
   case 3:
     *(ushort *)((int)piVar12 + 2) = uStack_3c;
     *(ushort *)((int)piVar12 + 6) = uStack_3a;
     uVar5 = (uint)pbStack_44 & 0xffff;
     uVar4 = chain_two_helper_calls_10495c06(param_1);
-    uVar14 = CONCAT44(uVar4,uVar5);
+    objResult = (void *)uVar4;
     break;
   case 4:
     *(ushort *)((int)piVar12 + 2) = uStack_3c;
     *(ushort *)((int)piVar12 + 6) = uStack_3a;
     uVar5 = (uint)pbStack_44 & 0xffff;
     uVar4 = chain_two_helper_calls_10495c2e(param_1);
-    uVar14 = CONCAT44(uVar4,uVar5);
+    objResult = (void *)uVar4;
     break;
   case 5:
     pvVar7 = (void *)(uint)uStack_3c;
     *(ushort *)((int)piVar12 + 2) = uStack_3a;
     iVar3 = allocate_and_initialize_object(param_1,param_3,param_4,pvVar7,*(ushort *)((int)piVar12 + 2));
-    uVar14 = CONCAT44(iVar3,param_3);
+    objResult = (void *)iVar3;
     param_3 = param_4;
     param_4 = pvVar7;
     break;
   case 6:
     uVar4 = chain_two_helper_calls_10495bb0(param_1);
-    uVar14 = CONCAT44(uVar4,pbStack_44);
+    objResult = (void *)uVar4;
     break;
   case 7:
     uVar4 = chain_two_helper_calls_10495b9c(param_1);
-    uVar14 = CONCAT44(uVar4,pbStack_44);
+    objResult = (void *)uVar4;
     break;
   case 8:
     *(ushort *)((int)piVar12 + 2) = uStack_3c;
     *(ushort *)((int)piVar12 + 6) = uStack_3a;
     uVar5 = (uint)pbStack_44 & 0xffff;
     uVar4 = chain_two_helper_calls_10495d1a(param_1);
-    uVar14 = CONCAT44(uVar4,uVar5);
+    objResult = (void *)uVar4;
     break;
   case 9:
     *(uint8_t *)((int)piVar12 + 3) = 5;
     *(uint8_t *)((int)piVar12 + 7) = 1;
     uVar4 = chain_two_helper_calls_10495cf2(param_1);
-    uVar14 = CONCAT44(uVar4,pbStack_44);
+    objResult = (void *)uVar4;
     break;
   case 10:
     uVar4 = chain_two_helper_calls_10495d48(param_1);
-    uVar14 = CONCAT44(uVar4,param_3);
+    objResult = (void *)uVar4;
     param_3 = param_4;
     param_4 = pvVar9;
     break;
@@ -165,7 +165,7 @@ void * app_obj_factory(int *param_1,void *param_2,void *param_3,void *param_4)
     pvVar7 = (void *)0x7;
     param_4 = param_3;
     uVar4 = chain_two_helper_calls_10495d62(param_1);
-    uVar14 = CONCAT44(uVar4,pbStack_44);
+    objResult = (void *)uVar4;
     param_3 = pvVar7;
     break;
   case 0xc:
@@ -173,12 +173,12 @@ void * app_obj_factory(int *param_1,void *param_2,void *param_3,void *param_4)
     pvVar7 = (void *)0x7;
     param_4 = param_3;
     uVar4 = chain_two_helper_calls_10495d8a(param_1);
-    uVar14 = CONCAT44(uVar4,pbStack_44);
+    objResult = (void *)uVar4;
     param_3 = pvVar7;
     break;
   case 0xd:
     uVar4 = chain_two_helper_calls_10495bec(param_1);
-    uVar14 = CONCAT44(uVar4,pbStack_44);
+    objResult = (void *)uVar4;
     break;
   case 0xe:
     pvVar7 = (void *)alloc_two_word_pair_1045bc2e((uint32_t *)(auStack_30),(uint32_t)(param_3),(uint32_t)(param_4));
@@ -197,58 +197,58 @@ void * app_obj_factory(int *param_1,void *param_2,void *param_3,void *param_4)
     uVar4 = copy_and_dispatch_buffer(param_1,auStack_24 + 1);
     uVar6 = 2;
     destroy_text_widget(auStack_24 + 1,2);
-    uVar14 = CONCAT44(uVar4,uVar6);
+    objResult = (void *)uVar4;
     param_4 = pvVar9;
     break;
   case 0xf:
     iVar3 = create_object_with_init_call_10495f06(param_1,(int)pbStack_44,param_3,param_4);
-    uVar14 = CONCAT44(iVar3,pbStack_44);
+    objResult = (void *)iVar3;
     break;
   case 0x10:
     uVar5 = (uint)pbStack_44 & 0xffff;
     iVar3 = create_object_with_heap_alloc(param_1,uVar5,param_3,param_4);
-    uVar14 = CONCAT44(iVar3,uVar5);
+    objResult = (void *)iVar3;
     break;
   case 0x11:
-    uVar14 = (uintptr_t)(alloc_and_construct_object((uint32_t)(param_1)));
+    objResult = (void *)(alloc_and_construct_object((uint32_t)(param_1)));
     param_3 = pvVar7;
     param_4 = pvVar9;
     break;
   case 0x12:
     iVar3 = draw_string_at(param_1,pbStack_44,param_3,param_4);
-    uVar14 = CONCAT44(iVar3,pbStack_44);
+    objResult = (void *)iVar3;
     break;
   case 0x13:
-    uVar14 = (uintptr_t)(allocate_and_construct_object((uint32_t)(param_1)));
+    objResult = (void *)(allocate_and_construct_object((uint32_t)(param_1)));
     param_3 = pvVar7;
     param_4 = pvVar9;
     break;
   case 0x14:
-    uVar14 = (uintptr_t)(alloc_and_init_object_1049609e((uint32_t)(param_1)));
+    objResult = (void *)(alloc_and_init_object_1049609e((uint32_t)(param_1)));
     param_3 = pvVar7;
     param_4 = pvVar9;
     break;
   case 0x15:
-    uVar14 = (uintptr_t)(alloc_and_init_0x14_object((uint32_t)(param_1)));
+    objResult = (void *)(alloc_and_init_0x14_object((uint32_t)(param_1)));
     param_3 = pvVar7;
     param_4 = pvVar9;
     break;
   case 0x16:
     uVar4 = chain_two_helper_calls_10495db2(param_1);
-    uVar14 = CONCAT44(uVar4,pbStack_44);
+    objResult = (void *)uVar4;
     break;
   case 0x17:
     uVar5 = (uint)pbStack_44 & 0xffff;
     iVar3 = allocate_and_init_object_1049600e(param_1,uVar5,param_3,param_4);
-    uVar14 = CONCAT44(iVar3,uVar5);
+    objResult = (void *)iVar3;
     break;
   default:
     param_3 = pvVar7;
     param_4 = pvVar9;
   }
-  pvVar7 = (void *)(uVar14 >> 0x20);
+  pvVar7 = objResult;
   if (pvVar7 == 0) {
-    console_printf(&DAT_105b5158/*ROM*/,(void *)uVar14,param_3,param_4);
+    console_printf(&DAT_105b5158/*ROM*/,objResult,param_3,param_4);
   }
   write_field_at_offset_four_10493da0(pvVar7,aiStack_60[5]);
   if ((iStack_40 == 2) || (aiStack_60[6] == 5)) {

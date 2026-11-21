@@ -239,6 +239,40 @@ Reliable measurement (prerequisite for all localization):
   is a byte-stride loop variable (or a byte-offset select), the pointee is multi-byte, and (ideally)
   a sibling store or the source/dest stride proves byte arithmetic was intended.
 
+## B-10 · 64-bit shift ≥32 compiled as a masked no-op (`CONCAT44(hi,lo) >> 0x20` miscompiled)
+- **Symptom:** a value that should be a clean 32-bit pointer/field comes out as `hi | lo` (two 32-bit
+  halves OR'd together) → a wild pointer → a null-vtable / wild-jump crash far from the arithmetic.
+- **Cause:** **FR masks the shift COUNT to 5 bits.** `lsl #0x20` / `lsr #0x20` (shift by 32) become
+  shift-by-0 — a **no-op**. Ghidra, when it can't settle types (watch for the "Type propagation
+  algorithm not settling" header warning), models a function that returns two 32-bit values in
+  `r4`/`r5` as a single 64-bit return and emits `uVar = CONCAT44(hi, lo); x = (T)(uVar >> 0x20)` to
+  pick `hi`. fcc keeps `uVar` in ONE 32-bit register and compiles the 64-bit shuffle with
+  `lsl/lsr #0x20`; with the count masked to 0 the `<<32` and `>>32` vanish, so `x = hi | lo` instead
+  of `hi`. fcc flags every such shift with **`W1063B: shift count is too large`** — the reliable
+  detector (grep the build log).
+- **NOT every W1063B is a bug.** When Ghidra spuriously wraps a plain **32-bit** return in
+  `(ulonglong)v >> 0x20`, the masked no-op cancels the spurious shift and yields `v` — *accidentally
+  correct*. The bug bites only when `lo` is a real, possibly-nonzero value that gets OR'd into `hi`
+  (the `CONCAT44(hi, lo)` form). Classify each W1063B: `CONCAT44(hi, lo) >> 0x20` with nonzero `lo`
+  ⇒ bug; `(ulonglong)<32-bit> >> 0x20` ⇒ accidentally-correct (still clean it to drop the shift, so
+  it's correct by construction, but behaviour is unchanged).
+- **Instance (ROOT, confirmed by stock disasm + emulator):** `app_obj_factory`
+  (origVA 0x104957de) — a switch-factory that builds one of ~0x18 object kinds. Each case's object is
+  the helper/alloc **r4 return**; Ghidra modelled it as `uVar14 = CONCAT44(uVar4, pbStack_44)` and
+  `pvVar7 = (void*)(uVar14 >> 0x20)`. Candidate (masked): `pvVar7 = object | lowword` =
+  `0x804a48d8 | 0x6a000300 = 0xea4a4bd8` (wild) → `*(pvVar7+0xc)=0` vtable → slot[27]@`0xd8` →
+  `call @0` → reset (the post-B-9 boot blocker at packed 0x1063274c). **Stock has no `lsl/lsr #0x20`
+  at all** — the original just does `mov r4,r8` (object = r8) and dispatches; the 64-bit dance is pure
+  decompiler fiction.
+- **Fix:** eliminate the 64-bit intermediate. Give the object a plain `void *objResult`, set it in
+  each case to the real 32-bit object (the helper/alloc return = Ghidra's CONCAT high word), and use
+  `pvVar7 = objResult` at the convergence. The low word is decompiler fiction (only reached the
+  error-path `console_printf`). `cpu/src/199_settings_menu_manager/app_obj_factory.c`.
+- **Detection rule:** build and grep for `W1063B`. For each, read the shifted value's producer: a
+  two-register/CONCAT44 source ⇒ rewrite to extract the real half without a 64-bit shift; a plain
+  32-bit source ⇒ drop the spurious `>> 0x20`. Distinct from B-2 (short-split STORE of a 32-bit value
+  as two 16-bit halves); B-10 is a 64-bit *shift* collapsing.
+
 ## TOOL-1 · trace reducer drops relocated functions (measurement bug, not firmware)
 - **Symptom:** co-run fdiff shows the candidate "skipping" functions it actually executes; inflated
   "missing function" counts; phantom divergences that send you chasing the wrong place.
