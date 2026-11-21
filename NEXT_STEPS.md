@@ -1,61 +1,54 @@
 # Next steps — open investigation
 
-## Current boot blocker: deactivate_dual_object_pair null-vtable (HEAP OVERLAP)
+## RESOLVED: deactivate_dual_object_pair null-vtable crash — root was B-9, NOT a heap overlap
+Fixed in commit `15f0adc9 fix(B-9) …` (see BESTIARY.md B-9). The earlier "heap overlap /
+embedded-vs-separate / pool-block-size" theory in this file was **wrong** and is retracted. The
+FRN_NO_REBOOT single-cycle trace (below) showed what really happened:
 
-The clean committed candidate boot-loops (~55–70×/25s). Root chain traced:
+- `P` (cls_105a0828 @ 0x805527d0, 0x12c) is a single **multiply-derived** object; its secondary-base
+  vtable slot is at `P+8` (0x805527d8). Construction correctly set `P+8 = 0x105a08b8`.
+- Then `cls_1059e430_new`'s clear loop — a **B-9 pointer-arith scaling** bug — overran *its own*
+  0x104 object (six stores used `&field + idx` instead of `(int)&field + idx`, so the 0x10 index
+  scaled to a 0x40 stride) and zeroed `P+8`. `deactivate_dual_object_pair` then read `*(P+8)=0` as a
+  vtable, dispatched slot [3] → `call @0` → reset (the ~55-70×/25s boot-loop).
+- Fix: byte-address all such stores (17 functions tree-wide, `scripts/classify_scaling.py`).
+- Verified: P+8 now stays 0x105a08b8; deactivate dispatches cleanly; boot advances ~208K insns.
 
-`deactivate_dual_object_pair` (origVA 0x104f9392, packed 0x106caace) reads a **null 2nd
-vtable pointer** `*(P+8)=*(0x805527d8)=0`, dispatches `((vtbl)0)[3].fn` → `call @0` → reset.
+## Current boot blocker: null vtable in `app_obj_factory` (origVA 0x104957de, packed 0x1063219e)
+FRN_NO_REBOOT single-cycle trace halts at packed **0x1063274c** (+0x5ae, near the function end):
+```c
+(((vtbl_entry*)(*(int *)((int)pvVar7 + 0xc)))[27].fn)(... pvVar7 ...);
+```
+`*(pvVar7 + 0xc)` (the object's vtable pointer) reads **0** → slot [27] is at vtable+27*8 = `0xd8`,
+so it reads `fn @0xd8 = 0`, `adj @0xdc = 0` → `call @0` → reset. (The trace's `R4 @0x000000d8 =0` /
+`@0x000000dc =0` are exactly those vtable-slot reads off a null base.)
 
-- `P = 0x805527d0` is a `cls_105a0828` object (vtable 0x105a0828 at P+4, valid).
-- `P+8` is written by **two** constructors that **overlap in heap memory**: the `cls_1059e430`
-  object at `0x80552754` (whose `field_0x84` == P+8) *and* `cls_105a0828_new`.
-- Stock's **last** write to P+8 is `cls_105a0828_new` @0x1043d506 (valid vtable); the
-  candidate's last write is `cls_1059e430_new`'s clear loop @packed 0x1067fe54 (**zero**).
-  So whichever constructs last wins, and the two objects should **not** occupy the same bytes.
-- `cls_1059e430_new` (origVA 0x10427d7a) clear loop is VERIFIED faithful. So the bug is the
-  **overlapping allocation**, not the ctor.
-
-### The allocator
-RTOS fixed-size memory **pools**: `heap_alloc`(0x10459e10) → `get_system_heap`(0x10459b3e,
-pool-array pointer global **0x8002f088**) → `mempool_get_block`(0x10459b70, unit 127). Pool
-descriptor = `poolbase + idx*0x14`; **block size = `(short)*(desc+0xc)` (16-bit)**. A wrong
-pool block-size (too small) → adjacent blocks collide → the overlap. The 16-bit read is a
-**B-2 short-split** risk (a 32-bit pool-size store emitted as truncated halves).
+`app_obj_factory` is a big `switch` that allocates one of ~0x18 object kinds (each a
+`alloc_*_object` / `cls_*_new`), takes the high word `pvVar7 = uVar14 >> 0x20` as the built object,
+then dispatches slot [27] of its vtable@+0xc. Note the `pvVar7 == 0` branch calls
+`console_printf(&DAT_105b5158, …)` — an error path the firmware doesn't expect to hit — and then
+dereferences `pvVar7` anyway. So either the allocation returned a bad/0 object, the wrong `switch`
+case ran, or the constructor that built this object left vtable@+0xc unset (a B-6 null-vtable, or a
+dropped-store / wrong-offset write in that specific constructor).
 
 ### Concrete next step
-Dump the pool-descriptor block sizes at `*(0x8002f088)` (a **deterministic** global, unlike the
-non-deterministic heap objects — heap addresses vary run-to-run due to IRQ timing, so audit via
-globals or within a single run) **stock vs candidate** and find the mis-sized pool. Then find the
-pool-init function that writes that descriptor's `+0xc` and check for a dropped/short-split store.
-
-Tooling: `FRN_WRWATCH=<hex>[,len]` now logs the caller `rp` (qemu-frn commit c6c72dd) + 2M cap +
-flush — use it on `0x8002f088` / the pool descriptor to find the setup, or on `mempool_get_block`
-returns. `FRN_WRWATCH`/`FRN_SNAP` only see stores via the slow path; the FULLREGS fifo+grep
-method is the reliable fallback for arbitrary SDRAM writes.
+On the FRN_NO_REBOOT single-cycle trace: walk **back** from 0x1063274c to find (a) the `switch`
+selector value, (b) which `alloc_*_object`/`cls_*_new` ran, and (c) `pvVar7` and `*(pvVar7+0xc)`.
+Then audit that constructor: does stock write a vtable at the object's +0xc, and does the candidate?
+Compare the constructor's vtable-install store stock-vs-candidate (likely B-6 null-vtable or a
+mis-offset/dropped store). Same forensic method as B-9: `FRN_NO_REBOOT=1 FRN_FT=<fifo>` → grep the
+packed PC + the `W4 @<objaddr+0xc>` write.
 
 ## Tools (committed)
-- `scripts/find_missplits.py` — detects decompiler-shredded functions (117 genuine; delay-slot-aware).
-- `scripts/harvest_asm.py` — byte-faithful harvest of fcc-can't-recompile fns (symbolic call targets).
-  Only `initialize_rtos_kernel` is a genuine permanent asm case; mis-splits should re-decompile to C.
+- `scripts/classify_scaling.py` — B-9 detector: finds unguarded `*(T*)(&ptr->field + idx)` and
+  classifies by loop increment (byte-stride/mixed ⇒ bug; idx++ ⇒ intended array walk). Now reports 0.
+- `scripts/find_missplits.py` — decompiler-shredded functions (117 genuine; delay-slot-aware).
+- `scripts/harvest_asm.py` — byte-faithful harvest of fcc-can't-recompile fns. Only
+  `initialize_rtos_kernel` is a genuine permanent asm case.
 
-## Update (d325, later): pool-handle lead was a boot-loop artifact — REJECTED
-Pool descriptor handles (desc+0xc) read 0 in candidate vs 1-7 in stock, BUT that is the
-*final* state after many boot-loop cycles. The zeroing PC is 0x1075efee = initialize_rtos_kernel's
-own word-clear loop (byte-faithful; stock clears 0x8002eff8 too). In CYCLE 1 the order is
-clear->cpucom_txn_table_setup (handle=1), so the pools are correctly set up when the deactivate
-crash occurs. Not the root.
-
-### The real root remains the cycle-1 HEAP OVERLAP
-cls_105a0828 (P, 0x12c) and cls_1059e430 occupy overlapping memory; cls_1059e430_new's clear
-zeroes P+8 (0x805527d8) AFTER cls_105a0828_new sets it. Open question: is P an intended EMBEDDED
-sub-object of cls_1059e430 (=> construction-ORDER bug in the caller) or SEPARATE allocations that
-collide (=> heap corruption)? MUST isolate to boot cycle 1 (the boot-loop confounds every
-multi-cycle trace). Determine cls_105a0828_new's param_1 for the P@0x805527d0 construction:
-NULL = separate heap_alloc; a pointer into cls_1059e430 = embedded.
-
-### Tooling gap found
-FRN_WRWATCH only fires for VERY WIDE ranges (16MB works; <=4KB and single-address return nothing,
-reason unknown — the range-check logic looks correct). FRN_WRVAL also unreliable. The RELIABLE
-method remains FULLREGS to a fifo + grep 'W4 @0xADDR'. The qemu-frn FRN_WRWATCH rp/cap improvement
-(commit c6c72dd) does NOT fix the narrow-range miss. Worth a real debug session on the watch path.
+## Emulator forensics (reliable method)
+`FRN_NO_REBOOT=1` (qemu-frn) halts at the FIRST wild jump (pc<0x1000) so the trace is a **single
+boot cycle** — this is what finally let the deactivate crash be isolated (the boot-loop confounded
+every prior multi-cycle trace). Pair with `FRN_FT=<file>` for a PC+reg+mem trace; grep `W4 @0xADDR`
+for stores, `PC=0x<packed>` for a function's execution. `FRN_WRWATCH` still only fires for very wide
+ranges (>16MB) — the fifo+grep method remains the fallback.
