@@ -60,7 +60,12 @@ def _keep(name):
 ENTER = re.compile(r'^(\s*)ENTER\s+#(\d+)\s*$')
 LEAVE = re.compile(r'^(\s*)LEAVE\s*$')
 LABEL = re.compile(r'^(_\w+):')
-R14   = re.compile(r'\bR14\b')
+# The frame pointer is R14, but the SOFTUNE assembler emits it under the alias FP (e.g.
+# `LD @(FP,24),R10`). Both spellings mean R14, so the "does this function use the frame
+# pointer?" guard MUST match either — otherwise a function that spills args/locals to an
+# FP-relative slot gets its ENTER stripped (which sets FP=SP) while the @(FP,..) loads remain,
+# so they read the caller's stale frame → garbage. (See BESTIARY B-4.)
+R14   = re.compile(r'\b(?:R14|FP)\b')
 
 
 def alloc(ind, nbytes):
