@@ -12,7 +12,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t thunk_FUN_104d105a_104d0e48(void)
+uint32_t thunk_FUN_104d105a_104d0e00(void)
 
 {
   return 0;
