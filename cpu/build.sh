@@ -44,6 +44,10 @@ echo "[2] assemble harvested non-code (crt0/vtables/syms/syscall_traps)"
 for a in crt0 vtables syms syscall_traps; do (cd "$SOFTUNE" && wine BIN/FASM911S.EXE -cpu $CPU -o "$(w "$OBJ/$a.obj")" "$(w "$HERE/gen/$a.asm")") >/dev/null 2>&1; done
 echo "[3] link (pack code at $CODEBASE)"
 OPT="$OUT/link.opt"; { echo "-cpu $CPU"; echo "-a"; echo "-e _reset_entry"; echo "-sc CODE=$CODEBASE";
+  # -dt + wide -pw: emit FULL (non-abbreviated) symbol names in the map. Long recompiled-function
+  # names are otherwise truncated at the column width, which drops their origVA suffix and breaks
+  # the packed->origVA mapping used by the trace reducer (harness2/fnseq.py) -> silent undercount.
+  echo "-dt"; echo "-pw 1023"
   echo "-m $(w $OUT/firmware.map)"; echo "-o $(w $OUT/firmware.abs)"
   for o in "$OBJ"/*.obj; do echo "$(w "$o")"; done; } > "$OPT"
 (cd "$SOFTUNE" && wine BIN/FLNK911S.EXE -f "$(w $OPT)") > "$OUT/link.log" 2>&1
