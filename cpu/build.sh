@@ -43,8 +43,8 @@ done
 # Gate the link on a COMPLETE object set — a partial link only floods unresolved-symbol errors.
 STILL=$(find "$HERE/src" -name '*.c' | while read f; do b=$(basename "$f" .c); { [ -s "$OBJ/$b.obj" ] && [ "$OBJ/$b.obj" -nt "$f" ]; } || echo "$b"; done)
 if [ -n "$STILL" ]; then echo "   ABORT: $(echo "$STILL"|wc -l) functions still fail to compile:"; echo "$STILL"|sed 's/^/     /'|head; exit 1; fi
-echo "[2] assemble harvested non-code (crt0/vtables/syms/syscall_traps)"
-for a in crt0 vtables syms syscall_traps initialize_rtos_kernel; do (cd "$SOFTUNE" && wine BIN/FASM911S.EXE -cpu $CPU -o "$(w "$OBJ/$a.obj")" "$(w "$HERE/gen/$a.asm")") >/dev/null 2>&1; done
+echo "[2] assemble hand-written / harvested asm (crt0, vtables, syms, syscall_traps, + every cpu/gen/*.asm: hand-asm'd fcc-can't-recompile functions from scripts/harvest_asm.py)"
+for g in "$HERE"/gen/*.asm; do a=$(basename "$g" .asm); (cd "$SOFTUNE" && wine BIN/FASM911S.EXE -cpu $CPU -o "$(w "$OBJ/$a.obj")" "$(w "$g")") >/dev/null 2>&1 || echo "   ASM FAIL $a"; done
 echo "[3] link (pack code at $CODEBASE)"
 OPT="$OUT/link.opt"; { echo "-cpu $CPU"; echo "-a"; echo "-e _reset_entry"; echo "-sc CODE=$CODEBASE";
   # -dt + wide -pw: emit FULL (non-abbreviated) symbol names in the map. Long recompiled-function
