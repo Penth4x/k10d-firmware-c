@@ -52,6 +52,8 @@ uint32_t initialize_camera_state_object(void *param_1)
     int iStack_60;
     void * pvStack_5c;
     int iStack_58;
+    int iStack_54;
+    int iStack_50;
   } _cfg_84;
   int *piVar1;
   int *piVar2;
@@ -63,7 +65,6 @@ uint32_t initialize_camera_state_object(void *param_1)
   int *piVar8;
   void *pvVar9;
   uintptr_t sp;
-  int iStack_50;
   iVar5 = get_or_create_sram_object_104816ee();
   pvVar9 = *(void **)(iVar5 + 0xc);
   get_or_create_sram_object_104816ee();
@@ -127,7 +128,7 @@ uint32_t initialize_camera_state_object(void *param_1)
   alloc_and_zero_small_block((void*)(&_cfg_84.pvStack_5c));
   _cfg_84.iStack_58 = *piVar8;
   _cfg_84.pvStack_5c = pvVar9;
-  iStack_50 = forward_second_field_call(pvVar9);
+  _cfg_84.iStack_50 = forward_second_field_call(pvVar9);
   iVar5 = *(int *)*piVar1;
   (((vtbl_entry*)(iVar5))[2].fn)(*piVar1 + (int)((vtbl_entry*)(iVar5))[2].adj,&_cfg_84.pvStack_5c);
   free_heap_block_if_flagged_10474d1e(&_cfg_84.pvStack_5c,2);

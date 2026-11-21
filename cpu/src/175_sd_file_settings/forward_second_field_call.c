@@ -19,9 +19,10 @@
 int forward_second_field_call(void *param_1)
 
 {
-  int iVar1;
-  int r5_in;
-  
-  iVar1 = compute_offset_from_base(*(void **)((int)param_1 + 8),r5_in);
-  return iVar1;
+  /* The index argument is the incoming r5. Every call site (all 12 direct callers and the
+     vtable-slot-2 dispatches) sets r5 to 0 in the call's delay slot; the decompiler typed this
+     function as 1-arg, so that store became a dead store and r5 was modelled as an uninitialised
+     local (reading garbage). Static evidence: `ldi #0,r5` in every delay slot; dynamic: 11/11
+     trace calls pass r5=0. Use the index 0 the original always receives here. */
+  return compute_offset_from_base(*(void **)((int)param_1 + 8), 0);
 }
