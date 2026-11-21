@@ -1,3 +1,8 @@
+/* SUPERSEDED — NOT COMPILED. This Ghidra decompilation is WRONG: it followed the
+   non-returning tail-jump at 0x10008096 and inlined initialize_rtos_kernel_state_1000ea00
+   into the body, inventing a frame + ret the 152-byte original never had (that spurious ret
+   pops poison -> PC=0x1f1f1f1f runaway). Faithful implementation: cpu/gen/initialize_rtos_kernel.asm.
+   Kept only as a decompiler reference. See BESTIARY B-8. */
 /* @k10d initialize_rtos_kernel @ 0x10008000
  * name: unnamed (no name assigned (model abstained or not yet seen))
  * unit: 000_rtos_kernel (unit names are model-proposed)
