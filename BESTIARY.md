@@ -65,6 +65,11 @@ Reliable measurement (prerequisite for all localization):
 - **Fix:** selective post-assembly strip only where the source's origVA shows no `ENTER` in the
   reference binary. `scripts/strip_frameptr.py`, wired in `cpu/build.sh`.
 - **Status:** committed (1e3e3c92).
+- **Caveat:** to inspect the candidate's *real* recompiled code you MUST disassemble the PACKED
+  copy at its linked address (via the map), never the candidate image at the origVA — see TOOL-2.
+  Stock reads stack args at `(r14,12)/(r14,16)`; the recompile may legitimately read the same args
+  at different `(r14,N)` offsets because it reorders `stm1`/`st sr1`/`enter` in the prologue — each
+  is internally correct for its own prologue, so a different offset is NOT by itself a bug.
 
 ## B-5 · loop codegen stack-drift (caller-saved spill)
 - **Symptom:** persistent stack-pointer drift vs stock across a scanning loop.
@@ -105,3 +110,24 @@ Reliable measurement (prerequisite for all localization):
 - **Fix:** link with `-dt -pw 1023` (full names). `cpu/build.sh` (commit 11fc2283).
 - **Lesson:** when a trace-based conclusion feels off, verify against a **raw packed-PC trace**
   (`grep FRN_FT for the packed addr from firmware.map`) or direct device state before acting on it.
+
+## TOOL-2 · disassembling the candidate at the origVA reads the WRONG code (reads stock)
+- **Symptom:** every executed function looks "byte-identical to stock", so the recompile appears
+  perfect and the divergence seems to come from nowhere (data/state only). A whole investigation
+  can be built on this and be completely wrong.
+- **Cause:** the candidate image is the original 1.31 firmware with the recompiled CODE **packed at
+  0x10622400+** and overlaid on top; the original code bytes at the origVA (e.g. 0x1045cd9e) are
+  **left in place** (the overlay base). A disassembler that reads `image[origVA - 0x10000000]`
+  (as the old `/tmp/frdis_cand.py` does) therefore reads the untouched **original** bytes, i.e.
+  stock — not the recompiled code that actually executes. Execution reaches the packed copy via the
+  relocated call targets / vtables; the trace reducer maps packed-PC → origVA, so the trace is of
+  the packed code even though the names print as origVAs.
+- **Detection:** the recompile is equivalent-but-not-byte-identical (fcc reorders prologues, picks
+  different scratch registers), so a *true* candidate disasm should differ from stock in register
+  allocation / instruction order. If it matches byte-for-byte, you are reading the wrong copy.
+- **Fix:** map origVA → symbol (source `@k10d <name> @ 0x<origVA>`) → packed addr (link map
+  `<PACKED>(ABS) ... _<name>`), then disassemble the candidate at the **packed** addr.
+  `scratchpad/map_packed.py <origVA> [nbytes]` does this.
+- **Lesson:** register-residue differences in the rseq trace (e.g. an incidental `r5` left as the
+  pre-shift value) are EXPECTED from the different-but-equivalent codegen and are usually benign —
+  only differences in a register the callee actually consumes matter.
