@@ -19,7 +19,7 @@
 void initialize_object_subsystems_1049fafe(cls_105b5c34 *param_1)
 
 {
-  populate_status_struct_via_virtual_calls(__frv_reg_unset(4));
+  populate_status_struct_via_virtual_calls((int)(param_1)/* B-3: stock r4 = param_1 */);
   register_event_handlers_1049ff3e((int)param_1);
   copy_stack_and_dispatch_virtual_calls((int)param_1);
   register_event_handlers_104a038a((int)param_1);

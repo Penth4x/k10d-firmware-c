@@ -38,7 +38,7 @@ void process_mode_transition_event_1042f7f0(int param_1,int *param_2)
   int *piVar15;
   bool bVar16;
   
-  iVar8 = read_field_at_offset_0x44(__frv_reg_unset(4));
+  iVar8 = read_field_at_offset_0x44((int)(param_1)/* B-3: stock r4 = param_1 */);
   uVar9 = get_field_at_offset_four_1042ff1c(param_1, __frv_reg_unset(5));
   uVar10 = get_field_at_offset_eight(param_1,iVar8);
   iVar11 = read_field_at_offset_0x90(param_1);

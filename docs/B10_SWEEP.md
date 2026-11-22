@@ -203,6 +203,19 @@ Compile `int f(void){return sizeof(long long);}` with the build flags and check 
 - `198_event_dispatch/process_object_list_and_dispatch.c` (0x10494018): shift harmless (plain r4 return), cleaned. **But** the call passed `__frv_reg_unset(4)` (= 0) where stock passes incoming r4 = `param_1` -> B-3 null-deref, fixed. Same B-3 fixed in `attach_object_and_invoke_slot.c` (0x10493fe0).
 - `199_settings_menu_manager/app_obj_factory.c` - upstream B-10 root instance (already fixed).
 
+## B-3 sweep: `scripts/find_unset_r4_passthrough.py` (gated)
+
+This scans the stock caller (small FR decoder) up to each `callee(__frv_reg_unset(4), ...)` call. Validation: on master it flags exactly the two hand-fixed `find_matching_list_entry` sites; random rewrites were re-checked against stock bytes.
+
+**Gated per the B-11 rule.** A stock 1.31 boot in qemu-frn (`FRN_HIST=1 FRN_HIST_ALL=1 FRN_SNAP_AT=20,100,400`, cumulative 16-byte PC buckets) was used with `--hist`. Of 144 strict PARAM1 sites, **25 have their stock call instruction executed** within 400 M instructions (3 already by 20 M). Only those were rewritten; see `docs/data/unset_r4_applied.tsv`. The remaining 119 are `PARAM1-OFFPATH` in `docs/data/unset_r4_review.tsv`, to be applied as the boot frontier reaches them (re-run with a longer or later trace).
+
+Still open in the review list:
+- **CLOBBERED, "r4 = return of call @X" (~249):** stock passes the *previous call's return*, e.g. `map_mode_code_to_index_104bb5c4(read_struct_field_at_index_104c2890(...))`. Same bug family, but not auto-applied.
+- **PARAM1? (29):** a branch precedes the call.
+- **NOPARAM (30):** the caller itself has the wrong arity.
+- **NOCALL (64):** the target is indirect or far.
+- `__frv_reg_unset(5)` in the second-argument position is not scanned yet.
+
 ## B-3 backlog note
 
 `__frv_reg_unset(N)` returns **0** (`cpu/src/__frv_stub.c`), not the caller's register. ~521 files use `__frv_reg_unset(4)`; where stock leaves the incoming r4 untouched (typical `call:d ...; mov r4,rX`), the real value is `param_1`. Worth a scripted check: call sites where `__frv_reg_unset(4)` is the first arg and the stock caller does not write r4 before the call.

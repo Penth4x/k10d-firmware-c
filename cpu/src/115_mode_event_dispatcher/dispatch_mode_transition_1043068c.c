@@ -23,7 +23,7 @@ uint32_t dispatch_mode_transition_1043068c(void *param_1,int *param_2)
   uint8_t uStack_10;
   uint32_t uStack_c;
   
-  ec_event_enqueue(__frv_reg_unset(4), __frv_reg_unset(5));
+  ec_event_enqueue((int)(param_1)/* B-3: stock r4 = param_1 */, __frv_reg_unset(5));
   query_object_state_and_set_flag(*(uint32_t *)((int)param_1 + 0x30),param_2);
   iVar1 = mode_ctrl_lock((int)param_1,0);
   if (iVar1 == 0) {

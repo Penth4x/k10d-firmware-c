@@ -22,7 +22,7 @@ void dispatch_object_event_and_notify(cls_105b48dc *param_1)
   int iVar1;
   int *piVar2;
   
-  iVar1 = read_byte_at_offset_8(__frv_reg_unset(4));
+  iVar1 = read_byte_at_offset_8((int)(param_1)/* B-3: stock r4 = param_1 */);
   if (iVar1 != 0) {
     iVar1 = (((vtbl_entry*)(param_1->field_0xc))[13].fn)
                       ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0xc))[13].adj);

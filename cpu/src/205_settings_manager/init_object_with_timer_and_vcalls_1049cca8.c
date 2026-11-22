@@ -19,7 +19,7 @@ void init_object_with_timer_and_vcalls_1049cca8(cls_105b5b0c *param_1)
 
 {
   param_1->field_0x24c = 45000;
-  init_object_with_virtual_calls_1049ce4c(__frv_reg_unset(4));
+  init_object_with_virtual_calls_1049ce4c((int)(param_1)/* B-3: stock r4 = param_1 */);
   register_event_handlers_1049d09e((int)param_1);
   init_object_with_virtual_calls_1049d4d8((int)param_1);
   copy_stack_and_query_six_ids_1049d54e((int)param_1);

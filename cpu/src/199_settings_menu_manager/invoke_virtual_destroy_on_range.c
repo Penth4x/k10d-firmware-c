@@ -12,7 +12,7 @@ void invoke_virtual_destroy_on_range(cls_105b48dc *param_1)
   int iVar1;
   int *piVar2;
   
-  iVar1 = read_byte_at_offset_8(__frv_reg_unset(4));
+  iVar1 = read_byte_at_offset_8((int)(param_1)/* B-3: stock r4 = param_1 */);
   if (iVar1 != 0) {
     piVar2 = (int *)((uintptr_t)(param_1->field11_0x18));
     if ((uint32_t)(piVar2) != param_1->field_0x1c) {

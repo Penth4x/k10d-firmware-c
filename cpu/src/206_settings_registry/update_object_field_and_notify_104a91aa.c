@@ -22,7 +22,7 @@ void update_object_field_and_notify_104a91aa(cls_105b6aa0 *param_1,int param_2)
   int iVar1;
   
   param_1->field_0x8 = param_2;
-  iVar1 = read_two_bytes_from_heap_offset(__frv_reg_unset(4));
+  iVar1 = read_two_bytes_from_heap_offset((int)(param_1)/* B-3: stock r4 = param_1 */);
   if (param_1->field_0xc != '\0') {
     param_2 = 0;
   }

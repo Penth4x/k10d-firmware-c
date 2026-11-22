@@ -21,7 +21,7 @@ void call_virtual_slot_if_flag_set_1049477e(cls_105c136c *param_1)
 {
   int iVar1;
   
-  iVar1 = read_byte_at_offset_8(__frv_reg_unset(4));
+  iVar1 = read_byte_at_offset_8((int)(param_1)/* B-3: stock r4 = param_1 */);
   if (iVar1 != 0) {
     (((vtbl_entry*)(param_1->field_0xc))[28].fn)
               ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0xc))[28].adj,1);
