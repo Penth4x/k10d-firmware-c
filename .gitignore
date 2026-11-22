@@ -8,3 +8,4 @@
 FWDC*
 cpu/out/
 __pycache__/
+scripts/code_targets.txt
