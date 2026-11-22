@@ -12,13 +12,13 @@ void process_object_list_and_dispatch(cls_105b47b4 *param_1,uint32_t param_2,voi
   int iVar1;
   int *piVar2;
   int iVar3;
-  uint64_t uVar4;
   
-  uVar4 = (uintptr_t)(find_matching_list_entry(__frv_reg_unset(4)));
-  piVar2 = (int *)((ulonglong)uVar4 >> 0x20);
+  /* B-3: stock passes incoming r4 = param_1 (mov r4,r10 in delay slot); was __frv_reg_unset(4)=0.
+     B-10 cleanup: result is the plain r4 return, no 64-bit intermediate. */
+  piVar2 = find_matching_list_entry((int)(param_1));
   param_1->field_0x60 = (uintptr_t)(piVar2);
   if ((piVar2 == (int *)0x0) || (*piVar2 == 0)) {
-    console_printf((void *)0x105b48b4/*ROM*/,(void *)uVar4,param_3,param_4);
+    console_printf((void *)0x105b48b4/*ROM*/,(void *)piVar2,param_3,param_4);
   }
   piVar2 = (int *)((uintptr_t)(param_1->field43_0x48));
   if ((uint32_t)(piVar2) != param_1->field_0x4c) {

@@ -20,7 +20,7 @@ void attach_object_and_invoke_slot(cls_105b47b4 *param_1)
   int *piVar1;
   int iVar2;
   
-  piVar1 = (int *)find_matching_list_entry(__frv_reg_unset(4));
+  piVar1 = (int *)find_matching_list_entry((int)(param_1));  /* B-3: stock passes incoming r4 (mov r4,r8 in delay slot) */
   param_1->field_0x60 = (uintptr_t)(piVar1);
   iVar2 = *(int *)(*piVar1 + 0xc);
   (((vtbl_entry*)(iVar2))[7].fn)(*piVar1 + (int)((vtbl_entry*)(iVar2))[7].adj);
