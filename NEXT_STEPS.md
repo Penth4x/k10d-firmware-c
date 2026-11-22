@@ -1,65 +1,58 @@
 # Next steps — open investigation
 
-Boot progresses further with each fix. Two root-cause classes fixed & committed this session
-(B-9, B-10); the current blocker (#3) is a register-allocation cascade that needs careful analysis.
+Boot advances through distinct root causes; each fix reveals the next. Five classes fixed &
+committed this session (B-9, B-10, B-3b, B-11, plus git reconciliation). Current frontier below.
 
-## RESOLVED #1: deactivate_dual_object_pair null-vtable — B-9 pointer-arith scaling (commit 15f0adc9)
-`cls_1059e430_new`'s clear loop used `&field + idx` (scaled by sizeof) instead of `(int)&field +
-idx`, overrunning its 0x104 object 4× and zeroing P+8 (the adjacent cls_105a0828 object's secondary
-vtable). Swept 17 functions tree-wide (`scripts/classify_scaling.py`). The earlier "heap overlap"
-theory was wrong (artifact of reading the boot-loop's final state) — retracted. See BESTIARY B-9.
+## FIXED this session (committed, not pushed)
+1. **B-9** pointer-arith scaling (17 fns) — `&field + idx` instead of `(int)&field + idx` overran
+   clear/copy loops and zeroed adjacent vtables. (deactivate boot-loop.) `scripts/classify_scaling.py`.
+2. **B-10** 64-bit shift ≥32 = masked no-op — fcc compiled `CONCAT44(hi,lo)>>0x20` as `hi|lo`
+   (wild ptr) in `app_obj_factory`. Fixed by dropping the 64-bit intermediate.
+3. **B-3b** dropped syscall arg — `check_task_state_transition` (int #0x40) takes r5 = the task
+   start-arg; declared 1-arg, so the `-3` temp became the arg → `ui_task_body_common(-3)` crash.
+   Fixed the arity (funcs.h + syscall_traps.h + kernel_diag_taskstack passes param_1).
+4. **B-11** un-relocated rodata dispatch table — the cpucom/ui_task5 `{value,handler}` table at
+   0x105a7e24..0x105a7f64 kept original fn-ptrs; packed ui_task5_body dispatched into original code
+   → derail. `scripts/find_rodata_fnptrs.py` (finder) + `scripts/gen_rodata_fnptrs.py` (gated
+   relocator). NOTE: a blanket relocation of all 3422 candidate ptrs REGRESSES boot (data words that
+   equal a function origVA) — relocation is gated on `CONFIRMED_TABLES`.
 
-## RESOLVED #2: app_obj_factory null-vtable — B-10 64-bit-shift miscompile (commit 8fd38ac8)
-FR masks shift COUNT to 5 bits, so `lsl/lsr #0x20` (shift by 32) are no-ops. Ghidra's
-`uVar14 = CONCAT44(hi,lo); pvVar7 = (void*)(uVar14 >> 0x20)` (unreliable 64-bit modelling) compiled
-to `pvVar7 = hi | lo` → wild pointer `0xea4a4bd8` → null-vtable crash. Fix: drop the 64-bit
-intermediate, use a plain `void *objResult` set to each case's real object (matches stock: object =
-r4→r8). fcc flags every B-10 site with `W1063B shift count is too large`, but **not all are bugs**
-(a spurious `(ulonglong)<32bit> >> 0x20` is cancelled by the same masked no-op → accidentally
-correct). See BESTIARY B-10. TODO(class): build-wide `W1063B` sweep to classify the other sites.
+## Current boot blocker #5: garbage vtable in a cpucom context object
+FRN_NO_REBOOT single-cycle trace halts in PACKED `cpucom_ctx_resubmit` (packed 0x106c511a, +0x56):
+```c
+iVar3 = (((vtbl_entry*)(*param_1))[13].fn)((int)((vtbl_entry*)(*param_1))[13].adj + (int)param_1);
+```
+`*param_1` (the context object's vtable pointer) reads **0x01000000** (garbage), so slot [13] at
+vtable+0x68 reads `fn = @0x01000068 = 0xffffffff` → `jmp 0xffffffff` → reset.
 
-## Current boot blocker #3: ui_task_body_common param = -3 (REGISTER-ALLOCATION CASCADE — hardest class)
-FRN_NO_REBOOT single-cycle trace halts at `ui_task_body_common` (origVA 0x1045a16a, packed
-0x1080a348): `param_1 = 0xfffffffd (-3)` → dispatches `*(param_1 + 0x10)` as a vtable →
-`call @garbage` → reset.
+`param_1` = the cpucom context = `*(int*)(ui_task5_param + 0x30)` (from `ui_task5_body`:
+`cpucom_ctx_resubmit((int*)(*(int*)(param_1+0x30)), (void*)(param_1+4))`). So the context object's
+vtable slot holds 0x01000000 instead of a real class vtable. 0x01000000 is a specific value (not
+random) — likely a flag/constant mis-stored as the vtable, or a B-1/B-10-style field corruption in
+the context's constructor, OR the context pointer itself (`*(ui_task5_param+0x30)`) is wrong.
 
-**Mechanism (fully traced, NOT yet fixed):**
-- `kernel_diag_taskstack` (origVA 0x1045a0b2, packed 0x107874c8) returns a bool but computes its
-  internal `iVar1 = -3` temp. **Candidate fcc allocates that temp to R5** (`ldi #0xfd,r5; extsb r5`);
-  **stock uses R0** (`ldi #0xfd,r0`) and does `mov r4,r5`, leaving `r5 = param_1 (= object + 4)`.
-- A user-mode task-creation path relies on `r5` still holding that object after the
-  `kernel_diag_taskstack` call, and passes it as the `sta_tsk` **stacd** (start arg). Stock gets the
-  object; the candidate gets `-3`. The -3 flows unchanged through the void caller
-  `call_helper_with_offset_10492a5c` (0x10492a5c) and ancestors into the cre/sta_tsk syscall
-  (kernel PC 0x1000d3fe stores `W4 @TCB+0x24 = r8 = 0xfffffffd`, task body r4 = 0x1080a348, tskid=2).
-- When the task runs, `param_1 = -3` → crash. The intended arg is the singleton object
-  (`get_or_create_singleton_object_10492ade() + 4`).
-
-**Why it's hard:** every function is individually correct; the bug is an *inter-function register
-dependency* the original relied on (object live in r5 across a call) that the recompile's different
-register allocation doesn't reproduce. `r5` is caller-saved, so this was always fragile in the
-original.
-
-**Fix approaches (unsettled — analyze, don't rush):**
-1. Find the user-mode function that calls `sta_tsk` and `kernel_diag_taskstack` on this path; its
-   decompiled C likely reads the start-arg from a stale/incoming register (B-3 `__frv_reg_unset(5)` /
-   `caller_r5`). Recover the real arg (the object) and pass it explicitly. Use `stock.rseq` to walk
-   the cre_tsk caller chain (the B-3 method from the bestiary).
-2. If the function boundary is the problem (object-construction + task-creation split across a call
-   that clobbers r5), the mis-split may need rejoining.
-NOT a quick C edit — verify against stock before touching.
+### Concrete next step
+Trace back: (a) what is `param_1` (the context addr) and is it a valid object? (b) who wrote
+0x01000000 to `*param_1` (the vtable slot) — find `W4 @<ctx> =0x01000000` and its PC; (c) check that
+constructor stock-vs-candidate. Also verify ui_task5_param (the task start-arg, now object+4 after
+B-3b) and its +0x30 field are correct. Same method: `FRN_NO_REBOOT=1 FRN_FT=<fifo>`, grep the PC and
+the `W4 @addr` writes.
 
 ## Tools (committed)
-- `scripts/classify_scaling.py` — B-9 detector (byte-stride/mixed ⇒ bug; idx++ ⇒ array walk). 0 now.
-- `scripts/find_missplits.py` — decompiler-shredded functions (117 genuine; delay-slot-aware).
-- `scripts/harvest_asm.py` — byte-faithful harvest of fcc-can't-recompile fns (only
-  `initialize_rtos_kernel` is a genuine permanent asm case).
+- `scripts/find_rodata_fnptrs.py` — un-relocated rodata fn-ptrs (3422 in 435 tables; vtables.asm is
+  incomplete). `scripts/gen_rodata_fnptrs.py` — gated per-pointer relocator (CONFIRMED_TABLES).
+- `scripts/classify_scaling.py` — B-9 detector (0 now). `scripts/find_missplits.py`,
+  `scripts/harvest_asm.py`, `scripts/gen_syscall_traps.py`.
+
+## Open class work (deferred — needs a smarter finder)
+B-11 is widespread: 3422 un-relocated fn-ptrs in 435 rodata tables, most not on the early-boot path.
+Relocating one-table-at-a-time (as the emulator reaches each) is slow (~2 min/build). A batched
+safe finder = trace which rodata words are READ and then become the next PC (origVA) → those are
+confirmed called-and-derailing fn-ptrs, relocate exactly those. Build that before grinding tables.
 
 ## Emulator forensics (reliable method)
-`FRN_NO_REBOOT=1` (qemu-frn) halts at the FIRST wild jump (pc<0x1000) → a **single-cycle** trace;
-this is what let all three blockers be isolated (the boot-loop confounds multi-cycle traces). Pair
-with `FRN_FT=<file>` for a PC+reg+mem trace; grep `W4 @0xADDR` for stores, `PC=0x<packed>` for a
-function's run. Map packed↔origVA via firmware.map + the `@k10d … @ 0x<origVA>` source headers.
-Disassemble the CANDIDATE at the **packed** addr (overlay leaves original bytes at origVA — TOOL-2):
-`python3 -c "import frdis; frdis.FW=open('cpu/out/candidate_FWDC162B.BIN','rb').read(); frdis.run(LO,HI)"`
-(from /home/memorai/k10d-re). `W1063B` build warnings flag every B-10 candidate site.
+`FRN_NO_REBOOT=1` (qemu-frn) halts at the FIRST wild jump (pc<0x1000) → single-cycle trace. Pair
+with `FRN_FT=<file>`; grep `W4 @0xADDR` for stores, `PC=0x<packed>` for a function's run. Map
+packed↔origVA via firmware.map + `@k10d … @ 0x<origVA>` headers. Disassemble the CANDIDATE at the
+PACKED addr: `python3 -c "import frdis; frdis.FW=open('cpu/out/candidate_FWDC162B.BIN','rb').read(); frdis.run(LO,HI)"`
+(from /home/memorai/k10d-re). `W1063B` build warnings flag B-10 sites.

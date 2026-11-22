@@ -273,6 +273,46 @@ Reliable measurement (prerequisite for all localization):
   32-bit source ⇒ drop the spurious `>> 0x20`. Distinct from B-2 (short-split STORE of a 32-bit value
   as two 16-bit halves); B-10 is a 64-bit *shift* collapsing.
 
+## B-3b · dropped SYSCALL arg (r5+ not passed to an int #0x40 trap) ← B-3 at an ABI boundary
+- **Symptom:** a kernel syscall gets a garbage second arg — e.g. a task created with a bogus
+  start-arg that later crashes the task body (`ui_task_body_common(param=-3)` → null-vtable).
+- **Cause:** the `int #0x40` trap routines take register args the decompiler didn't model. The kernel
+  routine reads the extra arg as an **incoming** `extraout_rN` (a read with no preceding call that
+  could have set rN), and the trap wrapper's generated declaration (cloned from the routine's
+  `funcs.h` prototype) is too short, so the recompiled caller never loads rN — fcc reuses it for a
+  local and that garbage becomes the syscall arg.
+- **Instance (fixed):** `check_task_state_transition` (ROM 0x1000d540, `int #0x40`) takes
+  r4 = `(short)*param_1` AND r5 = the task start-arg (stock: `mov r4,r5`); it stashes r5 as
+  `_DAT_6a003aa0`. Declared 1-arg, so `kernel_diag_taskstack` left its `iVar1=-3` temp in r5 → the
+  task ran with start-arg -3. Fix: 2-arg prototype in `funcs.h` (the trap-gen clones it) +
+  `syscall_traps.h`, pass `param_1` explicitly, and give the (dead, trap-shadowed) recompiled routine
+  the honest 2-arg sig (`extraout_r5` → `param_2`).
+- **Detection:** an `extraout_rN` / `caller_rN` read in a function reached via a `__trap_` thunk
+  (ROM syscall) = a dropped syscall arg. `extraout_rN` elsewhere (after a call) is usually benign
+  (secondary return), so the EMULATOR trace (a syscall getting a stale register) is the reliable
+  finder, not a blind grep.
+
+## B-11 · un-relocated function pointer in harvested rodata (dispatch table, not a vtable)
+- **Symptom:** packed code calls through a rodata table and lands in ORIGINAL firmware code (origVA),
+  which runs with un-relocated internal pointers and derails (`jmp 0xffffffff`). The call target's
+  origVA is a recompiled function, yet execution is at the origVA, not its packed address.
+- **Cause:** the overlay keeps original rodata byte-identical except recognised vtables (emitted
+  symbolically with PACKED symbols in `cpu/gen/vtables.asm`). A `{value, handler}` dispatch/state
+  table that Ghidra did NOT tag as a vtable stays original → holds original code addresses.
+- **Instance (fixed, gated):** the cpucom/ui_task5 table at 0x105a7e24..0x105a7f64 (ui_task5_body,
+  cpucom_poll_on_irq15, cls_105a7ea0_delete …). Packed `ui_task5_body` dispatched through it into
+  original `cpucom_ctx_resubmit` → derail. `scripts/find_rodata_fnptrs.py` finds all candidates
+  (3422 ptrs in 435 tables tree-wide — vtables.asm is incomplete); `scripts/gen_rodata_fnptrs.py`
+  emits one CONST word per fn-ptr (packed symbol at the original rodata address; overlay_fr.py
+  overlays it).
+- **CRITICAL — do NOT blanket-relocate.** Relocating every rodata word that equals a function origVA
+  REGRESSES boot: some are DATA that merely equals a function address (keys/constants), and
+  relocating them corrupts early boot (crashed `initialize_seven_subobject_container` at ~1.87M
+  insns). Gate on `CONFIRMED_TABLES` — ranges the emulator proved reached-and-derailing (a trace
+  showing packed code calling an original fn-ptr from the range). A systematic finder for
+  *reached-and-called* fn-ptrs (trace: read `@A`=origVA then `PC` becomes that origVA) would batch
+  the on-path tables safely; blind origVA-matching does not.
+
 ## TOOL-1 · trace reducer drops relocated functions (measurement bug, not firmware)
 - **Symptom:** co-run fdiff shows the candidate "skipping" functions it actually executes; inflated
   "missing function" counts; phantom divergences that send you chasing the wrong place.
