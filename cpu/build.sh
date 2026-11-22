@@ -19,7 +19,14 @@ export SOFTUNE CPU COPT INC OBJ HERE
 one(){ f="$1"; b=$(basename "$f" .c)
   asm="$OBJ/$b.asm"; obj="$OBJ/$b.obj"
   [ -s "$obj" ] && [ "$obj" -nt "$f" ] && return
-  (cd "$SOFTUNE" && wine BIN/fcc911s.exe -S $COPT -cpu $CPU $INC -o "$(echo "Z:${asm//\//\\}")" "$(echo "Z:${f//\//\\}")") >/dev/null 2>&1 || { echo "CC FAIL $b"; return; }
+  # The 64-bit types (int64_t/uint64_t/ulonglong/...) emit the unsuppressable W1450B "long long
+  # nonstandard" warning (fcc911s: no __int64, no per-message -w, no pragma). They're guarded behind
+  # USES_64_BIT in stdint.h/frv_intrinsics.h, so only files that actually use a 64-bit type OR a macro
+  # that expands to one (CONCAT/SUB/ZEXT/SEXT/CARRY/SCARRY/SBORROW/POPCOUNT/LZCOUNT) get -DUSES_64_BIT;
+  # the rest (~99%) compile warning-free. Over-matching here is harmless; under-matching would break
+  # a 64-bit file, so keep this regex a superset of the guarded tokens.
+  D64=""; grep -qE 'u?int64_t|ulonglong|longlong|sqword|qword|undefined[5-8]|u?int[567]\b|\bu64\b|CONCAT[0-9]|\bSUB[0-9][0-9]|\b[ZS]EXT[0-9][0-9]|\bS?CARRY[0-9]|\bSBORROW[0-9]|POPCOUNT|LZCOUNT|popcountll|clzll' "$f" && D64="-DUSES_64_BIT"
+  (cd "$SOFTUNE" && wine BIN/fcc911s.exe -S $COPT $D64 -cpu $CPU $INC -o "$(echo "Z:${asm//\//\\}")" "$(echo "Z:${f//\//\\}")") >/dev/null 2>&1 || { echo "CC FAIL $b"; return; }
   # Strip fcc's gratuitous (never-used) R14 frame pointer ONLY where the original Pentax compiler
   # also omitted it (decided per-function from the source's @k10d origVA vs the reference binary;
   # see scripts/strip_frameptr.py). Set NO_FPSTRIP=1 to disable.

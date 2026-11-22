@@ -7,37 +7,59 @@
 typedef uint8_t  u8;
 typedef uint16_t u16;
 typedef uint32_t u32;
+#ifdef USES_64_BIT
 typedef uint64_t u64;
+#endif
 /* Ghidra's non-stdint aliases */
 typedef unsigned char      uchar;
 typedef unsigned short     ushort;
 typedef unsigned int       uint;
 typedef unsigned long      ulong;
+#ifdef USES_64_BIT
 typedef unsigned long long ulonglong;
+#endif
 typedef signed char        sbyte;
 typedef short              sword;
 typedef int                sdword;
+#ifdef USES_64_BIT
 typedef long long          sqword;
+#endif
 typedef unsigned char      byte;
 typedef unsigned short     word;
 typedef unsigned int       dword;
+#ifdef USES_64_BIT
 typedef unsigned long long qword;
+#endif
 /* Ghidra's "undefined" placeholders that occasionally survive cleanup */
 typedef uint8_t  undefined1;
 typedef uint16_t undefined2;
 typedef uint32_t undefined4;
+#ifdef USES_64_BIT
 typedef uint64_t undefined8;
+#endif
 typedef uint8_t  undefined;   /* Ghidra: 1-byte unknown */
+#ifdef USES_64_BIT
 typedef long long  longlong;
+#endif
 typedef uint32_t   undefined3;
+#ifdef USES_64_BIT
 typedef uint64_t   undefined5;
+#endif
+#ifdef USES_64_BIT
 typedef uint64_t   undefined6;
+#endif
+#ifdef USES_64_BIT
 typedef uint64_t   undefined7;
+#endif
 typedef long double float10;
 typedef int32_t  int3;
 typedef uint32_t uint3;
+#ifdef USES_64_BIT
 typedef int64_t  int5, int6, int7;
+#endif
+#ifdef USES_64_BIT
 typedef uint64_t uint5, uint6, uint7;
+#endif
 /* Ghidra's `code` is a function type. Params are unspecified because the
  * decompiler doesn't know indirect-call targets' prototypes. */
 typedef uint32_t code();
