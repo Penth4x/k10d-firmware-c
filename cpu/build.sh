@@ -12,21 +12,21 @@ HERE="$(cd "$(dirname "$0")" && pwd)"; ROOT="$(dirname "$HERE")"
 : "${SOFTUNE:?set SOFTUNE to the dir containing BIN/fcc911s.exe (FR toolchain)}"
 : "${FW131:?set FW131 to a copy of the original FWDC162B.BIN (1.31) to harvest non-code data}"
 CPU=MB91F128; COPT=${COPT:--O1}; J=${J:-$(nproc)}; CODEBASE=0x10622400
-OUT="$HERE/out"; OBJ="$OUT/obj"; mkdir -p "$OBJ"
+OUT="$HERE/out"; OBJ="$OUT/obj"; mkdir -p "$OBJ"; : > "$OUT/warnings.txt"
 INC="-I Z:${HERE//\//\\}\\include"
 w(){ echo "Z:${1//\//\\}"; }
 export SOFTUNE CPU COPT INC OBJ HERE
 one(){ f="$1"; b=$(basename "$f" .c)
   asm="$OBJ/$b.asm"; obj="$OBJ/$b.obj"
   [ -s "$obj" ] && [ "$obj" -nt "$f" ] && return
-  # The 64-bit types (int64_t/uint64_t/ulonglong/...) emit the unsuppressable W1450B "long long
-  # nonstandard" warning (fcc911s: no __int64, no per-message -w, no pragma). They're guarded behind
-  # USES_64_BIT in stdint.h/frv_intrinsics.h, so only files that actually use a 64-bit type OR a macro
-  # that expands to one (CONCAT/SUB/ZEXT/SEXT/CARRY/SCARRY/SBORROW/POPCOUNT/LZCOUNT) get -DUSES_64_BIT;
-  # the rest (~99%) compile warning-free. Over-matching here is harmless; under-matching would break
-  # a 64-bit file, so keep this regex a superset of the guarded tokens.
-  D64=""; grep -qE 'u?int64_t|ulonglong|longlong|sqword|qword|undefined[5-8]|u?int[567]\b|\bu64\b|CONCAT[0-9]|\bSUB[0-9][0-9]|\b[ZS]EXT[0-9][0-9]|\bS?CARRY[0-9]|\bSBORROW[0-9]|POPCOUNT|LZCOUNT|popcountll|clzll' "$f" && D64="-DUSES_64_BIT"
-  (cd "$SOFTUNE" && wine BIN/fcc911s.exe -S $COPT $D64 -cpu $CPU $INC -o "$(echo "Z:${asm//\//\\}")" "$(echo "Z:${f//\//\\}")") >/dev/null 2>&1 || { echo "CC FAIL $b"; return; }
+  # fcc emits W1450B "long long nonstandard" on every 64-bit typedef, and funcs.h declares 60
+  # uint64_t-returning functions so EVERY file pulls the type in — W1450B is therefore unavoidable
+  # (fcc911s: no __int64, no per-message -w, no pragma) and pure noise. (The old USES_64_BIT gate was
+  # removed: it only "worked" because cached .objs predated it; the 64-bit types are now unconditional.)
+  # Strip ONLY W1450B; log every OTHER diagnostic to out/warnings.txt, surfaced prominently after the pass.
+  cerr=$( (cd "$SOFTUNE" && wine BIN/fcc911s.exe -S $COPT -cpu $CPU $INC -o "$(echo "Z:${asm//\//\\}")" "$(echo "Z:${f//\//\\}")") 2>&1 ); rc=$?
+  echo "$cerr" | grep -v 'W1450B' | grep -F '***' | sed "s|^|[$b] |" >> "$(dirname "$OBJ")/warnings.txt"
+  [ $rc -ne 0 ] && { echo "CC FAIL $b"; return; }
   # Strip fcc's gratuitous (never-used) R14 frame pointer ONLY where the original Pentax compiler
   # also omitted it (decided per-function from the source's @k10d origVA vs the reference binary;
   # see scripts/strip_frameptr.py). Set NO_FPSTRIP=1 to disable.
@@ -50,6 +50,14 @@ done
 # Gate the link on a COMPLETE object set — a partial link only floods unresolved-symbol errors.
 STILL=$(find "$HERE/src" -name '*.c' | while read f; do b=$(basename "$f" .c); { [ -s "$OBJ/$b.obj" ] && [ "$OBJ/$b.obj" -nt "$f" ]; } || echo "$b"; done)
 if [ -n "$STILL" ]; then echo "   ABORT: $(echo "$STILL"|wc -l) functions still fail to compile:"; echo "$STILL"|sed 's/^/     /'|head; exit 1; fi
+# Surface every non-W1450B compiler diagnostic PROMINENTLY (W1450B "long long" is suppressed as noise).
+# Empty after a relink (nothing recompiled). A real warning/error here must not be ignored.
+if [ -s "$OUT/warnings.txt" ]; then
+  echo ""; echo "!!!!!!!!!!!!!!!!!!!!!! COMPILER WARNINGS / ERRORS (W1450B suppressed) !!!!!!!!!!!!!!!!!!!!!!"
+  sort -u "$OUT/warnings.txt"
+  echo "!!!!! $(sort -u "$OUT/warnings.txt" | wc -l) distinct line(s) above — full log: $OUT/warnings.txt"
+  echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; echo ""
+fi
 echo "[2] assemble hand-written / harvested asm (crt0, vtables, syms, syscall_traps, + every cpu/gen/*.asm: hand-asm'd fcc-can't-recompile functions from scripts/harvest_asm.py)"
 for g in "$HERE"/gen/*.asm; do a=$(basename "$g" .asm); (cd "$SOFTUNE" && wine BIN/FASM911S.EXE -cpu $CPU -o "$(w "$OBJ/$a.obj")" "$(w "$g")") >/dev/null 2>&1 || echo "   ASM FAIL $a"; done
 echo "[3] link (pack code at $CODEBASE)"
