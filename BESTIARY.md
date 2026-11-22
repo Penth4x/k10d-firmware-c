@@ -313,6 +313,27 @@ Reliable measurement (prerequisite for all localization):
   *reached-and-called* fn-ptrs (trace: read `@A`=origVA then `PC` becomes that origVA) would batch
   the on-path tables safely; blind origVA-matching does not.
 
+## B-12 · vtable this-adjustment is 16-bit, typed 32-bit (every MI dispatch wrong) ← **one-line, tree-wide**
+- **Symptom:** a multiple-inheritance virtual call moves `this` by a wild amount (≈±786 KB) and lands
+  on unconstructed memory → null-vtable / wild-jump crash. adj=0 dispatches (the vast majority) look
+  fine, so it only bites the few MI sites — far into boot.
+- **Cause:** the vtable entry's this-adjustment is a **16-bit halfword**. Stock reads it
+  `lduh @r12,r0; extsh r0` = `(short)*(uint16_t*)(vtbl+off)`. The shared `vtbl_entry` type in
+  `cpu/include/frv_intrinsics.h` declared it `int32_t adj`, so fcc reads the full 32-bit word: a real
+  adjustment stored as `0xfff40000` reads as **-0xC0000** instead of `(short)0xfff4 = -0xC`.
+  (`fn` stays at offset 4: 2-byte adj + 2-byte pad; the entry is still 8 bytes.)
+- **Instance (ROOT, confirmed by stock disasm):** `ui_task_body_common` (origVA 0x1045a16a)
+  dispatches `vtbl[2]` of a `cls_105a7ea0` secondary vtable (0x105a7f28) → `ui_task5_body` with
+  adj `0xfff40000`. 32-bit: `this(0x80532c98) - 0xC0000 = 0x80472c98` (unconstructed) → crash.
+  16-bit: `this - 0xC = 0x80532c8c` = the actual complete-object base (primary vtable 0x105a7ea0
+  written there). Stock reads the halfword; the recompile read the word.
+- **Fix:** `typedef struct { int16_t adj; int (*fn)(); } vtbl_entry;` (keep `fn` returning `int` —
+  the GCC-strict requirement). One header line fixes every MI dispatch. (build.sh checks `.c` mtime,
+  not headers, so force-recompile the vtbl_entry users: `grep -rl vtbl_entry cpu/src --include=*.c |
+  xargs touch` — ~2289 files — rather than deleting all objs.)
+- **Impact:** boot advanced ~1.8M insns (6.59M → 8.39M) in one change. Distinct from B-2 (short-split
+  STORE) and B-10 (64-bit shift): B-12 is a struct-field **width** mistype on a shared type.
+
 ## TOOL-1 · trace reducer drops relocated functions (measurement bug, not firmware)
 - **Symptom:** co-run fdiff shows the candidate "skipping" functions it actually executes; inflated
   "missing function" counts; phantom divergences that send you chasing the wrong place.

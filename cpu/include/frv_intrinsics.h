@@ -196,7 +196,12 @@ uint32_t __frv_reg_unset(int reg);
 #define CARRY8(a,b) ((((uint64_t)(a)&0xffffffffffffffffu)+((uint64_t)(b)&0xffffffffffffffffu)) >> 64 & 1)
 #define SCARRY8(a,b) (((((int64_t)(a)+(int64_t)(b)) >> 63) ^ ((int64_t)(a) >> 63)) & ~(((int64_t)(a) ^ (int64_t)(b)) >> 63) & 1)
 #define SBORROW8(a,b) (((((int64_t)(a)-(int64_t)(b)) >> 63) ^ ((int64_t)(a) >> 63)) & (((int64_t)(a) ^ (int64_t)(b)) >> 63) & 1)
-typedef struct { int32_t adj; int (*fn)(); } vtbl_entry;
+/* B-12: the vtable this-adjustment is a 16-bit halfword (stock reads it `lduh; extsh` = (short)),
+ * NOT a 32-bit word. As int32_t, a real adjustment like 0xfff40000 reads as -0xC0000 instead of the
+ * intended (short)0xfff4 = -0xC, so multiple-inheritance dispatches move `this` ~786KB off the object
+ * (ui_task_body_common -> ui_task5_body landed on unconstructed memory -> null-vtable crash). adj=0
+ * (the common case) is unaffected; fn stays at offset 4 (2-byte adj + 2-byte pad). */
+typedef struct { int16_t adj; int (*fn)(); } vtbl_entry;
 #define POPCOUNT(a) __builtin_popcountll((uint64_t)(a))
 #define LZCOUNT(a) ((a) ? __builtin_clzll((uint64_t)(a)) : 64)
 #define builtin_strncpy __builtin_strncpy
