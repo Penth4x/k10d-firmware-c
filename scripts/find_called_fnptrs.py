@@ -12,11 +12,25 @@ Appends the confirmed addresses to scripts/confirmed_fnptrs.txt (deduped, sorted
 relocates every address listed there. Re-run on each new FRN_NO_REBOOT trace as boot advances to
 batch-collect the on-path tables (no table-boundary guessing, no data false positives).
 """
-import os, re, sys, glob
+import os, re, sys, glob, struct
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CODE_LO, CODE_HI = 0x10008000, 0x10622400
 RODLO, RODHI = 0x10540000, 0x10622400   # rodata region that holds the dispatch tables
+BASE = 0x10000000
+FW = open("/home/memorai/k10d-re/FWDC162B.BIN", "rb").read()
 CONF = os.path.join(ROOT, "scripts", "confirmed_fnptrs.txt")
+
+# Code and rodata interleave in this XIP image, so being in the rodata address range does NOT prove a
+# word is data. The immediate operand of `ldi:32 #fnaddr,rN` (opcode 9f 8x at a-2) is read then the
+# following `call @rN` executes fnaddr — identical to the read-then-executed signature of a real
+# dispatch, so this test alone mis-lists it. A genuine fn-ptr table word is 4-byte aligned and is not
+# the immediate of an ldi:32. Relocating an instruction immediate rewrites code (and a non-aligned
+# .DATA.L is bumped, corrupting the adjacent instruction). Never record one. (See gen_rodata_fnptrs.py.)
+def is_instr_immediate(a):
+    if a & 3:
+        return True
+    o = a - BASE
+    return o >= 2 and FW[o-2] == 0x9f and 0x80 <= FW[o-1] <= 0x9f
 
 # rodata words that are DUAL-USE (read as DATA elsewhere, not just dispatched): relocating them
 # regresses boot even though they are read-then-executed somewhere. Confirmed by bisection: these 3
@@ -38,7 +52,8 @@ for tr in sys.argv[1:]:
         m = rdre.search(ln)
         if m:
             A, V = int(m.group(1), 16), int(m.group(2), 16)
-            if RODLO <= A < RODHI and CODE_LO <= V < CODE_HI and V in va and A not in EXCLUDE:
+            if (RODLO <= A < RODHI and CODE_LO <= V < CODE_HI and V in va
+                    and A not in EXCLUDE and not is_instr_immediate(A)):
                 pend.append((A, V))
                 if len(pend) > 48: pend.pop(0)
             continue

@@ -3,18 +3,6 @@
 ; address: places the PACKED symbol at the original rodata address so packed code dispatching
 ; through the table reaches the recompiled function. Gated on CONFIRMED_TABLES +
 ; scripts/confirmed_fnptrs.txt (emulator-proven) — NOT blanket (that regresses boot).
-	.SECTION	FP_10545176, CONST, LOCATE=0x10545176
-	.DATA.L	_format_value_into_buffer
-	.SECTION	FP_105451a8, CONST, LOCATE=0x105451a8
-	.DATA.L	_memcpy_bytes
-	.SECTION	FP_1054580e, CONST, LOCATE=0x1054580e
-	.DATA.L	_compute_modulo_10544c28
-	.SECTION	FP_10545822, CONST, LOCATE=0x10545822
-	.DATA.L	_unsigned_divide
-	.SECTION	FP_10545e3c, CONST, LOCATE=0x10545e3c
-	.DATA.L	_memcpy_bytes
-	.SECTION	FP_10546f26, CONST, LOCATE=0x10546f26
-	.DATA.L	_heap_alloc_2
 	.SECTION	FP_105641ac, CONST, LOCATE=0x105641ac
 	.DATA.L	_gate_1039ed32
 	.SECTION	FP_105641d4, CONST, LOCATE=0x105641d4
