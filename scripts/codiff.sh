@@ -18,8 +18,8 @@ HERE="$(cd "$(dirname "$0")"/.. && pwd)"
 RE=${RE:-/home/memorai/k10d-re}; H="$RE/harness2"
 QEMU=${QEMU:-/home/memorai/qemu-frn/build/qemu-system-frn}
 : "${FW131:?set FW131 to the original FWDC162B.BIN}"
-CAND="$HERE/cpu/out/candidate_FWDC162B.BIN"
-MAP="$HERE/cpu/out/firmware.map"
+CAND="${CAND:-$HERE/cpu/out/candidate_FWDC162B.BIN}"
+MAP="${MAP:-$HERE/cpu/out/firmware.map}"
 DB="$H/catalog.sqlite"
 WALL=${WALL:-150}
 [ -s "$CAND" ] || { echo "no candidate — run cpu/build.sh first"; exit 1; }
