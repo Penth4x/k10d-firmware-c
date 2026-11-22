@@ -1,58 +1,53 @@
 # Next steps — open investigation
 
-Boot advances through distinct root causes; each fix reveals the next. Five classes fixed &
-committed this session (B-9, B-10, B-3b, B-11, plus git reconciliation). Current frontier below.
+Boot advanced from the ~5.3M-insn deactivate boot-loop to **~76M insns** this session (14×), through
+six distinct root causes. Each fix revealed the next. All fixes committed (not pushed).
 
-## FIXED this session (committed, not pushed)
-1. **B-9** pointer-arith scaling (17 fns) — `&field + idx` instead of `(int)&field + idx` overran
-   clear/copy loops and zeroed adjacent vtables. (deactivate boot-loop.) `scripts/classify_scaling.py`.
-2. **B-10** 64-bit shift ≥32 = masked no-op — fcc compiled `CONCAT44(hi,lo)>>0x20` as `hi|lo`
-   (wild ptr) in `app_obj_factory`. Fixed by dropping the 64-bit intermediate.
-3. **B-3b** dropped syscall arg — `check_task_state_transition` (int #0x40) takes r5 = the task
-   start-arg; declared 1-arg, so the `-3` temp became the arg → `ui_task_body_common(-3)` crash.
-   Fixed the arity (funcs.h + syscall_traps.h + kernel_diag_taskstack passes param_1).
-4. **B-11** un-relocated rodata dispatch table — the cpucom/ui_task5 `{value,handler}` table at
-   0x105a7e24..0x105a7f64 kept original fn-ptrs; packed ui_task5_body dispatched into original code
-   → derail. `scripts/find_rodata_fnptrs.py` (finder) + `scripts/gen_rodata_fnptrs.py` (gated
-   relocator). NOTE: a blanket relocation of all 3422 candidate ptrs REGRESSES boot (data words that
-   equal a function origVA) — relocation is gated on `CONFIRMED_TABLES`.
+## FIXED this session (committed)
+1. **B-9** pointer-arith scaling (17 fns) — `&field + idx` overran clear loops, zeroed adjacent vtables.
+2. **B-10** 64-bit shift ≥32 = masked no-op — `CONCAT44(hi,lo)>>0x20` → `hi|lo` wild ptr (app_obj_factory).
+3. **B-3b** dropped syscall arg — `check_task_state_transition` r5 (task start-arg) not passed → task(-3).
+4. **B-11** un-relocated rodata dispatch tables — packed code derailed into original firmware code.
+   Batched, emulator-confirmed relocation: `scripts/find_called_fnptrs.py` (read-then-executed = a real
+   called fn-ptr) → `scripts/confirmed_fnptrs.txt` → `scripts/gen_rodata_fnptrs.py`. 165 relocated.
+   NOTE: 3 dual-use words (0x105f923c/924c/92cc) are read as DATA by cls_105f9250_new — EXCLUDEd.
+   NOTE: a blanket relocation of all 3422 candidates regresses boot.
+5. **B-12** vtable this-adjustment is 16-bit, was typed `int32_t` — every multiple-inheritance dispatch
+   moved `this` by a wild amount. One header line (`int16_t adj`). **Biggest single win: +1.8M insns.**
 
-## Current boot blocker #5: garbage vtable in a cpucom context object
-FRN_NO_REBOOT single-cycle trace halts in PACKED `cpucom_ctx_resubmit` (packed 0x106c511a, +0x56):
-```c
-iVar3 = (((vtbl_entry*)(*param_1))[13].fn)((int)((vtbl_entry*)(*param_1))[13].adj + (int)param_1);
-```
-`*param_1` (the context object's vtable pointer) reads **0x01000000** (garbage), so slot [13] at
-vtable+0x68 reads `fn = @0x01000068 = 0xffffffff` → `jmp 0xffffffff` → reset.
+## Current boot blocker #6: stack-pointer corruption (~76M insns)
+`init_object_with_two_ids_1052b824` (packed ~0x1074d7xx) runs its epilogue
+`leave; ld @r15+,sr1; ldm1 #0xf; ret` with **r15 (SP) = 0x10647e0e** — which is `build_mode_config_block
++0x96`, **inside the packed code region, not a valid SDRAM stack**. It pops garbage (rp=0xccc0a5c4),
+`ret` jumps there, and execution runs linearly through unmapped 0xccc…0xd52a memory until the timeout.
+So SP was corrupted to a packed-code address somewhere before 76M.
 
-`param_1` = the cpucom context = `*(int*)(ui_task5_param + 0x30)` (from `ui_task5_body`:
-`cpucom_ctx_resubmit((int*)(*(int*)(param_1+0x30)), (void*)(param_1+4))`). So the context object's
-vtable slot holds 0x01000000 instead of a real class vtable. 0x01000000 is a specific value (not
-random) — likely a flag/constant mis-stored as the vtable, or a B-1/B-10-style field corruption in
-the context's constructor, OR the context pointer itself (`*(ui_task5_param+0x30)`) is wrong.
+FRN_NO_REBOOT did NOT catch this (it only halts on pc<0x1000; this is a HIGH wild jump).
 
-### Concrete next step
-Trace back: (a) what is `param_1` (the context addr) and is it a valid object? (b) who wrote
-0x01000000 to `*param_1` (the vtable slot) — find `W4 @<ctx> =0x01000000` and its PC; (c) check that
-constructor stock-vs-candidate. Also verify ui_task5_param (the task start-arg, now object+4 after
-B-3b) and its +0x30 field are correct. Same method: `FRN_NO_REBOOT=1 FRN_FT=<fifo>`, grep the PC and
-the `W4 @addr` writes.
+### Concrete next steps
+1. **Extend FRN_NO_REBOOT** (qemu `target/frn/op_helper.c`) to also halt when `pc` leaves
+   `[0x10000000, 0x10900000] ∪ [0x80000000, 0x88000000]` (valid code ∪ SDRAM). Then a single-cycle
+   trace stops AT the bad `ret`/jump instead of running millions of garbage insns.
+2. Trace where `r15` became 0x10647e0e: a stack overflow (task stack too small / wrong size), a
+   task-switch restoring a bad SP from a TCB, or a wild SP write. Grep the trace for the SP transition
+   (`W4 @<TCB+sp_off>` or an `ldi`/`mov` into r15). Reaching 76M suggests the firmware may be near a
+   running main-loop state, so this could be a deep/rare path.
 
 ## Tools (committed)
-- `scripts/find_rodata_fnptrs.py` — un-relocated rodata fn-ptrs (3422 in 435 tables; vtables.asm is
-  incomplete). `scripts/gen_rodata_fnptrs.py` — gated per-pointer relocator (CONFIRMED_TABLES).
-- `scripts/classify_scaling.py` — B-9 detector (0 now). `scripts/find_missplits.py`,
-  `scripts/harvest_asm.py`, `scripts/gen_syscall_traps.py`.
+- `scripts/find_called_fnptrs.py` + `confirmed_fnptrs.txt` + `gen_rodata_fnptrs.py` — batched B-11
+  relocation (emulator-confirmed, dual-use EXCLUDE). `scripts/find_rodata_fnptrs.py` — raw finder
+  (3422 candidates in 435 tables; most not on the boot path).
+- `scripts/classify_scaling.py` (B-9, reports 0), `find_missplits.py`, `harvest_asm.py`,
+  `gen_syscall_traps.py`.
 
-## Open class work (deferred — needs a smarter finder)
-B-11 is widespread: 3422 un-relocated fn-ptrs in 435 rodata tables, most not on the early-boot path.
-Relocating one-table-at-a-time (as the emulator reaches each) is slow (~2 min/build). A batched
-safe finder = trace which rodata words are READ and then become the next PC (origVA) → those are
-confirmed called-and-derailing fn-ptrs, relocate exactly those. Build that before grinding tables.
+## Workflow for B-11 (recurring as boot advances)
+Each FRN_NO_REBOOT trace that ends in a packed→original derail:
+`python3 scripts/find_called_fnptrs.py <trace>` (accumulates confirmed addrs) →
+`python3 scripts/gen_rodata_fnptrs.py` → rebuild → re-trace. If a relocation regresses an EARLIER
+point, bisect confirmed_fnptrs.txt to find the dual-use word and add it to the EXCLUDE set.
 
-## Emulator forensics (reliable method)
-`FRN_NO_REBOOT=1` (qemu-frn) halts at the FIRST wild jump (pc<0x1000) → single-cycle trace. Pair
-with `FRN_FT=<file>`; grep `W4 @0xADDR` for stores, `PC=0x<packed>` for a function's run. Map
-packed↔origVA via firmware.map + `@k10d … @ 0x<origVA>` headers. Disassemble the CANDIDATE at the
-PACKED addr: `python3 -c "import frdis; frdis.FW=open('cpu/out/candidate_FWDC162B.BIN','rb').read(); frdis.run(LO,HI)"`
+## Emulator forensics
+`FRN_NO_REBOOT=1 FRN_FT=<file>` single-cycle. grep `W4 @0xADDR` stores, `PC=0x<packed>` runs. Map
+packed↔origVA via firmware.map + `@k10d … @ 0x<origVA>`. Candidate disasm at the PACKED addr:
+`python3 -c "import frdis; frdis.FW=open('cpu/out/candidate_FWDC162B.BIN','rb').read(); frdis.run(LO,HI)"`
 (from /home/memorai/k10d-re). `W1063B` build warnings flag B-10 sites.
