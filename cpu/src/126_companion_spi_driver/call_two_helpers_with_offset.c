@@ -16,7 +16,7 @@
 void call_two_helpers_with_offset(cls_105a09fc *param_1)
 
 {
-  clear_bit_5_of_word_at_offset_0x2c(__frv_reg_unset(4));
+  clear_bit_5_of_word_at_offset_0x2c((int)(param_1)/* B-3: stock r4 = param_1 */);
   dispatch_single_subobj((cls_1059e408 *)&param_1->field_0x8);
   return;
 }

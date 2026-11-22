@@ -18,7 +18,7 @@ void forward_params_with_helper_result(uint32_t param_1,uint32_t param_2,uint32_
 {
   uint32_t uVar1;
   
-  uVar1 = get_or_init_cached_value(__frv_reg_unset(4), __frv_reg_unset(5));
+  uVar1 = get_or_init_cached_value((int)(param_1)/* B-3: stock r4 = param_1 */, __frv_reg_unset(5));
   set_field_if_zero_1043018c(param_1,uVar1,param_3);
   return;
 }

@@ -11,7 +11,7 @@ void set_flag_if_callee_nonzero(cls_105d67fc *param_1)
 {
   int iVar1;
   
-  iVar1 = read_byte_at_offset_8(__frv_reg_unset(4));
+  iVar1 = read_byte_at_offset_8((int)(param_1)/* B-3: stock r4 = param_1 */);
   if (iVar1 != 0) {
     param_1->field_0x9 = 1;
   }

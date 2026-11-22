@@ -24,7 +24,7 @@ void process_object_event_with_semaphores(cls_105b432c *param_1,int *param_2,voi
   int *piVar2;
   bool bVar3;
   void *pvVar4;
-  uint64_t uVar5;
+  int iVar5;
   
   twai_sem_obj(&param_1->field_0x2c,_DAT_105a2bf0/*ROM*/);
   twai_sem_obj(&param_1->field_0x34,_DAT_105a2bf0/*ROM*/);
@@ -43,9 +43,10 @@ void process_object_event_with_semaphores(cls_105b432c *param_1,int *param_2,voi
       }
       else {
         iVar1 = param_1->field_0x3c;
-        uVar5 = (*(code *)0x10491edc/*ROM*/)(param_2);
-        if (iVar1 != (int)((ulonglong)uVar5 >> 0x20)) {
-          console_printf((void *)0x105b439c/*ROM*/,(void *)uVar5,param_3,param_4);
+        /* B-10 cleanup: stock `cmp r4,r10` on the plain r4 return of 0x10491edc */
+        iVar5 = (*(code *)0x10491edc/*ROM*/)(param_2);
+        if (iVar1 != iVar5) {
+          console_printf((void *)0x105b439c/*ROM*/,(void *)iVar5,param_3,param_4);
         }
         bVar3 = test_flag_bits_in_struct((int)param_2,0x10);
         if (bVar3) {

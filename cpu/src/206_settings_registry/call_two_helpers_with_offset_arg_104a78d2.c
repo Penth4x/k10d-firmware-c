@@ -17,7 +17,7 @@
 void call_two_helpers_with_offset_arg_104a78d2(cls_105b6938 *param_1,uint32_t param_2)
 
 {
-  ensure_subobject_initialized(__frv_reg_unset(4));
+  ensure_subobject_initialized((int)(param_1)/* B-3: stock r4 = param_1 */);
   invoke_virtual_slot_7_on_object(param_1->field_0x8,param_2);
   return;
 }

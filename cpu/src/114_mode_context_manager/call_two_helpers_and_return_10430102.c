@@ -19,7 +19,7 @@ uint32_t call_two_helpers_and_return_10430102(uint32_t param_1)
 {
   uint32_t uVar1;
   
-  uVar1 = app_mode_activate(__frv_reg_unset(4), __frv_reg_unset(5));
+  uVar1 = app_mode_activate((int)(param_1)/* B-3: stock r4 = param_1 */, __frv_reg_unset(5));
   uVar1 = get_flag_from_struct_offset(param_1,uVar1);
   return uVar1;
 }

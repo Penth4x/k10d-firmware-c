@@ -21,7 +21,7 @@ void init_object_with_timer_and_vcalls_1049e204(cls_105b5b6c *param_1)
 
 {
   param_1->field_0x24c = 45000;
-  init_object_with_virtual_queries(__frv_reg_unset(4));
+  init_object_with_virtual_queries((int)(param_1)/* B-3: stock r4 = param_1 */);
   send_twenty_six_virtual_commands((int)param_1);
   init_object_with_stack_copy_and_vcall((int)param_1);
   copy_stack_and_query_six_ids_1049ea1e((int)param_1);

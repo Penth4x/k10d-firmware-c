@@ -25,7 +25,7 @@ void check_flag_and_copy_or_queue(int param_1,int *param_2,uint32_t param_3,int 
   uint32_t auStack_20 [5];
   uint32_t uStack_c;
   
-  init_object_with_three_queries(__frv_reg_unset(4));
+  init_object_with_three_queries((int)(param_1)/* B-3: stock r4 = param_1 */);
   uStack_c = 0;
   bVar1 = twai_flg_obj((uint32_t *)(param_1 + 0x2c),0x80000003/*SDRAM*/,&uStack_c,iRam105a2af4);
   if (bVar1) {
