@@ -22,15 +22,19 @@ void copy_struct_via_stack(void *param_1,void *param_2)
   int *piVar1;
   int iVar2;
   int iVar3;
-  uintptr_t sp;
   uint8_t local_44 [8];
-  int iStack_3c;
+  /* B-6b: this is a TWO-word (8-byte) stack buffer — copy_four_words_from_source and
+   * add_two_structs_into_param1 write/read offsets 0 AND 4 of it (matching stock, which uses
+   * r14-0x30..-0x2c). The decompiler typed it as a single int, so fcc allocated only 4 bytes at the
+   * frame top (r14-4); the +4 write then overran into the SAVED FRAME POINTER at r14 -> leave/ret
+   * loaded a bogus FP -> wild `ret` to garbage. Declared as int[2] so the 8-byte access stays in it. */
+  int iStack_3c [2];
   int aiStack_38 [11];
-  
+
   piVar1 = aiStack_38 + 5;
-  alloc_two_word_pair_1045c3dc(piVar1,1,1);
-  copy_four_words_from_source_1045bfe8(&iStack_3c,param_2);
-  add_two_structs_into_param1(local_44,&iStack_3c,piVar1);
+  alloc_two_word_pair_1045c3dc((uint32_t *)piVar1,1,1);
+  copy_four_words_from_source_1045bfe8(iStack_3c,param_2);
+  add_two_structs_into_param1(local_44,iStack_3c,piVar1);
   iVar3 = 8;
   do {
     iVar2 = iVar3 + -4;
@@ -38,7 +42,7 @@ void copy_struct_via_stack(void *param_1,void *param_2)
     iVar3 = iVar2;
   } while (iVar2 != 0);
   free_heap_if_flagged_1045c402(local_44,2);
-  free_heap_if_flagged_1045c402(&iStack_3c,2);
+  free_heap_if_flagged_1045c402(iStack_3c,2);
   iVar3 = 8;
   do {
     iVar2 = iVar3 + -4;
