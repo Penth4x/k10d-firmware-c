@@ -12,14 +12,20 @@ DISPLAY init (units 283/284, `cls_...display_state_alloc`/`event_display_buffer`
 - both run `store_value_to_pointer_10527aee(obj=0x8052c72c, idx=1)` IDENTICALLY, then:
   - STOCK advances to a NEW object `0x8052c980` and calls `loop_write_seven_pointers` (0x1052899c),
   - CAND stays on `0x8052c72c` and calls `append_to_bounded_array` (0x10527f1a, unit 284) + `cls_105fa760_new`.
-- The parent (original code, no `.c`) virtually dispatches; the object's vtable/type or a loop
+- CORRECTION: these are RECOMPILED C, not original — 0x1052899c is a mid-function label of
+  `initialize_seven_subobject_container.c` (0x105286fa-0x10528ba2, unit 284); append_to_bounded_array
+  and store_value_to_pointer_10527aee have their own .c. So the divergence IS in our recompiled code.
+- The function virtually dispatches on 7 `cls_105f9250` sub-objects (vtbl_entry[15]/[17].fn in two
+  loops); the object's vtable/type or a loop
   condition differs -> different build op. Driven by an UPSTREAM data value the original display-init
   code reads, which a RECOMPILED function set wrong. (Nearby: get_lens_fw_update_status 0x10546fbc,
   a B-3 forwarder, runs 241× stock / 82× cand.)
-- NEXT STEP: disassemble the display-init parent (the caller of store_value_to_pointer_10527aee /
-  the dispatch site) to find the deciding memory read; write-watch that address stock-vs-cand to find
-  the recompiled writer that set it wrong. (codiff REGS args at the fork are identical, so it is a
-  MEMORY/object-state divergence, not a register arg.)
+- SUSPECTS in initialize_seven_subobject_container.c: (a) a Ghidra decode WARNING in the file —
+  "Instruction at 0x10528720 overlaps 0x1052871e" = a mis-DECODED instruction (new class: the C is
+  wrong because the disasm overlapped) early in the fn; (b) the cls_105f9250 sub-object vtables
+  (vtbl_entry[15]/[17]) resolving to different methods (B-11/B-12 vtable class; cls_105f9250 is the
+  one with the 3 dual-use EXCLUDEd reloc words). NEXT: diff the dispatched vtable[15]/[17].fn targets
+  stock-vs-cand (FRN icall on the packed fn range), and check the 0x1052871e overlap region's bytes.
 
 ## FIXED this session (committed, NOT pushed — Andrew pulls/pushes)
 firmware-c (master):
