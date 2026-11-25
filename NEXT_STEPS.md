@@ -6,26 +6,25 @@ The **boot handover deadlock is fixed** (B-3c mbx timeout, below): candidate exe
 cleanly. But it does NOT yet reach the menu (stock ~161-182k entries, reaches idle 0x1000f530 ~5k×;
 candidate ~48k, never idles -> still short).
 
-## NEXT: the menu — display-init virtual-dispatch divergence
-First real fork (past the async-ISR realignment noise at 1903/1921/3025...) is at stock#8598 in the
-DISPLAY init (units 283/284, `cls_...display_state_alloc`/`event_display_buffer`):
-- both run `store_value_to_pointer_10527aee(obj=0x8052c72c, idx=1)` IDENTICALLY, then:
-  - STOCK advances to a NEW object `0x8052c980` and calls `loop_write_seven_pointers` (0x1052899c),
-  - CAND stays on `0x8052c72c` and calls `append_to_bounded_array` (0x10527f1a, unit 284) + `cls_105fa760_new`.
-- CORRECTION: these are RECOMPILED C, not original — 0x1052899c is a mid-function label of
-  `initialize_seven_subobject_container.c` (0x105286fa-0x10528ba2, unit 284); append_to_bounded_array
-  and store_value_to_pointer_10527aee have their own .c. So the divergence IS in our recompiled code.
-- The function virtually dispatches on 7 `cls_105f9250` sub-objects (vtbl_entry[15]/[17].fn in two
-  loops); the object's vtable/type or a loop
-  condition differs -> different build op. Driven by an UPSTREAM data value the original display-init
-  code reads, which a RECOMPILED function set wrong. (Nearby: get_lens_fw_update_status 0x10546fbc,
-  a B-3 forwarder, runs 241× stock / 82× cand.)
-- SUSPECTS in initialize_seven_subobject_container.c: (a) a Ghidra decode WARNING in the file —
-  "Instruction at 0x10528720 overlaps 0x1052871e" = a mis-DECODED instruction (new class: the C is
-  wrong because the disasm overlapped) early in the fn; (b) the cls_105f9250 sub-object vtables
-  (vtbl_entry[15]/[17]) resolving to different methods (B-11/B-12 vtable class; cls_105f9250 is the
-  one with the 3 dual-use EXCLUDEd reloc words). NEXT: diff the dispatched vtable[15]/[17].fn targets
-  stock-vs-cand (FRN icall on the packed fn range), and check the 0x1052871e overlap region's bytes.
+## NEXT: the menu — RTC/watch-counter interrupt (IRQ 0x19) never fires in candidate
+METHOD NOTE: fnseq uses the k10d-re catalog, which OVER-SPLITS functions (labels mid-function offsets
+as their own "functions", e.g. loop_write_seven_pointers @0x1052899c inside initialize_seven_subobject_
+container). So stock (original code) shows these sub-labels while the candidate (one packed recompile)
+shows whole-fn entries -> PHANTOM stock-only "divergences". Filter: a stock-only fn is REAL only if it
+is its OWN @k10d .c entry (addr in the header map), else it is an artifact inside its owner fn.
+
+FIRST REAL divergence (after filtering): `write_watch_counter_register`/`clock_set_check`
+(0x10452848/0x1045281c) run 761x stock, 0x cand. Both called from `watch_counter_isr` (0x104fae06),
+dispatched by `hw_irq_source_demux` (0x104f94a0) on IRQ **source 0x19**. `read_watch_counter_bit15`
+reads RTC reg **0x40090006** bit 15. The candidate's demux never hits case 0x19 -> it never receives
+the RTC/watch-counter interrupt. qemu raises a vector only once the firmware unmasks its ICR, so the
+candidate likely SKIPS enabling IRQ 0x19's ICR during init. A missing periodic RTC tick stalls
+time-based scheduling -> menu never advances.
+NEXT: find where the RTC/IRQ-0x19 ICR is unmasked (ICR write) and why the candidate diverges; or trace
+how hw_irq_source_demux computes the source number and compare stock-vs-cand. (Decode-overlap in
+initialize_seven_subobject_container was CHECKED and CLEARED — benign jmp:D @r12 vtable tail-calls.)
+
+## (old) menu notes
 
 ## FIXED this session (committed, NOT pushed — Andrew pulls/pushes)
 firmware-c (master):
