@@ -1,18 +1,25 @@
 # Next steps — open investigation (handoff)
 
-## Where boot is now
-The candidate **no longer crashes/reboots** — it now **spins** (runs continuously, never reaches the
-menu). codiff: stock ~160–207k fn-entries (reaches menu) vs candidate ~4–7M (spinning) in the same
-wall. The spin is a task **blocked in `realos_rcv_mbx` (mailbox receive)** whose message never
-arrives, so the dispatcher idles and the timer ISR fires repeatedly (first structural divergence at
-fn-entry **1903**: `timer_interrupt_handler → get_lens_update_status(act_tsk) → rtos_dispatch_entry →
-act_tsk_syscall_dispatcher → increment_timeout_counter`). That block is a **symptom** of the spin.
+## Where boot is now  (UPDATED: deadlock CLEARED)
+The **boot handover deadlock is fixed** (B-3c mbx timeout, below): candidate execution dropped
+5.33M -> ~48-53k fn-entries. The camera no longer busy-spins; it boots much further and blocks
+cleanly. But it does NOT yet reach the menu (stock ~161-182k entries, reaches idle 0x1000f530 ~5k×;
+candidate ~48k, never idles -> still short).
 
-This matches a **handover/yield deadlock** seen before (d310): the currently-running task never
-reaches a hand-over point, so the operational tasks it should feed stay blocked waiting on events
-(flag/mailbox) that are never produced. The producer = whatever path is supposed to send/notify but
-never completes its setup/handover. (Prior "76M insns" progress was bogus — garbage execution after a
-crash counted by the weak-era NO_REBOOT. Use codiff function/arg/mem, never instruction counts.)
+## NEXT: the menu — display-init virtual-dispatch divergence
+First real fork (past the async-ISR realignment noise at 1903/1921/3025...) is at stock#8598 in the
+DISPLAY init (units 283/284, `cls_...display_state_alloc`/`event_display_buffer`):
+- both run `store_value_to_pointer_10527aee(obj=0x8052c72c, idx=1)` IDENTICALLY, then:
+  - STOCK advances to a NEW object `0x8052c980` and calls `loop_write_seven_pointers` (0x1052899c),
+  - CAND stays on `0x8052c72c` and calls `append_to_bounded_array` (0x10527f1a, unit 284) + `cls_105fa760_new`.
+- The parent (original code, no `.c`) virtually dispatches; the object's vtable/type or a loop
+  condition differs -> different build op. Driven by an UPSTREAM data value the original display-init
+  code reads, which a RECOMPILED function set wrong. (Nearby: get_lens_fw_update_status 0x10546fbc,
+  a B-3 forwarder, runs 241× stock / 82× cand.)
+- NEXT STEP: disassemble the display-init parent (the caller of store_value_to_pointer_10527aee /
+  the dispatch site) to find the deciding memory read; write-watch that address stock-vs-cand to find
+  the recompiled writer that set it wrong. (codiff REGS args at the fork are identical, so it is a
+  MEMORY/object-state divergence, not a register arg.)
 
 ## FIXED this session (committed, NOT pushed — Andrew pulls/pushes)
 firmware-c (master):
