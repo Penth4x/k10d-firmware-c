@@ -13,7 +13,7 @@ int check_modset_parser_status(uint32_t param_1,uint32_t *param_2)
   
   *param_2 = 0;
   modset_parser_singleton();
-  iVar1 = modset_file_exists_check(__frv_reg_unset(4));
+  iVar1 = modset_file_exists_check(param_1);
   if (iVar1 != 0) {
     *param_2 = 1;
   }

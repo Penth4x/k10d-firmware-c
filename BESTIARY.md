@@ -364,3 +364,46 @@ Reliable measurement (prerequisite for all localization):
 - **Lesson:** register-residue differences in the rseq trace (e.g. an incidental `r5` left as the
   pre-shift value) are EXPECTED from the different-but-equivalent codegen and are usually benign —
   only differences in a register the callee actually consumes matter.
+
+## B-3c · `__frv_reg_unset(N)` where rN IS a declared parameter (one param split in two) ← **boot-unlock: cleared the handover deadlock**
+- **Symptom:** a value the caller passes correctly arrives WRONG at an inner call — most dangerously a
+  µITRON timeout/flag argument, flipping *block-forever* into *poll* (busy-spin) or vice-versa.
+- **Decompiler signature:** the function DECLARES a parameter that maps to register `rN`
+  (r4=param1 … r7=param4) but then references `__frv_reg_unset(N)` (a RAW read of `rN`) instead of
+  the parameter name — the decompiler split one incoming register into both a named param and an
+  "unset" read. fcc keeps the named param (spilled) but freely clobbers the raw register with
+  intervening work, so `__frv_reg_unset(N)` reads garbage.
+- **Discriminator (high-confidence, low-noise):** the param mapped to `rN` is declared but **never
+  used by name** in the body, so `__frv_reg_unset(N)` is its only reference. (Plain `__frv_reg_unset`
+  with no corresponding param is the ordinary B-3 dropped-arg, handled there.)
+- **Detection:** per `.c`, map each `__frv_reg_unset(N)` to param index `N-3`; flag if that param is
+  declared but unreferenced by name. Filter to on-path. (832 raw tree-wide → 59 on-path call-arg →
+  8 high-confidence.)
+- **Fix:** replace `__frv_reg_unset(N)` with the declared parameter name. (Recovering the real value,
+  not guessing: the caller passes it, the function declares it.)
+- **Root instance:** `mbx_receive_message_104598e8` forwarded `__frv_reg_unset(6)` as the
+  `realos_rcv_mbx` timeout instead of `param_x2`; fcc's `*param_2=0` store clobbered r6 → timeout `0`
+  (E_TMOUT) instead of `-1` (TMO_FEVR). The CPUCOM task busy-retried every timer tick → idle task
+  never ran → app tasks never produced to its mailbox → **whole-boot handover deadlock**. Fix dropped
+  candidate fn-entries 5.33M → 52k.
+- **Status:** root + 8 on-path high-confidence instances swept.
+
+## Notes / refinements (this session)
+- **B-11 refinement — never relocate instruction immediates.** The confirmed-fnptr relocator mistook
+  `ldi:32 #fn,rN` immediates (CODE) for rodata fn-ptrs (code/rodata interleave in this XIP image; the
+  read-then-executed test can't tell `ldi;call` from a dispatch load). A `.DATA.L` at a non-4-aligned
+  LOCATE was bumped +2 and overwrote the following `call` (`0x10546f26` in
+  `parse_float_string_to_fixed` → null cascade → crash 0x10491cda). Both generators now reject
+  misaligned addrs and ldi:32-immediate operands. (`scripts/gen_rodata_fnptrs.py`, `find_called_fnptrs.py`.)
+- **B-9 global variant.** `settings_load_from_flash`: `&DAT_8001ded8 + iVar2` scaled ×4 (DAT is
+  uint32_t*) — the global/asymmetric form (source side already cast `(char*)`, dest didn't). Smeared
+  the 0x344-byte settings copy across adjacent EC objects → ec_configure dispatch through garbage.
+- **Harvest / mis-split (B-8 workflow).** Incoming-register kernel fns (context switch, task mgmt)
+  need byte-faithful asm (`scripts/harvest_asm.py`). ALWAYS verify the WHOLE-function extent first:
+  Ghidra mis-splits these (e.g. the context-restore was ONE function `0x1000d032-0x1000d100` with an
+  internal loop, split into 3 — mid-function labels never called, `0x1000d0fe: bra 0x1000d032`).
+  Use `harvest_asm.py <name> <start> <end>` (subsumes fragments); the 1-arg auto mode inherits the
+  split and places fragments at separate packed addrs, breaking internal control flow.
+- **Identify this class statically, not by tracing.** fcc emits `W1549B "used before set"` for every
+  incoming-register read; build.sh now surfaces non-W1450B warnings. Sweep from that list, don't
+  rediscover one per codiff round.

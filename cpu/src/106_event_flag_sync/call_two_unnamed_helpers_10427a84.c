@@ -16,7 +16,7 @@
 void call_two_unnamed_helpers_10427a84(uint32_t param_1, uint32_t param_x1)
 
 {
-  init_object_with_id_and_flag((uint32_t *)__frv_reg_unset(4),__frv_reg_unset(5));
+  init_object_with_id_and_flag((uint32_t *)param_1,param_x1);
   write_four_bytes_to_param_offset(param_1);
   return;
 }

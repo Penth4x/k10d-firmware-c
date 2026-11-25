@@ -48,7 +48,7 @@ int check_and_update_state_flag(uint32_t param_1,int param_2)
     query_and_apply_param_state(iVar2,auStack_10);
   }
   else {
-    process_param_with_helper(__frv_reg_unset(4));
+    process_param_with_helper(param_1);
   }
   free_heap_if_flag_set_1045c56c(auStack_10,2);
   return iVar1;
