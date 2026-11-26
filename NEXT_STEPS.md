@@ -85,6 +85,13 @@
 ## watch the WHOLE companion object's construction (the cls_105a0*_new that allocs it) and diff the +0x10c
 ## store candidate-vs-stock. The field-value divergence with no direct write points at an alloc-time init
 ## (memset/ctor loop) or a different live object — resolve WHICH first before assuming a dropped store.
+## PINNED (d329): the poll's object is a PERSISTENT TABLE ENTRY, not a fresh alloc —
+## populate_context_from_global_state (orig 0x10466b4c, runs once in both) sets
+## ctx+0x20 = read_table_entry_field(r9) (0x107c11ca). So +0x10c lives on a global companion table
+## entry, initialized during COMPANION-TABLE BOOTSTRAP — stock completes it before ic 2.65M, candidate
+## not by 5.55M. NEXT: find where the companion table entries' +0x10c is populated and why the candidate
+## is behind (skipped/late init, or a dropped store in that enumerator). Companion-bootstrap root, now
+## pinned to the table-entry +0x10c init.
 ##
 ## TOOLING NOW STANDARD (run every boot WITH these — Andrew: "a jump to null should be glaring",
 ## "run the emulator with a lot of these modes on"):
