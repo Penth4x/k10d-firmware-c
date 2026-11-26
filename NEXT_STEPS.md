@@ -1,5 +1,75 @@
 # Next steps — open investigation (handoff)
 
+## ★★★ CURRENT (d329): MODE-PUMP DEADLOCK CLEARED — new blocker is the companion-cpucom bootstrap reset
+## The onion-peel reached the MODE PUMP. B-3v vtable-dropped-arg (invoke_virtual_slot_3_on_member_10466604)
+## was THE mode-pump blocker: the helper forwards the caller's ambient r5 (the mode EVENT) to
+## mode_ctrl_on_event, but Ghidra emitted a 1-arg call so fcc clobbered r5 -> garbage event -> no
+## set_flg(flag 0x37) -> wai_flg(obj+0x7c, TMO_FEVR) deadlock. FIXED + VERIFIED (commit 661e0b86):
+## in qemu-frn mode_ctrl_on_event now gets event 0x10003, set_flg_obj(obj+0x7c,0x4) fires at ic 5611020,
+## the OR-wait (eventflag_wai_flg mask 6) wakes+clears at 5611924, boot advances from ~5.6M to ~92M instrs.
+##
+## NEW BLOCKER (ROOT TRACED d329): after the mode pump advances, the candidate CRASHES then RESET-LOOPS.
+## FULL CHAIN: menu fix unblocks ui_task6_body's message loop -> mbx_receive -> cpucom_poll_driver(param_1,
+## msg). At cpucom_poll_driver +0xae (packed 0x106c5962) it does the C `(((vtbl_entry*)iVar2)[2].fn)(...)`
+## where iVar2 = *read_struct_field_at_offset_0x14(param_2) is the message object's VTABLE. The slot-2 fn
+## pointer *(iVar2+0x14) is NULL -> `call:d @r0` with r0=0 -> PC=0x00000000 at ic 7272166 (B-6 null-vtable
+## jump-to-0). That faults into the FR EIT vector table (low mem 0x3xx-0x5xx), the exception handler jumps
+## to the boot/reset vector 0x100f0000 (NOT a HW reset — crt0 0x10008000 runs only once), which re-runs
+## initialize_four_config_blocks + write_initial_config_values + init_subsystem_and_enter_loop ->
+## companion handshake (check_bit6_after_call/set_error_flag_and_halt, the 0x48/0x4e coprocessor +
+## 0x50000107) -> faults again -> loops 151x, exactly 569916 instrs apart. STOCK never faults (0 reset-vector
+## hits). VERIFIED same ic (7275808 reset / 7272166 jump-to-0) on the 3214832c build (B-15/0x10466ffa
+## didn't move it — unrelated upstream).
+## NOTE: write_initial_config_values IS miscompiled (st-vs-sth width, 0x71d-vs-0x471d, dropped orh #1 /
+## andh #0xbfff / conditional bit-0 clear) BUT it is a RED HERRING for the loop — stock never calls it
+## (reset-path only); it only runs AFTER the crash. Fix it for correctness, not to stop the loop.
+## ROOT CHAIN (fully traced d329 via FRN_BADPC + FRN_FT_FULLREGS at ic 7272159-7272164):
+##   cpucom_poll_driver(param_1, param_2=message): piVar3 = read_struct_field_at_offset_0x14(param_2)
+##   = *(message+0x14) = 0 (NULL). The code then does `ld @r0,r0` on NULL and calls vtable slot 2 -> call 0.
+##   Both candidate AND original dereference piVar3 with NO null-check, so stock's message MUST have a
+##   valid +0x14 object pointer. STOCK reaches cpucom_poll_driver TWICE and calls slot-2 fine; CANDIDATE
+##   reaches it ONCE and crashes. Difference = the MESSAGE: candidate's message has +0x14 = 0.
+##   WHY: the candidate prints "CPUCOM ERROR" — cpucom_spi_xfer (0x10465958) FAILS in the candidate
+##   (bVar5 = xfer_result != _DAT_105a7ce8), so the message is an ERROR response whose +0x14 was never
+##   populated. STOCK's 2 cpucom_spi_xfer calls SUCCEED (no CPUCOM ERROR, no crash).
+## => TRUE ROOT is one layer deeper: cpucom_spi_xfer fails ONLY in the candidate. Same qemu companion
+##    model serves both, so the candidate must drive the companion SPI differently (a recompile bug in
+##    cpucom_spi_xfer or the command/buffer it builds), OR mis-detects success (wrong _DAT_105a7ce8 /
+##    wrong result handling). NEXT: diff cpucom_spi_xfer (0x10465958) candidate-vs-original; dump the SPI
+##    command+response bytes (companion dialog) candidate vs stock; check _DAT_105a7ce8 (the expected
+##    result constant) is emitted correctly. This is the recurring cpucom/companion bootstrap thread.
+##
+## TOOLING NOW STANDARD (run every boot WITH these — Andrew: "a jump to null should be glaring",
+## "run the emulator with a lot of these modes on"):
+##   FRN_BADPC  = ON BY DEFAULT (qemu-frn frn-publish 4d543a23) — halts GLARINGLY at any call/jmp/ret/reti
+##               to < 0x10000000 (null/wild ptr). Caught this B-6 at pc=0x106c5966 in one run instead of a
+##               7M-instruction hand-trace. FRN_BADPC_NOHALT=1 to log-and-continue; FRN_BADPC_OFF=1 off.
+##   FRN_INPLACE=1 catches packed->original control-flow leaks (un-redirected fnptrs/vtable slots).
+##   FRN_FT_FULLREGS=1 + FRN_FT_FROM/TO=<ic range>  for a full-16-reg window at a known crash ic.
+##   FRN_DUMP_SPI / FRN_DUMP_CMDH for the companion dialog (needed for the cpucom_spi_xfer root above).
+##   (FRN_CODECHECK=<file of valid entry+return addrs> catches subtler derails but needs the set generated.)
+##
+## ALSO (d329, committed/in-flight): B-3v class is REAL and swept — detect_vtable_dropped_arg.py finds
+## vtable helpers that drop a forwarded reg. invoke_virtual_slot_3_on_member_10466ffa (same slot-3 shape,
+## member +0x2c, 3 callers pass DISTINCT constants 0x40001/2/3) fixed. B-15 merged-case in
+## mode_ctrl_on_event fixed (orig 0x10002->set_flg bit 0x2, 0x10003->bit 0x4; decompile collapsed both to
+## 0x4). ~23 more B-3v strong candidates in the detector report (distinct-constant ones are incontrovertible).
+
+## ★★ BLACK-SCREEN ONION-PEEL CHAIN (d327-latest) — each decompiler-bug fix lets cand reach the next:
+##   1. mbx_send_message B-10b (priority >>16 -> 0): the first mbx-2 snd FAILED (E_PAR -17). FIXED
+##      (3ce836a1). VERIFIED: snd now returns 0 (success). But send count stayed 1 (next bug downstream).
+##   2. B-10b SWEEP (16 menu-build/driver funcs, spurious >>16 on params): FIXED (218d59b9). cand now
+##      reaches the signaling phase (sig_sem, set_flg). Send count still 1 (next bug).
+##   3. set_flg_obj B-3 (213 callers drop the eventflag PATTERN -> set_flg(id,0)=no-op; waiters
+##      wai_flg(0x2e)=0x2 never wake): FIXED (ba9096d8). Build in flight. ← CURRENT: verify send
+##      count jumps. (The FRN_FIX_SETFLG crude all-bits causal test was inconclusive — too crude;
+##      the set_flg(0)<->wai_flg(0x2) mismatch is unambiguous, so the proper per-pattern fix is right.)
+##   NEXT after the build: validate_mbx send count; if it climbs, check construct_object_with_vtable
+##   (packed 0x106B5CC8, unit 206) reach + LCD base 0x40040308 (write_three_config_values 0x108222B8).
+##   If still blocked: int40 snd-result trace + fnseq_countdiff find the next onion layer. Keep peeling.
+##   VALIDATE-TOOL BUG: validate_full.sh pk() returns empty for some symbols; use `grep -iE "_SYM$"
+##   firmware.map | awk '{print $1}' | sed 's/(.*//'` directly (works).
+
 ## ★ ROOT FOUND (d327-latest): mbx_send_message B-10b spurious-shift. mbx_send_message (0x10459864)
 ## stored the message PRIORITY (msg+4) as `(uint16_t)((uint64_t)param_3 >> 16)` — a decompiler
 ## spurious shift; the ORIGINAL stores `(uint16_t)param_3` directly (disasm 0x104598b0 `sth r11`).
