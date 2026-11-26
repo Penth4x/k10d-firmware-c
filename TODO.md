@@ -21,6 +21,22 @@ drive the count to 0. **Debt baseline (d329): 2145 uses / 860 files (2140 as cal
       forwarders (~9+ more, verified flow-through) CANNOT be fixed by just adding a param — their CALLERS
       were decompiled assuming void and don't pass the arg, so adding a param CHAINS (breaks callers). Those
       need harvest_asm (asm forwards registers regardless of C sig) OR a caller-chain pass. On-path first.
+- [~] HARVEST_ASM BATCH 1 (d329, build in flight): harvested 60 thin FORWARD-only forwarders to byte-faithful
+      asm via `scripts/harvest_asm.py $(detect_reg_unset.py thin list)`. All 60 clean (ZERO branch-outside-body
+      / ldi:32-as-data warnings); each emits prologue + `LDI:32 #_callee,R12` (symbolic, correctly rewritten) +
+      `call @r12` + epilogue — r4-r7 untouched so the incoming regs flow through (the whole point; the C decompile
+      broke it to reg_unset=0). .c renamed .c.handasm (stops the broken dup symbol); cpu/gen/*.asm auto-assembled
+      by build.sh. VALIDATED the mechanism first on one (call_single_helper_103d0358, reverted). Commit ONLY after
+      checksums VALID + dsp no-regression. detect_reg_unset caps its printout at 60 — re-run after each batch for
+      the next 60 (harvested funcs become .c.handasm, excluded from the *.c scan). ~400 forwarders remain.
+      B-16-SAFETY CLEARED (per BESTIARY B-16 CORRECTION: harvest is WRONG for forwarders that call a KERNEL
+      SERVICE — it redirects `ldi #0x1000xxxx` to a buggy recompiled copy instead of the trapped original;
+      harvesting check_kernel_call_success_10459fea regressed 7->0 signals, reverted cc46cfc9). Verified ALL 60:
+      the 9 distinct LDI:32 call targets are ALL app region (0x103c..0x104e), ZERO kernel (0x1000xxxx), ZERO
+      int#0x40. Harvest here only fixes the ARGS (forwards the real reg vs reg_unset=0); the call target is the
+      SAME function the C version already called. So the B-16 regression class does NOT apply to this batch.
+      PRE-HARVEST CHECK FOR FUTURE BATCHES: grep each gen asm's LDI:32 targets; any whose origVA is 0x1000xxxx
+      (kernel) must be EXCLUDED from harvest and fixed the B-3c way (thread reg as C param, keep __trap_).
 
 ## Menu blocker (active) — boots to idle, BLACK SCREEN
 - [x] descriptor-split creates cleared the `act_tsk` derail (ic~5.58M) → boots to stable idle (9aa78ec3).

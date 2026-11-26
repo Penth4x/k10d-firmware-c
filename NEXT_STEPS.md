@@ -690,3 +690,19 @@ gpio_dsp_ack_check) never run (cand=0) — they're past the divergence.
 vtbl[2] = the task body; read that body, find the finite-timeout wait and the event/flag it waits on,
 then find the producer that posts that event in stock but not cand (likely a peripheral ISR / cpucom
 task upstream that itself is blocked). This is an un-posted-event chain, not a width bug.
+
+## ======================================================================================================
+## MENU-ROOT TRACE PLAN (d329, after harvest60 build) — the companion-ready handler is EVENT-dispatched:
+## call_two_initializers_10466f6e (sets companion-ready +0x28 via set_flag_at_offset_0x28_10467264, then
+## forwards event 0x40002) is registered in a FN-PTR TABLE (cpu/gen/rodata_fnptrs.asm:237,247), NOT via a
+## sta_alm/sta_cyc timeout (no such trap in src). So the "fires at tick 1 vs 393" is NOT a miscompiled alarm
+## timeout value — it is WHEN event 0x40002 gets DISPATCHED to this handler. The fire-time is downstream of
+## whatever posts/dispatches 0x40002. DO NOT keep static-grepping (this NEXT_STEPS zone is dense with
+## red-herring/superseded markers — measure first). CONCRETE NEXT PASS (emulator, clean = fresh bios, NO
+## FLASH_SAVE): (1) FRN_FT both candidate+stock to disk; (2) find the ic where set_flag_at_offset_0x28_
+## 10467264 (packed 0x107f4f4a) first executes in each — candidate ~tick1/ic5.58M, stock ~tick393/ic35.7M;
+## (3) trace the CALLER chain that dispatched event 0x40002 in the candidate at that ic (who posts it, from
+## which task) and diff vs the stock caller at ITS ic. The divergence = the premature dispatch source. This
+## supersedes the sta_alm framing in the CLEAN ROOT block above (there is no alarm; it's event-dispatch).
+## Two setters: _10467264 is the real one (fires); _10466fde is called by call_two_initializers_10466f6e's
+## decompile but shows 0 trace hits — verify whether _10466fde tail-calls _10467264 or is dead (naming trap).
