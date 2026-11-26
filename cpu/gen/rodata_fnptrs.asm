@@ -61,6 +61,10 @@
 	.DATA.L	_settings_load_from_flash
 	.SECTION	FP_1059eff0, CONST, LOCATE=0x1059eff0
 	.DATA.L	_app_task_generic_waitloop
+	.SECTION	FP_1059f0bc, CONST, LOCATE=0x1059f0bc
+	.DATA.L	_mode_ctrl_on_event
+	.SECTION	FP_1059f104, CONST, LOCATE=0x1059f104
+	.DATA.L	_mode_ctrl_on_event
 	.SECTION	FP_1059f11c, CONST, LOCATE=0x1059f11c
 	.DATA.L	_loop_receive_and_dispatch_message
 	.SECTION	FP_1059f618, CONST, LOCATE=0x1059f618
@@ -199,6 +203,8 @@
 	.DATA.L	_call_helper_with_shifted_byte_1043d68e
 	.SECTION	FP_105a088c, CONST, LOCATE=0x105a088c
 	.DATA.L	_call_helper_with_byte_at_offset_0x126
+	.SECTION	FP_105a0894, CONST, LOCATE=0x105a0894
+	.DATA.L	_toggle_byte_and_call_helper
 	.SECTION	FP_105a08ac, CONST, LOCATE=0x105a08ac
 	.DATA.L	_invert_byte_at_offset_0x127
 	.SECTION	FP_105a08d4, CONST, LOCATE=0x105a08d4
@@ -337,6 +343,10 @@
 	.DATA.L	_app_task_generic_waitloop
 	.SECTION	FP_105d50f8, CONST, LOCATE=0x105d50f8
 	.DATA.L	_app_task_generic_waitloop
+	.SECTION	FP_105d5140, CONST, LOCATE=0x105d5140
+	.DATA.L	_dispatch_event_to_subobject
+	.SECTION	FP_105d5160, CONST, LOCATE=0x105d5160
+	.DATA.L	_dispatch_event_to_subobject
 	.SECTION	FP_105d5260, CONST, LOCATE=0x105d5260
 	.DATA.L	_app_task_generic_waitloop
 	.SECTION	FP_105d5364, CONST, LOCATE=0x105d5364
