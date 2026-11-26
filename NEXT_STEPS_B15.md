@@ -18,7 +18,23 @@ mode_ctrl_on_event (0x10430532) doing set_flg_obj(param_1+0x7c, 0x4) on event 0x
 In stock that fires (rp=0x104305ce); in candidate event 0x10002 is NEVER posted, so the pump hangs.
 process_event_and_release=0, dispatch_mode_change_event=0, mode_nav_request=0 in candidate.
 
-ROOT TRACED TO THE BOTTOM (d329): event 0x10002 is posted by cpucom_execute_transaction (0x10466c94)
+### d329 ROOT FOUND: candidate drives DSP handshake (MMIO 0x50000106) with WRONG bit masks
+FRN_WRWATCH=0x50000106 on both binaries: STOCK writes 0x86/0x82/0xa2/0xc2/0x80/0x81/0xc3 (399 writes)
+— it drives the main->companion REQUEST lines (bits 0x20/0x40/0x80) via set_flag_with_notify
+(0x1043986a) / clear_flag_with_notify (0x10439822), RMW *(obj+0x10) |= / &= ~ mask(obj+0x1c).
+CANDIDATE writes only 0x06 (9 writes, same two functions) — its handshake objects' masks are
+0x02/0x04 (the companion ACK lines, = request masks >>4), so the request lines 0x20/0x40/0x80 are
+NEVER driven -> no per-byte handshake -> poll's test_flag_clear reads MMIO 0x50000106 & mask with the
+busy bit already in the wrong state -> poll exits 0 iters -> no 0x10002 -> mode pump hangs on wai_flg(0x37).
+So the deadlock root is a bit-mask miscompile in the companion-SPI handshake-line object setup (unit 126,
+initialize_subsystem_object_array / the GPIO-bit object ctor): obj+0x1c mask is 0x02/0x04 not 0x20/0x40/0x80.
+NEXT: FRN_WRVAL=0x50000106 locates where obj+0x10 is bound; read that ctor + obj+0x1c mask assignment vs
+original disasm — the mask value (or a shift computing it) is wrong. Fix the mask; expect the handshake,
+0x10002, flag 0x37, and the menu to follow. (All the field-value hypotheses below were DISPROVEN by
+measurement: +0x28 writer, +0x10c null, E/F fields — identical in both binaries. The divergence is the
+MASK driving 0x50000106, nothing upstream of it.)
+
+OLD (superseded trail): event 0x10002 is posted by cpucom_execute_transaction (0x10466c94)
 via dispatch_context_virtual_op AFTER its SPI handshake poll. poll_context_flag_until_status_set
 (0x10466eb4) loops ONLY while test_flag_clear_if_active(*(ctxB+0x20)) is true, which returns
 *(E+0x10c)!=0. MEASURED: stock poll-delay (allocate_kernel_object_1000e4e0 r5=0x3e8) runs 501x;
