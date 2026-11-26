@@ -85,3 +85,27 @@ The menu black-screen is a CIRCULAR-ish event-cascade stall, NOT a single decomp
 ## who sends the FIRST mbx-4 message to ui_task6 in stock, before/independent of
 ## process_mode_transition_sequence? Find it with FRN_FT (log mbx_send_message + ui_task6 + cpucom_* from
 ## boot) -> that sender is what the candidate fails to run. That is the deadlock root, not B-15.
+
+## ★ CORRECTED deadlock understanding (d328, after the cpucom/B-16 detour) ★
+- B-16 harvest of check_kernel_call_success REGRESSED (7->0 signals) and was REVERTED (cc46cfc9):
+  harvest_asm turns a kernel-service call into a DIRECT call to the recompiled service, but services
+  must go via int#0x40 traps -> ORIGINAL handlers (vector table still original). NEVER harvest a
+  function that calls a kernel service. Also the candidate made its 7 signals WITH the r4=0 bug, so
+  check_kernel_call_success / the cpucom poll is NOT the deadlock root.
+- The deadlock is an intertwined CIRCULAR bootstrap, pieces mapped:
+  check_bit2 waits flag 0x37 (bits1,2 ORW) -> flag 0x37 bit2(0x4) set ONLY by mode_ctrl_on_event
+  (unit115) on event 0x10002||0x10003 -> event 0x10002 produced by dispatch_mode_change_event_1047cdb8
+  (unit168, vtable-dispatched, no C callers) when mode-state *(field_0x40+4)==1, via vtable[2] on
+  *(field_0x40+8) -> that's mode_ctrl_on_event. Companion status events are 0xa00xx (NOT 0x10002), so
+  0x10002 is a MODE/POWER event, but the mode-state may itself be updated by the cpucom response ->
+  still circular.
+- The candidate produces 7 signals then never produces signal #7 (set_flg 0x37). It never sends event
+  0x10002 (mode-state != 1, or dispatch_mode_change_event's vtable chain never runs).
+- TOOLING GAP: FRN_FT_FUNCS mode logs 0 entries for vtable-dispatched targets (mode_ctrl_on_event,
+  dispatch_mode_change_event) — unreliable. FRN_FT_PC (trigger) mode DID work (handle_event_flags).
+  Need a reliable way to capture the call stack at stock's set_flg(0x37) to find the 0x10002 source.
+- RECOMMENDED NEXT: (1) fix FRN_FT to log vtable-jump targets, OR use FRN_FT_PC=0x10430532 (mode_ctrl_
+  on_event) + read the window for the caller; (2) determine the candidate's mode-state value and where
+  it is read (likely a B-12 MMIO or B-15 bug in the settings/mode object construction); (3) the cpucom
+  handshake is real but DOWNSTREAM — defer. B-15 cleanup (10 real merged-case instances) is safe,
+  committed-value work to continue meanwhile.
