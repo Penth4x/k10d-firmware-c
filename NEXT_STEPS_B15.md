@@ -110,3 +110,27 @@ The menu black-screen is a CIRCULAR-ish event-cascade stall, NOT a single decomp
   handshake is real but DOWNSTREAM — defer. B-15 cleanup (10 real merged-case instances) is safe,
   committed-value work to continue meanwhile.
 ## CORRECTION: dispatch_mode_change_event_1047cdb8 is NOT the event-0x10002 source (stock reaches it 0 times). The 0x10002 sender is still unknown — other candidates: call_helper_with_flag_0x10002 (unit169, invoke_virtual_slot_two_1047d840(.,.,0x10002)), or a vtable dispatch to mode_ctrl_on_event. DEADLOCK HANDED OFF — needs fresh analysis of what dispatches event 0x10002 to the mode controller at boot.
+
+## ★★★ ACCURATE deadlock root (d328 final) — the cpucom poll IS the critical path ★★★
+STOCK (int40 lines ~3697-3717): poll_context_flag runs 501 iters (allocate_kernel_object_1000e4e0
+r4=1 rp=poll_context_flag+0x24); WHEN IT COMPLETES, cpucom_execute_transaction cleanup runs
+(release_context_two_fields) and set_flg(flag 0x37, 0x4) fires from mode_ctrl_on_event+0x9c, then
+ui_task6 returns to rcv_mbx(mbx 4). So: poll completes -> cpucom dispatch_context_virtual_op ->
+mode_ctrl_on_event(event 0x10002) -> set_flg(0x37) = SIGNAL #7 -> check_bit2 unblocks -> boot proceeds.
+CANDIDATE: poll_context_flag runs only 1 iteration (service 1000e4e0 called once) then exits ->
+dispatch never fires event 0x10002 -> flag 0x37 never set -> deadlock.
+- The r4=0 __frv_reg_unset bug is NOT the cause: service 1000e4e0 treats r4=0 and r4=1 identically
+  (both < 0x7fffffff, same branch). The harvest fix regressed (direct-call-to-recompiled-kernel) and
+  was reverted. B-16 is real but off THIS path.
+- WHY the poll exits after 1 iter: poll_context_flag's loop breaks when read_byte_at_offset_0x28
+  (cpucom status byte at ctx+0x28) != 0. initialize_object_with_optional_param clears it to 0, so
+  something sets it non-zero after iter 1. The op_helper (k10d_cpucom.c) says the ATTENTION IRQ
+  (vector 31, raw 0x1049109e, src 0xf) POSTS obj+0x28 "ONLY if its transfer object is active". So
+  the candidate's attention ISR likely posts +0x28 PREMATURELY (false "status ready") -> poll exits
+  before the real companion handshake -> no event 0x10002. OR test_flag_clear_if_active(*(ctx+0x20))
+  goes false after iter 1 (transfer object +0x10c deactivated early).
+- RECOMMENDED NEXT: trace, in the candidate, poll_context_flag's loop exit (which branch: the
+  read_byte_0x28!=0 break or the test_flag_clear_if_active false) and WHAT writes ctx+0x28 (FRN_WRWATCH
+  on the cpucom ctx +0x28) between iter 1's start and the read. Compare to stock. The bug is in the
+  cpucom transfer-object/attention-ISR setup (unit 142/126/143), or the ISR vector still-original
+  (TODO) misfiring. This is the ONE thing that unblocks the whole menu.
