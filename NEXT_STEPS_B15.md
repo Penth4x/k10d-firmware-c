@@ -67,3 +67,21 @@ The menu black-screen is a CIRCULAR-ish event-cascade stall, NOT a single decomp
 ## Why B-15 campaign didn't unblock: the 6 fixed B-15s (handle_event_flags, set_flag_on_event_code,
 ## etc.) are real bugs but OFF the deadlock path. The ON-path bug is in the 0x10002-event generation.
 ## signal_diff #7 (set_flg 0x37) is the exact unblock; chase its producer chain.
+
+## CORRECTION (d328): clear_flag_at_offset_0x28 is NOT the bug — it correctly does
+## `*(param_1+0x28)=0` (the ret:d delay-slot store IS present). An earlier grep with `^\s*\*`
+## filtered the C pointer-deref line as if a comment — FALSE LEAD. Lesson: never use `grep -v '^\s*\*'`
+## to strip comments from C; it eats `*ptr = ...` statements. Use Read, not grep, to inspect bodies.
+
+## REFINED cpucom divergence (verified facts): candidate poll_context_flag loop runs ~0 iterations
+## (service 1000e4e0 from poll = 0; stock = 501). poll_context_flag only loops if
+## test_flag_clear_if_active(*(ctx+0x20)) is true, which needs *(*(ctx+0x20)+0x10c) != 0 (a transfer
+## object). BUT the poll is NOT the SPI handshake — the SPI is cpucom_spi_xfer <- cpucom_poll_driver
+## <- ui_task6 (on a mbx-4 message). ui_task6 blocks on mbx 4; the POST command is queued by
+## execute_cpucom_transaction <- init_object_and_check_field <- process_mode_transition_sequence
+## (BLOCKED at check_bit2). So the circular dep stands. STOCK also blocks process_mode_transition_sequence
+## at check_bit2 (line 2171, scheduler switches away) yet still bootstraps the POST -> there is an
+## INDEPENDENT first sender to ui_task6's mbx 4 (or an IRQ-driven SPI). THE KEY UNRESOLVED QUESTION:
+## who sends the FIRST mbx-4 message to ui_task6 in stock, before/independent of
+## process_mode_transition_sequence? Find it with FRN_FT (log mbx_send_message + ui_task6 + cpucom_* from
+## boot) -> that sender is what the candidate fails to run. That is the deadlock root, not B-15.
