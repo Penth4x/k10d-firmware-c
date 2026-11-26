@@ -92,6 +92,20 @@
 ## read_table_entry_field) — if the candidate reads it ~8.9x small, that read is the recompile bug. The
 ## alarm models the companion's expected ready time; it being too short = the companion is declared ready
 ## ~8.9x too early = the whole premature-cpucom cascade. THIS is the single number to find.
+## MECHANISM RESOLVED (d329): find_free_queue_slot (0x1000d66c) calls insert_timeout_queue_node (0x1000f668)
+## which inserts the node with NO time/countdown field (just self-ptr, id, flags|8, exinf, handler). So the
+## handler does NOT fire on a timer — it fires when the timeout queue is PROCESSED by a SCHEDULER PASS
+## (prior note: "during a terminate_task pass"). Inserted at ~1M, it fires when that pass runs: 5.58M (cand)
+## vs 35.7M (stock). => ROOT RESTATED: a SCHEDULER EVENT (a task terminate/dispatch) happens ~500 ticks
+## early in the candidate, which drains the timeout queue and runs the companion-ready handler early. So the
+## real question is TASK-LIFECYCLE timing: WHICH task terminates/dispatches at 5.58M (cand) vs 35.7M (stock),
+## and why ~500 ticks early. FINAL NEXT: trace task exit (ext_tsk/exd_tsk/the dispatch) right before the
+## handler fires (ic 5.58M cand) on a clean run; identify the terminating task; compare its lifetime vs
+## stock. This is circular with the companion bootstrap (the companion-init task's duration), so the task's
+## early termination likely traces back to the companion dialog completing fast — but now it is a concrete,
+## nameable task whose lifetime can be diffed. (Alternatively PIVOT per TODO: the menu root is at a hard
+## REALOS scheduler-timing frontier; the descriptor-split sweep / MMIO sweep / remaining leaks are tractable
+## concrete progress while this gets a fresh focused pass.)
 ## ======================================================================================================
 ##
 ## ROOT CHAIN (fully traced d329 via FRN_BADPC + FRN_FT_FULLREGS at ic 7272159-7272164):
