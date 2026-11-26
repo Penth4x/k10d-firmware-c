@@ -32,6 +32,6 @@ void reset_state_and_invoke_callback(cls_1055a304 *param_1)
     } while (iVar4 != 0);
     (((vtbl_entry*)(iVar3))[4].fn)((int)sVar1 + (int)piVar2,auStack_14);
   }
-  set_flg_obj(&param_1->field_0x4c);
+  set_flg_obj(&param_1->field_0x4c, 0x8);
   return;
 }

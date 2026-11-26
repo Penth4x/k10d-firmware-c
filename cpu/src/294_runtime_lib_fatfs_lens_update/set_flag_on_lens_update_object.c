@@ -19,7 +19,7 @@ uint32_t set_flag_on_lens_update_object(cls_10621d20 *param_1,int param_2)
 
 {
   if (param_2 == 0xa0017) {
-    set_flg_obj((void *)&param_1->field_0x70);
+    set_flg_obj((void *)&param_1->field_0x70, 0x1);
   }
   return 0;
 }

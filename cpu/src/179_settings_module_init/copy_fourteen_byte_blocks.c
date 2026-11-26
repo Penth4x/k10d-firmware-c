@@ -40,6 +40,6 @@ uint32_t copy_fourteen_byte_blocks(cls_105b2b70 *param_1,int param_2)
     *(uint8_t *)((int)&param_1->field_0x8c + iVar2) = *(uint8_t *)(iVar1 + param_2 + 0x31);
     iVar2 = iVar1;
   } while (iVar1 != 0);
-  set_flg_obj(&param_1->field_0x48);
+  set_flg_obj(&param_1->field_0x48, 0x4);
   return 1;
 }

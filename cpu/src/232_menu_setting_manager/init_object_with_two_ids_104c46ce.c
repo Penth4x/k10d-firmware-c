@@ -11,6 +11,6 @@ void init_object_with_two_ids_104c46ce(int param_1,void *param_2)
 {
   set_pointer_and_clear_flag((int *)(param_1 + 0x1c),param_2);
   clear_flag_and_call_subroutine_104c4c74(param_1);
-  set_flg_obj((uint32_t *)(param_1 + 0x34));
+  set_flg_obj((uint32_t *)(param_1 + 0x34), 0x20);
   return;
 }

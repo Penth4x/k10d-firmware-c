@@ -17,7 +17,7 @@ uint32_t set_flag_on_param_one(cls_105d4ed8 *param_1,int param_2)
 
 {
   if (((param_2 == 0x300001) || (param_2 == 0x300002)) || (param_2 == 0x400001)) {
-    set_flg_obj((void *)&param_1->field_0x2c);
+    set_flg_obj((void *)&param_1->field_0x2c, 0x4);
   }
   return 0;
 }

@@ -19,7 +19,7 @@ void set_flag_and_call_helper_10514d72(int param_1,int param_2)
 
 {
   if (param_2 == 0) {
-    set_flg_obj((uint32_t *)(param_1 + 0x34c));
+    set_flg_obj((uint32_t *)(param_1 + 0x34c), 0x8);
   }
   else {
     eventflag_clr_flg((uint32_t *)__frv_reg_unset(4),__frv_reg_unset(5));

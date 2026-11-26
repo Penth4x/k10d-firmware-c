@@ -16,6 +16,6 @@
 void ec_post_evt_0x10(int param_1)
 
 {
-  set_flg_obj((uint32_t *)(param_1 + 0x7c));
+  set_flg_obj((uint32_t *)(param_1 + 0x7c), 0x10);
   return;
 }

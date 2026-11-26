@@ -10,6 +10,6 @@ void set_flag_and_store_byte_1041b406(int param_1,uint8_t param_2)
 
 {
   *(uint8_t *)(param_1 + 0x8d) = param_2;
-  set_flg_obj((uint32_t *)(param_1 + 0x7c));
+  set_flg_obj((uint32_t *)(param_1 + 0x7c), 0x2);
   return;
 }

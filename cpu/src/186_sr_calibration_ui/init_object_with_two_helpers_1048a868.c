@@ -21,6 +21,6 @@ cls_105b3a84 * init_object_with_two_helpers_1048a868(cls_105b3a84 *param_1)
   set_two_fields_to_four((int)param_1);
   enable_display_output(param_1);
   param_1->field_0x68 = 0;
-  set_flg_obj(&((uint32_t *)&(param_1->field_0x60))[0]);
+  set_flg_obj(&((uint32_t *)&(param_1->field_0x60))[0], 0x1);
   return param_1;
 }

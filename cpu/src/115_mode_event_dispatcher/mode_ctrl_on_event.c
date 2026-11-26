@@ -31,7 +31,7 @@ uint32_t mode_ctrl_on_event(int param_1,int param_2,uint32_t *param_3)
       console_printf(&DAT_1059f1b4/*ROM*/,(void *)(uint)*(byte *)(param_3 + 1),(void *)param_3[2],pvVar2);
     }
     else if ((param_2 == 0x10002) || (param_2 == 0x10003)) {
-      set_flg_obj((uint32_t *)(param_1 + 0x7c));
+      set_flg_obj((uint32_t *)(param_1 + 0x7c), 0x4);
     }
     else if (param_2 == 0x50000) {
       mode_ctrl_process_event(param_1,param_3);

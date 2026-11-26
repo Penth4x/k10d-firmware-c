@@ -10,7 +10,7 @@ uint32_t set_flag_if_param2_zero_or_one(int param_1, int *param_2, uint32_t para
 
 {
   if ((*param_2 == 0) || (*param_2 == 1)) {
-    set_flg_obj((uint32_t *)(param_1 + 0x24));
+    set_flg_obj((uint32_t *)(param_1 + 0x24), 0x80000000);
   }
   return 0;
 }

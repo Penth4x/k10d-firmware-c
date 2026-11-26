@@ -170,7 +170,7 @@ joined_r0x104bcff4:
     if (!bVar2) {
       *(uint32_t *)(param_1 + 0x28) = 1;
 LAB_104bd0e6:
-      set_flg_obj((uint32_t *)(param_1 + 0x20));
+      set_flg_obj((uint32_t *)(param_1 + 0x20), iVar3);
       return 0;
     }
   }

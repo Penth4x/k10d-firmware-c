@@ -13,11 +13,11 @@
 #include "funcs.h"
 #include "syscall_traps.h"
 
-bool set_flg_obj(uint32_t *param_1)
+bool set_flg_obj(uint32_t *param_1, uint32_t param_2)
 
 {
   int iVar1;
   
-  iVar1 = __trap_set_event_flag_bits((int)(short)*param_1, __frv_reg_unset(5));
+  iVar1 = __trap_set_event_flag_bits((int)(short)*param_1, param_2);
   return iVar1 == 0;
 }

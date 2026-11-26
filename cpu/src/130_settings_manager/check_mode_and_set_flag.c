@@ -37,6 +37,6 @@ char check_mode_and_set_flag(int param_1,char param_2)
     update_object_subfields(param_1,uVar3);
     invoke_listener_slot_two((int *)(param_1 + 0x1c));
   }
-  set_flg_obj((uint32_t *)(param_1 + 0x34));
+  set_flg_obj((uint32_t *)(param_1 + 0x34), 0x2);
   return cVar4;
 }

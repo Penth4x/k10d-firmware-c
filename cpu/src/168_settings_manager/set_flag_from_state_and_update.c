@@ -18,6 +18,6 @@ uint32_t set_flag_from_state_and_update(int param_1,int *param_2)
     }
     *(uint8_t *)(param_1 + 0x6c) = 0;
   }
-  set_flg_obj((uint32_t *)(param_1 + 0x24));
+  set_flg_obj((uint32_t *)(param_1 + 0x24), 0x1);
   return 0;
 }

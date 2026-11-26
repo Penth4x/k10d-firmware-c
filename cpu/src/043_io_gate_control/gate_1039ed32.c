@@ -44,7 +44,7 @@ uint32_t gate_1039ed32(cls_10564150 *param_1,uint32_t param_2,uint32_t *param_3)
       }
       else if (iVar2 == param_1->field_0x8c) {
         param_1->field_0xc8 = 0;
-        set_flg_obj(&param_1->field_0xcc);
+        set_flg_obj(&param_1->field_0xcc, 0x10000);
       }
       param_1->field_0xc8 = 0;
       return 1;
@@ -71,8 +71,8 @@ uint32_t gate_1039ed32(cls_10564150 *param_1,uint32_t param_2,uint32_t *param_3)
     if (((param_1->field_0x38 == param_1->field_0x90) && (param_3 == (uint32_t *)0x3)) &&
        (iVar2 = check_status_bit1(param_1->field_0xbc), iVar2 != 0)) {
       param_1->field_0xd5 = 0;
-      set_flg_obj(&param_1->field_0xcc);
-      set_flg_obj(&param_1->field_0xcc);
+      set_flg_obj(&param_1->field_0xcc, 0x100);
+      set_flg_obj(&param_1->field_0xcc, 0x400000);
     }
     if (param_1->field_0x38 != param_1->field_0x78) {
       return 1;
@@ -97,6 +97,6 @@ uint32_t gate_1039ed32(cls_10564150 *param_1,uint32_t param_2,uint32_t *param_3)
   default:
     return 1;
   }
-  set_flg_obj(&param_1->field_0xcc);
+  set_flg_obj(&param_1->field_0xcc, 0x8000000);
   return 1;
 }

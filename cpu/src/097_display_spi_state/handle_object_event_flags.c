@@ -15,7 +15,7 @@ uint32_t handle_object_event_flags(cls_1059d1d8 *param_1,int param_2,int param_3
   else if (param_2 < 0x80003) {
     if (param_2 == 0x80001) {
       param_1->field_0x78 = 0;
-      set_flg_obj((void *)&param_1->field_0x7c);
+      set_flg_obj((void *)&param_1->field_0x7c, 0x20);
     }
   }
   else if (param_2 == 0x160001) {

@@ -12,6 +12,6 @@ uint32_t store_value_and_set_flag_104dee4a(cls_105bb314 *param_1,uint32_t param_
 
 {
   param_1->field_0x80 = param_2;
-  set_flg_obj((void *)param_1->field_0x70);
+  set_flg_obj((void *)param_1->field_0x70, *(uint32_t *)((int)param_1 + 0x4c));
   return 1;
 }

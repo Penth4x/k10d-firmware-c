@@ -10,7 +10,7 @@ uint32_t set_flag_on_event_0x10f0001(uint32_t param_1,int param_2)
 
 {
   if (param_2 == 0x10f0001) {
-    set_flg_obj((uint32_t *)0x8005a15c/*SDRAM*/);
+    set_flg_obj((uint32_t *)0x8005a15c/*SDRAM*/, 0x1);
   }
   return 0;
 }

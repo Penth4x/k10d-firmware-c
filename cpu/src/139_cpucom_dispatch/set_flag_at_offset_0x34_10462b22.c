@@ -9,6 +9,6 @@
 uint32_t set_flag_at_offset_0x34_10462b22(int param_1)
 
 {
-  set_flg_obj((uint32_t *)(param_1 + 0x34));
+  set_flg_obj((uint32_t *)(param_1 + 0x34), 0x2);
   return 0;
 }

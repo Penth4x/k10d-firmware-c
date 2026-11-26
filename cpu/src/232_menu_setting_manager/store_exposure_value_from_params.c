@@ -38,6 +38,6 @@ uint32_t store_exposure_value_from_params(cls_105b9574 *param_1,int param_2,int 
     }
     param_1->field_0x40 = 1;
   }
-  set_flg_obj((void *)&param_1->field_0x34);
+  set_flg_obj((void *)&param_1->field_0x34, 0x8000000);
   return 0;
 }

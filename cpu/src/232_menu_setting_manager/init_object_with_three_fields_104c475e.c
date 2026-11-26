@@ -11,6 +11,6 @@ void init_object_with_three_fields_104c475e(int param_1,int param_2)
 {
   set_pointer_and_clear_flag((int *)(param_1 + 0x1c),(void *)param_2);
   clear_flag_and_call_subroutine_104c4c74(param_1);
-  set_flg_obj((uint32_t *)(param_1 + 0x34));
+  set_flg_obj((uint32_t *)(param_1 + 0x34), 0x100);
   return;
 }

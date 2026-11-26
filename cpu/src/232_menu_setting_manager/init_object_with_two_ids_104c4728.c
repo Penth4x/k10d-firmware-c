@@ -13,6 +13,6 @@ void init_object_with_two_ids_104c4728(int param_1,int param_2,void *param_3,uin
   clear_flag_and_call_subroutine_104c4c74(param_1);
   *(void **)(param_1 + 0x78) = param_3;
   *(uint32_t *)(param_1 + 0x7c) = param_4;
-  set_flg_obj((uint32_t *)(param_1 + 0x34));
+  set_flg_obj((uint32_t *)(param_1 + 0x34), 0x80);
   return;
 }

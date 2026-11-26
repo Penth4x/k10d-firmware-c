@@ -35,6 +35,6 @@ void clear_linked_object_and_flags(int param_1)
   }
   *(uint8_t *)(param_1 + 0x92) = 0;
   store_word_at_offset_0x1500(param_1,0);
-  set_flg_obj((uint32_t *)(param_1 + 0x1538));
+  set_flg_obj((uint32_t *)(param_1 + 0x1538), 0x14);
   return;
 }

@@ -33,6 +33,6 @@ uint32_t set_image_processor_param(cls_105d49dc *param_1,int param_2,uint32_t pa
     }
     param_1->field_0x28 = param_3;
   }
-  set_flg_obj(&param_1->field_0x3c);
+  set_flg_obj(&param_1->field_0x3c, 0x1);
   return 0;
 }

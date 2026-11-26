@@ -176,7 +176,7 @@ bool dispatch_mode_event_handler_10430944(void *param_1,int param_2,int param_3)
       uVar10 = *(uint32_t *)((int)param_1 + 0x34);
       uVar7 = get_standby_timeout_ms(*(uint32_t *)((int)param_1 + 0x30));
       (*(code *)0x104aa01e/*ROM*/)(uVar10,uVar7);
-      set_flg_obj((uint32_t *)((int)param_1 + 0x7c));
+      set_flg_obj((uint32_t *)((int)param_1 + 0x7c), 0x8);
       cls_1059f170_destructor(auStack_9c,2);
       cls_1059f170_destructor(auStack_b0,2);
       bVar12 = false;
@@ -203,7 +203,7 @@ bool dispatch_mode_event_handler_10430944(void *param_1,int param_2,int param_3)
         (((vtbl_entry*)(*piVar8))[6].fn)((int)((vtbl_entry*)(*piVar8))[6].adj + (int)piVar8,auStack_48);
         cls_105a8a1c_delete((void*)(auStack_48),2);
       }
-      set_flg_obj((uint32_t *)((int)param_1 + 0x7c));
+      set_flg_obj((uint32_t *)((int)param_1 + 0x7c), 0x8);
       cls_1059f170_destructor(auStack_68,2);
       cls_1059f170_destructor(auStack_7c,2);
       bVar12 = false;

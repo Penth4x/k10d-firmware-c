@@ -22,6 +22,6 @@ cls_105b2ed8 * init_object_tail_fields(cls_105b2ed8 *param_1)
   enable_display_output(param_1);
   param_1->field_0x70 = 0;
   param_1->field_0x68 = 0;
-  set_flg_obj(&((uint32_t *)&(param_1->field_0x60))[0]);
+  set_flg_obj(&((uint32_t *)&(param_1->field_0x60))[0], 0x1);
   return param_1;
 }

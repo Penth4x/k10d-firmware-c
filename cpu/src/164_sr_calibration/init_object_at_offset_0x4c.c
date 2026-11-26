@@ -23,7 +23,7 @@ void init_object_at_offset_0x4c(void *param_1)
   uint32_t *puVar1;
   
   puVar1 = (uint32_t *)((int)param_1 + 0x4c);
-  set_flg_obj(puVar1);
+  set_flg_obj(puVar1, 0x1);
   eventflag_clr_flg(puVar1,2);
   eventflag_wai_flg(puVar1,2,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
   return;

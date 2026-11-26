@@ -18,6 +18,6 @@ void set_flag_and_flag_object(cls_10564150 *param_1)
 
 {
   param_1->field_0xd9 = 1;
-  set_flg_obj((void *)&param_1->field_0xcc);
+  set_flg_obj((void *)&param_1->field_0xcc, 0x2);
   return;
 }

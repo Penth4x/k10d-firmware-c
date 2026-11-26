@@ -179,7 +179,7 @@ uint32_t init_three_buffer_pools(int param_1,uint8_t *param_2,void *param_3)
     bVar3 = false;
   }
   if (((bVar1) && (bVar2)) && (bVar3)) {
-    set_flg_obj((uint32_t *)(param_1 + 0x34c));
+    set_flg_obj((uint32_t *)(param_1 + 0x34c), 0x10);
   }
   else {
     call_helper_on_five_slots(iVar10);

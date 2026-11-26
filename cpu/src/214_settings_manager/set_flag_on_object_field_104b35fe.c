@@ -9,6 +9,6 @@
 void set_flag_on_object_field_104b35fe(cls_105b7f68 *param_1)
 
 {
-  set_flg_obj((void *)param_1->field_0x44);
+  set_flg_obj((void *)param_1->field_0x44, 0x1000);
   return;
 }

@@ -16,6 +16,6 @@ void set_flag_and_invoke_virtual(cls_1055a304 *param_1)
   if (piVar1 != (int *)0x0) {
     (((vtbl_entry*)(*piVar1))[5].fn)((int)((vtbl_entry*)(*piVar1))[5].adj + (int)piVar1);
   }
-  set_flg_obj(&param_1->field_0x4c);
+  set_flg_obj(&param_1->field_0x4c, 0x2);
   return;
 }

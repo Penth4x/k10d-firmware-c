@@ -38,6 +38,6 @@ uint32_t validate_and_set_flag_on_event(cls_10599b14 *param_1,uint32_t param_2,i
     return 0;
   }
 LAB_1040a348:
-  set_flg_obj(&param_1->field_0x18);
+  set_flg_obj(&param_1->field_0x18, 0x80);
   return 0;
 }

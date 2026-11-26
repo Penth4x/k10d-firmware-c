@@ -51,6 +51,6 @@ char dispatch_on_table_byte(int param_1,char param_2)
   }
   invoke_listener_slot_two((int *)(param_1 + 0x1c));
 LAB_10461cce:
-  set_flg_obj((uint32_t *)(param_1 + 0x34));
+  set_flg_obj((uint32_t *)(param_1 + 0x34), 0x2);
   return cVar3;
 }

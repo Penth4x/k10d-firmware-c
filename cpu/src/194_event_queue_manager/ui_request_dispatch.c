@@ -74,7 +74,7 @@ uint32_t ui_request_dispatch(cls_105b4254 *param_1,uint32_t param_2,uint32_t *pa
       }
     }
   }
-  set_flg_obj((uint32_t *)0x80048f20/*SDRAM*/);
+  set_flg_obj((uint32_t *)0x80048f20/*SDRAM*/, 0x100);
 LAB_104924b6:
   bVar3 = test_flag_bits_in_struct((int)param_3,0x10);
   if (!bVar3) {

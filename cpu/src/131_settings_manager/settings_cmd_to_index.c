@@ -132,6 +132,6 @@ char settings_cmd_to_index(int param_1,char param_2)
     break;
   default:
   }
-  set_flg_obj((uint32_t *)(param_1 + 0x34));
+  set_flg_obj((uint32_t *)(param_1 + 0x34), 0x2);
   return cVar4;
 }

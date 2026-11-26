@@ -16,7 +16,7 @@ bool screen_mgr_on_status_a(int param_1,int param_2)
 
 {
   if (param_2 == 0xa0015) {
-    set_flg_obj((uint32_t *)(param_1 + 0x1b4));
+    set_flg_obj((uint32_t *)(param_1 + 0x1b4), 0x1);
   }
   return param_2 == 0xa0015;
 }

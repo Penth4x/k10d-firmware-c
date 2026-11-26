@@ -12,7 +12,7 @@ void dispatch_virtual_slot_two_and_set_flag(int param_1,uint32_t param_2)
   (((vtbl_entry*)(*(int *)(param_1 + 0x10)))[2].fn)
             (((vtbl_entry*)(*(int *)(param_1 + 0x10)))[2].adj + param_1);
   *(uint32_t *)(param_1 + 4) = param_2;
-  set_flg_obj((uint32_t *)(param_1 + 8));
+  set_flg_obj((uint32_t *)(param_1 + 8), 0x8);
   (((vtbl_entry*)(*(int *)(param_1 + 0x10)))[3].fn)
             (((vtbl_entry*)(*(int *)(param_1 + 0x10)))[3].adj + param_1,param_2);
   return;

@@ -14,6 +14,6 @@ void init_object_with_two_pointers_104c4868(int param_1,int param_2,uint32_t par
   *(uint32_t *)(param_1 + 0x90) = param_3;
   *(void **)(param_1 + 0x94) = param_4;
   *(uint32_t *)(param_1 + 0x80) = 0;
-  set_flg_obj((uint32_t *)(param_1 + 0x34));
+  set_flg_obj((uint32_t *)(param_1 + 0x34), 0x800);
   return;
 }

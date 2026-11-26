@@ -11,6 +11,6 @@
 uint32_t set_flag_on_nested_object_104deedc(cls_105bb314 *param_1)
 
 {
-  set_flg_obj((void *)param_1->field_0x70);
+  set_flg_obj((void *)param_1->field_0x70, *(uint32_t *)((int)param_1 + 0x60));
   return 1;
 }

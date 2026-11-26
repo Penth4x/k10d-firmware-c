@@ -14,6 +14,6 @@
 void mode_ctrl_on_status_b(int param_1)
 
 {
-  set_flg_obj((uint32_t *)(param_1 + 0x7c));
+  set_flg_obj((uint32_t *)(param_1 + 0x7c), 0x200);
   return;
 }

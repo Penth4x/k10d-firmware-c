@@ -38,6 +38,6 @@ uint32_t startup_completion_to_flag(int param_1,int param_2)
       }
     }
   }
-  set_flg_obj((uint32_t *)(param_1 + 0x38));
+  set_flg_obj((uint32_t *)(param_1 + 0x38), 0x40);
   return 0;
 }

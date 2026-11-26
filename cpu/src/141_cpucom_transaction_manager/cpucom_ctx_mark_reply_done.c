@@ -14,6 +14,6 @@
 uint32_t cpucom_ctx_mark_reply_done(int param_1)
 
 {
-  set_flg_obj((uint32_t *)(param_1 + 0x34));
+  set_flg_obj((uint32_t *)(param_1 + 0x34), 0x2);
   return 0;
 }

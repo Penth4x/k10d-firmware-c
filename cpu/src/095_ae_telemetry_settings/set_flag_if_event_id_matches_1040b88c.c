@@ -19,6 +19,6 @@ uint32_t set_flag_if_event_id_matches_1040b88c(cls_1059a294 *param_1,int param_2
       return 0;
     }
   }
-  set_flg_obj((void *)&param_1->field_0x14);
+  set_flg_obj((void *)&param_1->field_0x14, 0x8);
   return 0;
 }

@@ -9,6 +9,6 @@
 void set_flag_at_offset_0x48_103b8aa8(cls_10594c54 *param_1)
 
 {
-  set_flg_obj((void *)&param_1->field_0x48);
+  set_flg_obj((void *)&param_1->field_0x48, 0x1);
   return;
 }

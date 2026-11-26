@@ -23,7 +23,7 @@ bool call_subobject_then_set_flag(cls_105b7f68 *param_1,uint32_t *param_2,uint32
   bVar2 = false;
   if ((param_1->field_0x30 != 0) &&
      (iVar1 = store_result_at_offset_0x14_104b31b6(param_1->field_0x30,param_2,param_3), iVar1 != 0)) {
-    bVar2 = set_flg_obj((void *)param_1->field_0x44);
+    bVar2 = set_flg_obj((void *)param_1->field_0x44, 0x200);
   }
   return bVar2;
 }

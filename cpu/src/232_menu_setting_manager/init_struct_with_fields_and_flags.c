@@ -30,6 +30,6 @@ void init_struct_with_fields_and_flags(int param_1,void *param_2,uint32_t param_
   } while (iVar1 != 0);
   *(uint32_t *)(param_1 + 0x1f0) = param_6;
   *(uint8_t *)(param_1 + 500) = param_7;
-  set_flg_obj((uint32_t *)(param_1 + 0x34));
+  set_flg_obj((uint32_t *)(param_1 + 0x34), 0x100000);
   return;
 }

@@ -133,6 +133,6 @@ uint32_t set_status_flag_by_code(cls_105d51fc *param_1,int param_2,int *param_3)
       puVar1[0xc] = puVar2[0xc] | 8;
     }
   }
-  set_flg_obj(&param_1->field_0x328);
+  set_flg_obj(&param_1->field_0x328, 0x40);
   return 0;
 }

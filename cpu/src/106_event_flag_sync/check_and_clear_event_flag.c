@@ -33,7 +33,7 @@ uint32_t check_and_clear_event_flag(void *param_1)
     }
     else {
       eventflag_clr_flg(puVar1,0x28);
-      set_flg_obj(puVar1);
+      set_flg_obj(puVar1, 0x40);
       uVar3 = 0;
     }
   }

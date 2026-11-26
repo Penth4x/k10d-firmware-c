@@ -50,6 +50,6 @@ code_r0x104b7b0c:
       }
     }
   }
-  set_flg_obj(&param_1->field_0x24);
+  set_flg_obj(&param_1->field_0x24, 0x1);
   return 0;
 }

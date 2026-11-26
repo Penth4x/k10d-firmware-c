@@ -97,6 +97,6 @@ joined_r0x1036b6c6:
     }
   }
 LAB_1036b6d2:
-  set_flg_obj((uint32_t *)0x80018088/*SDRAM*/);
+  set_flg_obj((uint32_t *)0x80018088/*SDRAM*/, 0x400000);
   return 0;
 }

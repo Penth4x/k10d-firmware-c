@@ -100,7 +100,7 @@ uint32_t dispatch_event_by_id_104130aa(cls_1059c10c *param_1,int param_2,uint pa
         }
         return 0;
       }
-      set_flg_obj((uint32_t *)&param_1[1].field_0x580);
+      set_flg_obj((uint32_t *)&param_1[1].field_0x580, 0x40);
       iVar2 = 0x1540;
     }
   }
@@ -185,6 +185,6 @@ uint32_t dispatch_event_by_id_104130aa(cls_1059c10c *param_1,int param_2,uint pa
       iVar2 = 0x1540;
     }
   }
-  set_flg_obj((uint32_t *)((int)&param_1->field_0x0 + iVar2));
+  set_flg_obj((uint32_t *)((int)&param_1->field_0x0 + iVar2), 0x2);
   return 0;
 }

@@ -10,10 +10,10 @@ uint32_t set_flag_on_two_event_ids_1050aa30(cls_105d5470 *param_1,int param_2)
 
 {
   if (param_2 == 0x300001) {
-    set_flg_obj((void *)&param_1->field_0x28);
+    set_flg_obj((void *)&param_1->field_0x28, 0x1);
   }
   if (param_2 == 0x300002) {
-    set_flg_obj((void *)&param_1->field_0x28);
+    set_flg_obj((void *)&param_1->field_0x28, 0x2);
   }
   return 0;
 }

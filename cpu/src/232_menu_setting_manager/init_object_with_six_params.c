@@ -18,6 +18,6 @@ void init_object_with_six_params(int param_1,void *param_2,uint32_t param_3,uint
   *(uint32_t *)(param_1 + 0x204) = param_6;
   *(uint32_t *)(param_1 + 0x208) = param_7;
   *(uint32_t *)(param_1 + 0x20c) = param_8;
-  set_flg_obj((uint32_t *)(param_1 + 0x34));
+  set_flg_obj((uint32_t *)(param_1 + 0x34), 0x400000);
   return;
 }

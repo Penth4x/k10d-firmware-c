@@ -18,7 +18,7 @@ uint32_t handle_event_0x200001(cls_105c39a4 *param_1,int param_2,int param_3)
 {
   if (param_2 == 0x200001) {
     param_1->field_0x34 = param_3 == 0;
-    set_flg_obj((void *)&param_1->field_0x38);
+    set_flg_obj((void *)&param_1->field_0x38, 0x1);
   }
   return 0;
 }

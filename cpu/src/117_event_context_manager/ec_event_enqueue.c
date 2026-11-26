@@ -48,7 +48,7 @@ void ec_event_enqueue(int param_1,int param_2)
   } while (iVar2 != 0);
   if (*(char *)(param_1 + 0x8c) == '\0') {
     *(uint8_t *)(param_1 + 0x8c) = 1;
-    set_flg_obj((uint32_t *)(param_1 + 0x7c));
+    set_flg_obj((uint32_t *)(param_1 + 0x7c), 0x20);
   }
   sig_sem_obj((uint32_t *)(param_1 + 0x90));
   return;

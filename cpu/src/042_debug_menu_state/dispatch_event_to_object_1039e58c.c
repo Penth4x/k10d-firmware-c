@@ -133,7 +133,7 @@ uint32_t dispatch_event_to_object_1039e58c(cls_10564150 *param_1,int param_2,int
         bVar1 = true;
       }
       else if (param_2 == 0x112006a) {
-        set_flg_obj(&param_1->field_0xcc);
+        set_flg_obj(&param_1->field_0xcc, 0x400);
         iVar3 = *(int *)param_1->field_0x2c;
         (((vtbl_entry*)(iVar3))[3].fn)
                   ((int)param_1->field_0x2c + (int)((vtbl_entry*)(iVar3))[3].adj,0x130069,param_3);
@@ -197,11 +197,11 @@ code_r0x1039eb34:
     param_1->field_0xd8 = 1;
   }
 code_r0x1039eb0c:
-  set_flg_obj(&param_1->field_0xcc);
+  set_flg_obj(&param_1->field_0xcc, 0x8000);
   bVar1 = true;
 code_r0x1039eb36:
   if ((!bVar1) && ((param_1->field_0x38 != param_1->field_0x60 || (param_1->field_0x35 != '\0')))) {
-    set_flg_obj(&param_1->field_0xcc);
+    set_flg_obj(&param_1->field_0xcc, 0x8000000);
   }
   return 0;
 }

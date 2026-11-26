@@ -22,6 +22,6 @@ char check_two_byte_flag_and_set_offset(int param_1,char param_2)
     cVar1 = cVar1 + '\x01';
     cVar3 = '\x01';
   } while (iVar2 < 2);
-  set_flg_obj((uint32_t *)(param_1 + 0x34));
+  set_flg_obj((uint32_t *)(param_1 + 0x34), 0x2);
   return cVar3;
 }

@@ -25,6 +25,6 @@ void init_object_with_flag_and_zero(void *param_1)
     *(uint32_t *)((int)param_1 + 0x34) = 0;
   }
   eventflag_clr_flg((uint32_t *)((int)param_1 + 0x2c),0x80000000/*SDRAM*/);
-  set_flg_obj((uint32_t *)((int)param_1 + 0x2c));
+  set_flg_obj((uint32_t *)((int)param_1 + 0x2c), 0x2);
   return;
 }

@@ -21,7 +21,7 @@ uint32_t release_sem_and_clear_obj(uint32_t *param_1)
   
   uVar1 = 0;
   if ((uint32_t *)param_1[2] != (uint32_t *)0x0) {
-    bVar2 = set_flg_obj((uint32_t *)param_1[2]);
+    bVar2 = set_flg_obj((uint32_t *)param_1[2], *(uint32_t *)((int)param_1 + 0xc));
     *(bool *)(param_1 + 6) = bVar2;
     param_1[2] = 0;
     param_1[3] = 0;

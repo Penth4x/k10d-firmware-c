@@ -19,7 +19,7 @@ uint32_t set_flag_for_event_ids(cls_105d3f20 *param_1,int param_2)
   if ((((param_2 == 0x400001) || (param_2 == 0x400003)) || (param_2 == 0x300002)) ||
      (((param_2 == 0x300001 || (param_2 == 0x1010000)) ||
       ((param_2 == 0x1130001 || (param_2 == 0x900001)))))) {
-    set_flg_obj((void *)&param_1->field_0x38);
+    set_flg_obj((void *)&param_1->field_0x38, 0x1);
   }
   return 0;
 }

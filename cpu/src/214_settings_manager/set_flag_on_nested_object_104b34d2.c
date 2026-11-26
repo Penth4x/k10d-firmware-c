@@ -9,6 +9,6 @@
 void set_flag_on_nested_object_104b34d2(cls_105b7f68 *param_1)
 
 {
-  set_flg_obj((void *)param_1->field_0x44);
+  set_flg_obj((void *)param_1->field_0x44, 0x10);
   return;
 }

@@ -10,7 +10,7 @@ void set_flag_if_param_in_range(int param_1,int param_2)
 
 {
   if ((((param_2 == 0) || (param_2 == 1)) || (param_2 == 2)) || (param_2 == 3)) {
-    set_flg_obj((uint32_t *)(param_1 + 0x2c));
+    set_flg_obj((uint32_t *)(param_1 + 0x2c), 0x8);
   }
   return;
 }

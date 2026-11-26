@@ -5521,7 +5521,7 @@ void call_virtual_slot_two_1045962a(int param_1);
 cls_105a2af8 * cls_105a2af8_new(cls_105a2af8 *param_1);
 void cls_105a2af8_delete(void *param_1,uint param_2);
 uint32_t wait_flg_obj(void *param_1,uint32_t param_2);
-bool set_flg_obj(uint32_t *param_1);
+bool set_flg_obj(uint32_t *param_1, uint32_t param_2);
 bool eventflag_clr_flg(uint32_t *param_1,uint param_2);
 bool eventflag_wai_flg(uint32_t *param_1,uint32_t param_2,uint32_t *param_3,int param_4);
 bool twai_flg_obj(uint32_t *param_1,uint32_t param_2,void *param_3,int param_4);

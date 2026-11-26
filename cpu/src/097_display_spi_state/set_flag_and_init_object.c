@@ -10,6 +10,6 @@ void set_flag_and_init_object(cls_1059c10c *param_1)
 
 {
   param_1[1].field_0x557 = 1;
-  set_flg_obj((uint32_t *)&param_1[1].field_0x580);
+  set_flg_obj((uint32_t *)&param_1[1].field_0x580, 0x1);
   return;
 }

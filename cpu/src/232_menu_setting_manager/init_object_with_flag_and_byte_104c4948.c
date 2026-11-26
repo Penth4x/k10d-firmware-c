@@ -13,6 +13,6 @@ void init_object_with_flag_and_byte_104c4948(int param_1,void *param_2,uint8_t p
   clear_flag_and_call_subroutine_104c4c74(param_1);
   *(uint8_t *)(param_1 + 0xa0) = param_3;
   *(uint8_t *)(param_1 + 0x9c) = 1;
-  set_flg_obj((uint32_t *)(param_1 + 0x34));
+  set_flg_obj((uint32_t *)(param_1 + 0x34), 0x2000);
   return;
 }

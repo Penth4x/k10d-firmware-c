@@ -13,7 +13,7 @@ void invoke_virtual_then_set_flag_103b9124(cls_10594c54 *param_1)
   
   iVar1 = *(int *)(param_1->field_0x50 + 0x10);
   (((vtbl_entry*)(iVar1))[10].fn)(param_1->field_0x50 + (int)((vtbl_entry*)(iVar1))[10].adj);
-  set_flg_obj(&param_1->field_0x48);
+  set_flg_obj(&param_1->field_0x48, 0x10);
   write_value_to_offset_0x40((int)(param_1));
   return;
 }

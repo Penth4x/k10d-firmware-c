@@ -43,7 +43,7 @@ uint32_t dispatch_timer_event_handler(cls_10596f7c *param_1,int param_2,int *par
       iVar1 = menu_item_register((int)param_1->field_0x0);
       (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
     }
-    set_flg_obj((uint32_t *)&param_1->field_0x20);
+    set_flg_obj((uint32_t *)&param_1->field_0x20, 0x2);
   }
   else if (param_2 == 0x10034) {
     iVar1 = *param_3;

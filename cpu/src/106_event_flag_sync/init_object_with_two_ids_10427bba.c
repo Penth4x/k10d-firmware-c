@@ -23,7 +23,7 @@ void init_object_with_two_ids_10427bba(void *param_1)
   
   puVar1 = (uint32_t *)((int)param_1 + 8);
   eventflag_clr_flg(puVar1,0xc);
-  set_flg_obj(puVar1);
+  set_flg_obj(puVar1, 0x10);
   eventflag_wai_flg(puVar1,2,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,0x12);
   return;

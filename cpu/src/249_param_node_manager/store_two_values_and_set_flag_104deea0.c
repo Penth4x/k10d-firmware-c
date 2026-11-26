@@ -13,6 +13,6 @@ uint32_t store_two_values_and_set_flag_104deea0(cls_105bb314 *param_1,uint32_t p
 {
   param_1->field_0x84 = param_2;
   param_1->field_0x80 = param_3;
-  set_flg_obj((void *)param_1->field_0x70);
+  set_flg_obj((void *)param_1->field_0x70, *(uint32_t *)((int)param_1 + 0x58));
   return 1;
 }

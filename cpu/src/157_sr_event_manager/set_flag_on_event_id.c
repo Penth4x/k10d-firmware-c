@@ -24,6 +24,6 @@ uint32_t set_flag_on_event_id(int param_1,int param_2)
       return 0;
     }
   }
-  set_flg_obj((uint32_t *)(param_1 + 0x44));
+  set_flg_obj((uint32_t *)(param_1 + 0x44), 0x1);
   return 0;
 }

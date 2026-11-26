@@ -18,6 +18,6 @@ void release_and_set_flag_on_object_104b35d6(cls_105b7f68 *param_1)
 
 {
   check_and_set_flag_if_zero_104b2c9a(param_1->field_0x2c);
-  set_flg_obj((void *)param_1->field_0x44);
+  set_flg_obj((void *)param_1->field_0x44, 0x800);
   return;
 }

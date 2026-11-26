@@ -35,7 +35,7 @@ void dispatch_event_queue_items(cls_105d624c *param_1)
   uint uStack_c;
   
   uStack_c = 0;
-  set_flg_obj(&param_1->field_0x34c);
+  set_flg_obj(&param_1->field_0x34c, 0x8);
   eventflag_wai_flg(&param_1->field_0x34c,0x10,&uStack_c,_DAT_105a2af0/*ROM*/);
   invoke_dual_object_slot2((int)(param_1),(uint32_t)(0xf00001),(uint32_t)(0));
   do {

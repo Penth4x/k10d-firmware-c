@@ -20,7 +20,7 @@ uint32_t handle_event_0x90001(cls_105b6e5c *param_1,int param_2)
     cls_105a5d5c_new(acStack_14);
     copy_six_bytes_between_structs((int)param_1->field_0x10,acStack_14);
     (*(code *)0x1045d458/*ROM*/)(acStack_14,param_1->field_0xc);
-    set_flg_obj(&param_1->field_0x1c);
+    set_flg_obj(&param_1->field_0x1c, 0x1);
     piVar2 = (int *)((uintptr_t)(param_1->field_0x14));
     if ((piVar2 != (int *)0x0) && (param_1->field_0x18 == '\0')) {
       iVar4 = *piVar2;

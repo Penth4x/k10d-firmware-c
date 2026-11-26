@@ -50,9 +50,9 @@ void init_object_with_three_queries(int param_1)
       iVar2 = refresh_and_apply_settings(iVar2,*(uint32_t *)(param_1 + 0x68));
       *(int *)(param_1 + 0x84) = iVar2;
       *(bool *)(param_1 + 0x80) = iVar2 != 0;
-      set_flg_obj(puVar1);
+      set_flg_obj(puVar1, 0x1);
     }
-    set_flg_obj(puVar1);
+    set_flg_obj(puVar1, 0x2);
   }
   return;
 }

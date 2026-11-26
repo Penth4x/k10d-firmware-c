@@ -11,6 +11,6 @@ void init_object_with_id_and_flag(uint32_t *param_1,uint32_t param_2)
 {
   eventflag_clr_flg(param_1 + 2,0x60);
   *param_1 = param_2;
-  set_flg_obj(param_1 + 2);
+  set_flg_obj(param_1 + 2, 0x2);
   return;
 }

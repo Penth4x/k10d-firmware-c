@@ -14,7 +14,7 @@ void set_flag_and_toggle_state(int param_1,int param_2)
     call_single_helper_104185ec();
   }
   else {
-    set_flg_obj((uint32_t *)(param_1 + 0x1538));
+    set_flg_obj((uint32_t *)(param_1 + 0x1538), 0x20000);
   }
   return;
 }

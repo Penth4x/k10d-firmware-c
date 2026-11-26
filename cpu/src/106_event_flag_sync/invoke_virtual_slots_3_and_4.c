@@ -19,7 +19,7 @@ void invoke_virtual_slots_3_and_4(int param_1)
 {
   (((vtbl_entry*)(*(int *)(param_1 + 0x10)))[4].fn)
             (((vtbl_entry*)(*(int *)(param_1 + 0x10)))[4].adj + param_1);
-  set_flg_obj((uint32_t *)(param_1 + 8));
+  set_flg_obj((uint32_t *)(param_1 + 8), 0x20);
   (((vtbl_entry*)(*(int *)(param_1 + 0x10)))[5].fn)
             (((vtbl_entry*)(*(int *)(param_1 + 0x10)))[5].adj + param_1);
   return;

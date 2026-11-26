@@ -61,7 +61,7 @@ LAB_1041675c:
   }
 LAB_10416762:
   *(uint32_t *)(*(int *)(param_1 + 0x84) + 0x8c8) = *(uint32_t *)(param_1 + 0x1514);
-  set_flg_obj((uint32_t *)(param_1 + 0x1538));
+  set_flg_obj((uint32_t *)(param_1 + 0x1538), 0x2);
   *(uint8_t *)(*(int *)(param_1 + 0x50) + 0x354) = 1;
   set_flag_at_offset_0x34c(*(uint32_t *)(param_1 + 0x50));
   *(uint32_t *)(param_1 + 0x14d8) = 0;

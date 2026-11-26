@@ -19,6 +19,6 @@ void init_object_flag_and_subobj(int param_1)
 {
   *(uint8_t *)(param_1 + 0x68) = 0;
   eventflag_clr_flg((uint32_t *)(param_1 + 0x60),2);
-  set_flg_obj((uint32_t *)(param_1 + 0x60));
+  set_flg_obj((uint32_t *)(param_1 + 0x60), 0x1);
   return;
 }

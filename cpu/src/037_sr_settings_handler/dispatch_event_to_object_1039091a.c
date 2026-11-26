@@ -32,6 +32,6 @@ void dispatch_event_to_object_1039091a(int param_1,uint32_t param_2)
     swap_three_words_with_callbacks_10390e74(auStack_14,param_1 + 0x68);
     (((vtbl_entry*)(iVar3))[4].fn)((int)sVar1 + (int)piVar2,auStack_14);
   }
-  set_flg_obj((uint32_t *)(param_1 + 0x4c));
+  set_flg_obj((uint32_t *)(param_1 + 0x4c), 0x1);
   return;
 }

@@ -22,6 +22,6 @@ char find_char_in_table_and_set_flag(int param_1,char param_2)
     cVar1 = cVar1 + '\x01';
     cVar3 = 'O';
   } while (iVar2 < 0x9e);
-  set_flg_obj((uint32_t *)(param_1 + 0x34));
+  set_flg_obj((uint32_t *)(param_1 + 0x34), 0x2);
   return cVar3;
 }

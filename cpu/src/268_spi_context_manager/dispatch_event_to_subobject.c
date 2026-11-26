@@ -26,7 +26,7 @@ uint32_t dispatch_event_to_subobject(cls_105d5104 *param_1,int param_2,uint32_t 
   
   if (param_2 == 0x40003) {
     if (((uint32_t *)&(param_1->field_0x8))[2] != 0) {
-      set_flg_obj(&param_1->field_0x1c);
+      set_flg_obj(&param_1->field_0x1c, 0x3);
       piVar1 = (int *)((uint32_t *)&(param_1->field_0x8))[2];
       iVar2 = *piVar1;
       (((vtbl_entry*)(iVar2))[3].fn)
@@ -43,7 +43,7 @@ uint32_t dispatch_event_to_subobject(cls_105d5104 *param_1,int param_2,uint32_t 
     }
   }
   else if ((param_2 == 0xa0001) || (param_2 == 0xa0010)) {
-    set_flg_obj(&param_1->field_0x1c);
+    set_flg_obj(&param_1->field_0x1c, 0x2);
   }
   return 1;
 }

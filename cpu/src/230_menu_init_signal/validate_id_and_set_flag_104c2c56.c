@@ -33,6 +33,6 @@ uint32_t validate_id_and_set_flag_104c2c56(int param_1,int param_2)
       }
     }
   }
-  set_flg_obj((uint32_t *)(param_1 + 0x78));
+  set_flg_obj((uint32_t *)(param_1 + 0x78), 0x8000);
   return 0;
 }

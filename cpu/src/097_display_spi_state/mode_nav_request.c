@@ -57,6 +57,6 @@ uint32_t mode_nav_request(cls_1059c10c *param_1,int param_2,int param_3)
       }
     }
   }
-  set_flg_obj((uint32_t *)&param_1[1].field_0x580);
+  set_flg_obj((uint32_t *)&param_1[1].field_0x580, 0x80000000);
   return 1;
 }

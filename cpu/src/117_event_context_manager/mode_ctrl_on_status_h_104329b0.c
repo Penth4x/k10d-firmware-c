@@ -48,7 +48,7 @@ void mode_ctrl_on_status_h_104329b0(int param_1,void *param_2)
     set_byte_at_offset_0xc(&cStack_28,0);
     uStack_10 = 1;
     pvStack_c = param_2;
-    set_flg_obj((uint32_t *)(param_1 + 0x7c));
+    set_flg_obj((uint32_t *)(param_1 + 0x7c), 0x500);
     mode_ctrl_on_status_h_10432030(param_1);
     clone_object_with_sem_guard(param_1,&cStack_3c);
     cls_1059f170_destructor(&cStack_28,2);

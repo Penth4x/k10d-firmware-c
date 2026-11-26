@@ -14,7 +14,7 @@ void init_object_with_flag_and_state(cls_10564150 *param_1,uint32_t param_2)
   
   param_1->field_0xd9 = 0;
   param_1->field_0x44 = param_2;
-  set_flg_obj((void *)&param_1->field_0xcc);
+  set_flg_obj((void *)&param_1->field_0xcc, 0x1);
   param_1->field_0xd6 = 0;
   iVar1 = debug_mode_wrapper();
   if (iVar1 != 0) {

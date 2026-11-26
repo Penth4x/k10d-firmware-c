@@ -41,7 +41,7 @@ uint32_t advance_timer_on_event_0x2d(int param_1,int param_2)
       if (99 < iVar2) {
 LAB_1046d69e:
         set_flag_with_notify(*(void **)(param_1 + 0x54));
-        set_flg_obj((uint32_t *)(param_1 + 0x44));
+        set_flg_obj((uint32_t *)(param_1 + 0x44), 0x2);
         goto LAB_1046d6ba;
       }
       uVar3 = 100;

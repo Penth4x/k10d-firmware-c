@@ -10,7 +10,7 @@ uint32_t set_flag_if_param2_is_0x400002(cls_105d5094 *param_1,int param_2)
 
 {
   if (param_2 == 0x400002) {
-    set_flg_obj((void *)&param_1->field_0x28);
+    set_flg_obj((void *)&param_1->field_0x28, 0x1);
   }
   return 0;
 }

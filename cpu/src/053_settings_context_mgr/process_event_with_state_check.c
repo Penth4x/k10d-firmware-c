@@ -55,7 +55,7 @@ void process_event_with_state_check(cls_10594c54 *param_1,int param_2)
         call_helper_with_0x50000((uint32_t)(param_1),uVar2);
       }
       else {
-        set_flg_obj(&param_1->field_0x48);
+        set_flg_obj(&param_1->field_0x48, 0x2);
       }
     }
     write_value_to_offset_0x40((uint32_t)(param_1));

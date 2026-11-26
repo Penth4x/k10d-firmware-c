@@ -152,7 +152,7 @@ void process_mode_event_flags_10416f34(int param_1)
   }
   else {
     check_kernel_call_success_10459fea();
-    set_flg_obj((uint32_t *)(param_1 + 0x1538));
+    set_flg_obj((uint32_t *)(param_1 + 0x1538), 0x80);
   }
   return;
 }

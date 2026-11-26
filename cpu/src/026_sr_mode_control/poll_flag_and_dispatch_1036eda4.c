@@ -29,7 +29,7 @@ void poll_flag_and_dispatch_1036eda4(cls_10557f3c *param_1)
   do {
     do {
       puVar1 = &param_1->field_0xbc;
-      set_flg_obj(puVar1);
+      set_flg_obj(puVar1, 0x2);
       eventflag_wai_flg(puVar1,1,&uStack_c,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar1,uStack_c);
     } while ((uStack_c & 1) == 0);

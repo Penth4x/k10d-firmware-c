@@ -21,13 +21,13 @@ void set_object_flag_and_notify(int param_1,int param_2)
   if (param_2 == 0) {
     *(uint8_t *)(param_1 + 0x1535) = 0;
     store_word_at_offset_0x1500(param_1,0);
-    set_flg_obj((uint32_t *)(param_1 + 0x1538));
+    set_flg_obj((uint32_t *)(param_1 + 0x1538), 0x8);
   }
   else {
     *(uint8_t *)(param_1 + 0x1535) = 1;
     store_word_at_offset_0x1500(param_1,1);
-    set_flg_obj((uint32_t *)(param_1 + 0x1538));
+    set_flg_obj((uint32_t *)(param_1 + 0x1538), 0x10);
   }
-  set_flg_obj((uint32_t *)(param_1 + 0x1540));
+  set_flg_obj((uint32_t *)(param_1 + 0x1540), 0x80);
   return;
 }

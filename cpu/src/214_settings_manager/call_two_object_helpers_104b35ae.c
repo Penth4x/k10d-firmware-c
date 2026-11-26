@@ -17,6 +17,6 @@ void call_two_object_helpers_104b35ae(cls_105b7f68 *param_1)
 
 {
   lazy_init_field_at_offset_0x18(param_1->field_0x2c);
-  set_flg_obj((void *)param_1->field_0x44);
+  set_flg_obj((void *)param_1->field_0x44, 0x400);
   return;
 }

@@ -41,19 +41,19 @@ uint32_t poll_input_and_update_state(cls_1059c10c *param_1,int *param_2)
 LAB_1041375e:
   iVar3 = (((vtbl_entry*)(*param_2))[6].fn)((int)((vtbl_entry*)(*param_2))[6].adj + (int)param_2,0x2e);
   if (iVar3 != 0) {
-    set_flg_obj((uint32_t *)&param_1[1].field_0x580);
+    set_flg_obj((uint32_t *)&param_1[1].field_0x580, 0x20000000);
   }
   iVar3 = (((vtbl_entry*)(*param_2))[3].fn)((int)((vtbl_entry*)(*param_2))[3].adj + (int)param_2,1);
   if ((iVar3 != 0) &&
      (iVar3 = (((vtbl_entry*)(*param_2))[3].fn)((int)((vtbl_entry*)(*param_2))[3].adj + (int)param_2,0x24),
      iVar3 != 0)) {
     if (param_1[1].field_0x56a != '\0') {
-      set_flg_obj((uint32_t *)&param_1[1].field_0x580);
+      set_flg_obj((uint32_t *)&param_1[1].field_0x580, 0x40000000);
     }
     if ((uRam8000fb96 & 7) == 7) {
       iVar3 = (*(code *)0x104efd30/*ROM*/)(*(uint32_t *)&param_1->field_0x5c);
       if (iVar3 == 0) {
-        set_flg_obj((uint32_t *)&param_1[1].field_0x580);
+        set_flg_obj((uint32_t *)&param_1[1].field_0x580, 0x4000000);
       }
       uRam8000fb96 = 0;
       cRam8000fb98 = '\0';
@@ -61,7 +61,7 @@ LAB_1041375e:
   }
   if ((param_1[1].field_0x53c != '\0') &&
      (iVar3 = query_object_property_via_temp_104f2570(*(uint32_t *)&param_1->field_0x5c), iVar3 == 0)) {
-    set_flg_obj((uint32_t *)&param_1[1].field_0x580);
+    set_flg_obj((uint32_t *)&param_1[1].field_0x580, 0x8000000);
   }
   cVar1 = param_1[1].field_0x565;
   cVar2 = param_1[1].field_0x566;
@@ -81,11 +81,11 @@ LAB_1041375e:
   param_1[1].field_0x566 = uVar5;
   if (((cVar1 != '\0') || (cVar2 != '\0')) &&
      ((param_1[1].field_0x565 == '\0' && (param_1[1].field_0x566 == '\0')))) {
-    set_flg_obj((uint32_t *)&param_1[1].field_0x580);
+    set_flg_obj((uint32_t *)&param_1[1].field_0x580, 0x80);
   }
   iVar3 = (((vtbl_entry*)(*param_2))[5].fn)((int)((vtbl_entry*)(*param_2))[5].adj + (int)param_2,0);
   if ((iVar3 != 0) && (param_1[1].field_0x564 != '\0')) {
-    set_flg_obj((uint32_t *)&param_1[1].field_0x580);
+    set_flg_obj((uint32_t *)&param_1[1].field_0x580, 0x1000);
   }
   iVar3 = invoke_virtual_slot_7_104ea29c((cls_105c2050 *)&param_1->field_0x60);
   if (iVar3 != 0) {

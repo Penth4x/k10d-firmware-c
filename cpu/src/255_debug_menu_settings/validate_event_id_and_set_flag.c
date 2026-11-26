@@ -114,6 +114,6 @@ uint32_t validate_event_id_and_set_flag(cls_105c2e90 *param_1,int param_2)
     }
   }
 code_r0x104efcf8:
-  set_flg_obj(&param_1->field_0x28);
+  set_flg_obj(&param_1->field_0x28, 0x2);
   return 0;
 }

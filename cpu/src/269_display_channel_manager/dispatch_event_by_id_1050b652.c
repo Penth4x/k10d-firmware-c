@@ -85,6 +85,6 @@ uint32_t dispatch_event_by_id_1050b652(cls_105d5584 *param_1,int param_2)
       }
     }
   }
-  set_flg_obj(&param_1->field_0x68);
+  set_flg_obj(&param_1->field_0x68, 0x200000);
   return 0;
 }

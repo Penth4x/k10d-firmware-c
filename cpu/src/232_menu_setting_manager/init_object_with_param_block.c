@@ -38,6 +38,6 @@ void init_object_with_param_block(int param_1,int param_2,uint32_t param_3,void 
   *(uint32_t *)(param_1 + 0xd8) = param_9;
   *(uint32_t *)(param_1 + 0xdc) = param_10;
   *(uint8_t *)(param_1 + 0xe0) = param_11;
-  set_flg_obj((uint32_t *)(param_1 + 0x34));
+  set_flg_obj((uint32_t *)(param_1 + 0x34), 0x40000);
   return;
 }

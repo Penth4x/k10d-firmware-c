@@ -32,6 +32,6 @@ uint32_t check_id_and_set_flag(cls_105c1610 *param_1,int param_2,int param_3)
       }
     }
   }
-  set_flg_obj(&param_1->field_0x188);
+  set_flg_obj(&param_1->field_0x188, 0x40);
   return 0;
 }

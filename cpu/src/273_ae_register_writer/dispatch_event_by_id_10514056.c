@@ -42,7 +42,7 @@ uint32_t dispatch_event_by_id_10514056(cls_105d624c *param_1,int param_2,int *pa
         if (param_2 == 0x800003) {
           accumulate_lens_data_values((int)(param_1),(int)(0));
 code_r0x10514390:
-          set_flg_obj(&param_1->field_0x34c);
+          set_flg_obj(&param_1->field_0x34c, 0x40);
           goto code_r0x105143aa;
         }
         if (param_2 < 0x800004) {

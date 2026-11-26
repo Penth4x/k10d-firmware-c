@@ -19,11 +19,11 @@ uint32_t handle_event_flags_and_signal(cls_105b55bc *param_1,int param_2)
 
 {
   if ((param_2 == 0x10032) || (param_2 == 0x10033)) {
-    set_flg_obj(&((uint32_t *)&(param_1->field_0x8))[0]);
+    set_flg_obj(&((uint32_t *)&(param_1->field_0x8))[0], 0x2);
     sig_sem_obj(&param_1->field_0x10);
   }
   else if ((param_2 == 0x10036) || (param_2 == 0x1000f)) {
-    set_flg_obj(&((uint32_t *)&(param_1->field_0x8))[0]);
+    set_flg_obj(&((uint32_t *)&(param_1->field_0x8))[0], 0x10);
   }
   return 0;
 }

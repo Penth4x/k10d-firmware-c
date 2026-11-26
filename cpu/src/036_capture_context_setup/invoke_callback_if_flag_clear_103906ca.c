@@ -36,7 +36,7 @@ void invoke_callback_if_flag_clear_103906ca(cls_1055a304 *param_1,uint32_t param
       sVar1 = *(short *)(iVar3 + 0x20);
       swap_three_words_with_callbacks_10390e74(auStack_14,(int)&param_1->field_0x68);
       (((vtbl_entry*)(iVar3))[4].fn)((int)sVar1 + (int)piVar2,auStack_14);
-      set_flg_obj(&param_1->field_0x4c);
+      set_flg_obj(&param_1->field_0x4c, 0x1);
     }
   }
   return;

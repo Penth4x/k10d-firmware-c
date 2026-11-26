@@ -24,7 +24,7 @@ uint32_t handle_event_0x2e(cls_1059be70 *param_1,int param_2)
   if (param_1->field_0xc0 != '\0') {
     iVar4 = *(int *)(param_1->field_0x6c + 4);
     (((vtbl_entry*)(iVar4))[11].fn)(param_1->field_0x6c + (int)((vtbl_entry*)(iVar4))[11].adj);
-    set_flg_obj(&param_1->field_0x74);
+    set_flg_obj(&param_1->field_0x74, 0x1);
     return 0;
   }
   uVar1 = param_1->field_0x70;
@@ -54,7 +54,7 @@ uint32_t handle_event_0x2e(cls_1059be70 *param_1,int param_2)
       (((vtbl_entry*)(iVar4))[11].fn)(param_1->field_0x6c + (int)((vtbl_entry*)(iVar4))[11].adj);
       set_flag_with_notify((char*)(param_1) ->field_0x44);
 code_r0x1040fcca:
-      set_flg_obj(&param_1->field_0x74);
+      set_flg_obj(&param_1->field_0x74, 0x1);
       goto code_r0x1040fcd8;
     }
     clear_flag_with_notify((char*)(param_1) ->field_0x44);

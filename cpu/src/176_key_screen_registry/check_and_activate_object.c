@@ -26,7 +26,7 @@ uint32_t check_and_activate_object(void *param_1,int param_2)
   }
   else {
     read_struct_field_at_index_1046c7ca(param_2,0);
-    set_flg_obj((uint32_t *)((int)param_1 + 0x20));
+    set_flg_obj((uint32_t *)((int)param_1 + 0x20), 0x2);
     clear_three_struct_fields((int)param_1);
     uVar1 = 0;
   }

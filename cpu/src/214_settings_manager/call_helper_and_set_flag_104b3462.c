@@ -10,6 +10,6 @@ void call_helper_and_set_flag_104b3462(cls_105b7f68 *param_1)
 
 {
   invoke_virtual_slot_two_on_two_objects_104b3bca(__frv_reg_unset(4));
-  set_flg_obj((void *)param_1->field_0x44);
+  set_flg_obj((void *)param_1->field_0x44, 0x400000);
   return;
 }

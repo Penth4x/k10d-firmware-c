@@ -50,7 +50,7 @@ uint32_t release_mode_entry_objects(int param_1,int param_2,int param_3)
       if ((*(char *)(param_1 + 0x92) != '\0') || (*(char *)(param_1 + 0x93) != '\0')) {
         return 0;
       }
-      set_flg_obj((uint32_t *)(param_1 + 0x1538));
+      set_flg_obj((uint32_t *)(param_1 + 0x1538), 0x200);
       iVar9 = *(int *)(param_1 + 0x1504);
       while (iVar9 != 0) {
         check_kernel_call_success_10459fea();
@@ -238,7 +238,7 @@ uint32_t release_mode_entry_objects(int param_1,int param_2,int param_3)
         uVar10 = *(uint *)(param_1 + 0x1530);
       }
       *(uint *)(param_1 + 0x1530) = *(uint *)(param_1 + 0x1530) & 0xffdfffff;
-      set_flg_obj((uint32_t *)(param_1 + 0x1538));
+      set_flg_obj((uint32_t *)(param_1 + 0x1538), 0x80);
     }
   }
   *(uint32_t *)(param_1 + 0x15d0) = 100;

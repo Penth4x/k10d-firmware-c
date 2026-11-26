@@ -9,7 +9,7 @@
 void set_flag_and_increment_counter(cls_1059d1d8 *param_1)
 
 {
-  set_flg_obj((void *)&param_1->field_0xcc);
+  set_flg_obj((void *)&param_1->field_0xcc, 0x1);
   if (param_1->field_0x98 != '\0') {
     param_1->field_0x9c = param_1->field_0x9c + 1;
   }

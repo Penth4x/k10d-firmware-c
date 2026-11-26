@@ -15,7 +15,7 @@ uint32_t set_flag_on_event_code(cls_105b3fbc *param_1,int param_2)
 
 {
   if ((param_2 == 0xa00003) || (param_2 == 0xa00001)) {
-    set_flg_obj((void *)&param_1->field_0x24);
+    set_flg_obj((void *)&param_1->field_0x24, 0x20000);
   }
   return 0;
 }

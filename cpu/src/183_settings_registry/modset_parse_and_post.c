@@ -26,7 +26,7 @@ int modset_parse_and_post(uint32_t *param_1)
   else {
     *(uint8_t *)(param_1 + 0x1b) = 0;
     *(uint8_t *)((int)param_1 + 0x31) = 0;
-    set_flg_obj(param_1 + 0x19);
+    set_flg_obj(param_1 + 0x19, 0x1);
   }
   return (int)param_1;
 }

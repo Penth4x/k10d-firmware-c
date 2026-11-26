@@ -16,7 +16,7 @@
 uint32_t init_object_with_flag_and_zero_byte(void *param_1)
 
 {
-  set_flg_obj((uint32_t *)((int)param_1 + 0x20));
+  set_flg_obj((uint32_t *)((int)param_1 + 0x20), 0x2);
   clear_three_struct_fields((int)param_1);
   *(uint8_t *)((int)param_1 + 0x28) = 0;
   return 0;

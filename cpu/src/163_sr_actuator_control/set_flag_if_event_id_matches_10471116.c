@@ -10,7 +10,7 @@ uint32_t set_flag_if_event_id_matches_10471116(int param_1,int param_2)
 
 {
   if (param_2 == 0x1070001) {
-    set_flg_obj((uint32_t *)(param_1 + 0x4c));
+    set_flg_obj((uint32_t *)(param_1 + 0x4c), 0x4);
   }
   return 0;
 }
