@@ -465,6 +465,31 @@ Reliable measurement (prerequisite for all localization):
   candidate fn-entries 5.33M → 52k.
 - **Status:** root + 8 on-path high-confidence instances swept.
 
+## B-3d · register-forwarder trap wrapper: callee uses `__frv_reg_unset(N)`, callers dropped the delay-slot `ldi #k,rN` ← **the menu poll (d329)**
+- **Generalization (Andrew, d329):** "the argument gets stomped in favour of a broken implicit register
+  pass." A function receives an argument *implicitly via a register* set by the caller (often in the
+  call's **delay slot**, `ldi #k,rN; call:d`). The decompiler (a) dropped the caller's `rN` setup — the
+  caller's C passes NO arg — and (b) made the callee read `rN` via `__frv_reg_unset(N)` (stub → **0**,
+  and it clobbers r4-r7). So EVERY caller's argument becomes 0. Distinct from B-3c (there the callee HAS
+  a declared param): here the callee has NO param and is a thin forwarder (often to a µITRON trap).
+- **Root instance:** `check_kernel_call_success_10459fea` (0x10459fea) — a **timed-wait** trap wrapper:
+  the original traps to `allocate_kernel_object_1000e4e0` (service uses `r4` = a **timeout in ticks**).
+  **92 caller files / 153 call sites**, each with a DIFFERENT timeout in its delay slot (0xa×28,
+  0x3e8×22, 0x1×21, 0x32, 0x64, 0x7d0, 0x14, 0x1f4, … + a few computed/variable). Decompile dropped all
+  of them → every timed wait gets timeout 0. Menu link: `poll_context_flag_until_status_set` passes r4=1
+  (1-tick per-iteration yield); with r4=0 the poll never yields, the companion-SPI handshake never spins,
+  and the cpucom status byte `+0x28` is read prematurely → the poll breaks after 1 iter → event 0x10002
+  / flag 0x37 never fire → black screen.
+- **Detection:** `scripts/detect_reg_unset.py` (476 thin forwarders with a FORWARD `__frv_reg_unset`).
+  Per forwarder, the caller timeouts are recoverable from the original: `scripts/fix_check_kernel_timeout.py`
+  disassembles each caller, reads the delay-slot `ldi #k,r4`, and injects it (88/92 files auto-match on
+  call-site count; the rest are loops / computed args → manual).
+- **Fix:** give the wrapper a real parameter and pass each caller's recovered value:
+  `check_kernel_call_success_10459fea(uint timeout){ return __trap_allocate_kernel_object_1000e4e0(timeout)==0; }`
+  then update every call site. (Pure non-trap forwarders may instead use harvest_asm, but harvest's
+  trap→direct-call rewrite makes it WRONG for kernel-service wrappers — see B-16 note.)
+- **Status (d329):** mechanism verified via a poll-only inline probe; full 153-site sweep in progress.
+
 ## B-13 · kernel-descriptor stack-split (multi-word trap descriptor emitted as non-adjacent locals) ← **B-1 variant; the menu-blocker chain**
 - **Symptom:** a created kernel object (eventflag, cyclic handler, queue, task) gets a GARBAGE field
   (initial flag pattern, handler ptr, exinf), or a 2-word kernel *result* loses its second word
