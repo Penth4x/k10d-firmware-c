@@ -58,6 +58,10 @@ if [ -s "$OUT/warnings.txt" ]; then
   echo "!!!!! $(sort -u "$OUT/warnings.txt" | wc -l) distinct line(s) above — full log: $OUT/warnings.txt"
   echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"; echo ""
 fi
+# Regenerate the rodata function-pointer relocation table from scripts/confirmed_fnptrs.txt BEFORE
+# assembling cpu/gen/*.asm — otherwise an edit to confirmed_fnptrs.txt silently has no effect (the
+# stale rodata_fnptrs.asm is assembled instead, so added fnptr redirects never land). Found d329.
+python3 "$HERE/../scripts/gen_rodata_fnptrs.py" 2>/dev/null || echo "   (gen_rodata_fnptrs.py failed — rodata_fnptrs.asm may be stale)"
 echo "[2] assemble hand-written / harvested asm (crt0, vtables, syms, syscall_traps, + every cpu/gen/*.asm: hand-asm'd fcc-can't-recompile functions from scripts/harvest_asm.py)"
 for g in "$HERE"/gen/*.asm; do a=$(basename "$g" .asm); (cd "$SOFTUNE" && wine BIN/FASM911S.EXE -cpu $CPU -o "$(w "$OBJ/$a.obj")" "$(w "$g")") >/dev/null 2>&1 || echo "   ASM FAIL $a"; done
 echo "[3] link (pack code at $CODEBASE)"

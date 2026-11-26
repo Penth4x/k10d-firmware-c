@@ -189,6 +189,10 @@
 	.DATA.L	_clear_word_at_offset_0x18
 	.SECTION	FP_105a05cc, CONST, LOCATE=0x105a05cc
 	.DATA.L	_clear_offset_0x18_field
+	.SECTION	FP_105a05ec, CONST, LOCATE=0x105a05ec
+	.DATA.L	_dispatch_event_if_below_threshold
+	.SECTION	FP_105a05f4, CONST, LOCATE=0x105a05f4
+	.DATA.L	_forward_bool_to_helper
 	.SECTION	FP_105a063c, CONST, LOCATE=0x105a063c
 	.DATA.L	_set_next_pointer_if_null
 	.SECTION	FP_105a0768, CONST, LOCATE=0x105a0768
