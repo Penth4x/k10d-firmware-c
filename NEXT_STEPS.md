@@ -36,6 +36,16 @@
 ## TARGET is singular: make the companion-ready signal wait for the real companion handshake (as stock does)
 ## instead of firing early — i.e., why call_two_initializers dispatches at 5.58M not 35.7M (REALOS
 ## scheduler/companion-gating core). Use FRN_DSP_LOG as pass/fail for any fix.
+## EARLY BOOT RULED OUT (d329, trace_diff.py on clean 0-2.5M traces): the candidate and stock are IDENTICAL
+## in early boot — object registration (store_value_if_valid/register_entry_in_table) has byte-identical
+## (object, index) pairs at the SAME heap addresses (e.g. obj 0x8055505c @ index 0x11 in both). So NO
+## upstream bug, NO off-by-one (an apparent off-by-one in trace_diff ARG output was ALIGNMENT DRIFT from the
+## trap-wrapper STRUCT divergences — the documented caveat; verify ARG divergences directly). The companion
+## OBJECT itself is fine (same addr, same table index). => the divergence is PURELY the companion-ready
+## TIMING (when call_two_initializers dispatches: 5.58M cand vs 35.7M stock), not object content or early
+## state. This narrows the root to the companion-ready DISPATCH GATE only. Also: write_initial_config_values
+## is NET-CORRECT (decompiler simplified 0x471d&0xbfff->0x71d and orh/andh->&0xff7e; only a harmless reset-
+## path 32-bit-store width quirk on 0x50000008) — do NOT "fix" it.
 
 ## ★★★ CURRENT (d329): MODE-PUMP DEADLOCK CLEARED — new blocker is the companion-cpucom bootstrap reset
 ## The onion-peel reached the MODE PUMP. B-3v vtable-dropped-arg (invoke_virtual_slot_3_on_member_10466604)
