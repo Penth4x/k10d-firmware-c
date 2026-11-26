@@ -72,6 +72,27 @@ def dis1(pc):
     if op==0x82: return (f"and {R(rj)},{R(ri)}",2)
     if op==0x92: return (f"or {R(rj)},{R(ri)}",2)
     if op==0x9A: return (f"eor {R(rj)},{R(ri)}",2)
+    # FR memory-logic (read-modify-write to memory): Rj op @Ri, word/half/byte.
+    # qemu op_helper.c op 0x84-0x9e. These are common in flag/MMIO RMW code; frdis was blind
+    # to them (printed .word), so frdis-based set_flg/clear_flg checkers missed real RMW ops.
+    if op==0x84: return (f"and {R(rj)},@{R(ri)}",2)
+    if op==0x85: return (f"andh {R(rj)},@{R(ri)}",2)
+    if op==0x86: return (f"andb {R(rj)},@{R(ri)}",2)
+    if op==0x94: return (f"or {R(rj)},@{R(ri)}",2)
+    if op==0x95: return (f"orh {R(rj)},@{R(ri)}",2)
+    if op==0x96: return (f"orb {R(rj)},@{R(ri)}",2)
+    if op==0x9C: return (f"eor {R(rj)},@{R(ri)}",2)
+    if op==0x9D: return (f"eorh {R(rj)},@{R(ri)}",2)
+    if op==0x9E: return (f"eorb {R(rj)},@{R(ri)}",2)
+    # FR bit ops on a memory byte: #u4,@Ri (low/high nibble). qemu op 0x80/81/90/91/98/99/88/89.
+    if op==0x80: return (f"bandl #{xc},@{R(ri)}",2)
+    if op==0x81: return (f"bandh #{xc},@{R(ri)}",2)
+    if op==0x90: return (f"borl #{xc},@{R(ri)}",2)
+    if op==0x91: return (f"borh #{xc},@{R(ri)}",2)
+    if op==0x98: return (f"beorl #{xc},@{R(ri)}",2)
+    if op==0x99: return (f"beorh #{xc},@{R(ri)}",2)
+    if op==0x88: return (f"btstl #{xc},@{R(ri)}",2)
+    if op==0x89: return (f"btsth #{xc},@{R(ri)}",2)
     if hi4==0xC: return (f"ldi:8 #0x{(w>>4)&0xff:x},{R(ri)}",2)
     if op==0x04: return (f"ld @{R(rj)},{R(ri)}",2)
     if op==0x00: return (f"ld @(r13,{R(rj)}),{R(ri)}",2)
