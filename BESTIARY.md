@@ -71,10 +71,26 @@ Reliable measurement (prerequisite for all localization):
     Tools: `frdis.py`, `resolve_rfs.py`, `rfs_table.py`, `patch_rfs.py`. **DONE (d327)** — 3 off-path
     callers (`iterate_and_check_queue_items`, `dispatch_lens_comm_command`, `initialize_mode_context`)
     best-effort (branchy/mangled decompile), flagged for Ghidra re-verify.
+  - `set_flg_obj` (0x104596cc, unit 127) — **the eventflag-signal root; 213 callers / 240 sites.**
+    Typed 1-arg; original forwards incoming **r5 (the flag pattern)** unchanged to
+    `__trap_set_event_flag_bits`. Every caller emitted single-arg → `set_flg(id, 0)` = no-op, so
+    waiters on `wai_flg` never wake (terminal int40 trace: `set_flg(flag 0x2e)=pattern 0` vs
+    `wai_flg(0x2e)=0x2`). Sig `(uint32_t*, uint32_t)` forwarding param_2. Swept via
+    `patch_setflg.py` (184 single-call constants) + `patch_setflg2.py` (24 multi-call, per-site
+    r5) + 5 by hand. **DONE (ba9096d8).**
+  - `set_flag_on_object_at_offset_0x70_104ded7a` (0x104ded7a, unit 248) — a **latent** B-3 leaf the
+    set_flg_obj sweep surfaced: typed 1-arg `(int param_1)` but forwards incoming **r5** to
+    set_flg_obj. `patch_setflg.py`'s blind 2nd-arg append wrote `param_2` into a sig that lacked it
+    → **CC FAIL (undefined `param_2`)**, aborting the build. Fix: add `uint32_t param_2` to sig+proto;
+    caller `call_single_helper_104dec7a` sets r5=`*(param_1+0x68)` in the delay slot; caller
+    `call_single_helper_104df450` is **itself** a B-3 forwarder (forwards its own `param_x1`). **DONE.**
+    **Lesson:** a blind arg-appender turns latent under-arity forwarders into *compile errors* —
+    treat such a CC FAIL as a B-3 signal; resolve the register at the call site via disasm, never
+    just delete the arg.
 - **Tooling note:** `scripts/resolve_rfs.py` is a reusable linear symbolic FR tracer (params→regs,
   callee-saved r8-r11/r14, call clobbers, delay slots, one level of stack-spill following). It
   mis-reads branch-dependent values — always cross-check branchy callers against disasm (`frdis.py`).
-- **Status:** reg_framework_send class swept; link pending. Remaining open: lookup_table_entry_by_index.
+- **Status:** reg_framework_send + set_flg_obj classes swept. Remaining open: lookup_table_entry_by_index.
 
 ## B-4 · frame-pointer codegen mismatch
 - **Symptom:** extra `ENTER`/R14 frame where the original compiler omitted it; stack-layout drift.
@@ -308,6 +324,13 @@ Reliable measurement (prerequisite for all localization):
   two-register/CONCAT44 source ⇒ rewrite to extract the real half without a 64-bit shift; a plain
   32-bit source ⇒ drop the spurious `>> 0x20`. Distinct from B-2 (short-split STORE of a 32-bit value
   as two 16-bit halves); B-10 is a 64-bit *shift* collapsing.
+- **Header helpers caveat (`cpu/include/stdint.h`):** fcc911s models **every** shift count against
+  32-bit width — a `uint64_t` shift by ≥32 (`x>>32`, `x>>63`) both emits `W1063B` **and** silently
+  masks the count to 5 bits, i.e. miscompiles. The compat helpers `__frv_clzll`/`__frv_popcountll`
+  (exposed as `__builtin_clzll`/`__builtin_popcountll`) originally used `x>>63` → broken (currently
+  **unused**, so harmless, but "accidentally-wrong dead code"). Rewritten to walk the two 32-bit
+  halves via big-endian word access (`((uint32_t*)&x)[0]`=hi, `[1]`=lo), all shifts ≤31. **Rule:**
+  never write a `>=32` shift on a 64-bit value in C compiled by fcc — split into word halves.
 
 ## B-3b · dropped SYSCALL arg (r5+ not passed to an int #0x40 trap) ← B-3 at an ABI boundary
 - **Symptom:** a kernel syscall gets a garbage second arg — e.g. a task created with a bogus

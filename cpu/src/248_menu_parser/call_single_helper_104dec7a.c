@@ -18,6 +18,6 @@
 void call_single_helper_104dec7a(cls_105bb0ec *param_1)
 
 {
-  set_flag_on_object_at_offset_0x70_104ded7a((int)param_1);
+  set_flag_on_object_at_offset_0x70_104ded7a((int)param_1, *(uint32_t *)((int)param_1 + 0x68));
   return;
 }

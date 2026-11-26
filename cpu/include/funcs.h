@@ -10622,7 +10622,7 @@ void call_single_helper_104dec90(void);
 void drain_flagged_queue(cls_105bb0ec *param_1);
 uint find_first_free_bit(void *param_1);
 uint poll_event_queue_for_mask(int param_1,uint param_2,int param_3);
-uint32_t set_flag_on_object_at_offset_0x70_104ded7a(int param_1);
+uint32_t set_flag_on_object_at_offset_0x70_104ded7a(int param_1, uint32_t param_2);
 void update_dual_object_state_flags(int param_1);
 uint32_t store_value_and_set_flag_104dee4a(cls_105bb314 *param_1,uint32_t param_2);
 uint32_t set_flag_on_object_at_offset_0x70_104dee68(cls_105bb314 *param_1);

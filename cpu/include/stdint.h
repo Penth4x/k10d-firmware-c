@@ -26,8 +26,21 @@ typedef unsigned int       uintptr_t;
 #define __builtin_strcat  strcat
 #define __builtin_strncat strncat
 #define __builtin_strlen  strlen
-static uint32_t __frv_popcountll(uint64_t x){ uint32_t n=0; while(x){ n+=(uint32_t)(x&1u); x>>=1; } return n; }
-static uint32_t __frv_clzll(uint64_t x){ uint32_t n=0; if(!x) return 64; while(!((x>>63)&1u)){ x<<=1; n++; } return n; }
+/* Operate on the two 32-bit halves via big-endian word access (FR is big-endian): fcc911s
+ * models shift counts against 32-bit width, so any >>32/<<32/>>63 on a uint64_t both warns
+ * (W1063B) and miscompiles (count is masked to 5 bits). Keep every shift <= 31. */
+static uint32_t __frv_popcountll(uint64_t x){
+  const uint32_t *w=(const uint32_t *)&x; uint32_t n=0,v;
+  v=w[0]; while(v){ n+=(uint32_t)(v&1u); v>>=1; }
+  v=w[1]; while(v){ n+=(uint32_t)(v&1u); v>>=1; }
+  return n;
+}
+static uint32_t __frv_clzll(uint64_t x){
+  const uint32_t *w=(const uint32_t *)&x; uint32_t hi=w[0], lo=w[1], n=0;
+  if(hi){ while(!((hi>>31)&1u)){ hi<<=1; n++; } return n; }
+  if(lo){ while(!((lo>>31)&1u)){ lo<<=1; n++; } return n+32; }
+  return 64;
+}
 #define __builtin_popcountll(x) __frv_popcountll((uint64_t)(x))
 #define __builtin_clzll(x)      __frv_clzll((uint64_t)(x))
 #endif
