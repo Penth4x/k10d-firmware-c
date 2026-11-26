@@ -53,6 +53,20 @@
 ## field value; (c) the current kernel tick at insertion. Either the relative timeout VALUE is wrong
 ## (dropped/garbled arg -> ~0, a B-3 class fit) or the tick base is wrong. Use object-identity tracing,
 ## fresh flash, no FLASH_SAVE.
+## CREATION PATH FOUND (d329): populate_context_from_global_state (0x10466b4c, cpucom vtable slot 2) sets
+## ctx+0x20 = read_table_entry_field(sram,8) then create_kernel_object(&ctx+0xc). create_kernel_object
+## (orig 0x104593c8) builds EXACTLY a 3-word descriptor {0(attr), exinf, handler=call_virtual_slot_2_on_nested_object}
+## — NO timeout/cyctim word (verified in the original asm; desc[0]=0 in BOTH stock and candidate). So the
+## handler fire is NOT a simple relative-timeout you can grep for — it is driven by the kernel timeout-queue
+## / scheduler (prior note: "runs via vtable[2] during a terminate_task scheduler pass"). The fire happens
+## ~500 ticks early in the candidate DESPITE a faithful create. => the divergence is in the KERNEL
+## TIMEOUT-QUEUE / SCHEDULER timing, or in WHEN the triggering event (a task terminate / dispatch) occurs.
+## DEEP NEXT (hard, REALOS internals): with a clean trace (fresh flash, no FLASH_SAVE), instrument the
+## timeout-queue: when is this handler's node inserted (find_free_queue_slot 0x1000d66c via int#0x40) and
+## with what node time; what increments the kernel tick; and what triggers the dispatch pass that runs the
+## handler at ic 5.58M (cand) vs 35.7M (stock). Compare the TRIGGERING task-terminate/dispatch timing. This
+## is the long-standing companion-bootstrap/alarm-fire-time root; it is now pinned to the kernel timeout-queue
+## dispatch of the call_two_initializers handler created by populate_context_from_global_state.
 ## ======================================================================================================
 ##
 ## ROOT CHAIN (fully traced d329 via FRN_BADPC + FRN_FT_FULLREGS at ic 7272159-7272164):
