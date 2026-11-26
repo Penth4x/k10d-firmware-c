@@ -60,6 +60,13 @@ drive the count to 0. **Debt baseline (d329): 2145 uses / 860 files (2140 as cal
 - [ ] Leak #1 (0x1048222c via slot 0x105ab64c = query_object_via_virtual_call_10480050) is a MID-FUNCTION
       target (cls_105ab600_delete+0x5a), NOT a function entry -> can't relocate to a symbol; it's a
       computed-jump/switch leak needing a different fix (fix the jump table or the function).
+- [ ] Kernel leak 0x10760f12 -> 0x1000d100 (validate_and_store_task_params) TRIAGED (d329): the target IS
+      recompiled (packed 0x10815f0c) but is a KERNEL task-param fn called via a fn-ptr table during act_tsk
+      (runs 151x = once per reset-loop iter). This is likely a KERNEL-INTERNAL dispatch that SHOULD stay
+      original (the kernel runs original code; redirecting its internal table to a packed copy risks
+      breaking act_tsk). Do NOT blindly add to confirmed_fnptrs.txt — needs judgment on whether the kernel
+      table should point packed or original. Leave as-is until the act_tsk/scheduler path is understood
+      (it is on the menu-root critical path — see NEXT_STEPS).
 - [ ] LINKER-NATIVE vtables (Andrew): emit vtables/dispatch-tables as real linker sections
       (`.DATA.L _sym` per slot) instead of per-word CONFIRMED_TABLES overlay patches — kills the whole
       undetected-fnptr class at once (no guessing fnptr-vs-data, no whack-a-mole). Start with the
