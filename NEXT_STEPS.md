@@ -23,6 +23,30 @@
 ## NOTE: write_initial_config_values IS miscompiled (st-vs-sth width, 0x71d-vs-0x471d, dropped orh #1 /
 ## andh #0xbfff / conditional bit-0 clear) BUT it is a RED HERRING for the loop — stock never calls it
 ## (reset-path only); it only runs AFTER the crash. Fix it for correctness, not to stop the loop.
+## ======================================================================================================
+## CORRECTED CLEAN ROOT (d329, late) — read THIS first; it supersedes the +0x10c analysis below it:
+## The menu blocker is the SAME as the prior-instance ALARM FIRE-TIME bug. With CLEAN methodology (fresh
+## candidate copy, NO FRN_FLASH_SAVE — matching how stock is tested), the poll ENTERS its loop (the +0x10c
+## guard is fine) but EXITS AFTER 1 ITERATION because the companion-ready byte *(ctx+0x28) reads 1 after
+## just 1 tick. *(ctx+0x28) is set by set_flag_at_offset_0x28_10467264 (0x107f4f4a), called by
+## call_two_initializers_10466f6e (the kernel TIMEOUT-QUEUE handler). In stock that handler fires at tick
+## ~393 (ic ~35.7M) so the poll blocks ui_task6 until the companion is ready; in the candidate it fires at
+## tick ~1, so cpucom_execute_transaction returns immediately -> ui_task6 polls the companion before it is
+## ready -> cpucom error -> B-6 null crash -> reset loop. => ROOT = the fire-time/registration of the
+## call_two_initializers timeout-queue entry (create_kernel_object {0,exinf,handler} is faithful; the
+## relative timeout is set by a sta_cyc/sta_alm-like call — find IT and diff the timeout value / the
+## create-to-start tick gap candidate-vs-stock).
+## TWO METHODOLOGY TRAPS that sent me down a +0x10c dead-end (avoid them):
+##   (1) FRN_FLASH_SAVE pollutes behavior: flash writes persist and CHANGE heap/object state between runs,
+##       so a candidate run WITH flash-save diverges from stock (tested WITHOUT). Test BOTH the same way —
+##       fresh bios copy, NO FLASH_SAVE — or results are not comparable. (The +0x10c=0 / poll-SKIP was a
+##       flash-save artifact; with a clean flash +0x10c=0x80554594 and the poll ENTERS the loop.)
+##   (2) TWO similarly-named setters exist: set_flag_at_offset_0x28_10466fde (0 hits) vs
+##       set_flag_at_offset_0x28_10467264 (the real one). Grepping the wrong one gave a false "never fires".
+## NEXT: find where call_two_initializers' timeout is STARTED and why its relative delay is ~1 tick not
+## ~393. Use object-identity tracing, fresh flash, no FLASH_SAVE.
+## ======================================================================================================
+##
 ## ROOT CHAIN (fully traced d329 via FRN_BADPC + FRN_FT_FULLREGS at ic 7272159-7272164):
 ##   cpucom_poll_driver(param_1, param_2=message): piVar3 = read_struct_field_at_offset_0x14(param_2)
 ##   = *(message+0x14) = 0 (NULL). The code then does `ld @r0,r0` on NULL and calls vtable slot 2 -> call 0.
