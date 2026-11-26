@@ -756,3 +756,73 @@ task upstream that itself is blocked). This is an un-posted-event chain, not a w
 ## 0x80532e58 if the ctx addr 0x80532e30 is stable) -> the FROM pc names the setter + the ic; (2) fire-time
 ## of set_flag_at_offset_0x28_10466fde and call_two_initializers_10466f6e in candidate (expect ~5.6M) vs stock
 ## (expect ~35.7M); (3) then trace what dispatches the event to call_two_initializers_10466f6e early.
+
+## ======================================================================================================
+## ★★★★★ MENU ROOT — FULL VALIDATED CHAIN (d329). The candidate's companion-ready fires 6.4x early; every
+## link measured on both sides with FRN_FT_PC (tool known-answer-validated). THE CHAIN:
+##   populate_context_from_global_state (slot2 of cls_105a7df8; companion init) cand ic 1.67M
+##     -> create_kernel_object(&field_0xc) [my B-13 fix; desc 3 words {attr=0,exinf,handler=0x10459448},
+##        VERIFIED 3-word via insert_timeout_queue_node reading offsets 0/4/8] -> __trap_find_free_queue_slot
+##        -> links a timeout-queue node whose handler = call_virtual_slot_2_on_nested_object
+##   [timeout fires] call_virtual_slot_2_on_nested_object -> slot2 -> call_two_initializers_10466f6e
+##     -> set_flag_at_offset_0x28_10466fde writes ctx(0x80532e30)+0x28 = 1  :: cand ic 5.576M / STOCK 35.706M
+##   -> poll_context_flag_until_status_set (top of ui_task6_body) was spinning on read_byte +0x28; the early
+##      =1 breaks it -> first companion SPI xfer (spi_read_byte 0x104404f8) cand ic 5.616M / STOCK 35.746M
+##   -> companion not ready -> Cmd:80 (vs stock Cmd:04 POST) -> CPUCOM ERROR -> B-6 null crash -> reset loop.
+## MEASURED: ui_task6_body ENTERS early in BOTH (stock 2.65M, cand 5.55M); set_flag_fde fires stock 35.706M vs
+## cand 5.576M; spi_read_byte stock 35.746M r5=0x04 vs cand 5.616M r5=0x00. The kernel (unit 000) is byte-stock.
+## PENDING BRANCH (trace in flight): stock populate_context_from_global_state (0x10466b4c) first-fire ic.
+##   - If ~1.67M (early, == cand): the companion INIT runs at the same time in both, so the timeout DELAY
+##     differs -> suspect the descriptor attr (desc[0]; my create_kernel_object fix set 0 — VERIFY stock attr
+##     via original 0x104593c8 build; if stock attr != 0 my fix is the regression) or a post-create arm.
+##   - If ~31.8M (late): same timeout delay (~43 ticks) in both; the companion INIT itself is GATED ~30M
+##     later in stock -> find what holds populate_context/the companion-obj init until ~31.8M (app_main_task1
+##     / 16-module init / scheduler release) and why the candidate dispatches it at 1.67M.
+## FIX will be at whichever the branch selects. Oracle to confirm any fix: set_flag_fde fire ic -> ~35.7M.
+
+## CORRECTION (d329): stock populate_context fires EARLY too (ic 1.06M; cand 1.67M) — I was misled by FT
+## output buffering (the log flushed late). So the companion subsystem is CONSTRUCTED early in BOTH; the
+## timeout node is created at ~1M in both. The DIVERGENCE is purely the timeout FIRE time: set_flag_fde fires
+## at 35.706M (stock) vs 5.576M (cand) — a fire delay of ~34.6M vs ~3.9M (≈380 vs 43 ticks). Kernel (unit 000)
+## is byte-stock, descriptor is 3 words identical-width. So the fire-delay difference must be (a) different
+## descriptor VALUES passed by the RECOMPILED create_kernel_object/populate_context (attr/exinf), or (b) a
+## different fire TRIGGER (timer tick count vs an event/condition) the node waits on. NEXT: trace what
+## triggers the handler (call_virtual_slot_2_on_nested_object rp at fire time) — kernel timer ISR vec56
+## (0x1043ce50) => time-based; event-dispatch => condition-based. Then diff the enqueued node / trigger value.
+
+## MENU-ROOT FRONTIER (d329, precise handoff) — resolved to the kernel timeout-queue node fire-time:
+## The companion-ready setter chain fires when a KERNEL TIMEOUT-QUEUE NODE is dispatched (handler called from
+## kernel 0x1000fb96; r11=0x10011cf4 = DAT_10011cf0 queue). The node is created at ~1M in BOTH via
+## create_kernel_object -> find_free_queue_slot_1000d66c -> insert_timeout_queue_node, with NO deadline in the
+## create path (node = {attr=0, exinf, handler=0x10459448, id}; find_free_queue_slot requires attr==0, which my
+## fix satisfies). Yet it FIRES at tick ~393 (ic 35.706M) in stock vs ~61 (ic 5.576M) in candidate. Since the
+## create path carries no deadline and unit 000 is byte-stock, the fire-time must come from EITHER (a) the node
+## being a blocked-task WAIT node whose wake condition (a companion event/flag, or a tslp/wai_flg timeout set by
+## the BLOCKING call, not by create) is met early in the candidate, OR (b) a separate arm/period call. NEXT
+## INVESTIGATION MODE (not static reading): dump the queue node (DAT_10011cf0 + slot*0x18) in stock vs candidate
+## right after creation and compare fields; AND trace the kernel timer processor 0x1000fb96 to see what field it
+## tests to decide firing; AND find the companion task's blocking wait (the tslp_tsk/wai_flg whose timeout node
+## this is). Oracle for any fix: set_flag_at_offset_0x28_10466fde first-fire ic -> must move to ~35.7M.
+## Everything else in the chain is MEASURED & SOLID (see the ★★★★★ block above). This is the single open question.
+
+## MECHANISM FULLY RESOLVED (d329) — act_tsk_syscall_dispatcher (0x1000fa2c) is the KERNEL TIMER-TICK
+## processor (increment_timeout_counter at top; runs every tick). It walks the timeout list; OUR node is the
+## 0x18-stride / flags&8 / DAT_10011cf0 ONE-SHOT branch (lines 61-69). A node has a COUNTDOWN at +8: each tick
+## `if *(node+8)!=0 { (*node+8)--; return; }` else fire handler = *(node-8) with exinf *(node-4). So the node
+## fires after (node+8) ticks. create_kernel_object sets NO counter -> the countdown +8 is written by a SEPARATE
+## ARM op. Stock arms ~393, candidate ~61. THE LAST STEP: find what writes the node+8 countdown (the arm) and
+## why the candidate value is ~61 vs stock ~393 — a miscompiled delay/timeout value (likely a dropped/garbled
+## arg to a dly/sta_alm/wai_flg or check_kernel_call_success-style timed wrapper on the companion arm path).
+## HOW: FRN_WRWATCH the node+8 address (derive node base = DAT_10011cf0 + id*0x18; id from the companion
+## create_kernel_object return / the handler-fire trace) and read the FROM pc = the arm function; then diff its
+## delay value cand-vs-stock. Fix oracle unchanged: set_flag_fde first-fire ic -> ~35.7M.
+
+## DELTA-QUEUE ARM (d329) — the countdown node+8 is the DELTA in a µITRON delta-queue (insert_into_timeout_
+## queue_1000fcd4: param_1[2] = delta, set by CALLER before insert). Our node is the 0x18-stride one-shot
+## (DAT_10011cf0, flags&8); the 0x1c cyclic variant is armed by activate_timeout_queue_entry (sta_cyc, via
+## manage_kernel_object_handle, unit 127). ALL of this is byte-stock kernel -> the delta VALUE (393 stock / 61
+## cand) originates in the companion's APP-level timed arm call. PINPOINT (one trace): FRN_FT_PC on
+## insert_into_timeout_queue_1000fcd4 (packed) in candidate, dump r4=node & *(r4+8)=delta & rp; find the fire
+## where delta≈61 (0x3d) and node handler=0x10459448 -> the rp chain up to the companion app call that passes
+## the delta. Then diff that delay value/computation cand-vs-stock (expect a dropped/garbled arg or a wrong
+## constant -> 61 vs 393). That app function is the FIX site. Oracle: set_flag_fde first-fire -> ~35.7M.
