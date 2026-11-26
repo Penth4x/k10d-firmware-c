@@ -14,7 +14,12 @@
 uint32_t set_flag_on_event_code(cls_105b3fbc *param_1,int param_2)
 
 {
-  if ((param_2 == 0xa00003) || (param_2 == 0xa00001)) {
+  /* B-15 merged-case fix (d328): decompiler merged these two codes into one set_flg_obj(...,0x20000);
+   * original disasm (0x1048f43a) raises a DIFFERENT bit each: 0xa00003->0x10000, 0xa00001->0x20000. */
+  if (param_2 == 0xa00003) {
+    set_flg_obj((void *)&param_1->field_0x24, 0x10000);
+  }
+  else if (param_2 == 0xa00001) {
     set_flg_obj((void *)&param_1->field_0x24, 0x20000);
   }
   return 0;

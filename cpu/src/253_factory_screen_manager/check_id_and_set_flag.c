@@ -17,21 +17,19 @@
 uint32_t check_id_and_set_flag(cls_105c1610 *param_1,int param_2,int param_3)
 
 {
-  if (param_2 != 0xf00003) {
-    if (param_2 < 0xf00004) {
-      if (param_2 != 0x600001) {
-        return 0;
-      }
-    }
-    else {
-      if (param_2 != 0xf0000a) {
-        return 0;
-      }
-      if (param_1->field_0x180 != param_3) {
-        return 0;
-      }
+  /* B-15 merged-case fix (d328): decompiler merged three codes into one set_flg_obj(...,0x40).
+   * Original disasm (0x104e8082) raises a DIFFERENT bit each: 0xf00003->0x20, 0x600001->0x40,
+   * 0xf0000a->0x10 (the latter only when field_0x180 == param_3). */
+  if (param_2 == 0xf00003) {
+    set_flg_obj(&param_1->field_0x188, 0x20);
+  }
+  else if (param_2 == 0x600001) {
+    set_flg_obj(&param_1->field_0x188, 0x40);
+  }
+  else if (param_2 == 0xf0000a) {
+    if (param_1->field_0x180 == param_3) {
+      set_flg_obj(&param_1->field_0x188, 0x10);
     }
   }
-  set_flg_obj(&param_1->field_0x188, 0x40);
   return 0;
 }

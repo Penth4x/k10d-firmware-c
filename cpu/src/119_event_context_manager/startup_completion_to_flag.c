@@ -14,30 +14,26 @@
 uint32_t startup_completion_to_flag(int param_1,int param_2)
 
 {
-  if (param_2 != 0x1140002) {
-    if (param_2 < 0x1140003) {
-      if (param_2 != 0x10a0001) {
-        if (param_2 < 0x10a0002) {
-          if (param_2 != 0x1040001) {
-            return 0;
-          }
-        }
-        else if ((param_2 != 0x10b0001) && (param_2 != 0x1140001)) {
-          return 0;
-        }
-      }
-    }
-    else if (param_2 != 0x1140005) {
-      if (param_2 < 0x1140006) {
-        if ((param_2 != 0x1140003) && (param_2 != 0x1140004)) {
-          return 0;
-        }
-      }
-      else if (((param_2 != 0x1140006) && (param_2 != 0x1140007)) && (param_2 != 0x1140008)) {
-        return 0;
-      }
-    }
+  /* B-15 merged-case fix (d328): the decompiler folded all codes into one set_flg_obj(...,0x40).
+   * Recovered per-code bit from the original disasm (0x10433bb0), matching this unit's header map. */
+  uint32_t pat;
+  if (param_2 == 0x1040001) {
+    pat = 0x8;
   }
-  set_flg_obj((uint32_t *)(param_1 + 0x38), 0x40);
+  else if (param_2 == 0x10a0001) {
+    pat = 0x20;
+  }
+  else if (param_2 == 0x10b0001) {
+    pat = 0x4;
+  }
+  else if ((param_2 == 0x1140001) || (param_2 == 0x1140002) || (param_2 == 0x1140003) ||
+           (param_2 == 0x1140004) || (param_2 == 0x1140005) || (param_2 == 0x1140006) ||
+           (param_2 == 0x1140007) || (param_2 == 0x1140008)) {
+    pat = 0x40;
+  }
+  else {
+    return 0;
+  }
+  set_flg_obj((uint32_t *)(param_1 + 0x38), pat);
   return 0;
 }
