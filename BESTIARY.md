@@ -200,7 +200,7 @@ Reliable measurement (prerequisite for all localization):
   against the firmware.map packed range before attributing it; the earlier session misread this as a
   hw_init_runner r14-clobber, which the raw trace disproved.
 
-## B-9 · pointer-arithmetic scaling (`&field + idx` where `(int)&field + idx` was meant) ← **widespread; 17 sightings**
+## B-9 · pointer-arithmetic scaling (`&field + idx` where `(int)&field + idx` was meant) ← **widespread; 18 sightings**
 - **Symptom:** a constructor/clear/copy loop (or a one-shot select) overruns its object by a factor of
   the field size, corrupting *adjacent* objects' fields — classically zeroing a neighbour's vtable
   slot, which later surfaces as a B-6-style null-vtable `call @0` crash **far** from the writer.
@@ -333,6 +333,24 @@ Reliable measurement (prerequisite for all localization):
   xargs touch` — ~2289 files — rather than deleting all objs.)
 - **Impact:** boot advanced ~1.8M insns (6.59M → 8.39M) in one change. Distinct from B-2 (short-split
   STORE) and B-10 (64-bit shift): B-12 is a struct-field **width** mistype on a shared type.
+- **Instance 2 (MMIO-global width; d327, the BLACK-SCREEN root):** the class isn't only struct fields —
+  it's any **16-bit value typed 32-bit** so the recompile reads the WORD where stock read the halfword.
+  Here the RTC/watch-counter status regs `_DAT_40090004`/`_DAT_40090006` (globals.h) were `uint32_t`:
+  `read_watch_counter_bit15` did a 32-bit MMIO read `0x40090006` → big-endian `0x80000000 & 0x8000 = 0`
+  (should be `0x8000`, true), so the watch-counter ISR skipped the whole RTC clock-tick path → task
+  timeouts never advanced (`act_tsk` 1× vs stock 502×) → periodic UI/display task never ran → the LCD
+  framebuffer base regs (0x40040308/328/334) were never programmed → **black screen** (boots to idle,
+  profile matches stock, but nothing renders). `clock_set_check`(`0x40090004`) 32-bit read also wrongly
+  caught 0x40090006's byte. **Fix:** type the regs `uint16_t` in globals.h + `touch` the DAT_40090004/06
+  users (same header-mtime workflow as the vtable fix). **Detection (deterministic — don't guess per
+  reg): `scripts/mmio_width_check.py`.** The ORIGINAL firmware is ground truth for access width: it
+  disassembles stock for `ldi:32 #mmio,rR` then the first load/store via `@rR` (`ld`/`lduh`/`ldub` =
+  0x04/05/06 = 32/16/8; `st`/`sth`/`stb` = 0x14/15/16), stopping if rR is clobbered, and flags every
+  globals.h `DAT_<addr>` typed WIDER than the original ever accesses. Fix = retype to the max observed
+  width + touch the users. d327 sweep: 28 regs declared uint32_t that stock only accesses 16-bit
+  (0x4006xxxx, 0x4007000c, 0x400a00xx, 0x400d000x, 0x400e001x, 0x40100xxx, 0x40128xxx, 0x401c01xx, …).
+  The tool correctly skips the already-fixed RTC pair, validating it. (This replaces the old
+  `grep '& 0x8000'` heuristic — compare against the original's real width instead of guessing.)
 
 ## TOOL-1 · trace reducer drops relocated functions (measurement bug, not firmware)
 - **Symptom:** co-run fdiff shows the candidate "skipping" functions it actually executes; inflated
@@ -388,7 +406,49 @@ Reliable measurement (prerequisite for all localization):
   candidate fn-entries 5.33M → 52k.
 - **Status:** root + 8 on-path high-confidence instances swept.
 
+## B-13 · kernel-descriptor stack-split (multi-word trap descriptor emitted as non-adjacent locals) ← **B-1 variant; the menu-blocker chain**
+- **Symptom:** a created kernel object (eventflag, cyclic handler, queue, task) gets a GARBAGE field
+  (initial flag pattern, handler ptr, exinf), or a 2-word kernel *result* loses its second word
+  (always 0). Downstream: an eventflag whose `iflgptn` is a stray pointer matches a `wai_flg` ORW wait
+  that should block → task runs when it shouldn't → crash; a cyclic handler with a garbage entry →
+  `act_tsk` jumps to garbage / SP corruption → derail-to-0. Crash is FAR from the builder.
+- **Decompiler signature:** a thin kernel-service wrapper builds a multi-word descriptor as **separate,
+  non-adjacent, DESCENDING** stack locals (`uStack_c`@sp+0xc as the base, `uStack_8`@sp+8 = base−4, …)
+  then passes `&uStack_c` to a `__trap_…`. The kernel reads the descriptor **ascending** (base+0,
+  base+4, base+8), so the 2nd/3rd field lands on base+4 = an UNINITIALIZED slot (often the dropped
+  `uintptr_t sp;` local), never on `uStack_8`. Output variants: the trap writes base+4 but the wrapper
+  reads back `uStack_8` (base−4) → that result word is lost (reads its init value, usually 0).
+- **This is B-1 (struct-split) specialised to a stack descriptor at an ABI/trap boundary** — same
+  "contiguous record emitted as loose locals" root; distinct tell = the *order/adjacency* is wrong
+  (not reading past a declared struct), and it straddles a `__trap_`.
+- **Verify the field order against STOCK, don't guess:** PCLOG the kernel service entry on the stock
+  image and dump `*param @ +0/+4/+8` — those are the exact values/layout the recompile must reproduce.
+- **Fix:** replace the loose locals with ONE contiguous array (`uint32_t desc[N]` / `uint16_t desc[N]`)
+  in ascending order matching the kernel read, pass `desc`.
+- **Instances (unit 127_rtos_kernel_services):** `alloc_or_acquire_heap_block` — `{attr,iflgptn=param_3}`;
+  iflgptn garbage was **the flag-0x35 root** (display task's `wai_flg` returned a stray pointer
+  `0x6a004b24` instead of blocking → `grow_dynamic_buffer` null-alloc derail @ic 5.58M; stock
+  iflgptn=0). `create_kernel_object` — `{attr,exinf=param_1,handler=call_virtual_slot_2_on_nested_object
+  0x10459448}`; garbage handler → `act_tsk`/`populate_context_from_global_state` SP-corruption derail.
+  `create_or_open_kernel_object` — `{attr,param_4}` halfwords. **PENDING (not on boot path, correctness):**
+  `call_helper_with_two_word_struct` (input), `query_two_word_result` + `wait_sem_obj` (output, 2nd word
+  lost). See TODO.md.
+- **Sweep rule:** functions passing `&<stacklocal>` to a `__trap_…` with 2+ descriptor locals where the
+  trap reads/writes >1 word. `execute_*` with a single `&sStack_a` output is NOT this (one word).
+
 ## Notes / refinements (this session)
+- **B-9 instance #18 the classifier MISSED — `fill_struct_from_lookup_table` (unit 283).**
+  `(uint *)(&param_1->field_0x108 + iVar4)` with `field_0x108` a `uint32_t` → the byte step `iVar4`
+  (0,0x40,0x80,0xc0) scaled ×4 → writes at 0x208/0x308/0x408 (should be 0x148/0x188/0x1c8), overrunning
+  the object and zeroing an adjacent vtable ptr → null-vtable derail INSIDE
+  `initialize_seven_subobject_container`. `scratchpad/classify_scaling.py` missed it because the scaled
+  `&field + idx` sits inside an **outer `(uint *)` cast** — re-run the classifier allowing an outer cast.
+- **Meta-lesson — closing an original-code jump EXPOSES accidentally-correct recompiles.** Relocating a
+  vtable fn-ptr from its ORIGINAL address to the packed recompile (B-11 / no-original-jumps work) made
+  boot start *running* the recompiled callee — which then hit the B-9 bug above. The original jump had
+  been masking it (the correct original bytes ran). So a "regression" right after closing a leak is the
+  signal to find the exposed recompile bug, **not to revert the relocation.** (FRN_INPLACE detector +
+  gen_rodata_fnptrs CONFIRMED_TABLES; the detector run IS the proof the relocator wants.)
 - **B-11 refinement — never relocate instruction immediates.** The confirmed-fnptr relocator mistook
   `ldi:32 #fn,rN` immediates (CODE) for rodata fn-ptrs (code/rodata interleave in this XIP image; the
   read-then-executed test can't tell `ldi;call` from a dispatch load). A `.DATA.L` at a non-4-aligned

@@ -17,6 +17,8 @@
 	.DATA.L	_init_subobject_at_offset_8
 	.SECTION	FP_10564edc, CONST, LOCATE=0x10564edc
 	.DATA.L	_init_subobject_at_offset_8
+	.SECTION	FP_10564ef4, CONST, LOCATE=0x10564ef4
+	.DATA.L	_dispatch_object_teardown_103a5702
 	.SECTION	FP_1056508c, CONST, LOCATE=0x1056508c
 	.DATA.L	_init_subobject_at_offset_8
 	.SECTION	FP_105654b4, CONST, LOCATE=0x105654b4
@@ -351,6 +353,14 @@
 	.DATA.L	_set_pointer_by_type_id_10517166
 	.SECTION	FP_105d71a4, CONST, LOCATE=0x105d71a4
 	.DATA.L	_copy_64_words_from_rom
+	.SECTION	FP_105f923c, CONST, LOCATE=0x105f923c
+	.DATA.L	_store_value_to_pointer_10527820
+	.SECTION	FP_105f924c, CONST, LOCATE=0x105f924c
+	.DATA.L	_fill_struct_from_lookup_table
+	.SECTION	FP_105f92cc, CONST, LOCATE=0x105f92cc
+	.DATA.L	_store_value_to_pointer_10527aee
+	.SECTION	FP_105f92dc, CONST, LOCATE=0x105f92dc
+	.DATA.L	_fill_struct_from_lookup_table
 	.SECTION	FP_105fa7dc, CONST, LOCATE=0x105fa7dc
 	.DATA.L	_call_single_address_helper_1052e87a
 	.SECTION	FP_105fa7f4, CONST, LOCATE=0x105fa7f4

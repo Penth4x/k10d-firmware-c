@@ -26,6 +26,17 @@ Idempotent: regenerate any time. Run from the repo root.
 # after an emulator trace proves packed code dispatches through an original fn-ptr in the range.
 CONFIRMED_TABLES = [
     (0x105a7e24, 0x105a7f64),   # cpucom / ui_task5 ({value,handler}) table -> ui_task5_body etc. (blocker #4)
+    # d327: FRN_INPLACE proved packed code dispatches these ORIGINAL vtable fn-ptr words. They are
+    # GENUINE Cfront vtable .fn slots (verified: clean {adj,fn} layout, every .fn is a 0x1052xxxx
+    # code addr). Relocating them first LOOKED like a regression (derail INSIDE initialize_seven_
+    # subobject_container) — but that only EXPOSED a B-9 scaling bug in the now-reached packed
+    # fill_struct_from_lookup_table (`&field_0x108 + iVar4` scaled the byte step x4 -> object
+    # overrun). With that fixed, these relocate cleanly. (The original jump was accidentally-correct.)
+    (0x105f923c, 0x105f9240),   # cls_105f91c0 vtbl slot -> store_value_to_pointer_10527820
+    (0x105f924c, 0x105f9250),   # cls_105f91c0 vtbl slot -> fill_struct_from_lookup_table (10527828)
+    (0x105f92cc, 0x105f92d0),   # cls_105f9250 vtbl slot -> store_value_to_pointer_10527aee
+    (0x105f92dc, 0x105f92e0),   # cls_105f9250 vtbl slot -> fill_struct_from_lookup_table (10527828)
+    (0x10564ef4, 0x10564ef8),   # dispatch table -> dispatch_object_teardown_103a5702
 ]
 import os, re, struct, glob, bisect
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

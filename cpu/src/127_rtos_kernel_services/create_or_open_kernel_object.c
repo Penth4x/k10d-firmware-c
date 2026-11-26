@@ -20,36 +20,38 @@ int create_or_open_kernel_object(int *param_1,int param_2,int param_3,uint16_t p
 {
   int iVar1;
   int iVar2;
-  uintptr_t sp;
-  uint16_t uStack_8;
-  uint16_t uStack_6;
-  
+  /* Descriptor-split bug (same class as create_kernel_object): the kernel reads a 2-halfword
+   * descriptor {attr@+0, param_4@+2} (find_free_queue_slot_1000d978 reads param_1[1] when attr==3),
+   * but the decompiler emitted uStack_8@sp+8 and uStack_6@sp+6 (DESCENDING, non-adjacent) and passed
+   * &uStack_8, so +2 landed on an uninitialized slot. Lay the two halfwords out contiguously. */
+  uint16_t desc[2];
+
   if (param_3 == 1) {
-    uStack_8 = 0;
+    desc[0] = 0;
   }
   else if (param_3 == 2) {
-    uStack_8 = 1;
+    desc[0] = 1;
   }
   else if (param_3 == 3) {
-    uStack_8 = 2;
+    desc[0] = 2;
   }
   else {
     if (param_3 != 4) {
       return -2;
     }
-    uStack_8 = 3;
+    desc[0] = 3;
   }
   *param_1 = param_2;
-  uStack_6 = param_4;
+  desc[1] = param_4;
   if (param_2 == 0) {
-    iVar1 = __trap_find_free_queue_slot_1000d978(&uStack_8);
+    iVar1 = __trap_find_free_queue_slot_1000d978(desc);
     if (0 < iVar1) {
       *param_1 = iVar1;
       return iVar1;
     }
   }
   else {
-    iVar1 = __trap_validate_task_request((int)(short)param_2,&uStack_8);
+    iVar1 = __trap_validate_task_request((int)(short)param_2,desc);
   }
   iVar2 = 0;
   if (iVar1 != 0) {

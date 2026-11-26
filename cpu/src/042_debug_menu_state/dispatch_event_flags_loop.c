@@ -99,7 +99,7 @@ void dispatch_event_flags_loop(cls_10564150 *param_1)
       }
       if (param_1->field_0x5c != 0) {
         param_1->field_0x40 = 1;
-        uVar5 = (*(code *)0x1039f06e/*ROM*/)(param_1,param_1->field_0x5c);
+        uVar5 = (*(code *)map_mode_bit_to_field_1039f06e)(param_1,param_1->field_0x5c);
         param_1->field_0x3c = uVar5;
         param_1->field_0x5c = 0;
       }
@@ -133,7 +133,7 @@ void dispatch_event_flags_loop(cls_10564150 *param_1)
     }
     if (((uStack_c & 0xffff0000) != 0) || (uVar5 = 0, param_1->field_0x40 != '\0')) {
       if (param_1->field_0x40 == '\0') {
-        uVar5 = (*(code *)0x1039f06e/*ROM*/)(param_1);
+        uVar5 = (*(code *)map_mode_bit_to_field_1039f06e)(param_1);
         dispatch_state_transition_1039ed80((uint32_t)(param_1),(void*)(uVar5));
         uVar5 = extraout_r5_00;
       }

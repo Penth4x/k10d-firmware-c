@@ -11,7 +11,7 @@ void dispatch_virtual_if_flag_clear(cls_1061e4c0 *param_1,uint32_t param_2)
 {
   int iVar1;
   
-  iVar1 = (*(code *)0x10493dc4/*ROM*/)();
+  iVar1 = (*(code *)match_obj_by_field4_10493dc4)();
   if (iVar1 == 0) {
     iVar1 = *(int *)(param_1->field_0x10 + 0xc);
     (((vtbl_entry*)(iVar1))[25].fn)(param_1->field_0x10 + (int)*(short *)(iVar1 + 200),param_2);

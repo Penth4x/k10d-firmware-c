@@ -21,22 +21,27 @@ int alloc_or_acquire_heap_block(int *param_1,int param_2,uint32_t param_3)
 
 {
   int iVar1;
-  uintptr_t sp;
-  uint32_t uStack_c;
-  uint32_t uStack_8;
-  
-  uStack_c = 0x20000;
+  /* The kernel service reads a 2-word descriptor: attr at +0, iflgptn at +4 (write_timeout_queue_node
+   * copies *(uint32_t*)(param_2+2 halfwords = +4) into the CB's flgptn field). The decompiler split
+   * the descriptor into two NON-adjacent stack locals (uStack_c @ sp+0xc, uStack_8 @ sp+8), so
+   * &uStack_c + 4 landed on an uninitialized slot (the dropped `sp` local) instead of param_3 ->
+   * every created object got a GARBAGE flgptn. Flag 0x35 (waited on ORW/0xffffffff) then matched its
+   * garbage and the display task never blocked -> boot-blocking derail. Lay the two words out
+   * contiguously so iflgptn (+4) is param_3, as the original did. */
+  uint32_t desc[2];
+
+  desc[0] = 0x20000;
   *param_1 = param_2;
-  uStack_8 = param_3;
+  desc[1] = param_3;
   if (param_2 == 0) {
-    iVar1 = __trap_find_free_tcb_slot_1000d770(&uStack_c);
+    iVar1 = __trap_find_free_tcb_slot_1000d770(desc);
     if (0 < iVar1) {
       *param_1 = iVar1;
       return iVar1;
     }
   }
   else {
-    iVar1 = __trap_validate_task_id_and_flag((int)(short)param_2,&uStack_c);
+    iVar1 = __trap_validate_task_id_and_flag((int)(short)param_2,desc);
   }
   if (iVar1 == 0) {
     iVar1 = 0;

@@ -5,7 +5,7 @@
  *   Iterates over a linked list of objects and calls a virtual method on each with a
  *   parameter.
  * summary:
- *   The function first calls an unknown function at 0x10493dc4. If that returns 0, it calls
+ *   The function first calls match_obj_by_field4_10493dc4 (0x10493dc4). If that returns 0, it calls
  *   iterate_virtual_handlers with the input parameters. If that also returns 0, it iterates
  *   through a list of pointers stored between offsets 0x48 and 0x4c of the object in
  *   param_1. For each object in the list, it retrieves a vtable pointer from offset 0xc,
@@ -23,7 +23,7 @@ void iterate_and_call_virtual_method(cls_105b4dac *param_1,int param_2)
   int iVar1;
   int *piVar2;
   
-  iVar1 = (*(code *)0x10493dc4/*ROM*/)();
+  iVar1 = (*(code *)match_obj_by_field4_10493dc4)();
   if (((iVar1 == 0) && (iVar1 = (uint32_t)(iterate_virtual_handlers((cls_105b48dc *)param_1,param_2)), iVar1 == 0)) &&
      (piVar2 = *(int **)&param_1->field_0x48, (uint32_t)(piVar2) != param_1->field_0x4c)) {
     do {

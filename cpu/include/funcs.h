@@ -1776,6 +1776,7 @@ void set_flag_and_flag_object(cls_10564150 *param_1);
 void dispatch_state_transition_1039ed80(int param_1,int *param_2);
 uint get_mode_flag_and_notify(int param_1,void *param_2);
 uint32_t map_id_to_shift_value(uint32_t param_1,int param_2);
+uint32_t map_mode_bit_to_field_1039f06e(int param_1,uint param_2);
 uint32_t map_id_to_bitmask(int param_1,int param_2);
 void invoke_virtual_if_flag_set_1039f220(int param_1);
 void update_object_from_pointer(int param_1);
@@ -8247,6 +8248,7 @@ void cls_105b45e4_delete(cls_105b45e4 *param_1,uint param_2);
 uint8_t read_byte_at_offset_8(int param_1);
 void store_two_words_to_buffer(cls_1061e4c0 *param_1,void *param_2,uint32_t param_3);
 void write_field_at_offset_four_10493da0(void *param_1,uint32_t param_2);
+int match_obj_by_field4_10493dc4(int param_1,int param_2);
 void call_if_pointer_non_null(cls_1061e4c0 *param_1,uint32_t param_2);
 void call_helper_if_pointer_nonzero(cls_1061e4c0 *param_1);
 void call_single_helper_with_two_args_10493df8(int *param_1,void *param_2,uint32_t param_3,uint32_t param_4,

@@ -21,16 +21,20 @@ bool create_kernel_object(int *param_1)
 
 {
   int iVar1;
-  uintptr_t sp;
-  uint32_t uStack_10;
-  int *piStack_c;
-  void (*pcStack_8)(void *);
-  
-  uStack_10 = 0;
-  pcStack_8 = call_virtual_slot_2_on_nested_object;
+  /* Descriptor-split bug (same class as alloc_or_acquire_heap_block): the kernel reads a 3-word
+   * descriptor {attr@+0, exinf@+4, handler@+8} (insert_timeout_queue_node copies +4 and +8), but the
+   * decompiler emitted the fields as NON-adjacent, DESCENDING stack locals (uStack_10@sp+0x10,
+   * piStack_c@sp+0xc, pcStack_8@sp+8) and passed &uStack_10, so +4/+8 landed on uninitialized slots
+   * -> the created cyclic handler got a garbage handler/exinf; when activated it corrupted SP and
+   * derailed (act_tsk path). Stock descriptor = {0, exinf=param_1, handler=0x10459448}; lay the
+   * three words out contiguously. */
+  uint32_t desc[3];
+
+  desc[0] = 0;                                               /* attr */
+  desc[1] = (uint32_t)param_1;                               /* exinf */
+  desc[2] = (uint32_t)call_virtual_slot_2_on_nested_object;  /* handler (0x10459448) */
   *param_1 = 0;
-  piStack_c = param_1;
-  iVar1 = __trap_find_free_queue_slot_1000d66c((void *)&uStack_10);
+  iVar1 = __trap_find_free_queue_slot_1000d66c((void *)desc);
   if (0 < iVar1) {
     *param_1 = iVar1;
   }

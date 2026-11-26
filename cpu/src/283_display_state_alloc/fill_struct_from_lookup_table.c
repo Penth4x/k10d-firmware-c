@@ -25,7 +25,11 @@ void fill_struct_from_lookup_table(cls_105f9250 *param_1)
   iVar4 = 0;
   iVar2 = 0;
   while( true ) {
-    puVar5 = (uint *)(&param_1->field_0x108 + iVar4);
+    /* B-9 (scaling): field_0x108/118/128/138 are uint32_t, so `&field + iVar4` would scale the
+     * byte step iVar4 (0,0x40,0x80,0xc0) by 4 -> writes at 0x108+4*iVar4 (0x208/0x308/0x408),
+     * overrunning the object and smashing adjacent objects' vtable pointers (null-dispatch crash).
+     * iVar4 is a BYTE offset (0x40-byte sub-structs); cast to (char*) for byte arithmetic. */
+    puVar5 = (uint *)((char *)&param_1->field_0x108 + iVar4);
     puVar5[1] = (uint)*(byte *)(*(int *)(*(int *)(iVar2 + 0x105f9720/*ROM*/) * 4 + -0x7ffecaa0) +
                                param_1->field_0x0);
     *puVar5 = (uint)*(byte *)(*(int *)(*(int *)(iVar2 + 0x105f9720/*ROM*/) * 4 + -0x7ffeca60) +
@@ -33,7 +37,7 @@ void fill_struct_from_lookup_table(cls_105f9250 *param_1)
     puVar5[2] = (uint)*(byte *)(*(int *)(*(int *)(iVar2 + 0x105f9720/*ROM*/) * 4 + -0x7ffecae0) +
                                param_1->field_0x0);
     puVar5[3] = (uint)*(byte *)(*(int *)(param_1->field_0x0 * 4 + -0x7ffecb20) + iVar3);
-    puVar5 = (uint *)(&param_1->field_0x118 + iVar4);
+    puVar5 = (uint *)((char *)&param_1->field_0x118 + iVar4);
     puVar5[1] = (uint)*(byte *)(*(int *)(*(int *)(iVar2 + 0x105f9724/*ROM*/) * 4 + -0x7ffecaa0) +
                                param_1->field_0x0);
     *puVar5 = (uint)*(byte *)(*(int *)(*(int *)(iVar2 + 0x105f9724/*ROM*/) * 4 + -0x7ffeca60) +
@@ -41,14 +45,14 @@ void fill_struct_from_lookup_table(cls_105f9250 *param_1)
     puVar5[2] = (uint)*(byte *)(*(int *)(*(int *)(iVar2 + 0x105f9724/*ROM*/) * 4 + -0x7ffecae0) +
                                param_1->field_0x0);
     puVar5[3] = (uint)*(byte *)(*(int *)(param_1->field_0x0 * 4 + -0x7ffecb20) + iVar3 + 1);
-    puVar5 = (uint *)(&param_1->field_0x128 + iVar4);
+    puVar5 = (uint *)((char *)&param_1->field_0x128 + iVar4);
     puVar5[1] = (uint)*(byte *)(*(int *)(*(int *)(iVar2 + 0x105f9728/*ROM*/) * 4 + -0x7ffecaa0) +
                                param_1->field_0x0);
     *puVar5 = (uint)*(byte *)(*(int *)(*(int *)(iVar2 + 0x105f9728/*ROM*/) * 4 + -0x7ffeca60) +
                              param_1->field_0x0);
     puVar5[2] = (uint)*(byte *)(*(int *)(*(int *)(iVar2 + 0x105f9728/*ROM*/) * 4 + -0x7ffecae0) +
                                param_1->field_0x0);
-    puVar6 = (uint *)(&param_1->field_0x138 + iVar4);
+    puVar6 = (uint *)((char *)&param_1->field_0x138 + iVar4);
     puVar5[3] = (uint)*(byte *)(*(int *)(param_1->field_0x0 * 4 + -0x7ffecb20) + iVar3 + 2);
     puVar6[1] = (uint)*(byte *)(*(int *)(*(int *)(iVar2 + 0x105f972c/*ROM*/) * 4 + -0x7ffecaa0) +
                                param_1->field_0x0);
