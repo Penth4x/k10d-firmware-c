@@ -18,13 +18,20 @@ mode_ctrl_on_event (0x10430532) doing set_flg_obj(param_1+0x7c, 0x4) on event 0x
 In stock that fires (rp=0x104305ce); in candidate event 0x10002 is NEVER posted, so the pump hangs.
 process_event_and_release=0, dispatch_mode_change_event=0, mode_nav_request=0 in candidate.
 
-ROOT QUESTION (next): who POSTS event 0x10002 in stock (it is posted with NO key input, so it is an
-automatic startup transition, not the MENU-key mode_nav_request path). The 0x10002 posters
-(dispatch_mode_change_event_1047cdb8 when *(evt+4)==1; mode_nav_request) are invoked INDIRECTLY via
-fnptr/vtable through the event registry (no direct callers in source). mode_ctrl_on_event is registered
-in the settings-manager listener table (rodata_fnptrs.asm). NEXT: trace the event-registry post path
-that drives 0x10002 in stock; find the task/step that runs in stock but not candidate (likely a B-3/
-B-15/vtable-dispatch bug that drops the post, OR a task blocked upstream). This is THE menu blocker.
+ROOT TRACED TO THE BOTTOM (d329): event 0x10002 is posted by cpucom_execute_transaction (0x10466c94)
+via dispatch_context_virtual_op AFTER its SPI handshake poll. poll_context_flag_until_status_set
+(0x10466eb4) loops ONLY while test_flag_clear_if_active(*(ctxB+0x20)) is true, which returns
+*(E+0x10c)!=0. MEASURED: stock poll-delay (allocate_kernel_object_1000e4e0 r5=0x3e8) runs 501x;
+candidate runs 0x -> test_flag_clear_if_active FALSE -> companion-SPI transfer obj field +0x10c is
+NULL in candidate -> SPI transfer never initiated -> no handshake -> no 0x10002 -> mode pump hangs.
+  +0x10c is set non-null ONLY at cls_105a0828_new (0x1043d4cc) line 44: field_0x10c = *param_2
+  (UNCONDITIONAL; the C is faithful). So the ROOT is cls_105a0828 (unit 126 companion_spi_driver,
+  runtime obj ~0x805527d0) having +0x10c==NULL in the candidate: either (a) ctor not called, (b)
+  param_2[0]==0 (bad incoming data), or (c) heap-overlap/ctor-order corruption of the object (this
+  ties directly to the ALIVE-plan cls_105a0828 heap-overlap forensics).
+NEXT: FRN_WRWATCH the companion-SPI obj +0x10c (addr ~0x805528dc if obj@0x805527d0) in candidate vs
+stock — is it ever written? to what (*param_2)? cleared later? That decides not-called vs bad-data vs
+corruption. This is THE menu blocker, now localized to one field on one object.
 
 
 ## B-15 (NEW, nasty): decompiler MERGES switch arms with different constants, keeps ONE
