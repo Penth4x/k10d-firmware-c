@@ -38,6 +38,18 @@
 ## a timeout that is satisfied slowly, or a resource the uninitialized companion would provide). This may
 ## still be circular with the companion, OR an independent init-ordering/priority bug. Compare the task
 ## PRIORITIES (cre_tsk) of app_main_task1 vs the tasks the scheduler runs during the gap.
+## SHARPEST LOCALIZATION (d329): compared fill_byte_array SIZE distributions in the init window (fullregs):
+##   STOCK (490K-2.15M): 160x 0x50, 80x 0x400, 40x 0x344, 40x 0x40, +small, +1x 0xea24 (the 60KB obj).
+##   CANDIDATE (534K-1850K gap): 4x 0x200, 4x 0x10, 3x 0x1000, 2x 0x4, 1x 0xea24, 1x 0x8 — NONE of the
+##   160x0x50 / 80x0x400 / 40x0x344 / 40x0x40. The candidate SKIPS ~320 small object inits stock does.
+## Both reach appmain_init_method1 (vtbl[2] correct) and both construct the 60KB cls_105aa5ec_new at the
+## SAME ic (~0.87M) — so WITHIN method1 the candidate takes a DIFFERENT PATH, skipping ~320 small object
+## inits (the 0x50/0x400/0x344/0x40 structs). appmain_init_method1 likely has CONDITIONAL inits (a loop or
+## branch over a config/table) that the candidate skips because a count/flag/condition differs. NEXT:
+## read appmain_init_method1 (vtbl slot 2 of app_main_task1's singleton) — find the loop/branch that does
+## the 0x50/0x400/0x344 object inits, and why the candidate's condition skips them (a dropped count, a
+## config read, or a wrong branch). The 0x344 (836-byte) and 0x400 (1KB) objects x40-80 are the specific
+## targets. This is the precise divergence inside method1 that leaves the modules uninitialized.
 
 ## ★★★★ BREAKTHROUGH (d329, FRN_DSP_LOG companion dialog) — the concrete, actionable menu root:
 ## The qemu companion model (target/frn/k10d_cpucom.c) LOGS the command dialog. Diffed candidate vs stock:
