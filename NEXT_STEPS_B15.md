@@ -269,3 +269,29 @@ full register context (FRN_FT_PC trigger at cpucom_execute_transaction entry, ca
 which GPIO object its setup drives and why the poll's test_flag_clear_if_active returns false at entry. The
 decisive question: during the candidate's FIRST cpucom transaction, does the poll-guard MMIO read 0x50000106&0x01
 see the ack bit set, and what drove (or failed to drive) the request line before it.
+
+### d329 FINAL RECONCILIATION (read this — the commit trail above is a thrash record)
+The proximate cause is what the d328 stash said all along: the candidate's cpucom poll
+poll_context_flag_until_status_set(B,1000) ENTERS its loop (test_flag_clear on 0x50000106 is FINE)
+but BREAKS on iteration 1 because read_byte_at_offset_0x28(B) = *(B+0x28) already reads 1. Stock
+spins 393x before +0x28=1 (handshake proceeds), then posts event 0x10002 -> flag 0x37 -> mode pump
+unblocks -> menu.
+What d329 ADDED (net-new, verified):
+  - test_flag_clear is NOT the exit path (it returns TRUE; handshake line 0x50000106 reads 0x06,
+    mask 0x01). The poll exits via +0x28, confirmed with FRN_HS_DBG.
+  - The +0x28=1 writer is call_two_initializers_10466f6e (firmware kernel handler via
+    create_kernel_object), IDENTICAL write in both binaries (NOT the attention ISR).
+  - => ROOT is handler-ACTIVATION TIMING: the cyclic/queued handler fires EARLY in the candidate
+    (during the poll) vs LATE in stock (after the 393-iter handshake).
+  - RULED OUT: ORB/set_flag miscompile (op 0x96 ORB is faithful FR), GPIO masks (identical), init
+    ORDERING (E and E+0x10c populated at instr 611616/1674494, before the transaction at 5549028),
+    IPC primitives, FRN_HS_OLD.
+MISSTEP to avoid repeating: commit 60b225d3 "disprove +0x28" was an OVERCORRECTION — it only showed
+the WRITER is identical, which does NOT disprove a TIMING divergence. Compare timing, not just identity.
+UNCRACKED CRUX (multi-session): why create_kernel_object's cyclic handler activates early in the
+candidate. Needs kernel act_tsk/sta_cyc activation-timing analysis (the handler's TCB/cycle params vs
+stock), not more object-value watchpoints. The handler is created in populate_context_from_global_state
+-> create_kernel_object(&B->field_0xc); compare its descriptor/activation to stock at the kernel-call level.
+BYPRODUCTS (committed): frdis now decodes the FR memory-logic group (ORB/ANDB/XORB); HW-fidelity opcode
+audit shows the candidate executes no opcode absent from the original (ORB is a real FR op; the REALOS
+blob likely used an older/conservative fcc that emits ldub/or/stb instead).
