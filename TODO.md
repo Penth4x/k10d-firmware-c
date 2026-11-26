@@ -50,10 +50,13 @@ drive the count to 0. **Debt baseline (d329): 2145 uses / 860 files (2140 as cal
       mode_ctrl_on_event (slots 0x1059f0bc/0x1059f104, VT_1059f088 truncated at 8 slots);
       invoke_virtual_slot_3_on_member_10466ffa -> dispatch_event_to_subobject (0x105d5140/60);
       dispatch_context_virtual_op -> toggle_byte_and_call_helper (0x105a0894) [INSIDE cpucom_execute_transaction].
-- [~] FRN_INPLACE re-run on the d329 menu-fix build (3214832c): 3 leaks. FIXED 2 function-entry leaks via
-      confirmed_fnptrs.txt — slot 0x105a05ec -> dispatch_event_if_below_threshold (was orig 0x1043c430, in
+- [x] FRN_INPLACE on the d329 menu-fix build: 3 leaks. FIXED 2 function-entry leaks via confirmed_fnptrs.txt
+      — slot 0x105a05ec -> dispatch_event_if_below_threshold (was orig 0x1043c430, in
       invoke_virtual_transfer_on_context); slot 0x105a05f4 -> forward_bool_to_helper (was orig 0x1043c496,
-      in spi_poll_complete — SPI-path). Both adjacent fn slots of one vtable. Pending rebuild to confirm gone.
+      in spi_poll_complete). VERIFIED GONE after fixing a build-hygiene bug: build.sh did NOT run
+      gen_rodata_fnptrs.py, so confirmed_fnptrs.txt edits silently no-op'd (first rebuild still showed them).
+      Wired the regen into build.sh. Remaining: leak #1 (mid-function, below) + a NEW kernel leak
+      0x10760f12 -> 0x1000d100 (packed->original kernel call; triage whether it is a real leak or a trap).
 - [ ] Leak #1 (0x1048222c via slot 0x105ab64c = query_object_via_virtual_call_10480050) is a MID-FUNCTION
       target (cls_105ab600_delete+0x5a), NOT a function entry -> can't relocate to a symbol; it's a
       computed-jump/switch leak needing a different fix (fix the jump table or the function).

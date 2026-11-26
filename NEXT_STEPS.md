@@ -57,6 +57,35 @@
 ##    The poll RETURNING 0 (vs 1) may also be semantically wrong downstream — check the original intends
 ##    the poll to BLOCK here, not skip.
 ##
+## CAUSALITY (sharpened): the poll is SUPPOSED to BLOCK ui_task6 inside cpucom_execute_transaction until
+## the companion is ready. In STOCK the guard is true so it loops ~500x and blocks ui_task6 from early
+## boot until ic ~35.7M (when set_flag_at_offset_0x28 fires) — THAT is why stock's cpucom_poll_driver is
+## at 35.7M. So ui_task6 is scheduled EARLY in both; the poll is the gate. In the candidate the guard is
+## false (*(obj+0x10c)==0) so the poll does NOT block -> ui_task6 runs straight through at 5.6M. Net: the
+## candidate FAILS TO CONSTRUCT the companion object's +0x10c sub-object before the poll runs, whereas
+## stock has it set very early. So this is NOT "ui_task6 scheduled too early" — it is a MISSING/LATE
+## +0x10c construction (dropped store B-2, or an init function that runs late/not at all in the candidate).
+## FIND: identify the poll's object (*(ctx+0x20), ctx = cpucom_execute_transaction param) at runtime via
+## FRN_FT_FULLREGS at poll_context_flag_until_status_set (packed 0x107989f4); then FRN_WRWATCH that
+## object's +0x10c to see if/when the candidate writes it vs stock. The writer is a companion-init
+## constructor (unit 126 cls_105a0*_new / initialize_subsystem_object_array).
+## ARGS RULED OUT (d329): the poll runs with IDENTICAL args in both — ctx=r4=0x80532e30, param_2=r5=0x3e8
+## — and at the SAME ctx address. STOCK poll at ic 2.65M (guard TRUE -> blocks ~500 iters until +0x28 at
+## 35.7M); CANDIDATE poll at ic 5.55M (guard FALSE -> skips). So *(ctx+0x20)'s +0x10c is set BEFORE ic
+## 2.65M in stock but still NULL at 5.55M in the candidate. => a MISSING/DROPPED early +0x10c construction
+## (NOT a poll-timing or arg bug). The guard object = *(0x80532e50) (= *(ctx+0x20)).
+## DONE (d329): resolved the object = *(ctx+0x20) = 0x80552a28 (WRWATCH 0x80532e50 caught the ptr write;
+## SAME address in stock and candidate). BUT WRWATCH on object+0x10c (0x80552b34) caught NO write in
+## EITHER stock or candidate across 70s — yet stock's guard reads it non-zero and the candidate's reads 0.
+## So +0x10c is NOT set by a plain word store to that address (or the object at 0x80552a28 is freed+realloc'd
+## so the live object differs by poll time, defeating a fixed-address watch). NEXT: do NOT trust the fixed
+## address — instead (a) at the poll (FT_PC 0x107989f4, ic ~5.55M) read the ACTUAL live *(ctx+0x20) and its
+## +0x10c from the full-reg trace / a read-watch, and in stock at its poll (ic ~2.65M) do the same; (b) if
+## the live object differs, watch ctx+0x20 for ALL writes through poll time (it may be rewritten); (c) or
+## watch the WHOLE companion object's construction (the cls_105a0*_new that allocs it) and diff the +0x10c
+## store candidate-vs-stock. The field-value divergence with no direct write points at an alloc-time init
+## (memset/ctor loop) or a different live object — resolve WHICH first before assuming a dropped store.
+##
 ## TOOLING NOW STANDARD (run every boot WITH these — Andrew: "a jump to null should be glaring",
 ## "run the emulator with a lot of these modes on"):
 ##   FRN_BADPC  = ON BY DEFAULT (qemu-frn frn-publish 4d543a23) — halts GLARINGLY at any call/jmp/ret/reti
