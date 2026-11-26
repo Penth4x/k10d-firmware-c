@@ -550,3 +550,28 @@ Reliable measurement (prerequisite for all localization):
 - **Fix:** un-merge the arms — one C branch per original case with its real constant (recover from the
   BEQ/cmp cascade: op_b=2 is EQ, op_b=3 is NE per emulator cond(); frdis mislabels bnc/bne). Thread any
   dropped register arg (B-3). Verify each constant against the `ldi #k,r5` that reaches that call site.
+
+## B-16 · __frv_reg_unset(N) STUB breaks register-forwarders ← **THE menu-boot root (d328)**
+- **The stub:** `uint32_t __frv_reg_unset(int reg){ return 0; }` (cpu/src/__frv_stub.c) — a sentinel
+  for "incoming register N whose value the decompiler couldn't recover." It is a real FUNCTION, so
+  `__frv_reg_unset(4)` (a) returns 0 and (b) as a call, CLOBBERS caller-saved r4-r7.
+- **Symptom:** a thin forwarder whose job is to pass its AMBIENT incoming registers to a callee/trap
+  instead passes 0 (and garbage r5-r7). The original has NO prologue and tail-forwards the live
+  registers; the recompile emits `call __frv_reg_unset(4)` then `call trap(result=0)`.
+- **THE instance (menu-boot blocker):** `check_kernel_call_success_10459fea` (0x10459fea, ~95 callers) —
+  the cpucom poll body. Original: `call allocate_kernel_object_1000e4e0` with ambient r4(=1 from
+  poll_context_flag)/r5(=1000)/r6(=3); returns (ret==0). Recompiled C:
+  `__trap_allocate_kernel_object_1000e4e0(__frv_reg_unset(4))` -> trap gets r4=0, r5-r7 clobbered.
+  Kernel service 1000e4e0 then misbehaves -> poll_context_flag loop exits after 1 iter (stock=501) ->
+  **no cpucom companion SPI handshake** (FRN_DSP_LOG: stock POST/A/H/B, candidate 0 exchanges) -> 'H'
+  never arrives -> flag 0x37 never set -> process_mode_transition_sequence stuck forever at
+  check_bit2's wai_flg(flag 0x37) -> no Cmd:04 POST queued -> **black screen**.
+- **Detection:** `grep -rn '__frv_reg_unset' cpu/src` — for each, ask: does the function FORWARD that
+  register to a callee/trap (vs use it as a local pointer/value that the stub-0 happens to satisfy)?
+  Forwarders are the dangerous ones. On a critical path they deadlock boot.
+- **Fix:** such a function reads incoming caller registers = BESTIARY B-8; the faithful implementation
+  is the original bytes. `python3 scripts/harvest_asm.py <name>` emits them to cpu/gen/*.asm (ldi:32 of
+  recompiled funcs rewritten to symbols) and renames the .c to .c.handasm. Applied to
+  check_kernel_call_success_10459fea (d328). Alternative: thread the real register as a C param through
+  all callers (a B-3 sweep) — much larger, and still needs the ambient r5-r7 preserved.
+- **Status:** check_kernel_call_success harvested; build+retrace+DSP_LOG verification in flight (build9).
