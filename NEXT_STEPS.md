@@ -32,12 +32,30 @@
 ##   WHY: the candidate prints "CPUCOM ERROR" — cpucom_spi_xfer (0x10465958) FAILS in the candidate
 ##   (bVar5 = xfer_result != _DAT_105a7ce8), so the message is an ERROR response whose +0x14 was never
 ##   populated. STOCK's 2 cpucom_spi_xfer calls SUCCEED (no CPUCOM ERROR, no crash).
-## => TRUE ROOT is one layer deeper: cpucom_spi_xfer fails ONLY in the candidate. Same qemu companion
-##    model serves both, so the candidate must drive the companion SPI differently (a recompile bug in
-##    cpucom_spi_xfer or the command/buffer it builds), OR mis-detects success (wrong _DAT_105a7ce8 /
-##    wrong result handling). NEXT: diff cpucom_spi_xfer (0x10465958) candidate-vs-original; dump the SPI
-##    command+response bytes (companion dialog) candidate vs stock; check _DAT_105a7ce8 (the expected
-##    result constant) is emitted correctly. This is the recurring cpucom/companion bootstrap thread.
+## => cpucom_spi_xfer code is STRUCTURALLY FAITHFUL (diffed packed-vs-orig: same kernel call, same
+##    *(ctx+0x24)/*(ctx+0x14) loads + vtable index). So NOT a code bug — a TIMING/ORDERING root:
+##    candidate reaches cpucom_poll_driver at ic 5.6M (right after the mode-pump wake) vs STOCK at 35.7M.
+##    ~30M too early -> companion not ready -> xfer error.
+##
+## REFINED ROOT (traced d329, iteration counts): ui_task6_body runs cpucom_execute_transaction, which
+##    calls poll_context_flag_until_status_set (orig 0x10466eb4). That poll's GUARD is
+##    test_flag_clear_if_active(*(ctx+0x20)) which returns false iff *(*(ctx+0x20) + 0x10c) == 0.
+##    STOCK: guard TRUE -> loops ~500x (read_byte_at_offset_0x28 501 hits) until set_flag_at_offset_0x28
+##    fires at ic 35.7M (via the call_two_initializers timeout handler) -> poll returns 1.
+##    CANDIDATE: guard FALSE at entry -> loop NEVER runs (read_byte_at_offset_0x28 = 0 hits,
+##    set_flag_at_offset_0x28 = 0 hits) -> poll returns 0 IMMEDIATELY -> cpucom_execute_transaction
+##    completes early -> ui_task6 proceeds to its msg loop ~30M early -> premature cpucom_poll_driver.
+##    WHY guard false: the companion object's +0x10c sub-object pointer (*(*(ctx+0x20)+0x10c)) is NULL
+##    in the candidate when the poll runs. Either (a) a DROPPED construction store of +0x10c (B-2) or
+##    (b) +0x10c is constructed LATER than the poll (the companion sub-object is built around ic 35M in
+##    stock, after which the poll's guard passes) and the candidate's ui_task6 simply runs before it.
+## NEXT: find the writer of companion +0x10c (unit 126 companion_spi_driver, the cls_105a0*_new
+##    constructors / call_helper_on_struct_offset_0x10c family). Does the candidate EVER write +0x10c
+##    (grep the trace for the store), and if so WHEN vs the poll? If never -> dropped store (fix the
+##    constructor). If later -> an ordering bug: what schedules/gates ui_task6's first run so late in
+##    stock (a task priority, a wai on a semaphore/flag, or a dependency on the companion-init task)?
+##    The poll RETURNING 0 (vs 1) may also be semantically wrong downstream — check the original intends
+##    the poll to BLOCK here, not skip.
 ##
 ## TOOLING NOW STANDARD (run every boot WITH these — Andrew: "a jump to null should be glaring",
 ## "run the emulator with a lot of these modes on"):
