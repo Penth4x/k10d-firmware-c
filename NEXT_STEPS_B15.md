@@ -152,3 +152,24 @@ reaches that vtable[2] call when stock does NOT. The vtable slot likely points t
 ALSO FOUND (real B-3, fix separately): invoke_virtual_slot_3_on_member_10466ffa (0x10466ffa) is typed
 (void*) but the original forwards r5=0x40002 (an event code) + r6=0 to vtbl[3].fn; the C drops both. Callers:
 call_two_initializers_10466f6e (0x40002), dispatch_event_if_type_14, dispatch_command_0xb0007 (unit 142).
+
+## ★★★★★ DEFINITIVE deadlock root (d328, FRN_WRWATCH-proven) ★★★★★
+FRN_WRWATCH on the cpucom status byte (0x80532e58 = cpucom-obj 0x80532e30 + 0x28) in the candidate shows 3 writes:
+  1. =0 from cls_105a7df8_new+0x8c          (object construction clears it)
+  2. =0 from clear_flag_at_offset(.)+0 rp initialize_object_with_optional_param+0x12  (the POLL's clear)
+  3. =1 from set_flag_at_offset_0x28 rp call_two_initializers_10466f6e+0xe             (PREMATURE SET, after #2)
+Write #3 (the premature +0x28=1) happens AFTER the poll's clear, so poll_context_flag reads 1 on its
+FIRST iteration and exits (stock runs 501 iters with +0x28 staying 0). Call chain of write #3 (candidate FT):
+  act_tsk_syscall_dispatcher+0x16a (kernel `call @r9`, r9=task-body/callback ptr, r4=0x80532e3c)
+    -> call_virtual_slot_2_on_nested_object(0x80532e3c)  [a vtable[2] dispatch on obj *(.+4)]
+    -> call_two_initializers_10466f6e(0x80532e30)        [the cpucom obj]
+    -> set_flag_at_offset_0x28 => cpucom-obj+0x28 = 1
+STOCK reaches call_two_initializers 0 times — it NEVER runs this. So the candidate uniquely activates a
+task/callback (body = call_virtual_slot_2, arg 0x80532e3c) that prematurely marks the cpucom status ready.
+  => ROOT is at the TASK-ACTIVATION / object-vtable level: either (a) the task's body/arg fnptr in its TCB
+     or creation table is wrong (points at call_virtual_slot_2 or obj 0x80532e3c when it shouldn't), or
+     (b) obj 0x80532e3c's vtable[2] is a mis-relocated/truncated slot pointing at call_two_initializers, or
+     (c) this task is activated with wrong priority/timing so it preempts the poll.
+  => NEXT: identify which task (task id) has body=call_virtual_slot_2 / arg 0x80532e3c; check its TCB
+     body+arg vs stock; check obj 0x80532e3c's vtable[2] slot for a relocation/truncation bug (cf VT_1059f088
+     truncation); and whether act_tsk activates it wrongly. This is the ONE thing blocking the menu.
