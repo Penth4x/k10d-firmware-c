@@ -40,9 +40,12 @@ drive the count to 0. **Debt baseline (d329): 2145 uses / 860 files (2140 as cal
       service_10010b10 unhit in 25s) → correctness, not a menu blocker. Verify kernel reads +4, then fix.
 - [ ] query_two_word_result (127) — 2-word OUTPUT; 2nd result word lost (trap writes base+4, fn reads
       uStack_8 @ base-4). Verify + fix.
-- [ ] wait_sem_obj (127) — returns uStack_8 (never written by trap) → always 0. Verify + fix.
-  NOTE: a general detector/lint for this class (stack locals forming a descriptor, non-contiguous, &base
-  to a kernel trap) would be worth building — likely more instances exist beyond the sweep's grep.
+- [x] wait_sem_obj (127) — returned uStack_8 (sp+8, base-4) which the trap never writes → ALWAYS 0; the
+  real result (base+4) was lost. VERIFIED vs original asm (0x10459f36: contiguous desc at sp-8, returns
+  *(sp-4)) and FIXED (d329): contiguous uint32_t desc[2], return desc[1]. Behavioral impact: caller
+  check_two_conditions_on_object (unit 117) tests `wait_sem_obj()==2` — a DEAD branch with the always-0 bug,
+  now reachable. Build checksums VALID. A firmware-wide scan for this exact pattern (pass &localA to a
+  __trap, return a different all-zero localB) found NO other instances — wait_sem_obj was the only one.
 
 ## No-original-jumps campaign (FRN_INPLACE detector is the gate; op_helper.c, uncommitted)
 - [~] FRN_INPLACE re-run on build10 candidate (d328): 4 leaks found (old 3 gone). FIXED 3 cpucom-path
