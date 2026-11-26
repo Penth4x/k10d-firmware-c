@@ -1,5 +1,49 @@
 # Next steps — open investigation (handoff)
 
+## CURRENT STATE (d327-latest): BLACK SCREEN = message-bus/event-dispatch deadlock. Several B-3
+## bugs found+ruled out by CAUSAL test; real root narrowed to "mbx-2 send does not wake its pump".
+##
+## THE reliable diagnostic tools (use these, NOT codiff/fnseq which drown in timer-IRQ jitter):
+##   FRN_INT40_SVC=all  (or hex,hex)  + wrap qemu in `stdbuf -oL -eL`  (SIGTERM loses buffered
+##     stderr otherwise). Logs every int#0x40 REALOS syscall: r12=service r4-r7 pc rp. NOT gated on
+##     FRN_TRACE_IRQ (the distinct [int40] logger IS gated on it). scripts/syscall_trace.sh wraps it.
+##   Blocking services: realos_rcv_mbx 0x100111b0, kernel_wai_flg_svc 0x100112a4, kernel_twai_sem
+##     0x100113dc, set_event_flag_bits 0x10010984, snd_mbx(insert) 0x10010c18, alloc 0x10010138.
+##   FRN_FIX_SETFLG=1 (committed to qemu op_helper.c): causality test — forces non-zero set_flg
+##     pattern. scripts/fnseq_countdiff.py: per-function count diff (cand-never-run functions).
+##
+## DIAGNOSIS CHAIN (measured): cand sends exactly 1 mbx message (snd_mbx 0x10010c18, mbx=2, code
+## r6=0x801d9a2c — SAME as stock's first send) then all tasks idle. The mbx-2 pump
+## (app_task_generic_waitloop, packed 0x10632a12) stays BLOCKED in rcv_mbx(2,FEVR) [rcv count=1,
+## never loops] -> never calls vtbl[3].fn -> the event-dispatch cluster (dispatch_event_handler
+## 0x1047b2be + sig_sem_obj + handle_event_flags_and_signal + the whole 0x104a8xxx settings-registry
+## construction, unit 206) NEVER runs -> no menu objects -> LCD base regs stay 0 -> black.
+## => The mbx-2 message cand sends does NOT wake its pump. ROOT = WHY (open): mailbox-object/id
+##    mismatch between sender and pump, or the send inserts into the wrong queue, or the first
+##    message's content mis-routes. NEXT: dump the sender's mbx-id-ptr object vs the pump's
+##    field_0x14 object; verify both resolve to kernel mailbox 2; check the message packet the
+##    pump would extract. Trace 0x10632a3a (pump dispatch after a successful recv) — if 0 hits the
+##    pump never received (delivery bug); if >0 the processing (vtbl[3].fn) is the bug.
+##
+## B-3 bugs found this session (register-forwarding wrappers drop args; same class as
+## reg_framework_send). Status:
+##   - reg_framework_send (0x10459abe): FIXED+COMMITTED (cea35227), 85 callers swept. NOT the
+##     blocker (cand deadlocks before the send-heavy phase) — verified by re-measuring send count=1.
+##   - mbx_receive_message_104598e8 (0x104598e8): timeout-drop -> busy-poll handover deadlock.
+##     ALREADY FIXED+COMMITTED (6c4036c2), verified correct in the candidate binary. (So the pump's
+##     RECEIVE is correct; the blocker is delivery/dispatch, not this.)
+##   - set_flg_obj (0x104596cc): drops the eventflag PATTERN r5 -> set_flg(id,0)=no-op. REAL on-path
+##     bug (cand calls it 3x, all pattern 0; stock passes real patterns). BUT causal test
+##     (FRN_FIX_SETFLG=1 forcing non-zero patterns) did NOT raise cand's send count past 1 -> NOT the
+##     load-bearing blocker. Fix is UNCOMMITTED (set_flg_obj.c sig + funcs.h changed) and needs a
+##     213-caller sweep (scripts/patch_setflg.py: 184 auto + 29 manual, patterns recovered). DEFERRED
+##     until the real blocker is cleared — do NOT link with the sig change until the 213 callers are
+##     swept (else build breaks). twai_sem_obj (0x104596.. 0x10459f06) same class (drops timeout),
+##     OFF-PATH (callers use -1=FEVR), body fix applied+uncommitted, self-contained.
+##   LESSON (Ferro d329, heeded): the first divergence != the load-bearing cause; VERIFY causality
+##     with a controlled poke before a big sweep. set_flg_obj looked causal but failed the test.
+
+## (older, now-superseded framing follows)
 ## Where boot is now (d327-late: B-13 descriptor-split cleared the ic5.58M derail; now boots to
 ## STABLE IDLE, BLACK SCREEN. Root of black screen = B-3 MESSAGE-BUS, now fixed — see below.)
 

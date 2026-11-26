@@ -22,7 +22,7 @@ bool twai_sem_obj(uint32_t *param_1,int param_2)
     iVar1 = __trap_kernel_twai_sem((int)(short)*param_1,0xffffffff);
   }
   else {
-    iVar1 = __trap_kernel_twai_sem((int)(short)*param_1, __frv_reg_unset(5));
+    iVar1 = __trap_kernel_twai_sem((int)(short)*param_1, param_2);
   }
   return iVar1 == 0;
 }

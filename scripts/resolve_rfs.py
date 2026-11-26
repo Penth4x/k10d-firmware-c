@@ -58,7 +58,7 @@ def trace(va):
         if iscall:
             # is this the RFS call? (call @r12 where reg[12]==reg_framework_send)
             ri=w&0xf
-            isrfs = t12 in (0x971,0x9F1) and reg.get(ri)== "reg_framework_send"
+            isrfs = t12 in (0x971,0x9F1) and reg.get(ri)== frdis.nm(RFS)
             delayed = t12 in (0x9F1,0x9F0) or (w>>11)==0x1B
             if delayed and i+1<len(insns):
                 apply(insns[i+1][0], insns[i+1][1])   # delay slot runs first
