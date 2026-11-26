@@ -43,8 +43,16 @@
 ##       flash-save artifact; with a clean flash +0x10c=0x80554594 and the poll ENTERS the loop.)
 ##   (2) TWO similarly-named setters exist: set_flag_at_offset_0x28_10466fde (0 hits) vs
 ##       set_flag_at_offset_0x28_10467264 (the real one). Grepping the wrong one gave a false "never fires".
-## NEXT: find where call_two_initializers' timeout is STARTED and why its relative delay is ~1 tick not
-## ~393. Use object-identity tracing, fresh flash, no FLASH_SAVE.
+## QUANTIFIED (clean, no FLASH_SAVE): call_two_initializers first fires at ic 5,576,421 in the candidate
+## vs 35,706,039 in stock — ~30M instrs (~500 ticks at ~58k instrs/tick) TOO EARLY. packed 0x106670aa.
+## NEXT: find where call_two_initializers' timeout-queue node is STARTED and why its fire is ~500 ticks
+## early. It is reached via the timeout queue -> vtable[2] (create_kernel_object registers handler =
+## call_virtual_slot_2_on_nested_object, descriptor {0,exinf,handler}, attr=0 — faithful, no explicit
+## timeout). So a sta_cyc/sta_alm-like call sets the relative delay. Trace: (a) IC when the node is inserted
+## (insert_into_timeout_queue / find_free_queue_slot 0x1000d66c) in candidate vs stock; (b) the node's time
+## field value; (c) the current kernel tick at insertion. Either the relative timeout VALUE is wrong
+## (dropped/garbled arg -> ~0, a B-3 class fit) or the tick base is wrong. Use object-identity tracing,
+## fresh flash, no FLASH_SAVE.
 ## ======================================================================================================
 ##
 ## ROOT CHAIN (fully traced d329 via FRN_BADPC + FRN_FT_FULLREGS at ic 7272159-7272164):
