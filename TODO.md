@@ -33,8 +33,14 @@ a link confirms it. (Detail/rationale lives in NEXT_STEPS.md.)
   to a kernel trap) would be worth building — likely more instances exist beyond the sweep's grep.
 
 ## No-original-jumps campaign (FRN_INPLACE detector is the gate; op_helper.c, uncommitted)
-- [ ] 3 remaining packed→original leaks surfaced after boot went deeper (re-run FRN_INPLACE to refresh):
-      0x10493dc4 (a THIRD ref — a vtable slot, not the 2 fixed call-sites), 0x103a5688, 0x10491c22.
+- [~] FRN_INPLACE re-run on build10 candidate (d328): 4 leaks found (old 3 gone). FIXED 3 cpucom-path
+      vtable-slot leaks via confirmed_fnptrs.txt (build11): invoke_virtual_slot_3_on_member_10466604 ->
+      mode_ctrl_on_event (slots 0x1059f0bc/0x1059f104, VT_1059f088 truncated at 8 slots);
+      invoke_virtual_slot_3_on_member_10466ffa -> dispatch_event_to_subobject (0x105d5140/60);
+      dispatch_context_virtual_op -> toggle_byte_and_call_helper (0x105a0894) [INSIDE cpucom_execute_transaction].
+- [ ] Leak #1 (0x1048222c via slot 0x105ab64c = query_object_via_virtual_call_10480050) is a MID-FUNCTION
+      target (cls_105ab600_delete+0x5a), NOT a function entry -> can't relocate to a symbol; it's a
+      computed-jump/switch leak needing a different fix (fix the jump table or the function).
 - [ ] LINKER-NATIVE vtables (Andrew): emit vtables/dispatch-tables as real linker sections
       (`.DATA.L _sym` per slot) instead of per-word CONFIRMED_TABLES overlay patches — kills the whole
       undetected-fnptr class at once (no guessing fnptr-vs-data, no whack-a-mole). Start with the
