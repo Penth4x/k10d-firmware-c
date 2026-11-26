@@ -23,7 +23,7 @@ void remove_node_from_queue(int param_1,uint32_t param_2,int param_3)
   short sVar4;
   short *psVar5;
   
-  iVar1 = ((uint16_t)((uint64_t)(param_2) >> 16)) * 0x44;
+  iVar1 = ((uint16_t)param_2) * 0x44;
   psVar5 = (short *)compute_tcb_array_offset(param_1,(uint)*(byte *)(iVar1 + 0x6a001c07));
   if (psVar5 != (short *)0x0) {
     sVar2 = *psVar5;
@@ -42,12 +42,12 @@ void remove_node_from_queue(int param_1,uint32_t param_2,int param_3)
       *(short *)(sVar3 * 0x44 + 0x6a001be8) = sVar4;
     }
     if (*(char *)(iVar1 + 0x6a001c06) == '\x02') {
-      ready_list_insert(((uint16_t)((uint64_t)(param_2) >> 16)));
+      ready_list_insert(((uint16_t)param_2));
       sVar4 = *psVar5;
     }
     else {
       if (param_3 == 1) {
-        insert_into_priority_queue(((uint16_t)((uint64_t)(param_2) >> 16)),psVar5);
+        insert_into_priority_queue(((uint16_t)param_2),psVar5);
       }
       sVar4 = *psVar5;
     }

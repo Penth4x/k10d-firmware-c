@@ -285,6 +285,25 @@ Reliable measurement (prerequisite for all localization):
   each case to the real 32-bit object (the helper/alloc return = Ghidra's CONCAT high word), and use
   `pvVar7 = objResult` at the convergence. The low word is decompiler fiction (only reached the
   error-path `console_printf`). `cpu/src/199_settings_menu_manager/app_obj_factory.c`.
+
+### B-10b · SPURIOUS `(uint16_t)((uint64_t)x >> 16)` — a shift the original never had (not a ≥32 no-op)
+- **Symptom:** a small value that must be written whole (a code / message priority / id) is instead
+  written as `x >> 16` = 0 (for a small x), silently corrupting it.
+- **Cause:** Ghidra wraps a plain value in `(uint64_t)x >> 16` where the ORIGINAL just stored `x`
+  (e.g. a 16-bit `sth`). Unlike B-10's `>>0x20`, this is NOT masked away — `>>16` executes and
+  zeroes a small value. fcc does NOT warn (the count is < 32), so W1063B does NOT catch it — the
+  detector is a disasm cross-check against the original store/arg.
+- **Instance (ROOT of the d327 black screen, confirmed):** `mbx_send_message` (0x10459864) — the
+  message PRIORITY at msg+4. Original `sth r11,@(r8+4)` = `(uint16_t)param_3`, NO shift
+  (0x104598b0). The C had `(uint16_t)((uint64_t)param_3 >> 16)`, so the recompile wrote priority 0.
+  Priority mailbox (mbx 2, attr TA_MPRI) rejects priority 0 with E_PAR(-17) at the kernel snd
+  (insert_into_timeout_queue 0x10010c18, checks `1<=pri<=maxpri`): the send FAILS, the message
+  never reaches its pump (app_task_generic_waitloop 0x10632a12 blocks rcv_mbx FEVR), the whole
+  event-dispatch cascade stalls → black screen. **Fix:** `msg+4 = (uint16_t)param_3` (drop the
+  shift). Self-contained. Found via: snd result trace (cand -17 vs stock 0×43) + kernel disasm.
+- **Sweep candidates (24 files, `grep -rE '\(uint16_t\)\(\(uint64_t\)' cpu/src`):** NOT all bugs —
+  legit cases extract a real high-16 or split a 32-bit value into two 16-bit halves (`>>0`/`>>16`
+  pairs). Verify each against the original disasm (does the original shift?) before fixing. OPEN.
 - **Detection rule:** build and grep for `W1063B`. For each, read the shifted value's producer: a
   two-register/CONCAT44 source ⇒ rewrite to extract the real half without a 64-bit shift; a plain
   32-bit source ⇒ drop the spurious `>> 0x20`. Distinct from B-2 (short-split STORE of a 32-bit value

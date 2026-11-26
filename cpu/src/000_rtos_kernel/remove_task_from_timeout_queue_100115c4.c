@@ -22,15 +22,15 @@ void remove_task_from_timeout_queue_100115c4(uint32_t param_1,uint32_t param_2)
 {
   int iVar1;
   
-  *(uint16_t *)(DAT_10011d04/*ROM*/ + ((uint16_t)((uint64_t)(param_2) >> 16)) * 0xe + -2) = 0;
-  update_timeout_queue_entry(((uint16_t)((uint64_t)(param_1) >> 16)),((uint16_t)((uint64_t)(param_2) >> 16)));
-  dequeue_timeout_entry(((uint16_t)((uint64_t)(param_2) >> 16)));
-  iVar1 = ((uint16_t)((uint64_t)(param_1) >> 16)) * 0x44;
+  *(uint16_t *)(DAT_10011d04/*ROM*/ + ((uint16_t)param_2) * 0xe + -2) = 0;
+  update_timeout_queue_entry(((uint16_t)param_1),((uint16_t)param_2));
+  dequeue_timeout_entry(((uint16_t)param_2));
+  iVar1 = ((uint16_t)param_1) * 0x44;
   if ((*(short *)(iVar1 + 0x6a001bf0) == -1) &&
      (*(short *)(iVar1 + 0x6a001c00) < *(short *)(iVar1 + 0x6a001c04))) {
-    ready_list_unlink(((uint16_t)((uint64_t)(param_1) >> 16)));
+    ready_list_unlink(((uint16_t)param_1));
     *(uint16_t *)(iVar1 + 0x6a001c00) = *(uint16_t *)(iVar1 + 0x6a001c04);
-    ready_list_insert(((uint16_t)((uint64_t)(param_1) >> 16)));
+    ready_list_insert(((uint16_t)param_1));
   }
   return;
 }

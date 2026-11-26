@@ -1,6 +1,27 @@
 # Next steps — open investigation (handoff)
 
-## CURRENT STATE (d327-latest): BLACK SCREEN = message-bus/event-dispatch deadlock. Several B-3
+## ★ ROOT FOUND (d327-latest): mbx_send_message B-10b spurious-shift. mbx_send_message (0x10459864)
+## stored the message PRIORITY (msg+4) as `(uint16_t)((uint64_t)param_3 >> 16)` — a decompiler
+## spurious shift; the ORIGINAL stores `(uint16_t)param_3` directly (disasm 0x104598b0 `sth r11`).
+## So the recompile wrote priority 0 (param_3 is a small code like 2). mbx 2 is a PRIORITY mailbox
+## (attr TA_MPRI=2, maxpri=3); the kernel snd (insert_into_timeout_queue 0x10010c18) rejects
+## priority 0 with E_PAR(-17). EVERY send to a priority mailbox FAILS -> no cascade -> black.
+## MEASURED: cand snd result (0x10790480) r4=0xffffffef(-17) vs stock 0×43. FIX APPLIED (drop >>16),
+## link in flight. This COMPLETES the reg_framework_send fix (which passes param_3=the code): both
+## are needed. BESTIARY B-10b added.
+##
+## ALSO FIXED (same B-10b class, verified via MULH/extsh disasm; staged for NEXT link, NOT in the
+## mbx-send link): remove_node_from_queue (0x1000dcf4) and remove_task_from_timeout_queue_100115c4
+## (0x100115c4) — both did `(param>>16)*0x44/0xe` (TCB/queue stride) where the original uses
+## `(int16)param` (low 16 = task id). Wrong index corrupts the RTOS timeout queue / ready list.
+## OTHER B-10b candidates (21 files, `grep -rE '\(uint16_t\)\(\(uint64_t\)' cpu/src`): mostly legit
+## (32-bit->two-16-bit splits, high-half extraction) — verify each vs original disasm before fixing.
+##
+## VALIDATION PLAN (when link done): scripts/validate_mbx.sh (cand send count 1 -> should climb);
+## if sends flow, scripts/check_display.sh + screenshot. Then find the NEXT divergence (re-run the
+## int40 snd-result trace / fnseq_countdiff; the menu-build is unit 206/207 settings_registry).
+
+## (older framing) CURRENT STATE (d327): BLACK SCREEN = message-bus/event-dispatch deadlock. Several B-3
 ## bugs found+ruled out by CAUSAL test; real root narrowed to "mbx-2 send does not wake its pump".
 ##
 ## THE reliable diagnostic tools (use these, NOT codiff/fnseq which drown in timer-IRQ jitter):
