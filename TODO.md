@@ -59,3 +59,16 @@ a link confirms it. (Detail/rationale lives in NEXT_STEPS.md.)
       0x400d0004/0006, 0x400a0030/0032/0x400a0020, 0x4007000c, 0x40128108/0x40128202. Only fix the ones
       that (a) are 16-bit HW and (b) are on a path that misbehaves — confirm empirically (emulator reg
       model + the failing bit-test) like the RTC pair, don't blanket-change.
+
+## B-14 · computed register value flattened to a single constant at the use site (NEW, d328)
+Decompiler drops a switch/if-chain that computes a register, then hardcodes ONE of the branch
+constants at the consuming call. Found by scripts/verify_setflg.py (disasm r5 != C literal).
+- [ ] dispatch_event_to_object_1039e58c (0x1039e58c, unit 042_debug_menu_state): final
+      `set_flg_obj(&field_0xcc, 0x8000000)` — real r5 = r9, a switch-computed event-flag bit set
+      per param_2 (0x40000/0x80000/0x10000/0x100000/0x200000/0x400000/0x800000/0x1000000/0x2000000/
+      0x4000000/0x8000000/0x20000/0x80000...; default 0) in the big param_2 dispatch at the top.
+      The whole r9 bit-selection was LOST in the decompile. Needs the param_2->bit table rebuilt
+      from disasm (1039e59a..1039e950). VERIFY on-path first (042_debug_menu — may be off the
+      Language-menu path). The 0x400 (line136) and 0x8000 (line200) set_flg_obj calls ARE correct.
+- [ ] Sweep: re-run verify_setflg.py after each build; extend it to other kernel-arg forwarders
+      (sig_sem/set_flg patterns) to catch the same flatten-to-constant class elsewhere.

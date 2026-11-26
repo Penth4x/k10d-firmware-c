@@ -9,7 +9,7 @@ CAND=$HERE/cpu/out/candidate_FWDC162B.BIN
 MAP=$HERE/cpu/out/firmware.map
 SCR=${SCR:-/tmp/claude-1002/-home-memorai-memorAI/f4341860-fe67-4d9c-81be-c7c5c517f9ea/scratchpad}
 WALL=${WALL:-240}
-PDISP=$(grep -iE '_write_three_config_values$' "$MAP" | awk '{print $1}' | sed 's/(.*//' | head -1)
+PDISP=$(tr -d '\r' < "$MAP" | grep -iE '_write_three_config_values$' | awk '{print $1}' | sed 's/(.*//' | head -1)
 echo "candidate display-init packed=0x$PDISP  watching LCD base reg 0x40040308  WALL=${WALL}s"
 cp -f "$CAND" "$SCR/d_cand.bin"
 timeout "$WALL" env FRN_FLASH_SAVE="$SCR/d_cand.bin" \
