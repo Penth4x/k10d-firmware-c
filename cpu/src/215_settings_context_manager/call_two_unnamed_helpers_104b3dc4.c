@@ -16,6 +16,6 @@ void call_two_unnamed_helpers_104b3dc4(uint32_t param_x0)
 
 {
   get_or_init_ram_buffer_104b172a();
-  release_object_member_refs((int *)__frv_reg_unset(4));
+  release_object_member_refs((int *)param_x0);
   return;
 }

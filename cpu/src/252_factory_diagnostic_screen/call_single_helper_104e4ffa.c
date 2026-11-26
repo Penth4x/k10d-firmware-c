@@ -9,6 +9,6 @@
 void call_single_helper_104e4ffa(uint32_t param_x0)
 
 {
-  clear_struct_and_call_four_helpers((char *)__frv_reg_unset(4));
+  clear_struct_and_call_four_helpers((char *)param_x0);
   return;
 }

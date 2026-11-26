@@ -16,6 +16,6 @@
 void call_single_helper_1043ed1e(uint32_t param_x0)
 
 {
-  call_helper_with_zero_and_0x8000((void *)__frv_reg_unset(4));
+  call_helper_with_zero_and_0x8000((void *)param_x0);
   return;
 }

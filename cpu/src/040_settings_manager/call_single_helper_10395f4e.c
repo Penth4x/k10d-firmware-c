@@ -16,6 +16,6 @@
 void call_single_helper_10395f4e(uint32_t param_x0)
 
 {
-  read_two_shorts_and_store_10395f56(__frv_reg_unset(4));
+  read_two_shorts_and_store_10395f56(param_x0);
   return;
 }

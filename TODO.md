@@ -12,8 +12,15 @@ drive the count to 0. **Debt baseline (d329): 2145 uses / 860 files (2140 as cal
       `fix_check_kernel_timeout.py`, 8 manual incl. computed/param args). (A poll-only sub-fix verified the
       mechanism but did NOT fix the menu — menu blocker is a separate kernel-handler-activation timing;
       testing whether the full 153-fix shifts it.)
-- [ ] Sweep the rest: `detect_reg_unset.py` ranks 476 thin FORWARDERS first. Generalize per-caller value
-      recovery (fix_check_kernel_timeout.py pattern) into a reusable tool. On-path (cpucom/menu) first.
+- [~] Sweep the rest: `detect_reg_unset.py` ranks 464 thin FORWARDERS. Done (d329): 11 TRIVIALLY-fixable
+      ones where the sig ALREADY declared param_x0.. but the body used __frv_reg_unset(N) — replaced with
+      the forwarded param (param_x(N-4)); each VERIFIED flow-through vs original asm (the forwarder doesn't
+      write rN before the call). Files: call_single_helper_{1046cadc,10395e3e,10395f4e,1043ed1e,1047f97e,
+      10485dd8,104e4ffa}, call_single_argument_helper_1036bd60, call_two_unnamed_helpers_104b3dc4,
+      call_helper_and_return_one_104d84c0, lens_fw_update_slot3. CAVEAT for the rest: the `(void)`-sig
+      forwarders (~9+ more, verified flow-through) CANNOT be fixed by just adding a param — their CALLERS
+      were decompiled assuming void and don't pass the arg, so adding a param CHAINS (breaks callers). Those
+      need harvest_asm (asm forwards registers regardless of C sig) OR a caller-chain pass. On-path first.
 
 ## Menu blocker (active) — boots to idle, BLACK SCREEN
 - [x] descriptor-split creates cleared the `act_tsk` derail (ic~5.58M) → boots to stable idle (9aa78ec3).
@@ -36,10 +43,14 @@ drive the count to 0. **Debt baseline (d329): 2145 uses / 860 files (2140 as cal
 - [x] alloc_or_acquire_heap_block (127) — eventflag iflgptn garbage (flag-0x35 root). Stock-verified.
 - [x] create_kernel_object (127) — cyclic-handler create; garbage handler → act_tsk SP corruption.
 - [x] create_or_open_kernel_object (127) — {attr, param_4} halfword descriptor.
-- [ ] call_helper_with_two_word_struct (127) — 2-word INPUT. NOT on early boot path (dispatch_kernel_
-      service_10010b10 unhit in 25s) → correctness, not a menu blocker. Verify kernel reads +4, then fix.
-- [ ] query_two_word_result (127) — 2-word OUTPUT; 2nd result word lost (trap writes base+4, fn reads
-      uStack_8 @ base-4). Verify + fix.
+- [x] call_helper_with_two_word_struct (154) — 2-word INPUT. VERIFIED vs orig asm 0x1046d13e (contiguous
+      desc at sp-8) and FIXED (d329): the trap read word1 from base+4 (garbage) not uStack_8 (base-4);
+      now a contiguous uint32_t desc[2]. Used by display_sync_driver (unit 153) — relevant to display out.
+- [x] query_two_word_result (154) — 2-word OUTPUT. VERIFIED vs orig asm 0x1046d166 and FIXED (d329): 2nd
+      result word (base+4) was lost (read from uStack_8 @ base-4, always 0); now contiguous desc[2], read
+      desc[1]. Used by display_sync_driver (unit 153).
+- [x] B-13 descriptor-split class SWEPT (d329): a generalized detector (pass &..Stack_N to a __trap_ with a
+      ..Stack_(N-4) pair) finds NO remaining instances beyond the 3 fixed this session + create_kernel_object.
 - [x] wait_sem_obj (127) — returned uStack_8 (sp+8, base-4) which the trap never writes → ALWAYS 0; the
   real result (base+4) was lost. VERIFIED vs original asm (0x10459f36: contiguous desc at sp-8, returns
   *(sp-4)) and FIXED (d329): contiguous uint32_t desc[2], return desc[1]. Behavioral impact: caller

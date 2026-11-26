@@ -15,6 +15,6 @@
 void call_single_helper_10395e3e(uint32_t param_x0)
 
 {
-  register_four_callbacks(__frv_reg_unset(4));
+  register_four_callbacks(param_x0);
   return;
 }

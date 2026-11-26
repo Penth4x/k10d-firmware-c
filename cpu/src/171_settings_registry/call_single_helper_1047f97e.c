@@ -16,6 +16,6 @@
 void call_single_helper_1047f97e(uint32_t param_x0)
 
 {
-  read_six_byte_fields_from_buffer((uint *)__frv_reg_unset(4));
+  read_six_byte_fields_from_buffer((uint *)param_x0);
   return;
 }

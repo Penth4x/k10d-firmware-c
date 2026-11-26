@@ -16,6 +16,6 @@
 void call_single_helper_10485dd8(uint32_t param_x0, uint32_t param_x1, uint32_t param_x2)
 
 {
-  render_dot_matrix_pattern(__frv_reg_unset(4), __frv_reg_unset(5), __frv_reg_unset(6));
+  render_dot_matrix_pattern(param_x0, param_x1, param_x2);
   return;
 }

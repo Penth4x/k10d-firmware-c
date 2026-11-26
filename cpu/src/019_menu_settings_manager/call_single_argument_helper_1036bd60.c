@@ -18,6 +18,6 @@
 void call_single_argument_helper_1036bd60(uint32_t param_x0, uint32_t param_x1)
 
 {
-  update_object_field_and_notify_104c4824(_DAT_8000439c/*SDRAM*/, __frv_reg_unset(5));
+  update_object_field_and_notify_104c4824(_DAT_8000439c/*SDRAM*/, param_x1);
   return;
 }

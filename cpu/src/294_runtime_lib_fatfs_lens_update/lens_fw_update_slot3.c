@@ -9,6 +9,6 @@
 void lens_fw_update_slot3(uint32_t param_x0)
 
 {
-  clear_lens_fw_update_flags(__frv_reg_unset(4));
+  clear_lens_fw_update_flags(param_x0);
   return;
 }
