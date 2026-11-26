@@ -18,7 +18,19 @@ mode_ctrl_on_event (0x10430532) doing set_flg_obj(param_1+0x7c, 0x4) on event 0x
 In stock that fires (rp=0x104305ce); in candidate event 0x10002 is NEVER posted, so the pump hangs.
 process_event_and_release=0, dispatch_mode_change_event=0, mode_nav_request=0 in candidate.
 
-### d329 ROOT FOUND: candidate drives DSP handshake (MMIO 0x50000106) with WRONG bit masks
+### d329 ROOT (REFINED): candidate cpucom context selects the WRONG GPIO object (not a mask bug)
+UPDATE to the mask finding below: the 8 GPIO-line objects (0x805543f0..0x80554594 stride 0x3c, masks
+0x80..0x01 at +0x1c) are IDENTICAL in both binaries (measured: 0x805543f0 mask=0x80, 0x80554558 mask=0x02).
+So the masks are correct — the bug is OBJECT SELECTION: the candidate drives the mask-0x02/index-1 object
+where stock drives the mask-0x80/index-7 request-line object. MEASURED: candidate never runs cpucom_spi_xfer/
+spi_start_xfer/cpucom_poll_driver (FT hits=0); ui_task6_body runs startup cpucom_execute_transaction then
+blocks on rcv_mbx. FRN_HS_OLD=1 does NOT change it (still 7 signals) -> not the emulator handshake heuristic.
+The cpucom transaction context's GPIO-pointer fields (ctx+0x1c etc.) come from read_table_entry_field(sram,
+INDEX) (initialize_transfer_context reads 0x45/9/0x8c/0xb6). NEXT: FRN_WRVAL=0x805543f0 (stock obj) /
+0x80554558 (cand obj) to find where the ctx GPIO ptr is bound; the wrong read_table_entry_field index /
+fabricated constant (B-15 class — "a really nasty decompiler bug") selects the wrong object. Fix that index.
+
+### (earlier) d329: candidate drives DSP handshake (MMIO 0x50000106) with WRONG bit masks
 FRN_WRWATCH=0x50000106 on both binaries: STOCK writes 0x86/0x82/0xa2/0xc2/0x80/0x81/0xc3 (399 writes)
 — it drives the main->companion REQUEST lines (bits 0x20/0x40/0x80) via set_flag_with_notify
 (0x1043986a) / clear_flag_with_notify (0x10439822), RMW *(obj+0x10) |= / &= ~ mask(obj+0x1c).
