@@ -15,6 +15,27 @@
 ## dropped arg — find the 0x04 literal). If it never reaches it, the companion-init task/function is skipped
 ## (scheduler — the 15x-less-active finding). Trace the cpucom_spi_xfer command buffer (param_2[0]) back to
 ## where 0x04 vs 0x80 is set. TOOLS: FRN_DSP_LOG=1 (dialog), fresh flash + no FLASH_SAVE.
+## TRACED (d329): the command byte is written to companion data reg 0x5c004043 by spi_read_byte (0x104404f8),
+## called from cpucom_spi_xfer. Stock sends 0x04 from cpucom_spi_xfer+0x84 (the POST-init context). Candidate
+## sends 0x80 from cpucom_spi_xfer+0x90 (rp 0x106c61e0) — the command byte is @(r14+24), a STACK ARG from the
+## CALLER. The candidate only calls cpucom_spi_xfer from the MESSAGE LOOP (cpucom_poll_driver); it NEVER
+## calls it from the POST-init context with 0x04. So THE CANDIDATE NEVER RUNS THE COMPANION POST-INIT PATH.
+## SO THE SHARPEST ROOT STATEMENT: find the stock code path that calls cpucom_spi_xfer to send Cmd:04 (POST)
+## — it is a companion bringup that runs BEFORE/separate from ui_task6's message loop — and find why the
+## candidate doesn't run it (a skipped init call, a task that never dispatches, or a branch that's inverted/
+## dropped so the candidate jumps straight to the message loop). Stock: trace back from the 0x04 write
+## (spi_read_byte caller cpucom_spi_xfer+0x84, its caller, ...) to the companion-bringup entry; then check
+## the candidate reaches it. That bringup running (or not) is the binary that decides the whole menu.
+## REFINED (d329): STOCK also sends the first command (0x04 POST) from cpucom_poll_driver's MESSAGE LOOP
+## (not a separate init) — same path as the candidate. The difference is the FIRST MESSAGE's command byte:
+## stock 0x04 (POST) at ic 35.7M, candidate 0x80 at ic 5.6M. => MESSAGE CONTENT/ORDERING: the candidate's
+## loop runs early (premature companion-ready) and processes a wrong/out-of-order message (0x80) before the
+## POST (0x04) exists. This ALL collapses to the ONE root: the companion-ready signal (+0x28 / the
+## call_two_initializers alarm) fires ~500 ticks early (5.58M vs 35.7M), so ui_task6's loop runs before the
+## real POST message is produced. FRN_DSP_LOG is the crisp oracle (stock=04/05/01 vs cand=80). THE FIX
+## TARGET is singular: make the companion-ready signal wait for the real companion handshake (as stock does)
+## instead of firing early — i.e., why call_two_initializers dispatches at 5.58M not 35.7M (REALOS
+## scheduler/companion-gating core). Use FRN_DSP_LOG as pass/fail for any fix.
 
 ## ★★★ CURRENT (d329): MODE-PUMP DEADLOCK CLEARED — new blocker is the companion-cpucom bootstrap reset
 ## The onion-peel reached the MODE PUMP. B-3v vtable-dropped-arg (invoke_virtual_slot_3_on_member_10466604)
