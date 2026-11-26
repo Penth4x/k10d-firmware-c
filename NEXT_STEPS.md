@@ -106,6 +106,20 @@
 ## nameable task whose lifetime can be diffed. (Alternatively PIVOT per TODO: the menu root is at a hard
 ## REALOS scheduler-timing frontier; the descriptor-split sweep / MMIO sweep / remaining leaks are tractable
 ## concrete progress while this gets a fresh focused pass.)
+## TRIGGER IDENTIFIED (d329, correctly-resolved kernel syms): the handler fires inside an act_tsk
+## (activate-task) syscall pass — sequence just before the fire: rtos_dispatch_entry -> act_tsk_syscall_dispatcher
+## -> increment_timeout_counter (0x1000d498) -> insert_into_timeout_queue_10011644 -> act_tsk_syscall_dispatcher
+## -> call_virtual_slot_2_on_nested_object -> call_two_initializers. A nearby task is lens_fw_update_stub
+## (0x105370cc). So an act_tsk at ic 5.58M (cand) vs 35.7M (stock) drains the timeout queue and runs the
+## companion-ready handler. SURPRISING RATE DATA: the candidate calls increment_timeout_counter ~15x LESS
+## than stock (190 vs 3015 over ~equal 90-100M-instr spans) — the candidate's SCHEDULER IS FAR LESS ACTIVE
+## (tasks blocked / not running normally), consistent with a degraded companion-bootstrap state. So the
+## handler is NOT firing early because the counter races; it fires early because the specific act_tsk pass
+## that drains its queue slot happens early (or the queue is drained by a different, early act_tsk). FINAL
+## NEXT: identify the task that act_tsk activates at ic ~5.58M (cand) and why that activation is early vs
+## stock; and separately, WHY the candidate's overall scheduler is 15x less active (likely the same root —
+## most tasks are stuck waiting on the companion that never truly initializes). The degraded scheduler is
+## itself a strong signal: diff which tasks RUN (act_tsk targets) candidate-vs-stock to find the stuck one.
 ## ======================================================================================================
 ##
 ## ROOT CHAIN (fully traced d329 via FRN_BADPC + FRN_FT_FULLREGS at ic 7272159-7272164):
