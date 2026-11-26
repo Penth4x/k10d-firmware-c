@@ -128,7 +128,7 @@ bool compare_two_read_buffers(int param_1,void *param_2)
       }
     }
   }
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x7d0);
   update_field_at_offset_0x20(param_1);
   cls_105ab468_delete(&cStack_2c,2);
   return bVar4;

@@ -22,13 +22,13 @@ void toggle_object_subsystem_state(cls_1059be70 *param_1,int param_2)
   if (param_2 == 0) {
     param_1->field_0x7d = 0;
     clear_flag_with_notify((char*)(param_1) ->field_0x3c);
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x1);
     clear_flag_with_notify((char*)(param_1) ->field_0x60);
     clear_flag3_with_notify((char*)(param_1) ->field_0x60);
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x1);
     clear_flag_with_notify((char*)(param_1) ->field_0x40);
     if (param_1->field_0xbf != '\0') {
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x1);
       clear_flag_with_notify((char*)(param_1) ->field_0x58);
     }
   }
@@ -36,7 +36,7 @@ void toggle_object_subsystem_state(cls_1059be70 *param_1,int param_2)
     param_1->field_0x7d = 1;
     if (param_1->field_0xbf != '\0') {
       set_flag_with_notify((char*)(param_1) ->field_0x58);
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x1);
     }
     set_flag_with_notify((char*)(param_1) ->field_0x40);
   }

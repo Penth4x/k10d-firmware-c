@@ -60,7 +60,7 @@ int * sibling_item_register(int *param_1,uint32_t param_2,uint32_t param_3,void 
       iVar5 = write_data_to_cf_card(*param_1,auStack_5c);
     }
     if (iVar5 == 0) {
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x1f4);
     }
   }
 LAB_104892a0:

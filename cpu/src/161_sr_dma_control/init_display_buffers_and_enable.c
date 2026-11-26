@@ -46,7 +46,7 @@ void init_display_buffers_and_enable(int param_1)
     }
     dispatch_two_param_operation(param_1,iVar3,uVar2);
     display_output_enable(*(uint32_t *)(param_1 + 0x20));
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x1388);
     deactivate_display_state(*(int *)(param_1 + 0x20));
   }
   pvVar1 = (void *)get_system_heap();

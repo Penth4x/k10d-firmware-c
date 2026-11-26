@@ -50,6 +50,6 @@ uint32_t check_and_log_exposure_params(int param_1)
       return 1;
     }
   }
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0xa);
   return 0;
 }

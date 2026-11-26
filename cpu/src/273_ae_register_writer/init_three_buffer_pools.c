@@ -39,7 +39,7 @@ uint32_t init_three_buffer_pools(int param_1,uint8_t *param_2,void *param_3)
   
   iVar4 = count_active_entries_in_seven_slots_105136e0(*(uint32_t *)(param_1 + 0x58));
   while (iVar4 != 0) {
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x1);
     iVar4 = count_active_entries_in_seven_slots_105136e0(*(uint32_t *)(param_1 + 0x58));
   }
   piVar5 = (int *)heap_alloc_2(0xa4);

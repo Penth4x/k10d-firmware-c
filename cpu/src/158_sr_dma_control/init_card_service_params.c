@@ -30,6 +30,6 @@ void init_card_service_params(int param_1)
   *(uint16_t *)(puVar1 + 2) = 3;
   *(uint16_t *)(puVar1 + 6) = 0xff;
   sr_dma_command(param_1,3,1,&DAT_105a90e0/*ROM*/,*(uint16_t *)(puVar1 + 2),*(uint16_t *)(puVar1 + 6));
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x3e8);
   return;
 }

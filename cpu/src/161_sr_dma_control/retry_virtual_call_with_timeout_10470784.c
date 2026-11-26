@@ -37,7 +37,7 @@ uint32_t retry_virtual_call_with_timeout_10470784(int param_1)
       bVar4 = true;
       break;
     }
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x10);
     cls_105a6eac_delete(&cStack_10,2);
     iVar3 = iVar3 + 1;
   } while (iVar3 < 0x40);

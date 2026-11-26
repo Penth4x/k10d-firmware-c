@@ -135,7 +135,7 @@ uint read_lens_firmware_and_show_info(uint32_t *param_1)
         uStack_11c = 1;
         break;
       }
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x10);
       iVar4 = iVar4 + 1;
     } while (iVar4 < 0x20);
     if (uStack_11c != 0) {

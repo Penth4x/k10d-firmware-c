@@ -60,7 +60,7 @@ void run_test_mode_sequence(int param_1)
     do {
       iVar4 = 1;
       invoke_virtual_method_on_object_10419b48(param_1, __frv_reg_unset(5));
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0xa);
       iStack_20 = 4;
       while( true ) {
         invoke_virtual_method_on_object_10419afe(param_1,&_cfg_14.uStack_14);
@@ -93,7 +93,7 @@ void run_test_mode_sequence(int param_1)
         if (iStack_20 < 0) break;
         iVar4 = iVar4 + 2;
       }
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0xa);
       iStack_18 = iStack_18 + 1;
     } while (iStack_18 < 0x10);
   }

@@ -167,7 +167,7 @@ int verify_card_data_integrity(int param_1,int param_2,int param_3)
       }
     }
   }
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x7d0);
   if (param_3 != 0) {
     update_field_at_offset_0x20(param_1);
   }

@@ -32,7 +32,7 @@ bool script_dispatcher(int *param_1,uint32_t param_2,uint32_t param_3)
     cmd_error_report((uint32_t *)(iVar3),(uint32_t)(uVar1));
   }
   else {
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(param_1[0xb]);
     switch(param_2) {
     case 0:
       handle_case_nine_with_two_calls(param_1,param_3);

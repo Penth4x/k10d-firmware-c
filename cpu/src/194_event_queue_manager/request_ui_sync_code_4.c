@@ -11,6 +11,6 @@ uint32_t request_ui_sync_code_4(void *param_1)
 {
   empty_stub_104928e0();
   ui_request_sync((int)param_1,4);
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x8);
   return 1;
 }

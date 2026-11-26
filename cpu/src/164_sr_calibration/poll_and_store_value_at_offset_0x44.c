@@ -28,7 +28,7 @@ uint poll_and_store_value_at_offset_0x44(int param_1)
     do {
       uVar1 = build_status_bitmask(param_1);
     } while (*(byte *)(param_1 + 0x44) == uVar1);
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0xa);
     uVar2 = build_status_bitmask(param_1);
   } while ((uVar1 != uVar2) || (iVar3 = is_valid_mode_index(param_1,uVar1), iVar3 == 0));
   *(char *)(param_1 + 0x44) = (char)uVar1;

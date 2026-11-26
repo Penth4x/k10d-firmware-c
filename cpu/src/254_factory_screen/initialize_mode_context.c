@@ -37,7 +37,7 @@ uint32_t initialize_mode_context(int param_1,int *param_2,int param_3,int param_
   if (param_2[7] != 4) {
     iVar8 = param_2[7];
     while (iVar8 != 4) {
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x32);
       iVar8 = param_2[7];
     }
   }
@@ -386,6 +386,6 @@ LAB_104e9e46:
   eventflag_wai_flg(puVar6,0x10,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar6,0x10);
   reg_framework_send(param_1 + 0x10, (void *)(uintptr_t)param_3, 0x2);
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x64);
   return 0;
 }

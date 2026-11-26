@@ -20,9 +20,9 @@ void loop_until_flag_clear(cls_1059be70 *param_1)
   
   do {
     param_1->field_0x10 = 1;
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x4);
     set_flag3_with_notify((char*)(param_1) ->field_0x60);
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x2);
     set_flag_with_notify((char*)(param_1) ->field_0x3c);
     send_two_word_pair_over_ch2((int)(param_1),(uint32_t)(0),(uint32_t)(0),(int)(1));
     write_two_byte_pair_to_ch2((int)(param_1),(uint32_t)(0x1400),(int)(1));
@@ -46,7 +46,7 @@ void loop_until_flag_clear(cls_1059be70 *param_1)
     if (param_1->field_0xce != '\0') {
       (((vtbl_entry*)(param_1->field_0x4))[15].fn)
                 (&param_1->field_0x0 + ((vtbl_entry*)(param_1->field_0x4))[15].adj,0);
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x64);
       (((vtbl_entry*)(param_1->field_0x4))[15].fn)
                 (&param_1->field_0x0 + ((vtbl_entry*)(param_1->field_0x4))[15].adj,1);
     }

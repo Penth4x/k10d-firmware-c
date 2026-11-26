@@ -45,7 +45,7 @@ void send_two_config_packets_104728ce(int param_1)
     heap_free_if_flagged(&uStack_9,2);
   }
   wait_for_state_two_with_optional_delay(param_1,iVar1);
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x3e8);
   *(uint16_t *)(puVar5 + 2) = 6;
   *(uint16_t *)(puVar5 + 6) = 0xff;
   puVar5[0xb] = 0;

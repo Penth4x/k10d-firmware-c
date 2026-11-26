@@ -30,11 +30,11 @@ void deactivate_display_state(int param_1)
     call_single_helper_with_param_104436e2((void *)(*(uint32_t *)(param_1 + 0xc)));
     call_helper_with_zero_104436a0((void *)(*(uint32_t *)(param_1 + 0xc)));
     dispatch_on_flag_param(*(void **)(param_1 + 0xc),0);
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x32);
     iVar1 = read_display_controller_status_bits(*(uint32_t *)(param_1 + 0x10));
     if (iVar1 == 0xc000) {
       call_two_initializers_with_zero(*(uint32_t *)(param_1 + 0x14));
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x14);
       call_subroutine_with_zero(*(uint32_t *)(param_1 + 0x10));
     }
   }

@@ -96,11 +96,11 @@ void execute_two_phase_state_transition(cls_1059d1d8 *param_1)
             ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[26].adj,0);
   iVar7 = (int)((uint)(*(int *)(param_1->field_0x54 + 0x48) << 3) / 10) >> 5;
   param_1->field_0xa1 = 0;
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea((int)((uint)(*(int *)(param_1->field_0x54 + 0x48) << 3) / 10) & 0x1f);
   if ((iVar7 != 0) && (iVar8 = 0, iVar7 != 0)) {
     do {
       if (param_1->field_0xa1 != '\0') break;
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x20);
       iVar8 = iVar8 + 1;
     } while (iVar8 < iVar7);
   }

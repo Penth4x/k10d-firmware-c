@@ -28,7 +28,7 @@ void wait_for_flag_clear_with_timeout(int param_1)
   if ((*(uint *)**(uint32_t **)(param_1 + 0x18) & (*(uint32_t **)(param_1 + 0x18))[7]) != 0) {
     iVar2 = 0;
     do {
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x1);
       if (100 < iVar2) {
         return;
       }

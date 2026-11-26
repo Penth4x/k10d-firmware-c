@@ -5563,7 +5563,7 @@ bool twai_sem_obj(uint32_t *param_1,int param_2);
 uint32_t wait_sem_obj(int *param_1);
 int settings_init(int *param_1,int param_2,uint32_t param_3,uint32_t param_4);
 int call_kernel_with_zero_arg(void);
-bool check_kernel_call_success_10459fea(void);
+bool check_kernel_call_success_10459fea(uint32_t timeout);
 void cls_105a2c1c_new(cls_105a2c1c *param_1);
 void cls_105a2c1c_delete(void *param_1,uint param_2);
 int alloc_pool_and_init_task(int *param_1,int param_2,int param_3,int param_4);

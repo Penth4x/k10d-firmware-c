@@ -47,14 +47,14 @@ void run_exposure_sequence_10367ff4(void *param_1)
     lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015b24/*SDRAM*/));
     lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015d38/*SDRAM*/));
     init_object_with_two_ids_10368174(param_1,0x10);
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x3e8);
     goto LAB_103680f8;
   }
   lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015910/*SDRAM*/));
   lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015b24/*SDRAM*/));
   lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015d38/*SDRAM*/));
 LAB_103680f8:
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x3e8);
   set_flag_and_call_helper_10368282((int)param_1);
   write_second_field_of_struct(param_1,1);
   uVar3 = *(uint *)((int)param_1 + 0xa8);

@@ -19,7 +19,7 @@ void dispatch_mode_transition_10367f40(void *param_1)
   uVar2 = *(uint8_t *)((int)param_1 + 0xa2);
   uVar3 = get_setting_0xa3_with_refresh((int *)0x800158d4/*SDRAM*/);
   iVar4 = dispatch_event_with_stack_param(param_1,uVar1,uVar2,(char)uVar3);
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x3e8);
   if (iVar4 == 1) {
     lookup_and_copy_result((void *)__frv_reg_unset(4),(uint32_t *)__frv_reg_unset(5));
     lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015b24/*SDRAM*/));
@@ -30,7 +30,7 @@ void dispatch_mode_transition_10367f40(void *param_1)
     lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015b24/*SDRAM*/));
     lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015d38/*SDRAM*/));
     init_object_with_two_ids_10368174(param_1,0x10);
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x7d0);
   }
   return;
 }

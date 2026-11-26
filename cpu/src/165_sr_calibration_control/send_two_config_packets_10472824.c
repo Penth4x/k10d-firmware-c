@@ -32,7 +32,7 @@ void send_two_config_packets_10472824(int param_1)
   iVar1 = get_or_create_singleton_object_10470d84();
   uVar2 = *(uint32_t *)(iVar1 + 4);
   deactivate_app_mode_context(uVar2);
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x5);
   invoke_virtual_method_one_arg(uVar2,1);
   invoke_virtual_method_one(uVar2,1);
   call_single_helper_1046d812(uVar2);

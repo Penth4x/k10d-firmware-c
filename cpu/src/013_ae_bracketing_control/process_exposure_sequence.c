@@ -162,7 +162,7 @@ code_r0x10368cf4:
       bVar11 = read_byte_at_offset_four_1051e91e(iVar1);
       uVar13 = read_byte_at_offset_one_1051e90c(iVar1);
       if (bVar11 != uVar13) {
-        check_kernel_call_success_10459fea();
+        check_kernel_call_success_10459fea(0x64);
       }
       return 1;
     }

@@ -30,11 +30,11 @@ uint32_t deactivate_mode_context_1047059c(int param_1)
   pvVar1 = (void *)get_or_init_sram_buffer_104277bc();
   pvVar1 = (void *)read_table_entry_field(pvVar1,0x31);
   set_flag_with_notify(pvVar1);
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0xa);
   pvVar2 = (void *)get_or_init_sram_buffer_104277bc();
   pvVar2 = (void *)read_table_entry_field(pvVar2,0x32);
   set_flag_with_notify(pvVar2);
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0xa);
   set_flag2_with_notify(*(void **)(param_1 + 0x54));
   eventflag_clr_flg((uint32_t *)(param_1 + 0x44),2);
   *(uint32_t *)(param_1 + 0x50) = 0;
@@ -43,11 +43,11 @@ uint32_t deactivate_mode_context_1047059c(int param_1)
   twai_flg_obj((uint32_t *)(param_1 + 0x44),2,(void *)0x0,_DAT_105a2af0/*ROM*/);
   iVar3 = *(int *)(*(int *)(param_1 + 0x4c) + 4);
   (((vtbl_entry*)(iVar3))[5].fn)(*(int *)(param_1 + 0x4c) + (int)((vtbl_entry*)(iVar3))[5].adj);
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x3e8);
   clear_flag_with_notify(*(void **)(param_1 + 0x54));
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0xa);
   clear_flag_with_notify(pvVar2);
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0xa);
   clear_flag_with_notify(pvVar1);
   return 1;
 }

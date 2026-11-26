@@ -22,7 +22,7 @@ uint32_t lookup_value_by_code(uint32_t param_1,int param_2)
       ((uVar2 = _DAT_105bb600/*ROM*/, param_2 != 0xb4 &&
        ((uVar2 = _DAT_105bb5d4/*ROM*/, param_2 != 200 && (uVar2 = _DAT_105bb62c/*ROM*/, param_2 != 0xdc)))))) &&
      ((uVar2 = _DAT_105bb630/*ROM*/, param_2 != 0xf0 && (uVar2 = uVar1, param_2 == 0xfa)))) {
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x96);
   }
   return uVar2;
 }

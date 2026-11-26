@@ -26,7 +26,7 @@ uint32_t wait_for_flag_or_timeout(int param_1)
       return 1;
     }
     if (*(char *)(param_1 + 0x14) != '\0') break;
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0xa);
     iVar1 = get_or_create_singleton_object_1050b118();
     iVar1 = get_field_at_offset_0x28(iVar1);
   }

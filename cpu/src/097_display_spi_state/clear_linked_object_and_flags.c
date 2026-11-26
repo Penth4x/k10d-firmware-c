@@ -20,14 +20,14 @@ void clear_linked_object_and_flags(int param_1)
     if (*(char *)(*(int *)(param_1 + 0x88) + 0x2e) != '\0') {
       iVar1 = allocate_pool_block_for_object_1041819e(param_1,*(uint32_t *)(param_1 + 0x88));
       while (iVar1 == 0) {
-        check_kernel_call_success_10459fea();
+        check_kernel_call_success_10459fea(0xa);
         iVar1 = allocate_pool_block_for_object_1041819e(param_1,*(uint32_t *)(param_1 + 0x88));
       }
     }
     if (*(char *)(*(int *)(param_1 + 0x88) + 0x2d) != '\0') {
       iVar1 = allocate_and_init_buffer_1041820a(param_1,*(uint32_t *)(param_1 + 0x88));
       while (iVar1 == 0) {
-        check_kernel_call_success_10459fea();
+        check_kernel_call_success_10459fea(0xa);
         iVar1 = allocate_and_init_buffer_1041820a(param_1,*(uint32_t *)(param_1 + 0x88));
       }
     }

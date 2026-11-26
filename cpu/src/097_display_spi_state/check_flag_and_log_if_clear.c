@@ -13,7 +13,7 @@ bool check_flag_and_log_if_clear(int param_1)
   
   bVar1 = *(char *)(param_1 + 0x14fc) != '\0';
   if (!bVar1) {
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0xa);
   }
   return bVar1;
 }

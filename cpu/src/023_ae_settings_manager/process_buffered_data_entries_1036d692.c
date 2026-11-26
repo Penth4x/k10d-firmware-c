@@ -160,7 +160,7 @@ code_r0x1036d8cc:
     bVar9 = read_byte_at_offset_four_1051e508(iVar11);
     uVar13 = read_byte_at_offset_one_1051e4f6(iVar11);
     if (bVar9 != uVar13) {
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x64);
     }
     uVar4 = 1;
   }

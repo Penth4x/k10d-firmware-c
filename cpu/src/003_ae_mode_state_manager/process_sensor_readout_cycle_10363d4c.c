@@ -47,7 +47,7 @@ void * process_sensor_readout_cycle_10363d4c(void *param_1)
     else if (iVar2 == 2) {
       iVar2 = 1;
     }
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x3e8);
     set_field_and_call_helper_1036510e((int)param_1);
     write_second_field_of_struct(param_1,1);
     if (iVar2 == 1) {

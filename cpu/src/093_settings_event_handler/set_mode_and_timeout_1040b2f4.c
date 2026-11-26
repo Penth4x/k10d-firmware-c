@@ -24,7 +24,7 @@ cls_10599b9c * set_mode_and_timeout_1040b2f4(cls_10599b9c *param_1,int param_2)
     if (param_1->field_0x18 == 0x1bb000a) {
       iVar2 = get_or_create_singleton_object_1050b118();
       for (iVar2 = get_field_at_offset_0x28(iVar2); iVar2 != 0; iVar2 = get_field_at_offset_0x28(iVar2)) {
-        check_kernel_call_success_10459fea();
+        check_kernel_call_success_10459fea(0x32);
         iVar2 = get_or_create_singleton_object_1050b118();
       }
       iVar2 = get_or_create_singleton_object_104bb22a();

@@ -39,7 +39,7 @@ cls_105960c0 * dispatch_mode_change_event_103d2ad8(cls_105960c0 *param_1,int par
         if ((iVar2 == 4) || (iVar1 = dispatch_class_state_two_or_three(iVar1), iVar1 == 4)) {
           iVar1 = get_or_create_singleton_object_1050b118();
           for (iVar1 = get_field_at_offset_0x28(iVar1); iVar1 != 0; iVar1 = get_field_at_offset_0x28(iVar1)) {
-            check_kernel_call_success_10459fea();
+            check_kernel_call_success_10459fea(0x32);
             iVar1 = get_or_create_singleton_object_1050b118();
           }
           param_1->field_0x22 = 0xdc;

@@ -21,7 +21,7 @@ uint32_t poll_until_flag_clear_10416cbc(int param_1)
   if (*(char *)(*(int *)(param_1 + 0x8c) + 0x29) != '\0') {
     iVar1 = allocate_pool_block_for_object_1041812a(param_1,*(uint32_t *)(param_1 + 0x8c));
     while (iVar1 == 0) {
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0xa);
       iVar1 = allocate_pool_block_for_object_1041812a(param_1,*(uint32_t *)(param_1 + 0x8c));
     }
   }

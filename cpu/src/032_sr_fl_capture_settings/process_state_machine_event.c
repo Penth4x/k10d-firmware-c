@@ -30,7 +30,7 @@ int process_state_machine_event(void *param_1)
     while (iVar1 = register_and_activate_event((int)param_1), iVar1 == 10) {
       init_object_with_fixed_state_1037228c(param_1);
     }
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x3e8);
     write_second_field_of_struct(param_1,1);
     if (iVar1 == 5) {
       init_object_with_sram_ref_103722e0(param_1,8);

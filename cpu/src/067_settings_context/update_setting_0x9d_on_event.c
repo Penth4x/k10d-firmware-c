@@ -31,7 +31,7 @@ cls_10595e74 * update_setting_0x9d_on_event(cls_10595e74 *param_1,int param_2,in
     if ((param_3 == 0x11) || (param_3 == 0xe)) {
       setting_set(param_1->field_0x8,0x9d,(uint)(byte)param_1->field_0x20);
       acquire_lock_and_process_event(uVar2,param_1->field_0x20);
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x80);
     }
     else if ((((param_3 == 7) || (param_3 == 0)) || (param_3 == 1)) || (param_3 == 3)) {
       setting_set(param_1->field_0x8,0x9d,(uint)(byte)param_1->field_0x20);

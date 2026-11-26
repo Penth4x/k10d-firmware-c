@@ -15,7 +15,7 @@ void wait_for_flag_then_call_virtual(cls_10562400 *param_1)
   
   cVar1 = *(char *)&param_1[0x46].field_0x78;
   while (cVar1 != '\0') {
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x64);
     cVar1 = *(char *)&param_1[0x46].field_0x78;
   }
   invoke_virtual_slot_10_on_sixteen_objects();

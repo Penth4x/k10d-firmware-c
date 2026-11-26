@@ -70,7 +70,7 @@ uint32_t execute_power_off_sequence_10432a9c(void *param_1,int param_2)
     dispatch_event_with_timeout_10435380(*(uint32_t *)((int)param_1 + 0x30),0,0);
     forward_three_struct_fields(*(uint32_t *)((int)param_1 + 0x34));
     do {
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x1f4);
       forward_three_struct_fields(*(uint32_t *)((int)param_1 + 0x34));
     } while( true );
   }

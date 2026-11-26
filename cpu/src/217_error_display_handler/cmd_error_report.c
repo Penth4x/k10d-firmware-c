@@ -53,6 +53,6 @@ void cmd_error_report(uint32_t *param_1,uint32_t param_2)
   puVar2[0xb] = 0;
   build_and_dispatch_parameter_block(param_1,1,0,&DAT_105b8780/*ROM*/,*(uint16_t *)(puVar2 + 2),*(uint16_t *)(puVar2 + 6),
                puVar2[0xb]);
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x3e8);
   return;
 }

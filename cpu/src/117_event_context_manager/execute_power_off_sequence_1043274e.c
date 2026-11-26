@@ -15,7 +15,7 @@ void execute_power_off_sequence_1043274e(void *param_1)
   compute_exposure_value_from_settings(*(uint32_t *)((int)param_1 + 0x30),8);
   forward_three_struct_fields(*(uint32_t *)((int)param_1 + 0x34));
   do {
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x1f4);
     forward_three_struct_fields(*(uint32_t *)((int)param_1 + 0x34));
   } while( true );
 }

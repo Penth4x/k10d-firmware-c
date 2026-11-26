@@ -188,7 +188,7 @@ code_r0x1036486a:
     bVar9 = read_byte_at_offset_four_1051e508(iVar2);
     uVar15 = read_byte_at_offset_one_1051e4f6(iVar2);
     if (bVar9 != uVar15) {
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x64);
     }
     uVar3 = 1;
   }

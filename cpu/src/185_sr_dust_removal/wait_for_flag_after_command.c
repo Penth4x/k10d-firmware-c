@@ -29,7 +29,7 @@ uint32_t * wait_for_flag_after_command(uint32_t *param_1)
   run_release_cycles_1046f9e4((int)(*param_1),(uint8_t *)(uVar2),(int)(1),(uint8_t *)__frv_reg_unset(7));
   cVar1 = *(char *)((int)param_1 + 0x31);
   while (cVar1 == '\0') {
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x1);
     cVar1 = *(char *)((int)param_1 + 0x31);
   }
   return param_1;

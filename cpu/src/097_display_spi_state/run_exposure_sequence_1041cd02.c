@@ -72,7 +72,7 @@ void run_exposure_sequence_1041cd02(cls_1059d1d8 *param_1)
   __trap_set_timer_channel_value((int)sVar3,6);
   (((vtbl_entry*)(param_1->field_0x0))[26].fn)
             ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[26].adj,0);
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(*(uint32_t *)(param_1->field_0x74 + 0x18));
   empty_noop_stub_103b76f2();
   (((vtbl_entry*)(param_1->field_0x0))[26].fn)
             ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[26].adj,0);

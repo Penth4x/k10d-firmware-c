@@ -17,7 +17,7 @@ void initialize_object_with_delay(cls_105584bc *param_1)
   (((vtbl_entry*)(param_1->field_0x0))[8].fn)
             ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[8].adj);
   request_ui_sync_code_4(&param_1->field_0x464);
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x3e8);
   invoke_slot2_on_two_offsets(param_1);
   empty_stub_103736b6((uint32_t)(param_1));
   write_second_field_of_struct(param_1,1);

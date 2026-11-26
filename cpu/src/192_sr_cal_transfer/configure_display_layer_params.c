@@ -60,6 +60,6 @@ void configure_display_layer_params(int param_1)
   uVar2 = *(uint32_t *)(param_1 + 0xc);
   iVar1 = setting_get(*(int *)(param_1 + 0x18),0x98);
   clamp_and_write_byte_field((void *)(uVar2),(int)acStack_17[iVar1]);
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x64);
   return;
 }

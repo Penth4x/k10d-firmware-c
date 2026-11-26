@@ -24,7 +24,7 @@ uint32_t cpucom_wait_line_clear(void *param_1,int param_2)
   bVar1 = test_flag_set_if_active(*(void **)((int)param_1 + 0x20));
   if (bVar1) {
     do {
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x1);
       cVar2 = read_byte_at_offset_0x28(param_1);
       if (cVar2 != '\0') {
         uVar3 = 2;

@@ -24,7 +24,7 @@ void init_state_if_flag_clear(void)
     call_single_helper_with_param_104436e2((void *)(pvRam800102c4));
     call_helper_with_zero_104436a0((void *)(pvRam800102c4));
     dispatch_on_flag_param((void *)(pvRam800102c4),(int)(0));
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x32);
   }
   call_two_initializers_with_zero(_DAT_800102bc/*SDRAM*/);
   call_subroutine_with_zero(uRam800102c0);

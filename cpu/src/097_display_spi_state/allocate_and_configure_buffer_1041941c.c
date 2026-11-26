@@ -33,7 +33,7 @@ void allocate_and_configure_buffer_1041941c(int param_1)
     pvVar2 = (void *)heap_alloc_2(*(ushort *)(param_1 + 0x1574) + 1);
     while (pvVar2 == 0) {
       pvVar2 = (void *)heap_alloc_2(*(ushort *)(param_1 + 0x1574) + 1);
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0xa);
     }
     iVar3 = forward_three_arg_call(*(int *)(param_1 + 0x5c),*(ushort *)(param_1 + 0x1572) + 0x3c000,
                          *(uint16_t *)(param_1 + 0x1574),pvVar2);

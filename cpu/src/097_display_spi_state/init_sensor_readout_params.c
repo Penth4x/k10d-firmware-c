@@ -181,7 +181,7 @@ void init_sensor_readout_params(int param_1)
   puVar3 = (uint8_t *)get_sysparam_store_instance();
   cVar5 = read_sysparam_byte(puVar3);
   if (cVar5 == '\0') {
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x14);
   }
   (((vtbl_entry*)(*(int *)(param_1 + 4)))[31].fn)(((vtbl_entry*)(*(int *)(param_1 + 4)))[31].adj + param_1);
   uVar2 = (((vtbl_entry*)(*(int *)(param_1 + 4)))[34].fn)
@@ -204,7 +204,7 @@ void init_sensor_readout_params(int param_1)
                   (((vtbl_entry*)(*(int *)(param_1 + 4)))[35].adj + param_1,uVar9 & 0xffff);
         (((vtbl_entry*)(*(int *)(param_1 + 4)))[31].fn)
                   (((vtbl_entry*)(*(int *)(param_1 + 4)))[31].adj + param_1);
-        check_kernel_call_success_10459fea();
+        check_kernel_call_success_10459fea(0x2);
         uVar2 = (((vtbl_entry*)(*(int *)(param_1 + 4)))[34].fn)
                           (((vtbl_entry*)(*(int *)(param_1 + 4)))[34].adj + param_1,1);
         *puVar7 = uVar2;
@@ -228,7 +228,7 @@ void init_sensor_readout_params(int param_1)
                     (((vtbl_entry*)(*(int *)(param_1 + 4)))[35].adj + param_1,uVar9 & 0xffff);
           (((vtbl_entry*)(*(int *)(param_1 + 4)))[31].fn)
                     (((vtbl_entry*)(*(int *)(param_1 + 4)))[31].adj + param_1);
-          check_kernel_call_success_10459fea();
+          check_kernel_call_success_10459fea(0x2);
           uVar2 = (((vtbl_entry*)(*(int *)(param_1 + 4)))[34].fn)
                             (((vtbl_entry*)(*(int *)(param_1 + 4)))[34].adj + param_1,1);
           *puVar7 = uVar2;

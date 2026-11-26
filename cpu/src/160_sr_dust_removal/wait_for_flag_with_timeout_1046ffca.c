@@ -35,7 +35,7 @@ void wait_for_flag_with_timeout_1046ffca(int param_1)
   set_param_via_object(param_1,1);
   cVar1 = *(char *)(param_1 + 0x13);
   while (cVar1 == '\0') {
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x64);
     cVar1 = *(char *)(param_1 + 0x13);
   }
   set_param_via_object(param_1,0);

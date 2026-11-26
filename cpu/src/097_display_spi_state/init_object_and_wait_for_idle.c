@@ -83,7 +83,7 @@ void init_object_and_wait_for_idle(int param_1)
   } while (iVar3 < 0x48);
   iVar3 = check_mode_flag_or_byte(*(uint32_t *)(param_1 + 0x50));
   while (iVar3 != 0) {
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0xa);
     iVar3 = check_mode_flag_or_byte(*(uint32_t *)(param_1 + 0x50));
   }
   _cfg_50.uStack_40 = 1;

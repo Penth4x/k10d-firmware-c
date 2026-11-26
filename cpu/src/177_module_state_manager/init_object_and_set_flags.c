@@ -37,6 +37,6 @@ void init_object_and_set_flags(void)
   dispatch_on_flag_param((void *)(pvRam800102c4),(int)(1));
   call_helper_with_flag_one_104436aa((void *)(pvRam800102c4));
   clamp_and_write_byte_field((void *)(pvRam800102c4),(int)(1));
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x64);
   return;
 }

@@ -29,7 +29,7 @@ uint32_t init_33_byte_buffer_with_descending_values(int param_1)
   
   iVar1 = call_kernel_with_offset_arg(param_1 + 4);
   while (iVar1 != 0) {
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x1);
     iVar1 = call_kernel_with_offset_arg(param_1 + 4);
   }
   puVar2 = (uint32_t *)heap_alloc((void *)0x85c);

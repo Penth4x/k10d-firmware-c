@@ -38,7 +38,7 @@ uint32_t poll_event_until_clear(void *param_1,int param_2)
           break;
         }
       }
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x14);
       iVar2 = check_mode_flag_or_byte(uVar3);
     } while (iVar2 != 0);
   }

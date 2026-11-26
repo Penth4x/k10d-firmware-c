@@ -32,7 +32,7 @@ void poll_and_transmit_sensor_data(int param_1)
   forward_event_to_subobject(param_1,1);
   cls_105a6cb4_new(&cStack_18);
   cls_105a6b4c_new(&cStack_10);
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x100);
   puVar2 = &DAT_105a9614/*ROM*/;
   *(uint16_t *)(puVar3 + 2) = 3;
   *(uint16_t *)(puVar3 + 6) = 0xff;
@@ -62,7 +62,7 @@ void poll_and_transmit_sensor_data(int param_1)
       puVar2 = auStack_68;
       sr_dma_command(param_1,7,2,auStack_68,*(uint16_t *)(puVar3 + 2),*(uint16_t *)(puVar3 + 6))
       ;
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x80);
     } while (*(char *)(param_1 + 0x12) == '\0');
   }
   *(uint8_t *)(param_1 + 0x12) = 0;

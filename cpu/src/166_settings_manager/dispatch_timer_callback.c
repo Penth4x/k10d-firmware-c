@@ -33,7 +33,7 @@ uint32_t dispatch_timer_callback(int param_1,uint8_t param_2)
   write_byte_to_virtual_object(piVar2,0,1);
   send_data_via_cpucom(piVar2,(void *)(param_1 + 4));
   twai_flg_obj((uint32_t *)(param_1 + 0x4c),4,(void *)0x0,_DAT_105a2af0/*ROM*/);
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0xc8);
   (*(code *)0x10463094/*ROM*/)(uVar3,param_2);
   return 0;
 }

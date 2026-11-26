@@ -81,7 +81,7 @@ void update_mode_transition_flags(int param_1,void *param_2)
     if (((*(char *)(param_1 + 0xd7) == '\0') || (param_2 != *(void **)(param_1 + 0x84))) &&
        ((iVar3 = 1, *(char *)(param_1 + 0xc3) == '\0' || (*(char *)(param_1 + 0xc2) == '\0')))) {
       while ((*(char *)(param_1 + 0xd8) == '\0' && (*(char *)(param_1 + 0xd9) == '\0'))) {
-        check_kernel_call_success_10459fea();
+        check_kernel_call_success_10459fea(0x20);
         iVar3 = iVar3 + 1;
         if ((0x10 < iVar3) ||
            ((*(char *)(param_1 + 0xc3) != '\0' && (*(char *)(param_1 + 0xc2) != '\0')))) break;
@@ -91,7 +91,7 @@ void update_mode_transition_flags(int param_1,void *param_2)
     if (iVar3 == 0) {
       iVar3 = 1;
       while ((*(char *)(param_1 + 0xd8) == '\0' && (*(char *)(param_1 + 0xd9) == '\0'))) {
-        check_kernel_call_success_10459fea();
+        check_kernel_call_success_10459fea(0x10);
         iVar3 = iVar3 + 1;
         if ((0x10 < iVar3) || (iVar4 = check_state_mismatch(*(uint32_t *)(param_1 + 0xbc)), iVar4 != 0))
         break;

@@ -29,7 +29,7 @@ void toggle_object_state_and_call_handler(int param_1)
   *(uint16_t *)(puVar1 + 2) = 7;
   *(uint16_t *)(puVar1 + 6) = 0xff;
   sr_dma_command((int)(param_1),(uint32_t)(4),(uint32_t)(3),(byte *)(0x105a95fc/*ROM*/),(uint16_t)(*(uint16_t *)(puVar1 + 2)),(uint16_t)(*(uint16_t *)(puVar1 + 6)));
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0xc8);
   reset_subobject_at_offset_0x2c_104706a0(param_1);
   call_helper_with_offset_and_zero_1046307c((int *)(*(uint32_t *)(param_1 + 0x2c)));
   *(uint8_t *)(param_1 + 0x11) = 0;

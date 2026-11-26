@@ -92,7 +92,7 @@ classic_menu_item_render(uint32_t *param_1,uint32_t param_2,uint32_t param_3,voi
         puVar10[0xb] = 0;
         build_and_dispatch_draw_params((int)param_1,4,8,puVar8,*(uint16_t *)(puVar10 + 2),
                      *(uint16_t *)(puVar10 + 6),puVar10[0xb]);
-        check_kernel_call_success_10459fea();
+        check_kernel_call_success_10459fea(0x3e8);
         goto LAB_10488ce2;
       }
       trigger_sr_cal_transfer_104867c0((int)param_1);

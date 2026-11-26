@@ -47,7 +47,7 @@ LAB_10365a46:
   write_second_field_of_struct(param_1,0);
   init_object_with_two_ids_10365d30(param_1);
   iVar2 = process_buffer_and_return_field(param_1,uVar4);
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x3e8);
   set_field_and_call_helper_10365e18((int)param_1);
   write_second_field_of_struct(param_1,1);
   if (iVar2 == 1) {

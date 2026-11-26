@@ -44,7 +44,7 @@ int dispatch_state_machine_on_magic(void *param_1)
     while (iVar1 = register_and_activate_event((int)param_1), iVar1 == 10) {
       init_object_and_notify(param_1);
     }
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x3e8);
     write_second_field_of_struct(param_1,1);
     if (iVar1 == 5) {
       init_object_with_sram_ref_10367096(param_1,8);

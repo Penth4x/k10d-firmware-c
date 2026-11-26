@@ -13,11 +13,13 @@
 #include "funcs.h"
 #include "syscall_traps.h"
 
-bool check_kernel_call_success_10459fea(void)
+/* B-3d FIX (d329): the original (0x10459fea) is a register-forwarding trap wrapper — it traps to
+ * allocate_kernel_object_1000e4e0 forwarding the AMBIENT r4 (a timeout in ticks that each caller sets
+ * in the call's delay slot, `ldi #k,r4; call:d`). The decompiler dropped every caller's r4 setup AND
+ * emitted __frv_reg_unset(4) here (stub -> 0, clobbers r4-r7), so every timed wait got timeout 0.
+ * Give it a real `timeout` param and forward it; each caller now passes its recovered timeout. */
+bool check_kernel_call_success_10459fea(uint32_t timeout)
 
 {
-  int iVar1;
-  
-  iVar1 = __trap_allocate_kernel_object_1000e4e0(__frv_reg_unset(4));
-  return iVar1 == 0;
+  return __trap_allocate_kernel_object_1000e4e0(timeout) == 0;
 }

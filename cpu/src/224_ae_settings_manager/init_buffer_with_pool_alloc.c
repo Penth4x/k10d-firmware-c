@@ -35,7 +35,7 @@ uint init_buffer_with_pool_alloc(int *param_1,int param_2)
       iVar3 = mempool_get_block(pvVar2,(void *)*param_1,0);
       param_1[1] = iVar3;
       if ((iVar3 != 0) || (uVar1 = uVar1 + 1, (uint)param_1[2] < uVar1)) break;
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x0);
     }
     if (param_1[1] == 0) {
       *param_1 = 0;

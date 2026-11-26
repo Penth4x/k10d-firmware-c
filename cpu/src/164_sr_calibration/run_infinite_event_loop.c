@@ -57,7 +57,7 @@ void run_infinite_event_loop(int param_1)
     if (iVar2 != 0) {
       iVar2 = check_transaction_context_valid(*(int *)(param_1 + 0x1c));
       while (iVar2 == 0) {
-        check_kernel_call_success_10459fea();
+        check_kernel_call_success_10459fea(0x1);
         iVar2 = check_transaction_context_valid(*(int *)(param_1 + 0x1c));
       }
     }

@@ -18,7 +18,7 @@ void handle_case_nine_with_two_calls(uint32_t *param_1,int param_2)
 {
   if (param_2 == 9) {
     poll_until_bit16_clear(param_1);
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x1f4);
   }
   return;
 }

@@ -63,7 +63,7 @@ void dispatch_event_flags_loop(cls_10564150 *param_1)
       if (uVar4 == 0) {
         iVar10 = 0;
         while ((param_1->field_0xd8 == '\0' && (param_1->field_0xd9 == '\0'))) {
-          bVar6 = check_kernel_call_success_10459fea();
+          bVar6 = check_kernel_call_success_10459fea(0x10);
           uVar4 = (uint)bVar6;
           iVar10 = iVar10 + 1;
           if ((100 < iVar10) || (uVar4 = check_state_mismatch(param_1->field_0xbc), uVar4 != 0)) break;

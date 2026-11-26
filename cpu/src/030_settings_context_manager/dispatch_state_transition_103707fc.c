@@ -38,7 +38,7 @@ uint32_t dispatch_state_transition_103707fc(void *param_1)
     write_second_field_of_struct(param_1,0);
     init_object_with_two_ids_10370ad4(param_1);
     iVar1 = process_buffer_and_return_offset_1036be72(param_1,uVar4);
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x3e8);
     set_field_and_call_helper_10370bbc((int)param_1);
     if (iVar1 == 1) {
       lookup_and_copy_result((void *)(param_1),(uint32_t *)(0x80015d38/*SDRAM*/));

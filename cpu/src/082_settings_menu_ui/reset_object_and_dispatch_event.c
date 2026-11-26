@@ -62,7 +62,7 @@ void reset_object_and_dispatch_event(cls_10596f7c *param_1,uint16_t param_2)
   else if (iStack_c == 2) {
     iVar1 = get_or_create_singleton_object_1050b118();
     for (iVar1 = get_field_at_offset_0x28(iVar1); iVar1 != 0; iVar1 = get_field_at_offset_0x28(iVar1)) {
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x32);
       iVar1 = get_or_create_singleton_object_1050b118();
     }
     iVar1 = *(int *)param_1->field_0x44;

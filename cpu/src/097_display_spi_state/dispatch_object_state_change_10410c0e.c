@@ -21,7 +21,7 @@ void dispatch_object_state_change_10410c0e(cls_1059be70 *param_1,int param_2)
 {
   if (param_2 != 0) {
     release_subobject_triplets(param_1);
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x1);
     (((vtbl_entry*)(param_1->field_0x4))[15].fn)
               (&param_1->field_0x0 + ((vtbl_entry*)(param_1->field_0x4))[15].adj,1);
   }

@@ -53,23 +53,23 @@ uint32_t release_mode_entry_objects(int param_1,int param_2,int param_3)
       set_flg_obj((uint32_t *)(param_1 + 0x1538), 0x200);
       iVar9 = *(int *)(param_1 + 0x1504);
       while (iVar9 != 0) {
-        check_kernel_call_success_10459fea();
+        check_kernel_call_success_10459fea(0x32);
         iVar9 = *(int *)(param_1 + 0x1504);
       }
       uVar10 = *(uint *)(param_1 + 0x1530);
       while ((uVar10 & 0x200000) == 0) {
-        check_kernel_call_success_10459fea();
+        check_kernel_call_success_10459fea(0x32);
         uVar10 = *(uint *)(param_1 + 0x1530);
       }
       eventflag_clr_flg((uint32_t *)(param_1 + 0x1538),0x200);
       iVar9 = *(int *)(param_1 + 0x1500);
       while (iVar9 != 0) {
-        check_kernel_call_success_10459fea();
+        check_kernel_call_success_10459fea(0x32);
         iVar9 = *(int *)(param_1 + 0x1500);
       }
       iVar9 = check_mode_flag_or_byte(*(uint32_t *)(param_1 + 0x50));
       while (iVar9 != 0) {
-        check_kernel_call_success_10459fea();
+        check_kernel_call_success_10459fea(0x32);
         iVar9 = check_mode_flag_or_byte(*(uint32_t *)(param_1 + 0x50));
       }
     }
@@ -234,7 +234,7 @@ uint32_t release_mode_entry_objects(int param_1,int param_2,int param_3)
       uVar10 = *(uint *)(param_1 + 0x1530);
       while ((uVar10 & 0x200000) != 0) {
         *(uint *)(param_1 + 0x1530) = uVar10 & 0xffdfffff;
-        check_kernel_call_success_10459fea();
+        check_kernel_call_success_10459fea(0x32);
         uVar10 = *(uint *)(param_1 + 0x1530);
       }
       *(uint *)(param_1 + 0x1530) = *(uint *)(param_1 + 0x1530) & 0xffdfffff;

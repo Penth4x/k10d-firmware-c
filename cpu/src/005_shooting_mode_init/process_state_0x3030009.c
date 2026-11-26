@@ -35,7 +35,7 @@ uint32_t process_state_0x3030009(void *param_1)
     else if (iVar2 == 2) {
       iVar2 = 1;
     }
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x3e8);
     set_field_and_call_helper_10365e18((int)param_1);
     write_second_field_of_struct(param_1,1);
     if (iVar2 == 1) {

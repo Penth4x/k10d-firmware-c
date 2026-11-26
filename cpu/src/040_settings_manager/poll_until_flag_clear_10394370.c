@@ -37,7 +37,7 @@ uint32_t poll_until_flag_clear_10394370(int param_1)
         uVar3 = 0;
         break;
       }
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0xa);
       if (bVar1) {
         reset_and_select_channel_1039a462((void *)(param_1 + 4),(uint32_t)(5));
         set_and_apply_object_flag(param_1,1);

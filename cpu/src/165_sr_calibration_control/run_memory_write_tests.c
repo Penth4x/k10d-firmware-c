@@ -57,7 +57,7 @@ uint run_memory_write_tests(int param_1)
     } while (uVar5 < 0x18);
     uVar6 = uVar6 + 1;
   } while ((uVar6 < 4) && (uVar12 == 7));
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x3e8);
   trigger_sr_cal_transfer_1047142a(param_1);
   *(uint16_t *)(puVar13 + 2) = 5;
   *(uint16_t *)(puVar13 + 6) = 0xff;
@@ -84,7 +84,7 @@ uint run_memory_write_tests(int param_1)
       uVar6 = uVar6 + 1;
     } while (uVar6 < 0x1000);
   }
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x3e8);
   trigger_sr_cal_transfer_1047142a(param_1);
   *(uint16_t *)(puVar13 + 2) = 5;
   *(uint16_t *)(puVar13 + 6) = 0xff;
@@ -122,7 +122,7 @@ uint run_memory_write_tests(int param_1)
       iVar3 = iVar3 + 2;
     } while ((uVar6 < 4) && (uVar12 == 7));
   }
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x3e8);
   trigger_sr_cal_transfer_1047142a(param_1);
   *(uint16_t *)(puVar13 + 2) = 5;
   *(uint16_t *)(puVar13 + 6) = 0xff;
@@ -153,7 +153,7 @@ uint run_memory_write_tests(int param_1)
       iVar3 = iVar3 + 2;
     } while (uVar6 < 0x800);
   }
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x3e8);
   trigger_sr_cal_transfer_1047142a(param_1);
   *(uint16_t *)(puVar13 + 2) = 5;
   *(uint16_t *)(puVar13 + 6) = 0xff;
@@ -191,7 +191,7 @@ uint run_memory_write_tests(int param_1)
       iVar3 = iVar3 + 4;
     } while ((uVar6 < 4) && (uVar12 == 7));
   }
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x3e8);
   trigger_sr_cal_transfer_1047142a(param_1);
   *(uint16_t *)(puVar13 + 2) = 5;
   *(uint16_t *)(puVar13 + 6) = 0xff;
@@ -222,7 +222,7 @@ uint run_memory_write_tests(int param_1)
       iVar3 = iVar3 + 4;
     } while (uVar6 < 0x400);
   }
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x3e8);
   trigger_sr_cal_transfer_1047142a(param_1);
   *(uint16_t *)(puVar13 + 2) = 5;
   *(uint16_t *)(puVar13 + 6) = 0xff;

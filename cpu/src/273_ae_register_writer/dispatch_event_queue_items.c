@@ -336,7 +336,7 @@ LAB_1051474a:
       } while (iStack_18 < (int)(uStack_34 << 2));
     }
     if (param_1->field_0x298 != 0) {
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x28);
     }
   } while( true );
 }

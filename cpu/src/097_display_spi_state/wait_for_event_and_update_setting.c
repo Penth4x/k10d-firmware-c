@@ -26,17 +26,17 @@ void wait_for_event_and_update_setting(int param_1)
   
   *(uint8_t *)(*(int *)(param_1 + 0x50) + 0x354) = 1;
   set_flag_at_offset_0x34c(*(uint32_t *)(param_1 + 0x50));
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0xfa);
   process_entry_list_until_sentinel((int)(*(uint32_t *)(param_1 + 0x50)),(void *)(*(uint32_t *)(param_1 + 0x14f8)));
   while( true ) {
     iVar1 = (uintptr_t)(alloc_first_ring_entry(*(uint32_t *)(param_1 + 0x54),param_1 + 0x40));
     *(int *)(param_1 + 0x84) = iVar1;
     if (iVar1 != 0) break;
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0xa);
   }
   set_object_field_0x20(*(int *)(param_1 + 0x84),(void *)(param_1 + 0x137a));
   call_two_helpers_on_object_10514cfa(*(int *)(param_1 + 0x50));
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0xfa);
   *(uint8_t *)(*(int *)(param_1 + 0x50) + 0x354) = 1;
   set_flag_at_offset_0x34c(*(uint32_t *)(param_1 + 0x50));
   *(uint8_t *)(param_1 + 0x14f4) = 0;
@@ -50,7 +50,7 @@ void wait_for_event_and_update_setting(int param_1)
   pvVar3 = (void *)get_or_init_singleton_object_1051d40e();
   uVar4 = read_bounded_array_element_1051d696(pvVar3,0x18);
   update_camera_state_flags(pvVar2,0x18,uVar4 & 0xfffffff7);
-  check_kernel_call_success_10459fea();
+  check_kernel_call_success_10459fea(0x1f4);
   setting_set(*(int *)(param_1 + 0x7c),0x60,(uint)*(byte *)(param_1 + 0x14fd));
   set_setting_and_notify_object(*(uint32_t *)(param_1 + 0x5c),*(uint8_t *)(param_1 + 0x14fd));
   return;

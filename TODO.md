@@ -3,6 +3,18 @@
 Living checklist of known-but-unfixed work. Add here the moment something is deferred; check off when
 a link confirms it. (Detail/rationale lives in NEXT_STEPS.md.)
 
+## B-3d / `__frv_reg_unset` elimination (Andrew d329: "we should really not tolerate that unresolved register thing in the codebase at all")
+Each `__frv_reg_unset(N)` = an incoming register the decompiler couldn't trace to a param; the stub
+returns 0 AND clobbers r4-r7, so every implicitly-register-passed argument is stomped to 0. STANDING GOAL:
+drive the count to 0. **Debt baseline (d329): 2145 uses / 860 files (2140 as call args).**
+- [x] `check_kernel_call_success_10459fea` — timed-wait wrapper, 153 call sites, each a different dropped
+      timeout → all became 0. Signature now `uint32_t timeout`; all 92 caller files updated (84 auto via
+      `fix_check_kernel_timeout.py`, 8 manual incl. computed/param args). (A poll-only sub-fix verified the
+      mechanism but did NOT fix the menu — menu blocker is a separate kernel-handler-activation timing;
+      testing whether the full 153-fix shifts it.)
+- [ ] Sweep the rest: `detect_reg_unset.py` ranks 476 thin FORWARDERS first. Generalize per-caller value
+      recovery (fix_check_kernel_timeout.py pattern) into a reusable tool. On-path (cpucom/menu) first.
+
 ## Menu blocker (active) — boots to idle, BLACK SCREEN
 - [x] descriptor-split creates cleared the `act_tsk` derail (ic~5.58M) → boots to stable idle (9aa78ec3).
 - [x] **B-3 reg_framework_send MESSAGE-BUS** — THE black-screen deadlock root. Candidate sent only 1

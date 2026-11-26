@@ -65,7 +65,7 @@ void run_mode_event_loop(cls_1059c10c *param_1)
   if (iVar5 == 0) {
     iVar5 = 0;
     do {
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0xa);
       iVar5 = iVar5 + 1;
       if (100 < iVar5) break;
       iVar3 = check_state_mismatch(*(uint32_t *)&param_1->field_0x5c);
@@ -118,12 +118,12 @@ void run_mode_event_loop(cls_1059c10c *param_1)
       eventflag_clr_flg((void*)(puVar1),_cfg_14.uStack_14 & 0xfcf7ffff);
       *(uint *)&param_1[1].field_0x574 = _cfg_14.uStack_14;
       if (((_cfg_14.uStack_14 & 0x20) != 0) && (iVar5 = check_and_handle_mode_transition((uint32_t)(param_1)), iVar5 == 0)) {
-        check_kernel_call_success_10459fea();
+        check_kernel_call_success_10459fea(0xa);
         set_flg_obj((uint32_t *)puVar1, 0x20);
       }
       if (((*(uint *)&param_1[1].field_0x574 & 0x40) != 0) &&
          (iVar5 = check_and_trigger_pending_action((uint32_t)(param_1)), iVar5 == 0)) {
-        check_kernel_call_success_10459fea();
+        check_kernel_call_success_10459fea(0xa);
         set_flg_obj((uint32_t *)puVar1, 0x40);
       }
       if ((*(uint *)&param_1[1].field_0x574 & 2) != 0) {
@@ -216,7 +216,7 @@ void run_mode_event_loop(cls_1059c10c *param_1)
     *(uint *)&param_1[1].field_0x578 = *(uint *)&param_1[1].field_0x578 | 1;
     iVar5 = check_and_init_mode_state((uint32_t)(param_1));
     if (iVar5 != 0) break;
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0xa);
     set_flg_obj((uint32_t *)&param_1[1].field_0x580, 0x1);
   }
   param_1[1].field_0x558 = 0;

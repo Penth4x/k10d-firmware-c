@@ -62,7 +62,7 @@ void process_mode_event_flags_10416f34(int param_1)
     apply_setting_pair_to_target(uVar2,iVar1 == 0,0);
     iVar1 = initialize_singleton_object_1045d6a0();
     call_helper_with_stack_param_10462c8e(*(int **)(iVar1 + 0x28),1);
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x80);
     uVar3 = check_object_property_43(*(int *)(param_1 + 0x5c));
     if (uVar3 == 0) {
       iVar1 = 0x5b;
@@ -125,7 +125,7 @@ void process_mode_event_flags_10416f34(int param_1)
     *(uint *)(param_1 + 0x1530) = *(uint *)(param_1 + 0x1530) & 0xfffebfff;
   }
   if ((uVar5 & 0x4000) != 0) {
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0xa);
   }
   if ((uVar5 & 0x8000) != 0) {
     *(uint *)(param_1 + 0x1530) = *(uint *)(param_1 + 0x1530) & 0xffff7fff;
@@ -137,12 +137,12 @@ void process_mode_event_flags_10416f34(int param_1)
     *(uint *)(param_1 + 0x1530) = *(uint *)(param_1 + 0x1530) & 0xfffbffff;
   }
   if ((uVar5 & 0x200000) != 0) {
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0xa);
   }
   if (*(char *)(param_1 + 0x150e) != '\0') {
     *(uint8_t *)(param_1 + 0x150e) = 0;
     set_mode_state_flag(param_1,1,0);
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x4);
     classify_mode_from_flags(param_1);
     dispatch_mode_event_request((cls_105c2050 *)(param_1 + 0x60),0x130003);
     *(uint *)(param_1 + 0x1508) = *(uint *)(param_1 + 0x1508) & 0xfffeffff;
@@ -151,7 +151,7 @@ void process_mode_event_flags_10416f34(int param_1)
     set_state_flag_and_notify(param_1,1);
   }
   else {
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0xa);
     set_flg_obj((uint32_t *)(param_1 + 0x1538), 0x80);
   }
   return;

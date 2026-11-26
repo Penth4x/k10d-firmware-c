@@ -30,7 +30,7 @@ void release_object_resources_10419108(int param_1)
   
   iVar3 = check_mode_flag_or_byte(*(uint32_t *)(param_1 + 0x50));
   while (iVar3 != 0) {
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0xa);
     iVar3 = check_mode_flag_or_byte(*(uint32_t *)(param_1 + 0x50));
   }
   release_mode_entry_objects(param_1,0xffffffff,0);
@@ -88,7 +88,7 @@ void release_object_resources_10419108(int param_1)
   } while (-1 < iVar6);
   iVar3 = check_mode_flag_or_byte(*(uint32_t *)(param_1 + 0x50));
   while (iVar3 != 0) {
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0xa);
     iVar3 = check_mode_flag_or_byte(*(uint32_t *)(param_1 + 0x50));
   }
   *(uint8_t *)(param_1 + 0x80) = 0;

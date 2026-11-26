@@ -31,9 +31,9 @@ void toggle_state_machine(void *param_1,int param_2)
   if (param_2 == 0) {
     *(uint8_t *)((int)param_1 + 0x7c) = 0;
     clear_flag_with_notify(*(void **)((int)param_1 + 0x4c));
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x1);
     clear_flag_with_notify(*(void **)((int)param_1 + 0x48));
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x3);
     if (*(char *)((int)param_1 + 0xc0) == '\0') {
       clear_flag_with_notify(*(void **)((int)param_1 + 0x44));
     }
@@ -85,11 +85,11 @@ void toggle_state_machine(void *param_1,int param_2)
       call_helper_if_flag_set_1043ee5c(*(uint32_t *)((int)param_1 + 100),1);
     }
     empty_stub_function_103b76f0();
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x4);
     set_flag_with_notify(*(void **)((int)param_1 + 0x48));
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x5);
     set_flag_with_notify(*(void **)((int)param_1 + 0x4c));
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x5);
   }
   return;
 }

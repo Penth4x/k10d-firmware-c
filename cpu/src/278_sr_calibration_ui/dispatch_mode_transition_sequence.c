@@ -52,7 +52,7 @@ uint32_t * dispatch_mode_transition_sequence(uint32_t *param_1,uint32_t param_2,
       *(uint16_t *)(puVar7 + 6) = 0xff;
       puVar7[0xb] = 0;
       build_and_dispatch_draw_params((int)param_1,4,2,auStack_58,*(uint16_t *)(puVar7 + 2), *(uint16_t *)(puVar7 + 6),puVar7[0xb]);
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x7d0);
       trigger_sr_cal_transfer_104867c0((int)param_1);
     }
     else if (uVar5 == 6) {
@@ -66,7 +66,7 @@ uint32_t * dispatch_mode_transition_sequence(uint32_t *param_1,uint32_t param_2,
     else if (uVar5 == 7) {
       trigger_sr_cal_transfer_104867c0((int)param_1);
       dispatch_two_param_operation(*param_1,3,0);
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x7d0);
     }
   }
   uVar4 = 2;

@@ -21,7 +21,7 @@ uint32_t wait_for_flag_then_clear_1046c250(int param_1)
   
   iVar1 = call_virtual_slot_2_10459ae6(param_1 + 4);
   while (iVar1 != 0) {
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x1);
     iVar1 = call_virtual_slot_2_10459ae6(param_1 + 4);
   }
   return 1;

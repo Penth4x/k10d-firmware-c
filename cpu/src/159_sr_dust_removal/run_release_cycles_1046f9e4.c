@@ -45,7 +45,7 @@ void run_release_cycles_1046f9e4(int param_1,uint8_t *param_2,int param_3,uint8_
       copy_four_bytes_from_struct_field_1045e59a(*(int *)(param_1 + 0x30),&cStack_10);
       iVar3 = test_field_bit_or_nonzero(&cStack_10,4);
       if (iVar3 != 0) break;
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0xa);
     } while (*(char *)(param_1 + 0x10) == '\0');
   }
   if (param_3 != 0) {
@@ -83,7 +83,7 @@ void run_release_cycles_1046f9e4(int param_1,uint8_t *param_2,int param_3,uint8_
       if (iVar3 != 0) {
         cVar1 = *(char *)(param_1 + 0x10);
         while (cVar1 == '\0') {
-          check_kernel_call_success_10459fea();
+          check_kernel_call_success_10459fea(0x1);
           iVar3 = check_transaction_context_flag(*(int *)(param_1 + 0x38));
           if (iVar3 == 0) break;
           cVar1 = *(char *)(param_1 + 0x10);
@@ -94,7 +94,7 @@ void run_release_cycles_1046f9e4(int param_1,uint8_t *param_2,int param_3,uint8_
       if (iVar3 != 0) {
         cVar1 = *(char *)(param_1 + 0x10);
         while (cVar1 == '\0') {
-          check_kernel_call_success_10459fea();
+          check_kernel_call_success_10459fea(0x1);
           iVar3 = check_transaction_context_valid(*(int *)(param_1 + 0x38));
           if (iVar3 == 0) break;
           cVar1 = *(char *)(param_1 + 0x10);
@@ -105,7 +105,7 @@ void run_release_cycles_1046f9e4(int param_1,uint8_t *param_2,int param_3,uint8_
       if (iVar3 != 0) {
         cVar1 = *(char *)(param_1 + 0x10);
         while (cVar1 == '\0') {
-          check_kernel_call_success_10459fea();
+          check_kernel_call_success_10459fea(0x1);
           iVar3 = check_transaction_context_flag(*(int *)(param_1 + 0x38));
           if (iVar3 == 0) break;
           cVar1 = *(char *)(param_1 + 0x10);
@@ -116,7 +116,7 @@ void run_release_cycles_1046f9e4(int param_1,uint8_t *param_2,int param_3,uint8_
       if (iVar3 != 0) {
         cVar1 = *(char *)(param_1 + 0x10);
         while (cVar1 == '\0') {
-          check_kernel_call_success_10459fea();
+          check_kernel_call_success_10459fea(0x1);
           iVar3 = check_transaction_context_valid(*(int *)(param_1 + 0x38));
           if (iVar3 == 0) break;
           cVar1 = *(char *)(param_1 + 0x10);
@@ -124,7 +124,7 @@ void run_release_cycles_1046f9e4(int param_1,uint8_t *param_2,int param_3,uint8_
       }
       release_context_two_fields(*(void **)(param_1 + 0x38));
       release_struct_fields_10466d8a(*(void **)(param_1 + 0x38));
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x64);
     } while (((int)param_2 < 1) || (pvVar6 = (void *)((int)pvVar7 + 1), (int)pvVar6 < (int)param_2))
     ;
   }

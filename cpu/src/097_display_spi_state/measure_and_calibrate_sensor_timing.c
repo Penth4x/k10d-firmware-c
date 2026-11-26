@@ -47,7 +47,7 @@ void measure_and_calibrate_sensor_timing(cls_1059be70 *param_1)
     if ((!bVar3) && (write_two_byte_pair_to_ch2((int)(param_1),(uint32_t)(0x808),(int)(0)), (param_1->field_0x1e & 0x80) != 0)) {
       bVar3 = true;
     }
-    check_kernel_call_success_10459fea();
+    check_kernel_call_success_10459fea(0x1);
     iVar13 = iVar13 + 1;
     if (0x14 < iVar13) {
       param_1->field_0xce = 1;

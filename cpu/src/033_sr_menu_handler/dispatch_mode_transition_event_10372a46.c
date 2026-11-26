@@ -34,7 +34,7 @@ cls_105584bc * dispatch_mode_transition_event_10372a46(cls_105584bc *param_1,int
     param_1->field_0x1d = 0;
     param_1->field_0x1e = 0;
     if (param_1->field_0x20 == 1) {
-      check_kernel_call_success_10459fea();
+      check_kernel_call_success_10459fea(0x12c);
       iVar1 = (*(code *)0x10373aca/*ROM*/)(param_1);
       if (iVar1 == 0) {
         param_1->field_0x24 = (uintptr_t)((void *)0x1);
