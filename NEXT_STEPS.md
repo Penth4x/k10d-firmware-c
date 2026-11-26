@@ -16,6 +16,15 @@
 ## Trace the mbx_send that posts ui_task6's first message (mbx id *(ui_task6_ctx+0x18)) and read its command
 ## byte; compare to stock. THIS (not the init slowness) is the direct path to the menu. The init-timing
 ## analysis below is real but its causal link to the companion was my error — treat it as secondary.
+## PRODUCER FOUND (d329): ui_task6's first message (ic 5.55M) is posted by reg_framework_send (0x10459864,
+## THE message bus the standing order flags) <- init_struct_with_flag_and_param (0x167 settings_manager):
+## alloc a struct, *(s+8)=param_2, *(s+4)=0x20000, reg_framework_send(ctx+4, s, code=0x1) -> mbx_send_message.
+## The message CODE is 0x1 (r6), payload = the struct. The companion command 0x80 is how cpucom_poll_driver/
+## cpucom_spi_xfer interpret this payload (cmd byte = @(r14+24) in cpucom_spi_xfer). NEXT: read the payload
+## struct fields vs what cpucom_spi_xfer reads as the command — find where 0x80 comes from (a payload field,
+## or a wrong code/flag). Compare the SAME message in stock (which yields Cmd:04 POST). The reg_framework_send
+## "85-caller B-3 sweep" the standing order mentions is this exact bus — re-verify that sweep covered this
+## init_struct_with_flag_and_param/settings path and that the code/payload is built right.
 ##
 ## ★★★★★ (PARTLY SUPERSEDED — see self-correction above) TRUE ROOT RE-FRAME (d329, trace_diff) — READ FIRST:
 ## The menu failure is NOT primarily a companion bug — the companion failure is DOWNSTREAM. The real root:
