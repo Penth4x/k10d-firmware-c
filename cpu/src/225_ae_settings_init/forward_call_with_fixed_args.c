@@ -21,6 +21,6 @@ uint32_t forward_call_with_fixed_args(int param_1,uint32_t param_2,uint32_t para
 {
   uint32_t uVar1;
   
-  uVar1 = init_object_with_params_and_dispatch(param_1,0,((uint16_t)((uint64_t)(param_2) >> 16)),(uint8_t)param_3,param_4,'\0');
+  uVar1 = init_object_with_params_and_dispatch(param_1,0,((uint16_t)param_2),(uint8_t)param_3,param_4,'\0');
   return uVar1;
 }

@@ -20,6 +20,6 @@ void forward_six_args_to_helper_1046a5e6(void *param_1,uint32_t param_2,uint32_t
                  uint16_t param_5,uint16_t param_6)
 
 {
-  iterate_byte_list_and_call_helper(param_1,param_4,((uint16_t)((uint64_t)(param_3) >> 16)),((uint16_t)((uint64_t)(param_2) >> 16)),_DAT_800042c8/*SDRAM*/,param_5,param_6);
+  iterate_byte_list_and_call_helper(param_1,param_4,((uint16_t)param_3),((uint16_t)param_2),_DAT_800042c8/*SDRAM*/,param_5,param_6);
   return;
 }

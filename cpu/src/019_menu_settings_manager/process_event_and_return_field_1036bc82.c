@@ -22,7 +22,7 @@ uint32_t process_event_and_return_field_1036bc82(void *param_1,uint32_t param_2,
 
 {
   eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(0x200));
-  init_object_with_two_ids_104c478a(_DAT_8000439c/*SDRAM*/,(int)param_1,((uint16_t)((uint64_t)(param_2) >> 16)),param_3);
+  init_object_with_two_ids_104c478a(_DAT_8000439c/*SDRAM*/,(int)param_1,((uint16_t)param_2),param_3);
   eventflag_wai_flg((uint32_t *)0x80018088/*SDRAM*/,0x200,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg((uint32_t *)(0x80018088/*SDRAM*/),(uint)(0x200));
   return *(uint32_t *)((int)param_1 + 8);

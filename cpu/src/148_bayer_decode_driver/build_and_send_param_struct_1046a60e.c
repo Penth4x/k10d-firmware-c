@@ -32,7 +32,7 @@ void build_and_send_param_struct_1046a60e(void *param_1,uint32_t param_2,uint32_
   *piVar1 = _DAT_800042c8/*SDRAM*/;
   *(uint16_t *)((int)piVar1 + 6) = param_6;
   *(uint16_t *)((int)piVar1 + 10) = 0xff;
-  iterate_byte_list_and_call_helper(param_1,abStack_28,((uint16_t)((uint64_t)(param_3) >> 16)),((uint16_t)((uint64_t)(param_2) >> 16)),*piVar1,
+  iterate_byte_list_and_call_helper(param_1,abStack_28,((uint16_t)param_3),((uint16_t)param_2),*piVar1,
                *(uint16_t *)((int)piVar1 + 6),*(uint16_t *)((int)piVar1 + 10));
   return;
 }

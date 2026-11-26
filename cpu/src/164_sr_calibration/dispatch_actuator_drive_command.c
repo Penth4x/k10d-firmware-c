@@ -35,7 +35,7 @@ void dispatch_actuator_drive_command(int param_1,uint32_t param_2,uint32_t param
     *(uint16_t *)((int)puVar3 + 10) = 0x1e0;
     *(uint16_t *)((int)puVar3 + 0xe) = param_5;
     *(uint16_t *)((int)puVar3 + 0x12) = param_6;
-    actuator_drive(uVar2,param_4,((uint16_t)((uint64_t)(param_3) >> 16)),((uint16_t)((uint64_t)(param_2) >> 16)),*puVar3,
+    actuator_drive(uVar2,param_4,((uint16_t)param_3),((uint16_t)param_2),*puVar3,
                    *(uint16_t *)((int)puVar3 + 6),*(uint16_t *)((int)puVar3 + 10),
                    *(uint16_t *)((int)puVar3 + 0xe),*(uint16_t *)((int)puVar3 + 0x12));
   }
@@ -47,7 +47,7 @@ void dispatch_actuator_drive_command(int param_1,uint32_t param_2,uint32_t param
     *(uint16_t *)((int)puVar3 + 0xe) = param_5;
     *(uint16_t *)((int)puVar3 + 0x12) = param_6;
     *(char *)((int)puVar3 + 0x17) = param_7;
-    call_helper_with_scaled_offsets(uVar2,param_4,((uint16_t)((uint64_t)(param_3) >> 16)),((uint16_t)((uint64_t)(param_2) >> 16)),*puVar3,*(uint16_t *)((int)puVar3 + 6),
+    call_helper_with_scaled_offsets(uVar2,param_4,((uint16_t)param_3),((uint16_t)param_2),*puVar3,*(uint16_t *)((int)puVar3 + 6),
                  *(uint16_t *)((int)puVar3 + 10),*(uint16_t *)((int)puVar3 + 0xe),
                  *(uint16_t *)((int)puVar3 + 0x12),*(uint8_t *)((int)puVar3 + 0x17));
   }

@@ -29,7 +29,7 @@ int construct_cls_105b6d0c(int param_1,uint32_t param_2,uint32_t param_3,int par
      (param_1 = get_pool2_block((void *)0x18), puVar3 = (uint32_t *)puVar2,
      (uint16_t *)param_1 != (uint16_t *)0x0)) {
     *puVar3 = param_5;
-    construct_object_with_vtable((uint16_t *)param_1,((uint16_t)((uint64_t)(param_2) >> 16)),((uint16_t)((uint64_t)(param_3) >> 16)),param_4,*puVar3);
+    construct_object_with_vtable((uint16_t *)param_1,((uint16_t)param_2),((uint16_t)param_3),param_4,*puVar3);
     *(uint32_t *)(param_1 + 0x10) = 0x105b6d0c/*ROM*/;
     *(uint32_t *)(param_1 + 0x14) = 0;
     if (param_4 != 0) {

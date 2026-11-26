@@ -12,7 +12,7 @@ void alloc_and_init_small_struct_1045c524(uint16_t *param_1,uint32_t param_2,uin
 {
   if ((param_1 != (uint16_t *)0x0) ||
      (param_1 = (uint16_t *)heap_alloc((void *)8), param_1 != (uint16_t *)0x0)) {
-    *param_1 = ((uint16_t)((uint64_t)(param_2) >> 16));
+    *param_1 = ((uint16_t)param_2);
     *(uint8_t *)(param_1 + 1) = (uint8_t)param_3;
     *(uint8_t *)((int)param_1 + 3) = (uint8_t)param_4;
     *(uint8_t *)(param_1 + 2) = param_5;

@@ -21,8 +21,8 @@ void cls_105b3cdc_new_2(uint16_t *param_1,int param_2,uint32_t param_3,uint32_t 
   if ((param_1 != (uint16_t *)0x0) ||
      (param_1 = (uint16_t *)heap_alloc((void *)0x24), param_1 != (uint16_t *)0x0)) {
     *(void **)(param_1 + 0x10) = &DAT_105b3cdc/*ROM*/;
-    *param_1 = ((uint16_t)((uint64_t)(param_3) >> 16));
-    param_1[1] = ((uint16_t)((uint64_t)(param_4) >> 16));
+    *param_1 = ((uint16_t)param_3);
+    param_1[1] = ((uint16_t)param_4);
     iVar2 = 0x14;
     do {
       iVar1 = iVar2 + -4;

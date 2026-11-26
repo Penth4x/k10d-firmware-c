@@ -36,7 +36,7 @@ void sr_dma_command(int param_1,uint32_t param_2,uint32_t param_3,byte *param_4,
   *(uint16_t *)((int)puVar3 + 10) = 0x1e0;
   *(uint16_t *)((int)puVar3 + 0xe) = param_5;
   *(uint16_t *)((int)puVar3 + 0x12) = param_6;
-  actuator_drive(uVar2,param_4,((uint16_t)((uint64_t)(param_3) >> 16)),((uint16_t)((uint64_t)(param_2) >> 16)),*puVar3,*(uint16_t *)((int)puVar3 + 6),
+  actuator_drive(uVar2,param_4,((uint16_t)param_3),((uint16_t)param_2),*puVar3,*(uint16_t *)((int)puVar3 + 6),
                  *(uint16_t *)((int)puVar3 + 10),*(uint16_t *)((int)puVar3 + 0xe),
                  *(uint16_t *)((int)puVar3 + 0x12));
   return;

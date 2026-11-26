@@ -24,9 +24,9 @@ void call_helper_on_two_pointers_10484b60(int param_1,int param_2,int param_3,ui
   int *piVar2;
   
   piVar2 = (int *)&stack0xffffffe0;
-  write_u16_to_indexed_table(param_1 + 0x14,param_2,param_3,((uint16_t)((uint64_t)(param_4) >> 16)),param_5);
+  write_u16_to_indexed_table(param_1 + 0x14,param_2,param_3,((uint16_t)param_4),param_5);
   iVar1 = *(int *)(param_1 + 0xc);
   *piVar2 = param_5;
-  write_u16_to_indexed_table(iVar1,param_2,param_3,((uint16_t)((uint64_t)(param_4) >> 16)),*piVar2);
+  write_u16_to_indexed_table(iVar1,param_2,param_3,((uint16_t)param_4),*piVar2);
   return;
 }

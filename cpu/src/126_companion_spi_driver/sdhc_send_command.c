@@ -27,7 +27,7 @@ uint32_t sdhc_send_command(void *param_1,uint param_2,uint32_t param_3,uint32_t 
   iVar1 = check_sd_command_allowed(param_1,param_2);
   if (iVar1 != 0) {
     sdhc_write_argument(*(void **)((int)param_1 + 0x110),param_3);
-    sdhc_write_transfer_mode(*(void **)((int)param_1 + 0x110),((uint16_t)((uint64_t)(param_4) >> 16)));
+    sdhc_write_transfer_mode(*(void **)((int)param_1 + 0x110),((uint16_t)param_4));
     sdhc_write_command(*(void **)((int)param_1 + 0x110),(short)param_2);
     iVar1 = sdhc_wait_int_status(param_1,1,1);
     if (iVar1 != 0) {

@@ -28,7 +28,7 @@ int construct_cls_105fa778_object(int param_1,uint32_t param_2,uint32_t param_3,
      (param_1 = get_pool2_block((void *)0x18), puVar2 = (uint32_t *)puVar1,
      (uint16_t *)param_1 != (uint16_t *)0x0)) {
     *puVar2 = 0;
-    construct_object_with_vtable((uint16_t *)param_1,((uint16_t)((uint64_t)(param_2) >> 16)),((uint16_t)((uint64_t)(param_3) >> 16)),0,*puVar2);
+    construct_object_with_vtable((uint16_t *)param_1,((uint16_t)param_2),((uint16_t)param_3),0,*puVar2);
     *(uint32_t *)(param_1 + 0x10) = 0x105fa778/*ROM*/;
     *(uint32_t *)(param_1 + 0x14) = param_4;
     *(uint32_t *)(param_1 + 4) = param_4;

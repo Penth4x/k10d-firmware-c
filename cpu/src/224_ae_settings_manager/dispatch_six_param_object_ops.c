@@ -23,7 +23,7 @@ void dispatch_six_param_object_ops(void *param_1,uint32_t param_2,uint32_t param
 
 {
   zero_struct_fields_0x38_to_0x52((int)param_1);
-  write_two_words_to_struct_104bc2b8((int)param_1,((uint16_t)((uint64_t)(param_2) >> 16)),((uint16_t)((uint64_t)(param_3) >> 16)));
+  write_two_words_to_struct_104bc2b8((int)param_1,((uint16_t)param_2),((uint16_t)param_3));
   call_two_param_setters(param_1,param_4,param_5);
   swap_two_short_fields(param_1);
   set_field_and_call_helper_104bb58a((int)param_1,param_6);
