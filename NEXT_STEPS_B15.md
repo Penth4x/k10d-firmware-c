@@ -109,3 +109,4 @@ The menu black-screen is a CIRCULAR-ish event-cascade stall, NOT a single decomp
   it is read (likely a B-12 MMIO or B-15 bug in the settings/mode object construction); (3) the cpucom
   handshake is real but DOWNSTREAM — defer. B-15 cleanup (10 real merged-case instances) is safe,
   committed-value work to continue meanwhile.
+## CORRECTION: dispatch_mode_change_event_1047cdb8 is NOT the event-0x10002 source (stock reaches it 0 times). The 0x10002 sender is still unknown — other candidates: call_helper_with_flag_0x10002 (unit169, invoke_virtual_slot_two_1047d840(.,.,0x10002)), or a vtable dispatch to mode_ctrl_on_event. DEADLOCK HANDED OFF — needs fresh analysis of what dispatches event 0x10002 to the mode controller at boot.
