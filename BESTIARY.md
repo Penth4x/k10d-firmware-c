@@ -526,3 +526,27 @@ Reliable measurement (prerequisite for all localization):
 - **Identify this class statically, not by tracing.** fcc emits `W1549B "used before set"` for every
   incoming-register read; build.sh now surfaces non-W1450B warnings. Sweep from that list, don't
   rediscover one per codiff round.
+
+## B-15 · merged-case / fabricated-constant (decompiler collapses switch arms, keeps ONE constant) ← **the menu-cascade root (d328)**
+- **Symptom:** a function that raises a DIFFERENT event-flag bit (or passes a different constant)
+  per event code gets its `switch`/`if` arms MERGED by the decompiler into fewer branches, keeping
+  only one arm's constant. Compiles clean, passes arity + single-site disasm checks, silently does
+  the wrong thing for every dropped case. A downstream waiter that wants the dropped bit never wakes.
+- **THE instance (first divergence in the boot signal cascade):** `handle_event_flags_and_signal`
+  (0x10498702, unit 200_menu_event_router). Original BEQ cascade: param_2 0x10032→set_flg 0x1 (+sig_sem),
+  0x10033→0x2 (+sig_sem), 0x10036→0x4, 0x1000f→(*param_3?0x10:0x8). Decompiler merged 0x10032|0x10033→0x2
+  and 0x10036|0x1000f→0x10, and DROPPED param_3 (r6, a B-3). So 0x10032 raised bit 0x2 not 0x1; the
+  flag-0x34 waiter waits for 0x1 → stayed asleep → whole signal cascade (set_flg/sig_sem/snd_mbx) died
+  at the 6th signal → black screen. **FIXED (d328).** Found by int40 cand-vs-stock signal-sequence diff
+  (scripts: the ordered (service,id,pattern) compare — cand matched stock for 5 signals then set flag
+  0x34 = 0x2 vs stock 0x1).
+- **Detection:** `scripts/detect_merged_cases.py` — builds the intra-function branch graph and flags any
+  `call set_flg_obj` reached by >=2 distinct `ldi #k,r5` constants where the C has no ternary / is missing
+  constants. **22 suspects** (mostly event dispatchers on the menu path: dispatch_event_by_id/_by_type,
+  ui_request_dispatch, mode_nav_request, validate_*_and_set_flag, ...). NOTE: `verify_setflg.py` (linear
+  scan) is BLIND to this class — it matched whichever arm's constant the linear scan saw last and reported
+  false OK (e.g. poll_input call@10413818 is `cond?0xc000000:0x4000000`, C kept only 0x4000000). Always
+  reconstruct a flagged function's full param→pattern map from disasm; do not trust the linear verifier.
+- **Fix:** un-merge the arms — one C branch per original case with its real constant (recover from the
+  BEQ/cmp cascade: op_b=2 is EQ, op_b=3 is NE per emulator cond(); frdis mislabels bnc/bne). Thread any
+  dropped register arg (B-3). Verify each constant against the `ldi #k,r5` that reaches that call site.

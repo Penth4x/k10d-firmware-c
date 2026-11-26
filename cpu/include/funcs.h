@@ -8420,7 +8420,7 @@ uint32_t read_entry_or_zero_outputs(int param_1,int param_2,uint32_t *param_3,ui
 void invoke_handler_by_index(int *param_1,int param_2,uint32_t param_3);
 uint32_t * cls_105b55bc_new(uint32_t *param_1,uint32_t param_2);
 void cls_105b55bc_delete(cls_105b55bc *param_1,uint param_2);
-uint32_t handle_event_flags_and_signal(cls_105b55bc *param_1,int param_2);
+uint32_t handle_event_flags_and_signal(cls_105b55bc *param_1,int param_2,int *param_3);
 int dispatch_two_stage_control_command(void *param_1,uint32_t param_2);
 uint32_t wait_for_event_and_dispatch(int param_1);
 uint8_t dispatch_event_via_virtual_call(int param_1);
