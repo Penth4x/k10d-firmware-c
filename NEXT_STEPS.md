@@ -130,6 +130,19 @@
 ## FT at insert_timeout_queue_node when it inserts THIS handler) and read the delta in candidate vs stock; or
 ## decode the create service's delta source. This is a fresh kernel-RE task. (Deferred this session — see the
 ## B-13 descriptor-split detector work for concrete parallel progress.)
+## FINAL CONCLUSION (d329): the handler's node is inserted at ~1.67M (cand)/1.06M (stock) via
+## insert_timeout_queue_node (descriptor at 0x6a004b50, r4=idx 1) with NO explicit time, and is DISPATCHED
+## at 5.58M (cand) vs 35.7M (stock). Stock waits ~34.6M to dispatch it; candidate ~4M. So the handler is not
+## on a fixed timer — it is effectively GATED ON THE COMPANION SIGNALING READY, and the candidate's companion
+## signals ~8.9x too early. => THE CORE IS THE COMPANION-SPI DIALOG TIMING (the long-standing companion
+## bootstrap). The whole poll/alarm/+0x28 machinery is downstream of WHEN the companion reports ready.
+## TRUE NEXT (fresh focused session): (1) read the qemu-frn companion/cpucom SPI device model — does it have
+## realistic timing, or does it respond purely to firmware polling? (2) trace the SPI command+response dialog
+## (companion registers 0x50000106/107/10e + the SPI engine) candidate-vs-stock — does the candidate send
+## fewer/different commands so the companion reports ready early? (3) if the emulated companion responds
+## identically to both, the divergence is in HOW the candidate drives the SPI (a recompile bug in the
+## companion-SPI command sequence / cpucom_execute_transaction's setup). This is where the firmware-vs-
+## emulation question finally resolves. Everything above (poll, +0x10c, alarm, timeout-queue) is downstream.
 ## ======================================================================================================
 ##
 ## ROOT CHAIN (fully traced d329 via FRN_BADPC + FRN_FT_FULLREGS at ic 7272159-7272164):
