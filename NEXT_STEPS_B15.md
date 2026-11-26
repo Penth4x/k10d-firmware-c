@@ -245,3 +245,27 @@ task/callback (body = call_virtual_slot_2, arg 0x80532e3c) that prematurely mark
   => NEXT: identify which task (task id) has body=call_virtual_slot_2 / arg 0x80532e3c; check its TCB
      body+arg vs stock; check obj 0x80532e3c's vtable[2] slot for a relocation/truncation bug (cf VT_1059f088
      truncation); and whether act_tsk activates it wrongly. This is the ONE thing blocking the menu.
+
+### d329 CONSOLIDATED (honest) — deadlock narrowed to cpucom SPI bootstrap; exact mechanism OPEN
+SOLID (measured, defensible):
+- Hang point: mode-event pump blocks in check_bit2_of_field_at_offset_0x7c -> eventflag_wai_flg(flag 0x37,
+  TMO_FEVR). Released only by mode_ctrl_on_event(event 0x10002) -> set_flg(0x37,0x4).
+- event 0x10002 is produced only after the cpucom SPI handshake completes (cpucom_execute_transaction ->
+  dispatch_context_virtual_op), which needs cpucom_spi_xfer to drive request lines 0x20/0x40/0x80 on MMIO
+  0x50000106.
+- Candidate writes 0x50000106 only 9x (0x00 + 0x06 x8), NEVER request bits (deterministic, 2 runs). FT:
+  cpucom_spi_xfer / spi_start_xfer / cpucom_poll_driver hits = 0. ui_task6_body runs startup
+  cpucom_execute_transaction (poll yields 0 iters) then blocks on rcv_mbx forever.
+- Circular bootstrap: poll won't yield -> SPI engine can't run -> requests not driven -> ack line (0x01)
+  stays set -> poll won't yield. STOCK breaks this (poll yields 501x, cpucom_spi_xfer runs).
+RULED OUT (identical in both binaries): +0x28 writer, +0x10c, E/F fields, GPIO object masks, B+0x1c binding
+(=0x805543f0 both), FRN_HS_OLD, all IPC primitives.
+OPEN / why blind watchpoints stalled: the GPIO objects (0x805543f0..0x80554594) are freed & their addresses
+REUSED at higher instruction counts, so address-matching misidentifies objects late in the trace. Need a
+cleaner method.
+BETTER NEXT APPROACH: (a) instrument qemu to log heap_alloc/free + object ctor (vtable) so object identity is
+unambiguous over time; OR (b) a bounded single-shot trace of JUST the first cpucom_execute_transaction with
+full register context (FRN_FT_PC trigger at cpucom_execute_transaction entry, cap ~200k lines) to see exactly
+which GPIO object its setup drives and why the poll's test_flag_clear_if_active returns false at entry. The
+decisive question: during the candidate's FIRST cpucom transaction, does the poll-guard MMIO read 0x50000106&0x01
+see the ack bit set, and what drove (or failed to drive) the request line before it.
