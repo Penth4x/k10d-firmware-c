@@ -19,13 +19,17 @@
 bool call_helper_with_two_word_struct(uint32_t param_1,ushort *param_2)
 
 {
+  /* B-13 FIX (d329): 2-word INPUT descriptor. The kernel reads it ASCENDING from the pointer it is
+   * passed {word0@+0, word1@+4}. The original builds the two words CONTIGUOUSLY at sp-8 (st word0,@sp-8;
+   * st word1,@sp-4; &desc=sp-8 — orig 0x1046d13e). The decompiler split them into non-adjacent DESCENDING
+   * locals (uStack_c@sp+0xc base, uStack_8@sp+8 = base-4) and passed &uStack_c, so the trap read word1
+   * from base+4 (sp+0x10, uninitialized garbage) instead of uStack_8 — the 2nd input word was garbage.
+   * Lay the descriptor out contiguously. */
   int iVar1;
-  uintptr_t sp;
-  uint uStack_c;
-  uint32_t uStack_8;
-  
-  uStack_c = (uint)*param_2;
-  uStack_8 = *(uint32_t *)(param_2 + 2);
-  iVar1 = __trap_dispatch_kernel_service_10010b10(&uStack_c);
+  uint32_t desc[2];
+
+  desc[0] = (uint32_t)*param_2;
+  desc[1] = *(uint32_t *)(param_2 + 2);
+  iVar1 = __trap_dispatch_kernel_service_10010b10(desc);
   return iVar1 == 0;
 }

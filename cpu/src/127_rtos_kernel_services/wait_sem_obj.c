@@ -29,6 +29,6 @@ uint32_t wait_sem_obj(int *param_1)
 
   desc[0] = (uint32_t)*param_1 << 0x10;   /* input word: timeout in the high halfword (orig st 0 + sth) */
   desc[1] = 0;                            /* result slot the trap writes (orig sp-4) */
-  __trap_get_timeout_queue_entry((int)(short)*param_1, desc);
+  __trap_get_timeout_queue_entry((int)(short)*param_1, (short *)desc);
   return desc[1];
 }
