@@ -575,3 +575,16 @@ Reliable measurement (prerequisite for all localization):
   check_kernel_call_success_10459fea (d328). Alternative: thread the real register as a C param through
   all callers (a B-3 sweep) — much larger, and still needs the ambient r5-r7 preserved.
 - **Status:** check_kernel_call_success harvested; build+retrace+DSP_LOG verification in flight (build9).
+
+## B-16 CORRECTION (d328): harvest_asm is the WRONG fix for functions that call KERNEL SERVICES.
+## harvest_asm rewrites `ldi #0x1000xxxx` (a kernel service) to the RECOMPILED symbol -> a DIRECT
+## call to the recompiled service body. But kernel services must be reached via the int#0x40 TRAP,
+## which the vector table routes to the ORIGINAL handler (vectors still point to original). Calling
+## the recompiled service body directly runs it in task context and hits its own bugs -> corrupts
+## kernel state. Harvesting check_kernel_call_success_10459fea REGRESSED the candidate from 7 signals
+## to 0 (poll 1->0). REVERTED (cc46cfc9). ALSO: the candidate produced its 7 signals WITH the r4=0
+## __frv_reg_unset bug present, so check_kernel_call_success is NOT the menu-deadlock root. B-16 (the
+## __frv_reg_unset stub returning 0 + clobbering) is a REAL class (475 thin forwarders) but: (a) fix
+## trap-calling ones by threading the register as a C param + keeping the __trap_ call (NOT harvest);
+## (b) it is off the menu-deadlock critical path. The deadlock remains the cpucom circular bootstrap
+## (check_bit2/flag 0x37 <-> companion handshake <-> mbx-4 <-> process_mode_transition_sequence).
