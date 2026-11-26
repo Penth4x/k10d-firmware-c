@@ -4,8 +4,20 @@ Living checklist of known-but-unfixed work. Add here the moment something is def
 a link confirms it. (Detail/rationale lives in NEXT_STEPS.md.)
 
 ## Menu blocker (active) — boots to idle, BLACK SCREEN
-- [ ] Confirm the descriptor-split create fixes clear the `act_tsk` derail (populate_context_from_global_state
-      @ ic~5.58M) and boot advances toward the menu idle (0x1000f530). — link `belelev3l` in flight.
+- [x] descriptor-split creates cleared the `act_tsk` derail (ic~5.58M) → boots to stable idle (9aa78ec3).
+- [x] **B-3 reg_framework_send MESSAGE-BUS** — THE black-screen deadlock root. Candidate sent only 1
+      mbx_send_message (stock 43); all mailbox-pump tasks blocked TMO_FEVR at idle. Swept all 85 callers
+      (committed cea35227). Forwarder verified correct in the relinked candidate (forwards r5/r6 unchanged).
+- [ ] **VALIDATE** (in flight, `bqcys6vh0`): candidate mbx_send_message count should jump 1 → ~35+.
+      Then `scripts/check_display.sh`: does it reach display-init (write_three_config_values packed
+      0x10822322) and program LCD base 0x40040308? Then screenshot / run.sh gui for the menu.
+      NOTE: display-init is deep (stock ~ic107M); a 200s wall may not reach it — use a longer WALL or
+      run.sh gui if the send count recovers but display-init is unhit.
+- [ ] NEXT divergence after the bus (re-measure, don't assume): candidate may now reach the menu-item
+      render / appobj+0x44 navigation (older framings in NEXT_STEPS). Use DIRECT traces, not codiff
+      (codiff/fnseq unreliable — d324 methodology memory).
+- [ ] 3 reg_framework_send callers were best-effort (branchy/mangled decompile): iterate_and_check_
+      queue_items, dispatch_lens_comm_command, initialize_mode_context — Ghidra re-verify (off menu path).
 
 ## Descriptor-split bug class (decompiler emits a multi-word kernel descriptor/result as non-adjacent
 ## descending stack locals; kernel reads ascending → 2nd/3rd word is garbage). Fix = contiguous array.

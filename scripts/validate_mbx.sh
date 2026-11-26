@@ -10,7 +10,7 @@ MAP=$HERE/cpu/out/firmware.map
 SCR=${SCR:-/tmp/claude-1002/-home-memorai-memorAI/f4341860-fe67-4d9c-81be-c7c5c517f9ea/scratchpad}
 WALL=${WALL:-200}
 # new packed addr of mbx_send_message from the fresh map
-PMBX=$(grep -iE '_mbx_send_message$' "$MAP" | grep -oiE '^ *[0-9a-f]+' | tr -d ' ' | head -1)
+PMBX=$(grep -iE '_mbx_send_message$' "$MAP" | awk '{print $1}' | sed 's/(.*//' | head -1)
 echo "stock mbx=0x10459864  new-candidate packed mbx=0x$PMBX  WALL=${WALL}s"
 cp -f "$STOCK" "$SCR/v_stk.bin"; cp -f "$CAND" "$SCR/v_cand.bin"
 run(){ local bin=$1 lo=$2 out=$3
