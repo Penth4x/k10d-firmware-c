@@ -77,6 +77,21 @@
 ## node INSERT with (handler, time field, current tick) and every DISPATCH, then diff the node time for the
 ## call_two_initializers handler candidate-vs-stock on a clean run. That single number (its scheduled delay)
 ## is the bug. (Tooling-forward, per Andrew — like FRN_BADPC.)
+## FURTHER PINNED (d329, clean runs): call_two_initializers is a ONE-SHOT alarm (fires exactly once in
+## both). It is CREATED at ~1M in both (populate_context_from_global_state: cand 1.67M, stock 1.06M) but
+## FIRES at 5.58M (cand) vs 35.7M (stock) — create-to-fire delay ~65 vs ~577 ticks, ~8.9x TOO SHORT in the
+## candidate. So the alarm's TIMEOUT value (or whatever sets its fire delay) is ~8.9x too small. Creation
+## path: populate_context_from_global_state -> create_kernel_object(&ctx+0xc) -> __trap_find_free_queue_slot
+## (int#0x40 service @ 0x1000d66c). The service reads desc[0] (lduh @r10) as attr then hands the descriptor
+## (mov r10,r5) to a register-indirect sub-handler (call:d @r12 @ 0x1000d6d4) — the alarm timeout is set in
+## THAT REALOS sub-handler / from a value populate_context supplies, NOT in the 3-word create descriptor.
+## DECODE NEXT: (a) in a clean candidate int#0x40 trace (FRN_INT40_SVC=all, already works), find the service
+## call for this alarm (r12=1000d66c, rp in populate_context 0x1079e8xx) and read its args; (b) decode the
+## sub-handler at the call:d @r12 target in find_free_queue_slot to see where the fire-delay comes from;
+## (c) the delay likely traces to a value populate_context reads (get_or_init_sram_buffer /
+## read_table_entry_field) — if the candidate reads it ~8.9x small, that read is the recompile bug. The
+## alarm models the companion's expected ready time; it being too short = the companion is declared ready
+## ~8.9x too early = the whole premature-cpucom cascade. THIS is the single number to find.
 ## ======================================================================================================
 ##
 ## ROOT CHAIN (fully traced d329 via FRN_BADPC + FRN_FT_FULLREGS at ic 7272159-7272164):
