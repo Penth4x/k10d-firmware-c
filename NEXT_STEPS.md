@@ -706,3 +706,8 @@ task upstream that itself is blocked). This is an un-posted-event chain, not a w
 ## supersedes the sta_alm framing in the CLEAN ROOT block above (there is no alarm; it's event-dispatch).
 ## Two setters: _10467264 is the real one (fires); _10466fde is called by call_two_initializers_10466f6e's
 ## decompile but shows 0 trace hits — verify whether _10466fde tail-calls _10467264 or is dead (naming trap).
+## VTABLE CONFIRMED (d329): call_two_initializers_10466f6e is a VIRTUAL METHOD of companion obj cls_105a7df8
+## (vtable slots 0x105a7e3c + 0x105a7e7c; sibling methods ui_task6_body, dispatch_event_if_type_14,
+## dispatch_command_0xb0007, cls_105a7df8_delete). So the handler slot is CORRECT — the 5.58M-vs-35.7M
+## divergence is purely WHEN the companion object gets its event dispatched (runtime scheduling/ordering),
+## not a miscompiled vtable. firetime.sh's first-fire rp (the invoker) is the datum that resolves it.

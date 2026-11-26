@@ -134,3 +134,7 @@ constants at the consuming call. Found by scripts/verify_setflg.py (disasm r5 !=
       Language-menu path). The 0x400 (line136) and 0x8000 (line200) set_flg_obj calls ARE correct.
 - [ ] Sweep: re-run verify_setflg.py after each build; extend it to other kernel-arg forwarders
       (sig_sem/set_flg patterns) to catch the same flatten-to-constant class elsewhere.
+      NOTE (d329): some "thin forwarders" are actually LARGER multi-path functions the decompiler
+      UNDER-captured (only saw the first forwarder block); harvest_asm emits the full byte-faithful
+      extent (stops exactly at the next @k10d VA), so it FIXES the under-capture — strictly more faithful
+      than the incomplete .c. Verified 103d0dda (56 bytes, ends at set_mode_and_update_timeout 0x103d0e12).
