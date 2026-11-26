@@ -1,6 +1,23 @@
 # Next steps — open investigation (handoff)
 
-## ★★★★★ TRUE ROOT RE-FRAME (d329, trace_diff first-divergence on clean traces) — READ FIRST:
+## ⚠️ SELF-CORRECTION (d329, late) — the re-frame below is PARTLY WRONG; read this first:
+## method2 (reset_sixteen_module_objects, packed 0x107db274) DOES run in the candidate — at ic 4.27M (I
+## earlier checked only the 0-3.3M windows and wrongly concluded 0 hits; it is just LATE: 4.27M vs stock
+## 2.14M). So the 16 modules DO initialize, at 4.27M, which is BEFORE the companion poll (5.6M) and the B-6
+## crash (7.27M). Therefore the companion Cmd:80 failure is NOT simply "modules never init." TWO separate
+## true facts remain: (a) the candidate's app_main_task1 init is ~2M LATER than stock (4.27M vs 2.14M), and
+## (b) the candidate sends the WRONG companion command (Cmd:80 vs stock's Cmd:04 POST) — established via
+## FRN_DSP_LOG. (b) is the proximate menu blocker and is NOT downstream of init completeness. The 6688x
+## settings_refresh "runaway" was a RESET-LOOP artifact (151 resets re-run init), not a single hot loop.
+## RE-FOCUS: trace where ui_task6's mailbox message (whose command byte becomes 0x80) is PRODUCED, and why
+## its command is 0x80 not 0x04. In stock the first companion command is 0x04 (POST) at 35.7M; in the
+## candidate it is 0x80 at 5.6M. Either the message producer builds 0x80 (a wrong command constant/field —
+## a concrete, greppable bug), OR the companion POST sequence that should run first is skipped/reordered.
+## Trace the mbx_send that posts ui_task6's first message (mbx id *(ui_task6_ctx+0x18)) and read its command
+## byte; compare to stock. THIS (not the init slowness) is the direct path to the menu. The init-timing
+## analysis below is real but its causal link to the companion was my error — treat it as secondary.
+##
+## ★★★★★ (PARTLY SUPERSEDED — see self-correction above) TRUE ROOT RE-FRAME (d329, trace_diff) — READ FIRST:
 ## The menu failure is NOT primarily a companion bug — the companion failure is DOWNSTREAM. The real root:
 ## app_main_task1 (the main app INIT task, orig 0x10439674) does not COMPLETE its initialization in the
 ## candidate. It runs appmain_init_method1 (vtbl slot 2) which contains the LENS-FIRMWARE-UPDATE loop
