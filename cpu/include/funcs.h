@@ -6308,7 +6308,7 @@ void set_flag_at_offset_0x28_10466fde(void *param_1);
 void clear_flag_at_offset_0x28(void *param_1);
 uint8_t read_byte_at_offset_0x29(void *param_1);
 void set_byte_at_offset_0x29(void *param_1,uint8_t param_2);
-void invoke_virtual_slot_3_on_member_10466ffa(void *param_1);
+void invoke_virtual_slot_3_on_member_10466ffa(void *param_1, uint32_t event);
 uint32_t * cls_105a7ea0_new(uint32_t *param_1);
 void cls_105a7ea0_delete(uint32_t *param_1,uint param_2);
 uint32_t initialize_cpucom_message(int param_1);

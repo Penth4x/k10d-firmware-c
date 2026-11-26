@@ -30,7 +30,15 @@ uint32_t mode_ctrl_on_event(int param_1,int param_2,uint32_t *param_3)
       console_printf(&DAT_1059f180/*ROM*/,(void *)*param_3,(void *)(uint)*(byte *)(param_3 + 3),pvVar2);
       console_printf(&DAT_1059f1b4/*ROM*/,(void *)(uint)*(byte *)(param_3 + 1),(void *)param_3[2],pvVar2);
     }
-    else if ((param_2 == 0x10002) || (param_2 == 0x10003)) {
+    else if (param_2 == 0x10002) {
+      /* B-15 FIX (d329): the original 0x10002 and 0x10003 cases set DIFFERENT flag bits (asm
+       * 0x104305bc: bra:d with delay-slot ldi #0x2,r5 -> set_flg bit 0x2; 0x104305c0: ldi #0x4,r5
+       * -> bit 0x4). The decompiler merged both cases into one arm setting only 0x4, losing the 0x2
+       * case. The waiter (check_bit2_of_field_at_offset_0x7c) OR-waits on mask 0x6 and discriminates
+       * on which bit (returns (flgptn & 4)==0), so the two events steer different downstream paths. */
+      set_flg_obj((uint32_t *)(param_1 + 0x7c), 0x2);
+    }
+    else if (param_2 == 0x10003) {
       set_flg_obj((uint32_t *)(param_1 + 0x7c), 0x4);
     }
     else if (param_2 == 0x50000) {

@@ -20,6 +20,7 @@ void call_two_initializers_10466f6e(cls_105a7df8 *param_1)
 
 {
   set_flag_at_offset_0x28_10466fde(param_1);
-  invoke_virtual_slot_3_on_member_10466ffa(param_1);
+  /* B-3v: original loads r5=0x40002 (the forwarded event) before this call (asm 0x10466f7c). */
+  invoke_virtual_slot_3_on_member_10466ffa(param_1, 0x40002);
   return;
 }
