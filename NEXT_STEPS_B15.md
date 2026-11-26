@@ -16,6 +16,16 @@ store_exposure_value_from_params, validate_and_store_event_params, validate_even
 gate_1039ed32, validate_and_set_flag_on_event. (The "empty extractor map" ones dispatch on something other
 than r5=param_2 — need manual per-site analysis, e.g. poll_input's call@10413818 = (iVar3==0)?0x4000000:0xc000000.)
 
+## d329 CORRECTION — the "+0x28 / call_two_initializers premature" deadlock root (commit bcebf548) is a FALSE LEAD
+FRN_WRWATCH on cpucom status byte 0x80532e58, run on BOTH binaries, shows STOCK and CANDIDATE each do the
+IDENTICAL 3 writes: =0 (construct, cls_105a7df8_new), =0 (clear), =1 (set via
+set_flag_at_offset_0x28_10466fde+8 <- call_two_initializers_10466f6e). The claim "stock reaches
+call_two_initializers 0 times" was WRONG. The whole cpucom construction chain is FAITHFUL
+(populate_context_from_global_state 0x10466b4c; create_kernel_object descriptor {0,B+0xc,0x10459448};
+ROM vtable VT_105a7e68 slot2=0x10466f6e genuine, adj -12 -> writes B+0x28). The +0x28 path is NOT the
+deadlock. NOTE the project pattern: reg_framework_send -> set_flg_obj pattern-drop -> cpucom-poll -> +0x28
+were each declared "the root" then disproven. Trust only a FRESH signal_diff on the current build, below.
+
 ## MENU DEADLOCK — the real blocker is NOT B-15 (first-divergence != cause, AGAIN)
 - handle_event_flags fix VERIFIED (flag 0x34 now 0x1, signal cascade matches stock thru #6) but candidate
   STILL deadlocks at the IDENTICAL 2162 syscalls. So the B-15 signal-pattern bugs are real but not what
