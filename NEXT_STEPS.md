@@ -711,3 +711,48 @@ task upstream that itself is blocked). This is an un-posted-event chain, not a w
 ## dispatch_command_0xb0007, cls_105a7df8_delete). So the handler slot is CORRECT — the 5.58M-vs-35.7M
 ## divergence is purely WHEN the companion object gets its event dispatched (runtime scheduling/ordering),
 ## not a miscompiled vtable. firetime.sh's first-fire rp (the invoker) is the datum that resolves it.
+
+## ======================================================================================================
+## ★★★★★ MENU ROOT RE-GROUNDED (d329, VALIDATED MEASUREMENT) — supersedes ALL companion-ready-setter
+## analysis above (which was MISATTRIBUTED). The tool (FRN_FT_PC) was validated with a known-answer test:
+## spi_read_byte (0x104404f8) fires in STOCK at ic 35,746,241 with r5=0x04 (the Cmd:04 POST). So the
+## "35.7M" figure is REAL but it is the POST-SEND time (spi_read_byte), NOT set_flag_at_offset_0x28_10467264
+## — that setter AND its caller cpucom_poll_on_irq15 (0x10467210) NEVER FIRE in qemu (stock OR candidate);
+## the companion-ready-via-IRQ15 path is DEAD in the qemu companion model. Do not chase it.
+## THE REAL, MEASURED DIVERGENCE (oracle = first spi_read_byte fire, its ic + r5 command byte):
+##   STOCK:     first companion SPI xfer at ic 35,746,241, r5=0x04 (POST), obj r4=0x80551920, reg 0x5c004043.
+##   CANDIDATE: first companion SPI xfer at ic  5,616,298, r5=0x00,        obj r4=0x80551920, reg 0x5c004043.
+## => The candidate initiates companion comms 6.4x TOO EARLY (5.6M vs 35.7M), same object/reg. Stock runs
+## ~30M instrs of init BEFORE the first companion transfer; the candidate jumps to it early, so the companion
+## (and the 16 modules) are not ready -> wrong/zero command -> Cmd:80 -> CPUCOM ERROR -> B-6 null crash -> reset.
+## This confirms the RACE framing with a clean number, not the dead IRQ15-setter theory.
+## NEXT (concrete): what GATES the first companion transfer in stock until 35.7M? Trace backward from stock's
+## spi_read_byte@35.7M (its caller cpucom_spi_xfer, that caller's wait/flag) to find the wait that holds
+## ui_task6/the poll until init completes; then check why the candidate's equivalent wait returns early (a
+## dropped wait, a flag that reads ready too soon, or a task that runs out of order). TOOL: firetime.sh /
+## FRN_FT_PC on spi_read_byte (packed addr from map) with FRN_BADPC_NOHALT=1 for the candidate (it crashes
+## at Cmd:80 so halt-mode stops the trace early). Oracle = first-fire ic + r5.
+
+## MENU ROOT NARROWED (d329, measured): the divergent WAIT is poll_context_flag_until_status_set
+## (0x10466eb4, in cpucom_execute_transaction, at the TOP of ui_task6_body). BOTH stock and candidate
+## ENTER ui_task6_body early (stock ic 2.65M, cand ic 5.55M) and enter this poll. The loop RUNS in both
+## (check_kernel_call_success_10459fea 1-tick yield fires; read_byte_at_offset_0x28 is INLINED so a pc-watch
+## on it shows 0 — do NOT conclude the loop is skipped from that). The loop breaks when the status byte at
+## *(ctx+0x28) goes non-zero. STOCK spins here ~33M instrs (2.65M->35.7M) until the companion is ready, THEN
+## sends Cmd:04. CANDIDATE breaks after only ~65k instrs (5.551M->5.616M) and sends its transfer immediately
+## -> companion not ready -> Cmd:80 -> B-6. So the candidate's *(ctx+0x28) status byte goes non-zero ~500x
+## too early. NEXT: FRN_WRWATCH the ctx+0x28 address (ctx = *(ui_task6 param_1 +0x20); from the trace the
+## poll's param_1 r4=0x80532e30, so watch 0x80532e30+0x28=0x80532e58 in the candidate) to find WHAT WRITES it
+## early, and diff vs stock. set_byte_at_offset_0x29(ctx,1) + clear_flag_at_offset_0x28(ctx) run at poll start;
+## the companion-done path (SPI complete / the qemu cpucom model) sets +0x28. Candidate sets it prematurely.
+
+## SETTER REATTRIBUTION (d329): the status byte *(ctx+0x28) that the poll waits on is written by TWO
+## candidate setters: set_flag_at_offset_0x28_10467264 (via cpucom_poll_on_irq15 — PROVEN never fires in
+## qemu) and set_flag_at_offset_0x28_10466fde (via call_two_initializers_10466f6e, a vtable method of the
+## companion obj cls_105a7df8, dispatched on an EVENT). Since IRQ15 is dead in qemu, the live setter is
+## _10466fde via call_two_initializers_10466f6e. NEXT_STEPS earlier had these two swapped (the "real one is
+## _10467264" note is WRONG for qemu). So the premature +0x28 in the candidate is an EARLY EVENT DISPATCH to
+## call_two_initializers_10466f6e. DECISIVE post-build traces: (1) FRN_WRWATCH the candidate ctx+0x28 (watch
+## 0x80532e58 if the ctx addr 0x80532e30 is stable) -> the FROM pc names the setter + the ic; (2) fire-time
+## of set_flag_at_offset_0x28_10466fde and call_two_initializers_10466f6e in candidate (expect ~5.6M) vs stock
+## (expect ~35.7M); (3) then trace what dispatches the event to call_two_initializers_10466f6e early.
