@@ -6270,7 +6270,7 @@ uint32_t return_true_stub_104663c4(void);
 void cpucom_repost_request(void *param_1,uint8_t *param_2);
 void ui_task6_body(void *param_1);
 void cpucom_poll_driver(void *param_1,uint8_t *param_2);
-void invoke_virtual_slot_3_on_member_10466604(void *param_1);
+void invoke_virtual_slot_3_on_member_10466604(void *param_1, uint32_t event);
 uint32_t get_cls_105a7db4_singleton(void);
 void init_context_with_four_objects(void *param_1);
 uint32_t invoke_virtual_slot_2_on_members(cls_105a7db4 *param_1);

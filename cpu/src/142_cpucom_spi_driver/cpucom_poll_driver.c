@@ -36,7 +36,10 @@ void cpucom_poll_driver(void *param_1,uint8_t *param_2)
     get_cpucom_msg_data_ptr_104655b6(param_2);
     cpucom_resp_get_byte0((uint8_t *)(*(uint32_t *)((int)param_1 + 0x28)));
     get_cpucom_msg_data_ptr_104655b6(*(void **)((int)param_1 + 0x28));
-    invoke_virtual_slot_3_on_member_10466604(param_1);
+    /* B-3v FIX (d329): original sets r5=0x10001 (the EVENT) before this call (asm 0x10466590:
+     * ldi #0x10001,r5), forwarded through invoke_virtual_slot_3 to mode_ctrl_on_event. Dropped by
+     * the decompiler. */
+    invoke_virtual_slot_3_on_member_10466604(param_1, 0x10001);
   }
   piVar3 = (int *)read_struct_field_at_offset_0x14(param_2);
   iVar2 = *piVar3;
