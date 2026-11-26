@@ -490,6 +490,34 @@ Reliable measurement (prerequisite for all localization):
   trap→direct-call rewrite makes it WRONG for kernel-service wrappers — see B-16 note.)
 - **Status (d329):** mechanism verified via a poll-only inline probe; full 153-site sweep in progress.
 
+## B-3v · vtable-dispatch helper drops a FORWARDED register arg ← **the mode-event / menu unblock (d329)**
+- **Generalization (Andrew, d329):** "I suspect the vtables suffer from the same dropped argument bug …
+  and this might not be the only vtable slot with this problem." A tiny helper loads a member pointer and
+  dispatches through a **runtime vtable** (`ld @r0,r12; … call:d @r12`). Between its entry and that
+  dispatch it NEVER writes r5/r6/r7, so whatever the CALLER put in those registers flows straight through
+  to the vtable target. Ghidra gave the helper a **1-parameter** C signature (just the object), so fcc is
+  free to clobber r5 before the dispatch → the forwarded argument arrives as garbage. Same family as
+  B-3/B-3d (dropped register arg) but the drop is at a *virtual dispatch* the decompiler can't resolve, so
+  it can't see the arg is live past the call.
+- **Root instance:** `invoke_virtual_slot_3_on_member_10466604` (0x10466604, member `+0x134`, vtable slot
+  3). Callers set r5 = the **mode EVENT** (`ui_task6_body` 0x10002/0x10003 by a branch on the transaction
+  result; `cpucom_poll_driver` 0x10001) and the slot-3 target is `mode_ctrl_on_event`, which reads the
+  event as `param_2` and, for 0x10002/0x10003, runs `set_flg(flag 0x37, 0x4)` → unblocks the mode pump
+  (`wai_flg(flag 0x37, TMO_FEVR)`) → menu renders. Dropped event → no flag → deadlock.
+- **Detection:** `scripts/detect_vtable_dropped_arg.py` — STRUCTURAL, reads only FWDC162B.BIN: a helper is
+  a dropper iff (a) it leaves r5/r6/r7 unwritten before its `call @rN`/`call:d @rN` dispatch AND (b) a
+  caller sets that register just before the call. Sweep of 78 single-C-param `invoke/call_virtual_slot_*`
+  helpers: **25 where a caller loads an IMMEDIATE** into a forwarded reg (near-certain), 10 reg-sourced
+  (need runtime confirmation). **Incontrovertible** = callers pass DIFFERENT constants to the same reg
+  (distinct constants ⇒ it's an argument): `0x10466ffa` r5∈{0x40001,0x40002,0x40003},
+  `call_virtual_slot_8_after_init` r5∈{0x2,0xd}, `invoke_virtual_slot_5_on_nested_object` r5∈{0x1,0xffff}.
+- **Fix (per helper):** add the forwarded reg as a real parameter, forward it in the dispatch call, update
+  the prototype in `funcs.h`, and pass each caller's recovered constant. Exactly the B-3d recipe at a
+  virtual call. CAVEAT: `(reg)`-sourced forwards (not an immediate) need trace/stock confirmation that the
+  vtable target actually reads the register — the detector flags candidates, runtime confirms consumption.
+- **Status (d329):** root instance (0x10466604) fixed (3 files) + building; `0x10466ffa` (same slot-3
+  pattern, +0x2c, events 0x40001-3) prepped. Remaining 23 strong candidates in the scripts report.
+
 ## B-13 · kernel-descriptor stack-split (multi-word trap descriptor emitted as non-adjacent locals) ← **B-1 variant; the menu-blocker chain**
 - **Symptom:** a created kernel object (eventflag, cyclic handler, queue, task) gets a GARBAGE field
   (initial flag pattern, handler ptr, exinf), or a 2-word kernel *result* loses its second word
