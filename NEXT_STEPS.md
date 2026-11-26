@@ -92,6 +92,20 @@
 ## not by 5.55M. NEXT: find where the companion table entries' +0x10c is populated and why the candidate
 ## is behind (skipped/late init, or a dropped store in that enumerator). Companion-bootstrap root, now
 ## pinned to the table-entry +0x10c init.
+## DEEPER (d329): the object IS a cls_105a0828 (vtable 0x105a0828 @ obj+0x4) and cls_105a0828_new RUNS in
+## both (12x each). The constructor DOES write +0x10c at the correct offset (packed 0x10683946:
+## ldi #0x10c,r13; st r0,@(r13,r8)) — NOT a struct-layout bug. It does field_0x10c=0 then
+## field_0x10c=*param_2. So +0x10c ends 0 iff param_2[0]==0. STOCK's cls_105a0828_new wrote
+## +0x10c=0x80554594 (from *param_2); so the candidate's param_2[0] is 0 (or a different, zeroed param_2).
+## => ROOT is UPSTREAM: what builds the param_2 descriptor passed to cls_105a0828_new (its [0] = the
+## +0x10c sub-object ptr). Find the caller of cls_105a0828_new for this object and diff how param_2[0] is
+## populated candidate-vs-stock (likely a dropped store / B-1 descriptor-split in the descriptor builder).
+## METHODOLOGY CAVEAT (important): heap addresses appear NONDETERMINISTIC across candidate runs (a watch on
+## obj+0x10c (0x80552b34) caught NO write in one run but the vtable write at obj+0x4 (0x80552a2c) DID in
+## another — same address, different run). So FIXED-ADDRESS WRWATCH across runs is unreliable here; the
+## deterministic facts are the crash ic (7272166) and the poll-skip (read_byte_at_offset_0x28 0 hits). Use
+## OBJECT-IDENTITY-aware tracing (FT_PC at the constructor, read param_2/*param_2 from the full-reg line
+## for the invocation whose r4/result is the poll object) rather than hardcoded heap addresses.
 ##
 ## TOOLING NOW STANDARD (run every boot WITH these — Andrew: "a jump to null should be glaring",
 ## "run the emulator with a lot of these modes on"):
