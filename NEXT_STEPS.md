@@ -1,5 +1,21 @@
 # Next steps — open investigation (handoff)
 
+## ★★★★ BREAKTHROUGH (d329, FRN_DSP_LOG companion dialog) — the concrete, actionable menu root:
+## The qemu companion model (target/frn/k10d_cpucom.c) LOGS the command dialog. Diffed candidate vs stock:
+##   STOCK:     Cmd:04 (POST handshake, 5 bytes: 01 1f 00 13 04) -> status 'X' -> Cmd:05 (61 bytes) ->
+##              status 'A','A','H','B'. A clean companion bootstrap.
+##   CANDIDATE: sends ONLY Cmd:80 (out_size=0) -> firmware prints "CPUCOM ERROR Out/In" -> B-6 crash.
+## => The candidate NEVER sends the Cmd:04 POST handshake. Its companion bootstrap is replaced by a single
+## wrong command (0x80). So stock's whole init sequence (04->05->01 polls) does not happen in the candidate.
+## This is WHY the companion never properly initializes and everything downstream (poll, +0x28, alarm,
+## reset loop) diverges. THE BUG IS: the candidate's companion-init sends the wrong command / skips POST.
+## FIND NEXT (concrete): where is Cmd:04 (POST) built+sent in stock? (cpucom_execute_transaction only POLLS
+## + dispatch_context_virtual_op; the POST is sent by a separate companion-init path.) Does the candidate
+## reach that code? If it reaches it but sends 0x80, the command byte is miscompiled (a wrong constant /
+## dropped arg — find the 0x04 literal). If it never reaches it, the companion-init task/function is skipped
+## (scheduler — the 15x-less-active finding). Trace the cpucom_spi_xfer command buffer (param_2[0]) back to
+## where 0x04 vs 0x80 is set. TOOLS: FRN_DSP_LOG=1 (dialog), fresh flash + no FLASH_SAVE.
+
 ## ★★★ CURRENT (d329): MODE-PUMP DEADLOCK CLEARED — new blocker is the companion-cpucom bootstrap reset
 ## The onion-peel reached the MODE PUMP. B-3v vtable-dropped-arg (invoke_virtual_slot_3_on_member_10466604)
 ## was THE mode-pump blocker: the helper forwards the caller's ambient r5 (the mode EVENT) to
