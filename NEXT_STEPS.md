@@ -67,6 +67,16 @@
 ## handler at ic 5.58M (cand) vs 35.7M (stock). Compare the TRIGGERING task-terminate/dispatch timing. This
 ## is the long-standing companion-bootstrap/alarm-fire-time root; it is now pinned to the kernel timeout-queue
 ## dispatch of the call_two_initializers handler created by populate_context_from_global_state.
+## RULED OUT (d329): kernel TICK RATE is NOT the bug — candidate ~58k instrs/tick (from the poll's 1-tick
+## check_kernel_call_success yields) vs stock ~66k; similar. So the handler is SCHEDULED ~1 tick after the
+## poll in the candidate vs ~500 in stock — the scheduled DELAY (the timeout-queue node's time field) is
+## wrong, not the rate. create_kernel_object's descriptor desc[0]=0 is the same in both and is NOT the
+## timeout (else stock would also fire at tick 1). So the node time is computed by the kernel service
+## (find_free_queue_slot/insert_timeout_queue_node via int#0x40) from kernel state, OR a separate
+## start-timer call sets it. DECISIVE NEXT: add a qemu-frn instrumentation that logs every timeout-queue
+## node INSERT with (handler, time field, current tick) and every DISPATCH, then diff the node time for the
+## call_two_initializers handler candidate-vs-stock on a clean run. That single number (its scheduled delay)
+## is the bug. (Tooling-forward, per Andrew — like FRN_BADPC.)
 ## ======================================================================================================
 ##
 ## ROOT CHAIN (fully traced d329 via FRN_BADPC + FRN_FT_FULLREGS at ic 7272159-7272164):
