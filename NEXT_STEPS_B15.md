@@ -37,3 +37,33 @@ than r5=param_2 — need manual per-site analysis, e.g. poll_input's call@104138
 ## Tools built (committed): detect_merged_cases.py, extract_flag_map.py, signal_diff.py, verify_setflg.py
 ## Reliable: FRN_INT40_SVC=all + stdbuf (scripts/syscall_trace.sh); signal_diff; packed-addr resolver
 ##   (firmware.map, tr -d '\r', ABS lines). Map extraction MUST strip CRLF (fixed in 72c21068).
+
+## ★★★ COMPLETE DEADLOCK CHAIN (d328, fully traced) ★★★
+The menu black-screen is a CIRCULAR-ish event-cascade stall, NOT a single decompiler bug (yet):
+
+1. Mode-event-manager task body = loop_receive_and_dispatch_message (unit 116, packed 0x1078be96,
+   task-body ptr overlay at CONFIRMED_TABLE 0x1059f11c = correct). It runs, calls
+   process_mode_transition_sequence (unit 117, packed 0x107b0006) ONCE at startup BEFORE its msg loop.
+2. process_mode_transition_sequence HANGS at check_bit2_of_field_at_offset_0x7c (0x10431dee, packed
+   0x1066ad3c): eventflag_wai_flg(flag 0x37, pattern 6 = bits1,2, TWF_ORW, TMO_FEVR).
+   (Confirmed: FRN_DISAS of 0x107b0006 stops at +0x4e, the call to 0x1066ad3c never returns.)
+3. Flag 0x37 is created with iflgptn=0 (wait_flg_obj(mode_ctrl+0x7c,0) -> alloc_or_acquire_heap_block
+   (..,0,0)). So BOTH stock and candidate block at check_bit2 initially.
+4. STOCK unblocks: set_flg(flag 0x37, 0x4) fires at stock line 3717 (= signal #7 in signal_diff),
+   from mode_ctrl_on_event(unit 115, event 0x10002||0x10003 -> set_flg_obj(mode_ctrl+0x7c, 0x4)).
+   bit2=0x4 satisfies check_bit2's ORW pattern 6 -> returns -> POST proceeds -> companion 'A'/'H' ->
+   flag 0x37 fully set -> menu.
+5. CANDIDATE never produces signal #7: event 0x10002/0x10003 never reaches mode_ctrl_on_event, so
+   flag 0x37 bit2 is never set, check_bit2 waits forever, no POST (execute_cpucom_transaction 0x1070e326
+   reached 0x), companion silent (FRN_DSP_LOG=1 shows 0 exchanges vs stock POST/X/A/A/H/B).
+6. Event 0x10002/0x10003 senders/handlers (grep 0x10002): dispatch_mode_change_event_1047cdb8 (unit 168,
+   sends 0x10002 when mode-state *(field_0x40+4)==1), call_helper_with_flag_0x10002/3 (unit 169),
+   mode_ctrl_on_event (115, handler), AND THREE B-15 MERGED-CASE SUSPECTS: dispatch_event_by_type_104bcec8
+   (224), set_status_flag_by_code (269), mode_nav_request (097).
+   => NEXT: trace WHO should send event 0x10002 at boot and why candidate doesn't. Likely a B-15
+   merged-case or a mode-state computation bug in one of units 168/169/224/269/097. Fix THAT (on-path),
+   not the 6 already-fixed B-15s (off deadlock path).
+
+## Why B-15 campaign didn't unblock: the 6 fixed B-15s (handle_event_flags, set_flag_on_event_code,
+## etc.) are real bugs but OFF the deadlock path. The ON-path bug is in the 0x10002-event generation.
+## signal_diff #7 (set_flg 0x37) is the exact unblock; chase its producer chain.
