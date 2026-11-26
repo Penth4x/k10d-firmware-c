@@ -14,6 +14,7 @@
 #include "frv_intrinsics.h"
 #include "globals.h"
 #include "funcs.h"
+#include "syscall_traps.h"
 
 uint32_t poll_context_flag_until_status_set(void *param_1,int param_2)
 
@@ -27,7 +28,15 @@ uint32_t poll_context_flag_until_status_set(void *param_1,int param_2)
   bVar1 = test_flag_clear_if_active(*(void **)((int)param_1 + 0x20));
   if (bVar1) {
     do {
-      check_kernel_call_success_10459fea();
+      /* B-3/B-16 FIX (d329): the original poll sets r4=1 in the delay slot before calling
+       * check_kernel_call_success_10459fea (0x10466ed6: ldi #1,r4), which forwards the ambient
+       * r4 to allocate_kernel_object_1000e4e0 (the per-iteration yield/scheduler tick). The
+       * decompiler dropped the caller's r4=1 and check_kernel_call_success used __frv_reg_unset(4)
+       * (returns 0, clobbers), so the service got r4=0 -> wrong per-iteration behaviour, the
+       * companion-SPI handshake never spins and +0x28 is read prematurely. Call the trap directly
+       * with r4=1. (The shared check_kernel_call_success + its ~90 callers need the same arg
+       * restored; verifying here first.) */
+      __trap_allocate_kernel_object_1000e4e0(1);
       cVar2 = read_byte_at_offset_0x28(param_1);
       if (cVar2 != '\0') {
         uVar3 = 1;
