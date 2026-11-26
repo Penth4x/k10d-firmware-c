@@ -50,6 +50,22 @@
 ## the 0x50/0x400/0x344 object inits, and why the candidate's condition skips them (a dropped count, a
 ## config read, or a wrong branch). The 0x344 (836-byte) and 0x400 (1KB) objects x40-80 are the specific
 ## targets. This is the precise divergence inside method1 that leaves the modules uninitialized.
+## CORRECTION + FINAL LOCALIZATION (d329): the "cpucom init reordered early" and "321 extra calls" from
+## trace_diff were ALIGNMENT DRIFT again (register_cpucom_command_table / get_cpucom_default_context run at
+## the SAME ic ~0.8M in both; cls_105aa5ec_new 60KB alloc at the same ~0.87M). trace_diff's trap-wrapper
+## STRUCT noise keeps drifting difflib here — VERIFY every lead with direct per-function IC/count checks.
+## THE DURABLE FACT: appmain_init_method2 = 0 hits in the candidate (never reached, all addresses). So
+## app_main_task1's method1 (appmain_init_method1, the lens-firmware-update init) NEVER RETURNS before the
+## companion crash at 7.27M. method1's lens_fw loop runs ~2x SLOWER per iteration in the candidate: ~40000
+## instrs BETWEEN iters vs stock's ~19500 (the iters themselves are tight ~400 instrs; the gap is extra
+## per-entry processing). 50 iters by 2.5M (cand) vs 82 by 2.1M (stock). So method1 is ~2x too slow -> does
+## not finish -> method2 never runs -> 16 modules uninit -> companion fails. NEXT (cleanest): single-step /
+## FT_FULLREGS one lens_fw iteration in candidate vs stock and diff the per-iteration work — find the extra
+## ~20000 instrs the candidate does per entry (a redundant alloc/parse/copy, or a retry loop). The lens-fw
+## update reads FAT/SD (unit 294 runtime_lib_fatfs_lens_update); check get_lens_fw_update_status + the
+## per-entry body (alloc_and_init_lens_fw_buffer 0x10546eea) for extra work vs the original.
+## (trace_diff is powerful for FINDING divergences but its alignment drifts on this recompile's trap-wrapper
+## structure — always confirm a lead with a direct per-function count/IC before acting on it.)
 
 ## ★★★★ BREAKTHROUGH (d329, FRN_DSP_LOG companion dialog) — the concrete, actionable menu root:
 ## The qemu companion model (target/frn/k10d_cpucom.c) LOGS the command dialog. Diffed candidate vs stock:
