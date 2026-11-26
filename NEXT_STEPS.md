@@ -25,6 +25,19 @@
 ##   (3) Does get_lens_fw_update_status return a different count (more entries) in the candidate?
 ## TOOLS: trace_diff.py (clean traces, no FLASH_SAVE) found this; FRN_DSP_LOG for the downstream companion
 ## oracle. This supersedes all the companion-timing analysis below (which is correct but downstream).
+## REFINED (d329): the candidate's app_main_task1 init is SLOWER — it does FEWER operations per unit time
+## (fill_byte_array 97 calls by ic 2.5M vs stock's 341; stock finishes the lens_fw loop + reaches method2 by
+## 2.1M, candidate is still in init at 4.2M+). NOT a single huge memset: the 0xea24 (59940-byte) fill in
+## cls_105aa5ec_new is FAITHFUL (orig heap_alloc(0xea54) then fill 0xea24 — a legit 60KB settings object;
+## do NOT flag it). The candidate yields/blocks MORE during init (rtos_dispatch_entry heavy in the gap), so
+## app_main_task1 makes slower progress. WHY: app_main_task1 appears to BLOCK between init ops (on a
+## semaphore/flag/resource) that stock doesn't, OR a lower effective priority lets the scheduler idle. The
+## 1.3M-instr gap between app_main_task1's 1st lens_fw call (ic 534488) and the main loop (1849066) is the
+## slowdown — it is REAL init work (60KB alloc + object ctors) but spread out by yielding. NEXT: find what
+## app_main_task1 BLOCKS on in that gap (trace the rtos_dispatch_entry/yield points — a wai_sem/wai_flg with
+## a timeout that is satisfied slowly, or a resource the uninitialized companion would provide). This may
+## still be circular with the companion, OR an independent init-ordering/priority bug. Compare the task
+## PRIORITIES (cre_tsk) of app_main_task1 vs the tasks the scheduler runs during the gap.
 
 ## ★★★★ BREAKTHROUGH (d329, FRN_DSP_LOG companion dialog) — the concrete, actionable menu root:
 ## The qemu companion model (target/frn/k10d_cpucom.c) LOGS the command dialog. Diffed candidate vs stock:
