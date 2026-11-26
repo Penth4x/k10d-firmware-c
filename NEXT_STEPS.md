@@ -120,6 +120,16 @@
 ## stock; and separately, WHY the candidate's overall scheduler is 15x less active (likely the same root —
 ## most tasks are stuck waiting on the companion that never truly initializes). The degraded scheduler is
 ## itself a strong signal: diff which tasks RUN (act_tsk targets) candidate-vs-stock to find the stuck one.
+## QUEUE MECHANISM (d329, final): the timeout queue is a µITRON RELATIVE-DELTA queue — increment_timeout_counter
+## (0x1000d498) advances a 64-bit tick counter; insert_into_timeout_queue_10011644 (0x10011644) adjusts node
+## deltas (node+8 += param_1[2]). The companion-ready handler's node has a relative-time DELTA; it fires when
+## the counter passes it. That DELTA is ~8.9x TOO SMALL in the candidate (fire delay ~65 vs ~577 ticks). The
+## delta is NOT in the faithful create descriptor, so it is set by the kernel service during create/insert OR
+## by a separate start — buried in REALOS internals. SINGLE NUMBER TO FIND: the handler node's time-delta.
+## DECODE: FRN_WRWATCH the handler's timeout-queue node's +8 (delta) field (resolve the node addr via a clean
+## FT at insert_timeout_queue_node when it inserts THIS handler) and read the delta in candidate vs stock; or
+## decode the create service's delta source. This is a fresh kernel-RE task. (Deferred this session — see the
+## B-13 descriptor-split detector work for concrete parallel progress.)
 ## ======================================================================================================
 ##
 ## ROOT CHAIN (fully traced d329 via FRN_BADPC + FRN_FT_FULLREGS at ic 7272159-7272164):
