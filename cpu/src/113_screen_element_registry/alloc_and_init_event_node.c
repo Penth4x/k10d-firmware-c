@@ -56,7 +56,7 @@ int alloc_and_init_event_node(int param_1,uint32_t *param_2)
     puVar2[10] = param_2[10];
     *(uint8_t *)(puVar2 + 0xb) = *(uint8_t *)(param_2 + 0xb);
     puVar2[0xc] = param_2[0xc];
-    reg_framework_send(param_1 + 4);
+    reg_framework_send(param_1 + 4, (void *)puVar2, 0x2);
   }
   return iVar1;
 }

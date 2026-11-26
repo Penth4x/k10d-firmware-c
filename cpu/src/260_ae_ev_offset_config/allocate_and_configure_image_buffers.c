@@ -353,7 +353,7 @@ void allocate_and_configure_image_buffers(int param_1,void *param_2,int param_3)
       puStack_b8 = &uStack_104;
       puStack_b4 = &uStack_e8;
       eventflag_clr_flg(puVar9,1);
-      reg_framework_send(*(int *)(param_1 + 0x30) + 8);
+      reg_framework_send(*(int *)(param_1 + 0x30) + 8, &iStack_cc, 0x2);
       eventflag_wai_flg(puVar9,1,&_cfg_84.uStack_c,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar9,1);
       *puVar18 = uVar6;

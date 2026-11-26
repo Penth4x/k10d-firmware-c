@@ -29,6 +29,6 @@ void dispatch_event_with_flags(int param_1,void *param_2)
   *(int *)((int)param_2 + 8) = param_1 + 4;
   *(uint32_t *)((int)param_2 + 0xc) = *(uint32_t *)((int)param_2 + 0x7f8);
   *(void **)((int)param_2 + 0x14) = param_2;
-  reg_framework_send(*(int *)(param_1 + 0x38) + 8);
+  reg_framework_send(*(int *)(param_1 + 0x38) + 8, (void *)((uintptr_t)param_2 + 8), 0x2);
   return;
 }

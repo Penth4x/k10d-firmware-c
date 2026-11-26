@@ -35,7 +35,7 @@ void copy_block_and_dispatch_or_queue(int param_1,int *param_2,uint32_t param_3,
     *(int **)(iVar2 + 8) = param_2;
     *(uint32_t *)(iVar2 + 4) = 0x10000;
     **(int **)(iVar2 + 0xc) = param_4;
-    reg_framework_send(param_1 + 4);
+    reg_framework_send(param_1 + 4, (void *)iVar2, 0x1);
   }
   return;
 }

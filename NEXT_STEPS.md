@@ -1,8 +1,29 @@
 # Next steps — open investigation (handoff)
 
-## Where boot is now (d327: vec41 lead DEBUNKED; REAL crash = full chain traced to a null menu-item render object)
+## Where boot is now (d327-late: B-13 descriptor-split cleared the ic5.58M derail; now boots to
+## STABLE IDLE, BLACK SCREEN. Root of black screen = B-3 MESSAGE-BUS, now fixed — see below.)
+
+### B-3 reg_framework_send message-bus (THE black-screen root, fixed d327; link pending validation)
+MEASURED via direct FRN_DISAS (reliable, NOT codiff): over a 200s boot, stock calls mbx_send_message
+43 times, candidate only **1** — then all mailbox-pump tasks block (TMO_FEVR) at idle, so screens are
+never built/navigated and LCD base regs 0x40040308/328/334 stay 0 (black). `reg_framework_send`
+(0x10459abe) carries 35 of stock's 43 sends; it was decompiled 1-arg and DROPPED r5(payload)+r6(code),
+which the original forwards through to mbx_send_message. Fixed sig -> (int,void*,uint32_t); swept ALL
+85 callers / 97 sites (scripts/{frdis,resolve_rfs,rfs_table,patch_rfs}.py). This is the mechanism
+behind the older "menu built but never navigated/rendered" framings — the nav/render MESSAGES weren't
+being sent. 3 off-path callers (iterate_and_check_queue_items, dispatch_lens_comm_command,
+initialize_mode_context) are best-effort (branchy/mangled decompile) — Ghidra re-verify later.
+
+VALIDATION PLAN (after link): (1) re-read new packed mbx_send_message addr from firmware.map;
+(2) FRN_DISAS that addr on new candidate over 200s -> count should jump from 1 toward ~35+;
+(3) if sends flow, check LCD base regs get programmed (write_three_config_values 0x10822112 / base_a
+0x40040308) and run.sh shot. (4) Then find the NEXT divergence (likely the menu-item render / appobj
++0x44 navigation below).
+
+### SUPERSEDED (kept for history): the ic5.58M NULL-vtable derail chain
 Deadlock cleared (B-3c mbx timeout, 6c4036c2). Candidate reaches ~47k fn-entries vs stock ~159k, then
-DERAILS to PC=0 at ic=5,585,789 (FRN_NO_REBOOT=1 FRN_DERAIL=1). Without NO_REBOOT it reboot-loops.
+DERAILED to PC=0 at ic=5,585,789 — CLEARED by the B-13 descriptor-split fixes (commit 9aa78ec3). Boot
+now advances past it to stable idle. Chain below retained in case a later divergence re-enters it.
 
 ### vec41/RTC lead was WRONG (measured, not guessed).
 FRN_TRACE_IRQ (added this session): candidate DOES receive vec41 (intc_init unmasks ICR25@0x459=0x14

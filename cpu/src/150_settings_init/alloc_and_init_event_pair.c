@@ -38,7 +38,7 @@ uint32_t alloc_and_init_event_pair(int param_1,uint32_t param_2,uint32_t param_3
     }
     *puVar2 = param_2;
     puVar2[1] = param_3;
-    reg_framework_send(param_1 + 4);
+    reg_framework_send(param_1 + 4, (void *)puVar2, 0x2);
     uVar4 = 1;
   }
   return uVar4;

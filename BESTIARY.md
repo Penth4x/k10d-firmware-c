@@ -57,7 +57,24 @@ Reliable measurement (prerequisite for all localization):
   - `lookup_table_entry_by_index_10482026` (0x10482026, unit 176): reads `r5_in` (a **pointer**,
     stock `r5=0x8054cbcc`) passed to `screen_key_find`. On-path (2 calls). Harder — needs threading
     the real pointer from its caller. **OPEN.**
-- **Status:** on-path sweep in progress on the display/registry-init path.
+  - `reg_framework_send` (0x10459abe, unit 127) — **THE message-bus root; 85 callers / 97 sites.**
+    Typed 1-arg `(int param_1)`, reads `r5_in`/`r6_in` as uninit locals. Original only remaps
+    r4→param_1+0x14; **r5 (payload) and r6 (code) pass THROUGH unchanged** to `mbx_send_message`
+    (verified static decode). Every caller was emitted single-arg, so the whole register-framework
+    command bus dropped its payload+code. **Measured:** stock sends 35 of its 43 `mbx_send_message`
+    calls via this path; candidate sent **1 total → deadlock at idle, black screen**. **Fix:** sig
+    `(int, void*, uint32_t)` forwarding param_2/param_3; swept all 85 callers. r6=code is a
+    delay-slot constant (0x1/0x2/0x3). r5=payload recovered by category via `scripts/resolve_rfs.py`
+    (validated symbolic tracer) + the structural tell that the packet SENT = the packet freed by the
+    following `virtual_destructor_free_10428222(&X,…)`: ALLOC (`(void*)allocvar`), STACKPKT
+    (`&_cfg.iStack`), P2PLUS (`(void*)((uintptr_t)param_2+8)`), plus embedded-object/param cases.
+    Tools: `frdis.py`, `resolve_rfs.py`, `rfs_table.py`, `patch_rfs.py`. **DONE (d327)** — 3 off-path
+    callers (`iterate_and_check_queue_items`, `dispatch_lens_comm_command`, `initialize_mode_context`)
+    best-effort (branchy/mangled decompile), flagged for Ghidra re-verify.
+- **Tooling note:** `scripts/resolve_rfs.py` is a reusable linear symbolic FR tracer (params→regs,
+  callee-saved r8-r11/r14, call clobbers, delay slots, one level of stack-spill following). It
+  mis-reads branch-dependent values — always cross-check branchy callers against disasm (`frdis.py`).
+- **Status:** reg_framework_send class swept; link pending. Remaining open: lookup_table_entry_by_index.
 
 ## B-4 · frame-pointer codegen mismatch
 - **Symptom:** extra `ENTER`/R14 frame where the original compiler omitted it; stack-layout drift.

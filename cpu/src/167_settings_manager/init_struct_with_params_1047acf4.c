@@ -23,6 +23,6 @@ void init_struct_with_params_1047acf4(int param_1,uint32_t param_2,uint32_t para
   *(uint32_t *)(iVar1 + 8) = param_2;
   *(uint32_t *)(iVar1 + 4) = 8;
   **(uint32_t **)(iVar1 + 0xc) = param_3;
-  reg_framework_send(param_1 + 4);
+  reg_framework_send(param_1 + 4, (void *)iVar1, 0x2);
   return;
 }

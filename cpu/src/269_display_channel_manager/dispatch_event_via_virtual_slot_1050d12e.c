@@ -72,7 +72,7 @@ uint32_t dispatch_event_via_virtual_slot_1050d12e(int param_1,void *param_2,int 
     uStack_10 = 0;
     pvStack_44 = param_2;
     eventflag_clr_flg(puVar2,0x100000);
-    reg_framework_send(*(int *)(param_1 + 0x54) + 8);
+    reg_framework_send(*(int *)(param_1 + 0x54) + 8, &iStack_1c, 0x2);
     uVar3 = 1;
     eventflag_wai_flg(puVar2,0x100000,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar2,0x100000);

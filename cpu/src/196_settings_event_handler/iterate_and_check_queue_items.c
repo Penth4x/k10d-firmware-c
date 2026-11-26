@@ -63,7 +63,7 @@ uint32_t iterate_and_check_queue_items(int param_1)
     iVar2 = iStack_c;
   }
   while (aiStack_19c[0] != 0) {
-    reg_framework_send(iVar5);
+    reg_framework_send(iVar5, (void *)aiStack_19c[0], 0x2);
     aiStack_19c[0] = *(int *)(puVar1 + -400);
     puVar1 = puVar1 + 4;
   }

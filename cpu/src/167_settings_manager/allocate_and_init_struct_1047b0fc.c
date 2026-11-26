@@ -25,6 +25,6 @@ void allocate_and_init_struct_1047b0fc(int param_1,uint32_t param_2,uint32_t par
   *(uint32_t *)(iVar1 + 4) = 0x2000;
   **(uint32_t **)(iVar1 + 0xc) = param_4;
   *(uint32_t *)(*(int *)(iVar1 + 0xc) + 4) = param_5;
-  reg_framework_send(param_1 + 4);
+  reg_framework_send(param_1 + 4, (void *)iVar1, 0x2);
   return;
 }

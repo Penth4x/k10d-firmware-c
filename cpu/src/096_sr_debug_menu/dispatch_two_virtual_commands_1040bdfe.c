@@ -54,7 +54,7 @@ void dispatch_two_virtual_commands_1040bdfe(int param_1,int param_2,uint16_t par
   uStack_16 = param_3;
   uStack_14 = uVar1;
   eventflag_clr_flg(puVar2,8);
-  reg_framework_send(*(int *)(param_1 + 0xc) + 8);
+  reg_framework_send(*(int *)(param_1 + 0xc) + 8, &iStack_30, 0x2);
   eventflag_wai_flg(puVar2,8,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar2,8);
   uStack_1c = param_5;
@@ -67,7 +67,7 @@ void dispatch_two_virtual_commands_1040bdfe(int param_1,int param_2,uint16_t par
   uStack_16 = param_3;
   uStack_14 = uVar1;
   eventflag_clr_flg(puVar2,8);
-  reg_framework_send(*(int *)(param_1 + 0xc) + 8);
+  reg_framework_send(*(int *)(param_1 + 0xc) + 8, &iStack_30, 0x2);
   eventflag_wai_flg(puVar2,8,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar2,8);
   virtual_destructor_free_10428222(&iStack_30,2);

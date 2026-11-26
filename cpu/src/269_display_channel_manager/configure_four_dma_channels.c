@@ -60,7 +60,7 @@ uint configure_four_dma_channels(int param_1,uint32_t param_2,uint *param_3,uint
     _cfg_3c.uStack_30 = 0;
     _cfg_3c.iStack_3c = iVar1;
     eventflag_clr_flg(puVar3,0x20000);
-    reg_framework_send(*(int *)(param_1 + 0x34) + 8);
+    reg_framework_send(*(int *)(param_1 + 0x34) + 8, &_cfg_3c.iStack_3c, 0x2);
     eventflag_wai_flg(puVar3,0x20000,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar3,0x20000);
     _cfg_3c.iStack_28 = *(int *)(param_1 + 0x5c) +
@@ -79,7 +79,7 @@ uint configure_four_dma_channels(int param_1,uint32_t param_2,uint *param_3,uint
     _cfg_3c.piStack_38 = &_cfg_3c.iStack_28;
     _cfg_3c.uStack_1c = param_2;
     eventflag_clr_flg(puVar3,0x80000);
-    reg_framework_send(*(int *)(param_1 + 0x40) + 8);
+    reg_framework_send(*(int *)(param_1 + 0x40) + 8, &_cfg_3c.iStack_3c, 0x2);
     eventflag_wai_flg(puVar3,0x80000,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar3,0x80000);
     *param_3 = (uint)_cfg_3c.uStack_18;
@@ -91,7 +91,7 @@ uint configure_four_dma_channels(int param_1,uint32_t param_2,uint *param_3,uint
     _cfg_3c.piStack_38 = &_cfg_3c.iStack_28;
     _cfg_3c.uStack_1c = param_4;
     eventflag_clr_flg(puVar3,0x80000);
-    reg_framework_send(*(int *)(param_1 + 0x40) + 8);
+    reg_framework_send(*(int *)(param_1 + 0x40) + 8, &_cfg_3c.iStack_3c, 0x2);
     eventflag_wai_flg(puVar3,0x80000,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar3,0x80000);
     *param_5 = (uint)_cfg_3c.uStack_18;
@@ -103,7 +103,7 @@ uint configure_four_dma_channels(int param_1,uint32_t param_2,uint *param_3,uint
     _cfg_3c.iStack_3c = iVar1;
     _cfg_3c.piStack_38 = &_cfg_3c.iStack_28;
     eventflag_clr_flg(puVar3,0x80000);
-    reg_framework_send(*(int *)(param_1 + 0x40) + 8);
+    reg_framework_send(*(int *)(param_1 + 0x40) + 8, &_cfg_3c.iStack_3c, 0x2);
     eventflag_wai_flg(puVar3,0x80000,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar3,0x80000);
     *param_7 = (uint)_cfg_3c.uStack_18;

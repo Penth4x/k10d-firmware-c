@@ -159,7 +159,7 @@ code_r0x1050b9be:
         }
         puVar7 = (uint32_t *)(param_1 + 0x68);
         eventflag_clr_flg(puVar7,0x10000);
-        reg_framework_send(*(int *)(param_1 + 0x30) + 8);
+        reg_framework_send(*(int *)(param_1 + 0x30) + 8, (void *)(iVar9 + 8), 0x2);
         eventflag_wai_flg(puVar7,0x10000,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
         eventflag_clr_flg(puVar7,0x10000);
         cVar3 = '\x01';
@@ -234,7 +234,7 @@ code_r0x1050b9be:
           goto code_r0x1050bf32;
         }
         eventflag_clr_flg(puVar7,0x100000);
-        reg_framework_send(*(int *)(param_1 + 0x54) + 8);
+        reg_framework_send(*(int *)(param_1 + 0x54) + 8, &_cfg_6c.iStack_24, 0x2);
         eventflag_wai_flg(puVar7,0x100000,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
         eventflag_clr_flg(puVar7,0x100000);
         virtual_destructor_free_10428222(&_cfg_6c.iStack_24,2);

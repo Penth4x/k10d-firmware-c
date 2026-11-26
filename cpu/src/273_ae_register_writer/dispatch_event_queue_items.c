@@ -256,7 +256,7 @@ LAB_105146f6:
                 piVar12[2] = (int)&param_1->field_0x4;
                 piVar12[3] = piVar12[0x1fe];
                 piVar12[5] = (int)piVar12;
-                reg_framework_send(param_1->field_0x38 + 8);
+                reg_framework_send(param_1->field_0x38 + 8, (void *)(piVar12 + 2), 0x2);
                 break;
               case 0x1e:
                 init_object_and_call_virtual((int)param_1,piVar12);

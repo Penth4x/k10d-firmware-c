@@ -38,7 +38,7 @@ uint32_t dispatch_event_via_virtual_slot_104c39dc(int param_1,void *param_2,uint
   _cfg_1c.pvStack_18 = param_2;
   _cfg_1c.uStack_10 = param_3;
   eventflag_clr_flg(puVar1,0x20);
-  reg_framework_send(*(int *)(param_1 + 0x10) + 8);
+  reg_framework_send(*(int *)(param_1 + 0x10) + 8, &_cfg_1c.iStack_1c, 0x2);
   eventflag_wai_flg(puVar1,0x20,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,0x20);
   virtual_destructor_free_10428222(&_cfg_1c.iStack_1c,2);

@@ -163,7 +163,7 @@ void font_expand_plane(int param_1,void *param_2,int param_3,int param_4,uint32_
   puStack_1c = &uStack_88;
   puStack_14 = &uStack_88;
   eventflag_clr_flg(puVar7,1);
-  reg_framework_send(*(int *)(param_1 + 0xc) + 8);
+  reg_framework_send(*(int *)(param_1 + 0xc) + 8, &iStack_20, 0x2);
   eventflag_wai_flg(puVar7,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar7,1);
   uStack_88 = 0x11;
@@ -197,7 +197,7 @@ void font_expand_plane(int param_1,void *param_2,int param_3,int param_4,uint32_
   puStack_1c = &uStack_88;
   puStack_14 = &uStack_88;
   eventflag_clr_flg(puVar7,1);
-  reg_framework_send(*(int *)(param_1 + 0xc) + 8);
+  reg_framework_send(*(int *)(param_1 + 0xc) + 8, &iStack_20, 0x2);
   eventflag_wai_flg(puVar7,1,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar7,1);
   pvVar5 = (void *)get_system_heap();

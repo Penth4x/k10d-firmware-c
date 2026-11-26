@@ -25,6 +25,6 @@ void allocate_and_init_event_struct_1049aa36(int param_1,uint32_t param_2,void *
   *(uint32_t *)(iVar1 + 4) = 1;
   **(uint32_t **)(iVar1 + 0xc) = (uint32_t)param_3;
   *(uint32_t *)(*(int *)(iVar1 + 0xc) + 4) = param_4;
-  reg_framework_send(param_1 + 8);
+  reg_framework_send(param_1 + 8, (void *)iVar1, 0x2);
   return;
 }

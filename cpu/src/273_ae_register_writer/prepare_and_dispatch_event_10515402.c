@@ -41,7 +41,7 @@ void prepare_and_dispatch_event_10515402(int param_1,int *param_2,int param_3,in
     *(int *)(param_1 + 0x328) = param_1 + 4;
     *(int *)(param_1 + 0x32c) = param_3;
     *(uint32_t *)(param_1 + 0x334) = 0;
-    reg_framework_send(*(int *)(param_1 + 0x44) + 8);
+    reg_framework_send(*(int *)(param_1 + 0x44) + 8, (void *)(param_1 + 0x328), 0x2);
     eventflag_wai_flg(puVar3,0x20,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar3,0x20);
     puVar5 = (uint *)puVar4;

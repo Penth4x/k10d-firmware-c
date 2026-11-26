@@ -23,6 +23,6 @@ void allocate_and_init_struct_1047cca4(cls_105aaa50 *param_1,uint32_t param_2,ui
   *(uint32_t *)((int)pIVar1 + 8) = param_2;
   *(uint32_t *)((int)pIVar1 + 4) = 0;
   **(uint32_t **)((int)pIVar1 + 0xc) = param_3;
-  reg_framework_send((int)&param_1->field_0x8);
+  reg_framework_send((int)&param_1->field_0x8, (void *)pIVar1, 0x2);
   return;
 }

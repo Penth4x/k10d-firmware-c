@@ -26,6 +26,6 @@ void init_object_and_dispatch_virtual(int param_1,void *param_2)
   *(int *)((int)param_2 + 8) = param_1 + 4;
   *(uint32_t *)((int)param_2 + 0xc) = *(uint32_t *)((int)param_2 + 0x818);
   *(void **)((int)param_2 + 0x14) = param_2;
-  reg_framework_send(*(int *)(param_1 + 0x44) + 8);
+  reg_framework_send(*(int *)(param_1 + 0x44) + 8, (void *)((uintptr_t)param_2 + 8), 0x2);
   return;
 }

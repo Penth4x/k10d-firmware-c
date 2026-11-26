@@ -367,7 +367,7 @@ LAB_104f5298:
       puStack_d8 = &uStack_140;
       uStack_d0 = uStack_d2;
       eventflag_clr_flg(puVar15,1);
-      reg_framework_send(*(int *)(param_1 + 0x34) + 8);
+      reg_framework_send(*(int *)(param_1 + 0x34) + 8, &iStack_124, 0x2);
       eventflag_wai_flg(puVar15,1,&_cfg_11.uStack_10,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar15,1);
       uStack_cc = 0;
@@ -616,7 +616,7 @@ LAB_104f5298:
       puStack_10c = &uStack_140;
       uStack_ff = uStack_100;
       eventflag_clr_flg(puVar15,1);
-      reg_framework_send(*(int *)(param_1 + 0x30) + 8);
+      reg_framework_send(*(int *)(param_1 + 0x30) + 8, &iStack_124, 0x2);
       eventflag_wai_flg(puVar15,1,&_cfg_11.uStack_10,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar15,1);
       uStack_15c = 1;
@@ -635,7 +635,7 @@ LAB_104f5298:
       puStack_dc = &uStack_15c;
       puStack_d8 = param_2;
       eventflag_clr_flg(puVar15,1);
-      reg_framework_send(*(int *)(param_1 + 0x34) + 8);
+      reg_framework_send(*(int *)(param_1 + 0x34) + 8, &iStack_124, 0x2);
       eventflag_wai_flg(puVar15,1,&_cfg_11.uStack_10,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar15,1);
       pvVar14 = (void *)get_system_heap();

@@ -385,7 +385,7 @@ LAB_104e9e46:
   call_two_helpers_on_object_10514cfa(*(int *)(param_1 + 0x2c));
   eventflag_wai_flg(puVar6,0x10,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar6,0x10);
-  reg_framework_send(param_1 + 0x10);
+  reg_framework_send(param_1 + 0x10, (void *)(uintptr_t)param_3, 0x2);
   check_kernel_call_success_10459fea();
   return 0;
 }

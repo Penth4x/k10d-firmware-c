@@ -5535,7 +5535,7 @@ uint32_t mbx_receive_message_1045994c(uint32_t *param_1,uint32_t *param_2);
 int send_or_create_mailbox_message(int *param_1,int param_2,uint16_t param_3,uint16_t param_4);
 int cls_105a2b50_new(cls_105a2b50 *param_1);
 void cls_105a2b50_delete(cls_105a2b50 *param_1,uint param_2);
-int reg_framework_send(int param_1);
+int reg_framework_send(int param_1, void *param_2, uint32_t param_3);
 uint32_t call_kernel_with_offset_arg(int param_1);
 uint32_t call_virtual_slot_2_10459ae6(int param_1);
 void app_task_generic_waitloop(cls_105a2b50 *param_1);

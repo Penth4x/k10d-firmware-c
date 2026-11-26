@@ -36,7 +36,7 @@ uint32_t initialize_event_queue(int param_1,void *param_2,uint32_t param_3)
   _cfg_1c.pvStack_18 = param_2;
   _cfg_1c.uStack_10 = param_3;
   eventflag_clr_flg(puVar1,0x4000);
-  reg_framework_send(*(int *)(param_1 + 0x10) + 8);
+  reg_framework_send(*(int *)(param_1 + 0x10) + 8, &_cfg_1c.iStack_1c, 0x2);
   eventflag_wai_flg(puVar1,0x4000,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,0x4000);
   virtual_destructor_free_10428222(&_cfg_1c.iStack_1c,2);

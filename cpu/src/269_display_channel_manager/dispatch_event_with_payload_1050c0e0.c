@@ -62,7 +62,7 @@ bool dispatch_event_with_payload_1050c0e0(int param_1,uint32_t param_2,uint *par
     _cfg_1c.uStack_10 = 0;
     uStack_30 = param_2;
     eventflag_clr_flg(puVar2,0x80000);
-    reg_framework_send(*(int *)(param_1 + 0x40) + 8);
+    reg_framework_send(*(int *)(param_1 + 0x40) + 8, &_cfg_1c.iStack_1c, 0x2);
     eventflag_wai_flg(puVar2,0x80000,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar2,0x80000);
     *param_3 = (uint)uStack_2c;

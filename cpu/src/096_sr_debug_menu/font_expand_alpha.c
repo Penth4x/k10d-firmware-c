@@ -145,7 +145,7 @@ void font_expand_alpha(int param_1,void *param_2,int param_3,int param_4,uint32_
   puStack_84 = &uStack_bc;
   puStack_7c = &uStack_bc;
   eventflag_clr_flg(puVar13,2);
-  reg_framework_send(*(int *)(param_1 + 0xc) + 8);
+  reg_framework_send(*(int *)(param_1 + 0xc) + 8, &iStack_88, 0x2);
   eventflag_wai_flg(puVar13,2,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar13,2);
   pvVar7 = (void *)get_system_heap();
@@ -171,7 +171,7 @@ void font_expand_alpha(int param_1,void *param_2,int param_3,int param_4,uint32_
   puStack_84 = &uStack_bc;
   puStack_7c = &uStack_bc;
   eventflag_clr_flg(puVar13,2);
-  reg_framework_send(*(int *)(param_1 + 0xc) + 8);
+  reg_framework_send(*(int *)(param_1 + 0xc) + 8, &iStack_88, 0x2);
   eventflag_wai_flg(puVar13,2,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar13,2);
   pvVar8 = (void *)get_system_heap();
@@ -244,7 +244,7 @@ void font_expand_alpha(int param_1,void *param_2,int param_3,int param_4,uint32_
   uStack_46 = uVar4;
   puStack_2c = &uStack_dc;
   eventflag_clr_flg(puVar13,1);
-  reg_framework_send(*(int *)(param_1 + 0xc) + 8);
+  reg_framework_send(*(int *)(param_1 + 0xc) + 8, &iStack_88, 0x2);
   eventflag_wai_flg(puVar13,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar13,1);
   uStack_74 = 0x11;
@@ -278,7 +278,7 @@ void font_expand_alpha(int param_1,void *param_2,int param_3,int param_4,uint32_
   uStack_26 = uStack_28;
   uStack_25 = uStack_28;
   eventflag_clr_flg(puVar13,1);
-  reg_framework_send(*(int *)(param_1 + 0xc) + 8);
+  reg_framework_send(*(int *)(param_1 + 0xc) + 8, &iStack_88, 0x2);
   eventflag_wai_flg(puVar13,1,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar13,1);
   pvVar11 = (void *)get_system_heap();

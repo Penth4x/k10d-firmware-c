@@ -410,7 +410,7 @@ LAB_104e8dbe:
       iVar6 = *(int *)(iVar6 + 0xc);
       puVar3 = &param_1->field_0x188;
       eventflag_clr_flg(puVar3,0x40);
-      reg_framework_send(iVar6 + 8);
+      reg_framework_send(iVar6 + 8, (void *)(iVar11 + 8), 0x2);
       eventflag_wai_flg(puVar3,0x40,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(puVar3,0x40);
       cVar1 = *(char *)(*(int *)(iVar11 + 0x7f8) + 0x216c);

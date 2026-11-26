@@ -37,6 +37,6 @@ void update_object_state_and_notify_1051576a(int param_1,void *param_2)
   }
   *(uint32_t *)((int)param_2 + 0xc) = uVar1;
   *(void **)((int)param_2 + 0x14) = param_2;
-  reg_framework_send(*(int *)(param_1 + 0x48) + 8);
+  reg_framework_send(*(int *)(param_1 + 0x48) + 8, (void *)((uintptr_t)param_2 + 8), 0x2);
   return;
 }

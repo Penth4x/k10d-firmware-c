@@ -40,7 +40,7 @@ uint build_feature_flag_mask(int param_1,int param_2)
   _cfg_1c.uStack_10 = 0;
   _cfg_1c.iStack_18 = param_2;
   eventflag_clr_flg(puVar3,0x40);
-  reg_framework_send(*(int *)(param_1 + 0x44) + 8);
+  reg_framework_send(*(int *)(param_1 + 0x44) + 8, &_cfg_1c.iStack_1c, 0x2);
   uVar4 = 0;
   eventflag_wai_flg(puVar3,0x40,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar3,0x40);

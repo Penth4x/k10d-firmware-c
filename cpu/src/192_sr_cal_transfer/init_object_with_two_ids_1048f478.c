@@ -53,7 +53,7 @@ void init_object_with_two_ids_1048f478(int param_1,uint32_t param_2,uint16_t par
   uStack_18 = param_4;
   uStack_e = param_3;
   eventflag_clr_flg(puVar1,0x10000);
-  reg_framework_send(*(int *)(param_1 + 0x30) + 8);
+  reg_framework_send(*(int *)(param_1 + 0x30) + 8, &iStack_30, 0x2);
   eventflag_wai_flg(puVar1,0x10000,&uStack_c,_DAT_105a2af0/*ROM*/);
   eventflag_clr_flg(puVar1,0x10000);
   virtual_destructor_free_10428222(&iStack_30,2);

@@ -23,6 +23,6 @@ void init_object_with_virtual_call_10515eea(int param_1,void *param_2)
   *(int *)((int)param_2 + 8) = param_1 + 4;
   *(uint32_t *)((int)param_2 + 0xc) = *(uint32_t *)((int)param_2 + 0x83c);
   *(void **)((int)param_2 + 0x14) = param_2;
-  reg_framework_send(*(int *)(param_1 + 100) + 4);
+  reg_framework_send(*(int *)(param_1 + 100) + 4, (void *)((uintptr_t)param_2 + 8), 0x2);
   return;
 }

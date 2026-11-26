@@ -76,7 +76,7 @@ bool init_buffer_and_dispatch_event_1050bfae(int param_1,uint16_t *param_2)
     puVar2 = (uint32_t *)(param_1 + 0x68);
     _cfg_1c.uStack_10 = 0;
     eventflag_clr_flg(puVar2,0x40000);
-    reg_framework_send(*(int *)(param_1 + 0x50) + 8);
+    reg_framework_send(*(int *)(param_1 + 0x50) + 8, &_cfg_1c.iStack_1c, 0x2);
     eventflag_wai_flg(puVar2,0x40000,(uint32_t *)0x0,_DAT_105a2af0/*ROM*/);
     eventflag_clr_flg(puVar2,0x40000);
     *(uint32_t *)(param_2 + 6) = uStack_3c;

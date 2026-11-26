@@ -25,6 +25,6 @@ void allocate_and_enqueue_event(int param_1,uint32_t param_2,void *param_3)
   *(uint32_t *)(iVar1 + 8) = param_2;
   *(uint32_t *)(iVar1 + 4) = 1;
   **(uint32_t **)(iVar1 + 0xc) = (uint32_t)param_3;
-  reg_framework_send(param_1 + 8);
+  reg_framework_send(param_1 + 8, (void *)iVar1, 0x2);
   return;
 }
