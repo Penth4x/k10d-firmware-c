@@ -1,5 +1,31 @@
 # Next steps — open investigation (handoff)
 
+## ★★★★★ TRUE ROOT RE-FRAME (d329, trace_diff first-divergence on clean traces) — READ FIRST:
+## The menu failure is NOT primarily a companion bug — the companion failure is DOWNSTREAM. The real root:
+## app_main_task1 (the main app INIT task, orig 0x10439674) does not COMPLETE its initialization in the
+## candidate. It runs appmain_init_method1 (vtbl slot 2) which contains the LENS-FIRMWARE-UPDATE loop
+## (get_lens_fw_update_status -> alloc_and_init_lens_fw_buffer + alloc_and_zero_small_struct_1041a71a,
+## unit 294 runtime_lib_fatfs_lens_update). STOCK runs this loop ic 496849->2101611 (82 iters, ~1.6M instrs)
+## then reaches appmain_init_method2 at ic 2137209. CANDIDATE is still in the loop at ic 4.19M+ (slower/
+## preempted, ~57 iters by the 7.27M crash) and NEVER reaches appmain_init_method2 (0 hits) -> reset_sixteen_
+## module_objects NEVER runs -> the 16 module singletons (sensor, camera, companion, sr_driver, etc.) are
+## NEVER INITIALIZED. ui_task6 then polls the companion against uninitialized modules -> Cmd:80 -> B-6 crash
+## -> reset loop. So EVERYTHING I chased (companion-ready alarm at 5.58M, +0x28, +0x10c, Cmd:80, the B-6)
+## is DOWNSTREAM of app_main_task1 not finishing init. Early boot is identical UP TO app_main_task1.
+## IT IS A RACE: stock finishes app_main_task1 init FAST (by ~2.5M) and ui_task6's companion poll is LATE
+## (35.7M) so init wins; candidate's app_main_task1 is SLOW/preempted and ui_task6's companion poll is early
+## (5.6M) so the poll loses. Likely causes to check (in order):
+##   (1) Is app_main_task1 PREEMPTED (other tasks run between its lens_fw iters) = a TASK PRIORITY bug?
+##       Check cre_tsk priorities for app_main_task1 vs ui_task6 (a descriptor/priority miscompile). The
+##       task table at 0x10011c4c holds the ORIGINAL app_main_task1 entry (0x10439674) un-redirected to
+##       packed (0x10632200) — fix/examine the whole task table for wrong entries/priorities/stack.
+##   (2) Is each lens_fw iteration SLOWER (extra work)? candidate loop body = alloc_and_init_lens_fw_buffer
+##       + alloc_and_zero_small_struct_1041a71a; stock = just alloc_and_init_lens_fw_buffer. Diff the
+##       recompiled alloc_and_init_lens_fw_buffer (0x10546eea) for extra allocs / a wrong loop count.
+##   (3) Does get_lens_fw_update_status return a different count (more entries) in the candidate?
+## TOOLS: trace_diff.py (clean traces, no FLASH_SAVE) found this; FRN_DSP_LOG for the downstream companion
+## oracle. This supersedes all the companion-timing analysis below (which is correct but downstream).
+
 ## ★★★★ BREAKTHROUGH (d329, FRN_DSP_LOG companion dialog) — the concrete, actionable menu root:
 ## The qemu companion model (target/frn/k10d_cpucom.c) LOGS the command dialog. Diffed candidate vs stock:
 ##   STOCK:     Cmd:04 (POST handshake, 5 bytes: 01 1f 00 13 04) -> status 'X' -> Cmd:05 (61 bytes) ->
