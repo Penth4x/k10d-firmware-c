@@ -1,5 +1,32 @@
 # d328 — B-15 merged-case class + menu deadlock analysis (handoff)
 
+## d329 — DEADLOCK PRECISELY LOCATED (FT trace + signal_diff on current build)
+First real divergence (fresh traces): candidate never emits set_flg(flag 0x37, 0x4); it stops at
+exactly 7 signals vs stock 200. Candidate makes 1 mbx send (mbx 2, byte-correct, delivered) + 1
+sig_sem; stock 43 sends + 51 sig_sem. The IPC PRIMITIVES ARE FAITHFUL (mbx_send_message, sig_sem_obj,
+eventflag_wai_flg all verified; the one candidate send is well-formed and received) — the break is NOT
+the mbx/sem layer, so harvesting them to asm is the wrong move (also hits the trap-rewrite regression).
+
+THE BLOCK (FT hit-counts, packed addrs via firmware.map): the mode-event pump
+loop_receive_and_dispatch_message (0x10431272) calls process_mode_transition_sequence (0x104320bc)
+BEFORE its receive loop. That function runs: mode_ctrl_lock -> copy_sr_debug_flags -> clear_0x3c ->
+get_byte -> set_flag_and_call_helper_104351f0 -> check_bit2_of_field_at_offset_0x7c (0x10431dee) and
+NEVER RETURNS (init_object_and_check_field and everything after = 0 hits). check_bit2 does:
+  eventflag_wai_flg(param_1+0x7c, pattern=6 (bits1|2), &res, _DAT_105a2af0=0xffffffff=TMO_FEVR)
+i.e. it BLOCKS FOREVER on flag 0x37 (field +0x7c). The ONLY producer that sets a matching bit is
+mode_ctrl_on_event (0x10430532) doing set_flg_obj(param_1+0x7c, 0x4) on event 0x10002/0x10003.
+In stock that fires (rp=0x104305ce); in candidate event 0x10002 is NEVER posted, so the pump hangs.
+process_event_and_release=0, dispatch_mode_change_event=0, mode_nav_request=0 in candidate.
+
+ROOT QUESTION (next): who POSTS event 0x10002 in stock (it is posted with NO key input, so it is an
+automatic startup transition, not the MENU-key mode_nav_request path). The 0x10002 posters
+(dispatch_mode_change_event_1047cdb8 when *(evt+4)==1; mode_nav_request) are invoked INDIRECTLY via
+fnptr/vtable through the event registry (no direct callers in source). mode_ctrl_on_event is registered
+in the settings-manager listener table (rodata_fnptrs.asm). NEXT: trace the event-registry post path
+that drives 0x10002 in stock; find the task/step that runs in stock but not candidate (likely a B-3/
+B-15/vtable-dispatch bug that drops the post, OR a task blocked upstream). This is THE menu blocker.
+
+
 ## B-15 (NEW, nasty): decompiler MERGES switch arms with different constants, keeps ONE
 Found by scripts/detect_merged_cases.py (22 -> 17 suspects after fixes). Each is an event
 dispatcher that raises a DIFFERENT event-flag bit per event code; the decompiler folded cases
