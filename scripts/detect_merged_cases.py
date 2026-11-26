@@ -104,8 +104,11 @@ for dp,_,fns in os.walk(SRC):
         ccs = [c for c in re.findall(r'set_flg_obj\s*\([^;]*?,\s*(0x[0-9a-f]+|\d+)\s*\)', t)]
         cset = set(int(x,0) for x in ccs)
         has_ternary = '?' in t
+        # A COMPUTED-pattern dispatch passes a VARIABLE (iVar3/uVar/pat) to set_flg_obj and is
+        # CORRECT, not merged — only flag when the C passes a LITERAL constant (the real bug tell).
+        has_literal = bool(re.search(r'set_flg_obj\s*\([^;]*?,\s*(0x[0-9a-f]+|\d+)\s*\)', t))
         for pc, consts in flags:
-            if len(consts) >= 2 and not has_ternary:
+            if len(consts) >= 2 and not has_ternary and has_literal:
                 missing = set(consts) - cset
                 if missing:
                     suspect.append((m.group(1), pc, consts, sorted(cset)))
