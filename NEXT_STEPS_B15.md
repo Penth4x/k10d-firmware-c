@@ -134,3 +134,21 @@ dispatch never fires event 0x10002 -> flag 0x37 never set -> deadlock.
   on the cpucom ctx +0x28) between iter 1's start and the read. Compare to stock. The bug is in the
   cpucom transfer-object/attention-ISR setup (unit 142/126/143), or the ISR vector still-original
   (TODO) misfiring. This is the ONE thing that unblocks the whole menu.
+
+## ★★★★ DEEPEST deadlock locus (d328, the pin) ★★★★
+Candidate's cpucom poll exits after 1 iter because ctx+0x28 (status byte) reads 1. set_flag_at_offset_0x28_10466fde
+(sets +0x28=1) is reached ONCE in BOTH stock and candidate — BUT via DIFFERENT callers/timing:
+  - STOCK: set_flag_at_offset_0x28 reached 1x, call_two_initializers_10466f6e reached 0x. So stock sets
+    +0x28 via a different path, NOT during the poll (so the poll's initialize_object_with_optional_param
+    clear holds, +0x28 stays 0 for 501 iters).
+  - CANDIDATE: set_flag_at_offset_0x28 reached 1x VIA call_two_initializers_10466f6e, which runs DURING
+    the poll's yield -> +0x28=1 after the clear -> poll reads 1 -> exits after 1 iter.
+call_two_initializers is dispatched via call_virtual_slot_2_on_nested_object -> vtable[2].fn. The candidate
+reaches that vtable[2] call when stock does NOT. The vtable slot likely points to the same function in both
+(CONFIRMED_TABLE), so the DIVERGENCE is the UPSTREAM CONTROL FLOW reaching call_virtual_slot_2_on_nested_object.
+  => NEXT: find who calls call_virtual_slot_2_on_nested_object and why the candidate's path reaches it during
+     the poll but stock's doesn't. Likely another B-3/B-10b/vtable bug that mis-routes the cpucom object's
+     event handling so it runs the "status ready" initializer prematurely.
+ALSO FOUND (real B-3, fix separately): invoke_virtual_slot_3_on_member_10466ffa (0x10466ffa) is typed
+(void*) but the original forwards r5=0x40002 (an event code) + r6=0 to vtbl[3].fn; the C drops both. Callers:
+call_two_initializers_10466f6e (0x40002), dispatch_event_if_type_14, dispatch_command_0xb0007 (unit 142).
