@@ -25,8 +25,9 @@ void iterate_virtual_callback_table(uint32_t param_1,uint32_t param_2)
   if (0 < DAT_10011d18/*ROM*/) {
     iVar1 = 0;
     do {
-      (((vtbl_entry*)((char*)PTR_DAT_10011cb8 + iVar1))[1].fn)
-                (2,param_1,param_2,*(uint32_t *)((char*)PTR_DAT_10011cb8 + 4));
+      /* each record is 0xc bytes; its fn pointer is at offset +8 (entry[0].fn @ 0x10011c14) */
+      (*(code *)*(uint32_t *)((char *)PTR_DAT_10011cb8 + iVar1 + 8))
+                (2,param_1,param_2,*(uint32_t *)((char *)PTR_DAT_10011cb8 + 4));
       iVar2 = iVar2 + 1;
       iVar1 = iVar1 + 0xc;
     } while (iVar2 < DAT_10011d18/*ROM*/);
