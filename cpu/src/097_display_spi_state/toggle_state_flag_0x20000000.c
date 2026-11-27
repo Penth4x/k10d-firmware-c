@@ -34,7 +34,7 @@ uint32_t toggle_state_flag_0x20000000(int param_1)
   else if (*(char *)(param_1 + 0x150c) != '\0') {
     *(uint *)(param_1 + 0x1508) = *(uint *)(param_1 + 0x1508) & 0xdfffffff;
     *(uint8_t *)(param_1 + 0x150c) = 0;
-    classify_mode_from_flags(__frv_reg_unset(4));
+    classify_mode_from_flags((uint32_t)param_1);
     dispatch_mode_event_request((cls_105c2050 *)(param_1 + 0x60),0x130003);
   }
   return uVar1;

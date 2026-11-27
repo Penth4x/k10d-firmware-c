@@ -25,7 +25,7 @@ uint32_t copy_bytes_from_object_offset(cls_105d677c *param_1,int param_2,int par
   
   uStack_c = 0;
   iVar4 = param_1->field_0x1c + param_4 + param_1->field_0x24;
-  iVar2 = allocate_buffer_segment((int)(param_1),(uint)(iVar4), (uint)(__frv_reg_unset(6)));
+  iVar2 = allocate_buffer_segment((int)(param_1),(uint)(iVar4), (uint)((uint32_t)param_3));
   if (iVar2 != 0) {
     iVar4 = param_1->field_0x4 + (iVar4 - param_1->field_0xc);
     iVar2 = 0;

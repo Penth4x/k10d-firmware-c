@@ -28,7 +28,7 @@ int fill_array_with_source_value(int param_1)
     iVar1 = 0;
     do {
       *(uint32_t *)(param_1 + iVar1 + 4) = *(uint32_t *)(param_1 + 0x78);
-      iVar3 = allocate_or_reallocate_heap_block((int *)__frv_reg_unset(4));
+      iVar3 = allocate_or_reallocate_heap_block((int *)(uint32_t)param_1);
       if (iVar3 == 0) {
         call_helper_on_five_slots(param_1);
         return 0;

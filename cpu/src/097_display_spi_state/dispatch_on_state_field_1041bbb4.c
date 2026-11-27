@@ -17,7 +17,7 @@ void dispatch_on_state_field_1041bbb4(cls_1059d1d8 *param_1)
               ((int)&param_1->field_0x0 + (int)*(short *)(param_1->field_0x0 + 200));
   }
   else if (iVar1 == 1) {
-    set_flag_at_offset_0xc4_1041da92(__frv_reg_unset(4));
+    set_flag_at_offset_0xc4_1041da92((uint32_t)param_1);
   }
   else if (iVar1 == 2) {
     param_1->field_0xc0 = 1;

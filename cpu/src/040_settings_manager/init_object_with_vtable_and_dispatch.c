@@ -34,7 +34,7 @@ cls_10562eec * init_object_with_vtable_and_dispatch(cls_10562eec *param_1)
   } while (iVar2 != 0);
   param_1->field_0x8 = (uintptr_t)(&param_1->field_0xc);
   get_or_create_sram_object_1040a240();
-  iVar1 = process_object_state_transition_1040a96a((void *)__frv_reg_unset(4));
+  iVar1 = process_object_state_transition_1040a96a((void *)(uint32_t)param_1);
   if (iVar1 == 0) {
     (((vtbl_entry*)(param_1->field_0x0))[6].fn)
               ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[6].adj);
@@ -45,7 +45,7 @@ cls_10562eec * init_object_with_vtable_and_dispatch(cls_10562eec *param_1)
     init_object_with_two_ids_10396886(param_1);
     request_ui_sync_code_4((char*)(param_1) ->field_0x8);
     get_or_create_sram_object_1040a240();
-    init_object_flag_and_subobj(__frv_reg_unset(4));
+    init_object_flag_and_subobj((uint32_t)param_1);
   }
   return param_1;
 }

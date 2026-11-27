@@ -122,7 +122,7 @@ void compute_exposure_compensation(void *param_1)
         }
         else {
           read_first_word_1045bd4c(auStack_54 + 3);
-          uVar18 = abs_uint32(__frv_reg_unset(4));
+          uVar18 = abs_uint32((uint32_t)param_1);
           uVar9 = return_first_word_1045c514(auStack_44 + 1);
           uVar17 = compute_lens_fw_crc32(uVar9);
           lVar16 = multiply_two_floats((uint)((ulonglong)uVar17 >> 0x20),(uint)uVar17,0x3fe00000,0);
@@ -146,7 +146,7 @@ void compute_exposure_compensation(void *param_1)
         }
         else {
           get_second_word_of_struct(auStack_54 + 3);
-          uVar18 = abs_uint32(__frv_reg_unset(4));
+          uVar18 = abs_uint32((uint32_t)param_1);
           uVar9 = read_struct_field_at_offset_4(auStack_44 + 1);
           uVar17 = compute_lens_fw_crc32(uVar9);
           lVar16 = multiply_two_floats((uint)((ulonglong)uVar17 >> 0x20),(uint)uVar17,0x3fe00000,0);

@@ -20,7 +20,7 @@ bool invoke_object_method_and_update(int param_1,uint32_t param_2)
 {
   int *piVar1;
   
-  piVar1 = (int *)read_bounded_array_element_10477358(__frv_reg_unset(4), __frv_reg_unset(5));
+  piVar1 = (int *)read_bounded_array_element_10477358((uint32_t)param_1, (uint32_t)param_2);
   if (piVar1 != (int *)0x0) {
     (((vtbl_entry*)(*piVar1))[1].fn)((int)*(short *)(*piVar1 + 8) + (int)piVar1,3);
     decrement_index_and_update_bounds((int *)(param_1 + 0xc),(uint)(param_2));

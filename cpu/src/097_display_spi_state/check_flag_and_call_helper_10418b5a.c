@@ -13,7 +13,7 @@ uint32_t check_flag_and_call_helper_10418b5a(int param_1)
   uint32_t uVar2;
   
   uVar2 = 1;
-  if ((*(char *)(param_1 + 0x14f4) != '\0') && (iVar1 = check_flag_and_log_if_clear(__frv_reg_unset(4)), iVar1 == 0)) {
+  if ((*(char *)(param_1 + 0x14f4) != '\0') && (iVar1 = check_flag_and_log_if_clear((uint32_t)param_1), iVar1 == 0)) {
     uVar2 = 0;
   }
   return uVar2;

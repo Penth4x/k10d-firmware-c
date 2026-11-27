@@ -20,7 +20,7 @@ void store_value_and_call_on_match(cls_10595788 *param_1,int param_2)
 {
   param_1->field_0x18 = param_2;
   if (param_2 == 0x1030020) {
-    dispatch_two_virtual_commands_103c801e((int *)__frv_reg_unset(4));
+    dispatch_two_virtual_commands_103c801e((int *)(uint32_t)param_1);
   }
   return;
 }

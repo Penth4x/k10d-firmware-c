@@ -15,7 +15,7 @@ uint32_t dispatch_param_by_type_id(int param_1,int param_2)
   
   *(int *)(param_1 + 0x18) = param_2;
   *(uint32_t *)(param_1 + 0x1c) = 0;
-  dispatch_mode_handler_and_notify(__frv_reg_unset(4));
+  dispatch_mode_handler_and_notify((uint32_t)param_1);
   bVar3 = *(int *)(param_2 + 0xc) == 1;
   iVar1 = *(int *)(param_2 + 4);
   if (iVar1 == 1) {

@@ -37,7 +37,7 @@ void format_and_register_menu_item_103b1ed8(void *param_1,uint32_t param_2,void 
   if (*(char *)((int)param_1 + 0x50) == '\0') {
     uVar3 = get_or_init_heap_block();
     pvVar4 = (void *)query_object_byte_property_104f20a2(*(uint32_t *)((int)param_1 + 0x28));
-    pvVar5 = (void *)lookup_two_byte_table_entry_1045a89c(uVar3,uVar2, __frv_reg_unset(6));
+    pvVar5 = (void *)lookup_two_byte_table_entry_1045a89c(uVar3,uVar2, (uint32_t)param_3);
     cVar1 = *(char *)((int)param_1 + 0x48);
     if ((((cVar1 != '\n') && (cVar1 != '\x18')) && (cVar1 != '\x1c')) && (cVar1 != '\x1e')) {
       format_signed_two_digit_value(param_1,pvVar5,abStack_d);
@@ -48,7 +48,7 @@ void format_and_register_menu_item_103b1ed8(void *param_1,uint32_t param_2,void 
   else {
     uVar3 = get_or_init_heap_block();
     pvVar4 = (void *)query_object_via_temp_buffer_104f2056(*(uint32_t *)((int)param_1 + 0x28));
-    pvVar5 = (void *)lookup_two_byte_table_entry_1045a89c(uVar3,uVar2, __frv_reg_unset(6));
+    pvVar5 = (void *)lookup_two_byte_table_entry_1045a89c(uVar3,uVar2, (uint32_t)param_3);
     cVar1 = *(char *)((int)param_1 + 0x48);
     if (((cVar1 != '\n') && (cVar1 != '\x18')) && ((cVar1 != '\x1c' && (cVar1 != '\x1e')))) {
       format_signed_two_digit_value(param_1,pvVar5,abStack_d);

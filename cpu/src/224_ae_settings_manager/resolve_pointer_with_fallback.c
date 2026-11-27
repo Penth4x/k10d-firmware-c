@@ -23,12 +23,12 @@ int resolve_pointer_with_fallback(int param_1,uint param_2,int param_3)
   int iVar2;
   
   iVar2 = param_1 + 0x1408;
-  iVar1 = lookup_and_call_table_entry(__frv_reg_unset(4), __frv_reg_unset(5), __frv_reg_unset(6));
+  iVar1 = lookup_and_call_table_entry((uint32_t)param_1, (uint32_t)param_2, (uint32_t)param_3);
   if (iVar1 != 0) {
     iVar2 = find_first_active_entry(param_1 + 0x2c4c + (param_2 & 0xffff) * 0xb34,param_3);
   }
   if (iVar2 == param_1 + 0x1408) {
-    initialize_large_struct((uint32_t *)__frv_reg_unset(4));
+    initialize_large_struct((uint32_t *)(uint32_t)param_1);
   }
   return iVar2;
 }

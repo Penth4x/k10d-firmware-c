@@ -20,7 +20,7 @@ uint dispatch_by_mode_field_104bb922(void *param_1)
     uVar1 = (uint)bVar3;
   }
   else if (iVar2 == 1) {
-    uVar1 = check_index_less_than_count((uint32_t *)__frv_reg_unset(4));
+    uVar1 = check_index_less_than_count((uint32_t *)(uint32_t)param_1);
   }
   else if (iVar2 == 2) {
     bVar3 = compare_offset_to_helper_result(param_1);

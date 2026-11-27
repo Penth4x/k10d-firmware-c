@@ -23,7 +23,7 @@ uint32_t dispatch_mode_transition_1043068c(void *param_1,int *param_2)
   uint8_t uStack_10;
   uint32_t uStack_c;
   
-  ec_event_enqueue((int)(param_1)/* B-3: stock r4 = param_1 */, __frv_reg_unset(5));
+  ec_event_enqueue((int)(param_1)/* B-3: stock r4 = param_1 */, (uint32_t)param_2);
   query_object_state_and_set_flag(*(uint32_t *)((int)param_1 + 0x30),param_2);
   iVar1 = mode_ctrl_lock((int)param_1,0);
   if (iVar1 == 0) {
@@ -32,7 +32,7 @@ uint32_t dispatch_mode_transition_1043068c(void *param_1,int *param_2)
   iVar1 = check_object_state_and_invoke_slot(*(uint32_t *)((int)param_1 + 0x30),param_2);
   if (iVar1 != 0) {
     app_mode_activate(*(uint32_t *)((int)param_1 + 0x38),2);
-    invoke_virtual_if_flag_clear(__frv_reg_unset(4));
+    invoke_virtual_if_flag_clear((uint32_t)param_1);
   }
   iVar2 = check_two_conditions_on_object(param_1);
   if (iVar2 != 0) goto LAB_10430930;

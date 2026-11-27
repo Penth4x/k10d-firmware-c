@@ -279,7 +279,7 @@ void create_grid_of_child_objects(cls_105590b8 *param_1,uint32_t param_2,void *p
   pvVar13 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30d0099,(void *)0x1e8,(void *)0x198);
   puVar19 = &DAT_00000200;
   pvVar15 = (void *)0x198;
-  pvVar14 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30d009a,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar14 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30d009a,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar2,pvVar3,puVar19,pvVar15);
   iVar16 = 0;
   puVar19 = puVar18;

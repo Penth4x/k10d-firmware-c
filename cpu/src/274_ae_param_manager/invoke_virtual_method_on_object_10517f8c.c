@@ -11,7 +11,7 @@ bool invoke_virtual_method_on_object_10517f8c(int param_1)
 {
   int iVar1;
   
-  call_subroutine_with_object_fields(__frv_reg_unset(4));
+  call_subroutine_with_object_fields((uint32_t)param_1);
   iVar1 = *(int *)(*(int *)(param_1 + 0x20) + 8);
   iVar1 = (((vtbl_entry*)(iVar1))[5].fn)
                     (*(int *)(param_1 + 0x20) + (int)((vtbl_entry*)(iVar1))[5].adj,param_1 + 0x24,

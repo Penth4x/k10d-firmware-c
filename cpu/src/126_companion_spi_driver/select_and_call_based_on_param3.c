@@ -25,11 +25,11 @@ uint32_t select_and_call_based_on_param3(int param_1,uint32_t param_2,uint param
   *(bool *)(param_1 + 0x160) = bVar2;
   if (bVar2) {
     *(uint32_t *)(param_1 + 0x11c) = *(uint32_t *)(param_1 + 0x118);
-    uVar1 = sdhc_command_transfer((void *)__frv_reg_unset(4),__frv_reg_unset(5),__frv_reg_unset(6));
+    uVar1 = sdhc_command_transfer((void *)(uint32_t)param_1,(uint32_t)param_2,(uint32_t)param_3);
   }
   else {
     *(uint32_t *)(param_1 + 0x11c) = *(uint32_t *)(param_1 + 0x114);
-    uVar1 = sdhc_command_transfer_with_retry((void *)__frv_reg_unset(4),__frv_reg_unset(5),__frv_reg_unset(6));
+    uVar1 = sdhc_command_transfer_with_retry((void *)(uint32_t)param_1,(uint32_t)param_2,(uint32_t)param_3);
   }
   return uVar1;
 }

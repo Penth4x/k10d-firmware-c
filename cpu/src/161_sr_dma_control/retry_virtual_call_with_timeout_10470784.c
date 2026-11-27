@@ -26,7 +26,7 @@ uint32_t retry_virtual_call_with_timeout_10470784(int param_1)
   cls_105a6eac cStack_10;
   
   bVar4 = false;
-  reset_subobject_at_offset_0x2c_104706a0(__frv_reg_unset(4));
+  reset_subobject_at_offset_0x2c_104706a0((uint32_t)param_1);
   iVar3 = 0;
   do {
     cls_105a6eac_new(&cStack_10);

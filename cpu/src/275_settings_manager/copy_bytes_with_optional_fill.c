@@ -22,7 +22,7 @@ int copy_bytes_with_optional_fill(uint8_t *param_1,uint16_t *param_2,int param_3
     do {
       uVar1 = (uint8_t)*param_2;
       if (param_4 == 0) {
-        uVar1 = swap_byte_order(__frv_reg_unset(4));
+        uVar1 = swap_byte_order((uint32_t)param_1);
       }
       *param_1 = uVar1;
       param_2 = param_2 + 1;

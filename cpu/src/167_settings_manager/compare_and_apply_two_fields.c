@@ -33,7 +33,7 @@ uint32_t compare_and_apply_two_fields(uint32_t param_1,char *param_2,uint16_t *p
   uStack_18 = 0;
   if (param_3 != (uint16_t *)0x0) {
     get_or_init_sram_object_10483206();
-    iVar1 = check_setting_0xa3_not_two(__frv_reg_unset(4));
+    iVar1 = check_setting_0xa3_not_two((uint32_t)param_1);
     iVar7 = 1;
     if (iVar1 == 0) {
       iVar7 = 3;

@@ -19,7 +19,7 @@ uint32_t get_value_and_store_in_out_param(uint32_t param_1,uint32_t *param_2)
 {
   uint32_t uVar1;
   
-  uVar1 = read_field_at_offset_four_10436370(__frv_reg_unset(4));
+  uVar1 = read_field_at_offset_four_10436370((uint32_t)param_1);
   *param_2 = uVar1;
   return 1;
 }

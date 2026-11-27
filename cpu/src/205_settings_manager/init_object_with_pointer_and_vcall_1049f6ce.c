@@ -17,7 +17,7 @@ uint32_t init_object_with_pointer_and_vcall_1049f6ce(cls_105b5bd0 *param_1,int *
   puVar3 = (uint32_t *)*param_2;
   param_1->field_0xc = (uint32_t)(puVar3);
   param_1->field_0x10 = puVar3[4];
-  iVar1 = invoke_virtual_method_on_subobject_1049f766(__frv_reg_unset(4));
+  iVar1 = invoke_virtual_method_on_subobject_1049f766((uint32_t)param_1);
   if (iVar1 == 0) {
     uVar2 = 0;
   }

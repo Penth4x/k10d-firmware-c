@@ -21,7 +21,7 @@ void set_two_flags_and_call_helper(char *param_1)
   if ((*param_1 != '\0') && (*(int *)(param_1 + 4) != 0)) {
     param_1[8] = '\x01';
     param_1[9] = '\x01';
-    invoke_two_callbacks_on_struct((char *)__frv_reg_unset(4));
+    invoke_two_callbacks_on_struct((char *)(uint32_t)param_1);
   }
   return;
 }

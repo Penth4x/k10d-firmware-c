@@ -19,7 +19,7 @@
 void init_object_with_four_calls_10397562(void *param_1)
 
 {
-  init_object_with_two_ids_103975e4(__frv_reg_unset(4));
+  init_object_with_two_ids_103975e4((uint32_t)param_1);
   call_two_helpers_with_struct_fields_1039c416((int)param_1 + 8);
   (*(code *)0x1039c3f6/*ROM*/)((int)param_1 + 8,0);
   forward_params_via_helper_10394686(param_1,*(int **)((int)param_1 + 4),1);

@@ -22,7 +22,7 @@ void decrement_timer_and_rearm(int *param_1,uint32_t param_2)
   int iVar1;
   short sVar2;
   
-  iVar1 = subtract_100_from_param(__frv_reg_unset(4), __frv_reg_unset(5));
+  iVar1 = subtract_100_from_param((uint32_t)param_1, (uint32_t)param_2);
   if ((-1 < iVar1) && (iVar1 < 900)) {
     *(uint32_t *)(*param_1 + iVar1 * 4) = 0;
     param_1[6] = param_1[6] + -1;

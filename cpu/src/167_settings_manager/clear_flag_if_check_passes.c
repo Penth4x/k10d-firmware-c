@@ -18,7 +18,7 @@ void clear_flag_if_check_passes(int param_1)
 {
   int iVar1;
   
-  iVar1 = check_and_execute_object_action((void *)__frv_reg_unset(4));
+  iVar1 = check_and_execute_object_action((void *)(uint32_t)param_1);
   if (iVar1 != 0) {
     *(uint32_t *)(param_1 + 0x34) = 0;
     *(uint8_t *)(param_1 + 0x80) = 1;

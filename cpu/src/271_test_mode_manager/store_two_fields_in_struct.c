@@ -19,7 +19,7 @@ void store_two_fields_in_struct(int param_1,uint32_t param_2)
   uint32_t uVar1;
   
   *(uint32_t *)(param_1 + 0x44) = param_2;
-  uVar1 = align_down_to_32_bytes(__frv_reg_unset(4), __frv_reg_unset(5));
+  uVar1 = align_down_to_32_bytes((uint32_t)param_1, (uint32_t)param_2);
   *(uint32_t *)(param_1 + 0xec) = uVar1;
   return;
 }

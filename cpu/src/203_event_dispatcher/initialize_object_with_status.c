@@ -24,7 +24,7 @@ uint32_t initialize_object_with_status(int param_1,int param_2)
   uint32_t uVar3;
   
   uVar3 = 0;
-  iVar1 = check_three_byte_pair_conditions(__frv_reg_unset(4));
+  iVar1 = check_three_byte_pair_conditions((uint32_t)param_1);
   if ((iVar1 != 0) && (iVar1 = process_event_queue_item_104994a2(param_1), iVar1 != 0)) {
     *(uint32_t *)(param_2 + 0x14) = 0xc;
     uVar2 = read_byte_at_offset_0x20_1051b650((cls_105d677c *)(param_1 + 0x24));

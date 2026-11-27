@@ -474,7 +474,7 @@ LAB_1042ccc6:
       call_helper_with_self_and_one((int *)(*(uint32_t *)(param_1 + 0x20)));
     }
     else {
-      initialize_object_with_defaults((int *)__frv_reg_unset(4));
+      initialize_object_with_defaults((int *)(uint32_t)param_1);
     }
     goto LAB_1042c5c2;
   case 0x27:

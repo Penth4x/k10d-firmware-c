@@ -71,10 +71,10 @@ void create_and_link_twenty_two_objects(cls_10559e7c *param_1,uint32_t param_2,v
   pvVar21 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3130014,(void *)0x20,(void *)0x198);
   pvVar22 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3130015,(void *)0x38,(void *)0x198);
   puVar25 = &DAT_00000078;
-  pvVar23 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3130016,(void *)0x20,(void *)__frv_reg_unset(7));
+  pvVar23 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3130016,(void *)0x20,(void *)(uint32_t)param_4);
   call_helper_and_set_flag_104b7726(pvVar23,0x240,1);
   pvVar24 = (void *)0x1;
-  call_helper_and_set_flag_104b7744(pvVar23,0x90, __frv_reg_unset(6));
+  call_helper_and_set_flag_104b7744(pvVar23,0x90, (uint32_t)param_3);
   iterate_and_remove_list_entry(pvVar1,pvVar2,pvVar24,puVar25);
   iterate_and_remove_list_entry(pvVar1,pvVar3,pvVar24,puVar25);
   iterate_and_remove_list_entry(pvVar1,pvVar4,pvVar24,puVar25);

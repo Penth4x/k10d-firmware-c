@@ -42,7 +42,7 @@ void init_child_objects_and_register(cls_1059dc64 *param_1,uint32_t param_2,void
   call_helper_and_set_flag_104b7744(pvVar4,0x90,1);
   pvVar6 = (void *)0x0;
   pvVar7 = (void *)0x0;
-  pvVar5 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1bd0005,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar5 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1bd0005,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar5,pvVar1,pvVar6,pvVar7);
   iterate_and_remove_list_entry(pvVar5,pvVar2,pvVar6,pvVar7);
   iterate_and_remove_list_entry(pvVar5,pvVar3,pvVar6,pvVar7);

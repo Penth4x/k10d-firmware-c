@@ -58,7 +58,7 @@ void dispatch_event_by_type_105076d8(cls_105d51fc *param_1,int *param_2)
     else {
       if (param_2[2] == 0x800002) {
         if (param_2[1] != 0) {
-          invoke_object_method_chain((int)(param_1),(uint32_t *)__frv_reg_unset(5));
+          invoke_object_method_chain((int)(param_1),(uint32_t *)(uint32_t)param_2);
         }
         iVar5 = *(int *)*param_2;
         (((vtbl_entry*)(iVar5))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar5))[2].adj,0x800002,param_2[3]);

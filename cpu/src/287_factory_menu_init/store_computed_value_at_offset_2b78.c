@@ -12,7 +12,7 @@ void store_computed_value_at_offset_2b78(int param_1)
   uint32_t uVar1;
   uint32_t uVar2;
   
-  uVar1 = clamp_value_to_range(__frv_reg_unset(4));
+  uVar1 = clamp_value_to_range((uint32_t)param_1);
   uVar2 = get_shared_sram_buffer();
   uVar1 = iterate_object_array_until_match(uVar2,uVar1);
   *(uint32_t *)(param_1 + 0x2b78) = uVar1;

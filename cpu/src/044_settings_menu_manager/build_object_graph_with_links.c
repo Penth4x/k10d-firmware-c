@@ -81,7 +81,7 @@ void build_object_graph_with_links(cls_1056482c *param_1,uint32_t param_2,void *
   pvVar29 = (void *)app_obj_factory(pvVar8,(void *)0x2020014,0,0);
   pvVar31 = (void *)0x198;
   pvVar30 = (void *)0x20;
-  pvVar8 = (void *)app_obj_factory(pvVar8,(void *)0x2020015,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar8 = (void *)app_obj_factory(pvVar8,(void *)0x2020015,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar9,pvVar10,pvVar30,pvVar31);
   iterate_and_remove_list_entry(pvVar9,pvVar11,pvVar30,pvVar31);
   iterate_and_remove_list_entry(pvVar9,pvVar12,pvVar30,pvVar31);

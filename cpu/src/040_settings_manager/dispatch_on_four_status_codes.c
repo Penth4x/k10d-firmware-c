@@ -20,7 +20,7 @@ void dispatch_on_four_status_codes(void *param_1)
 {
   int iVar1;
   
-  iVar1 = read_field_at_offset_0xf4(__frv_reg_unset(4));
+  iVar1 = read_field_at_offset_0xf4((uint32_t)param_1);
   if ((((iVar1 == 0x5060003) || (iVar1 == 0x5060013)) || (iVar1 == 0x5060022)) ||
      (iVar1 == 0x5060031)) {
     register_four_values_with_handler((int)param_1);

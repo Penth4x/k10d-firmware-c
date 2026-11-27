@@ -19,7 +19,7 @@ void dispatch_on_status_code(void *param_1)
 {
   int iVar1;
   
-  iVar1 = read_field_at_offset_0xf4(__frv_reg_unset(4));
+  iVar1 = read_field_at_offset_0xf4((uint32_t)param_1);
   if (iVar1 == 0x5060003) {
     store_and_dispatch_state_value((int)param_1);
   }

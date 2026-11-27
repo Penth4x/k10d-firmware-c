@@ -125,7 +125,7 @@ void build_object_tree_from_ids_103cea30(cls_10595d4c *param_1,uint32_t param_2,
   invoke_virtual_then_call_helper_10494188((int)pvVar35,iVar31);
   pvVar37 = (void *)0x0;
   pvVar38 = (void *)0x0;
-  pvVar36 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1af0024,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar36 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1af0024,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar36,pvVar1,pvVar37,pvVar38);
   iterate_and_remove_list_entry(pvVar36,pvVar2,pvVar37,pvVar38);
   iterate_and_remove_list_entry(pvVar36,pvVar3,pvVar37,pvVar38);

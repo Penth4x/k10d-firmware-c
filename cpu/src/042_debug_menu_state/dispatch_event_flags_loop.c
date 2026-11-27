@@ -167,7 +167,7 @@ void dispatch_event_flags_loop(cls_10564150 *param_1)
     }
     if ((uStack_c & 0x800) != 0) {
       if (param_1->field_0x38 == param_1->field_0x94) {
-        dispatch_mode_by_state_id(__frv_reg_unset(4));
+        dispatch_mode_by_state_id((uint32_t)param_1);
         uVar5 = extraout_r5_06;
       }
       else {
@@ -186,7 +186,7 @@ void dispatch_event_flags_loop(cls_10564150 *param_1)
     }
     if ((uStack_c & 0x8000) != 0) {
       if (param_1->field_0x38 == param_1->field_0x84) {
-        check_and_dispatch_state_change_103ac0ee((int *)__frv_reg_unset(4));
+        check_and_dispatch_state_change_103ac0ee((int *)(uint32_t)param_1);
       }
       else {
         check_kernel_object_id_valid((void*)(param_1->field_0x84 + 0x40));

@@ -17,7 +17,7 @@ uint32_t allocate_buffer_segment(int param_1,uint param_2,uint param_3)
   int iStack_10;
   
   uVar4 = 1;
-  iVar3 = check_range_within_bounds(__frv_reg_unset(4), __frv_reg_unset(5), __frv_reg_unset(6));
+  iVar3 = check_range_within_bounds((uint32_t)param_1, (uint32_t)param_2, (uint32_t)param_3);
   if (iVar3 == 0) {
     if (*(uint *)(param_1 + 8) < param_3) {
       *(uint8_t *)(param_1 + 0x21) = 1;

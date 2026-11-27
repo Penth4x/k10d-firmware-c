@@ -213,7 +213,7 @@ void create_and_register_object_set(cls_10598538 *param_1,uint32_t param_2,void 
   iVar90 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)0x3160058,(void *)0x50,(void *)0x150));
   pvVar92 = (void *)0x50;
   pvVar93 = (void *)0x150;
-  iVar91 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)0x316005a,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7)));
+  iVar91 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)0x316005a,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4));
   write_field_at_offset_0x48(pvVar85,uVar84);
   write_field_at_offset_0x48(pvVar89,uVar88);
   invoke_virtual_then_call_helper_10494188((int)pvVar85,iVar86);

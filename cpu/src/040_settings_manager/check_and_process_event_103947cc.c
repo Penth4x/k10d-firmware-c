@@ -31,7 +31,7 @@ uint32_t check_and_process_event_103947cc(void *param_1)
     uVar1 = return_r4_passthrough_104d800e();
     compute_struct_offset_104d6852(uVar1,1);
     return_r4_passthrough_104d7940();
-    iVar2 = read_first_word_104d70e8((uint32_t *)__frv_reg_unset(4));
+    iVar2 = read_first_word_104d70e8((uint32_t *)(uint32_t)param_1);
     if (iVar2 == 1) {
       store_byte_to_ram_800045b4(param_1,0);
       uVar1 = 0;

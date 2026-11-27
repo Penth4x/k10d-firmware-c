@@ -18,7 +18,7 @@ void clear_pointer_if_set(int param_1,void *param_2)
 
 {
   if (*(int *)((int)param_2 + 4) != 0) {
-    store_result_and_check_zero_10480100(*(uint32_t *)(param_1 + 8), __frv_reg_unset(5));
+    store_result_and_check_zero_10480100(*(uint32_t *)(param_1 + 8), (uint32_t)param_2);
     *(uint32_t *)((int)param_2 + 4) = 0;
   }
   return;

@@ -20,7 +20,7 @@ uint32_t dispatch_on_state_two_or_three_1045d5da(void *param_1)
   int iVar1;
   uint32_t uVar2;
   
-  iVar1 = invoke_virtual_slot_two_1045d4b0((int *)__frv_reg_unset(4));
+  iVar1 = invoke_virtual_slot_two_1045d4b0((int *)(uint32_t)param_1);
   if (iVar1 == 2) {
     uVar2 = call_virtual_slot_two_1045d528(param_1);
   }

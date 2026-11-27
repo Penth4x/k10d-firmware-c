@@ -62,7 +62,7 @@ void process_event_queue_entry_103fe55a(uint32_t *param_1,uint32_t *param_2)
           }
         }
         else {
-          decode_and_advance_token((int *)__frv_reg_unset(4));
+          decode_and_advance_token((int *)(uint32_t)param_1);
         }
         pbVar4 = (byte *)*param_1;
       } while (*pbVar4 != 0);

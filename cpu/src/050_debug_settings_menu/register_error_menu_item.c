@@ -53,7 +53,7 @@ void register_error_menu_item(void *param_1,uint32_t param_2,void *param_3,void 
     }
   }
   else {
-    uVar2 = query_object_via_temp_buffer_104f1ec2(__frv_reg_unset(4));
+    uVar2 = query_object_via_temp_buffer_104f1ec2((uint32_t)param_1);
     pvVar3 = (void *)build_and_send_sensor_config(uVar5,uVar2);
     cVar1 = *(char *)((int)param_1 + 0x49);
     if ((((cVar1 != '\n') && (cVar1 != '\v')) && (cVar1 != '\f')) && (cVar1 != '\x11')) {

@@ -21,7 +21,7 @@ void forward_param_with_fetched_value(int param_1,uint32_t param_2,uint16_t para
   uint32_t uVar2;
   
   uVar2 = *(uint32_t *)(param_1 + 4);
-  uVar1 = check_second_param_is_zero(__frv_reg_unset(4), __frv_reg_unset(5));
+  uVar1 = check_second_param_is_zero((uint32_t)param_1, (uint32_t)param_2);
   dispatch_two_callbacks(uVar2,param_3,uVar1);
   return;
 }

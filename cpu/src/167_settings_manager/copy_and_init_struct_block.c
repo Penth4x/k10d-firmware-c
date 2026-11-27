@@ -43,7 +43,7 @@ void copy_and_init_struct_block(int param_1)
   puVar4 = auStack_54;
   iVar1 = check_six_char_pattern((char *)(param_1 + 0x48));
   if (iVar1 != 0) {
-    alloc_zeroed_struct_104ce600((uint32_t *)__frv_reg_unset(4));
+    alloc_zeroed_struct_104ce600((uint32_t *)(uint32_t)param_1);
     iVar1 = query_status_and_fill_result(param_1,apuStack_30 + 1);
     if (iVar1 != 0) {
       iVar1 = 0xc;
@@ -66,14 +66,14 @@ void copy_and_init_struct_block(int param_1)
       iVar3 = get_or_create_singleton_object_1046d20c();
       collect_and_forward_object_state(*(uint32_t *)(iVar3 + 4),auStack_10);
       apuStack_30[0] = &uStack_20;
-      init_small_struct_or_alloc((uint8_t *)__frv_reg_unset(4));
+      init_small_struct_or_alloc((uint8_t *)(uint32_t)param_1);
       puStack_1c = auStack_10;
       get_or_init_sram_object_10483206();
-      uStack_20 = check_setting_0x9c_is_one(__frv_reg_unset(4));
+      uStack_20 = check_setting_0x9c_is_one((uint32_t)param_1);
       get_or_init_sram_object_10483206();
-      uStack_1f = check_setting_0xa3_not_two(__frv_reg_unset(4));
+      uStack_1f = check_setting_0xa3_not_two((uint32_t)param_1);
       get_or_init_sram_object_10483206();
-      uStack_18 = check_setting_0x3d_is_zero(__frv_reg_unset(4));
+      uStack_18 = check_setting_0x3d_is_zero((uint32_t)param_1);
       uStack_14 = 0;
       uStack_16 = 0;
       iVar3 = call_helper_with_field_0x1c(*(int *)(param_1 + 0x50));

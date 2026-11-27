@@ -21,7 +21,7 @@ uint32_t check_flag_and_dispatch_104a1416(cls_105b5cbc *param_1,short *param_2)
   uint32_t uVar2;
   
   uVar2 = 1;
-  iVar1 = dispatch_event_by_code_104a1a96(__frv_reg_unset(4),(ushort *)__frv_reg_unset(5));
+  iVar1 = dispatch_event_by_code_104a1a96((uint32_t)param_1,(ushort *)(uint32_t)param_2);
   if (iVar1 == 0) {
     if (*param_2 == -0x5cfe) {
       copy_bytes_to_rodata((uint32_t)param_1,param_2);

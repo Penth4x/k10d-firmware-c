@@ -28,7 +28,7 @@ void store_event_and_apply_setting(cls_105977ac *param_1,int param_2)
       (uVar2 = uRam105977a6, param_2 == 0x1870016)) || (uVar2 = uRam105977a7, param_2 == 0x1870018))
   {
     param_1->field_0x20 = uVar2;
-    update_two_object_states((int *)__frv_reg_unset(4));
+    update_two_object_states((int *)(uint32_t)param_1);
   }
   else {
     bVar1 = bRam105977a8;

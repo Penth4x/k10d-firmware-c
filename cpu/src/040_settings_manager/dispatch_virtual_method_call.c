@@ -23,7 +23,7 @@ void dispatch_virtual_method_call(int param_1,int param_2,void *param_3,uint par
   
   pvVar3 = (void *)(param_4 & 0xffff);
   pvVar1 = (void *)(param_5 & 0xffff);
-  pvVar2 = (void *)app_obj_factory((int *)(*(uint32_t *)(param_1 + 0x20)),(void *)(param_3),(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar2 = (void *)app_obj_factory((int *)(*(uint32_t *)(param_1 + 0x20)),(void *)(param_3),(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry((void *)param_2,pvVar2,pvVar3,pvVar1);
   (((vtbl_entry*)(*(int *)((int)pvVar2 + 0xc)))[1].fn)
             ((int)pvVar2 + (int)*(short *)(*(int *)((int)pvVar2 + 0xc) + 8),1);

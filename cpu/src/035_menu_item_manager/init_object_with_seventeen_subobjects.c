@@ -55,7 +55,7 @@ void init_object_with_seventeen_subobjects(cls_10558990 *param_1,uint32_t param_
   call_helper_and_set_flag_104b7726((uint32_t *)(uVar11),(uint16_t)(0x1e0),(uint16_t)(1));
   pvVar15 = (void *)0x150;
   pvVar14 = (void *)0x50;
-  iVar13 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)0x303000c,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7)));
+  iVar13 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)0x303000c,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4));
   write_field_at_offset_0x48(pvVar9,uVar8);
   write_field_at_offset_0x48(pvVar12,uVar11);
   invoke_virtual_then_call_helper_10494188((int)pvVar9,iVar10);

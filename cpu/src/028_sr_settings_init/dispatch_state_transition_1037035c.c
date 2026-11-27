@@ -29,7 +29,7 @@ cls_10557fec * dispatch_state_transition_1037035c(cls_10557fec *param_1,int *par
     switch(param_2[1]) {
     case 5:
       if (param_1->field_0x75 != '\0') {
-        set_flag_and_init_subobject((void *)__frv_reg_unset(4));
+        set_flag_and_init_subobject((void *)(uint32_t)param_1);
         return param_1;
       }
       break;
@@ -38,7 +38,7 @@ cls_10557fec * dispatch_state_transition_1037035c(cls_10557fec *param_1,int *par
     case 0x19:
       goto code_r0x10370400;
     case 0x11:
-      param_1 = (cls_10557fec *)dispatch_state_transition_103707fc((void *)__frv_reg_unset(4));
+      param_1 = (cls_10557fec *)dispatch_state_transition_103707fc((void *)(uint32_t)param_1);
       break;
     case 0x18:
       uVar3 = get_or_create_singleton_object_1036c796();
@@ -56,10 +56,10 @@ cls_10557fec * dispatch_state_transition_1037035c(cls_10557fec *param_1,int *par
       default:
         return param_1;
       case 0xc:
-        init_object_with_three_helpers_10370a68((void *)__frv_reg_unset(4));
+        init_object_with_three_helpers_10370a68((void *)(uint32_t)param_1);
         return param_1;
       case 0x11:
-        pcVar2 = (cls_10557fec *)process_sensor_readout_cycle_103708ca((void *)__frv_reg_unset(4));
+        pcVar2 = (cls_10557fec *)process_sensor_readout_cycle_103708ca((void *)(uint32_t)param_1);
         return pcVar2;
       case 0x18:
         uVar3 = get_or_create_singleton_object_1036c796();

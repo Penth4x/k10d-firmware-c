@@ -21,7 +21,7 @@ uint32_t call_helper_if_flag_set_104cf916(cls_105b9a7c *param_1,int param_2,uint
   uint32_t uVar2;
   
   uVar2 = 0;
-  iVar1 = invoke_virtual_method_on_allocated_object(__frv_reg_unset(4), __frv_reg_unset(5), __frv_reg_unset(6));
+  iVar1 = invoke_virtual_method_on_allocated_object((uint32_t)param_1, (uint32_t)param_2, (uint32_t)param_3);
   if ((iVar1 != 0) && (iVar1 = return_constant_one_104cfa16((int)param_1,param_2,param_3), iVar1 != 0)) {
     *(uint8_t *)(param_2 + 0x24) = 0;
     uVar2 = 1;

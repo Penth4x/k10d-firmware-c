@@ -24,10 +24,10 @@ uint32_t dispatch_on_mode_index_10498c3c(cls_105b55fc *param_1,uint32_t param_2,
     uVar1 = dispatch_on_mode_index_10498c7e((uint32_t)(param_1),(uint32_t)(param_2),(int)(param_4));
   }
   else if (param_3 == 1) {
-    uVar1 = dispatch_event_by_type_10498d6a(__frv_reg_unset(4),(ushort *)__frv_reg_unset(5),__frv_reg_unset(6));
+    uVar1 = dispatch_event_by_type_10498d6a((uint32_t)param_1,(ushort *)(uint32_t)param_2,(uint32_t)param_3);
   }
   else if (param_3 == 2) {
-    uVar1 = check_flag_and_call_helper_10498ee2(__frv_reg_unset(4),(short *)__frv_reg_unset(5),__frv_reg_unset(6));
+    uVar1 = check_flag_and_call_helper_10498ee2((uint32_t)param_1,(short *)(uint32_t)param_2,(uint32_t)param_3);
   }
   else {
     uVar1 = 1;

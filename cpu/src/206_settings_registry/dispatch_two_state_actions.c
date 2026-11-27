@@ -20,11 +20,11 @@ uint32_t dispatch_two_state_actions(uint32_t param_1,short *param_2)
   uint32_t uVar1;
   
   if (*param_2 == 1) {
-    write_four_bytes_from_flag(__frv_reg_unset(4), __frv_reg_unset(5));
+    write_four_bytes_from_flag((uint32_t)param_1, (uint32_t)param_2);
     uVar1 = 1;
   }
   else if (*param_2 == 2) {
-    write_four_bytes_via_helper(__frv_reg_unset(4), __frv_reg_unset(5));
+    write_four_bytes_via_helper((uint32_t)param_1, (uint32_t)param_2);
     uVar1 = 1;
   }
   else {

@@ -18,7 +18,7 @@ void call_three_initializers_10396762(void *param_1)
 
 {
   get_or_create_sram_object_1040a240();
-  set_flag_and_call_two_helpers_1040ad90(__frv_reg_unset(4));
+  set_flag_and_call_two_helpers_1040ad90((uint32_t)param_1);
   initialize_object_and_dispatch(param_1);
   return;
 }

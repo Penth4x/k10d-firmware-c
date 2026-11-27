@@ -191,7 +191,7 @@ void init_object_hierarchy_from_pool(cls_10566478 *param_1,uint32_t param_2,void
   pvVar73 = (void *)app_obj_factory(pvVar16,(void *)0x2040035,(void *)0x20,(void *)0x198);
   pvVar74 = (void *)0x68;
   pvVar75 = (void *)0x198;
-  pvVar16 = (void *)app_obj_factory(pvVar16,(void *)0x2040036,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar16 = (void *)app_obj_factory(pvVar16,(void *)0x2040036,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar18,pvVar16,pvVar74,pvVar75);
   iterate_and_remove_list_entry(pvVar18,pvVar72,pvVar74,pvVar75);
   iterate_and_remove_list_entry(pvVar18,pvVar73,pvVar74,pvVar75);

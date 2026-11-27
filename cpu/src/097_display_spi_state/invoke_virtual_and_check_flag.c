@@ -28,7 +28,7 @@ void invoke_virtual_and_check_flag(int param_1)
   iVar1 = test_mode_config_singleton();
   if (*(char *)(iVar1 + 5) != '\0') {
     test_mode_config_singleton();
-    update_setting_pair_from_working_copy(__frv_reg_unset(4));
+    update_setting_pair_from_working_copy((uint32_t)param_1);
   }
   return;
 }

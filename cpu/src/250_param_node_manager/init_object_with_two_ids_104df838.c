@@ -26,7 +26,7 @@ uint32_t init_object_with_two_ids_104df838(cls_105bb920 *param_1)
   release_object_members((int *)param_1);
   iVar2 = param_1->field_0x0;
   if (*(int *)(iVar2 + 8) == 0) {
-    iVar2 = get_object_field_at_offset_0x14(__frv_reg_unset(4));
+    iVar2 = get_object_field_at_offset_0x14((uint32_t)param_1);
     if (iVar2 == 0) {
       initialize_linked_struct_fields(param_1,0x201d);
     }

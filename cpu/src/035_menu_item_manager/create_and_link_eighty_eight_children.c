@@ -202,7 +202,7 @@ void create_and_link_eighty_eight_children(cls_10559760 *param_1,uint32_t param_
   pvVar88 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3100057,(void *)0x20,(void *)0x168);
   puVar90 = &DAT_00000080;
   puVar91 = &DAT_00000048;
-  pvVar89 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3100058,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar89 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3100058,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar1,pvVar2,puVar90,puVar91);
   iterate_and_remove_list_entry(pvVar1,pvVar3,puVar90,puVar91);
   iterate_and_remove_list_entry(pvVar1,pvVar4,puVar90,puVar91);

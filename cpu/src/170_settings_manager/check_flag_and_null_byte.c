@@ -13,7 +13,7 @@ uint32_t check_flag_and_null_byte(int param_1)
   uint32_t uVar2;
   
   uVar2 = 0;
-  iVar1 = check_six_char_pattern((char *)__frv_reg_unset(4));
+  iVar1 = check_six_char_pattern((char *)(uint32_t)param_1);
   if ((iVar1 != 0) && (*(char *)(param_1 + 4) == '\0')) {
     uVar2 = 1;
   }

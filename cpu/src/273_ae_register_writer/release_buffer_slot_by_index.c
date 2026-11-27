@@ -45,7 +45,7 @@ void release_buffer_slot_by_index(int param_1,int param_2,uint32_t param_3)
     if (*(int *)(param_1 + 0x174) == 0) {
       return;
     }
-    forward_two_params_with_offset_10515f92(param_1, __frv_reg_unset(5));
+    forward_two_params_with_offset_10515f92(param_1, (uint32_t)param_2);
     (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[9].fn)
               (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[9].adj + param_2,0);
     return;
@@ -56,7 +56,7 @@ void release_buffer_slot_by_index(int param_1,int param_2,uint32_t param_3)
     if (*(int *)(param_1 + 500) == 0) {
       return;
     }
-    call_subroutine_with_offset_10515fa6(param_1, __frv_reg_unset(5));
+    call_subroutine_with_offset_10515fa6(param_1, (uint32_t)param_2);
     (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[10].fn)
               (((vtbl_entry*)(*(int *)(param_2 + 0x8d4)))[10].adj + param_2,0);
     return;

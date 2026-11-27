@@ -14,7 +14,7 @@ uint32_t signal_semaphore_if_pending(uint32_t *param_1)
   
   uVar1 = 0;
   if (param_1[2] != 0) {
-    uVar2 = sig_sem_obj((uint32_t *)__frv_reg_unset(4));
+    uVar2 = sig_sem_obj((uint32_t *)(uint32_t)param_1);
     *(uint8_t *)(param_1 + 4) = uVar2;
     param_1[2] = 0;
     uVar1 = sig_sem_obj(param_1);

@@ -21,7 +21,7 @@ int sum_two_helper_results(cls_105b6aa0 *param_1)
   int iVar1;
   int iVar2;
   
-  iVar1 = read_two_bytes_from_heap_offset(__frv_reg_unset(4));
+  iVar1 = read_two_bytes_from_heap_offset((uint32_t)param_1);
   iVar2 = sum_two_values_plus_six((char*)(param_1) ->field_0x4);
   return iVar1 + iVar2;
 }

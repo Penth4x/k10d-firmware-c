@@ -13,7 +13,7 @@ void process_object_list_and_dispatch(cls_105b47b4 *param_1,uint32_t param_2,voi
   int *piVar2;
   int iVar3;
   
-  /* B-3: stock passes incoming r4 = param_1 (mov r4,r10 in delay slot); was __frv_reg_unset(4)=0.
+  /* B-3: stock passes incoming r4 = param_1 (mov r4,r10 in delay slot); was (uint32_t)param_1=0.
      B-10 cleanup: result is the plain r4 return, no 64-bit intermediate. */
   piVar2 = find_matching_list_entry((int)(param_1));
   param_1->field_0x60 = (uintptr_t)(piVar2);

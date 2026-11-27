@@ -26,7 +26,7 @@ uint32_t dispatch_virtual_method_on_param(int param_1)
   uintptr_t sp;
   cls_105bb0b8 cStack_28;
   
-  iVar1 = check_flag_bit2_in_struct(__frv_reg_unset(4));
+  iVar1 = check_flag_bit2_in_struct((uint32_t)param_1);
   if (iVar1 != 0) {
     uVar2 = return_r4_passthrough_104d800e();
     pvVar3 = (void *)add_offset_by_flag(uVar2,1);

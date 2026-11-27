@@ -31,7 +31,7 @@ int dispatch_virtual_method_with_helper_1049b5da(int param_1,int param_2,int *pa
   uint8_t auStack_24 [4];
   
   puVar4 = (uint32_t *)auStack_24;
-  process_virtual_object_event(param_1,(uint)*(ushort *)(_DAT_80048fe8/*SDRAM*/ + 0x10) + param_2,(int *)__frv_reg_unset(6));
+  process_virtual_object_event(param_1,(uint)*(ushort *)(_DAT_80048fe8/*SDRAM*/ + 0x10) + param_2,(int *)(uint32_t)param_3);
   uVar2 = (((vtbl_entry*)(*param_3))[6].fn)((int)((vtbl_entry*)(*param_3))[6].adj + (int)param_3);
   uVar1 = *(ushort *)(_DAT_80048fe8/*SDRAM*/ + 0x12);
   (((vtbl_entry*)(*param_3))[5].fn)((int)((vtbl_entry*)(*param_3))[5].adj + (int)param_3,param_2);

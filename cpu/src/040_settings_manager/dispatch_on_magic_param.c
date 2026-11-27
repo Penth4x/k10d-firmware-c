@@ -20,7 +20,7 @@ uint32_t dispatch_on_magic_param(uint32_t param_1,int param_2)
   uint32_t uVar1;
   
   if (param_2 == 0x50b0000) {
-    uVar1 = map_index_to_0x50b0003_offset(__frv_reg_unset(4));
+    uVar1 = map_index_to_0x50b0003_offset((uint32_t)param_1);
   }
   else {
     uVar1 = 0;

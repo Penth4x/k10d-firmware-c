@@ -34,7 +34,7 @@ uint32_t check_entry_condition_in_table(byte *param_1)
     do {
       if (*(ushort *)(*(int *)(param_1 + 4) + uVar1 * 2) == uVar3) {
         if ((*(int *)(*(int *)(param_1 + 8) + uVar1 * 4) != 0) &&
-           (iVar2 = process_three_object_lists((byte *)__frv_reg_unset(4)), iVar2 != 0)) {
+           (iVar2 = process_three_object_lists((byte *)(uint32_t)param_1), iVar2 != 0)) {
           *(ushort *)(param_1 + 2) = uVar3;
           return 1;
         }

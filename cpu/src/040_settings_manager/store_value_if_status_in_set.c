@@ -20,7 +20,7 @@ void store_value_if_status_in_set(void *param_1)
   int iVar1;
   uint32_t uVar2;
   
-  iVar1 = read_field_at_offset_0xf4(__frv_reg_unset(4));
+  iVar1 = read_field_at_offset_0xf4((uint32_t)param_1);
   if ((((iVar1 == 0x5060003) || (iVar1 == 0x5060013)) || (iVar1 == 0x5060022)) ||
      (iVar1 == 0x5060031)) {
     uVar2 = get_or_create_singleton_object_10395bd6();

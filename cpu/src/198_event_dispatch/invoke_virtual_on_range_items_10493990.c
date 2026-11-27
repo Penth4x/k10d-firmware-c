@@ -21,7 +21,7 @@ void invoke_virtual_on_range_items_10493990(int param_1,uint32_t param_2)
   int *piVar1;
   int iVar2;
   
-  notify_range_end_to_observers(__frv_reg_unset(4), __frv_reg_unset(5));
+  notify_range_end_to_observers((uint32_t)param_1, (uint32_t)param_2);
   piVar1 = *(int **)(param_1 + 0x48);
   if (piVar1 != *(int **)(param_1 + 0x4c)) {
     do {

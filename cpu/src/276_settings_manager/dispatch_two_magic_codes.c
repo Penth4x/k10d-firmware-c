@@ -21,11 +21,11 @@ uint32_t dispatch_two_magic_codes(cls_105d6ce0 *param_1,ushort *param_2,uint *pa
   uint32_t uVar1;
   
   if (*param_2 == 0x103) {
-    call_helper_with_zero_and_six(__frv_reg_unset(4), __frv_reg_unset(5));
+    call_helper_with_zero_and_six((uint32_t)param_1, (uint32_t)param_2);
     uVar1 = 1;
   }
   else if (*param_2 == 0xc4a5) {
-    invoke_two_virtual_methods_1051d0bc(__frv_reg_unset(4), __frv_reg_unset(5));
+    invoke_two_virtual_methods_1051d0bc((uint32_t)param_1, (uint32_t)param_2);
     uVar1 = 1;
   }
   else {

@@ -102,7 +102,7 @@ void init_object_with_sub_entries(cls_10558b34 *param_1,uint32_t param_2,void *p
   iVar23 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)0x305001f,(void *)0x50,(void *)0x150));
   pvVar29 = (void *)0x50;
   pvVar30 = (void *)0x150;
-  iVar26 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)0x3050021,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7)));
+  iVar26 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)0x3050021,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4));
   write_field_at_offset_0x48(pvVar27,uVar15);
   write_field_at_offset_0x48(pvVar28,uVar18);
   invoke_virtual_then_call_helper_10494188((int)pvVar27,iVar17);

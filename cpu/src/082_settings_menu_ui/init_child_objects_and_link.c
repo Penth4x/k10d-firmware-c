@@ -69,7 +69,7 @@ void init_child_objects_and_link(cls_10596f7c *param_1,uint32_t param_2,void *pa
   init_object_with_hash_and_flag(pvVar9,0);
   pvVar11 = (void *)0x0;
   pvVar12 = (void *)0x0;
-  pvVar10 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x189000e,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar10 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x189000e,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar10,pvVar1,pvVar11,pvVar12);
   iterate_and_remove_list_entry(pvVar10,pvVar2,pvVar11,pvVar12);
   iterate_and_remove_list_entry(pvVar10,pvVar3,pvVar11,pvVar12);

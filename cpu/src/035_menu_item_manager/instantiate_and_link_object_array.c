@@ -85,7 +85,7 @@ void instantiate_and_link_object_array(cls_10558da4 *param_1,uint32_t param_2,vo
   iVar28 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)0x3070013,(void *)0x1a0,(void *)0x150));
   pvVar30 = (void *)0x218;
   pvVar31 = (void *)0x150;
-  iVar29 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)0x3070014,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7)));
+  iVar29 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)0x3070014,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4));
   iterate_and_remove_list_entry(pvVar1,pvVar2,pvVar30,pvVar31);
   iterate_and_remove_list_entry(pvVar1,pvVar3,pvVar30,pvVar31);
   iterate_and_remove_list_entry(pvVar1,pvVar4,pvVar30,pvVar31);

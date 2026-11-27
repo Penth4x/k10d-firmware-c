@@ -27,7 +27,7 @@ void dispatch_virtual_method_on_allocated_object(int param_1)
   
   *(uint32_t *)(param_1 + 0x34) = **(uint32_t **)(*(int *)(param_1 + 100) + 0xc);
   iVar4 = 0;
-  iVar1 = build_and_pass_three_word_struct(__frv_reg_unset(4));
+  iVar1 = build_and_pass_three_word_struct((uint32_t)param_1);
   if (iVar1 != 0) {
     uVar2 = get_or_create_singleton_object_104cfcea();
     piVar3 = (int *)(*(code *)0x104cfe98/*ROM*/)(uVar2,**(uint32_t **)(param_1 + 0x34));

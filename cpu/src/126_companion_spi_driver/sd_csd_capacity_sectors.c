@@ -18,7 +18,7 @@ int sd_csd_capacity_sectors(uint32_t param_1)
   char cVar3;
   int iVar1;
   
-  cVar2 = sd_csd_read_bl_len(__frv_reg_unset(4));
+  cVar2 = sd_csd_read_bl_len((uint32_t)param_1);
   cVar3 = sd_csd_c_size_mult(param_1);
   iVar1 = sd_csd_c_size(param_1);
   return (iVar1 + 1) * (2 << (cVar3 + 1U & 0xf)) * ((uint)(2 << (cVar2 - 1U & 0xf)) >> 9);

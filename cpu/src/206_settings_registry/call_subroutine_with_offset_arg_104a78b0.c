@@ -17,7 +17,7 @@
 void call_subroutine_with_offset_arg_104a78b0(cls_105b6938 *param_1,uint32_t param_2,uint32_t param_3)
 
 {
-  ensure_subobject_initialized(__frv_reg_unset(4));
+  ensure_subobject_initialized((uint32_t)param_1);
   allocate_and_init_event_struct_104a2de4(param_1->field_0x8,param_2,param_3);
   return;
 }

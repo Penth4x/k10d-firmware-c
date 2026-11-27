@@ -32,7 +32,7 @@ int allocate_2d_buffer_block(int param_1,int param_2,void *param_3,int param_4,i
   pvVar5 = (void *)((param_5 + -1) * 0x18 + 0x18U & 0xffff);
   pvVar3 = pvVar6;
   pvVar4 = pvVar5;
-  pvVar1 = (void *)app_obj_factory((int *)(*(uint32_t *)(param_1 + 0x20)),(void *)(param_3),(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar1 = (void *)app_obj_factory((int *)(*(uint32_t *)(param_1 + 0x20)),(void *)(param_3),(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry((void *)param_2,pvVar1,pvVar3,pvVar4);
   iVar2 = (uintptr_t)(alloc_two_word_pair_1045bc2e((uint32_t *)(auStack_10),(uint32_t)(pvVar6),(uint32_t)(pvVar5)));
   copy_four_words_to_offset_0xa0(pvVar1,iVar2);

@@ -167,7 +167,7 @@ void instantiate_and_link_object_tree_103de326(cls_105969f8 *param_1,uint32_t pa
   invoke_virtual_then_call_helper_10494188((int)pvVar26,iVar13);
   pvVar28 = (void *)0x0;
   pvVar29 = (void *)0x0;
-  pvVar27 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x190003f,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar27 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x190003f,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar27,pvVar1,pvVar28,pvVar29);
   iterate_and_remove_list_entry(pvVar27,pvVar2,pvVar28,pvVar29);
   iterate_and_remove_list_entry(pvVar27,pvVar3,pvVar28,pvVar29);

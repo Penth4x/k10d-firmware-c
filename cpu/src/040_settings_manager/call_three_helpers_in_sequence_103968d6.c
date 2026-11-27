@@ -18,7 +18,7 @@
 void call_three_helpers_in_sequence_103968d6(void *param_1,int param_2)
 
 {
-  forward_two_ram_values_103968f0(__frv_reg_unset(4));
+  forward_two_ram_values_103968f0((uint32_t)param_1);
   read_two_values_and_store_10396926((int)param_1,param_2);
   update_object_flag_from_query((int)param_1);
   return;

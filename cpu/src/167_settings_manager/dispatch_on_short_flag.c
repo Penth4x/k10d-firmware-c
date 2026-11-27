@@ -12,10 +12,10 @@ uint32_t dispatch_on_short_flag(uint32_t param_1,short *param_2)
   uint32_t uVar1;
   
   if (*param_2 == 0) {
-    uVar1 = check_and_init_object_field(__frv_reg_unset(4));
+    uVar1 = check_and_init_object_field((uint32_t)param_1);
   }
   else {
-    uVar1 = initialize_sensor_readout_state(__frv_reg_unset(4),(uint16_t *)__frv_reg_unset(5));
+    uVar1 = initialize_sensor_readout_state((uint32_t)param_1,(uint16_t *)(uint32_t)param_2);
   }
   return uVar1;
 }

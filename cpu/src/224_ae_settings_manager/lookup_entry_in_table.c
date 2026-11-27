@@ -46,7 +46,7 @@ int lookup_entry_in_table(int param_1,uint param_2)
     } while (iVar3 < 6);
   }
   if (iStack_1c == param_1 + 0x1408) {
-    initialize_large_struct((uint32_t *)__frv_reg_unset(4));
+    initialize_large_struct((uint32_t *)(uint32_t)param_1);
   }
   return iStack_1c;
 }

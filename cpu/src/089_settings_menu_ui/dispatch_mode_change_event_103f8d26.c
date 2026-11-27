@@ -58,7 +58,7 @@ cls_10597d1c * dispatch_mode_change_event_103f8d26(cls_10597d1c *param_1,int par
         uVar4 = (uint)(byte)(param_1->field_0x23 - 1);
       }
       param_1->field_0x22 = *(uint8_t *)(uVar4 + 0x10597d15/*ROM*/);
-      set_level_state_and_notify(param_1, __frv_reg_unset(5));
+      set_level_state_and_notify(param_1, (uint32_t)param_2);
       compute_ev_offset_and_dispatch(param_1);
       iVar8 = menu_item_register((int)param_1->field_0x0);
       uVar2 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + (uint)(byte)param_1->field_0x22 * 4);
@@ -118,7 +118,7 @@ cls_10597d1c * dispatch_mode_change_event_103f8d26(cls_10597d1c *param_1,int par
           uVar4 = (uint)(byte)(param_1->field_0x23 + 1);
         }
         param_1->field_0x22 = *(uint8_t *)(uVar4 + 0x10597d0f/*ROM*/);
-        set_level_state_and_notify(param_1, __frv_reg_unset(5));
+        set_level_state_and_notify(param_1, (uint32_t)param_2);
         compute_ev_offset_and_dispatch(param_1);
         iVar8 = menu_item_register((int)param_1->field_0x0);
         uVar2 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + (uint)(byte)param_1->field_0x22 * 4);

@@ -30,7 +30,7 @@ void update_six_settings_from_calcs(int param_1, uint32_t param_2, uint32_t para
   uint32_t uVar6;
   uint uVar7;
   
-  uVar1 = normalize_mode_index(__frv_reg_unset(4), __frv_reg_unset(5));
+  uVar1 = normalize_mode_index((uint32_t)param_1, (uint32_t)param_2);
   uVar2 = map_even_index_to_odd_104f063e(param_1,param_2);
   uVar3 = adjust_index_value(param_1,param_2);
   uVar4 = map_mode_index_to_group(param_1,param_3);

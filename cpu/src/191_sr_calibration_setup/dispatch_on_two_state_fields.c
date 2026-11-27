@@ -25,14 +25,14 @@ void dispatch_on_two_state_fields(cls_105b3e68 *param_1)
     uVar1 = (ushort)param_1->field_0x0 - 4;
     if (((uVar1 & 0x1f) == 0) || (uVar1 == 0)) {
       if ((param_1->field_0x26 - 4 & 0x1f) == 0) {
-        issue_nine_region_draw_commands((ushort *)__frv_reg_unset(4));
+        issue_nine_region_draw_commands((ushort *)(uint32_t)param_1);
       }
       else {
-        configure_metering_regions((ushort *)__frv_reg_unset(4));
+        configure_metering_regions((ushort *)(uint32_t)param_1);
       }
     }
     else {
-      configure_metering_regions((ushort *)__frv_reg_unset(4));
+      configure_metering_regions((ushort *)(uint32_t)param_1);
     }
   }
   return;

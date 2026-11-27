@@ -92,7 +92,7 @@ void build_object_tree_from_ids_103a4394(cls_10564c80 *param_1,uint32_t param_2,
   pvVar28 = (void *)app_obj_factory(pvVar3,(void *)0x2080019,0,0);
   pvVar29 = (void *)0x0;
   pvVar30 = (void *)0x0;
-  pvVar3 = (void *)app_obj_factory(pvVar3,(void *)0x208001a,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar3 = (void *)app_obj_factory(pvVar3,(void *)0x208001a,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar5,pvVar13,pvVar29,pvVar30);
   iterate_and_remove_list_entry(pvVar5,pvVar14,pvVar29,pvVar30);
   iterate_and_remove_list_entry(pvVar5,pvVar15,pvVar29,pvVar30);

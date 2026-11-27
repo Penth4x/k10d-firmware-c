@@ -19,7 +19,7 @@ void call_five_initialization_routines(cls_10562850 *param_1)
 
 {
   get_or_create_sram_object_1040a240();
-  set_flag_and_call_two_helpers_1040ad90(__frv_reg_unset(4));
+  set_flag_and_call_two_helpers_1040ad90((uint32_t)param_1);
   call_two_helpers_in_sequence_10394a22((int)param_1);
   clear_flag_and_call_helper_10392cde((int)param_1);
   call_two_initializers_1039459e();

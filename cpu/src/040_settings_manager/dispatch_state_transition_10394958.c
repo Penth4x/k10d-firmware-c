@@ -50,7 +50,7 @@ cls_10563098 * dispatch_state_transition_10394958(cls_10563098 *param_1,int *par
   else {
     iVar1 = get_value_from_object();
     add_offset_to_pointer_104df392(iVar1);
-    iVar1 = process_34_entry_sequence(__frv_reg_unset(4));
+    iVar1 = process_34_entry_sequence((uint32_t)param_1);
     if (iVar1 != 0) {
       pcVar2 = (cls_10563098 *)call_helper_with_param(param_1);
       return pcVar2;

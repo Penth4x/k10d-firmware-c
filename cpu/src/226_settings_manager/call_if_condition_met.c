@@ -17,7 +17,7 @@ void call_if_condition_met(uint32_t param_1,uint32_t param_2)
 {
   int iVar1;
   
-  iVar1 = invoke_virtual_method_on_object_104bf634(__frv_reg_unset(4), __frv_reg_unset(5));
+  iVar1 = invoke_virtual_method_on_object_104bf634((uint32_t)param_1, (uint32_t)param_2);
   if (iVar1 != 0) {
     invoke_virtual_method_and_check_flag(param_1,param_2);
   }

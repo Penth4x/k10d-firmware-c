@@ -45,7 +45,7 @@ uint32_t initialize_object_buffer_pointers(cls_105f9a64 *param_1)
   bVar5 = check_magic_value_104382e4(piVar4);
   if (bVar5) {
     return_sram_base_address(uVar2);
-    iVar1 = read_offset_four_10438328(__frv_reg_unset(4));
+    iVar1 = read_offset_four_10438328((uint32_t)param_1);
     return_sram_base_address(uVar2);
     uVar2 = (*(code *)0x10438446/*ROM*/)();
     store_clamped_value_at_offset(param_1,iVar1,uVar2);
@@ -54,7 +54,7 @@ uint32_t initialize_object_buffer_pointers(cls_105f9a64 *param_1)
   bVar5 = check_magic_sentinel_104384a6(piVar4);
   if (bVar5) {
     return_sram_address_10438862();
-    iVar1 = read_offset_four_104384ea(__frv_reg_unset(4));
+    iVar1 = read_offset_four_104384ea((uint32_t)param_1);
     return_sram_address_10438862();
     uVar2 = (*(code *)0x10438608/*ROM*/)();
     clamp_and_store_two_fields(param_1,iVar1,uVar2);

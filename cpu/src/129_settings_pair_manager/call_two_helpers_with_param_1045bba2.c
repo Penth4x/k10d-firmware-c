@@ -22,6 +22,6 @@ void call_two_helpers_with_param_1045bba2(uint32_t *param_1)
   
   uStack_c = *param_1;
   dereference_first_pointer_1045ba7c(&uStack_c);
-  get_pointer_offset_eight_1045baa4((int *)__frv_reg_unset(4));
+  get_pointer_offset_eight_1045baa4((int *)(uint32_t)param_1);
   return;
 }

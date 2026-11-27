@@ -51,7 +51,7 @@ bool scan_buffer_for_matching_bytes(int *param_1,int *param_2)
     zero_struct_seven_words(param_2);
   }
   else {
-    drain_byte_queue((int *)__frv_reg_unset(4));
+    drain_byte_queue((int *)(uint32_t)param_1);
   }
   return iVar3 != 0;
 }

@@ -37,7 +37,7 @@ uint32_t * allocate_entry_in_fixed_pool(int param_1,uint32_t param_2)
       *puVar4 = param_2;
       iVar3 = clamp_index_to_range_10513af8(param_1,iVar3);
       if (iVar3 == *(int *)(param_1 + 0x161c4)) {
-        uVar2 = clamp_index_to_range_10513b14(param_1, __frv_reg_unset(5));
+        uVar2 = clamp_index_to_range_10513b14(param_1, (uint32_t)param_2);
         *(uint32_t *)(param_1 + 0x161c4) = uVar2;
       }
       break;

@@ -33,7 +33,7 @@ void iterate_and_dispatch_buffer_entries(void *param_1)
   int *piVar12;
   int iVar13;
   
-  set_pointer_by_mode_byte(__frv_reg_unset(4));
+  set_pointer_by_mode_byte((uint32_t)param_1);
   iVar13 = **(int **)((int)param_1 + 0x70);
   (((vtbl_entry*)(iVar13))[17].fn)((int)*(int **)((int)param_1 + 0x70) + (int)((vtbl_entry*)(iVar13))[17].adj)
   ;

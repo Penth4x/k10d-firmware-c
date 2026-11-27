@@ -24,7 +24,7 @@ uint32_t set_state_flag_and_dispatch(cls_105b7288 *param_1,int param_2,int *para
     if (param_2 == 0) {
       param_1->field_0x34 = 0;
       uVar1 = 4;
-      call_seventh_vtable_slot(__frv_reg_unset(4));
+      call_seventh_vtable_slot((uint32_t)param_1);
     }
     else {
       param_1->field_0x34 = 1;

@@ -15,7 +15,7 @@ uint32_t process_object_event_10476c66(int param_1,uint32_t param_2,int param_3)
   uint32_t uVar4;
   
   uVar4 = 0;
-  piVar1 = (int *)read_bounded_array_element_10477358(param_1 + 0xc, __frv_reg_unset(5));
+  piVar1 = (int *)read_bounded_array_element_10477358(param_1 + 0xc, (uint32_t)param_2);
   if ((piVar1 != (int *)0x0) && (iVar2 = clear_and_set_flag_bit_1047712a(piVar1,param_3), iVar2 != 0)) {
     iVar2 = invoke_virtual_slot_4_10477064(piVar1);
     if (iVar2 == 0) {

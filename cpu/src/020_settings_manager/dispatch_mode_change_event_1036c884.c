@@ -18,7 +18,7 @@ uint32_t dispatch_mode_change_event_1036c884(cls_10557d80 *param_1,int *param_2)
   void *pvVar4;
   
   param_1->field_0x18 = (uint32_t)(param_1);
-  sync_object_state_via_virtual_call((void *)__frv_reg_unset(4));
+  sync_object_state_via_virtual_call((void *)(uint32_t)param_1);
   iVar1 = *param_2;
   if (((iVar1 == 1) || (iVar1 == 2)) || (iVar1 != 4)) goto LAB_1036cae4;
   if (param_1->field_0x244 != 0) {

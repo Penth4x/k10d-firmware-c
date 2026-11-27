@@ -14,7 +14,7 @@ void map_mode_state_to_index(int param_1,int param_2)
   int iVar3;
   
   uVar2 = 0;
-  uVar1 = call_virtual_slot_two_104a290e(__frv_reg_unset(4));
+  uVar1 = call_virtual_slot_two_104a290e((uint32_t)param_1);
   switch(uVar1) {
   case 0:
   case 1:

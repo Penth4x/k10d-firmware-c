@@ -31,7 +31,7 @@ uint32_t dispatch_object_state_change_10534156(cls_1061e4c0 *param_1)
     iVar1 = read_byte_at_offset_8((uint32_t)(param_1));
     if ((iVar1 != 0) && (iVar1 = param_1->field_0x10, iVar1 != 0)) {
       (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[18].fn)(((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[18].adj + iVar1);
-      init_object_with_two_ids_1048caee(__frv_reg_unset(4));
+      init_object_with_two_ids_1048caee((uint32_t)param_1);
     }
     (((vtbl_entry*)(param_1->field_0xc))[21].fn)
               ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0xc))[21].adj,0);

@@ -26,7 +26,7 @@ bool update_subobject_state(int param_1,int param_2)
   uintptr_t sp;
   uint8_t auStack_e [6];
   
-  zero_init_six_bytes((uint8_t *)__frv_reg_unset(4));
+  zero_init_six_bytes((uint8_t *)(uint32_t)param_1);
   puVar2 = (uint32_t *)(param_1 + 0x328);
   *(int *)(param_1 + 0x8c) = param_2;
   eventflag_clr_flg(puVar2,0x10);

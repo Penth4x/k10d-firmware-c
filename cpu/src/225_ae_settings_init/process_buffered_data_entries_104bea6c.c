@@ -24,7 +24,7 @@ int process_buffered_data_entries_104bea6c(int param_1,uint32_t param_2)
   int iStack_18;
   int iStack_10;
   
-  iVar1 = init_buffer_with_size_0x10000(__frv_reg_unset(4));
+  iVar1 = init_buffer_with_size_0x10000((uint32_t)param_1);
   if (iVar1 == 0) {
     *(uint8_t *)(param_1 + 0x30) = 1;
     iStack_10 = 0;

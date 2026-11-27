@@ -22,7 +22,7 @@ uint32_t register_menu_item_if_enabled_104076ae(int param_1)
   uVar1 = 0;
   if (*(char *)(param_1 + 4) != '\0') {
     menu_item_register(param_1 + 8);
-    uVar1 = read_byte_at_offset_8(__frv_reg_unset(4));
+    uVar1 = read_byte_at_offset_8((uint32_t)param_1);
   }
   return uVar1;
 }

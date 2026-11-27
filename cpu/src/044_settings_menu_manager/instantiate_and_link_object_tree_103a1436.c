@@ -364,7 +364,7 @@ void instantiate_and_link_object_tree_103a1436(cls_105649cc *param_1,uint32_t pa
   pvVar155 = (void *)app_obj_factory((int *)(pvVar17),(void *)0x2010024,(void *)0x218,(void *)(uVar7));
   pvVar156 = (void *)0x0;
   pvVar157 = (void *)0x0;
-  pvVar17 = (void *)app_obj_factory(pvVar17,(void *)0x2010025,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar17 = (void *)app_obj_factory(pvVar17,(void *)0x2010025,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar26,pvVar38,pvVar156,pvVar157);
   iterate_and_remove_list_entry(pvVar26,pvVar39,pvVar156,pvVar157);
   iterate_and_remove_list_entry(pvVar26,pvVar40,pvVar156,pvVar157);

@@ -31,7 +31,7 @@ uint32_t dispatch_event_by_type_and_state(cls_105575b0 *param_1,int *param_2)
   int iVar4;
   
   param_1->field_0x18 = (uint32_t)(param_1);
-  check_and_update_object_state((void *)__frv_reg_unset(4));
+  check_and_update_object_state((void *)(uint32_t)param_1);
   iVar1 = *param_2;
   if (((iVar1 == 1) || (iVar1 == 2)) || (iVar1 != 4)) goto LAB_10363492;
   iVar1 = param_1->field_0x204;

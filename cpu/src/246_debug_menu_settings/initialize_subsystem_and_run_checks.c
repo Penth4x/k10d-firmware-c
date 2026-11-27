@@ -30,7 +30,7 @@ uint32_t initialize_subsystem_and_run_checks(int param_1)
   if (iVar1 != 0) {
     iVar1 = validate_and_commit_state_change(param_1);
     if (iVar1 == 0) {
-      free_heap_block_if_allocated(__frv_reg_unset(4));
+      free_heap_block_if_allocated((uint32_t)param_1);
     }
     else {
       iVar1 = process_34_entry_sequence(param_1);

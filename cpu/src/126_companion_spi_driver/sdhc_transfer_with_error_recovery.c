@@ -34,7 +34,7 @@ int sdhc_transfer_with_error_recovery(void *param_1,int param_2,uint param_3,uin
     if (iVar1 != 0) {
       bVar2 = sdhc_error_interrupt_pending(*(void **)((int)param_1 + 0x110));
       if (bVar2) {
-        check_sdhc_command_success((void *)__frv_reg_unset(4));
+        check_sdhc_command_success((void *)(uint32_t)param_1);
         bVar2 = true;
         goto LAB_104496fa;
       }

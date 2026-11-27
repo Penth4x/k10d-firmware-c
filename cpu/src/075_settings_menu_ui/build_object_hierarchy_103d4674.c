@@ -100,7 +100,7 @@ void build_object_hierarchy_103d4674(cls_1059639c *param_1,uint32_t param_2,void
   pvVar17 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18c0014,(void *)0x158,(void *)0x78);
   pvVar35 = (void *)0x158;
   puVar39 = &DAT_00000078;
-  pvVar18 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18c0015,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar18 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18c0015,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar15,pvVar16,pvVar35,puVar39);
   iterate_and_remove_list_entry(pvVar15,pvVar17,pvVar35,puVar39);
   iterate_and_remove_list_entry(pvVar15,pvVar18,pvVar35,puVar39);
@@ -120,7 +120,7 @@ void build_object_hierarchy_103d4674(cls_1059639c *param_1,uint32_t param_2,void
   pvVar17 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18c001a,(void *)0x230,(void *)0x78);
   puVar39 = &DAT_00000230;
   puVar40 = &DAT_00000078;
-  pvVar18 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18c001b,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar18 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18c001b,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar16,pvVar17,puVar39,puVar40);
   iterate_and_remove_list_entry(pvVar16,pvVar18,puVar39,puVar40);
   graph_link_nextprev((int)pvVar17,(int)pvVar18,0x10,puVar40);
@@ -166,7 +166,7 @@ void build_object_hierarchy_103d4674(cls_1059639c *param_1,uint32_t param_2,void
   pvVar23 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18c0031,(void *)0x1b8,(void *)0xd8);
   puVar39 = &DAT_00000200;
   pvVar41 = (void *)0xd8;
-  pvVar24 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18c0032,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar24 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18c0032,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar21,pvVar23,puVar39,pvVar41);
   iterate_and_remove_list_entry(pvVar21,pvVar24,puVar39,pvVar41);
   iterate_and_remove_list_entry(pvVar21,pvVar18,puVar39,pvVar41);
@@ -213,7 +213,7 @@ void build_object_hierarchy_103d4674(cls_1059639c *param_1,uint32_t param_2,void
   pvVar41 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18c0044,(void *)0x188,(void *)0xd8);
   pvVar36 = (void *)0x1d0;
   pvVar42 = (void *)0xd8;
-  pvVar33 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18c0045,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar33 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18c0045,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar23,pvVar41,pvVar36,pvVar42);
   iterate_and_remove_list_entry(pvVar23,pvVar33,pvVar36,pvVar42);
   iterate_and_remove_list_entry(pvVar23,pvVar18,pvVar36,pvVar42);
@@ -249,7 +249,7 @@ void build_object_hierarchy_103d4674(cls_1059639c *param_1,uint32_t param_2,void
   pvVar36 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18c004e,(void *)(0),(void *)(0));
   pvVar37 = (void *)0x0;
   pvVar43 = (void *)0x0;
-  pvVar42 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18c004f,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar42 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18c004f,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar36,pvVar41,pvVar37,pvVar43);
   iterate_and_remove_list_entry(pvVar36,pvVar33,pvVar37,pvVar43);
   iterate_and_remove_list_entry(pvVar36,pvVar18,pvVar37,pvVar43);
@@ -303,7 +303,7 @@ void build_object_hierarchy_103d4674(cls_1059639c *param_1,uint32_t param_2,void
   pvVar43 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18c0065,(void *)0x1e8,(void *)0x138);
   pvVar38 = (void *)0x0;
   pvVar44 = (void *)0x0;
-  pvVar34 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18c0066,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar34 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18c0066,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar34,pvVar1,pvVar38,pvVar44);
   iterate_and_remove_list_entry(pvVar34,pvVar2,pvVar38,pvVar44);
   iterate_and_remove_list_entry(pvVar34,pvVar3,pvVar38,pvVar44);

@@ -25,15 +25,15 @@ uint32_t initialize_object_with_size_check(cls_105ab6c0 *param_1,int param_2)
   uint8_t uVar3;
   
   param_1->field_0xc = *(uint32_t *)(param_2 + 8);
-  uVar2 = map_size_to_shift_value(__frv_reg_unset(4), __frv_reg_unset(5));
+  uVar2 = map_size_to_shift_value((uint32_t)param_1, (uint32_t)param_2);
   param_1->field_0x10 = uVar2;
   uVar2 = map_size_to_shift_amount((uint32_t)(param_1),(uint)(param_1->field_0xc));
   param_1->field_0x12 = uVar2;
   if ((uint)param_1->field_0xc < 0x4000001) {
-    uVar3 = select_size_class_by_threshold((uint32_t)(param_1), (uint)(__frv_reg_unset(5)));
+    uVar3 = select_size_class_by_threshold((uint32_t)(param_1), (uint)((uint32_t)param_2));
     param_1->field_0x1c = uVar3;
     if ((uint)param_1->field_0xc < 0x400001) {
-      compute_exposure_step_index(__frv_reg_unset(4));
+      compute_exposure_step_index((uint32_t)param_1);
       param_1->field_0x1e = 1;
       param_1->field_0x20 = 2;
       param_1->field_0x22 = 0x200;

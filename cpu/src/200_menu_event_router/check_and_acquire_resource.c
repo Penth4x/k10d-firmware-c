@@ -25,7 +25,7 @@ uint32_t check_and_acquire_resource(int param_1,int param_2)
   
   uVar3 = 0;
   if ((param_2 == 0) || (param_2 == 1)) {
-    if ((*(int *)(param_1 + param_2 * 4) != 0) && (iVar2 = dispatch_event_via_virtual_call(__frv_reg_unset(4)), iVar2 != 0)) {
+    if ((*(int *)(param_1 + param_2 * 4) != 0) && (iVar2 = dispatch_event_via_virtual_call((uint32_t)param_1), iVar2 != 0)) {
       uVar3 = 1;
     }
   }
@@ -33,7 +33,7 @@ uint32_t check_and_acquire_resource(int param_1,int param_2)
     iVar2 = 0;
     do {
       if (*(int *)(param_1 + iVar2) != 0) {
-        iVar1 = dispatch_event_via_virtual_call(__frv_reg_unset(4));
+        iVar1 = dispatch_event_via_virtual_call((uint32_t)param_1);
         if (iVar1 == 0) {
           return 0;
         }

@@ -16,6 +16,6 @@ void store_word_at_offset_0x6c_and_call_helper(int param_1,uint16_t param_2)
 
 {
   *(uint16_t *)(param_1 + 0x6c) = param_2;
-  clamp_product_to_999_and_notify((void *)__frv_reg_unset(4));
+  clamp_product_to_999_and_notify((void *)(uint32_t)param_1);
   return;
 }

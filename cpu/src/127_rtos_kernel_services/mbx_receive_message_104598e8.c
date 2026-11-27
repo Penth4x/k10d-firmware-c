@@ -23,7 +23,7 @@ bool mbx_receive_message_104598e8(uint32_t *param_1, uint32_t *param_2, uint32_t
   iStack_c = 0;
   *param_2 = 0;
   /* The timeout (realos_rcv_mbx param_3, r6) is this function's own 3rd argument (param_x2,
-   * incoming r6). The decompiler wrote __frv_reg_unset(6) (a RAW r6 read) instead of the named
+   * incoming r6). The decompiler wrote (uint32_t)param_x2 (a RAW r6 read) instead of the named
    * param; fcc clobbers r6 with the `*param_2 = 0` work above, so the trap received 0 (poll,
    * E_TMOUT) instead of the caller's -1 (TMO_FEVR = block forever). With 0 the CPUCOM task
    * busy-retries on every timer tick instead of blocking, so the idle task never runs and the

@@ -18,6 +18,6 @@ cls_105629a8 * init_struct_with_next_ptr_103939bc(cls_105629a8 *param_1)
 
 {
   param_1->field_0x4 = (uint32_t)(uintptr_t)&param_1->field_0x8;
-  call_two_helpers_on_object_10393a2e((void *)__frv_reg_unset(4));
+  call_two_helpers_on_object_10393a2e((void *)(uint32_t)param_1);
   return param_1;
 }

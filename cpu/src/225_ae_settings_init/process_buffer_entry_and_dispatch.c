@@ -31,7 +31,7 @@ bool process_buffer_entry_and_dispatch(int param_1,int param_2,uint32_t param_3)
   int *piVar7;
   bool bVar8;
   
-  iVar3 = init_buffer_with_size_0x10000(__frv_reg_unset(4));
+  iVar3 = init_buffer_with_size_0x10000((uint32_t)param_1);
   if (iVar3 == 0) {
     *(uint8_t *)(param_1 + 0x30) = 1;
     bVar8 = false;

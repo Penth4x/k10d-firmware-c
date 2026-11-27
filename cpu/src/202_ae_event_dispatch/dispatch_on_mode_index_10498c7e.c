@@ -20,10 +20,10 @@ uint32_t dispatch_on_mode_index_10498c7e(uint32_t param_1,uint32_t param_2,int p
   uint32_t uVar1;
   
   if (param_3 == 0) {
-    uVar1 = dispatch_three_param_handlers(__frv_reg_unset(4),(short *)__frv_reg_unset(5));
+    uVar1 = dispatch_three_param_handlers((uint32_t)param_1,(short *)(uint32_t)param_2);
   }
   else if (param_3 == 1) {
-    uVar1 = dispatch_message_by_type_10498d02(__frv_reg_unset(4),(short *)__frv_reg_unset(5));
+    uVar1 = dispatch_message_by_type_10498d02((uint32_t)param_1,(short *)(uint32_t)param_2);
   }
   else {
     uVar1 = 1;

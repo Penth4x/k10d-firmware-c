@@ -14,7 +14,7 @@ uint32_t check_state_mismatch(int param_1)
   uint32_t uVar3;
   
   uVar3 = 0;
-  iVar1 = query_object_property_25(__frv_reg_unset(4));
+  iVar1 = query_object_property_25((uint32_t)param_1);
   uVar2 = check_object_property_43(param_1);
   empty_stub_function_103b76f0();
   empty_noop_stub_103b76f2();

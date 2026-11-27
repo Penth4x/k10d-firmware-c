@@ -13,7 +13,7 @@ ushort clamp_counter_to_range(int param_1)
   short sVar2;
   ushort uVar3;
   
-  uVar1 = read_offset_0x12_field(__frv_reg_unset(4));
+  uVar1 = read_offset_0x12_field((uint32_t)param_1);
   sVar2 = clamp_min_value(uVar1,*(uint16_t *)(param_1 + 0x2e));
   uVar3 = sVar2 + 1;
   if (uVar3 == 0) {

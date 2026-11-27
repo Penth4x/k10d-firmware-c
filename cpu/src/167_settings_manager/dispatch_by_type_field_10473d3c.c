@@ -13,7 +13,7 @@ int dispatch_by_type_field_10473d3c(int param_1,int param_2)
   
   *(int *)(param_1 + 0x18) = param_2;
   *(uint32_t *)(param_1 + 0x1c) = 0;
-  dispatch_state_handler_and_notify(__frv_reg_unset(4));
+  dispatch_state_handler_and_notify((uint32_t)param_1);
   iVar1 = *(int *)(param_2 + 4);
   if (iVar1 == 0) {
     iVar1 = execute_two_step_operation(param_1,*(uint16_t *)(param_2 + 8),*(uint16_t *)(param_2 + 10),

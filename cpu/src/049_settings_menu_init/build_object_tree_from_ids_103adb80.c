@@ -478,7 +478,7 @@ void build_object_tree_from_ids_103adb80(cls_10565d08 *param_1,uint32_t param_2,
   pvVar224 = (void *)app_obj_factory(pvVar8,(void *)0x20a00d7,0,0);
   pvVar225 = (void *)0x0;
   pvVar226 = (void *)0x0;
-  pvVar8 = (void *)app_obj_factory(pvVar8,(void *)0x20a00d8,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar8 = (void *)app_obj_factory(pvVar8,(void *)0x20a00d8,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar10,pvVar36,pvVar225,pvVar226);
   iterate_and_remove_list_entry(pvVar10,pvVar37,pvVar225,pvVar226);
   iterate_and_remove_list_entry(pvVar10,pvVar38,pvVar225,pvVar226);

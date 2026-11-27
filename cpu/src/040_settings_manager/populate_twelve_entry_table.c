@@ -30,7 +30,7 @@ void populate_twelve_entry_table(void *param_1)
   uVar2 = return_r4_passthrough_104d800e();
   uVar2 = adjust_pointer_by_flag(uVar2,1);
   iVar1 = (int)param_1 + 8;
-  uVar3 = add_offset_to_pointer_104d65b6(__frv_reg_unset(4));
+  uVar3 = add_offset_to_pointer_104d65b6((uint32_t)param_1);
   uVar3 = read_byte_at_offset_0x88(uVar3,0);
   set_object_field_by_index_1039abb0((void *)(iVar1),(int)(0),(uint32_t)(uVar3));
   uVar3 = add_offset_to_pointer_104d65b6(uVar2);

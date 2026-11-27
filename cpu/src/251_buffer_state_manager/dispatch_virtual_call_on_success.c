@@ -36,7 +36,7 @@ uint32_t dispatch_virtual_call_on_success(cls_105bec34 *param_1)
       initialize_linked_struct_fields(param_1,0x2009);
     }
     else {
-      iVar1 = serialize_struct_to_buffer(__frv_reg_unset(4));
+      iVar1 = serialize_struct_to_buffer((uint32_t)param_1);
       dispatch_virtual_slot_two_104df936(param_1,0x1008,iVar1 + 0xc);
       iVar1 = *(int *)(param_1->field_0x1c + 0xc);
       (((vtbl_entry*)(iVar1))[5].fn)

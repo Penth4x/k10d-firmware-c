@@ -261,7 +261,7 @@ void instantiate_object_graph(cls_10566724 *param_1,uint32_t param_2,uint32_t pa
   uVar31 = (uintptr_t)(app_obj_factory(pvVar12,(void *)0x203005b,(void *)0x158,(void *)0x168));
   pvVar104 = (void *)0x0;
   pvVar105 = (void *)0x0;
-  pvVar12 = (void *)app_obj_factory(pvVar12,(void *)0x203005c,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar12 = (void *)app_obj_factory(pvVar12,(void *)0x203005c,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   write_field_at_offset_0x48(pvVar12,uVar31);
   iterate_and_remove_list_entry(pvVar14,pvVar35,pvVar104,pvVar105);
   iterate_and_remove_list_entry(pvVar14,pvVar36,pvVar104,pvVar105);

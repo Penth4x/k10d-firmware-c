@@ -49,7 +49,7 @@ uint32_t dispatch_event_by_type_and_id_1039208e(cls_10562758 *param_1,int *param
   }
   else if ((iVar1 == 6) && (param_2[1] == 1)) {
     get_or_create_sram_object_1040a240();
-    init_struct_field_at_offset_0x60(__frv_reg_unset(4));
+    init_struct_field_at_offset_0x60((uint32_t)param_1);
     call_three_unnamed_helpers_103923fa(param_1,1);
     request_ui_sync_code_4((char*)(param_1) ->field_0x8);
   }

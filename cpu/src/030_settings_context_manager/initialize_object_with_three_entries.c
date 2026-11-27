@@ -22,7 +22,7 @@ cls_10557fec * initialize_object_with_three_entries(cls_10557fec *param_1)
   iVar1 = query_state_and_flag_range(param_1,&iStack_c);
   if (iVar1 == 0) {
     if (iStack_c == 1) {
-      init_object_with_fixed_state_10370b68((void *)__frv_reg_unset(4));
+      init_object_with_fixed_state_10370b68((void *)(uint32_t)param_1);
       return param_1;
     }
     iVar1 = dispatch_event_and_return_offset(param_1,&param_1->field_0x70,0xffffffff);

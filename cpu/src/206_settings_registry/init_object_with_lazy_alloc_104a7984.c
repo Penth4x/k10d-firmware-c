@@ -20,11 +20,11 @@ void init_object_with_lazy_alloc_104a7984(int param_1)
 {
   uint32_t uVar1;
   
-  ensure_pointer_field_initialized(__frv_reg_unset(4));
+  ensure_pointer_field_initialized((uint32_t)param_1);
   ensure_subobject_initialized(param_1);
   if (*(int *)(param_1 + 0xc) == 0) {
     get_or_create_singleton_104ceb32();
-    uVar1 = invoke_object_virtual_methods((int *)__frv_reg_unset(4));
+    uVar1 = invoke_object_virtual_methods((int *)(uint32_t)param_1);
     *(uint32_t *)(param_1 + 0xc) = uVar1;
   }
   return;

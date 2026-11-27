@@ -16,7 +16,7 @@
 void init_object_with_two_ids_1040a3b0(int param_1)
 
 {
-  clear_flag_and_call_subroutine_1040a3d2(__frv_reg_unset(4));
+  clear_flag_and_call_subroutine_1040a3d2((uint32_t)param_1);
   call_subroutine_on_field_0x48(*(uint32_t *)(param_1 + 0x28),1);
   *(uint8_t *)(param_1 + 0x55) = 1;
   return;

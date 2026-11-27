@@ -23,16 +23,16 @@ void dispatch_rtos_operation_by_id_104585bc(uint32_t param_1,int param_2,int par
 {
   if (param_3 != 0) {
     if (param_2 == 0) {
-      copy_sixteen_bytes_from_mmio_10458764(__frv_reg_unset(4), __frv_reg_unset(5));
+      copy_sixteen_bytes_from_mmio_10458764((uint32_t)param_1, (uint32_t)param_2);
     }
     else if (param_2 == 0x1000) {
-      copy_sixteen_bytes_from_mmio_104587aa(__frv_reg_unset(4), __frv_reg_unset(5));
+      copy_sixteen_bytes_from_mmio_104587aa((uint32_t)param_1, (uint32_t)param_2);
     }
     else if (param_2 == 0x2000) {
-      copy_sixteen_bytes_from_mmio_104587f0(__frv_reg_unset(4), __frv_reg_unset(5));
+      copy_sixteen_bytes_from_mmio_104587f0((uint32_t)param_1, (uint32_t)param_2);
     }
     else if (param_2 == 0x3000) {
-      copy_mmio_block_to_buffer_1045883e(__frv_reg_unset(4), __frv_reg_unset(5));
+      copy_mmio_block_to_buffer_1045883e((uint32_t)param_1, (uint32_t)param_2);
     }
   }
   return;

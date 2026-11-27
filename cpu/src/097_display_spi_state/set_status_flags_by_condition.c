@@ -11,7 +11,7 @@ void set_status_flags_by_condition(int param_1)
 {
   int iVar1;
   
-  iVar1 = check_state_flag_at_offset(__frv_reg_unset(4));
+  iVar1 = check_state_flag_at_offset((uint32_t)param_1);
   if (iVar1 != 0) {
     if ((*(uint *)(param_1 + 0x1508) & 0x10000) == 0) {
       *(uint8_t *)(param_1 + 0x150e) = 1;

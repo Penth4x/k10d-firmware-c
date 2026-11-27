@@ -70,7 +70,7 @@ void init_object_subtree(cls_105960c0 *param_1,uint32_t param_2,void *param_3,vo
   invoke_virtual_then_call_helper_10494188((int)pvVar15,iVar14);
   pvVar17 = (void *)0x0;
   pvVar18 = (void *)0x0;
-  pvVar16 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1930014,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar16 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1930014,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar16,pvVar1,pvVar17,pvVar18);
   iterate_and_remove_list_entry(pvVar16,pvVar2,pvVar17,pvVar18);
   iterate_and_remove_list_entry(pvVar16,pvVar3,pvVar17,pvVar18);

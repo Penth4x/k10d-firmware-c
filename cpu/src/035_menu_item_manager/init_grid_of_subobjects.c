@@ -256,7 +256,7 @@ void init_grid_of_subobjects(cls_105592e8 *param_1,uint32_t param_2,void *param_
   pvVar13 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30b002d,(void *)0x1e8,(void *)0x198);
   puVar17 = &DAT_00000200;
   pvVar15 = (void *)0x198;
-  pvVar14 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30b002e,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar14 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30b002e,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar3,pvVar4,puVar17,pvVar15);
   iVar16 = 0;
   puVar17 = puVar20;

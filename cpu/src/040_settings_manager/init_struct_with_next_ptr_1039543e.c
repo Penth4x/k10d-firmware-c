@@ -19,6 +19,6 @@ cls_10562cbc * init_struct_with_next_ptr_1039543e(cls_10562cbc *param_1)
 
 {
   param_1->field_0x4 = (uint32_t)&param_1->field_0x8;
-  initialize_object_with_three_calls_103954ba((void *)__frv_reg_unset(4));
+  initialize_object_with_three_calls_103954ba((void *)(uint32_t)param_1);
   return param_1;
 }

@@ -23,7 +23,7 @@ uint32_t dispatch_on_mode_param(cls_105d66dc *param_1,void *param_2,int param_3,
     uVar1 = dispatch_by_two_flags((int)param_1,param_2,param_4,param_5);
   }
   else if (param_3 == 1) {
-    uVar1 = dispatch_message_by_type_1051b110(__frv_reg_unset(4),(ushort *)__frv_reg_unset(5));
+    uVar1 = dispatch_message_by_type_1051b110((uint32_t)param_1,(ushort *)(uint32_t)param_2);
   }
   else {
     uVar1 = 1;

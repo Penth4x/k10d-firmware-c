@@ -25,7 +25,7 @@ void call_helper_if_flag_set_10533cde(uint32_t param_1,uint16_t param_2,uint16_t
   uint8_t auStack_18 [4];
   
   puVar2 = (uint32_t *)auStack_18;
-  iVar1 = validate_event_code(__frv_reg_unset(4), __frv_reg_unset(5));
+  iVar1 = validate_event_code((uint32_t)param_1, (uint32_t)param_2);
   if (iVar1 != 0) {
     *puVar2 = param_5;
     construct_object_with_vtable((uint16_t *)0x0,param_2,param_3,param_4,*puVar2);

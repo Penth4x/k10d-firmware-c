@@ -47,7 +47,7 @@ void evaluate_status_and_dispatch_result(void *param_1)
     if (iVar3 != 0) {
       if (iVar2 != 0) goto LAB_10432f66;
       if (*(int *)((int)param_1 + 0xa0) == 0) {
-        iVar2 = read_byte_at_offset_0x16(__frv_reg_unset(4));
+        iVar2 = read_byte_at_offset_0x16((uint32_t)param_1);
         if (iVar2 == 0) {
           iVar2 = call_helper_with_offset_5c_10435244(*(int *)((int)param_1 + 0x30));
           goto joined_r0x10432f10;

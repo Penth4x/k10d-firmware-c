@@ -22,7 +22,7 @@ uint32_t query_object_state_at_offset_28(void *param_1)
   uint32_t uVar2;
   char cVar3;
   
-  set_pointer_by_mode_byte(__frv_reg_unset(4));
+  set_pointer_by_mode_byte((uint32_t)param_1);
   iVar1 = dispatch_event_with_buffer_lock(param_1,6,(void *)((int)param_1 + 0x1c));
   if (iVar1 == 1) {
     cVar3 = read_byte_at_offset_four_1051e508((int)param_1 + 0x1c);

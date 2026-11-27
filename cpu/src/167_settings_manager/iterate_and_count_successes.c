@@ -24,7 +24,7 @@ uint32_t iterate_and_count_successes(int param_1,int param_2,int *param_3)
   int iVar4;
   
   uVar2 = 0;
-  iVar1 = read_bounded_array_element_10477358(__frv_reg_unset(4), __frv_reg_unset(5));
+  iVar1 = read_bounded_array_element_10477358((uint32_t)param_1, (uint32_t)param_2);
   iVar4 = 0;
   if (iVar1 != 0) {
     for (uVar3 = (uint)*(ushort *)(param_1 + 0x10); (int)uVar3 <= param_2;

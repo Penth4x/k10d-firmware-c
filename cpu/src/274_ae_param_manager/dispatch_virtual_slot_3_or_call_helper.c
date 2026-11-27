@@ -25,7 +25,7 @@ void dispatch_virtual_slot_3_or_call_helper(cls_105d6524 *param_1,int param_2)
               ((void *)((int)param_1->field_0x4 + (int)((vtbl_entry*)(iVar1))[4].adj));
   }
   else {
-    dispatch_event_to_object_10517672(__frv_reg_unset(4), __frv_reg_unset(5));
+    dispatch_event_to_object_10517672((uint32_t)param_1, (uint32_t)param_2);
   }
   return;
 }

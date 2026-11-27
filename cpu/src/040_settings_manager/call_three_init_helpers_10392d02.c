@@ -18,7 +18,7 @@
 void call_three_init_helpers_10392d02(void *param_1)
 
 {
-  call_helper_with_offset_and_two_globals(__frv_reg_unset(4));
+  call_helper_with_offset_and_two_globals((uint32_t)param_1);
   read_two_shorts_and_store_10392d36((int)param_1);
   empty_stub_10392dc8((int)param_1);
   return;

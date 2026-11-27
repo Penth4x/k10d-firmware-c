@@ -9,7 +9,7 @@
 uint32_t call_virtual_slot_with_arg_five(cls_105d7b7c *param_1)
 
 {
-  call_helper_on_field_2c_10521922(__frv_reg_unset(4));
+  call_helper_on_field_2c_10521922((uint32_t)param_1);
   (((vtbl_entry*)(param_1->field_0xc))[16].fn)
             ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0xc))[16].adj,5);
   return 1;

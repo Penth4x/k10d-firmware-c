@@ -40,7 +40,7 @@ void dispatch_mode_status_update(uint32_t param_x0)
   iVar1 = get_value_from_object();
   add_offset_to_pointer_104df392(iVar1);
   return_r4_passthrough_104d800e();
-  uVar2 = add_offset_to_pointer_104d6882(__frv_reg_unset(4));
+  uVar2 = add_offset_to_pointer_104d6882((uint32_t)param_x0);
   (*(code *)0x104d8ac4/*ROM*/)(uVar2,uVar3);
   return;
 }

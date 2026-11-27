@@ -57,7 +57,7 @@ void dispatch_mode_transition_handler_104cbb46(int param_1)
     uVar5 = 0;
     bVar2 = compare_bytes_at_offsets_1051e968(*(int *)(param_1 + 0x94));
     if (bVar2) {
-      iVar1 = read_byte_at_offset_10_1051e936(__frv_reg_unset(4));
+      iVar1 = read_byte_at_offset_10_1051e936((uint32_t)param_1);
       if (iVar1 == 0) {
         cVar3 = read_byte_at_offset_four_1051e91e(*(int *)(param_1 + 0x94));
         if (cVar3 != '\x01') {
@@ -82,7 +82,7 @@ void dispatch_mode_transition_handler_104cbb46(int param_1)
     uVar5 = 0;
     bVar2 = check_byte_range_condition_1051e97a(*(int *)(param_1 + 0x94));
     if (bVar2) {
-      iVar1 = read_byte_at_offset_10_1051e936(__frv_reg_unset(4));
+      iVar1 = read_byte_at_offset_10_1051e936((uint32_t)param_1);
       if (iVar1 == 0) {
         cVar3 = read_byte_at_offset_four_1051e91e(*(int *)(param_1 + 0x94));
         if (cVar3 != '\x01') {
@@ -107,7 +107,7 @@ void dispatch_mode_transition_handler_104cbb46(int param_1)
     uVar5 = 0;
     bVar2 = check_byte_at_offset_five_1051ea50(*(int *)(param_1 + 0x94));
     if (bVar2) {
-      iVar1 = read_byte_at_offset_10_1051e936(__frv_reg_unset(4));
+      iVar1 = read_byte_at_offset_10_1051e936((uint32_t)param_1);
       if (iVar1 == 0) {
         cVar3 = read_byte_at_offset_four_1051e91e(*(int *)(param_1 + 0x94));
         if (cVar3 != '\x01') {
@@ -132,7 +132,7 @@ void dispatch_mode_transition_handler_104cbb46(int param_1)
     uVar5 = 0;
     bVar2 = check_byte_increment_1051ea5e(*(int *)(param_1 + 0x94));
     if (bVar2) {
-      iVar1 = read_byte_at_offset_10_1051e936(__frv_reg_unset(4));
+      iVar1 = read_byte_at_offset_10_1051e936((uint32_t)param_1);
       if (iVar1 == 0) {
         cVar3 = read_byte_at_offset_four_1051e91e(*(int *)(param_1 + 0x94));
         if (cVar3 != '\x01') {

@@ -17,7 +17,7 @@
 void call_two_helpers_on_struct_10485110(int param_1,uint32_t param_2)
 
 {
-  copy_struct_fields_to_buffer_10429056(param_1 + 0x14, __frv_reg_unset(5));
+  copy_struct_fields_to_buffer_10429056(param_1 + 0x14, (uint32_t)param_2);
   copy_struct_fields_to_buffer_10429056(*(uint32_t *)(param_1 + 0xc),param_2);
   return;
 }

@@ -32,7 +32,7 @@ void init_object_with_eight_handles(cls_10559dac *param_1,uint32_t param_2,void 
   pvVar8 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3120007,(void *)0x1b8,(void *)0x198);
   puVar10 = &DAT_00000200;
   pvVar11 = (void *)0x198;
-  pvVar9 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3120008,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar9 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3120008,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar1,pvVar2,puVar10,pvVar11);
   iterate_and_remove_list_entry(pvVar1,pvVar3,puVar10,pvVar11);
   iterate_and_remove_list_entry(pvVar1,pvVar4,puVar10,pvVar11);

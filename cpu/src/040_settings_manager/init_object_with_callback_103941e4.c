@@ -20,7 +20,7 @@ cls_10562b1c * init_object_with_callback_103941e4(cls_10562b1c *param_1)
   int iVar1;
   
   param_1->field_0x48 = (uint32_t)(uintptr_t)&param_1->field_0x4;
-  release_object_with_pointer_field((void *)__frv_reg_unset(4));
+  release_object_with_pointer_field((void *)(uint32_t)param_1);
   param_1->field_0x4d = 0;
   iVar1 = poll_until_flag_clear_10394370((uint32_t)(uintptr_t)param_1);
   if (iVar1 != 0) {

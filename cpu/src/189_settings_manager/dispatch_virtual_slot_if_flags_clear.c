@@ -25,11 +25,11 @@ void dispatch_virtual_slot_if_flags_clear(cls_105b3d9c *param_1)
                   ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x20))[6].adj);
       }
       else {
-        fill_buffer_with_pattern((ushort *)__frv_reg_unset(4));
+        fill_buffer_with_pattern((ushort *)(uint32_t)param_1);
       }
     }
     else {
-      fill_buffer_with_pattern((ushort *)__frv_reg_unset(4));
+      fill_buffer_with_pattern((ushort *)(uint32_t)param_1);
     }
   }
   return;

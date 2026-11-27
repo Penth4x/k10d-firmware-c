@@ -37,7 +37,7 @@ void dispatch_status_to_handler_103972c4(uint32_t param_x0)
   iVar1 = get_value_from_object();
   add_offset_to_pointer_104df392(iVar1);
   return_r4_passthrough_104d800e();
-  add_offset_to_pointer_104d6882(__frv_reg_unset(4));
+  add_offset_to_pointer_104d6882((uint32_t)param_x0);
   uVar2 = (*(code *)0x104d8b22/*ROM*/)();
   (*(code *)0x104d5e8e/*ROM*/)(uVar2,uVar3);
   return;

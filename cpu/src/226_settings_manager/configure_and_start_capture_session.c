@@ -38,7 +38,7 @@ uint32_t configure_and_start_capture_session(int param_1,int param_2,uint32_t *p
       *(uint8_t *)(param_1 + 0x30) = 0;
       cVar3 = read_byte_at_offset_104c2842(param_3,param_4);
       if (cVar3 == '\0') {
-        invoke_virtual_slot_two_104bf5b6(__frv_reg_unset(4));
+        invoke_virtual_slot_two_104bf5b6((uint32_t)param_1);
       }
       else {
         store_value_at_two_offsets(param_1,*param_3);
@@ -94,7 +94,7 @@ uint32_t configure_and_start_capture_session(int param_1,int param_2,uint32_t *p
           init_object_with_two_helpers_104c0426(param_1);
           return uVar6;
         }
-        invoke_virtual_slot_two_104bf5b6(__frv_reg_unset(4));
+        invoke_virtual_slot_two_104bf5b6((uint32_t)param_1);
       }
     }
   }

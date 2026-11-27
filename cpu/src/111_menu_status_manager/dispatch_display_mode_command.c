@@ -61,7 +61,7 @@ uint32_t dispatch_display_mode_command(int param_1,uint32_t param_2,int param_3)
       deactivate_display_state(iVar6);
     }
     else {
-      display_output_enable(__frv_reg_unset(4));
+      display_output_enable((uint32_t)param_1);
     }
     break;
   case 5:
@@ -73,7 +73,7 @@ uint32_t dispatch_display_mode_command(int param_1,uint32_t param_2,int param_3)
       call_single_helper_with_param_104436e2((void *)(uVar7));
     }
     else {
-      call_single_helper_with_param_104436da(__frv_reg_unset(4));
+      call_single_helper_with_param_104436da((uint32_t)param_1);
     }
     break;
   case 8:

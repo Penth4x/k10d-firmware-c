@@ -146,7 +146,7 @@ void init_struct_with_subobject_pool(cls_10565040 *param_1,uint32_t param_2,void
   *(uint32_t *)&param_1->field_0xd8 = uVar5;
   pvVar9 = (void *)0x68;
   puVar10 = &DAT_00000078;
-  uVar5 = (uintptr_t)(app_obj_factory(pvVar1,(void *)0x2050013,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7)));
+  uVar5 = (uintptr_t)(app_obj_factory(pvVar1,(void *)0x2050013,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4));
   *(uint32_t *)&param_1->field_0xec = uVar5;
   iterate_and_remove_list_entry((char*)(param_1) ->field_0xbc,(char*)(param_1) ->field_0xc8,pvVar9,puVar10);
   iterate_and_remove_list_entry((char*)(param_1) ->field_0xbc,*(void **)&param_1->field_0xcc,pvVar9,puVar10);

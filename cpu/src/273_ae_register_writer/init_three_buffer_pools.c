@@ -151,9 +151,9 @@ uint32_t init_three_buffer_pools(int param_1,uint8_t *param_2,void *param_3)
   iVar10 = param_1 + 0x78;
   call_helper_on_five_slots(iVar10);
   iVar4 = param_1 + 0xf8;
-  call_helper_on_five_slots(__frv_reg_unset(4));
+  call_helper_on_five_slots((uint32_t)param_1);
   iVar8 = param_1 + 0x178;
-  call_helper_on_five_slots(__frv_reg_unset(4));
+  call_helper_on_five_slots((uint32_t)param_1);
   bVar1 = true;
   *(uint8_t *)(param_1 + 0x70) = *param_2;
   *(uint32_t *)(param_1 + 0xf4) = *(uint32_t *)(param_2 + 4);

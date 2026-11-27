@@ -109,7 +109,7 @@ void program_image_processor_engine(int param_1,uint32_t *param_2)
     _cfg_50.uStack_18 = *(uint8_t *)(param_2 + 0xe);
     _cfg_50.uStack_17 = *(uint8_t *)((int)param_2 + 0x39);
     _cfg_50.uStack_14 = param_2[0xf];
-    eventflag_clr_flg((uint32_t *)(param_1 + 0x2c), __frv_reg_unset(5));
+    eventflag_clr_flg((uint32_t *)(param_1 + 0x2c), (uint32_t)param_2);
     imgp_c_program_and_start_104fe976((int)(*(uint32_t *)(param_1 + 0x24)),(void *)(param_1 + 4),(int *)(&_cfg_50.uStack_50));
     eventflag_wai_flg((uint32_t *)(param_1 + 0x2c),1,&_cfg_50.uStack_10,_DAT_105a2af0/*ROM*/);
   }

@@ -71,12 +71,12 @@ LAB_104f4532:
   store_masked_value_to_dat_1044d96e(*(uint32_t *)(param_1 + 0xc),param_3[6]);
   write_masked_value_to_dat_40128210(*(uint32_t *)(param_1 + 0xc),*(uint16_t *)(param_3 + 7));
   if (*(char *)(param_3 + 3) == '\0') {
-    set_dat_40100b00_flag(*(uint32_t *)(param_1 + 0x10), __frv_reg_unset(5));
+    set_dat_40100b00_flag(*(uint32_t *)(param_1 + 0x10), (uint32_t)param_2);
     set_two_bit_field_in_dat_40128202(*(uint32_t *)(param_1 + 0xc),0);
     uVar5 = 0;
     goto LAB_104f45c2;
   }
-  set_dat_40100b00_flag(__frv_reg_unset(4), __frv_reg_unset(5));
+  set_dat_40100b00_flag((uint32_t)param_1, (uint32_t)param_2);
   set_two_bit_field_in_dat_40128202(*(uint32_t *)(param_1 + 0xc),param_3[2]);
   iVar2 = param_3[2];
   if (iVar2 == 2) {

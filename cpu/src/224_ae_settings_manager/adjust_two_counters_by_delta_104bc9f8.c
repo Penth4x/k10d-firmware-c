@@ -27,7 +27,7 @@ uint32_t adjust_two_counters_by_delta_104bc9f8(uint32_t *param_1)
   uintptr_t sp;
   uint8_t auStack_18 [16];
   
-  iVar1 = compute_exposure_time_from_meter(__frv_reg_unset(4));
+  iVar1 = compute_exposure_time_from_meter((uint32_t)param_1);
   bVar4 = compare_offset_to_helper_result(param_1);
   if (bVar4) {
     param_1[0xf] = param_1[0xf] + iVar1;

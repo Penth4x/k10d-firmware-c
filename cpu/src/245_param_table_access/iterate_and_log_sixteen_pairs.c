@@ -47,14 +47,14 @@ int iterate_and_log_sixteen_pairs(uint32_t param_1,char *param_2,void *param_3,v
       copy_string_to_buffer(param_2,auStack_148);
       uVar3 = read_array_element_104d63c8(param_1,iStack_170);
       find_entry_by_key_in_table(param_1,uVar3);
-      iVar4 = build_multi_entry_list(__frv_reg_unset(4),(char *)__frv_reg_unset(5),(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+      iVar4 = build_multi_entry_list((uint32_t)param_1,(char *)(uint32_t)param_2,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
       if (iVar4 != 0) {
         format_string_to_buffer_10545140(auStack_148,(char *)0x105ba090/*ROM*/,auStack_108,param_4);
         copy_string_to_buffer(param_2,auStack_148);
       }
       uVar3 = read_array_element_104d63c8(param_1,iStack_170);
       uVar3 = find_entry_in_fixed_table(param_1,uVar3);
-      iVar4 = build_multi_segment_string(uVar3,auStack_88,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+      iVar4 = build_multi_segment_string(uVar3,auStack_88,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
       if (iVar4 != 0) {
         format_string_to_buffer_10545140(auStack_148,(char *)0x105ba0a0/*ROM*/,auStack_88,param_4);
         copy_string_to_buffer(param_2,auStack_148);
@@ -72,14 +72,14 @@ int iterate_and_log_sixteen_pairs(uint32_t param_1,char *param_2,void *param_3,v
       copy_string_to_buffer(param_2,auStack_148);
       uVar3 = read_array_element_104d63c8(param_1,iVar5);
       find_entry_by_key_in_table(param_1,uVar3);
-      iVar4 = build_multi_entry_list(__frv_reg_unset(4),(char *)__frv_reg_unset(5),(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+      iVar4 = build_multi_entry_list((uint32_t)param_1,(char *)(uint32_t)param_2,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
       if (iVar4 != 0) {
         format_string_to_buffer_10545140(auStack_148,(char *)0x105ba090/*ROM*/,auStack_108,param_4);
         copy_string_to_buffer(param_2,auStack_148);
       }
       uVar3 = read_array_element_104d63c8(param_1,iVar5);
       uVar3 = find_entry_in_fixed_table(param_1,uVar3);
-      iVar4 = build_multi_segment_string(uVar3,auStack_88,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+      iVar4 = build_multi_segment_string(uVar3,auStack_88,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
       if (iVar4 != 0) {
         format_string_to_buffer_10545140(auStack_148,(char *)0x105ba0a0/*ROM*/,auStack_88,param_4);
         copy_string_to_buffer(param_2,auStack_148);

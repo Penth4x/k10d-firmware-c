@@ -40,7 +40,7 @@ cls_105576e0 * dispatch_state_event_by_id_1036544c(cls_105576e0 *param_1,int *pa
       goto LAB_1036549e;
     case 0x19:
       if (param_1->field_0x81 != '\0') {
-        init_object_with_flag_and_callbacks((void *)__frv_reg_unset(4));
+        init_object_with_flag_and_callbacks((void *)(uint32_t)param_1);
         return param_1;
       }
     }
@@ -55,10 +55,10 @@ cls_105576e0 * dispatch_state_event_by_id_1036544c(cls_105576e0 *param_1,int *pa
       default:
         return param_1;
       case 0xc:
-        init_object_substructure((void *)__frv_reg_unset(4));
+        init_object_substructure((void *)(uint32_t)param_1);
         return param_1;
       case 0x11:
-        pcVar2 = (cls_105576e0 *)process_state_0x3030009((void *)__frv_reg_unset(4));
+        pcVar2 = (cls_105576e0 *)process_state_0x3030009((void *)(uint32_t)param_1);
         return pcVar2;
       case 0x18:
         uVar3 = get_or_create_singleton_object_1036c796();

@@ -30,10 +30,10 @@ cls_10562f68 * init_object_and_dispatch_state_10396b9e(cls_10562f68 *param_1)
   char cStack_9;
   
   param_1->field_0x4 = (uintptr_t)(&param_1->field_0x8);
-  call_helper_with_second_field_10396d1e((void *)__frv_reg_unset(4));
+  call_helper_with_second_field_10396d1e((void *)(uint32_t)param_1);
   iVar1 = get_value_from_object();
   add_offset_to_pointer_104df392(iVar1);
-  clear_flag_and_call_two_helpers_104d8346(__frv_reg_unset(4));
+  clear_flag_and_call_two_helpers_104d8346((uint32_t)param_1);
   heap_alloc_one_byte_1045926e((int)auStack_d);
   uVar2 = (*(code *)0x10459356/*ROM*/)(auStack_d);
   format_string_to_buffer_10545140(auStack_1a,(char *)0x10562fe0/*ROM*/,(void *)((int)uVar2 >> 8),(void *)(uVar2 & 0xff));
@@ -55,13 +55,13 @@ cls_10562f68 * init_object_and_dispatch_state_10396b9e(cls_10562f68 *param_1)
   }
   else {
     get_or_init_global_object_103964f8();
-    set_subfield_flag_pair(__frv_reg_unset(4));
+    set_subfield_flag_pair((uint32_t)param_1);
     get_or_init_singleton_1039201c();
-    set_object_field_c_to_one_then_zero(__frv_reg_unset(4));
+    set_object_field_c_to_one_then_zero((uint32_t)param_1);
     get_or_create_singleton_object_10395bd6();
-    reset_four_subobjects(__frv_reg_unset(4));
+    reset_four_subobjects((uint32_t)param_1);
     get_or_init_singleton_10392e96();
-    call_virtual_slot_two_10393058(__frv_reg_unset(4));
+    call_virtual_slot_two_10393058((uint32_t)param_1);
     (((vtbl_entry*)(param_1->field_0x0))[6].fn)
               ((int)&param_1->field_0x0 + (int)((vtbl_entry*)(param_1->field_0x0))[6].adj);
     param_1 = (cls_10562f68 *)get_or_init_sram_object_103973c4();

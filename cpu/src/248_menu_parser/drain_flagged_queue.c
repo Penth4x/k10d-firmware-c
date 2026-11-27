@@ -22,7 +22,7 @@ void drain_flagged_queue(cls_105bb0ec *param_1)
 {
   char cVar1;
   
-  update_dual_object_state_flags(__frv_reg_unset(4));
+  update_dual_object_state_flags((uint32_t)param_1);
   cVar1 = param_1->field_0x94;
   while (cVar1 != '\0') {
     poll_event_queue_for_mask((int)param_1,0,0);

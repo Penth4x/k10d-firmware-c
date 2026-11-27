@@ -18,7 +18,7 @@
 void call_three_unnamed_helpers_103923fa(void *param_1,int param_2)
 
 {
-  forward_two_ram_values_10392414(__frv_reg_unset(4));
+  forward_two_ram_values_10392414((uint32_t)param_1);
   read_two_values_and_store_1039244a((int)param_1,param_2);
   update_object_state_flags_1039252a((int)param_1);
   return;

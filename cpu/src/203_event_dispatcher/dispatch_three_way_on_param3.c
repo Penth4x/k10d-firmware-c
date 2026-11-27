@@ -20,13 +20,13 @@ uint32_t dispatch_three_way_on_param3(uint32_t param_1,void *param_2,int param_3
   uint32_t uVar1;
   
   if (param_3 == 0) {
-    uVar1 = dispatch_command_by_code_104996aa(__frv_reg_unset(4),(ushort *)__frv_reg_unset(5));
+    uVar1 = dispatch_command_by_code_104996aa((uint32_t)param_1,(ushort *)(uint32_t)param_2);
   }
   else if (param_3 == 1) {
-    uVar1 = dispatch_command_by_type_104997fa(__frv_reg_unset(4),(short *)__frv_reg_unset(5));
+    uVar1 = dispatch_command_by_type_104997fa((uint32_t)param_1,(short *)(uint32_t)param_2);
   }
   else if (param_3 == 2) {
-    uVar1 = dispatch_command_by_type_10499896(__frv_reg_unset(4),(short *)__frv_reg_unset(5));
+    uVar1 = dispatch_command_by_type_10499896((uint32_t)param_1,(short *)(uint32_t)param_2);
   }
   else {
     uVar1 = 1;

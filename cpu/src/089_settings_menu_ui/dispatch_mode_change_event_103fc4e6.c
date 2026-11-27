@@ -55,7 +55,7 @@ cls_10597dcc * dispatch_mode_change_event_103fc4e6(cls_10597dcc *param_1,int par
         uVar4 = (uint)(byte)(param_1->field_0x23 - 1);
       }
       param_1->field_0x22 = *(uint8_t *)(uVar4 + 0x10597dc5/*ROM*/);
-      set_exposure_mode_state(param_1, __frv_reg_unset(5));
+      set_exposure_mode_state(param_1, (uint32_t)param_2);
       dispatch_state_based_on_setting(param_1);
       iVar8 = menu_item_register((int)param_1->field_0x0);
       uVar2 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + (uint)(byte)param_1->field_0x22 * 4);
@@ -115,7 +115,7 @@ cls_10597dcc * dispatch_mode_change_event_103fc4e6(cls_10597dcc *param_1,int par
           uVar4 = (uint)(byte)(param_1->field_0x23 + 1);
         }
         param_1->field_0x22 = *(uint8_t *)(uVar4 + 0x10597dbf/*ROM*/);
-        set_exposure_mode_state(param_1, __frv_reg_unset(5));
+        set_exposure_mode_state(param_1, (uint32_t)param_2);
         dispatch_state_based_on_setting(param_1);
         iVar8 = menu_item_register((int)param_1->field_0x0);
         uVar2 = *(uint16_t *)(&DAT_8001cca0/*SDRAM*/ + (uint)(byte)param_1->field_0x22 * 4);

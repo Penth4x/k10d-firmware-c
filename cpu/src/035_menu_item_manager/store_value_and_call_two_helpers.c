@@ -19,7 +19,7 @@ void store_value_and_call_two_helpers(cls_10558830 *param_1,uint32_t param_2)
 
 {
   param_1->field_0x30 = param_2;
-  register_menu_item_with_split_1037a8fa(__frv_reg_unset(4));
+  register_menu_item_with_split_1037a8fa((uint32_t)param_1);
   register_six_menu_items_1037aaf6((uint32_t)param_1);
   return;
 }

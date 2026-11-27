@@ -16,7 +16,7 @@ uint32_t adjust_exposure_counters(uint32_t *param_1)
   uintptr_t sp;
   uint32_t auStack_18 [4];
   
-  iVar1 = compute_exposure_time_from_meter(__frv_reg_unset(4));
+  iVar1 = compute_exposure_time_from_meter((uint32_t)param_1);
   iVar2 = check_index_less_than_count(param_1);
   if (iVar2 != 0) {
     param_1[0xe] = param_1[0xe] + iVar1;

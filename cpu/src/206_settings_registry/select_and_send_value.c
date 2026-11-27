@@ -20,12 +20,12 @@ void select_and_send_value(uint32_t param_1,int param_2)
   int iVar1;
   uint16_t uVar2;
   
-  iVar1 = check_mode_status_flags(__frv_reg_unset(4));
+  iVar1 = check_mode_status_flags((uint32_t)param_1);
   if (iVar1 == 0) {
     uVar2 = map_iso_code_to_index(param_1);
   }
   else {
-    uVar2 = map_status_code_to_enum(__frv_reg_unset(4));
+    uVar2 = map_status_code_to_enum((uint32_t)param_1);
   }
   write_word_to_dynamic_array(param_2,0,uVar2);
   return;

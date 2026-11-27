@@ -28,7 +28,7 @@ uint32_t process_event_flags(void *param_1)
       uVar1 = 1;
     }
     else {
-      invoke_virtual_slot_two_104acd48(__frv_reg_unset(4));
+      invoke_virtual_slot_two_104acd48((uint32_t)param_1);
       uVar1 = 1;
     }
   }

@@ -27,7 +27,7 @@ uint32_t insert_element_at_index(int *param_1,uint32_t param_2,uint param_3,int 
       uVar1 = 1;
     }
     else {
-      write_little_endian_bytes(__frv_reg_unset(4), __frv_reg_unset(5), __frv_reg_unset(6));
+      write_little_endian_bytes((uint32_t)param_1, (uint32_t)param_2, (uint32_t)param_3);
       uVar1 = 1;
     }
   }

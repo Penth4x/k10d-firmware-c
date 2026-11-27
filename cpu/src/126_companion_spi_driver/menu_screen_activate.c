@@ -35,7 +35,7 @@ int menu_screen_activate(cls_105a1a84 *param_1,int param_2,int param_3,uint para
         iVar1 = dispatch_mode_based_on_flag(param_1,param_2,param_4);
       }
       else if (param_1->field_0x14 == param_2 + param_3) {
-        iVar1 = dispatch_two_phase_write((void *)__frv_reg_unset(4),__frv_reg_unset(5),__frv_reg_unset(6),__frv_reg_unset(7));
+        iVar1 = dispatch_two_phase_write((void *)(uint32_t)param_1,(uint32_t)param_2,(uint32_t)param_3,(uint32_t)param_4);
       }
       else {
         iVar1 = dispatch_mode_state_update_104494dc(param_1,param_2,param_3,param_4);

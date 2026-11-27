@@ -22,7 +22,7 @@ void initialize_struct_with_seven_params(uint16_t *param_1,uint32_t param_2,int 
   uint16_t *puVar1;
   
   puVar1 = param_1 + 10;
-  store_second_word(puVar1, __frv_reg_unset(5));
+  store_second_word(puVar1, (uint32_t)param_2);
   set_clamped_byte_field(puVar1,param_3);
   clamp_and_store_byte_at_offset3(puVar1,param_4,0);
   store_capped_byte_at_offset(puVar1,(uint)param_5);

@@ -19,6 +19,6 @@ bool test_flag_against_byte_mask(cls_105a0828 *param_1)
 {
   byte bVar1;
   
-  bVar1 = read_byte_at_offset_0x114(__frv_reg_unset(4));
+  bVar1 = read_byte_at_offset_0x114((uint32_t)param_1);
   return (bVar1 & param_1->field_0x126) != 0;
 }

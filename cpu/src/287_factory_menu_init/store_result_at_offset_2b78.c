@@ -21,7 +21,7 @@ uint32_t store_result_at_offset_2b78(int param_1)
   int iVar1;
   
   get_shared_sram_buffer();
-  iVar1 = iterate_object_array_for_nonzero_result(__frv_reg_unset(4));
+  iVar1 = iterate_object_array_for_nonzero_result((uint32_t)param_1);
   *(int *)(param_1 + 0x2b78) = iVar1;
   if (iVar1 == 0) {
     *(uint32_t *)(param_1 + 0x2b78) = 0;

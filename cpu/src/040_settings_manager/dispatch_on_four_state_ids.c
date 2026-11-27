@@ -19,7 +19,7 @@ void dispatch_on_four_state_ids(int param_1)
 {
   int iVar1;
   
-  map_status_code_to_event(__frv_reg_unset(4));
+  map_status_code_to_event((uint32_t)param_1);
   iVar1 = *(int *)(param_1 + 0xf4);
   if ((((iVar1 == 0x5060003) || (iVar1 == 0x5060013)) || (iVar1 == 0x5060022)) ||
      (iVar1 == 0x5060031)) {

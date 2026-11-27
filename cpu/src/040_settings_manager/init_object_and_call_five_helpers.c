@@ -10,10 +10,10 @@ cls_10563098 * init_object_and_call_five_helpers(cls_10563098 *param_1)
 
 {
   param_1->field_0x4 = (uint32_t)&param_1->field_0x8;
-  init_object_with_four_calls_10397562((void *)__frv_reg_unset(4));
+  init_object_with_four_calls_10397562((void *)(uint32_t)param_1);
   get_or_init_global_object_103964f8();
-  set_subfield_flag_pair(__frv_reg_unset(4));
+  set_subfield_flag_pair((uint32_t)param_1);
   get_or_init_singleton_1039201c();
-  set_object_field_c_to_one_then_zero(__frv_reg_unset(4));
+  set_object_field_c_to_one_then_zero((uint32_t)param_1);
   return param_1;
 }

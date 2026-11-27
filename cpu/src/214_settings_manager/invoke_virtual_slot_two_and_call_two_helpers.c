@@ -28,6 +28,6 @@ void invoke_virtual_slot_two_and_call_two_helpers(int *param_1)
     (((vtbl_entry*)(*(int *)(iVar1 + 0x10)))[1].fn)(*(short *)(*(int *)(iVar1 + 0x10) + 8) + iVar1,3);
   }
   get_or_init_sram_buffer_104af136();
-  release_three_object_handles((int *)__frv_reg_unset(4));
+  release_three_object_handles((int *)(uint32_t)param_1);
   return;
 }

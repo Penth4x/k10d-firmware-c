@@ -60,7 +60,7 @@ void build_linked_object_list_104248fe(cls_1059de3c *param_1,uint32_t param_2,vo
   invoke_virtual_then_call_helper_10494188((int)pvVar12,iVar10);
   pvVar14 = (void *)0x0;
   pvVar15 = (void *)0x0;
-  pvVar13 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x10e0012,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar13 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x10e0012,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar13,pvVar1,pvVar14,pvVar15);
   iterate_and_remove_list_entry(pvVar13,pvVar2,pvVar14,pvVar15);
   iterate_and_remove_list_entry(pvVar13,pvVar3,pvVar14,pvVar15);

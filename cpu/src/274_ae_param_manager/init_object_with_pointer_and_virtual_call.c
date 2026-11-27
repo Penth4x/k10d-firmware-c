@@ -15,7 +15,7 @@ uint32_t init_object_with_pointer_and_virtual_call(cls_105d6574 *param_1,int *pa
   param_1->field_0x4 = (uint32_t)(param_2);
   param_1->field_0xc = (uint32_t)((uint32_t *)*param_2);
   param_1->field_0x10 = *(uint32_t *)(*param_2 + 0x10);
-  iVar1 = invoke_virtual_method_on_object_10517f8c(__frv_reg_unset(4));
+  iVar1 = invoke_virtual_method_on_object_10517f8c((uint32_t)param_1);
   if (iVar1 == 0) {
     uVar2 = 0;
   }

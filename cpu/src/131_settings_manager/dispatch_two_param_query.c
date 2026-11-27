@@ -22,10 +22,10 @@ uint32_t dispatch_two_param_query(uint32_t param_1,int param_2)
   
   uVar1 = 0;
   if (param_2 == 2) {
-    uVar1 = call_virtual_slot_two_1045d50a((int *)__frv_reg_unset(4));
+    uVar1 = call_virtual_slot_two_1045d50a((int *)(uint32_t)param_1);
   }
   else if (param_2 == 3) {
-    uVar1 = invoke_virtual_slot_two_1045d546((int *)__frv_reg_unset(4));
+    uVar1 = invoke_virtual_slot_two_1045d546((int *)(uint32_t)param_1);
   }
   return uVar1;
 }

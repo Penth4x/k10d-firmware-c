@@ -102,7 +102,7 @@ char process_sensor_readout_data(int param_1,uint32_t param_2,int param_3,uint16
     *(uint32_t *)(iVar2 + 0x44) = _cfg_2c.uStack_18;
     *(uint32_t *)(iVar2 + 0x48) = _cfg_2c.uStack_14;
     *(uint32_t *)(iVar2 + 0x4c) = _cfg_2c.uStack_10;
-    copy_struct_fields_to_buffer_1052a012(__frv_reg_unset(4));
+    copy_struct_fields_to_buffer_1052a012((uint32_t)param_1);
     if ((*(int *)(param_1 + 0x84) != 0) &&
        (iVar5 = *(int *)(param_1 + 0x84) + 0x880,
        *(char *)(*(int *)(param_1 + 0x84) + 0x8c0) != '\0')) {

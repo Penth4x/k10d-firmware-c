@@ -34,7 +34,7 @@ uint32_t iterate_and_process_param2_entries(uint32_t param_1,void *param_2,uint3
   if (iVar1 != 0) {
     adjust_pointer_by_flag(param_3,1);
     iVar5 = 0;
-    iVar1 = add_offset_to_pointer_104d65b6(__frv_reg_unset(4));
+    iVar1 = add_offset_to_pointer_104d65b6((uint32_t)param_1);
     fill_byte_array_at_offset(iVar1,0);
     uStack_c = 0;
     while (bVar4 = get_upper_half_of_result(param_2,&uStack_c), bVar4) {

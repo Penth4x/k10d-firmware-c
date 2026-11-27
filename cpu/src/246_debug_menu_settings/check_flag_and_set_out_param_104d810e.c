@@ -20,7 +20,7 @@ int check_flag_and_set_out_param_104d810e(int param_1,uint8_t *param_2)
   int iVar1;
   
   *param_2 = 0;
-  iVar1 = initialize_subsystem_and_run_checks(__frv_reg_unset(4));
+  iVar1 = initialize_subsystem_and_run_checks((uint32_t)param_1);
   if ((iVar1 == 0) && (*(char *)(param_1 + 0x2b5c) == '\0')) {
     *param_2 = 1;
   }

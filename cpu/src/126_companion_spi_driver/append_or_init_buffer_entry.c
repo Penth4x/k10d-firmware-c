@@ -23,7 +23,7 @@ int append_or_init_buffer_entry(int param_1,uint32_t *param_2)
   int iVar2;
   
   if (param_2[1] == 0) {
-    uVar1 = read_offset_four_10438328(__frv_reg_unset(4));
+    uVar1 = read_offset_four_10438328((uint32_t)param_1);
     *param_2 = uVar1;
     iVar2 = copy_structured_record_array(param_1,(int)(param_2 + 1),0);
     iVar2 = iVar2 + 1;

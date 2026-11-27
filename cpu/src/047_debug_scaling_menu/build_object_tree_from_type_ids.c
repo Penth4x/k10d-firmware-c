@@ -314,7 +314,7 @@ void build_object_tree_from_type_ids(cls_10565770 *param_1,uint32_t param_2,void
   pvVar143 = (void *)app_obj_factory(pvVar1,(void *)0x209008d,(void *)0x50,(void *)0x198);
   pvVar144 = (void *)0x158;
   pvVar145 = (void *)0x198;
-  pvVar1 = (void *)app_obj_factory(pvVar1,(void *)0x209008e,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar1 = (void *)app_obj_factory(pvVar1,(void *)0x209008e,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar4,pvVar18,pvVar144,pvVar145);
   iterate_and_remove_list_entry(pvVar4,pvVar19,pvVar144,pvVar145);
   iterate_and_remove_list_entry(pvVar4,pvVar20,pvVar144,pvVar145);

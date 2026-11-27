@@ -147,7 +147,7 @@ void allocate_and_register_object_array(cls_10559b1c *param_1,uint32_t param_2,v
   pvVar31 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x311001c,(void *)0x80,(void *)0x198);
   pvVar33 = (void *)0x50;
   pvVar34 = (void *)0xf0;
-  pvVar32 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x311001d,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar32 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x311001d,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar2,pvVar3,pvVar33,pvVar34);
   iterate_and_remove_list_entry(pvVar2,pvVar6,pvVar33,pvVar34);
   iterate_and_remove_list_entry(pvVar2,pvVar7,pvVar33,pvVar34);

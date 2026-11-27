@@ -27,14 +27,14 @@ uint32_t process_34_entry_sequence(uint32_t param_1)
   
   uVar1 = return_r4_passthrough_104d800e();
   adjust_pointer_by_flag(uVar1,1);
-  init_six_struct_members((void *)__frv_reg_unset(4));
+  init_six_struct_members((void *)(uint32_t)param_1);
   iVar2 = attempt_operation_with_fallbacks_104d827e(param_1,3);
   if (((iVar2 != 0) && (iVar2 = attempt_operation_with_fallbacks_104d827e(param_1,4), iVar2 != 0)) &&
      (iVar2 = attempt_operation_with_fallbacks_104d827e(param_1,1), iVar2 != 0)) {
     uVar1 = return_r4_passthrough_104d800e();
     adjust_pointer_by_flag(uVar1,1);
     iVar2 = 0;
-    uVar1 = add_offset_to_pointer_104d65b6(__frv_reg_unset(4));
+    uVar1 = add_offset_to_pointer_104d65b6((uint32_t)param_1);
     do {
       iVar3 = read_byte_at_offset_0x88(uVar1,iVar2);
       if ((iVar3 != 0) && (iVar3 = attempt_operation_with_fallbacks_104d82e0(param_1,2,iVar2), iVar3 == 0)) goto LAB_104d8266;

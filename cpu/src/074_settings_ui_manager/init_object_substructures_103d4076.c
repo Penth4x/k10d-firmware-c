@@ -65,14 +65,14 @@ void init_object_substructures_103d4076(cls_1059630c *param_1,uint32_t param_2,v
   iVar12 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x4),(void *)0x1960013,(void *)0x248,(void *)0x60));
   puVar17 = &DAT_00000200;
   puVar18 = &DAT_00000060;
-  iVar16 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x4),(void *)0x1960014,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7)));
+  iVar16 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x4),(void *)0x1960014,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4));
   iterate_and_remove_list_entry(pvVar13,pvVar14,puVar17,puVar18);
   iterate_and_remove_list_entry(pvVar13,pvVar15,puVar17,puVar18);
   invoke_virtual_then_call_helper_10494188((int)pvVar13,iVar12);
   invoke_virtual_then_call_helper_10494188((int)pvVar13,iVar16);
   pvVar15 = (void *)0x0;
   pvVar19 = (void *)0x0;
-  pvVar14 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1960015,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar14 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1960015,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar14,pvVar1,pvVar15,pvVar19);
   iterate_and_remove_list_entry(pvVar14,pvVar2,pvVar15,pvVar19);
   iterate_and_remove_list_entry(pvVar14,pvVar8,pvVar15,pvVar19);

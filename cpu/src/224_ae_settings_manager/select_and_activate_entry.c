@@ -56,7 +56,7 @@ int select_and_activate_entry(int param_1,int param_2)
     }
   }
   if (iStack_18 == param_1 + 0x1408) {
-    initialize_large_struct((uint32_t *)__frv_reg_unset(4));
+    initialize_large_struct((uint32_t *)(uint32_t)param_1);
   }
   return iStack_18;
 }

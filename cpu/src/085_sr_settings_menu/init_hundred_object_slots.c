@@ -641,7 +641,7 @@ void init_hundred_object_slots(cls_10597b5c *param_1,uint32_t param_2,void *para
             ((int)*(short *)(*(int *)((int)pvVar162 + 0xc) + 8) + (int)pvVar162,0);
   pvVar164 = (void *)0x0;
   pvVar165 = (void *)0x0;
-  pvVar163 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x19100a9,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar163 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x19100a9,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar163,pvVar1,pvVar164,pvVar165);
   iterate_and_remove_list_entry(pvVar163,pvVar2,pvVar164,pvVar165);
   iterate_and_remove_list_entry(pvVar163,pvVar3,pvVar164,pvVar165);

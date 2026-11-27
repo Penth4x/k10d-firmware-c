@@ -16,7 +16,7 @@ uint dispatch_on_mode_field_104bba12(void *param_1)
   iVar2 = *(int *)((int)param_1 + 0x2c);
   uVar1 = 0;
   if (iVar2 == 0) {
-    uVar1 = check_index_less_than_count((uint32_t *)__frv_reg_unset(4));
+    uVar1 = check_index_less_than_count((uint32_t *)(uint32_t)param_1);
   }
   else if (iVar2 == 1) {
     bVar3 = compare_offset_to_helper_result(param_1);

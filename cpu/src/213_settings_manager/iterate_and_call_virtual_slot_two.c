@@ -23,7 +23,7 @@ uint32_t iterate_and_call_virtual_slot_two(cls_105b7994 *param_1)
       if (*(int *)(param_1->field_0x40 + uVar3 * 4) == 0) {
         return 0;
       }
-      initialize_object_and_call_virtual_slot_2((uint32_t *)__frv_reg_unset(4));
+      initialize_object_and_call_virtual_slot_2((uint32_t *)(uint32_t)param_1);
       piVar1 = *(int **)(param_1->field_0x44 + uVar3 * 4);
       if ((piVar1 != (int *)0x0) &&
          (iVar2 = (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1),

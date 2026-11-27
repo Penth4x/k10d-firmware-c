@@ -826,3 +826,42 @@ task upstream that itself is blocked). This is an un-posted-event chain, not a w
 ## where delta≈61 (0x3d) and node handler=0x10459448 -> the rp chain up to the companion app call that passes
 ## the delta. Then diff that delay value/computation cand-vs-stock (expect a dropped/garbled arg or a wrong
 ## constant -> 61 vs 393). That app function is the FIX site. Oracle: set_flag_fde first-fire -> ~35.7M.
+
+## ======================================================================================================
+## ★★★★★★ MENU ROOT RESOLVED (d329) — it was a B-3c (__frv_reg_unset) bug, as Andrew predicted.
+## The companion-ready timeout node is ARMED by check_heap_alloc_success (0x10459400, unit 127), which the
+## poll-setup (initialize_object_with_optional_param, called by poll_context_flag_until_status_set with the
+## poll timeout) invokes. Its body: __trap_store_value_in_kernel_table_slot((short)*param_1, __frv_reg_unset(5)).
+## arg2 = the DELAY stored into the kernel timeout-queue slot — but the decompiler dropped param_2 to
+## __frv_reg_unset(5)=0. VERIFIED vs stock asm: at the trap call r5 is the unchanged incoming param_2
+## (measured r5=0x3e8=1000 at entry; only r4 is overwritten). So the candidate armed the companion-ready
+## node with delay 0 -> it fired immediately (tick ~61) instead of after the real timeout -> premature
+## *(ctx+0x28) -> poll_context_flag_until_status_set broke early -> first companion SPI xfer before the
+## companion was ready -> Cmd:80 -> B-6 -> reset loop. FIX: __frv_reg_unset(5) -> param_2 (committed).
+## Oracle: set_flag_fde first-fire should move from ic 5.58M toward ~35.7M; dsp dialog should reach Cmd:04.
+##
+## CLASS SWEEP (Andrew: "eliminate the whole b-3 class"): check_heap_alloc_success was a thin-forwarder-MISS
+## because it has logic+a trap call (harvest only hit pure forwarders). scripts/detect_b3c.py + fix_b3c.py
+## sweep ALL __frv_reg_unset(N) where the signature declares a param in ABI slot N-4 (r4=1st..r7=4th):
+## 491 files / 1479 uses fixed mechanically (ABI-sound: the decompiler emits __frv_reg_unset only for an
+## INCOMING register; incoming rN == param N-4). 113 MIXED files remain (some reg maps to an UNDECLARED slot
+## -> need a signature change + caller updates; the harder subclass). Building the 491-file sweep now.
+
+## ======================================================================================================
+## ★★★★★★★ MENU-ROOT FIX CONFIRMED BY ORACLE (d329): the check_heap_alloc_success B-3c fix (__frv_reg_unset(5)
+## -> param_2) MOVED the companion-ready setter set_flag_fde first-fire from ic 5,576,426 (5.58M, premature
+## = tick 61) to ic 38,607,139 (38.6M, in stock's ~35.7M range = tick ~393). So the companion-ready timeout
+## node now arms with the real poll timeout (param_2=1000) instead of 0, and fires at the correct time
+## instead of immediately. THE PREMATURE-COMPANION ROOT IS FIXED (pure C, no asm, per Andrew's principle).
+## Running the full dsp dialog (WALL 240s) to confirm the companion handshake now completes (Cmd:04/05) at
+## the delayed transfer. If a residual Cmd:80 remains it is a SECOND, downstream issue (now exposed because
+## the first is fixed) — chase it with the same spi_read_byte/dsp oracle. Pending: no-regression BADPC sweep
+## on the 491-file B-3c build, then COMMIT (all C: the clean B-3c class sweep + the menu fix).
+
+## LAYER 1 FIXED, LAYER 2 FOUND (d329): the B-3c check_heap_alloc_success fix moved the FIRST companion SPI
+## xfer (spi_read_byte) from ic 5.6M to 38.6M (stock 35.7M range) — PREMATURE TIMING FIXED. But r5 (command
+## byte) is still 0 vs stock 0x04 (POST). So LAYER 2: the companion command byte is 0 not 0x04 -> still Cmd:80.
+## The command reaches spi_read_byte via cpucom_spi_xfer; the byte is @(caller stack) per earlier trace. NEXT:
+## trace spi_read_byte's caller chain / cpucom_spi_xfer command arg on the FIXED candidate (now at 38.6M) and
+## find where 0x04 is dropped to 0 (likely ANOTHER B-3c/dropped-arg, or a wrong POST-vs-message-loop path).
+## Oracle: spi_read_byte first-fire r5 -> 0x04.

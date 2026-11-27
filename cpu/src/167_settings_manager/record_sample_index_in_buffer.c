@@ -23,7 +23,7 @@ void record_sample_index_in_buffer(int *param_1,uint32_t param_2,uint32_t param_
 {
   int iVar1;
   
-  iVar1 = subtract_100_from_param(__frv_reg_unset(4), __frv_reg_unset(5));
+  iVar1 = subtract_100_from_param((uint32_t)param_1, (uint32_t)param_2);
   if ((-1 < iVar1) && (iVar1 < 900)) {
     *(uint32_t *)(*param_1 + iVar1 * 4) = param_3;
     param_1[6] = param_1[6] + 1;

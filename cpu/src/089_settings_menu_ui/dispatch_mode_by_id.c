@@ -17,7 +17,7 @@ int dispatch_mode_by_id(cls_10597c80 *param_1,int param_2)
   
   param_1->field_0x14 = param_2;
   if ((param_2 == 0xc) || (pcVar2 = param_1, param_2 == 0x11)) {
-    register_six_menu_items_103f6aee((int *)__frv_reg_unset(4));
+    register_six_menu_items_103f6aee((int *)(uint32_t)param_1);
     pcVar2 = (cls_10597c80 *)get_or_init_singleton_object_103c8200();
   }
   if ((param_1->field_0x14 == 0xd) || (param_1->field_0x14 == 0xe)) {

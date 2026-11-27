@@ -13,7 +13,7 @@ ushort clamp_counter_to_100_999(int param_1)
   short sVar2;
   ushort uVar3;
   
-  uVar1 = add_offset_to_struct_field(__frv_reg_unset(4));
+  uVar1 = add_offset_to_struct_field((uint32_t)param_1);
   sVar2 = return_max_of_two_104750f6(uVar1,*(uint16_t *)(param_1 + 0x68));
   uVar3 = sVar2 + 1;
   if (uVar3 < 100) {

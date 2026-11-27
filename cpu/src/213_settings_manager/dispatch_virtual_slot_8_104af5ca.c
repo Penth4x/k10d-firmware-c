@@ -21,7 +21,7 @@ int dispatch_virtual_slot_8_104af5ca(int *param_1,uint32_t param_2,uint32_t para
   int iVar1;
   int iVar2;
   
-  iVar1 = dispatch_state_based_on_flag_104af61a((int *)__frv_reg_unset(4),__frv_reg_unset(5),__frv_reg_unset(6));
+  iVar1 = dispatch_state_based_on_flag_104af61a((int *)(uint32_t)param_1,(uint32_t)param_2,(uint32_t)param_3);
   if (iVar1 == 0) {
     call_subroutine_on_field_16_104ea70a((void *)param_1[1]);
     iVar2 = *(int *)(*param_1 + 4);

@@ -9,7 +9,7 @@
 void invoke_virtual_slot_8_after_init(int *param_1)
 
 {
-  toggle_flag_at_offset_0x2ac(__frv_reg_unset(4));
+  toggle_flag_at_offset_0x2ac((uint32_t)param_1);
   (((vtbl_entry*)(*param_1))[8].fn)((int)((vtbl_entry*)(*param_1))[8].adj + (int)param_1);
   return;
 }

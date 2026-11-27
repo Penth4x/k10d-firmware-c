@@ -22,7 +22,7 @@ int copy_byte_array_with_optional_transform(ushort *param_1,byte *param_2,void *
     do {
       uVar1 = (ushort)*param_2;
       if (param_4 == 0) {
-        uVar1 = swap_byte_order(__frv_reg_unset(4));
+        uVar1 = swap_byte_order((uint32_t)param_1);
       }
       *param_1 = uVar1;
       param_2 = param_2 + 1;

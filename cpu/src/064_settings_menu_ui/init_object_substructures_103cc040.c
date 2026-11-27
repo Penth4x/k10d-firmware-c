@@ -82,7 +82,7 @@ void init_object_substructures_103cc040(cls_105959b0 *param_1,uint32_t param_2,v
   invoke_virtual_then_call_helper_10494188((int)pvVar20,iVar17);
   pvVar22 = (void *)0x0;
   pvVar23 = (void *)0x0;
-  pvVar21 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x106001c,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar21 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x106001c,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar21,pvVar1,pvVar22,pvVar23);
   iterate_and_remove_list_entry(pvVar21,pvVar2,pvVar22,pvVar23);
   iterate_and_remove_list_entry(pvVar21,pvVar3,pvVar22,pvVar23);

@@ -18,7 +18,7 @@
 uint32_t initialize_subsystem_with_param(uint32_t param_1)
 
 {
-  query_object_property_flag(__frv_reg_unset(4));
+  query_object_property_flag((uint32_t)param_1);
   check_and_update_struct_flags(param_1);
   check_and_set_object_flags(param_1);
   return 1;

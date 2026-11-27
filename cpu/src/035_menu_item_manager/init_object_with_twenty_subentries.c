@@ -70,7 +70,7 @@ void init_object_with_twenty_subentries(cls_10558fd4 *param_1,uint32_t param_2,v
   pvVar20 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3090013,(void *)8,(void *)(0));
   pvVar22 = (void *)0x8;
   pvVar23 = (void *)0x0;
-  pvVar21 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3090015,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar21 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3090015,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar1,pvVar2,pvVar22,pvVar23);
   iterate_and_remove_list_entry(pvVar1,pvVar3,pvVar22,pvVar23);
   iterate_and_remove_list_entry(pvVar1,pvVar4,pvVar22,pvVar23);

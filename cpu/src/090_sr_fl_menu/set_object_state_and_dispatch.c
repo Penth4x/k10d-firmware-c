@@ -22,7 +22,7 @@ void set_object_state_and_dispatch(cls_105983cc *param_1,int param_2)
   
   param_1->field_0x18 = param_2;
   if (param_2 == 0x184000e) {
-    update_two_values_with_digit_count((int *)__frv_reg_unset(4));
+    update_two_values_with_digit_count((int *)(uint32_t)param_1);
   }
   else {
     if (param_2 == 0x1840018) {

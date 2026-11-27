@@ -18,7 +18,7 @@
 void call_helper_with_object_offset(cls_105b6938 *param_1,uint32_t param_2,uint32_t param_3)
 
 {
-  ensure_pointer_field_initialized(__frv_reg_unset(4));
+  ensure_pointer_field_initialized((uint32_t)param_1);
   allocate_and_init_event_struct_1049a9fa(param_1->field_0x4,param_2,param_3);
   return;
 }

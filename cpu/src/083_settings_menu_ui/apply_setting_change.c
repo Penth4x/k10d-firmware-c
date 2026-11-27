@@ -28,7 +28,7 @@ void apply_setting_change(cls_10597214 *param_1,int param_2)
       (uVar1 = uRam1059720e, param_2 == 0x1850016)) || (uVar1 = uRam1059720f, param_2 == 0x1850018))
   {
     param_1->field_0x20 = uVar1;
-    render_two_objects_by_setting_103e703e((int *)__frv_reg_unset(4));
+    render_two_objects_by_setting_103e703e((int *)(uint32_t)param_1);
   }
   else {
     if (param_2 == 0x1850020) {

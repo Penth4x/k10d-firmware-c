@@ -27,7 +27,7 @@ bool initialize_sensor_readout_state(int param_1,uint16_t *param_2)
   uint8_t auStack_18 [8];
   
   puVar3 = auStack_18;
-  puVar2 = (uint16_t *)find_matching_entry_in_table(__frv_reg_unset(4), __frv_reg_unset(5));
+  puVar2 = (uint16_t *)find_matching_entry_in_table((uint32_t)param_1, (uint32_t)param_2);
   if (puVar2 != (uint16_t *)0x0) {
     *(uint8_t *)(param_1 + 0xea48) = 1;
     if (puVar2[1] == 0) {

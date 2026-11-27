@@ -19,7 +19,7 @@ void set_flag_and_call_on_zero(int param_1,int param_2)
 {
   *(char *)(param_1 + 0xd) = (char)param_2;
   if (param_2 == 0) {
-    clear_struct_field_at_offset_4(__frv_reg_unset(4));
+    clear_struct_field_at_offset_4((uint32_t)param_1);
   }
   return;
 }

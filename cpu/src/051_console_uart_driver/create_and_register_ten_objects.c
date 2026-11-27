@@ -44,7 +44,7 @@ void create_and_register_ten_objects(cls_1056b154 *param_1,uint32_t param_2,void
   pvVar9 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3180008,(void *)0x20,(void *)0x198);
   pvVar12 = (void *)0x198;
   puVar11 = &DAT_00000080;
-  pvVar10 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3180009,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar10 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3180009,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar1,pvVar2,puVar11,pvVar12);
   iterate_and_remove_list_entry(pvVar1,pvVar3,puVar11,pvVar12);
   iterate_and_remove_list_entry(pvVar1,pvVar4,puVar11,pvVar12);

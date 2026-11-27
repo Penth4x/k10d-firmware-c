@@ -21,29 +21,29 @@ uint dispatch_on_two_byte_code(uint param_1,int param_2,uint16_t *param_3)
   
   switch(*param_3) {
   case 0x100:
-    param_1 = dispatch_by_type_field_1051ddee(param_1 + 0x18,(uint *)__frv_reg_unset(5),(void *)__frv_reg_unset(6));
+    param_1 = dispatch_by_type_field_1051ddee(param_1 + 0x18,(uint *)(uint32_t)param_2,(void *)(uint32_t)param_3);
     break;
   case 0x101:
-    param_1 = read_value_by_type_1051de34(param_1 + 0x18,__frv_reg_unset(5),(void *)__frv_reg_unset(6));
+    param_1 = read_value_by_type_1051de34(param_1 + 0x18,(uint32_t)param_2,(void *)(uint32_t)param_3);
     break;
   case 0x102:
-    param_1 = check_uniform_array_values(param_1 + 0x18, __frv_reg_unset(5), __frv_reg_unset(6));
+    param_1 = check_uniform_array_values(param_1 + 0x18, (uint32_t)param_2, (uint32_t)param_3);
     break;
   case 0x103:
-    param_1 = query_status_code_and_map(param_1 + 0x18, __frv_reg_unset(5), __frv_reg_unset(6));
+    param_1 = query_status_code_and_map(param_1 + 0x18, (uint32_t)param_2, (uint32_t)param_3);
     break;
   case 0x106:
-    param_1 = check_status_and_set_result(param_1 + 0x18, __frv_reg_unset(5), __frv_reg_unset(6));
+    param_1 = check_status_and_set_result(param_1 + 0x18, (uint32_t)param_2, (uint32_t)param_3);
     break;
   case 0x111:
     bVar1 = compute_offset_by_type(param_1 + 0x18,param_2,param_3,0);
     param_1 = (uint)bVar1;
     break;
   case 0x117:
-    param_1 = accumulate_array_values_by_type(param_1 + 0x18,__frv_reg_unset(5),(void *)__frv_reg_unset(6));
+    param_1 = accumulate_array_values_by_type(param_1 + 0x18,(uint32_t)param_2,(void *)(uint32_t)param_3);
     break;
   case 0x11c:
-    param_1 = check_status_and_set_flag(param_1 + 0x18, __frv_reg_unset(5), __frv_reg_unset(6));
+    param_1 = check_status_and_set_flag(param_1 + 0x18, (uint32_t)param_2, (uint32_t)param_3);
   default:
   }
   return param_1;

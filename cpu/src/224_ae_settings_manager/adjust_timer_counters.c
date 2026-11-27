@@ -15,7 +15,7 @@ uint32_t adjust_timer_counters(void *param_1)
   uintptr_t sp;
   uint32_t auStack_18 [4];
   
-  iVar1 = compute_exposure_time_from_meter(__frv_reg_unset(4));
+  iVar1 = compute_exposure_time_from_meter((uint32_t)param_1);
   bVar3 = check_field_at_offset_0x40_positive((int)param_1);
   if (bVar3) {
     *(int *)((int)param_1 + 0x38) = *(int *)((int)param_1 + 0x38) - iVar1;

@@ -64,7 +64,7 @@ bool apply_param_state_to_object(int param_1,uint32_t param_2,uint32_t *param_3)
     *(uint32_t *)(param_1 + 0x4d8) = param_2;
     *(uint32_t *)(param_1 + 0x4b8) = *(uint32_t *)(param_1 + 0x8c4);
     *(uint32_t *)(param_1 + 0x4bc) = *(uint32_t *)(param_1 + 0x8c8);
-    iVar4 = invoke_virtual_callback_on_object_104bfe9e(param_1, __frv_reg_unset(5));
+    iVar4 = invoke_virtual_callback_on_object_104bfe9e(param_1, (uint32_t)param_2);
     bVar6 = false;
     if (iVar4 != 0) {
       if (bVar1) {

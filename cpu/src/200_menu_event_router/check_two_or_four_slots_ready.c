@@ -25,14 +25,14 @@ uint32_t check_two_or_four_slots_ready(int param_1,int param_2)
   
   uVar3 = 0;
   if ((param_2 == 0) || (param_2 == 1)) {
-    if ((*(int *)(param_1 + param_2 * 4) != 0) && (iVar2 = wait_for_event_and_dispatch(__frv_reg_unset(4)), iVar2 == 0)) {
+    if ((*(int *)(param_1 + param_2 * 4) != 0) && (iVar2 = wait_for_event_and_dispatch((uint32_t)param_1), iVar2 == 0)) {
       uVar3 = 1;
     }
   }
   else if (param_2 == 2) {
     iVar2 = 0;
     do {
-      if ((*(int *)(param_1 + iVar2) != 0) && (iVar1 = wait_for_event_and_dispatch(__frv_reg_unset(4)), iVar1 == 0)) {
+      if ((*(int *)(param_1 + iVar2) != 0) && (iVar1 = wait_for_event_and_dispatch((uint32_t)param_1), iVar1 == 0)) {
         return 1;
       }
       iVar2 = iVar2 + 4;

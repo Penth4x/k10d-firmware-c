@@ -22,7 +22,7 @@ void read_until_sentinel(int *param_1,uint8_t *param_2)
   int iVar1;
   uint8_t uVar2;
   
-  iVar1 = compare_first_two_ints((int *)__frv_reg_unset(4));
+  iVar1 = compare_first_two_ints((int *)(uint32_t)param_1);
   while (iVar1 == 0) {
     uVar2 = advance_pointer_on_success(param_1);
     *param_2 = uVar2;

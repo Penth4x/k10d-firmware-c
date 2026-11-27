@@ -354,7 +354,7 @@ void init_object_subsystem_103fa646(cls_10597dcc *param_1,uint32_t param_2,void 
   iVar15 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x4),(void *)0x18e0059,(void *)0x248,(void *)0x138));
   pvVar91 = (void *)0x138;
   pvVar90 = (void *)0x20;
-  iVar16 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x4),(void *)0x18e005a,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7)));
+  iVar16 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x4),(void *)0x18e005a,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4));
   iterate_and_remove_list_entry(pvVar18,pvVar19,pvVar90,pvVar91);
   iterate_and_remove_list_entry(pvVar18,pvVar20,pvVar90,pvVar91);
   iterate_and_remove_list_entry(pvVar18,pvVar21,pvVar90,pvVar91);
@@ -457,7 +457,7 @@ void init_object_subsystem_103fa646(cls_10597dcc *param_1,uint32_t param_2,void 
   iVar15 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x4),(void *)0x18e0068,(void *)0x1a0,(void *)0x168));
   pvVar29 = (void *)0x158;
   pvVar30 = (void *)0x168;
-  iVar16 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x4),(void *)0x18e0069,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7)));
+  iVar16 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x4),(void *)0x18e0069,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4));
   iterate_and_remove_list_entry(pvVar26,pvVar27,pvVar29,pvVar30);
   iterate_and_remove_list_entry(pvVar26,pvVar28,pvVar29,pvVar30);
   invoke_virtual_then_call_helper_10494188((int)pvVar26,iVar15);
@@ -483,7 +483,7 @@ void init_object_subsystem_103fa646(cls_10597dcc *param_1,uint32_t param_2,void 
             ((int)*(short *)(*(int *)((int)pvVar31 + 0xc) + 8) + (int)pvVar31,0);
   pvVar33 = (void *)0x0;
   pvVar34 = (void *)0x0;
-  pvVar32 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18e006f,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar32 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x18e006f,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar32,pvVar1,pvVar33,pvVar34);
   iterate_and_remove_list_entry(pvVar32,pvVar2,pvVar33,pvVar34);
   iterate_and_remove_list_entry(pvVar32,pvVar3,pvVar33,pvVar34);

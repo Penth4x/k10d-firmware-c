@@ -61,7 +61,7 @@ void init_event_queue_with_18_slots(cls_10599780 *param_1,uint32_t param_2,void 
   pvVar18 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3190011,(void *)0x38,(void *)0x120);
   puVar20 = &DAT_00000080;
   puVar21 = &DAT_00000090;
-  pvVar19 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3190012,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar19 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3190012,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar1,pvVar2,puVar20,puVar21);
   iterate_and_remove_list_entry(pvVar1,pvVar3,puVar20,puVar21);
   iterate_and_remove_list_entry(pvVar1,pvVar4,puVar20,puVar21);

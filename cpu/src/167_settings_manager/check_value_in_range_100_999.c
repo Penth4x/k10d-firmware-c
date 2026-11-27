@@ -37,9 +37,9 @@ uint32_t check_value_in_range_100_999(int param_1)
   puVar3 = auStack_40;
   init_small_struct_or_alloc(auStack_20);
   get_or_init_sram_object_10483206();
-  auStack_20[0] = check_setting_0x9c_is_one(__frv_reg_unset(4));
+  auStack_20[0] = check_setting_0x9c_is_one((uint32_t)param_1);
   get_or_init_sram_object_10483206();
-  uStack_18 = check_setting_0x3d_is_zero(__frv_reg_unset(4));
+  uStack_18 = check_setting_0x3d_is_zero((uint32_t)param_1);
   puVar3[3] = 0;
   puVar3[7] = 0;
   puVar3[0xb] = 0;

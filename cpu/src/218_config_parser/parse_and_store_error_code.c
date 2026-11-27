@@ -30,7 +30,7 @@ uint32_t parse_and_store_error_code(int param_1,void *param_2,int *param_3)
   byte *pbVar8;
   int iVar9;
   
-  iVar6 = read_byte_at_offset_0x18_104b5ff2(__frv_reg_unset(4));
+  iVar6 = read_byte_at_offset_0x18_104b5ff2((uint32_t)param_1);
   if (iVar6 == 0) {
     (*(code *)0x104b69b4/*ROM*/)(param_1,*(uint32_t *)(param_1 + 0x1e0),param_2);
     if ((*(int *)(param_1 + 0x14) == *(int *)(param_1 + 0x1e8)) &&

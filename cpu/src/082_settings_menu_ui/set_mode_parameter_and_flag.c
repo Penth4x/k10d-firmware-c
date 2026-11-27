@@ -70,6 +70,6 @@ void set_mode_parameter_and_flag(cls_10596dc4 *param_1,int param_2)
     }
   }
   param_1->field_0x24 = uVar3;
-  send_two_object_messages((int *)__frv_reg_unset(4));
+  send_two_object_messages((int *)(uint32_t)param_1);
   return;
 }

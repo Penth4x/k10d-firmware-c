@@ -22,7 +22,7 @@ uint32_t dispatch_on_offset_0x30(cls_105b7670 *param_1)
   
   if (param_1->field_0x30 == 0) {
     uVar1 = 0;
-    zero_struct_fields_20_to_30_104adfa2(__frv_reg_unset(4));
+    zero_struct_fields_20_to_30_104adfa2((uint32_t)param_1);
     invoke_virtual_slot_two_104ae294(param_1);
   }
   else {

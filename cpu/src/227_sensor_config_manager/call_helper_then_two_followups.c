@@ -22,7 +22,7 @@ int call_helper_then_two_followups(uint32_t param_1,uint32_t param_2,uint32_t pa
 {
   int iVar1;
   
-  write_two_words_to_struct_104c1ff4(__frv_reg_unset(4), __frv_reg_unset(5), __frv_reg_unset(6));
+  write_two_words_to_struct_104c1ff4((uint32_t)param_1, (uint32_t)param_2, (uint32_t)param_3);
   iVar1 = copy_object_state_to_buffer(param_1,param_4);
   if (iVar1 != 0) {
     copy_three_bytes_to_list_entries(param_1,param_4);

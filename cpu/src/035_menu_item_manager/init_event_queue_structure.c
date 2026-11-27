@@ -66,7 +66,7 @@ void init_event_queue_structure(cls_1055a164 *param_1,uint32_t param_2,void *par
   iVar18 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)0x3150010,(void *)0x50,(void *)0x150));
   pvVar21 = (void *)0x150;
   pvVar20 = (void *)0x50;
-  iVar19 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)0x3150012,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7)));
+  iVar19 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)0x3150012,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4));
   write_field_at_offset_0x48(pvVar13,uVar12);
   write_field_at_offset_0x48(pvVar17,uVar16);
   invoke_virtual_then_call_helper_10494188((int)pvVar13,iVar14);

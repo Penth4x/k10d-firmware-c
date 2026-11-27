@@ -46,10 +46,10 @@ void init_six_buffer_channels(cls_10559678 *param_1,uint32_t param_2,void *param
   call_helper_and_set_flag_104b7726(pvVar6,0x240,1);
   call_helper_and_set_flag_104b7744(pvVar6,0x90,1);
   puVar9 = &DAT_00000078;
-  pvVar7 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30f0006,(void *)0x20,(void *)__frv_reg_unset(7));
+  pvVar7 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30f0006,(void *)0x20,(void *)(uint32_t)param_4);
   call_helper_and_set_flag_104b7726(pvVar7,0x240,1);
   pvVar8 = (void *)0x1;
-  call_helper_and_set_flag_104b7744(pvVar7,0x90, __frv_reg_unset(6));
+  call_helper_and_set_flag_104b7744(pvVar7,0x90, (uint32_t)param_3);
   iterate_and_remove_list_entry(pvVar1,pvVar2,pvVar8,puVar9);
   iterate_and_remove_list_entry(pvVar1,pvVar3,pvVar8,puVar9);
   iterate_and_remove_list_entry(pvVar1,pvVar4,pvVar8,puVar9);

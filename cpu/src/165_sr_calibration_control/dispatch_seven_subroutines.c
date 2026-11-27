@@ -18,7 +18,7 @@
 void dispatch_seven_subroutines(int param_1)
 
 {
-  release_five_object_slots(__frv_reg_unset(4));
+  release_five_object_slots((uint32_t)param_1);
   release_three_sub_objects(*(uint32_t *)(param_1 + 0x1c));
   release_object_at_offset_0x24_104717e6(param_1);
   call_two_ops_on_subobject_1047181c(param_1);

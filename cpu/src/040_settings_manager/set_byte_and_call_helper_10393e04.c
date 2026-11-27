@@ -10,6 +10,6 @@ void set_byte_and_call_helper_10393e04(int param_1,uint8_t param_2)
 
 {
   *(uint8_t *)(param_1 + 0x70) = param_2;
-  call_helper_on_two_offsets_10399fbe((void *)(param_1 + 8), (uint32_t)(__frv_reg_unset(5)));
+  call_helper_on_two_offsets_10399fbe((void *)(param_1 + 8), (uint32_t)((uint32_t)param_2));
   return;
 }

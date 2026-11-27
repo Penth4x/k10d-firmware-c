@@ -17,7 +17,7 @@
 void call_helper_with_object_field_104a7912(cls_105b6938 *param_1,uint32_t param_2,uint32_t param_3)
 
 {
-  init_object_with_lazy_alloc_104a7984(__frv_reg_unset(4));
+  init_object_with_lazy_alloc_104a7984((uint32_t)param_1);
   allocate_and_init_event_struct_104ce86a(param_1->field_0xc,param_2,param_3);
   return;
 }

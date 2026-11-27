@@ -19,7 +19,7 @@ uint32_t dispatch_on_type_0x103(cls_105b5c6c *param_1,ushort *param_2,uint *para
   uint32_t uVar1;
   
   if (*param_2 == 0x103) {
-    set_mode_parameter_value(__frv_reg_unset(4), __frv_reg_unset(5), __frv_reg_unset(6));
+    set_mode_parameter_value((uint32_t)param_1, (uint32_t)param_2, (uint32_t)param_3);
     uVar1 = 1;
   }
   else {

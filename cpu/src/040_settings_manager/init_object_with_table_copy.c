@@ -29,7 +29,7 @@ cls_10562e10 * init_object_with_table_copy(cls_10562e10 *param_1)
   uint8_t auStack_14 [8];
   
   puVar3 = (uint32_t *)auStack_14;
-  process_four_param_blocks(__frv_reg_unset(4));
+  process_four_param_blocks((uint32_t)param_1);
   param_1->field_0xc4 = 0;
   init_two_sram_objects();
   iVar1 = 8;

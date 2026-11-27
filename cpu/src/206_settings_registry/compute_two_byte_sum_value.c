@@ -25,7 +25,7 @@ void compute_two_byte_sum_value(int param_1,uint32_t *param_2)
   int iVar5;
   
   uVar4 = *(uint32_t *)(param_1 + 0x2c);
-  uVar1 = query_object_state_flag_104a28e4(__frv_reg_unset(4));
+  uVar1 = query_object_state_flag_104a28e4((uint32_t)param_1);
   iVar5 = **(int **)(param_1 + 0x14);
   cVar2 = (((vtbl_entry*)(iVar5))[2].fn)
                     ((int)*(int **)(param_1 + 0x14) + (int)((vtbl_entry*)(iVar5))[2].adj,3);

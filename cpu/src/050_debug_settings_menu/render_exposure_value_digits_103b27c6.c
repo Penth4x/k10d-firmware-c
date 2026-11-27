@@ -48,7 +48,7 @@ void render_exposure_value_digits_103b27c6(int param_1,uint32_t param_2,int para
       iVar7 = iVar7 % 10;
       if (param_5 == '\0') {
         if (iVar3 == 0) {
-          map_mode_index_to_constant_103b2b3a(__frv_reg_unset(4), __frv_reg_unset(5), __frv_reg_unset(6));
+          map_mode_index_to_constant_103b2b3a((uint32_t)param_1, (uint32_t)param_2, (uint32_t)param_3);
         }
         else {
           map_mode_index_to_constant_103b2be2(param_1,iVar7,iVar5);
@@ -56,7 +56,7 @@ void render_exposure_value_digits_103b27c6(int param_1,uint32_t param_2,int para
       }
       else if (param_5 == '\x01') {
         if (iVar3 == 0) {
-          map_mode_index_to_constant_103b2d38(__frv_reg_unset(4), __frv_reg_unset(5), __frv_reg_unset(6));
+          map_mode_index_to_constant_103b2d38((uint32_t)param_1, (uint32_t)param_2, (uint32_t)param_3);
         }
         else {
           lookup_table_address_by_index(param_1,iVar7,iVar5);
@@ -64,7 +64,7 @@ void render_exposure_value_digits_103b27c6(int param_1,uint32_t param_2,int para
       }
       else if (param_5 == '\x02') {
         if (iVar3 == 0) {
-          select_static_data_by_index(__frv_reg_unset(4), __frv_reg_unset(5), __frv_reg_unset(6));
+          select_static_data_by_index((uint32_t)param_1, (uint32_t)param_2, (uint32_t)param_3);
         }
         else {
           select_static_address_by_index(param_1,iVar7,iVar5);
@@ -85,7 +85,7 @@ void render_exposure_value_digits_103b27c6(int param_1,uint32_t param_2,int para
       iVar7 = iVar7 % 10;
       if (param_5 == '\0') {
         if (iVar3 == 0) {
-          map_mode_index_to_constant_103b2b3a(__frv_reg_unset(4), __frv_reg_unset(5), __frv_reg_unset(6));
+          map_mode_index_to_constant_103b2b3a((uint32_t)param_1, (uint32_t)param_2, (uint32_t)param_3);
         }
         else {
           map_mode_index_to_constant_103b2be2(param_1,iVar7,iVar6);
@@ -93,7 +93,7 @@ void render_exposure_value_digits_103b27c6(int param_1,uint32_t param_2,int para
       }
       else if (param_5 == '\x01') {
         if (iVar3 == 0) {
-          map_mode_index_to_constant_103b2d38(__frv_reg_unset(4), __frv_reg_unset(5), __frv_reg_unset(6));
+          map_mode_index_to_constant_103b2d38((uint32_t)param_1, (uint32_t)param_2, (uint32_t)param_3);
         }
         else {
           lookup_table_address_by_index(param_1,iVar7,iVar6);
@@ -101,7 +101,7 @@ void render_exposure_value_digits_103b27c6(int param_1,uint32_t param_2,int para
       }
       else if (param_5 == '\x02') {
         if (iVar3 == 0) {
-          select_static_data_by_index(__frv_reg_unset(4), __frv_reg_unset(5), __frv_reg_unset(6));
+          select_static_data_by_index((uint32_t)param_1, (uint32_t)param_2, (uint32_t)param_3);
         }
         else {
           select_static_address_by_index(param_1,iVar7,iVar6);

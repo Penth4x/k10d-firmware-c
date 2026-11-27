@@ -46,7 +46,7 @@ int dispatch_state_transition_10448ddc(void *param_1,int param_2,uint param_3,ui
   }
   else {
     *(uint32_t *)((int)param_1 + 0x11c) = *(uint32_t *)((int)param_1 + 0x118);
-    iVar1 = process_sdhc_error_interrupt_104490c2((void *)__frv_reg_unset(4),__frv_reg_unset(5),__frv_reg_unset(6),__frv_reg_unset(7));
+    iVar1 = process_sdhc_error_interrupt_104490c2((void *)(uint32_t)param_1,(uint32_t)param_2,(uint32_t)param_3,(uint32_t)param_4);
   }
   return iVar1;
 }

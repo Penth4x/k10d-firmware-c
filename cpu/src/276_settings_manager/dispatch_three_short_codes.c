@@ -14,7 +14,7 @@ uint32_t dispatch_three_short_codes(cls_105d6c88 *param_1,short *param_2)
   uint32_t uVar3;
   
   uVar3 = 1;
-  iVar2 = dispatch_event_by_code_104a1a96(__frv_reg_unset(4),(ushort *)__frv_reg_unset(5));
+  iVar2 = dispatch_event_by_code_104a1a96((uint32_t)param_1,(ushort *)(uint32_t)param_2);
   if (iVar2 == 0) {
     sVar1 = *param_2;
     if (sVar1 == -0x6eff) {

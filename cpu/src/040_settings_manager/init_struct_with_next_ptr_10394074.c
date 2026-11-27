@@ -19,6 +19,6 @@ cls_10562aa0 * init_struct_with_next_ptr_10394074(cls_10562aa0 *param_1)
 
 {
   *(uint32_t *)&param_1->field_0x4 = (uint32_t)&param_1->field_0x8;
-  call_helper_with_second_arg_103940ae((void *)__frv_reg_unset(4));
+  call_helper_with_second_arg_103940ae((void *)(uint32_t)param_1);
   return param_1;
 }

@@ -25,12 +25,12 @@ uint32_t dispatch_event_by_code_1051a08a(cls_105d6608 *param_1,ushort *param_2,u
   
   uVar1 = *param_2;
   if (uVar1 == 0xc61f) {
-    dispatch_two_value_update(__frv_reg_unset(4), __frv_reg_unset(5));
+    dispatch_two_value_update((uint32_t)param_1, (uint32_t)param_2);
     return 1;
   }
   if (uVar1 < 0xc620) {
     if (uVar1 == 0xc614) {
-      forward_object_field_to_helper(__frv_reg_unset(4), __frv_reg_unset(5));
+      forward_object_field_to_helper((uint32_t)param_1, (uint32_t)param_2);
       return 1;
     }
     if (uVar1 < 0xc615) {
@@ -40,7 +40,7 @@ uint32_t dispatch_event_by_code_1051a08a(cls_105d6608 *param_1,ushort *param_2,u
       }
       if (uVar1 < 0x828f) {
         if (uVar1 == 0x103) {
-          map_mode_to_flag_and_send(__frv_reg_unset(4), __frv_reg_unset(5), __frv_reg_unset(6));
+          map_mode_to_flag_and_send((uint32_t)param_1, (uint32_t)param_2, (uint32_t)param_3);
           return 1;
         }
         if (uVar1 == 0x828d) {
@@ -50,41 +50,41 @@ uint32_t dispatch_event_by_code_1051a08a(cls_105d6608 *param_1,ushort *param_2,u
       }
       else {
         if (uVar1 == 0xc612) {
-          write_four_bytes_to_fixed_address(__frv_reg_unset(4), __frv_reg_unset(5));
+          write_four_bytes_to_fixed_address((uint32_t)param_1, (uint32_t)param_2);
           return 1;
         }
         if (uVar1 == 0xc613) {
-          write_four_bytes_to_rodata(__frv_reg_unset(4), __frv_reg_unset(5));
+          write_four_bytes_to_rodata((uint32_t)param_1, (uint32_t)param_2);
           return 1;
         }
       }
     }
     else {
       if (uVar1 == 0xc619) {
-        call_helper_twice_with_indices_1051a398(__frv_reg_unset(4), __frv_reg_unset(5));
+        call_helper_twice_with_indices_1051a398((uint32_t)param_1, (uint32_t)param_2);
         return 1;
       }
       if (uVar1 < 0xc61a) {
         if (uVar1 == 0xc616) {
-          call_helper_three_times_with_indices(__frv_reg_unset(4), __frv_reg_unset(5));
+          call_helper_three_times_with_indices((uint32_t)param_1, (uint32_t)param_2);
           return 1;
         }
         if (uVar1 == 0xc617) {
-          call_helper_with_two_args_1051a384(__frv_reg_unset(4), __frv_reg_unset(5));
+          call_helper_with_two_args_1051a384((uint32_t)param_1, (uint32_t)param_2);
           return 1;
         }
       }
       else {
         if (uVar1 == 0xc61a) {
-          write_four_values_by_mode(__frv_reg_unset(4), __frv_reg_unset(5));
+          write_four_values_by_mode((uint32_t)param_1, (uint32_t)param_2);
           return 1;
         }
         if (uVar1 == 0xc61d) {
-          call_helper_with_shifted_mask(__frv_reg_unset(4), __frv_reg_unset(5));
+          call_helper_with_shifted_mask((uint32_t)param_1, (uint32_t)param_2);
           return 1;
         }
         if (uVar1 == 0xc61e) {
-          iterate_over_structured_entries(__frv_reg_unset(4), __frv_reg_unset(5));
+          iterate_over_structured_entries((uint32_t)param_1, (uint32_t)param_2);
           return 1;
         }
       }
@@ -92,65 +92,65 @@ uint32_t dispatch_event_by_code_1051a08a(cls_105d6608 *param_1,ushort *param_2,u
   }
   else {
     if (uVar1 == 0xc62b) {
-      enable_two_channels_1051a7dc(__frv_reg_unset(4), __frv_reg_unset(5));
+      enable_two_channels_1051a7dc((uint32_t)param_1, (uint32_t)param_2);
       return 1;
     }
     if (uVar1 < 0xc62c) {
       if (uVar1 == 0xc622) {
-        iterate_and_call_with_deref_values_1051a6ba(__frv_reg_unset(4), __frv_reg_unset(5));
+        iterate_and_call_with_deref_values_1051a6ba((uint32_t)param_1, (uint32_t)param_2);
         return 1;
       }
       if (uVar1 < 0xc623) {
         if (uVar1 == 0xc620) {
-          dispatch_param_update_by_type(__frv_reg_unset(4), __frv_reg_unset(5));
+          dispatch_param_update_by_type((uint32_t)param_1, (uint32_t)param_2);
           return 1;
         }
         if (uVar1 == 0xc621) {
-          iterate_and_call_with_deref_values_1051a67c(__frv_reg_unset(4), __frv_reg_unset(5));
+          iterate_and_call_with_deref_values_1051a67c((uint32_t)param_1, (uint32_t)param_2);
           return 1;
         }
       }
       else {
         if (uVar1 == 0xc627) {
-          iterate_over_double_length_array(__frv_reg_unset(4), __frv_reg_unset(5));
+          iterate_over_double_length_array((uint32_t)param_1, (uint32_t)param_2);
           return 1;
         }
         if (uVar1 == 0xc628) {
-          write_six_values_to_target(__frv_reg_unset(4), __frv_reg_unset(5));
+          write_six_values_to_target((uint32_t)param_1, (uint32_t)param_2);
           return 1;
         }
         if (uVar1 == 0xc62a) {
-          write_two_values_to_object(__frv_reg_unset(4), __frv_reg_unset(5));
+          write_two_values_to_object((uint32_t)param_1, (uint32_t)param_2);
           return 1;
         }
       }
     }
     else {
       if (uVar1 == 0xc62e) {
-        enable_two_channels_1051a840(__frv_reg_unset(4), __frv_reg_unset(5));
+        enable_two_channels_1051a840((uint32_t)param_1, (uint32_t)param_2);
         return 1;
       }
       if (uVar1 < 0xc62f) {
         if (uVar1 == 0xc62c) {
-          call_helper_twice_with_indices_1051a804(__frv_reg_unset(4), __frv_reg_unset(5));
+          call_helper_twice_with_indices_1051a804((uint32_t)param_1, (uint32_t)param_2);
           return 1;
         }
         if (uVar1 == 0xc62d) {
-          call_helper_with_two_args_1051a82c(__frv_reg_unset(4), __frv_reg_unset(5));
+          call_helper_with_two_args_1051a82c((uint32_t)param_1, (uint32_t)param_2);
           return 1;
         }
       }
       else {
         if (uVar1 == 0xc632) {
-          enable_two_channels_1051a868(__frv_reg_unset(4), __frv_reg_unset(5));
+          enable_two_channels_1051a868((uint32_t)param_1, (uint32_t)param_2);
           return 1;
         }
         if (uVar1 == 0xc65a) {
-          call_helper_with_fixed_args_1051a654(__frv_reg_unset(4), __frv_reg_unset(5));
+          call_helper_with_fixed_args_1051a654((uint32_t)param_1, (uint32_t)param_2);
           return 1;
         }
         if (uVar1 == 0xc65b) {
-          call_helper_with_fixed_args_1051a668(__frv_reg_unset(4), __frv_reg_unset(5));
+          call_helper_with_fixed_args_1051a668((uint32_t)param_1, (uint32_t)param_2);
           return 1;
         }
       }

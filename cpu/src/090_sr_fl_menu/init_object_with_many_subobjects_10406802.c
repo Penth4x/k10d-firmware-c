@@ -124,7 +124,7 @@ void init_object_with_many_subobjects_10406802(cls_105992d4 *param_1,uint32_t pa
   pvVar51 = (void *)app_obj_factory(pvVar1,(void *)0x2070031,(void *)0x158,(void *)0x198);
   pvVar52 = (void *)0x20;
   pvVar53 = (void *)0x198;
-  pvVar1 = (void *)app_obj_factory(pvVar1,(void *)0x2070032,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar1 = (void *)app_obj_factory(pvVar1,(void *)0x2070032,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar3,pvVar11,pvVar52,pvVar53);
   iterate_and_remove_list_entry(pvVar3,pvVar12,pvVar52,pvVar53);
   iterate_and_remove_list_entry(pvVar3,pvVar13,pvVar52,pvVar53);

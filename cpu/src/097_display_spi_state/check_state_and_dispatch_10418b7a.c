@@ -35,11 +35,11 @@ uint32_t check_state_and_dispatch_10418b7a(int param_1,int param_2)
   else if ((((*(char *)(param_1 + 0x92) == '\0') && (*(char *)(param_1 + 0x93) == '\0')) &&
            (*(int *)(param_1 + 0x88) == 0)) && (*(int *)(param_1 + 0x8c) == 0)) {
     if (param_2 == 0) {
-      reset_state_and_copy_buffer(__frv_reg_unset(4));
+      reset_state_and_copy_buffer((uint32_t)param_1);
       uVar4 = 1;
     }
     else {
-      wait_for_event_and_update_setting(__frv_reg_unset(4));
+      wait_for_event_and_update_setting((uint32_t)param_1);
       uVar4 = 1;
     }
   }

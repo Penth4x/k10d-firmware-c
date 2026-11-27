@@ -12,7 +12,7 @@ uint32_t map_mode_state_pair(void *param_1)
   int iVar1;
   
   read_struct_field_at_index_104c2890((void *)0x80015b24/*SDRAM*/,0);
-  iVar1 = map_mode_code_to_index_104bb5c4(__frv_reg_unset(4));
+  iVar1 = map_mode_code_to_index_104bb5c4((uint32_t)param_1);
   if (iVar1 == 0) {
     iVar1 = *(int *)((int)param_1 + 0x2b0);
     if (iVar1 == 0) {

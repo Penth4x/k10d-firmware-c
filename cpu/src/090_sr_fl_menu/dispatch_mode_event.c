@@ -93,7 +93,7 @@ uint32_t dispatch_mode_event(cls_105983cc *param_1,int param_2)
       }
       uVar6 = auStack_24[iVar3];
       param_1->field_0x21 = cVar2;
-      register_and_configure_menu_item_103ffe78(param_1, __frv_reg_unset(5));
+      register_and_configure_menu_item_103ffe78(param_1, (uint32_t)param_2);
     }
   }
   return uVar6;

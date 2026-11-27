@@ -21,7 +21,7 @@ uint lookup_value_by_key(int param_1,uint param_2)
   int iVar1;
   uint uVar2;
   
-  iVar1 = read_bounded_array_element_10477358(__frv_reg_unset(4), __frv_reg_unset(5));
+  iVar1 = read_bounded_array_element_10477358((uint32_t)param_1, (uint32_t)param_2);
   uVar2 = 0;
   if (iVar1 != 0) {
     if (param_2 == *(ushort *)(param_1 + 0x12)) {

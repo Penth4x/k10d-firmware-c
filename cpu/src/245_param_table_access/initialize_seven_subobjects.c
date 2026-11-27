@@ -9,7 +9,7 @@
 void initialize_seven_subobjects(int param_1)
 
 {
-  initialize_struct_to_invalid_104d70ac((uint32_t *)__frv_reg_unset(4));
+  initialize_struct_to_invalid_104d70ac((uint32_t *)(uint32_t)param_1);
   initialize_struct_with_sentinel((void *)(param_1 + 0x14));
   initialize_struct_to_invalid_104d72d2((void *)(param_1 + 0x30));
   initialize_struct_with_ff((void *)(param_1 + 0x44));

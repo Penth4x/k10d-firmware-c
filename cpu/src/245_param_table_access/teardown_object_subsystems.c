@@ -34,16 +34,16 @@ void teardown_object_subsystems(uint32_t param_1)
   pvVar1 = (void *)adjust_pointer_by_offset(param_1,1);
   clear_struct_fields_104d7c58(pvVar1);
   adjust_pointer_by_flag(param_1,1);
-  init_six_struct_members((void *)__frv_reg_unset(4));
+  init_six_struct_members((void *)(uint32_t)param_1);
   iVar2 = compute_struct_offset_104d6852(param_1,1);
   initialize_seven_subobjects(iVar2);
   add_offset_to_pointer_104d6862(param_1);
-  zero_struct_fields_104d7aa6((uint32_t *)__frv_reg_unset(4));
+  zero_struct_fields_104d7aa6((uint32_t *)(uint32_t)param_1);
   pvVar1 = (void *)add_offset_0x2254(param_1);
   clear_two_struct_fields_104d51f0(pvVar1);
   add_offset_to_pointer_104d6882(param_1);
-  initialize_struct_with_subobjects((void *)__frv_reg_unset(4));
+  initialize_struct_with_subobjects((void *)(uint32_t)param_1);
   add_offset_to_param_104d6ef6(param_1);
-  clear_struct_fields_104d79d2((uint32_t *)__frv_reg_unset(4));
+  clear_struct_fields_104d79d2((uint32_t *)(uint32_t)param_1);
   return;
 }

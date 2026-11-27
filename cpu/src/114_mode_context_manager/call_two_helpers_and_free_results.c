@@ -20,7 +20,7 @@ void call_two_helpers_and_free_results(uint32_t param_1,uint32_t param_2,uint32_
 {
   int iVar1;
   
-  iVar1 = app_mode_activate(__frv_reg_unset(4), __frv_reg_unset(5));
+  iVar1 = app_mode_activate((uint32_t)param_1, (uint32_t)param_2);
   if (iVar1 != 0) {
     call_helper_with_offset_and_flag_104279d4(iVar1 + 8);
   }

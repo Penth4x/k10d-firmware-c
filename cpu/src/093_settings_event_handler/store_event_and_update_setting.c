@@ -17,7 +17,7 @@ void store_event_and_update_setting(cls_10599b9c *param_1,int param_2)
     setting_set(param_1->field_0x8,0x9e,(uint)bVar1);
   }
   else if (param_2 == 0x1bb000a) {
-    send_two_virtual_commands((int *)__frv_reg_unset(4));
+    send_two_virtual_commands((int *)(uint32_t)param_1);
   }
   return;
 }

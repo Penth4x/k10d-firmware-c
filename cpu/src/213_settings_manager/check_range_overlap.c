@@ -12,7 +12,7 @@ uint32_t check_range_overlap(void *param_1,uint param_2,int param_3)
   uint32_t uVar1;
   uint uVar2;
   
-  uVar2 = get_or_init_vtable_slot2((int *)__frv_reg_unset(4));
+  uVar2 = get_or_init_vtable_slot2((int *)(uint32_t)param_1);
   uVar1 = 0;
   if (uVar2 < param_2) {
     uVar1 = 8;

@@ -10,7 +10,7 @@ void loop_call_helper_52_times(uint32_t param_1,uint param_2,uint32_t param_3,ui
                  uint16_t param_5)
 
 {
-  store_two_word_pair(__frv_reg_unset(4), __frv_reg_unset(5));
+  store_two_word_pair((uint32_t)param_1, (uint32_t)param_2);
   if ((int)param_2 < 0x34) {
     do {
       call_single_helper_10485dd8(param_3,param_4,param_5);

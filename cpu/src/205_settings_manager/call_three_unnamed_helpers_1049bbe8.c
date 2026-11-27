@@ -18,7 +18,7 @@
 void call_three_unnamed_helpers_1049bbe8(uint32_t param_1,uint32_t param_2)
 
 {
-  store_index_plus_one(__frv_reg_unset(4), __frv_reg_unset(5));
+  store_index_plus_one((uint32_t)param_1, (uint32_t)param_2);
   store_mapped_index_value_1049bc80(param_1,param_2);
   store_mapped_status_code_1049bd00(param_1,param_2);
   return;

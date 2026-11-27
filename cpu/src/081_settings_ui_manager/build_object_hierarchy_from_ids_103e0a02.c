@@ -75,7 +75,7 @@ void build_object_hierarchy_from_ids_103e0a02(cls_10596c84 *param_1,uint32_t par
   invoke_virtual_then_call_helper_10494188((int)pvVar16,iVar14);
   pvVar18 = (void *)0x0;
   pvVar19 = (void *)0x0;
-  pvVar17 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x19b0019,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar17 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x19b0019,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar17,pvVar1,pvVar18,pvVar19);
   iterate_and_remove_list_entry(pvVar17,pvVar2,pvVar18,pvVar19);
   iterate_and_remove_list_entry(pvVar17,pvVar3,pvVar18,pvVar19);

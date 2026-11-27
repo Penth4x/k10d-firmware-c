@@ -48,7 +48,7 @@ uint32_t process_event_queue_entries(uint32_t param_1,int *param_2,uint32_t para
       if (iVar1 != 0) {
         uVar2 = allocate_buffer_via_helper();
         adjust_pointer_by_flag(param_3,1);
-        uVar3 = add_offset_to_pointer_104d65b6(__frv_reg_unset(4));
+        uVar3 = add_offset_to_pointer_104d65b6((uint32_t)param_1);
         iVar1 = find_entry_in_fixed_table(uVar3,uVar2);
         if (iVar1 != 0) {
           write_three_bytes_to_struct_104d5d80(iVar1,0);

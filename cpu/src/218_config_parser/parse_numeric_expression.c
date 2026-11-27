@@ -49,7 +49,7 @@ uint parse_numeric_expression(uint32_t *param_1,int param_2,char *param_3,void *
       bVar6 = param_2 == 0;
       goto LAB_104b653e;
     }
-    uStack_c = parse_line_after_header(param_1,param_3 + param_2,__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    uStack_c = parse_line_after_header(param_1,param_3 + param_2,(uint32_t)param_3,(void *)(uint32_t)param_4);
   }
   else {
     if (bVar2 == 0x30) {

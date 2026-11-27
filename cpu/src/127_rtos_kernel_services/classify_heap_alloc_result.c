@@ -20,7 +20,7 @@ uint32_t classify_heap_alloc_result(uint32_t param_x0, uint32_t param_x1)
   int iVar1;
   uint32_t uVar2;
   
-  iVar1 = compute_exposure_compensation_value_1045a2a6(__frv_reg_unset(4), __frv_reg_unset(5));
+  iVar1 = compute_exposure_compensation_value_1045a2a6((uint32_t)param_x0, (uint32_t)param_x1);
   if (iVar1 < 0x20) {
     uVar2 = 1;
     if (-1 < iVar1) {

@@ -53,7 +53,7 @@ void build_object_tree_with_18_nodes(cls_1056ac8c *param_1,uint32_t param_2,void
   pvVar18 = (void *)app_obj_factory(pvVar1,(void *)0x20c000d,(void *)0x20,(void *)0xa8);
   pvVar19 = (void *)app_obj_factory(pvVar1,(void *)0x20c0011,(void *)0x1b8,(void *)0x198);
   pvVar21 = (void *)0x198;
-  pvVar1 = (void *)app_obj_factory(pvVar1,(void *)0x20c0012,(void *)0x200,(void *)__frv_reg_unset(7));
+  pvVar1 = (void *)app_obj_factory(pvVar1,(void *)0x20c0012,(void *)0x200,(void *)(uint32_t)param_4);
   call_helper_and_set_flag_104b7726(pvVar5,0x240,1);
   call_helper_and_set_flag_104b7726(pvVar6,0x240,1);
   call_helper_and_set_flag_104b7726(pvVar7,0x240,1);
@@ -74,7 +74,7 @@ void build_object_tree_with_18_nodes(cls_1056ac8c *param_1,uint32_t param_2,void
   call_helper_and_set_flag_104b7744(pvVar11,0x90,1);
   call_helper_and_set_flag_104b7744(pvVar12,0x90,1);
   pvVar20 = (void *)0x1;
-  call_helper_and_set_flag_104b7744(pvVar13,0x90, __frv_reg_unset(6));
+  call_helper_and_set_flag_104b7744(pvVar13,0x90, (uint32_t)param_3);
   iterate_and_remove_list_entry(pvVar4,pvVar18,pvVar20,pvVar21);
   iterate_and_remove_list_entry(pvVar4,pvVar19,pvVar20,pvVar21);
   iterate_and_remove_list_entry(pvVar4,pvVar1,pvVar20,pvVar21);

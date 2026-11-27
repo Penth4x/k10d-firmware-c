@@ -21,7 +21,7 @@ uint32_t collect_four_status_values(uint32_t param_1,uint32_t *param_2)
 {
   uint32_t uVar1;
   
-  uVar1 = get_field_at_offset_four_10436f5e(__frv_reg_unset(4));
+  uVar1 = get_field_at_offset_four_10436f5e((uint32_t)param_1);
   *param_2 = uVar1;
   uVar1 = get_field_at_offset_8_10436f64(param_1);
   param_2[1] = uVar1;

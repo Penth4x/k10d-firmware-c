@@ -13,7 +13,7 @@ void format_two_byte_pair_as_ascii(uint32_t param_1,int param_2,uint32_t param_3
   byte bVar2;
   byte bVar3;
   
-  format_int_as_three_digit_string(__frv_reg_unset(4),(char *)__frv_reg_unset(5),__frv_reg_unset(6));
+  format_int_as_three_digit_string((uint32_t)param_1,(char *)(uint32_t)param_2,(uint32_t)param_3);
   bVar2 = read_byte_at_offset_two(*(void **)(param_4 + 4));
   bVar3 = read_byte_at_offset_three(*(void **)(param_4 + 4));
   cVar1 = *(char *)(param_4 + 1);

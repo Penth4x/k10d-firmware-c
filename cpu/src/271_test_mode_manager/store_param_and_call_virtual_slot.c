@@ -12,7 +12,7 @@ void store_param_and_call_virtual_slot(int param_1,uint32_t param_2)
   uint32_t uVar1;
   
   *(uint32_t *)(param_1 + 0x4c) = param_2;
-  uVar1 = align_down_to_32_bytes((uint32_t)(param_1)/* B-3: stock r4 = param_1 */, __frv_reg_unset(5));
+  uVar1 = align_down_to_32_bytes((uint32_t)(param_1)/* B-3: stock r4 = param_1 */, (uint32_t)param_2);
   *(uint32_t *)(param_1 + 0xa8) = uVar1;
   (((vtbl_entry*)(*(int *)(param_1 + 0x8d4)))[25].fn)
             (*(short *)(*(int *)(param_1 + 0x8d4) + 200) + param_1);

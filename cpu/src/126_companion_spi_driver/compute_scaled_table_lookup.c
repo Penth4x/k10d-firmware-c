@@ -21,7 +21,7 @@ int compute_scaled_table_lookup(uint32_t param_1)
   uint uVar1;
   int iVar2;
   
-  uVar1 = read_byte_at_offset_3_104470ee(__frv_reg_unset(4));
+  uVar1 = read_byte_at_offset_3_104470ee((uint32_t)param_1);
   iVar2 = read_byte_at_offset_3_104470ee(param_1);
   return *(int *)((iVar2 >> 3 & 0xfU) * 4 + 0x105a1904/*ROM*/) *
          (*(uint *)((uVar1 & 7) * 4 + 0x105a18e4/*ROM*/) / 10);

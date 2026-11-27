@@ -36,7 +36,7 @@ uint32_t dispatch_state_transition_1047bfb0(int param_1,short *param_2,short *pa
         uVar3 = allocate_and_init_buffer_1047a664(*(uint32_t *)(param_1 + 0x54));
       }
       else {
-        call_helper_with_second_field_1047a5f6(__frv_reg_unset(4));
+        call_helper_with_second_field_1047a5f6((uint32_t)param_1);
         *(uint32_t *)(param_1 + 0x34) = 2;
         uVar3 = 0;
       }

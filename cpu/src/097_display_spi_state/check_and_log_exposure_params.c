@@ -30,7 +30,7 @@ uint32_t check_and_log_exposure_params(int param_1)
       iVar1 = init_object_buffers_and_dispatch(param_1,0);
     }
     else {
-      iVar1 = allocate_and_init_subobject_1041792e(__frv_reg_unset(4));
+      iVar1 = allocate_and_init_subobject_1041792e((uint32_t)param_1);
     }
     if (iVar1 != 0) {
       iVar1 = call_single_helper_104185ec();

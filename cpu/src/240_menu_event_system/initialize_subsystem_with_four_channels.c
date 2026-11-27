@@ -49,10 +49,10 @@ uint32_t initialize_subsystem_with_four_channels(cls_105b979c *param_1,uint32_t 
   pvVar4 = (void *)app_obj_factory((int *)(param_1->field_0x3c),(void *)0x4000002,(void *)0x20,(void *)0xf0);
   set_struct_fields_and_flag(pvVar4,0x240,1);
   puVar7 = &DAT_00000078;
-  pvVar5 = (void *)app_obj_factory((int *)(param_1->field_0x3c),(void *)0x4000003,(void *)0x20,(void *)__frv_reg_unset(7));
+  pvVar5 = (void *)app_obj_factory((int *)(param_1->field_0x3c),(void *)0x4000003,(void *)0x20,(void *)(uint32_t)param_4);
   call_helper_and_set_flag_104b7726(pvVar5,0x240,1);
   pvVar6 = (void *)0x1;
-  call_helper_and_set_flag_104b7744(pvVar5,0x90, __frv_reg_unset(6));
+  call_helper_and_set_flag_104b7744(pvVar5,0x90, (uint32_t)param_3);
   iterate_and_remove_list_entry(pvVar2,pvVar3,pvVar6,puVar7);
   iterate_and_remove_list_entry(pvVar2,pvVar4,pvVar6,puVar7);
   iterate_and_remove_list_entry(pvVar2,pvVar5,pvVar6,puVar7);

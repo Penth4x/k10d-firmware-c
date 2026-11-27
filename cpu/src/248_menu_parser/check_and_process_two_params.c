@@ -19,7 +19,7 @@ uint32_t check_and_process_two_params(void *param_1,void *param_2,char *param_3)
   uint32_t uVar1;
   int iVar2;
   
-  iVar2 = extract_substring_from_buffer((int *)__frv_reg_unset(4),(int *)__frv_reg_unset(5));
+  iVar2 = extract_substring_from_buffer((int *)(uint32_t)param_1,(int *)(uint32_t)param_2);
   if (iVar2 == 0) {
     uVar1 = 0;
   }

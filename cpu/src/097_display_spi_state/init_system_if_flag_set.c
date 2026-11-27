@@ -20,7 +20,7 @@ void init_system_if_flag_set(uint32_t param_1,int param_2)
 {
   if (cRam8000fb94 != '\0') {
     get_sysparam_store_instance();
-    initialize_sysparam_flag_if_empty((char *)__frv_reg_unset(4));
+    initialize_sysparam_flag_if_empty((char *)(uint32_t)param_1);
     populate_sequential_config_tables(param_1);
     init_object_state_once(param_1);
     if (param_2 == 0) {

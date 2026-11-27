@@ -13,7 +13,7 @@ void init_struct_offsets_with_helper(int param_1,uint32_t param_2)
   uint32_t uVar2;
   
   *(uint32_t *)(param_1 + 0x40) = param_2;
-  iVar1 = align_down_to_32_bytes(__frv_reg_unset(4), __frv_reg_unset(5));
+  iVar1 = align_down_to_32_bytes((uint32_t)param_1, (uint32_t)param_2);
   *(int *)(param_1 + 0x88) = iVar1;
   iVar1 = align_down_to_32_bytes(param_1,iVar1 + *(int *)(param_1 + 0x104));
   *(int *)(param_1 + 0x98) = iVar1;

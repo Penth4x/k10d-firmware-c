@@ -30,6 +30,6 @@ void release_three_object_handles(int *param_1)
   heap_free_2(param_1[2]);
   param_1[2] = 0;
   get_or_init_sram_buffer_104ae40c();
-  destroy_object_and_free_members(__frv_reg_unset(4));
+  destroy_object_and_free_members((uint32_t)param_1);
   return;
 }

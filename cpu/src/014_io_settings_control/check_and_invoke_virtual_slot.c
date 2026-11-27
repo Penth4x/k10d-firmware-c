@@ -19,7 +19,7 @@ bool check_and_invoke_virtual_slot(int *param_1, uint32_t param_x1)
 {
   int iVar1;
   
-  iVar1 = decrement_byte_and_notify(__frv_reg_unset(4), __frv_reg_unset(5));
+  iVar1 = decrement_byte_and_notify((uint32_t)param_1, (uint32_t)param_x1);
   if (iVar1 != 0) {
     *(uint8_t *)((int)param_1 + 0x2c1) = 0;
     init_object_state_from_ram_flags(param_1);

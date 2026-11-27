@@ -55,7 +55,7 @@ cls_10562850 * init_object_with_vtable_and_data(cls_10562850 *param_1)
       init_object_with_two_ids_10392cb2(param_1);
       request_ui_sync_code_4((char*)(param_1) ->field_0x8);
       get_or_create_sram_object_1040a240();
-      init_object_flag_and_subobj(__frv_reg_unset(4));
+      init_object_flag_and_subobj((uint32_t)param_1);
       return param_1;
     }
     (((vtbl_entry*)(param_1->field_0x0))[6].fn)

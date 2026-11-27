@@ -114,7 +114,7 @@ void init_object_hierarchy(cls_10595818 *param_1,uint32_t param_2,void *param_3,
   call_helper_and_set_flag_104b7726(pvVar28,0xd8,2);
   pvVar30 = (void *)0x0;
   pvVar31 = (void *)0x0;
-  pvVar29 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x104002c,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar29 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x104002c,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar29,pvVar1,pvVar30,pvVar31);
   iterate_and_remove_list_entry(pvVar29,pvVar2,pvVar30,pvVar31);
   iterate_and_remove_list_entry(pvVar29,pvVar3,pvVar30,pvVar31);

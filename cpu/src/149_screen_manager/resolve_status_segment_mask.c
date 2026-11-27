@@ -25,7 +25,7 @@ byte resolve_status_segment_mask(int param_1,byte param_2)
   
   bVar1 = bRam105a6938;
   param_2 = param_2 & bRam105a6938;
-  iVar2 = check_even_value_in_set((uint32_t)(param_1)/* B-3: stock r4 = param_1 */, __frv_reg_unset(5));
+  iVar2 = check_even_value_in_set((uint32_t)(param_1)/* B-3: stock r4 = param_1 */, (uint32_t)param_2);
   if (iVar2 == 0) {
     piVar3 = (int *)status_item_location(0x2e);
     param_2 = *(byte *)(param_1 + 0x1c + *piVar3) & bVar1;

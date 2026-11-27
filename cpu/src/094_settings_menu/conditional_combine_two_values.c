@@ -23,7 +23,7 @@ cls_10599c24 * conditional_combine_two_values(cls_10599c24 *param_1)
   uint32_t uVar2;
   uint32_t uVar3;
   
-  iVar1 = wait_for_flag_or_timeout(__frv_reg_unset(4));
+  iVar1 = wait_for_flag_or_timeout((uint32_t)param_1);
   if (iVar1 != 0) {
     forward_param_to_helper_1036b8fe(0);
     uVar2 = get_or_create_singleton_object_1036c796();

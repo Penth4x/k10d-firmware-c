@@ -17,7 +17,7 @@
 void call_three_initializers_1048359c(void *param_1)
 
 {
-  invoke_virtual_slot_15_1048360c(__frv_reg_unset(4));
+  invoke_virtual_slot_15_1048360c((uint32_t)param_1);
   invoke_virtual_slot_7_10483700(param_1);
   invoke_virtual_slot_on_five_objects_1048389c(param_1);
   return;

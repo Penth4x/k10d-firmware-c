@@ -88,7 +88,7 @@ void instantiate_and_link_object_graph_103e64b8(cls_10597214 *param_1,uint32_t p
   iVar20 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x4),(void *)0x185001a,(void *)0x19c,(void *)0x60));
   iVar21 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x4),(void *)0x185001b,(void *)0x1b4,(void *)0x5c));
   puVar26 = &DAT_0000005c;
-  pvVar22 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x185001c,(void *)0x1b4,(void *)__frv_reg_unset(7));
+  pvVar22 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x185001c,(void *)0x1b4,(void *)(uint32_t)param_4);
   puVar24 = &DAT_00000060;
   iVar23 = (uintptr_t)(alloc_two_word_pair_1045bc2e(auStack_10,0x1b8,0x60));
   copy_four_words_to_offset_0xa0(pvVar22,iVar23);
@@ -125,7 +125,7 @@ void instantiate_and_link_object_graph_103e64b8(cls_10597214 *param_1,uint32_t p
   iVar14 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x4),(void *)0x1850021,(void *)0x230,(void *)0x90));
   pvVar19 = (void *)0x1b8;
   puVar24 = &DAT_00000090;
-  iVar15 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x4),(void *)0x1850022,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7)));
+  iVar15 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x4),(void *)0x1850022,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4));
   iterate_and_remove_list_entry(pvVar16,pvVar17,pvVar19,puVar24);
   iterate_and_remove_list_entry(pvVar16,pvVar18,pvVar19,puVar24);
   invoke_virtual_then_call_helper_10494188((int)pvVar16,iVar14);
@@ -142,7 +142,7 @@ void instantiate_and_link_object_graph_103e64b8(cls_10597214 *param_1,uint32_t p
   iVar14 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x4),(void *)0x1850027,(void *)0x230,(void *)0xc0));
   pvVar25 = (void *)0x1b8;
   pvVar27 = (void *)0xc0;
-  iVar15 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x4),(void *)0x1850028,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7)));
+  iVar15 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x4),(void *)0x1850028,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4));
   iterate_and_remove_list_entry(pvVar17,pvVar18,pvVar25,pvVar27);
   iterate_and_remove_list_entry(pvVar17,pvVar19,pvVar25,pvVar27);
   invoke_virtual_then_call_helper_10494188((int)pvVar17,iVar14);
@@ -153,7 +153,7 @@ void instantiate_and_link_object_graph_103e64b8(cls_10597214 *param_1,uint32_t p
   graph_link_nextprev((int)pvVar19,(int)pvVar18,0xe,pvVar27);
   pvVar19 = (void *)0x0;
   pvVar25 = (void *)0x0;
-  pvVar18 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1850029,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar18 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1850029,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar18,pvVar1,pvVar19,pvVar25);
   iterate_and_remove_list_entry(pvVar18,pvVar2,pvVar19,pvVar25);
   iterate_and_remove_list_entry(pvVar18,pvVar3,pvVar19,pvVar25);

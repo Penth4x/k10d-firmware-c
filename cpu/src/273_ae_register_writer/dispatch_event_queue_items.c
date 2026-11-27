@@ -58,7 +58,7 @@ void dispatch_event_queue_items(cls_105d624c *param_1)
       } while (-1 < iVar4);
       uStack_34 = collect_active_entries((int)(param_1->field_0x58),(int)(&param_1->field_0x1f8),(int)(0x28));
       uVar13 = *(uint32_t *)(param_1->field_0x58 + 0x161c8);
-      iVar4 = find_entry_with_status_two_or_three(__frv_reg_unset(4));
+      iVar4 = find_entry_with_status_two_or_three((uint32_t)param_1);
       check_kernel_call_success_10459d88(&param_1->field_0x344);
       if ((uStack_34 != 0) && (param_1->field_0x29f != '\0')) {
         param_1->field_0x29f = '\0';

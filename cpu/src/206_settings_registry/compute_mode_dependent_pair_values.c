@@ -31,7 +31,7 @@ void compute_mode_dependent_pair_values(int param_1,int param_2)
   ushort uStack_a;
   
   piVar6 = (int *)auStack_30;
-  iVar1 = call_virtual_slot_two_104a290e(__frv_reg_unset(4));
+  iVar1 = call_virtual_slot_two_104a290e((uint32_t)param_1);
   if ((iVar1 == 9) || (iVar1 == 0xc)) {
     uVar3 = (*(int *)(*(int *)(param_1 + 8) + 0x508) + 5U) / 10;
     uVar4 = 100;

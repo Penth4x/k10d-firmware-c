@@ -145,7 +145,7 @@ void instantiate_object_array_and_link(cls_10558c04 *param_1,uint32_t param_2,vo
   iVar54 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)0x3060034,(void *)0x50,(void *)0x150));
   pvVar56 = (void *)0x50;
   pvVar57 = (void *)0x150;
-  iVar55 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)0x3060036,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7)));
+  iVar55 = (uintptr_t)(app_obj_factory((int *)(param_1->field_0x24),(void *)0x3060036,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4));
   write_field_at_offset_0x48(pvVar49,uVar48);
   write_field_at_offset_0x48(pvVar53,uVar52);
   invoke_virtual_then_call_helper_10494188((int)pvVar49,iVar50);

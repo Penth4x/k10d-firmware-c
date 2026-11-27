@@ -26,7 +26,7 @@ void dispatch_virtual_event_with_state_check(int param_1)
   if ((*(char *)(param_1 + 0x34) != '\0') && (*(int *)(param_1 + 0x3c) == 0)) {
     iVar1 = *(int *)(param_1 + 0x38);
     if (iVar1 == *(int *)(param_1 + 100)) {
-      call_single_helper_103a6382((void *)__frv_reg_unset(4));
+      call_single_helper_103a6382((void *)(uint32_t)param_1);
     }
     else if (((iVar1 == *(int *)(param_1 + 0x60)) || (*(int *)(param_1 + 0x38) == 0)) ||
             (iVar1 == *(int *)(param_1 + 0x8c))) {

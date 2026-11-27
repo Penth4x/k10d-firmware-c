@@ -11,7 +11,7 @@ void store_result_at_offset_0x74_10395488(void *param_1)
 {
   uint32_t uVar1;
   
-  map_event_code_to_index(__frv_reg_unset(4));
+  map_event_code_to_index((uint32_t)param_1);
   uVar1 = get_or_init_singleton_10392e96();
   *(uint32_t *)((int)param_1 + 0x74) = uVar1;
   return;

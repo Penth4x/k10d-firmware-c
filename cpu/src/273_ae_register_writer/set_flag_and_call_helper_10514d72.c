@@ -22,7 +22,7 @@ void set_flag_and_call_helper_10514d72(int param_1,int param_2)
     set_flg_obj((uint32_t *)(param_1 + 0x34c), 0x8);
   }
   else {
-    eventflag_clr_flg((uint32_t *)__frv_reg_unset(4),__frv_reg_unset(5));
+    eventflag_clr_flg((uint32_t *)(uint32_t)param_1,(uint32_t)param_2);
   }
   *(bool *)(param_1 + 0x29e) = param_2 != 0;
   return;

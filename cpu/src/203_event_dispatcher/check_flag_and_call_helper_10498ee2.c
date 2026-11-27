@@ -21,7 +21,7 @@ uint32_t check_flag_and_call_helper_10498ee2(uint32_t param_1,short *param_2,int
   uVar1 = 0;
   if (param_3 == 0) {
     if (*param_2 == 1) {
-      query_two_status_flags(__frv_reg_unset(4), __frv_reg_unset(5));
+      query_two_status_flags((uint32_t)param_1, (uint32_t)param_2);
     }
     uVar1 = 1;
   }

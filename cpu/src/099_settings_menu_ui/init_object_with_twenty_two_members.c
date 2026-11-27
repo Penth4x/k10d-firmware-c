@@ -92,7 +92,7 @@ void init_object_with_twenty_two_members(cls_1059dd24 *param_1,uint32_t param_2,
             ((int)*(short *)(*(int *)((int)pvVar23 + 0xc) + 8) + (int)pvVar23,0);
   pvVar25 = (void *)0x0;
   pvVar26 = (void *)0x0;
-  pvVar24 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1bf001a,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar24 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1bf001a,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar24,pvVar1,pvVar25,pvVar26);
   iterate_and_remove_list_entry(pvVar24,pvVar2,pvVar25,pvVar26);
   iterate_and_remove_list_entry(pvVar24,pvVar3,pvVar25,pvVar26);

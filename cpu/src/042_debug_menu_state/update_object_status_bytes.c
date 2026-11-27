@@ -65,7 +65,7 @@ uint32_t update_object_status_bytes(cls_10564150 *param_1,int *param_2)
     uVar6 = query_object_property_via_temp_104f2570(param_1->field_0xbc);
     param_1->field_0xc4 = uVar6;
     if (param_1->field_0x38 == param_1->field_0x84) {
-      toggle_virtual_state_flag_103ac016(__frv_reg_unset(4), __frv_reg_unset(5));
+      toggle_virtual_state_flag_103ac016((uint32_t)param_1, (uint32_t)param_2);
       param_1->field_0xda = 0;
     }
     else {

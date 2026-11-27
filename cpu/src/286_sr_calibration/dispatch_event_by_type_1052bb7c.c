@@ -31,7 +31,7 @@ uint32_t dispatch_event_by_type_1052bb7c(cls_105f9e98 *param_1)
   else {
     sVar2 = get_object_field_at_offset_0x14(param_1->field_0x0);
     if (sVar2 == 0x5011) {
-      iVar1 = build_string_from_rodata_segments(__frv_reg_unset(4));
+      iVar1 = build_string_from_rodata_segments((uint32_t)param_1);
       dispatch_virtual_slot_two_104df936(param_1,0x1015,iVar1 + 0xc);
       *(uint32_t *)(param_1->field_0x10 + 0x48) = 3;
       uVar3 = 1;

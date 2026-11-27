@@ -23,7 +23,7 @@ int create_2d_buffer_object(int param_1,int param_2,void *param_3,int param_4,in
   
   pvVar1 = (void *)((param_4 + -1) * 0x18 + 0x20U & 0xffff);
   pvVar3 = (void *)((param_5 + -1) * 0x18 + 0x18U & 0xffff);
-  pvVar2 = (void *)app_obj_factory((int *)(*(uint32_t *)(param_1 + 0x20)),(void *)(param_3),(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar2 = (void *)app_obj_factory((int *)(*(uint32_t *)(param_1 + 0x20)),(void *)(param_3),(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry((void *)param_2,pvVar2,pvVar1,pvVar3);
   (((vtbl_entry*)(*(int *)((int)pvVar2 + 0xc)))[1].fn)
             ((int)*(short *)(*(int *)((int)pvVar2 + 0xc) + 8) + (int)pvVar2,param_6);

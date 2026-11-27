@@ -20,7 +20,7 @@ void init_object_with_two_timers(int param_1,uint8_t param_2)
 {
   int iVar1;
   
-  clear_fourteen_word_blocks(__frv_reg_unset(4));
+  clear_fourteen_word_blocks((uint32_t)param_1);
   reset_struct_fields_and_zero_tail(param_1);
   *(uint8_t *)(param_1 + 0xfd99) = 1;
   if (*(char *)(param_1 + 0x88c) != '\0') {

@@ -68,7 +68,7 @@ uint32_t map_status_code_to_output(void *param_1,uint32_t *param_2)
       uVar2 = return_r4_passthrough_104d800e();
       compute_struct_offset_104d6852(uVar2,1);
       return_r4_passthrough_104d7940();
-      iVar1 = read_first_word_104d70e8((uint32_t *)__frv_reg_unset(4));
+      iVar1 = read_first_word_104d70e8((uint32_t *)(uint32_t)param_1);
       if (iVar1 == 1) {
         uVar2 = 0;
       }

@@ -24,7 +24,7 @@ bool dispatch_operation_by_mode(void *param_1,uint param_2,int *param_3)
   
   uVar1 = param_2 & 3;
   if (uVar1 == 3) {
-    iVar2 = start_async_operation((int *)__frv_reg_unset(4));
+    iVar2 = start_async_operation((int *)(uint32_t)param_1);
   }
   else if (uVar1 == 1) {
     iVar2 = invoke_virtual_method_and_store_result(param_3,4);

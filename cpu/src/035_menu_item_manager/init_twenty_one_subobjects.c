@@ -67,10 +67,10 @@ void init_twenty_one_subobjects(cls_1055a234 *param_1,uint32_t param_2,void *par
   pvVar20 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3170013,(void *)0x200,(void *)0x168);
   pvVar21 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3170014,(void *)0x200,(void *)0x168);
   puVar24 = &DAT_00000078;
-  pvVar22 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3170015,(void *)0x20,(void *)__frv_reg_unset(7));
+  pvVar22 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3170015,(void *)0x20,(void *)(uint32_t)param_4);
   call_helper_and_set_flag_104b7726(pvVar22,0x240,1);
   pvVar23 = (void *)0x1;
-  call_helper_and_set_flag_104b7744(pvVar22,0x90, __frv_reg_unset(6));
+  call_helper_and_set_flag_104b7744(pvVar22,0x90, (uint32_t)param_3);
   iterate_and_remove_list_entry(pvVar1,pvVar2,pvVar23,puVar24);
   iterate_and_remove_list_entry(pvVar1,pvVar3,pvVar23,puVar24);
   iterate_and_remove_list_entry(pvVar1,pvVar4,pvVar23,puVar24);

@@ -26,7 +26,7 @@ int dispatch_mode_based_on_flag(void *param_1,uint32_t param_2,uint param_3)
   }
   if (*(char *)((int)param_1 + 0x160) == '\0') {
     *(uint32_t *)((int)param_1 + 0x11c) = *(uint32_t *)((int)param_1 + 0x114);
-    iVar1 = sdhc_command_transfer_with_timeout((void *)__frv_reg_unset(4),__frv_reg_unset(5),__frv_reg_unset(6));
+    iVar1 = sdhc_command_transfer_with_timeout((void *)(uint32_t)param_1,(uint32_t)param_2,(uint32_t)param_3);
   }
   else {
     *(uint32_t *)((int)param_1 + 0x11c) = *(uint32_t *)((int)param_1 + 0x118);

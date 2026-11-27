@@ -22,7 +22,7 @@ void dispatch_mode_state_update_103932fc(int param_1)
   uint uVar1;
   uint32_t uVar2;
   
-  uVar1 = read_field_at_offset_0xf4(__frv_reg_unset(4));
+  uVar1 = read_field_at_offset_0xf4((uint32_t)param_1);
   if (uVar1 == 0x5060025) {
     uVar2 = 1;
 LAB_103933ca:

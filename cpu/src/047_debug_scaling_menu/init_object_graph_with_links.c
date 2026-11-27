@@ -176,7 +176,7 @@ void init_object_graph_with_links(cls_10565468 *param_1,uint32_t param_2,void *p
   pvVar73 = (void *)app_obj_factory(pvVar1,(void *)0x200002a,(void *)0x128,(void *)0x90);
   pvVar74 = (void *)0x128;
   pvVar75 = (void *)0x120;
-  pvVar1 = (void *)app_obj_factory(pvVar1,(void *)0x200002b,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar1 = (void *)app_obj_factory(pvVar1,(void *)0x200002b,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar3,pvVar50,pvVar74,pvVar75);
   iterate_and_remove_list_entry(pvVar3,pvVar51,pvVar74,pvVar75);
   iterate_and_remove_list_entry(pvVar3,pvVar52,pvVar74,pvVar75);

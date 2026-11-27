@@ -85,7 +85,7 @@ void build_object_graph_from_ids_103e5c32(cls_1059717c *param_1,uint32_t param_2
   invoke_virtual_then_call_helper_10494188((int)pvVar18,iVar15);
   pvVar20 = (void *)0x0;
   pvVar21 = (void *)0x0;
-  pvVar19 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1a9001e,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar19 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1a9001e,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar19,pvVar1,pvVar20,pvVar21);
   iterate_and_remove_list_entry(pvVar19,pvVar2,pvVar20,pvVar21);
   iterate_and_remove_list_entry(pvVar19,pvVar3,pvVar20,pvVar21);

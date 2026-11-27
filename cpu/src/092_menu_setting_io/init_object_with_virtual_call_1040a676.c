@@ -23,7 +23,7 @@ uint8_t init_object_with_virtual_call_1040a676(int param_1)
   uint32_t *puVar1;
   int iVar2;
   
-  copy_two_bytes_from_helper(__frv_reg_unset(4));
+  copy_two_bytes_from_helper((uint32_t)param_1);
   allocate_struct_from_heap((int *)(param_1 + 0x48));
   puVar1 = (uint32_t *)(param_1 + 0x18);
   eventflag_clr_flg(puVar1,0x80);

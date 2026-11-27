@@ -26,16 +26,16 @@ uint32_t dispatch_flagged_subtasks(uint32_t param_1,uint param_2)
     dispatch_bitmask_operations(param_1,param_2 & 0x3ff);
   }
   if ((param_2 & 0x7c0000) != 0) {
-    dispatch_object_flags(param_1, __frv_reg_unset(5));
+    dispatch_object_flags(param_1, (uint32_t)param_2);
   }
   if ((param_2 & 0x3fc00) != 0) {
-    dispatch_subsystem_init_flags(param_1, __frv_reg_unset(5));
+    dispatch_subsystem_init_flags(param_1, (uint32_t)param_2);
   }
   if ((param_2 & 0xc0000000) != 0) {
-    dispatch_two_virtual_flags_104b3a5e(param_1, __frv_reg_unset(5));
+    dispatch_two_virtual_flags_104b3a5e(param_1, (uint32_t)param_2);
   }
   if ((param_2 & 0x20000000) != 0) {
-    dispatch_event_flag_0x20000000(param_1, __frv_reg_unset(5));
+    dispatch_event_flag_0x20000000(param_1, (uint32_t)param_2);
   }
   return uVar1;
 }

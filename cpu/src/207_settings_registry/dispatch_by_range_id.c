@@ -42,7 +42,7 @@ uint32_t dispatch_by_range_id(cls_105b6ac8 *param_1,int param_2)
             }
           }
           else {
-            uVar1 = dispatch_class_constructor_by_id_104a9a14(__frv_reg_unset(4), __frv_reg_unset(5));
+            uVar1 = dispatch_class_constructor_by_id_104a9a14((uint32_t)param_1, (uint32_t)param_2);
           }
         }
         else {

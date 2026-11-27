@@ -18,7 +18,7 @@ cls_105579a8 * initialize_object_with_timeout(cls_105579a8 *param_1)
   iVar1 = query_state_and_flag_range(param_1,&iStack_c);
   if (iVar1 == 0) {
     if (iStack_c == 1) {
-      init_object_with_state_three_1036822e((void *)__frv_reg_unset(4));
+      init_object_with_state_three_1036822e((void *)(uint32_t)param_1);
     }
     else {
       param_1->field_0x9c = 0;

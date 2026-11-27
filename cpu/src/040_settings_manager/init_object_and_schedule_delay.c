@@ -32,7 +32,7 @@ cls_10562d94 * init_object_and_schedule_delay(cls_10562d94 *param_1)
     iVar1 = get_value_from_object();
     add_offset_to_pointer_104df392(iVar1);
     return_r4_passthrough_104d800e();
-    add_offset_to_pointer_104d6862(__frv_reg_unset(4));
+    add_offset_to_pointer_104d6862((uint32_t)param_1);
     iVar1 = (*(code *)0x104d7b5e/*ROM*/)();
     if (iVar1 != 0) {
       uStack_10 = 0;
@@ -40,7 +40,7 @@ cls_10562d94 * init_object_and_schedule_delay(cls_10562d94 *param_1)
       iVar1 = get_value_from_object();
       add_offset_to_pointer_104df392(iVar1);
       return_r4_passthrough_104d800e();
-      uVar2 = add_offset_to_pointer_104d6862(__frv_reg_unset(4));
+      uVar2 = add_offset_to_pointer_104d6862((uint32_t)param_1);
       (*(code *)0x104d7b46/*ROM*/)(uVar2,&uStack_10,&uStack_c);
       call_subroutine_with_offset_args((int)param_1);
     }

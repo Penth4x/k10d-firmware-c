@@ -50,7 +50,7 @@ uint32_t dispatch_sensor_readout_mode(int param_1,uint32_t param_2,int param_3)
   case 0:
     set_struct_field_at_offset_4(param_3,0x45);
     puVar4 = auStack_f0;
-    cls_105a6cfc_new((cls_105a6cfc *)__frv_reg_unset(4));
+    cls_105a6cfc_new((cls_105a6cfc *)(uint32_t)param_1);
     copy_0x45_byte_block(*(int *)(param_1 + 0xc),puVar4);
     uVar6 = 0;
     iVar3 = 0x16;
@@ -68,7 +68,7 @@ uint32_t dispatch_sensor_readout_mode(int param_1,uint32_t param_2,int param_3)
   case 1:
     set_struct_field_at_offset_4(param_3,0x45);
     puVar4 = auStack_a4;
-    cls_105a6cfc_new((cls_105a6cfc *)__frv_reg_unset(4));
+    cls_105a6cfc_new((cls_105a6cfc *)(uint32_t)param_1);
     call_virtual_slot_and_forward_result_104633ec((int *)(*(uint32_t *)(param_1 + 0x10)),(int *)(puVar4));
     uVar6 = 0;
     iVar3 = 0x16;
@@ -88,7 +88,7 @@ LAB_10429ebe:
   case 2:
     set_struct_field_at_offset_4(param_3,0x1b);
     puVar5 = auStack_58;
-    cls_105a6ef4_new((cls_105a6ef4 *)__frv_reg_unset(4));
+    cls_105a6ef4_new((cls_105a6ef4 *)(uint32_t)param_1);
     copy_27_bytes_to_buffer(*(int *)(param_1 + 0xc),puVar5);
     uVar6 = 0;
     iVar3 = 8;
@@ -106,7 +106,7 @@ LAB_10429ebe:
   case 3:
     set_struct_field_at_offset_4(param_3,0x1b);
     puVar5 = auStack_38;
-    cls_105a6ef4_new((cls_105a6ef4 *)__frv_reg_unset(4));
+    cls_105a6ef4_new((cls_105a6ef4 *)(uint32_t)param_1);
     call_virtual_slot_and_forward_result_1046341e((int *)(*(uint32_t *)(param_1 + 0x10)),(int *)(puVar5));
     uVar6 = 0;
     iVar3 = 8;

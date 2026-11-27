@@ -32,7 +32,7 @@ uint32_t process_object_state_transition_1040a96a(void *param_1)
   int iStack_c;
   
   puVar5 = (uint32_t *)auStack_18;
-  iVar1 = init_object_subsystem_1040a438(__frv_reg_unset(4));
+  iVar1 = init_object_subsystem_1040a438((uint32_t)param_1);
   if (iVar1 == 1) {
     iVar1 = init_object_with_buffer_and_callback_1040a534((int)param_1,&iStack_c,0xffffffff);
     if (iVar1 == 1) {

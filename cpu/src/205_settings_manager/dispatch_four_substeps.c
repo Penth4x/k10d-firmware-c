@@ -19,7 +19,7 @@
 void dispatch_four_substeps(uint32_t param_1,uint32_t param_2)
 
 {
-  store_mapped_status_byte(__frv_reg_unset(4), __frv_reg_unset(5));
+  store_mapped_status_byte((uint32_t)param_1, (uint32_t)param_2);
   store_mapped_status_code_1049be82(param_1,param_2);
   store_mapped_status_code_1049bebe(param_1,param_2);
   store_mapped_status_code_1049bf02(param_1,param_2);

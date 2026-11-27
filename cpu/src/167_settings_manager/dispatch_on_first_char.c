@@ -12,10 +12,10 @@ void dispatch_on_first_char(uint32_t param_x0, uint32_t param_x1, uint32_t param
   char *r7_in;
   
   if (*r7_in == '\0') {
-    call_init_then_dispatch_two_params(__frv_reg_unset(4), __frv_reg_unset(5));
+    call_init_then_dispatch_two_params((uint32_t)param_x0, (uint32_t)param_x1);
   }
   else {
-    format_two_byte_pair_as_ascii(__frv_reg_unset(4), __frv_reg_unset(5), __frv_reg_unset(6), __frv_reg_unset(7));
+    format_two_byte_pair_as_ascii((uint32_t)param_x0, (uint32_t)param_x1, (uint32_t)param_x2, (uint32_t)param_x3);
   }
   return;
 }

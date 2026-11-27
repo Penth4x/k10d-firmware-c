@@ -19,7 +19,7 @@ uint32_t init_object_and_check_flag(int param_1)
 {
   uint32_t uVar1;
   
-  clear_fourteen_word_blocks(__frv_reg_unset(4));
+  clear_fourteen_word_blocks((uint32_t)param_1);
   initialize_three_block_struct((uint16_t *)(param_1 + 0x15e4 + *(int *)(param_1 + 0x8d0) * 0xb34));
   update_entry_pair_and_notify(param_1,0,0xffffffff);
   if (*(char *)(param_1 + 0xeba2) == '\0') {

@@ -26,7 +26,7 @@ int dispatch_on_state_field_104ea53c(int param_1)
       iVar1 = set_field_and_query_object(param_1);
     }
     else if (*(int *)(param_1 + 0xc) == 2) {
-      iVar1 = check_and_clear_flag_on_result(__frv_reg_unset(4));
+      iVar1 = check_and_clear_flag_on_result((uint32_t)param_1);
     }
     else {
       iVar1 = set_flag_and_call_helper_104ea572(param_1);

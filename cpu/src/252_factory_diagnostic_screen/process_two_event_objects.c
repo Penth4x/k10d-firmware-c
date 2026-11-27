@@ -40,7 +40,7 @@ bool process_two_event_objects(int param_1,int *param_2,int *param_3)
   iVar1 = call_with_offset_lock_1048101c(*(void **)(param_1 + 0x4c),acStack_88,&cStack_48);
   if (iVar1 != 0) {
     uVar2 = allocate_queue_slot(param_1);
-    pvVar3 = (void *)insert_node_into_array(param_1,100, __frv_reg_unset(6));
+    pvVar3 = (void *)insert_node_into_array(param_1,100, (uint32_t)param_3);
     *param_2 = *param_2 + 1;
     (((vtbl_entry*)(*(int *)((int)pvVar3 + 0x18)))[8].fn)
               ((int)((vtbl_entry*)(*(int *)((int)pvVar3 + 0x18)))[8].adj + (int)pvVar3,pvRam80010bbc);
@@ -53,7 +53,7 @@ bool process_two_event_objects(int param_1,int *param_2,int *param_3)
     if (bVar6) {
       uVar4 = allocate_queue_slot(param_1);
       iRam80010b74 = uVar4 + 100;
-      uVar5 = (uintptr_t)(allocate_and_link_entry(param_1,uVar2 + 100, __frv_reg_unset(6)));
+      uVar5 = (uintptr_t)(allocate_and_link_entry(param_1,uVar2 + 100, (uint32_t)param_3));
       *(uint32_t *)(param_1 + 0x48) = uVar5;
       *param_3 = *param_3 + 1;
       increment_field_at_offset_0x18(param_1);

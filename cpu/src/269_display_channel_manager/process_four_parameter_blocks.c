@@ -80,7 +80,7 @@ uint32_t process_four_parameter_blocks(int param_1,int *param_2)
         }
         else {
           *(uint32_t *)(param_1 + 0x2e8) = *(uint32_t *)(iVar5 + 0xe4);
-          check_entry_flag_after_init(__frv_reg_unset(4));
+          check_entry_flag_after_init((uint32_t)param_1);
           uVar6 = query_exposure_mode_state_10507d2e(param_1,1);
         }
       }

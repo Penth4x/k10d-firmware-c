@@ -166,7 +166,7 @@ void dispatch_image_processor_command(cls_105d49dc *param_1,int *param_2)
         }
         puVar9[6] = uVar1;
       }
-      reset_object_fields_and_call_vtable(__frv_reg_unset(4));
+      reset_object_fields_and_call_vtable((uint32_t)param_1);
       iVar6 = *(int *)*param_2;
       (((vtbl_entry*)(iVar6))[2].fn)(*param_2 + (int)((vtbl_entry*)(iVar6))[2].adj,0xc00006,param_2[3]);
     }

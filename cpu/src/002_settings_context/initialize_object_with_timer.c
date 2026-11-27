@@ -26,7 +26,7 @@ cls_105575b0 * initialize_object_with_timer(cls_105575b0 *param_1)
   iVar1 = query_state_and_flag_range(param_1,aiStack_10);
   if (iVar1 == 0) {
     if (aiStack_10[0] == 1) {
-      init_object_field_and_call_helpers_103650b8((void *)__frv_reg_unset(4));
+      init_object_field_and_call_helpers_103650b8((void *)(uint32_t)param_1);
       return param_1;
     }
     aiStack_10[1] = 0;
@@ -45,7 +45,7 @@ cls_105575b0 * initialize_object_with_timer(cls_105575b0 *param_1)
           iterate_and_dispatch_buffer_entries(param_1);
         }
         else {
-          iVar1 = query_object_state_at_offset_28((void *)__frv_reg_unset(4));
+          iVar1 = query_object_state_at_offset_28((void *)(uint32_t)param_1);
           if (iVar1 == 0) {
             uVar2 = get_or_create_singleton_object_1036c796();
             uVar2 = read_array_element_bounded(uVar2,1);

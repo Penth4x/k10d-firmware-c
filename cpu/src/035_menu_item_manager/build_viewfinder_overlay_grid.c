@@ -359,7 +359,7 @@ void build_viewfinder_overlay_grid(cls_10558e74 *param_1,uint32_t param_2,void *
   pvVar7 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3080053,(void *)(0),(void *)(0));
   pvVar9 = (void *)0x1a0;
   pvVar10 = (void *)0x198;
-  pvVar8 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3080056,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar8 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x3080056,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar1,pvVar2,pvVar9,pvVar10);
   iStack_1cc = 1;
   iVar11 = 0;

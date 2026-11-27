@@ -14,7 +14,7 @@ cls_105626dc * init_object_and_dispatch_10391e62(cls_105626dc *param_1)
   char cStack_9;
   
   param_1->field_0x4 = (uintptr_t)(&param_1->field_0x8);
-  call_helper_with_second_field_10391ef4((void *)__frv_reg_unset(4));
+  call_helper_with_second_field_10391ef4((void *)(uint32_t)param_1);
   cStack_9 = '\0';
   iVar1 = get_value_from_object();
   iVar1 = add_offset_to_pointer_104df392(iVar1);

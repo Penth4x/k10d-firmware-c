@@ -23,7 +23,7 @@ uint32_t initialize_subsystem_with_fallback(int param_1)
   int iVar2;
   
   return_r4_passthrough_104d800e();
-  uVar1 = add_offset_to_pointer_104d6862(__frv_reg_unset(4));
+  uVar1 = add_offset_to_pointer_104d6862((uint32_t)param_1);
   (*(code *)0x104d7b3a/*ROM*/)(uVar1,0,0);
   iVar2 = return_r4_passthrough_104d800e();
   iVar2 = collect_status_into_stack_buffer(iVar2,param_1 + 0x2b1c);

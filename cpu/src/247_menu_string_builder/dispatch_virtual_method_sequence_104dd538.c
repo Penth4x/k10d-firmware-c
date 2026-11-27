@@ -40,7 +40,7 @@ void dispatch_virtual_method_sequence_104dd538(uint32_t param_1,int *param_2,int
   append_string_to_buffer(param_2,(void*)(0x105baed4/*ROM*/));
   iVar1 = (*(code *)0x104d6dbc/*ROM*/)(param_3);
   if (iVar1 == 0) {
-    uVar2 = add_offset_to_pointer_104d6882(__frv_reg_unset(4));
+    uVar2 = add_offset_to_pointer_104d6882((uint32_t)param_1);
     uVar3 = (((vtbl_entry*)(*(int *)(param_3 + 0x2b18)))[2].fn)
                       (((vtbl_entry*)(*(int *)(param_3 + 0x2b18)))[2].adj + param_3);
     (*(code *)0x104d8af4/*ROM*/)(uVar2,uVar3);
@@ -53,7 +53,7 @@ void dispatch_virtual_method_sequence_104dd538(uint32_t param_1,int *param_2,int
   else {
     iVar1 = (*(code *)0x104d6dbc/*ROM*/)(param_3);
     if (iVar1 == 2) {
-      uVar2 = add_offset_to_pointer_104d6882(__frv_reg_unset(4));
+      uVar2 = add_offset_to_pointer_104d6882((uint32_t)param_1);
       uVar3 = (((vtbl_entry*)(*(int *)(param_3 + 0x2b18)))[4].fn)
                         (((vtbl_entry*)(*(int *)(param_3 + 0x2b18)))[4].adj + param_3);
       (*(code *)0x104d8af4/*ROM*/)(uVar2,uVar3);

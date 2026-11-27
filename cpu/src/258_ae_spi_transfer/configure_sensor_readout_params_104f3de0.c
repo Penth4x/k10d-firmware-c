@@ -130,7 +130,7 @@ LAB_104f4070:
     uVar7 = 0x122;
   }
   else {
-    set_dat_40100b00_flag(__frv_reg_unset(4), __frv_reg_unset(5));
+    set_dat_40100b00_flag((uint32_t)param_1, (uint32_t)param_2);
     set_two_bit_field_in_dat_40128202(*(uint32_t *)(param_1 + 0xc),param_3[2]);
     iVar2 = param_3[2];
     if (iVar2 != 2) {
@@ -160,7 +160,7 @@ LAB_104f40b0:
   _cfg_18.uStack_a = 0;
   write_masked_shorts_to_mmio_block(*(uint32_t *)(param_1 + 0x10),&_cfg_18.uStack_18,&_cfg_18.uStack_18);
   if (((*(char *)(param_3 + 0xe) != '\0') && (param_3[0x10] != 0)) && (param_3[0x11] != 0)) {
-    set_bit15_of_dat_40100d00(*(uint32_t *)(param_1 + 0x10), __frv_reg_unset(5));
+    set_bit15_of_dat_40100d00(*(uint32_t *)(param_1 + 0x10), (uint32_t)param_2);
     write_mmio_control_word(*(uint32_t *)(param_1 + 0x10),*(uint16_t *)((int)param_3 + 0x3a),
                  *(uint16_t *)(param_3 + 0xf));
     write_masked_shorts_to_mmio_block((uint32_t)(*(uint32_t *)(param_1 + 0x10)),(ushort *)(param_3[0x10]),(ushort *)(param_3[0x11]));

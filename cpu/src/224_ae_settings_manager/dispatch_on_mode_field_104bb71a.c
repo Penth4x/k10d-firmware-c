@@ -26,13 +26,13 @@ void dispatch_on_mode_field_104bb71a(void *param_1)
     adjust_two_counters_by_delta_104bc96c(param_1);
   }
   else if (iVar1 == 1) {
-    adjust_exposure_counters((uint32_t *)__frv_reg_unset(4));
+    adjust_exposure_counters((uint32_t *)(uint32_t)param_1);
   }
   else if (iVar1 == 2) {
     adjust_two_counters_by_delta_104bc9f8(param_1);
   }
   else if (iVar1 == 3) {
-    adjust_timer_counters((void *)__frv_reg_unset(4));
+    adjust_timer_counters((void *)(uint32_t)param_1);
   }
   return;
 }

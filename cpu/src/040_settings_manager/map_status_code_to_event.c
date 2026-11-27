@@ -21,7 +21,7 @@ void map_status_code_to_event(int param_1)
   int iVar2;
   int iVar3;
   
-  uVar1 = read_field_at_offset_0xf4(__frv_reg_unset(4));
+  uVar1 = read_field_at_offset_0xf4((uint32_t)param_1);
   if (uVar1 == 0x5060023) {
 LAB_103932d0:
     iVar2 = 0x5060022;

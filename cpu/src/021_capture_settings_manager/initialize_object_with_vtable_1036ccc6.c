@@ -47,7 +47,7 @@ cls_10557d80 * initialize_object_with_vtable_1036ccc6(cls_10557d80 *param_1)
         iterate_and_dispatch_object_items(param_1);
       }
       else {
-        iVar1 = process_object_state_transition_1036d23a((void *)__frv_reg_unset(4));
+        iVar1 = process_object_state_transition_1036d23a((void *)(uint32_t)param_1);
         if (iVar1 == 0) {
           uVar2 = get_or_create_singleton_object_1036c796();
           uVar2 = read_array_element_bounded(uVar2,1);

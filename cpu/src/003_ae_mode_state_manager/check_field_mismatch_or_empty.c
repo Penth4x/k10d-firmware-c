@@ -23,7 +23,7 @@ uint32_t check_field_mismatch_or_empty(void *param_1)
   int iVar3;
   char cVar4;
   
-  iVar2 = get_value_from_byte_field(__frv_reg_unset(4));
+  iVar2 = get_value_from_byte_field((uint32_t)param_1);
   iVar3 = read_byte_at_offset_one_1051e4f6((int)param_1 + 0x1c);
   cVar4 = read_byte_at_offset_four_1051e508((int)param_1 + 0x1c);
   uVar1 = 0;

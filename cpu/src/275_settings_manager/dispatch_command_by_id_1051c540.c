@@ -27,12 +27,12 @@ uint32_t dispatch_command_by_id_1051c540(cls_105d6c2c *param_1,ushort *param_2,u
   
   uVar1 = *param_2;
   if (uVar1 == 0x11a) {
-    write_two_values_to_param2_1051c818(__frv_reg_unset(4), __frv_reg_unset(5));
+    write_two_values_to_param2_1051c818((uint32_t)param_1, (uint32_t)param_2);
     return 1;
   }
   if (uVar1 < 0x11b) {
     if (uVar1 == 0x10f) {
-      copy_struct_field_at_offset(__frv_reg_unset(4), __frv_reg_unset(5));
+      copy_struct_field_at_offset((uint32_t)param_1, (uint32_t)param_2);
       return 1;
     }
     if (uVar1 < 0x110) {

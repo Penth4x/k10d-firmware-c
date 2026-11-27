@@ -24,7 +24,7 @@ uint32_t invoke_virtual_method_on_subobject_1049f766(int param_1)
   int iVar2;
   
   uVar1 = 0;
-  call_subroutine_with_object_fields(__frv_reg_unset(4));
+  call_subroutine_with_object_fields((uint32_t)param_1);
   iVar2 = *(int *)(*(int *)(param_1 + 0x20) + 8);
   iVar2 = (((vtbl_entry*)(iVar2))[5].fn)
                     (*(int *)(param_1 + 0x20) + (int)((vtbl_entry*)(iVar2))[5].adj,param_1 + 0x28,

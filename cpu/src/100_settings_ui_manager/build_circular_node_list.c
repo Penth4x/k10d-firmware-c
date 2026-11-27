@@ -144,7 +144,7 @@ void build_circular_node_list(cls_1059dec8 *param_1,uint32_t param_2,void *param
   pvVar64 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1c00040,(void *)0x20,(void *)0xc0);
   pvVar66 = (void *)0x20;
   pvVar67 = (void *)0xc0;
-  pvVar65 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1c00041,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar65 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1c00041,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar5,pvVar8,pvVar66,pvVar67);
   iterate_and_remove_list_entry(pvVar5,pvVar9,pvVar66,pvVar67);
   iterate_and_remove_list_entry(pvVar5,pvVar10,pvVar66,pvVar67);
@@ -323,7 +323,7 @@ void build_circular_node_list(cls_1059dec8 *param_1,uint32_t param_2,void *param
   graph_link_nextprev((int)pvVar65,(int)pvVar64,0xe,pvVar67);
   pvVar9 = (void *)0x0;
   pvVar10 = (void *)0x0;
-  pvVar8 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1c00042,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar8 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1c00042,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar8,pvVar1,pvVar9,pvVar10);
   iterate_and_remove_list_entry(pvVar8,pvVar2,pvVar9,pvVar10);
   iterate_and_remove_list_entry(pvVar8,pvVar3,pvVar9,pvVar10);

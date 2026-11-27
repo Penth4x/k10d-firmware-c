@@ -24,7 +24,7 @@ void init_object_with_four_subentries(cls_10559218 *param_1,uint32_t param_2,voi
   pvVar4 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30a0003,(void *)0x20,(void *)0x18);
   pvVar6 = (void *)0x20;
   pvVar7 = (void *)0x18;
-  pvVar5 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30a0004,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar5 = (void *)app_obj_factory((int *)(param_1->field_0x24),(void *)0x30a0004,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar1,pvVar2,pvVar6,pvVar7);
   iterate_and_remove_list_entry(pvVar1,pvVar3,pvVar6,pvVar7);
   iterate_and_remove_list_entry(pvVar1,pvVar4,pvVar6,pvVar7);

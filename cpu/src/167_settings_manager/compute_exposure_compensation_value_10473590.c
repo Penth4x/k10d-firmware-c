@@ -39,7 +39,7 @@ int compute_exposure_compensation_value_10473590(int param_1,char *param_2)
       iVar2 = 0;
     }
     else if (iVar2 == 999) {
-      iVar2 = call_helper_or_fallback(*(uint32_t *)(param_1 + 8), __frv_reg_unset(5));
+      iVar2 = call_helper_or_fallback(*(uint32_t *)(param_1 + 8), (uint32_t)param_2);
       iVar4 = call_with_offset_c_field_10476678(*(int *)(param_1 + 8));
       iVar4 = iVar4 + -1;
       uVar5 = return_max_of_two_104732e2(uVar7 - iVar2,0);
@@ -52,7 +52,7 @@ int compute_exposure_compensation_value_10473590(int param_1,char *param_2)
       iVar2 = clamp_lower_bound(9999 - iVar4,uVar5);
     }
     else if (iVar2 == 0x3e6) {
-      iVar2 = call_helper_or_fallback(*(uint32_t *)(param_1 + 8), __frv_reg_unset(5));
+      iVar2 = call_helper_or_fallback(*(uint32_t *)(param_1 + 8), (uint32_t)param_2);
       iVar4 = call_with_offset_c_field_10476678(*(int *)(param_1 + 8));
       iVar4 = iVar4 + -1;
       return_max_of_two_104732e2(uVar7 - iVar2,0);

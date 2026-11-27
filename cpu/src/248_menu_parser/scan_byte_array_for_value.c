@@ -49,7 +49,7 @@ bool scan_byte_array_for_value(int *param_1,int *param_2,uint param_3)
     zero_struct_seven_words(param_2);
   }
   else {
-    drain_byte_queue((int *)__frv_reg_unset(4));
+    drain_byte_queue((int *)(uint32_t)param_1);
   }
   return iVar3 != 0;
 }

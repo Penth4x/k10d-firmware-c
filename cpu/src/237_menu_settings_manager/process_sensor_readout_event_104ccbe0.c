@@ -141,7 +141,7 @@ void process_sensor_readout_event_104ccbe0(int param_1)
               cStack_4e0.field_0x18 = 3;
               alloc_and_zero_struct_104bb416(auStack_2b0);
               read_struct_field_at_index_104c2890(puVar5,0);
-              iVar4 = map_mode_code_to_index_104bb5c4(__frv_reg_unset(4));
+              iVar4 = map_mode_code_to_index_104bb5c4((uint32_t)param_1);
               if ((iVar4 == 0) || (iVar4 == 2)) {
                 iVar4 = compare_two_structs_by_mode(param_1,iVar4,&cStack_4e0,*(void **)(param_1 + 0x1e4));
               }

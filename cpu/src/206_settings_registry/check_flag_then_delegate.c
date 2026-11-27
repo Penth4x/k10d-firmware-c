@@ -21,7 +21,7 @@ uint check_flag_then_delegate(cls_105b6aa0 *param_1,int *param_2,void *param_3)
   bool bVar3;
   uint uVar2;
   
-  iVar1 = query_and_log_object_state(__frv_reg_unset(4),(int *)__frv_reg_unset(5));
+  iVar1 = query_and_log_object_state((uint32_t)param_1,(int *)(uint32_t)param_2);
   if (iVar1 == 0) {
     uVar2 = 0;
   }

@@ -72,7 +72,7 @@ void init_subsystem_object_graph(cls_10596278 *param_1,uint32_t param_2,void *pa
   invoke_virtual_then_call_helper_10494188((int)pvVar16,iVar15);
   pvVar18 = (void *)0x0;
   pvVar19 = (void *)0x0;
-  pvVar17 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1a80015,(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pvVar17 = (void *)app_obj_factory((int *)(param_1->field_0x4),(void *)0x1a80015,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   iterate_and_remove_list_entry(pvVar17,pvVar1,pvVar18,pvVar19);
   iterate_and_remove_list_entry(pvVar17,pvVar2,pvVar18,pvVar19);
   iterate_and_remove_list_entry(pvVar17,pvVar3,pvVar18,pvVar19);

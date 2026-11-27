@@ -45,7 +45,7 @@ int * build_exposure_param_table(int *param_1)
   uVar2 = *(uint *)(param_1[0x11] * 4 + 0x105d6f90/*ROM*/);
   iVar3 = param_1[0x17];
   iVar4 = param_1[0x18];
-  iVar7 = read_byte_at_offset_0x58_1051ff76(__frv_reg_unset(4));
+  iVar7 = read_byte_at_offset_0x58_1051ff76((uint32_t)param_1);
   if (iVar7 != 0) {
     trigger_sr_cal_transfer_104867c0((int)param_1);
     puVar8 = (uint *)(param_1 + 0x13);

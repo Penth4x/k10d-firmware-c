@@ -32,7 +32,7 @@ int dispatch_param_based_on_state(int param_1,int param_2,int param_3)
     }
   }
   if (iVar2 == param_1 + 0x1408) {
-    initialize_large_struct((uint32_t *)__frv_reg_unset(4));
+    initialize_large_struct((uint32_t *)(uint32_t)param_1);
   }
   return iVar2;
 }
