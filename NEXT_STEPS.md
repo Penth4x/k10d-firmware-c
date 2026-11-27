@@ -889,3 +889,12 @@ task upstream that itself is blocked). This is an un-posted-event chain, not a w
 ## principle: dispatch_context_switch, rtos_dispatch_tail_restore (REALOS context-switch: set SP, save/restore
 ## all regs, non-returning), loop_write_seven_pointers, initialize_rtos_kernel (read arbitrary caller regs
 ## r0_in/caller_r8/r9/r10/r14/r13_in). These are the legitimate asm residue — do NOT convert.
+
+## LAYER 2 FRONTIER (d329, precise): cpucom_spi_xfer writes the companion command = cpucom_resp_get_byte0(
+## param_2) = BYTE0 of the mailbox message ui_task6_body received (via mbx_receive at ctx+0x18). Candidate's
+## first message byte0=0x80, stock=0x04 (POST). cpucom_msg_set_cmd(msg,0) inits byte0=0; the senders
+## (send_cpucom_command_sequence_*, unit 139) set it to ROM constants (0x64/0x78/..). So the candidate's first
+## message is either (a) a wrong/early message (ordering) or (b) byte0 set to 0x80 by a specific producer.
+## NEXT (focused trace, like layer-1): FRN_WRWATCH byte0 of the message param_2 in cpucom_spi_xfer (get its
+## addr from a spi_xfer trace), find WHO writes 0x80 and when; AND trace the mbx_send that queues ui_task6's
+## first message (sender of a byte0=0x80 vs stock 0x04 message). Oracle: cpucom_spi_xfer's written byte -> 0x04.
