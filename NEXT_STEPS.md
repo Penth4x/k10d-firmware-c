@@ -942,3 +942,21 @@ task upstream that itself is blocked). This is an un-posted-event chain, not a w
 ## rebuild: if the valid POST (0x04) now goes first the spurious repost may be moot; else trace why ui_task5
 ## reposts 0x80 (its wait-flag/condition at *(ctx+0x30)+0x60, and the source message byte0=0x80 = a companion
 ## response code reposted as a command). Oracle: candidate command sequence should match stock (0x04 first).
+
+## LAYER 3 LOCATED (d329): the spurious 0x80 repost happens because ui_task5_body reposts (vs resubmits)
+## when *(obj+0x60)==0 (obj = *(ui_task5_param+0x30)). +0x60 is set to 1 by call_helper_on_flag_match ONLY
+## on event param_2==0x1090001 && param_3!=0; also touched by copy_reply_into_context / update_byte_at_offset_
+## with_mask (the companion reply path). So in the candidate +0x60 stays 0 -> repost 0x80 (stock never does
+## this; stock's cmd sequence has no 0x80). NEXT: trace whether event 0x1090001 is dispatched (with param_3!=0)
+## in the candidate, OR whether the companion reply that sets +0x60 is mishandled. Likely another dropped
+## dispatch arg (B-3v) or a B-12/descriptor bug on the reply path. MENU STATUS: layer-1 (timing) + layer-2
+## (POST cmd B-12 width) FIXED & committed; layer-3 (this 0x80 repost / +0x60) is the current blocker; there
+## may be further layers in the Cmd:05->status handshake after that.
+## LAYER 3 SYNTHESIS (d329): the dsp shows ONE Cmd:80 then CPUCOM ERROR -> B-6 crash -> the POST (0x04, now
+## correct) is NEVER sent (crash first). So the spurious 0x80 repost is the gate. Stock: POST 0x04 -> ack ->
+## resubmit 0x01 (x3). Candidate: reposts 0x80 BEFORE the POST. The 0x80 = a companion response code; since
+## the model is silent until the POST, there is no real reply, so the 0x80 is likely a PREMATURE read of the
+## companion data reg (default ~0xff/0x80) treated as a reply and reposted by ui_task5. FIX DIRECTION: stop
+## ui_task5 reposting before the POST ack (ordering/scheduling), or fix obj+0x60 so it resubmits-after-POST
+## like stock. Trace: ui_task5_body first-fire ic vs the POST send ic (cand vs stock); + what writes the
+## reply-source byte0=0x80 (allocation-aware, the field is heap-reused so fixed-addr WRWATCH is unreliable).

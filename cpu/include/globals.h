@@ -1328,9 +1328,9 @@ extern uint32_t DAT_105a5c2c;
 extern uint32_t _DAT_105a5c2c;
 extern uint32_t DAT_105a5c3c;
 extern uint32_t _DAT_105a5c3c;
-extern uint32_t DAT_105a5c5c;
+extern uint8_t DAT_105a5c5c;  /* B-12 FIX (d329): byte companion-command/data const, was uint32_t -> word-read truncated */
 extern uint32_t _DAT_105a5c5c;
-extern uint32_t DAT_105a5c5d;
+extern uint8_t DAT_105a5c5d;  /* B-12 FIX (d329): byte companion-command/data const, was uint32_t -> word-read truncated */
 extern uint32_t _DAT_105a5c5d;
 extern uint32_t DAT_105a5c64;
 extern uint32_t _DAT_105a5c64;
@@ -7139,13 +7139,13 @@ extern uint32_t uRam105a4804;
 extern uint32_t uRam105a480a;
 extern uint32_t uRam105a480e;
 extern uint32_t uRam105a6938;
-extern uint32_t uRam105a71d8;
-extern uint32_t uRam105a71e4;
-extern uint32_t uRam105a71e8;
-extern uint32_t uRam105a71ea;
-extern uint32_t uRam105a71ec;
+extern uint8_t uRam105a71d8;  /* B-12 FIX (d329): byte companion-command/data const, was uint32_t -> word-read truncated */
+extern uint8_t uRam105a71e4;  /* B-12 FIX (d329): byte companion-command/data const, was uint32_t -> word-read truncated */
+extern uint8_t uRam105a71e8;  /* B-12 FIX (d329): byte companion-command/data const, was uint32_t -> word-read truncated */
+extern uint8_t uRam105a71ea;  /* B-12 FIX (d329): byte companion-command/data const, was uint32_t -> word-read truncated */
+extern uint8_t uRam105a71ec;  /* B-12 FIX (d329): byte companion-command/data const, was uint32_t -> word-read truncated */
 extern uint32_t uRam105a72fe;
-extern uint32_t uRam105a7814;
+extern uint8_t uRam105a7814;  /* B-12 FIX (d329): byte companion-command/data const, was uint32_t -> word-read truncated */
 /* B-12 FIX (d329): byte-wide ROM const (the companion POST command, =0x04 at 0x105a7b44; the next byte
  * 0x105a7b45 is bRam105a7b45=0x05, the POST insize). Was declared uint32_t -> execute_cpucom_transaction
  * read the big-endian word 0x04050000 and truncated to the LOW byte (0x00) when passing it to
