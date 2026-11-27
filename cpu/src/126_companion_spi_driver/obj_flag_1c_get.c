@@ -18,5 +18,8 @@
 bool obj_flag_1c_get(cls_105a023c *param_1)
 
 {
-  return param_1->field_0x1c != '\0';
+  /* field_0x1c is a byte flag (the constructor cls_105a023c_new stores it with a byte write);
+     read it byte-wide so this matches the stock LDUB, not a word read of the mis-declared uint32_t
+     (a word read pulls in the 3 uninitialised bytes after the flag and, big-endian, mis-tests it). */
+  return *(uint8_t *)&param_1->field_0x1c != '\0';
 }

@@ -81,22 +81,22 @@ void compute_exposure_apex_values(uint *param_1,int param_2,ushort *param_3,uint
     iVar8 = 0x40;
     break;
   case 0xc:
-    auStack_10[0] = *(ushort *)(&DAT_105fa136/*ROM*/ + (uint)param_8 * 2) >> 5;
+    auStack_10[0] = *(ushort *)(DAT_105fa136/*ROM*/ + (uint)param_8 * 2) >> 5;
     auStack_10[1] = 0x100;
     auStack_10[2] = 0x100;
-    uVar1 = *(ushort *)(&DAT_105fa1e8/*ROM*/ + (uint)param_8 * 2);
+    uVar1 = *(ushort *)(DAT_105fa1e8/*ROM*/ + (uint)param_8 * 2);
     goto LAB_1052ef80;
   case 0xd:
-    auStack_10[0] = *(ushort *)(&DAT_105fa136/*ROM*/ + (uint)param_9 * 2) >> 5;
+    auStack_10[0] = *(ushort *)(DAT_105fa136/*ROM*/ + (uint)param_9 * 2) >> 5;
     auStack_10[1] = 0x100;
     auStack_10[2] = 0x100;
-    uVar1 = *(ushort *)(&DAT_105fa1e8/*ROM*/ + (uint)param_9 * 2);
+    uVar1 = *(ushort *)(DAT_105fa1e8/*ROM*/ + (uint)param_9 * 2);
     goto LAB_1052ef80;
   case 0xe:
-    auStack_10[0] = *(ushort *)(&DAT_105fa136/*ROM*/ + (uint)param_10 * 2) >> 5;
+    auStack_10[0] = *(ushort *)(DAT_105fa136/*ROM*/ + (uint)param_10 * 2) >> 5;
     auStack_10[1] = 0x100;
     auStack_10[2] = 0x100;
-    uVar1 = *(ushort *)(&DAT_105fa1e8/*ROM*/ + (uint)param_10 * 2);
+    uVar1 = *(ushort *)(DAT_105fa1e8/*ROM*/ + (uint)param_10 * 2);
 LAB_1052ef80:
     auStack_10[3] = uVar1 >> 5;
     puStack_4c = auStack_10;

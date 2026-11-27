@@ -45,8 +45,8 @@ void populate_struct_with_obfuscated_bytes(void *param_1,uint32_t param_2,uint32
   iVar4 = 3;
   iVar1 = 0;
   do {
-    *(byte *)((int)param_1 + iVar1 + 0x264) = (&DAT_105a7fd8/*ROM*/)[iVar1] ^ 0xb4;
-    *(byte *)((int)param_1 + iVar1 + 0x274) = (&DAT_105a7fe8/*ROM*/)[iVar1] ^ 0xb4;
+    *(byte *)((int)param_1 + iVar1 + 0x264) = (DAT_105a7fd8/*ROM*/)[iVar1] ^ 0xb4;
+    *(byte *)((int)param_1 + iVar1 + 0x274) = (DAT_105a7fe8/*ROM*/)[iVar1] ^ 0xb4;
     *(byte *)((int)param_1 + iVar1 + 0x284) = (&DAT_105a7ff8/*ROM*/)[iVar1] ^ 0xb4;
     *(byte *)((int)param_1 + iVar1 + 0x265) = (&DAT_105a7fd9/*ROM*/)[iVar1] ^ 0xb4;
     *(byte *)((int)param_1 + iVar1 + 0x275) = (&DAT_105a7fe9/*ROM*/)[iVar1] ^ 0xb4;

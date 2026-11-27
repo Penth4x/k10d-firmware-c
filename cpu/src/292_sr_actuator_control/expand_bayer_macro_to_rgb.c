@@ -69,7 +69,7 @@ void expand_bayer_macro_to_rgb(uint32_t param_1,byte *param_2,int param_3,uint p
   puStack_274 = (uint8_t *)(iVar21 + iVar8 + iVar19);
   pbStack_278 = (byte *)(iVar20 + iVar21 + param_4 * iVar7 + iVar19);
   iVar20 = (uint)param_8 * 3;
-  uVar2 = (&DAT_105984dc/*ROM*/)[iVar20];
+  uVar2 = (DAT_105984dc/*ROM*/)[iVar20];
   uVar3 = (&DAT_105984de/*ROM*/)[iVar20];
   uVar4 = (&DAT_105984dd/*ROM*/)[iVar20];
   if (param_9 == 0xff) {
@@ -79,7 +79,7 @@ void expand_bayer_macro_to_rgb(uint32_t param_1,byte *param_2,int param_3,uint p
   }
   else {
     iVar20 = (uint)param_9 * 3;
-    uVar5 = (&DAT_105984dc/*ROM*/)[iVar20];
+    uVar5 = (DAT_105984dc/*ROM*/)[iVar20];
     uVar6 = (&DAT_105984de/*ROM*/)[iVar20];
     uVar9 = (&DAT_105984dd/*ROM*/)[iVar20];
   }

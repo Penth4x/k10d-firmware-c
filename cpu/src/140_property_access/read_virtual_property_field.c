@@ -41,11 +41,12 @@ uint read_virtual_property_field(int *param_1,int param_2)
   }
   else {
     if (param_2 != 0x19) {
-      param_2 = param_2 * 8;
+      int desc = param_2 * 8;   /* field -> byte offset of its 8-byte descriptor */
       iVar2 = (((vtbl_entry*)(*param_1))[11].fn)
                         ((int)((vtbl_entry*)(*param_1))[11].adj + (int)param_1,
-                         *(uint *)(&DAT_105a78c4/*ROM*/ + param_2) & 0xff,(&DAT_105a78c8/*ROM*/)[param_2]);
-      return iVar2 >> ((byte)(&DAT_105a78c9/*ROM*/)[param_2] & 0x1f);
+                         *(uint *)(DAT_105a78c4 + desc) & 0xff,   /* [+0] offset */
+                         DAT_105a78c4[desc + 4]);                  /* [+4] mask */
+      return iVar2 >> (DAT_105a78c4[desc + 5] & 0x1f);            /* [+5] shift */
     }
     uVar4 = (((vtbl_entry*)(*param_1))[11].fn)((int)((vtbl_entry*)(*param_1))[11].adj + (int)param_1,4,0xff);
     puVar6[3] = uVar4;

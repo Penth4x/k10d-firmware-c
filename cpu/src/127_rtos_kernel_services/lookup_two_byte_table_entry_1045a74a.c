@@ -16,15 +16,15 @@ uint16_t lookup_two_byte_table_entry_1045a74a(uint32_t param_1,int param_2,int p
     return 0;
   }
   if ((((param_3 == 0) && (param_5 != '\x0f')) && (param_5 != '\r')) && (param_5 != '\x0e')) {
-    puVar2 = &DAT_105a40c4/*ROM*/;
+    puVar2 = DAT_105a40c4/*ROM*/;
     iVar1 = param_2 << 1;
   }
   else {
     iVar1 = param_2 * 2;
     if (param_4 == 0) {
-      return *(uint16_t *)(&DAT_105a4208/*ROM*/ + iVar1);
+      return *(uint16_t *)(DAT_105a4208/*ROM*/ + iVar1);
     }
-    puVar2 = &DAT_105a4166/*ROM*/;
+    puVar2 = DAT_105a4166/*ROM*/;
   }
   return *(uint16_t *)((char*)puVar2 + iVar1);
 }

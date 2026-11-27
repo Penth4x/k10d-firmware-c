@@ -17,7 +17,7 @@ uint32_t lookup_table_entry_by_index_104446dc(uint32_t param_1,int param_2)
     uVar2 = 0;
   }
   else {
-    uVar2 = *(uint32_t *)(&DAT_105a0f88/*ROM*/ + param_2 * 4);
+    uVar2 = *(uint32_t *)(DAT_105a0f88/*ROM*/ + param_2 * 4);
   }
   return uVar2;
 }

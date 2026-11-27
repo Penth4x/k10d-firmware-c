@@ -410,6 +410,41 @@ Reliable measurement (prerequisite for all localization):
   (0x4006xxxx, 0x4007000c, 0x400a00xx, 0x400d000x, 0x400e001x, 0x40100xxx, 0x40128xxx, 0x401c01xx, …).
   The tool correctly skips the already-fixed RTC pair, validating it. (This replaces the old
   `grep '& 0x8000'` heuristic — compare against the original's real width instead of guessing.)
+- **Instance 3 (companion POST payload byte; d345, the SECOND BLACK-SCREEN root):** `uRam10000068`/
+  `uRam10000069` (globals.h) were `uint32_t` but are BYTE flags. `get_ram_byte_at_10000068` returns
+  `uRam10000068` as `uint8_t`: fcc loads the 32-bit BE word `@0x10000068` (`00 04 0a 17`) and truncates
+  to the LOW byte `0x17` (the byte at `0x1000006b`!) instead of `0x00`; `_69` likewise gives `0x00`
+  not `0x04`. These feed `populate_virtual_buffer_bytes` byte[4] = `cVar4<<5 | bVar5&0x1f`: stock
+  `0x00<<5|0x04 = 0x04`, candidate `0x17<<5|0x00 = 0x2e0`→`0xe0`. That corrupts the companion POST
+  payload → SPI handshake never completes → `cpucom_cmd_handler` never runs → eventflags never set →
+  UI tasks deadlock on flags → **black screen** (no crash, no reset-loop; scheduler/TCBs byte-identical
+  to stock). Fix: type both `uint8_t` + touch the two getters. Found by walking SPI payload byte[6]≠stock
+  back through faithful copies (`cpucom_spi_xfer`, `cpucom_repost_request` — proven faithful by
+  disassembly) to the builder, then write-watch → `populate_virtual_buffer_bytes`.
+- **Instance 4 (STRIDE variant — companion SPI txn-B data byte; d346):** `DAT_105a78c4`/`_105a78c8`/
+  `_105a78c9` (globals.h) were `uint32_t` but are the **byte** fields of an **8-byte field-descriptor
+  table** at `0x105a78c4` (ROM entries: `[+0..3]`=offset word, `[+4]`=mask byte, `[+5]`=shift byte).
+  `write_object_field_byte`/`read_virtual_property_field` index them as `(&DAT_105a78c9)[param_2]` with
+  `param_2` already a *byte* offset (`param_2*8`). Because the base was `uint32_t`, C pointer arithmetic
+  multiplied the index by **4**, reading garbage ~`0x1c0` bytes past the right entry — NOT an adjacent
+  byte. For field `0x0e` stock reads shift=`0x04`,mask=`0x10` → `1<<4 & 0x10 = 0x10`; candidate read
+  junk → `0x00`. Surfaced as companion SPI cmd=01 txn-B `data[3]` = `0x00` vs stock `0x10` (the ONLY SPI
+  divergence; found by diffing `FRN_SPI_LOG` streams, then write-watching the payload buffer back through
+  `update_byte_at_offset_with_mask`←`write_object_field_byte`←`set_two_flags_on_object_field`, and a new
+  per-call arg tracer `FRN_ARGS_TRACE`). Fix: declare all three (+ `_DAT_` aliases) `uint8_t`; both
+  consumers use byte-stride indexing so no `.c` change needed. **This STRIDE class is the nastier B-12:
+  a wrong-width TABLE base corrupts array *stride*, not just one byte.** `global_width_check.py` MISSES it
+  — it judges only the first DIRECT `@rR` load after `ldi:32`, so indexed loads (`ldub @(ri,rj)`) and
+  address-taken table bases are never scored. TODO: add a table-stride check to the detector.
+- **DETECTION (use this, generalized + corrected): `scripts/global_width_check.py`.** Covers ALL
+  address-named globals (`uRam`/`bRam`/`pvRam`/`cRam`/`DAT_`/`_DAT_`) in every range, not just MMIO
+  `DAT_`. It **fixes a latent bug in `mmio_width_check.py`**: the FR load/store base register is
+  `rj = (w>>4)&0xf` (the HIGH nibble; `ri = w&0xf` is dest/src), per qemu `op04 r[ri]=rd32(r[rj])` /
+  `op14 wr32(r[rj],r[ri])`. `mmio_width_check.py` checked the LOW nibble (dest), so it only caught
+  register-reused accesses (`ldub @r12,r12`) and MISSED `ldub @r12,r4` — which is exactly why this
+  class kept re-biting (the `uRam10000068` access above was invisible to it). Correcting the nibble:
+  60 → 381 flagged globals. Still filter to the boot path and verify each fix differentially (don't
+  blind-retype all 381).
 
 ## TOOL-1 · trace reducer drops relocated functions (measurement bug, not firmware)
 - **Symptom:** co-run fdiff shows the candidate "skipping" functions it actually executes; inflated

@@ -77,24 +77,24 @@ void compute_exposure_ratio_table(uint *param_1,int param_2,ushort *param_3,uint
     iVar7 = 0x40;
     break;
   case 0xc:
-    auStack_10[0] = *(ushort *)(&DAT_105fa136/*ROM*/ + (uint)param_7 * 2) >> 5;
+    auStack_10[0] = *(ushort *)(DAT_105fa136/*ROM*/ + (uint)param_7 * 2) >> 5;
     auStack_10[1] = 0x100;
     auStack_10[2] = 0x100;
     puStack_54 = auStack_10;
-    auStack_10[3] = *(ushort *)(&DAT_105fa1e8/*ROM*/ + (uint)param_7 * 2) >> 5;
+    auStack_10[3] = *(ushort *)(DAT_105fa1e8/*ROM*/ + (uint)param_7 * 2) >> 5;
     goto code_r0x1052eae6;
   case 0xd:
-    auStack_10[0] = *(ushort *)(&DAT_105fa136/*ROM*/ + (uint)param_8 * 2) >> 5;
+    auStack_10[0] = *(ushort *)(DAT_105fa136/*ROM*/ + (uint)param_8 * 2) >> 5;
     auStack_10[1] = 0x100;
     auStack_10[2] = 0x100;
-    auStack_10[3] = *(ushort *)(&DAT_105fa1e8/*ROM*/ + (uint)param_8 * 2) >> 5;
+    auStack_10[3] = *(ushort *)(DAT_105fa1e8/*ROM*/ + (uint)param_8 * 2) >> 5;
     puStack_54 = auStack_10;
     goto code_r0x1052eae6;
   case 0xe:
-    auStack_10[0] = *(ushort *)(&DAT_105fa136/*ROM*/ + (uint)param_9 * 2) >> 5;
+    auStack_10[0] = *(ushort *)(DAT_105fa136/*ROM*/ + (uint)param_9 * 2) >> 5;
     auStack_10[1] = 0x100;
     auStack_10[2] = 0x100;
-    auStack_10[3] = *(ushort *)(&DAT_105fa1e8/*ROM*/ + (uint)param_9 * 2) >> 5;
+    auStack_10[3] = *(ushort *)(DAT_105fa1e8/*ROM*/ + (uint)param_9 * 2) >> 5;
     puStack_54 = auStack_10;
     goto code_r0x1052eae6;
   }

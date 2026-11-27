@@ -32,7 +32,7 @@ void issue_three_region_draw_commands(cls_105b3e68 *param_1)
   iVar11 = get_sensor_singleton();
   iVar14 = *(int *)(iVar11 + 4);
   iVar11 = (uint)(ushort)param_1->field_0x24 * 3;
-  bVar5 = (&DAT_105984dc/*ROM*/)[iVar11];
+  bVar5 = (DAT_105984dc/*ROM*/)[iVar11];
   bVar6 = (&DAT_105984de/*ROM*/)[iVar11];
   bVar7 = (&DAT_105984dd/*ROM*/)[iVar11];
   iVar11 = param_1->field_0x4;

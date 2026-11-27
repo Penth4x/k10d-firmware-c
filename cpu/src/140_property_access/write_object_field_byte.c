@@ -24,11 +24,12 @@ void write_object_field_byte(int *param_1,int param_2,uint param_3)
               ((int)((vtbl_entry*)(*param_1))[9].adj + (int)param_1,4,(int)param_3 >> 0x18 & 0xff,0xff);
   }
   else {
-    param_2 = param_2 * 8;
+    int desc = param_2 * 8;   /* field -> byte offset of its 8-byte descriptor */
     (((vtbl_entry*)(*param_1))[9].fn)
               ((int)((vtbl_entry*)(*param_1))[9].adj + (int)param_1,
-               *(uint *)(&DAT_105a78c4/*ROM*/ + param_2) & 0xff,
-               param_3 << ((&DAT_105a78c9/*ROM*/)[param_2] & 0xf) & 0xff,(&DAT_105a78c8/*ROM*/)[param_2]);
+               *(uint *)(DAT_105a78c4 + desc) & 0xff,           /* [+0] target offset */
+               param_3 << (DAT_105a78c4[desc + 5] & 0xf) & 0xff, /* [+5] shift */
+               DAT_105a78c4[desc + 4]);                          /* [+4] mask */
   }
   return;
 }

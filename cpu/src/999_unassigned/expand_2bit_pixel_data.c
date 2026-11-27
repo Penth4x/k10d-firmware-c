@@ -71,7 +71,7 @@ void expand_2bit_pixel_data(void *dest,void *src,int block_size,int total_size)
   puStack_14 = (uint8_t *)(iVar15 + iVar21 + iVar5);
   pbStack_18 = (byte *)(iVar6 + iVar15 + uVar20 * iVar10 + iVar5);
   iVar6 = (uint)in_stack_00000016 * 3;
-  uVar13 = (&DAT_105984dc/*ROM*/)[iVar6];
+  uVar13 = (DAT_105984dc/*ROM*/)[iVar6];
   uVar2 = (&DAT_105984de/*ROM*/)[iVar6];
   uVar3 = (&DAT_105984dd/*ROM*/)[iVar6];
   if (in_stack_0000001a == 0xff) {
@@ -82,7 +82,7 @@ void expand_2bit_pixel_data(void *dest,void *src,int block_size,int total_size)
   else {
     iVar6 = (uint)in_stack_0000001a * 3;
     uVar4 = (&DAT_105984de/*ROM*/)[iVar6];
-    uVar22 = (&DAT_105984dc/*ROM*/)[iVar6];
+    uVar22 = (DAT_105984dc/*ROM*/)[iVar6];
     uVar11 = (&DAT_105984dd/*ROM*/)[iVar6];
   }
   iStack_1c = 0;

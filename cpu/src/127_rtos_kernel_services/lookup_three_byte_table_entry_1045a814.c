@@ -18,21 +18,21 @@ void lookup_three_byte_table_entry_1045a814(uint32_t param_1,int param_2,int par
   if (param_2 < 0x52) {
     if (param_3 == 0) {
       iVar1 = param_2 * 2;
-      *param_5 = (char)*(uint16_t *)(&DAT_105a40c4/*ROM*/ + iVar1);
-      *param_6 = (char)*(uint16_t *)(&DAT_105a45d4/*ROM*/ + iVar1);
-      *param_7 = (char)*(uint16_t *)(&DAT_105a4532/*ROM*/ + iVar1);
+      *param_5 = (char)*(uint16_t *)(DAT_105a40c4/*ROM*/ + iVar1);
+      *param_6 = (char)*(uint16_t *)(DAT_105a45d4/*ROM*/ + iVar1);
+      *param_7 = (char)*(uint16_t *)(DAT_105a4532/*ROM*/ + iVar1);
     }
     else {
       iVar1 = param_2 * 2;
       if (param_4 == 0) {
-        *param_5 = (char)*(uint16_t *)(&DAT_105a4490/*ROM*/ + iVar1);
-        *param_6 = (char)*(uint16_t *)(&DAT_105a4208/*ROM*/ + iVar1);
-        *param_7 = (char)*(uint16_t *)(&DAT_105a4532/*ROM*/ + iVar1);
+        *param_5 = (char)*(uint16_t *)(DAT_105a4490/*ROM*/ + iVar1);
+        *param_6 = (char)*(uint16_t *)(DAT_105a4208/*ROM*/ + iVar1);
+        *param_7 = (char)*(uint16_t *)(DAT_105a4532/*ROM*/ + iVar1);
       }
       else {
-        *param_5 = (char)*(uint16_t *)(&DAT_105a4490/*ROM*/ + iVar1);
-        *param_6 = (char)*(uint16_t *)(&DAT_105a45d4/*ROM*/ + iVar1);
-        *param_7 = (char)*(uint16_t *)(&DAT_105a4166/*ROM*/ + iVar1);
+        *param_5 = (char)*(uint16_t *)(DAT_105a4490/*ROM*/ + iVar1);
+        *param_6 = (char)*(uint16_t *)(DAT_105a45d4/*ROM*/ + iVar1);
+        *param_7 = (char)*(uint16_t *)(DAT_105a4166/*ROM*/ + iVar1);
       }
     }
   }

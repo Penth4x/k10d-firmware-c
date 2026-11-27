@@ -46,7 +46,7 @@ void fill_buffer_with_pattern(ushort *param_1)
   puVar14 = (uint8_t *)(iVar1 + iVar12 + iVar5);
   puVar13 = (uint8_t *)(uVar10 * iVar7 + iVar11 + iVar5);
   iVar15 = (uint)param_1[0x12] * 3;
-  uVar2 = (&DAT_105984dc/*ROM*/)[iVar15];
+  uVar2 = (DAT_105984dc/*ROM*/)[iVar15];
   uVar3 = (&DAT_105984de/*ROM*/)[iVar15];
   uVar4 = (&DAT_105984dd/*ROM*/)[iVar15];
   uVar8 = (uint)param_1[0x13];

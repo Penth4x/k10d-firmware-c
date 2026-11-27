@@ -28,7 +28,7 @@ int classify_value_against_threshold_table(uint32_t param_1,uint param_2)
     iVar2 = 1;
     do {
       iVar3 = iVar2;
-      if (param_2 < *(uint *)(&DAT_105a0f88/*ROM*/ + iVar1)) {
+      if (param_2 < *(uint *)(DAT_105a0f88/*ROM*/ + iVar1)) {
         return iVar3 + -1;
       }
       iVar1 = iVar1 + 4;

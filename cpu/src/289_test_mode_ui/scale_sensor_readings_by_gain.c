@@ -28,9 +28,9 @@ void scale_sensor_readings_by_gain(cls_105fa760 *param_1,void *param_2,void *par
   iVar3 = get_or_init_sram_buffer_1052c5b8();
   puVar2 = *(ushort **)(iVar3 + 0x38);
   iVar3 = *(int *)((int)param_2 + 0x74) * 2;
-  uVar1 = *(ushort *)(&DAT_105fa1e8/*ROM*/ + iVar3);
+  uVar1 = *(ushort *)(DAT_105fa1e8/*ROM*/ + iVar3);
   *(short *)((int)param_3 + 8) =
-       (short)((uint)((int)((uint)*(ushort *)(&DAT_105fa136/*ROM*/ + iVar3) *
+       (short)((uint)((int)((uint)*(ushort *)(DAT_105fa136/*ROM*/ + iVar3) *
                            (uint)*(ushort *)((int)param_2 + 0x18)) / (int)(uint)*puVar2) >> 5);
   *(short *)((int)param_3 + 10) =
        (short)(((uint)*(ushort *)((int)param_2 + 0x1a) << 0xd) / (uint)puVar2[1] >> 5);

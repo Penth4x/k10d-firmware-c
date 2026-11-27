@@ -56,7 +56,7 @@ void fill_bayer_pattern_region(int param_1,int param_2,int param_3,int param_4,u
   puVar14 = (uint8_t *)(iVar1 + iVar10 + iVar5);
   puVar12 = (uint8_t *)(param_3 * iVar9 + iVar13 + iVar5);
   iVar11 = (uint)*(ushort *)(param_1 + 0x24) * 3;
-  uVar2 = (&DAT_105984dc/*ROM*/)[iVar11];
+  uVar2 = (DAT_105984dc/*ROM*/)[iVar11];
   uVar3 = (&DAT_105984de/*ROM*/)[iVar11];
   uVar4 = (&DAT_105984dd/*ROM*/)[iVar11];
   uVar6 = (uint)param_5;

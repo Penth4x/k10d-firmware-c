@@ -30,7 +30,7 @@ void write_two_word_pair_to_object(int param_1,uint param_2,int param_3,uint par
   }
   else {
     iVar1 = (param_4 & 0xffff) * 3;
-    uVar2 = CONCAT21(CONCAT11((&DAT_105984dc/*ROM*/)[iVar1],(&DAT_105984de/*ROM*/)[iVar1]),(&DAT_105984dd/*ROM*/)[iVar1])
+    uVar2 = CONCAT21(CONCAT11((DAT_105984dc/*ROM*/)[iVar1],(&DAT_105984de/*ROM*/)[iVar1]),(&DAT_105984dd/*ROM*/)[iVar1])
             | 0x80000000/*SDRAM*/;
   }
   (*(code *)0x1044573c/*ROM*/)(*(uint32_t *)(param_1 + 0x14),uVar2);
