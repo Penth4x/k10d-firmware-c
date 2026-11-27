@@ -27,7 +27,7 @@ configure_parameter_array(int param_1,int param_2,uint32_t param_3,uint32_t para
   uVar1 = (uintptr_t)(alloc_two_byte_pair_record((uint8_t *)0x0,2,2));
   *(uint32_t *)(param_1 + 0x20) = uVar1;
   uVar3 = 0;
-  alloc_and_zero_2d_array((byte *)__frv_reg_unset(4));
+  alloc_and_zero_2d_array((byte *)uVar1);
   if (*(char *)(param_1 + 0x18) != '\0') {
     do {
       iVar2 = uVar3 * 4;
