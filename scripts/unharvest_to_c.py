@@ -50,13 +50,17 @@ for ha in sorted(handasms):
     if args not in ('', 'void'): skipped.append((fn,'existing params: %r (needs manual)' % args)); continue
     dc = direct_callers(fn)
     if dc: skipped.append((fn,'%d direct callers (needs threading)' % len(dc))); continue
-    params = ", ".join("uint32_t param_x%d" % (r-4) for r in regs)
+    # params must cover EVERY ABI slot 0..max(used) so each used reg lands in its correct register
+    # (r4=param slot0.. r7=slot3); a gap (e.g. uses only r5) needs a param_x0 placeholder or param_x1
+    # would be passed in r4. Unused slots are harmless placeholders.
+    maxslot = max(r-4 for r in regs)
+    params = ", ".join("uint32_t param_x%d" % s for s in range(maxslot+1))
     newdef = "%s %s(%s)\n{" % (ret, fn, params)
     body = t[:dm.start()] + "\n" + newdef + t[dm.end():]
     body = USE.sub(lambda mm: "(uint32_t)param_x%d" % (int(mm.group(1))-4), body)
     # funcs.h: replace the declaration line
     decl_rx = re.compile(r'^[A-Za-z_][\w\* ]*?\b%s\s*\([^;]*\)\s*;\s*$' % re.escape(fn), re.M)
-    newdecl = "%s %s(%s);" % (ret, fn, ", ".join("uint32_t" for _ in regs))
+    newdecl = "%s %s(%s);" % (ret, fn, ", ".join("uint32_t" for _ in range(maxslot+1)))
     if not decl_rx.search(funcs_new): skipped.append((fn,'no funcs.h decl')); continue
     funcs_new = decl_rx.sub(newdecl, funcs_new, count=1)
     converted.append((fn, ha, body, os.path.join(GEN, fn+'.asm')))

@@ -865,3 +865,18 @@ task upstream that itself is blocked). This is an un-posted-event chain, not a w
 ## trace spi_read_byte's caller chain / cpucom_spi_xfer command arg on the FIXED candidate (now at 38.6M) and
 ## find where 0x04 is dropped to 0 (likely ANOTHER B-3c/dropped-arg, or a wrong POST-vs-message-loop path).
 ## Oracle: spi_read_byte first-fire r5 -> 0x04.
+
+## LAYER 2 (d329, post layer-1-fix): companion command byte 0x80 with out_size=0 (EMPTY/malformed) is
+## written to 0x5c004043 by spi_read_byte (pc 0x107f85dc, caller rp 0x106c414a = cpucom_spi_xfer). Stock's
+## first is 0x04 with out_size=5 (a real POST: 01 1f 00 13 04). So the candidate's first companion MESSAGE is
+## uninitialized/wrong (0-size). Both send via the message loop (cpucom_poll_driver -> cpucom_spi_xfer); the
+## divergence is the first MESSAGE's content. The companion units (142/143) have NO __frv_reg_unset left, so
+## the drop is in the MESSAGE PRODUCER (whoever mbx_send's the first companion msg) or a different class
+## (descriptor/B-13 in the msg object, B-15 constant). NEXT: trace the producer of ui_task6's first mailbox
+## message (mbx_send to ctx+0x18) and why its command/size are 0x80/0 vs 0x04/5. Oracle: spi_read_byte r5 /
+## the 0x5c004043 write -> 0x04 with out_size 5.
+## LAYER 2 LEAD (d329): initialize_cpucom_message sets cmd=0/insize=0 (default empty msg). The real command
+## is set later by a send_cpucom_command_sequence_* (unit 139) / send_control_message_sequence (138). Candidate
+## first send = 0x80, stock = 0x04 (POST). NEXT: trace which send_* runs first in cand vs stock and its cmd arg
+## (watch cpucom_msg_set_cmd 2nd arg). The senders pass (uint8_t)<val> — a wrong/dropped val or wrong send
+## ordering. Companion units have no __frv_reg_unset so check 139/138 senders for a B-15 constant / wrong cmd.
