@@ -908,3 +908,13 @@ task upstream that itself is blocked). This is an un-posted-event chain, not a w
 ## not fixed-addr): instrument the qemu heap allocator or trace cpucom_msg_set_cmd(msg,0x80) vs (msg,0x04)
 ## first-fire ic + the mbx_send ordering; find why the 0x80 message is first. This is a scheduling/ordering
 ## layer below the (now-fixed) companion-ready timing. Layer-1 (timing) fix stands and is oracle-verified.
+
+## LAYER 2 ROOT (d329, sharp): candidate cpucom_msg_set_cmd is called only 4x up to ic 40M, commands =
+## {0, 0, 0x80, 0x80} -- NEVER 0x04. So the candidate NEVER PRODUCES the POST (Cmd:04) companion message.
+## The only non-zero command (0x80) is set by cpucom_repost_request (rp 0x106c3a5c) -- a repost of a
+## response/feedback message, not the POST. Stock produces the 0x04 POST (a separate producer). So layer-2
+## = the POST-message PRODUCER never runs (or is skipped) in the candidate. NEXT: find who produces the 0x04
+## POST message in stock (trace stock cpucom_msg_set_cmd for the 0x04 call + its rp), then check why the
+## candidate's equivalent producer doesn't run / produces 0x80 instead. Likely a skipped init task or a
+## dropped/wrong command constant in the POST producer (unit 139 send_cpucom_command_sequence_* or the
+## companion-init path). Oracle: cpucom_msg_set_cmd should be called with r5=0x04 before the first xfer.
