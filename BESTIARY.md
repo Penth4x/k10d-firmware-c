@@ -678,3 +678,19 @@ Reliable measurement (prerequisite for all localization):
 - **Detector:** scripts/detect_split_buffer.py (write-only non-addr-taken local contiguous above an
   address-taken buffer passed to a call). Debug lesson: QEMU helper e->pc is STALE — trust live
   pc from the per-instruction hook (FRN_SPWATCH), not the BADPC FROM-pc.
+
+## B-18 (d329): DROPPED NULL-GUARD on a heap-alloc'd pointer's vtable call.
+- **Shape:** `P = heap_alloc(..)` (nullable on empty pool/OOM) with the construction null-check
+  `if (P == 0) { P = 0; } else { ctor(P); }`, then a vtable deref `((vtbl_entry*)(P->field))[K].fn(..)`
+  that is NOT wrapped in `if (P != 0)`. When the pool is empty P is null and the deref calls a null
+  fn pointer -> crash. The decompiler kept the construction check but dropped the guard that wrapped
+  the later vtable call (the original guards the deref).
+- **MENU LAYER-6 instance (VERIFIED):** initialize_object_subsystems_104eb426 (unit 255 debug_menu)
+  allocates pcVar3/pcVar4/pcVar5; pcVar3 & pcVar4 guard their vtable[5] calls, pcVar5 did NOT.
+  heap_alloc returned 0 for these debug-menu objects (pool empty/reserved — expected; proven by the
+  trace: W4 @param_1+0x1c=0 and +0x8c=0) so the unguarded pcVar5 call hit a null fn ptr. Call ->
+  0x00000000 at initialize_object_subsystems+0x176, sp VALID (so a true null call, not stack corruption
+  like B-17). Fix: wrap pcVar5's vtable call in `if (pcVar5 != 0)` to match pcVar3/pcVar4.
+- **Detector:** scripts/detect_unguarded_vcall.py (vtable call on a heap-alloc'd ptr with no wrapping
+  `if (P != 0)`; excludes the constructor top-guard idiom; flags sibling-asymmetry = strongest signal).
+  22 more single-pointer candidates tree-wide (latent OOM; guards are no-ops when non-null, safe to add).

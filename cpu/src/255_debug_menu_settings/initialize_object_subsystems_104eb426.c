@@ -84,9 +84,16 @@ void initialize_object_subsystems_104eb426(int param_1,uint32_t param_2,uint32_t
     cls_105d8ab4_new(pcVar5);
   }
   *(cls_105d8ab4 **)(param_1 + 0x8c) = pcVar5;
-  (((vtbl_entry*)(pcVar5->field_0x8))[5].fn)
-            ((int)&pcVar5->field_0x0 + (int)((vtbl_entry*)(pcVar5->field_0x8))[5].adj,
-             *(uint32_t *)(param_1 + 0x1c),param_3);
+  /* dropped-null-guard FIX (d329): the decompiler dropped the `if (pcVar5 != 0)` guard that both
+   * pcVar3 and pcVar4 have before their IDENTICAL vtable[5] calls. When heap_alloc returns 0 for
+   * these debug-menu subsystems (pool empty/reserved — expected, and the two prior objects are
+   * null-guarded), the unguarded call dereferenced a null object -> call to a null fn pointer
+   * -> MENU LAYER-6 crash. Restore the guard to match pcVar3/pcVar4. */
+  if (pcVar5 != (cls_105d8ab4 *)0x0) {
+    (((vtbl_entry*)(pcVar5->field_0x8))[5].fn)
+              ((int)&pcVar5->field_0x0 + (int)((vtbl_entry*)(pcVar5->field_0x8))[5].adj,
+               *(uint32_t *)(param_1 + 0x1c),param_3);
+  }
   (*(code *)0x104e32b0/*ROM*/)(param_2,0x4009,*(uint32_t *)(param_1 + 0x8c));
   return;
 }
