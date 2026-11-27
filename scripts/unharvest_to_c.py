@@ -47,8 +47,6 @@ for ha in sorted(handasms):
     dm = re.search(r'\n([A-Za-z_][\w\* ]*?)\b%s\s*\(([^;{]*)\)\s*\n\{' % re.escape(fn), t)
     if not dm: skipped.append((fn,'cant parse definition')); continue
     ret, argstr = dm.group(1).strip(), dm.group(2).strip()
-    dc = direct_callers(fn)
-    if dc: skipped.append((fn,'%d direct callers (needs threading)' % len(dc))); continue
     # parse existing params; each used reg maps to ABI slot N-4 (r4=slot0..r7=slot3). A slot < #existing
     # is an existing param (substitute its name = B-3c); a higher slot needs a new uint32_t param. Cover
     # EVERY slot 0..max(used) with placeholders so each used reg lands in its correct register.
@@ -70,6 +68,10 @@ for ha in sorted(handasms):
     def pname(s): return exnames[s] if s<k else (("param_x%d"%s) if conv_x else ("param_%d"%(s+1)))
     added=[pname(s) for s in range(k, maxslot+1)]
     if k==0 and not added: added=["param_x0"]  # safety
+    # direct callers only matter when we ADD a param (signature change breaks them). Pure B-3c
+    # (every reg maps to an existing param, no new param) is safe with any callers — just substitute.
+    if added and direct_callers(fn):
+        skipped.append((fn,'direct callers + needs new param (threading)')); continue
     newargs = argstr if (existing) else ""
     if added:
         newargs = (newargs+", " if newargs else "") + ", ".join("uint32_t "+a for a in added)

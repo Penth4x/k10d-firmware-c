@@ -880,3 +880,12 @@ task upstream that itself is blocked). This is an un-posted-event chain, not a w
 ## first send = 0x80, stock = 0x04 (POST). NEXT: trace which send_* runs first in cand vs stock and its cmd arg
 ## (watch cpucom_msg_set_cmd 2nd arg). The senders pass (uint8_t)<val> — a wrong/dropped val or wrong send
 ## ordering. Companion units have no __frv_reg_unset so check 139/138 senders for a B-15 constant / wrong cmd.
+
+## B-3 CLASS ENDGAME (d329): __frv_reg_unset driven from 2145 toward a small tail. Converted to proper C:
+## 491 B-3c declared-param + 166 void-forwarders + 32 indirect-mixed + 65 harvested-with-params/direct-B-3c.
+## REMAINING: (a) ~87 direct-called .c + 9 harvested that need a NEW param (undeclared slot) AND have direct
+## callers -> require CALLER THREADING (add param up the call chain to where the value is computed); the only
+## non-mechanical subset. (b) 6 GENUINE can't-be-C functions that CORRECTLY stay as harvested asm per Andrew's
+## principle: dispatch_context_switch, rtos_dispatch_tail_restore (REALOS context-switch: set SP, save/restore
+## all regs, non-returning), loop_write_seven_pointers, initialize_rtos_kernel (read arbitrary caller regs
+## r0_in/caller_r8/r9/r10/r14/r13_in). These are the legitimate asm residue — do NOT convert.
