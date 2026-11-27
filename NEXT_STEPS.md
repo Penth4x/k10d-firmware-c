@@ -898,3 +898,13 @@ task upstream that itself is blocked). This is an un-posted-event chain, not a w
 ## NEXT (focused trace, like layer-1): FRN_WRWATCH byte0 of the message param_2 in cpucom_spi_xfer (get its
 ## addr from a spi_xfer trace), find WHO writes 0x80 and when; AND trace the mbx_send that queues ui_task6's
 ## first message (sender of a byte0=0x80 vs stock 0x04 message). Oracle: cpucom_spi_xfer's written byte -> 0x04.
+
+## LAYER 2 REFINED (d329): the companion command 0x80 is byte0 of a message that cpucom_repost_request CLONES
+## from a source message (it copies cpucom_resp_get_byte0(src)). The source message is a HEAP object (addr
+## reused across allocs, so fixed-address WRWATCH is unreliable here). KEY: 0x04 (the POST) IS written to that
+## slot at other times (pc 0x10010ad8) -> the POST command EXISTS in the system; the candidate's FIRST repost
+## just picks up a byte0=0x80 message instead of the 0x04 POST. So layer-2 = MESSAGE CONTENT/ORDERING in the
+## companion queue: the candidate queues/reposts a 0x80 message before the 0x04 POST. NEXT (allocation-aware,
+## not fixed-addr): instrument the qemu heap allocator or trace cpucom_msg_set_cmd(msg,0x80) vs (msg,0x04)
+## first-fire ic + the mbx_send ordering; find why the 0x80 message is first. This is a scheduling/ordering
+## layer below the (now-fixed) companion-ready timing. Layer-1 (timing) fix stands and is oracle-verified.
