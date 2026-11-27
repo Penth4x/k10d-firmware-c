@@ -18,8 +18,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void compute_and_dispatch_pixel_offset(cls_105d6afc *param_1)
-
+void compute_and_dispatch_pixel_offset(cls_105d6afc *param_1, uint32_t param_2, uint32_t param_3)
 {
   uint extraout_r4;
   uint extraout_r4_00;
@@ -41,7 +40,7 @@ void compute_and_dispatch_pixel_offset(cls_105d6afc *param_1)
     iVar1 = param_1->field_0x10;
   }
   if ((uint)param_1->field_0x26 == ((int)(uint)param_1->field_0x26 >> 5) * 0x20) {
-    allocate_and_process_buffer(__frv_reg_unset(4), __frv_reg_unset(5), __frv_reg_unset(6));
+    allocate_and_process_buffer((uint32_t)param_1, (uint32_t)param_2, (uint32_t)param_3);
   }
   else {
     clear_zero_high_nibble_bytes(param_1,(uint)param_1->field_0x2 * (uint)param_1->field_0x14 + param_1->field_0x4 +

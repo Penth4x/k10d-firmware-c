@@ -13,11 +13,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_flag_and_call_helper_1042b9cc(int param_1)
-
+void set_flag_and_call_helper_1042b9cc(int param_1, uint32_t param_2, uint32_t param_3)
 {
   *(uint8_t *)(param_1 + 4) = 0;
-  dispatch_virtual_by_byte_match((int *)__frv_reg_unset(4),__frv_reg_unset(5),__frv_reg_unset(6));
+  dispatch_virtual_by_byte_match((int *)(uint32_t)param_1,(uint32_t)param_2,(uint32_t)param_3);
   *(uint8_t *)(param_1 + 4) = 1;
   return;
 }

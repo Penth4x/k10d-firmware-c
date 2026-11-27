@@ -18,8 +18,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void process_object_array_with_virtual_calls(cls_105b43cc *param_1,uint32_t param_2)
-
+void process_object_array_with_virtual_calls(cls_105b43cc *param_1,uint32_t param_2, uint32_t param_3, uint32_t param_4)
 {
   short sVar1;
   uint32_t uVar2;
@@ -60,7 +59,7 @@ void process_object_array_with_virtual_calls(cls_105b43cc *param_1,uint32_t para
       iVar6 = return_first_word_1045c514(ppuVar3);
       iVar5 = iVar6 + iVar5;
       free_heap_if_flagged_1045c402(ppuVar3,2);
-      dispatch_event_with_flag((int *)(iVar4),(void *)(param_1->field_0x3c & 0xffff),(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+      dispatch_event_with_flag((int *)(iVar4),(void *)(param_1->field_0x3c & 0xffff),(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
       piStack_6c = piStack_6c + 1;
     } while ((uint32_t)(piStack_6c) != param_1->field_0x1c);
   }

@@ -6,10 +6,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_two_unnamed_helpers_10395d5a(void)
-
+void call_two_unnamed_helpers_10395d5a(uint32_t param_x0)
 {
-  clear_flag_and_call_helper_10395e92(__frv_reg_unset(4));
+  clear_flag_and_call_helper_10395e92((uint32_t)param_x0);
   call_two_initializers_1039459e();
   return;
 }

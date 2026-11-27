@@ -46,23 +46,45 @@ for ha in sorted(handasms):
     # definition: '<ret> fn(<args>)\n{'
     dm = re.search(r'\n([A-Za-z_][\w\* ]*?)\b%s\s*\(([^;{]*)\)\s*\n\{' % re.escape(fn), t)
     if not dm: skipped.append((fn,'cant parse definition')); continue
-    ret, args = dm.group(1).strip(), dm.group(2).strip()
-    if args not in ('', 'void'): skipped.append((fn,'existing params: %r (needs manual)' % args)); continue
+    ret, argstr = dm.group(1).strip(), dm.group(2).strip()
     dc = direct_callers(fn)
     if dc: skipped.append((fn,'%d direct callers (needs threading)' % len(dc))); continue
-    # params must cover EVERY ABI slot 0..max(used) so each used reg lands in its correct register
-    # (r4=param slot0.. r7=slot3); a gap (e.g. uses only r5) needs a param_x0 placeholder or param_x1
-    # would be passed in r4. Unused slots are harmless placeholders.
-    maxslot = max(r-4 for r in regs)
-    params = ", ".join("uint32_t param_x%d" % s for s in range(maxslot+1))
-    newdef = "%s %s(%s)\n{" % (ret, fn, params)
+    # parse existing params; each used reg maps to ABI slot N-4 (r4=slot0..r7=slot3). A slot < #existing
+    # is an existing param (substitute its name = B-3c); a higher slot needs a new uint32_t param. Cover
+    # EVERY slot 0..max(used) with placeholders so each used reg lands in its correct register.
+    def _parse(a):
+        a=a.strip()
+        if a in ('','void'): return []
+        parts,d,cur=[],0,''
+        for ch in a:
+            if ch in '([': d+=1
+            elif ch in ')]': d-=1
+            if ch==',' and d==0: parts.append(cur); cur=''
+            else: cur+=ch
+        if cur.strip(): parts.append(cur)
+        return [p.strip() for p in parts]
+    existing=_parse(argstr); k=len(existing)
+    exnames=[(re.search(r'(\w+)\s*$', p.replace('*',' ')) or re.search(r'(\w+)','x')).group(1) for p in existing]
+    conv_x = (k==0) or any('param_x' in p for p in existing)
+    maxslot=max(r-4 for r in regs)
+    def pname(s): return exnames[s] if s<k else (("param_x%d"%s) if conv_x else ("param_%d"%(s+1)))
+    added=[pname(s) for s in range(k, maxslot+1)]
+    if k==0 and not added: added=["param_x0"]  # safety
+    newargs = argstr if (existing) else ""
+    if added:
+        newargs = (newargs+", " if newargs else "") + ", ".join("uint32_t "+a for a in added)
+    newargs = newargs if newargs else "void"
+    newdef = "%s %s(%s)\n{" % (ret, fn, newargs)
     body = t[:dm.start()] + "\n" + newdef + t[dm.end():]
-    body = USE.sub(lambda mm: "(uint32_t)param_x%d" % (int(mm.group(1))-4), body)
-    # funcs.h: replace the declaration line
-    decl_rx = re.compile(r'^[A-Za-z_][\w\* ]*?\b%s\s*\([^;]*\)\s*;\s*$' % re.escape(fn), re.M)
-    newdecl = "%s %s(%s);" % (ret, fn, ", ".join("uint32_t" for _ in range(maxslot+1)))
-    if not decl_rx.search(funcs_new): skipped.append((fn,'no funcs.h decl')); continue
-    funcs_new = decl_rx.sub(newdecl, funcs_new, count=1)
+    body = USE.sub(lambda mm: "(uint32_t)%s" % pname(int(mm.group(1))-4), body)
+    # funcs.h: append len(added) uint32_t to the existing declaration's arg list
+    decl_rx = re.compile(r'^([A-Za-z_][\w\* ]*?\b%s\s*\()([^;]*)(\)\s*;\s*)$' % re.escape(fn), re.M)
+    dM = decl_rx.search(funcs_new)
+    if not dM: skipped.append((fn,'no funcs.h decl')); continue
+    inner=dM.group(2).strip(); base="" if inner in ('','void') else inner
+    if added: newinner = (base+", " if base else "") + ", ".join("uint32_t" for _ in added)
+    else: newinner = base if base else "void"
+    funcs_new = funcs_new[:dM.start()] + dM.group(1)+newinner+dM.group(3) + funcs_new[dM.end():]
     converted.append((fn, ha, body, os.path.join(GEN, fn+'.asm')))
 
 print(f"{'APPLY' if APPLY else 'DRY-RUN'}: convertible indirect-only forwarders: {len(converted)}; skipped: {len(skipped)}")

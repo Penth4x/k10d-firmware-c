@@ -13,8 +13,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t select_and_call_handler_by_index(uint32_t param_1,int param_2)
-
+uint32_t select_and_call_handler_by_index(uint32_t param_1,int param_2, uint32_t param_3)
 {
   bool bVar1;
   uint32_t uVar2;
@@ -35,6 +34,6 @@ uint32_t select_and_call_handler_by_index(uint32_t param_1,int param_2)
     return 1;
   }
 LAB_104e071c:
-  store_pair_and_invoke_virtual(param_1,uVar2, __frv_reg_unset(6));
+  store_pair_and_invoke_virtual(param_1,uVar2, (uint32_t)param_3);
   return 1;
 }

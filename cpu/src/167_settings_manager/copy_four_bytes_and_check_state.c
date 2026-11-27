@@ -17,8 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void copy_four_bytes_and_check_state(int param_1)
-
+void copy_four_bytes_and_check_state(int param_1, uint32_t param_2)
 {
   int iVar1;
   short *psVar2;
@@ -38,7 +37,7 @@ void copy_four_bytes_and_check_state(int param_1)
     iVar1 = forward_field_at_offset_0x10(*(int *)(param_1 + 0x50));
     if (iVar1 != 0) {
       if (asStack_c[0] != *psVar2) {
-        create_and_configure_object_1047c484(param_1, __frv_reg_unset(5));
+        create_and_configure_object_1047c484(param_1, (uint32_t)param_2);
       }
       *(uint32_t *)(param_1 + 0x34) = 0;
     }

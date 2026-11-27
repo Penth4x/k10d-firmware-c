@@ -15,12 +15,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void check_and_clear_flag(cls_10596dc4 *param_1)
-
+void check_and_clear_flag(cls_10596dc4 *param_1, uint32_t param_2)
 {
   uint uVar1;
   
-  update_state_and_notify((uint32_t *)__frv_reg_unset(4),__frv_reg_unset(5));
+  update_state_and_notify((uint32_t *)(uint32_t)param_1,(uint32_t)param_2);
   uVar1 = get_setting_by_index((int)param_1,0x10);
   if (uVar1 != bRam10596db8) {
     apply_setting_from_table(param_1,0xb,0);

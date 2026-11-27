@@ -6,11 +6,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint extract_nibble_from_shifted_value(void)
-
+uint extract_nibble_from_shifted_value(uint32_t param_x0)
 {
   int iVar1;
   
-  iVar1 = read_byte_at_offset_14(__frv_reg_unset(4));
+  iVar1 = read_byte_at_offset_14((uint32_t)param_x0);
   return iVar1 >> 4 & 0xf;
 }

@@ -17,8 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int adjust_state_counter_and_dispatch(cls_105b3658 *param_1,int param_2,int *param_3)
-
+int adjust_state_counter_and_dispatch(cls_105b3658 *param_1,int param_2,int *param_3, uint32_t param_4)
 {
   int iVar1;
   int iVar2;
@@ -66,6 +65,6 @@ int adjust_state_counter_and_dispatch(cls_105b3658 *param_1,int param_2,int *par
     }
     param_1->field_0x44 = iVar2 + -1;
   }
-  iVar1 = (uint32_t)(sibling_item_register((void*)(param_1),__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7)));
+  iVar1 = (uint32_t)(sibling_item_register((void*)(param_1),(uint32_t)param_2,(uint32_t)param_3,(void *)(uint32_t)param_4));
   return iVar1;
 }

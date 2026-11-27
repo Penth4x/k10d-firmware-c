@@ -13,12 +13,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-int convert_index_to_bitmask(void)
-
+int convert_index_to_bitmask(uint32_t param_x0)
 {
   int iVar1;
   
-  iVar1 = get_high_nibble_if_valid(__frv_reg_unset(4));
+  iVar1 = get_high_nibble_if_valid((uint32_t)param_x0);
   if (iVar1 == 0) {
     iVar1 = 0;
   }

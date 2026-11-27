@@ -6,8 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void process_object_state_change_1047b99e(int param_1)
-
+void process_object_state_change_1047b99e(int param_1, uint32_t param_2, uint32_t param_3)
 {
   int iVar1;
   uintptr_t sp;
@@ -25,7 +24,7 @@ void process_object_state_change_1047b99e(int param_1)
       bVar2 = iVar1 == 0;
     }
     else if (*(int *)(iVar1 + 4) == 3) {
-      iVar1 = dispatch_state_transition_1047bfb0(param_1,(short *)__frv_reg_unset(5),(short *)__frv_reg_unset(6));
+      iVar1 = dispatch_state_transition_1047bfb0(param_1,(short *)(uint32_t)param_2,(short *)(uint32_t)param_3);
       bVar2 = iVar1 == 0;
     }
     else {

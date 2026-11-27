@@ -13,10 +13,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_two_unnamed_helpers_1052bf5c(void)
-
+void call_two_unnamed_helpers_1052bf5c(uint32_t param_x0)
 {
   get_shared_sram_buffer();
-  invoke_virtual_slot_10_104e4ca6(__frv_reg_unset(4));
+  invoke_virtual_slot_10_104e4ca6((uint32_t)param_x0);
   return;
 }

@@ -15,8 +15,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void test_item_handler_3_strings_disp_init(void)
-
+void test_item_handler_3_strings_disp_init(uint32_t param_x0, uint32_t param_x1, uint32_t param_x2)
 {
   uint32_t uVar1;
   char cVar3;
@@ -28,7 +27,7 @@ void test_item_handler_3_strings_disp_init(void)
   int caller_r14;
   
                     /* TEST ITEM handler 3 (STRINGS DISP). V11 patch target. Calls
-                       test_mode_state_reset + exposure_cfg_loader(mode=4,(int *)__frv_reg_unset(5),__frv_reg_unset(6)). */
+                       test_mode_state_reset + exposure_cfg_loader(mode=4,(int *)(uint32_t)param_x1,(uint32_t)param_x2). */
   test_mode_state_reset((void *)(caller_r8 + 0x148));
   uVar1 = test_mode_config_singleton();
   exposure_cfg_loader(uVar1,(void *)(caller_r8 + 0x148),4);

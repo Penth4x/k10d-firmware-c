@@ -18,8 +18,7 @@
 /* WARNING: Instruction at (ram,0x104f4e1e) overlaps instruction at (ram,0x104f4e1c)
     */
 
-void dispatch_event_by_type_104f4e0c(cls_105d3f20 *param_1,int *param_2)
-
+void dispatch_event_by_type_104f4e0c(cls_105d3f20 *param_1,int *param_2, uint32_t param_3)
 {
   uint32_t *puVar1;
   void *pvVar2;
@@ -39,7 +38,7 @@ void dispatch_event_by_type_104f4e0c(cls_105d3f20 *param_1,int *param_2)
       piVar3 = (int *)*param_2;
     }
     else {
-      allocate_and_dispatch_three_blocks(__frv_reg_unset(4), __frv_reg_unset(5), __frv_reg_unset(6));
+      allocate_and_dispatch_three_blocks((uint32_t)param_1, (uint32_t)param_2, (uint32_t)param_3);
       piVar3 = (int *)*param_2;
     }
     break;

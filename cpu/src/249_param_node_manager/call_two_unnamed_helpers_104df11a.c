@@ -14,10 +14,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_two_unnamed_helpers_104df11a(void)
-
+void call_two_unnamed_helpers_104df11a(uint32_t param_x0)
 {
   get_or_init_sram_block_10391bfa();
-  invoke_virtual_slot_one_and_null((int *)__frv_reg_unset(4));
+  invoke_virtual_slot_one_and_null((int *)(uint32_t)param_x0);
   return;
 }

@@ -16,12 +16,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-int initialize_object_with_four_helpers_1051f21a(cls_105d6e14 *param_1)
-
+int initialize_object_with_four_helpers_1051f21a(cls_105d6e14 *param_1, uint32_t param_2, uint32_t param_3, uint32_t param_4)
 {
   set_two_fields_to_four((int)param_1);
   enable_display_output(param_1);
   clear_flag_at_offset_0x50_1051f602(param_1);
-  dispatch_mode_transition_sequence(param_1,__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  dispatch_mode_transition_sequence(param_1,(uint32_t)param_2,(uint32_t)param_3,(void *)(uint32_t)param_4);
   return (int)param_1;
 }

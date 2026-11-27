@@ -20,8 +20,7 @@
 /* WARNING: Instruction at (ram,0x10534e1e) overlaps instruction at (ram,0x10534e1c)
     */
 
-uint32_t check_sysparam_store_condition(cls_106210ec *param_1)
-
+uint32_t check_sysparam_store_condition(cls_106210ec *param_1, uint32_t param_2, uint32_t param_3)
 {
   uint uVar1;
   int iVar2;
@@ -47,7 +46,7 @@ uint32_t check_sysparam_store_condition(cls_106210ec *param_1)
       iVar4 = param_1->field_0x2c;
       if (iVar4 == 0) {
         param_1->field_0x28 = uVar1;
-        copy_aligned_word_block((uint32_t *)(param_1->field_0x20),(uint32_t *)(param_1->field_0x10), (uint)(__frv_reg_unset(6)));
+        copy_aligned_word_block((uint32_t *)(param_1->field_0x20),(uint32_t *)(param_1->field_0x10), (uint)((uint32_t)param_3));
         return 0;
       }
       iVar6 = *(int *)(iVar4 + 4);

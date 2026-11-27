@@ -17,8 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void deactivate_object_if_flag_set(cls_105b4dac *param_1)
-
+void deactivate_object_if_flag_set(cls_105b4dac *param_1, uint32_t param_2, uint32_t param_3, uint32_t param_4)
 {
   uint32_t uVar1;
   
@@ -26,7 +25,7 @@ void deactivate_object_if_flag_set(cls_105b4dac *param_1)
     uVar1 = get_or_init_sram_block_10409fec();
     (*(code *)0x1040a01e/*ROM*/)(uVar1,param_1->field_0x4);
     dispatch_object_event_and_notify((cls_105b48dc *)param_1);
-    report_three_sensor_metrics((int)(param_1),(void *)__frv_reg_unset(5),(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    report_three_sensor_metrics((int)(param_1),(void *)(uint32_t)param_2,(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
     destroy_object_list_entries((cls_105b44b4 *)param_1);
     uVar1 = get_or_init_sram_block_10409fec();
     (*(code *)0x1040a020/*ROM*/)(uVar1,param_1->field_0x4);

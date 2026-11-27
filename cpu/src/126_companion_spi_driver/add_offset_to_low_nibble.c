@@ -6,11 +6,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-int add_offset_to_low_nibble(void)
-
+int add_offset_to_low_nibble(uint32_t param_x0)
 {
   uint uVar1;
   
-  uVar1 = read_byte_at_offset_14(__frv_reg_unset(4));
+  uVar1 = read_byte_at_offset_14((uint32_t)param_x0);
   return (uVar1 & 0xf) + 0x7cd;
 }

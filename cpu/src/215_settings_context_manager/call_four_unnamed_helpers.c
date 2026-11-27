@@ -13,12 +13,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void call_four_unnamed_helpers(void)
-
+void call_four_unnamed_helpers(uint32_t param_x0)
 {
   get_or_init_sram_block_104b3d52();
   call_two_unnamed_helpers_104b3dda();
   get_sram_buffer_pointer();
-  call_single_helper_on_object_104b0406((uint32_t *)__frv_reg_unset(4));
+  call_single_helper_on_object_104b0406((uint32_t *)(uint32_t)param_x0);
   return;
 }

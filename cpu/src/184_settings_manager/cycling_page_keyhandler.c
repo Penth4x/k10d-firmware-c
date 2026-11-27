@@ -18,8 +18,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-cls_105b34ec * cycling_page_keyhandler(cls_105b34ec *param_1,int param_2,int *param_3)
-
+cls_105b34ec * cycling_page_keyhandler(cls_105b34ec *param_1,int param_2,int *param_3, uint32_t param_4)
 {
   int iVar1;
   cls_105b34ec *pcVar2;
@@ -79,6 +78,6 @@ cls_105b34ec * cycling_page_keyhandler(cls_105b34ec *param_1,int param_2,int *pa
     }
     param_1->field_0x44 = iVar3 + -1;
   }
-  pcVar2 = (cls_105b34ec *)classic_menu_item_render((void*)(param_1),__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+  pcVar2 = (cls_105b34ec *)classic_menu_item_render((void*)(param_1),(uint32_t)param_2,(uint32_t)param_3,(void *)(uint32_t)param_4);
   return pcVar2;
 }

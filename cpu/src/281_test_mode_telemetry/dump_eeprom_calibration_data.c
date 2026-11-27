@@ -17,8 +17,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void dump_eeprom_calibration_data(void)
-
+void dump_eeprom_calibration_data(uint32_t param_x0, uint32_t param_x1, uint32_t param_x2, uint32_t param_x3)
 {
   int iVar1;
   void *pvVar2;
@@ -84,13 +83,13 @@ void dump_eeprom_calibration_data(void)
   do {
     piVar3 = (int *)(*(int *)(caller_r14 + -0x3c) + 0xc4);
     (((vtbl_entry*)(*piVar3))[2].fn)((int)((vtbl_entry*)(*piVar3))[2].adj + (int)piVar3,iVar1);
-    copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    copy_stream_bytes_into_struct((uint32_t)param_x0,(void *)(uint32_t)param_x1,(uint32_t)param_x2,(void *)(uint32_t)param_x3);
     (((vtbl_entry*)(*piVar3))[2].fn)((int)((vtbl_entry*)(*piVar3))[2].adj + (int)piVar3,iVar1 + 1);
-    copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    copy_stream_bytes_into_struct((uint32_t)param_x0,(void *)(uint32_t)param_x1,(uint32_t)param_x2,(void *)(uint32_t)param_x3);
     (((vtbl_entry*)(*piVar3))[2].fn)((int)((vtbl_entry*)(*piVar3))[2].adj + (int)piVar3,iVar1 + 2);
-    copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    copy_stream_bytes_into_struct((uint32_t)param_x0,(void *)(uint32_t)param_x1,(uint32_t)param_x2,(void *)(uint32_t)param_x3);
     (((vtbl_entry*)(*piVar3))[2].fn)((int)piVar3 + (int)((vtbl_entry*)(*piVar3))[2].adj,iVar1 + 3);
-    copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    copy_stream_bytes_into_struct((uint32_t)param_x0,(void *)(uint32_t)param_x1,(uint32_t)param_x2,(void *)(uint32_t)param_x3);
     iVar1 = iVar1 + 4;
     iVar4 = *(int *)(caller_r14 + -0x24) + -1;
     *(int *)(caller_r14 + -0x24) = iVar4;
@@ -102,19 +101,19 @@ void dump_eeprom_calibration_data(void)
     piVar3 = (int *)(*(int *)(caller_r14 + -0x3c) + 0xc4);
     (((vtbl_entry*)(*piVar3))[2].fn)
               ((int)((vtbl_entry*)(*piVar3))[2].adj + (int)piVar3,*(uint32_t *)(caller_r14 + -0x40));
-    copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    copy_stream_bytes_into_struct((uint32_t)param_x0,(void *)(uint32_t)param_x1,(uint32_t)param_x2,(void *)(uint32_t)param_x3);
     *(int *)(caller_r14 + -0x40) = *(int *)(caller_r14 + -0x40) + 1;
     (((vtbl_entry*)(*piVar3))[2].fn)
               ((int)((vtbl_entry*)(*piVar3))[2].adj + (int)piVar3,*(uint32_t *)(caller_r14 + -0x40));
-    copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    copy_stream_bytes_into_struct((uint32_t)param_x0,(void *)(uint32_t)param_x1,(uint32_t)param_x2,(void *)(uint32_t)param_x3);
     *(int *)(caller_r14 + -0x40) = *(int *)(caller_r14 + -0x40) + 1;
     (((vtbl_entry*)(*piVar3))[2].fn)
               ((int)((vtbl_entry*)(*piVar3))[2].adj + (int)piVar3,*(uint32_t *)(caller_r14 + -0x40));
-    copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    copy_stream_bytes_into_struct((uint32_t)param_x0,(void *)(uint32_t)param_x1,(uint32_t)param_x2,(void *)(uint32_t)param_x3);
     *(int *)(caller_r14 + -0x40) = *(int *)(caller_r14 + -0x40) + 1;
     (((vtbl_entry*)(*piVar3))[2].fn)
               ((int)piVar3 + (int)((vtbl_entry*)(*piVar3))[2].adj,*(uint32_t *)(caller_r14 + -0x40));
-    copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    copy_stream_bytes_into_struct((uint32_t)param_x0,(void *)(uint32_t)param_x1,(uint32_t)param_x2,(void *)(uint32_t)param_x3);
     *(int *)(caller_r14 + -0x40) = *(int *)(caller_r14 + -0x40) + 1;
     iVar1 = *(int *)(caller_r14 + -0x20) + -1;
     *(int *)(caller_r14 + -0x20) = iVar1;

@@ -18,8 +18,7 @@
 /* AE INFO / STROBE INFO / LENS INFO dump block start (telemetry family through 0x10525970). AF INFO
    section: [state+0xec] props 0/3/8/9/0xa/0xb/0xc/0xd. */
 
-void telemetry_dump_ae(void)
-
+void telemetry_dump_ae(uint32_t param_x0, uint32_t param_x1, uint32_t param_x2, uint32_t param_x3)
 {
   code *pcVar1;
   int iVar2;
@@ -170,13 +169,13 @@ void telemetry_dump_ae(void)
   do {
     piVar5 = (int *)(*(int *)(caller_r14 + -0x3c) + 0xc4);
     (((vtbl_entry*)(*piVar5))[2].fn)((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3);
-    copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    copy_stream_bytes_into_struct((uint32_t)param_x0,(void *)(uint32_t)param_x1,(uint32_t)param_x2,(void *)(uint32_t)param_x3);
     (((vtbl_entry*)(*piVar5))[2].fn)((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 1);
-    copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    copy_stream_bytes_into_struct((uint32_t)param_x0,(void *)(uint32_t)param_x1,(uint32_t)param_x2,(void *)(uint32_t)param_x3);
     (((vtbl_entry*)(*piVar5))[2].fn)((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,iVar3 + 2);
-    copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    copy_stream_bytes_into_struct((uint32_t)param_x0,(void *)(uint32_t)param_x1,(uint32_t)param_x2,(void *)(uint32_t)param_x3);
     (((vtbl_entry*)(*piVar5))[2].fn)((int)piVar5 + (int)((vtbl_entry*)(*piVar5))[2].adj,iVar3 + 3);
-    copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    copy_stream_bytes_into_struct((uint32_t)param_x0,(void *)(uint32_t)param_x1,(uint32_t)param_x2,(void *)(uint32_t)param_x3);
     iVar3 = iVar3 + 4;
     iVar2 = *(int *)(caller_r14 + -0x24) + -1;
     *(int *)(caller_r14 + -0x24) = iVar2;
@@ -188,19 +187,19 @@ void telemetry_dump_ae(void)
     piVar5 = (int *)(*(int *)(caller_r14 + -0x3c) + 0xc4);
     (((vtbl_entry*)(*piVar5))[2].fn)
               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,*(uint32_t *)(caller_r14 + -0x40));
-    copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    copy_stream_bytes_into_struct((uint32_t)param_x0,(void *)(uint32_t)param_x1,(uint32_t)param_x2,(void *)(uint32_t)param_x3);
     *(int *)(caller_r14 + -0x40) = *(int *)(caller_r14 + -0x40) + 1;
     (((vtbl_entry*)(*piVar5))[2].fn)
               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,*(uint32_t *)(caller_r14 + -0x40));
-    copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    copy_stream_bytes_into_struct((uint32_t)param_x0,(void *)(uint32_t)param_x1,(uint32_t)param_x2,(void *)(uint32_t)param_x3);
     *(int *)(caller_r14 + -0x40) = *(int *)(caller_r14 + -0x40) + 1;
     (((vtbl_entry*)(*piVar5))[2].fn)
               ((int)((vtbl_entry*)(*piVar5))[2].adj + (int)piVar5,*(uint32_t *)(caller_r14 + -0x40));
-    copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    copy_stream_bytes_into_struct((uint32_t)param_x0,(void *)(uint32_t)param_x1,(uint32_t)param_x2,(void *)(uint32_t)param_x3);
     *(int *)(caller_r14 + -0x40) = *(int *)(caller_r14 + -0x40) + 1;
     (((vtbl_entry*)(*piVar5))[2].fn)
               ((int)piVar5 + (int)((vtbl_entry*)(*piVar5))[2].adj,*(uint32_t *)(caller_r14 + -0x40));
-    copy_stream_bytes_into_struct(__frv_reg_unset(4),(void *)__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    copy_stream_bytes_into_struct((uint32_t)param_x0,(void *)(uint32_t)param_x1,(uint32_t)param_x2,(void *)(uint32_t)param_x3);
     *(int *)(caller_r14 + -0x40) = *(int *)(caller_r14 + -0x40) + 1;
     iVar3 = *(int *)(caller_r14 + -0x20) + -1;
     *(int *)(caller_r14 + -0x20) = iVar3;

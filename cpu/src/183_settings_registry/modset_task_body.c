@@ -14,8 +14,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void modset_task_body(int *param_1)
-
+void modset_task_body(int *param_1, uint32_t param_2, uint32_t param_3, uint32_t param_4)
 {
   int iVar1;
   uintptr_t sp;
@@ -27,7 +26,7 @@ void modset_task_body(int *param_1)
       eventflag_wai_flg(param_1 + 0x19,1,&uStack_c,_DAT_105a2af0/*ROM*/);
       eventflag_clr_flg(param_1 + 0x19,uStack_c);
     } while ((uStack_c & 1) == 0);
-    iVar1 = service_op_dispatch((int *)(param_1),(char *)((int)param_1 + 0x6d),(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    iVar1 = service_op_dispatch((int *)(param_1),(char *)((int)param_1 + 0x6d),(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
     param_1[0x21] = iVar1;
     *(uint8_t *)(param_1 + 0x1b) = 1;
   } while( true );

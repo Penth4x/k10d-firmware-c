@@ -16,8 +16,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void test_item_dispatch_capture(int param_1,uint32_t param_2)
-
+void test_item_dispatch_capture(int param_1,uint32_t param_2, uint32_t param_3)
 {
   uint8_t uVar1;
   uint32_t uVar2;
@@ -29,7 +28,7 @@ void test_item_dispatch_capture(int param_1,uint32_t param_2)
   
                     /* TEST MODE dispatcher: switches on r5 (0-5) via jump table @0x105d5fe8.
                        0=CAPTURE, 1=SYSTEM, 2=AF, 3=STRINGS DISP, 4=AF Area, 5=Focus Corr. Calls
-                       test_mode_state_init + exposure_cfg_loader(mode,(int *)__frv_reg_unset(5),__frv_reg_unset(6)), then common tail: zeros
+                       test_mode_state_init + exposure_cfg_loader(mode,(int *)(uint32_t)param_2,(uint32_t)param_3), then common tail: zeros
                        state bytes, 6 vtable calls, frame geom calc, sensor arm. */
   *(uint8_t *)(param_1 + 0x6b8) = 0;
   switch(param_2) {

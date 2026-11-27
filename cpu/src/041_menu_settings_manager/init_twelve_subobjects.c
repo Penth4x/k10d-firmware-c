@@ -6,8 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t init_twelve_subobjects(cls_10564150 *param_1)
-
+uint32_t init_twelve_subobjects(cls_10564150 *param_1, uint32_t param_2, uint32_t param_3, uint32_t param_4)
 {
   uint32_t *puVar1;
   int iVar2;
@@ -219,7 +218,7 @@ uint32_t init_twelve_subobjects(cls_10564150 *param_1)
     iVar2 = 0;
   }
   else {
-    init_large_struct_with_subobjects((cls_105643d0 *)(iVar2),(uint32_t)(__frv_reg_unset(5)),(void *)__frv_reg_unset(6),(void *)__frv_reg_unset(7));
+    init_large_struct_with_subobjects((cls_105643d0 *)(iVar2),(uint32_t)((uint32_t)param_2),(void *)(uint32_t)param_3,(void *)(uint32_t)param_4);
   }
   param_1->field_0x94 = iVar2;
   *(uint32_t *)(iVar2 + 0x38) = param_1->field_0x9c;

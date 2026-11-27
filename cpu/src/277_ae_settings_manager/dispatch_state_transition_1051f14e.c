@@ -6,8 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int dispatch_state_transition_1051f14e(cls_105d6e14 *param_1,int param_2,int *param_3)
-
+int dispatch_state_transition_1051f14e(cls_105d6e14 *param_1,int param_2,int *param_3, uint32_t param_4)
 {
   int iVar1;
   int iVar2;
@@ -55,6 +54,6 @@ int dispatch_state_transition_1051f14e(cls_105d6e14 *param_1,int param_2,int *pa
     }
     param_1->field_0x44 = iVar2 + -1;
   }
-  iVar1 = (uint32_t)(dispatch_mode_transition_sequence((void*)(param_1),__frv_reg_unset(5),__frv_reg_unset(6),(void *)__frv_reg_unset(7)));
+  iVar1 = (uint32_t)(dispatch_mode_transition_sequence((void*)(param_1),(uint32_t)param_2,(uint32_t)param_3,(void *)(uint32_t)param_4));
   return iVar1;
 }
