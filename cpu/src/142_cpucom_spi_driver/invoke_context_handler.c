@@ -13,18 +13,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t invoke_context_handler(int param_1)
+uint32_t invoke_context_handler(int param_1, uint8_t *param_2)
 
 {
   uint32_t extraout_r4;
   uint32_t uVar1;
-  uint8_t *r5_in;
-  
+  /* caller_rN FIX (d329): the reposted MESSAGE arrived in r5 (the decompiler dropped it to an unassigned
+   * r5_in local, so the recompiled code reposted garbage -> spurious 0x80 companion command -> MENU LAYER-3
+   * crash). Now an explicit param, supplied by get_registered_reply_code as its ctx's message field param_1[6]. */
   if (*(void **)(param_1 + 0x400) == 0) {
     uVar1 = 0;
   }
   else {
-    cpucom_repost_request(*(void **)(param_1 + 0x400),r5_in);
+    cpucom_repost_request(*(void **)(param_1 + 0x400),param_2);
     uVar1 = extraout_r4;
   }
   return uVar1;

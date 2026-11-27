@@ -6202,7 +6202,7 @@ void free_cpucom_context_ref(void *param_1);
 uint32_t get_cpucom_default_context(void);
 uint32_t cpucom_registry_add(void *param_1,int param_2,void *param_3);
 uint32_t cpucom_response_dispatcher(void *param_1,uint8_t *param_2);
-uint32_t invoke_context_handler(int param_1);
+uint32_t invoke_context_handler(int param_1, uint8_t *param_2);
 int cpucom_registry_lookup(void *param_1,int param_2);
 void dispatch_reply_code_five(uint32_t param_1,uint8_t *param_2,void *param_3,void *param_4);
 void route_two_byte_code_payload(uint32_t param_1,uint8_t *param_2,void *param_3,void *param_4);

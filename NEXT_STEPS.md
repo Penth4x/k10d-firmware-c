@@ -960,3 +960,27 @@ task upstream that itself is blocked). This is an un-posted-event chain, not a w
 ## ui_task5 reposting before the POST ack (ordering/scheduling), or fix obj+0x60 so it resubmits-after-POST
 ## like stock. Trace: ui_task5_body first-fire ic vs the POST send ic (cand vs stock); + what writes the
 ## reply-source byte0=0x80 (allocation-aware, the field is heap-reused so fixed-addr WRWATCH is unreliable).
+
+## ★★★ MAJOR: SECOND FORWARDER-DROP PATTERN (d329) — caller_rN / rN_in. The decompiler drops an incoming
+## caller register in TWO forms: (1) __frv_reg_unset(N) [the stub — swept ~88%]; (2) an UNASSIGNED LOCAL named
+## caller_rN or rN_in (e.g. `uint8_t *r5_in;` read without assignment = the incoming rN). Form (2) is in 258
+## .c files, 38 of which FORWARD it to a callee — the SAME B-3/B-8 bug, but my whole __frv_reg_unset sweep
+## MISSED them (different regex). MENU LAYER-3: invoke_context_handler(param_1) reposts `r5_in` (the message
+## in the incoming r5) via cpucom_repost_request -> get_registered_reply_code calls it; the dropped r5 = the
+## reply message to repost. If r5_in reads garbage (not the caller's r5), it reposts a wrong/0x80 message ->
+## the spurious companion command. FIX like B-3c: declare the param (invoke_context_handler(param_1, uint8_t
+## *param_2), replace r5_in with param_2) + thread the 1 caller (get_registered_reply_code). SWEEP the whole
+## 258-file class the same way (detect: unassigned local matching caller_r[4-9]/r[4-9]_in, forwarded). Verify
+## each vs original asm (B-8 register-read behavior depends on compiler alloc -- may read rN or garbage).
+
+## caller_rN / rN_in CLASS + IMPROPER-SPLIT INSIGHT (d329, Andrew): when a function reads a NON-C-PASSED
+## register (caller_rN / rN_in unassigned local = incoming register N), FIRST check for an IMPROPER FUNCTION
+## SPLIT -- the decompiler often split a function so a value the ENCLOSING context already holds looks like a
+## fresh dropped register. The fix is then to RECONSTRUCT the value in C from what the caller DOES have, NOT to
+## thread the register through N callers. MENU LAYER-3 was exactly this: invoke_context_handler read r5_in (the
+## message to repost); its 1 caller get_registered_reply_code (45 callers of ITS own) already holds the ctx
+## param_1, and the message is just param_1[6] (every sender builds it via cpucom_msg_set_cmd(param_1[6],..)).
+## So the 2-line fix = get_registered_reply_code passes param_1[6]; NO 45-caller thread. scripts/detect_caller_
+## reg.py: 344 arg-register drops (r4..r7) [1 substitute + 343 add], 126 B-8 (r8..r15, harvest). scripts/fix_
+## caller_reg.py sweeps the 20 indirect add-param ones; the 157 direct-caller ones each need the split check
+## (often reconstructible like layer-3, not a real thread). Verify each vs stock (the value IS reconstructible).

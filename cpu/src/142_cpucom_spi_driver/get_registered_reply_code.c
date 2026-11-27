@@ -24,7 +24,13 @@ uint32_t get_registered_reply_code(void *param_1)
     uVar1 = 0;
   }
   else {
-    uVar1 = invoke_context_handler(*(int *)((int)param_1 + 0x44));
+    /* caller_rN FIX (d329): invoke_context_handler reposts the companion MESSAGE, which the original
+     * receives in r5. The decompiler dropped it (modeled as an uninitialised r5_in local in the callee),
+     * so the recompiled code reposted garbage (0x80) -> the spurious companion command before the POST ->
+     * B-6 crash (MENU LAYER-3). The message is NOT a fresh register: it is this context's message field
+     * param_1[6] (every companion sender builds it via cpucom_msg_set_cmd(param_1[6],..)). VERIFIED vs stock:
+     * invoke_context_handler r5 = execute_cpucom_transaction's param_1[6]. Pass it explicitly. */
+    uVar1 = invoke_context_handler(*(int *)((int)param_1 + 0x44), (uint8_t *)((int *)param_1)[6]);
   }
   return uVar1;
 }
