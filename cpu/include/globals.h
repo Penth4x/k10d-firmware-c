@@ -7146,7 +7146,13 @@ extern uint32_t uRam105a71ea;
 extern uint32_t uRam105a71ec;
 extern uint32_t uRam105a72fe;
 extern uint32_t uRam105a7814;
-extern uint32_t uRam105a7b44;
+/* B-12 FIX (d329): byte-wide ROM const (the companion POST command, =0x04 at 0x105a7b44; the next byte
+ * 0x105a7b45 is bRam105a7b45=0x05, the POST insize). Was declared uint32_t -> execute_cpucom_transaction
+ * read the big-endian word 0x04050000 and truncated to the LOW byte (0x00) when passing it to
+ * cpucom_msg_set_cmd(uint8_t), so the candidate sent companion command 0 (-> Cmd:80 / empty) instead of
+ * the 0x04 POST. The original does a byte load (0x04). Declare uint8_t so the C reads the byte. THE MENU
+ * LAYER-2 ROOT (the Cmd:04 POST was never produced). Only use: execute_cpucom_transaction. */
+extern uint8_t uRam105a7b44;
 extern uint32_t uRam105a7f70;
 extern uint32_t uRam105a7f74;
 extern uint32_t uRam105a7f78;

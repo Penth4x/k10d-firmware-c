@@ -918,3 +918,27 @@ task upstream that itself is blocked). This is an un-posted-event chain, not a w
 ## candidate's equivalent producer doesn't run / produces 0x80 instead. Likely a skipped init task or a
 ## dropped/wrong command constant in the POST producer (unit 139 send_cpucom_command_sequence_* or the
 ## companion-init path). Oracle: cpucom_msg_set_cmd should be called with r5=0x04 before the first xfer.
+
+## ★★★★★★★ MENU LAYER-2 ROOT FOUND + FIXED (d329) — B-12 wrong-width global:
+## The companion POST command (0x04) is read from uRam105a7b44 (a BYTE at ROM 0x105a7b44 = 0x04; the next
+## byte 0x105a7b45 = bRam105a7b45 = 0x05 = the POST insize). globals.h declared it `uint32_t`, so
+## execute_cpucom_transaction read the big-endian WORD 0x04050000 and, passing it to cpucom_msg_set_cmd(uint8_t),
+## truncated to the LOW byte = 0x00. So the candidate produced the POST message with command 0 (-> Cmd:80/empty)
+## instead of 0x04. The original does a byte load (0x04). FIX: `extern uint8_t uRam105a7b44;` (only use is
+## execute_cpucom_transaction). MEASURED: execute_cpucom_transaction DOES run (ic 38.6M) after the layer-1
+## timing fix; it just sent cmd=0. With both layers fixed the candidate should send Cmd:04 POST. Oracle: dsp
+## dialog -> Cmd:04/05 like stock. B-12 class = same as the RTC watch-counter width bug (globals.h type width).
+
+## BUILD HYGIENE BUG (d329): cpu/build.sh does NOT recompile when a HEADER (globals.h/funcs.h) changes --
+## it keys recompilation off each .c's own mtime vs its .obj, so a header-only edit leaves ALL .obj stale.
+## This silently defeated the layer-2 fix (uRam105a7b44 uint32_t->uint8_t in globals.h): execute_cpucom_
+## transaction.obj stayed stale (old uint32_t read -> cmd still truncated to 0) until I touched the .c +
+## removed its one .obj. FIX build.sh to also recompile any .c whose .obj is older than globals.h/funcs.h
+## (cheap: compare against the two header mtimes). WORKAROUND meanwhile: after any header edit, `touch` the
+## affected .c files (or rm just their .obj -- do NOT rm all .obj, a full rebuild is very slow).
+## LAYER 3 (d329): stock cpucom_msg_set_cmd sequence has NO 0x80 (0, 0x04 POST, 0x04, 0x01x3, 0x58). The
+## candidate sends a SPURIOUS 0x80 (cpucom_repost_request via ui_task5_body, rp 0x106c3a5c) that stock never
+## does. So the candidate reposts an extra 0x80 message before/instead of the POST. Check AFTER the layer-2
+## rebuild: if the valid POST (0x04) now goes first the spurious repost may be moot; else trace why ui_task5
+## reposts 0x80 (its wait-flag/condition at *(ctx+0x30)+0x60, and the source message byte0=0x80 = a companion
+## response code reposted as a command). Oracle: candidate command sequence should match stock (0x04 first).
