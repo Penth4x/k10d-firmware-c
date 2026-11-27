@@ -657,3 +657,24 @@ Reliable measurement (prerequisite for all localization):
   leaves the struct layout intact — safer than re-typing the field, which would shift later offsets).
 - **Detector:** scripts/detect_struct_b12.py (byte source -> uint16/32 field via cast; + byte-local
   sources). Found only this 1 instance tree-wide. Related: global B-12 = scripts/detect_b12.py.
+
+## B-17 (d329): IMPROPER-SPLIT STACK BUFFER — dead-eliminated buffer tail overflows the frame.
+- **Shape:** the decompiler splits ONE multi-word stack buffer into an address-taken array
+  (`T auStack_N[M]`, passed to a callee) PLUS a trailing local (`uStack_(N-k)`) that is only
+  written (often `= 0`) and never read IN C — because the real consumer writes it THROUGH the
+  array pointer at an offset past the array's declared size. The compiler sees the trailing
+  local as a dead store and ELIMINATES it, shrinking the stack frame. The callee's write past
+  the array then lands on the saved frame pointer / rp -> wild sp -> ret-to-0 crash.
+- **MENU LAYER-5 instance:** call_two_helpers_with_zeroed_pair (unit 153): `uint16_t auStack_10[2]`
+  + `uint32_t uStack_c`. convert_ms_to_fixed_point(.., auStack_10, ..) writes *(uint*)(param_2+2)
+  = byte +4 = uStack_c's slot. uStack_c looked dead -> eliminated -> +4 write hit the saved fp
+  at sp+4 (proven by FRN_SPWATCH: sp went 0x801d99f8 -> 0xe0f25400). Crash reported as a stale
+  BADPC e->pc (query_and_dispatch_param_state) that NEVER RAN — the real site was found by
+  FRN_SPWATCH (op_helper.c: halt when sp>=0xa0000000, print LIVE pc + fa backtrace; needs FRN_ARGS
+  for the backtrace). Call path: process_mode_transition_sequence -> check_first_run_flags ->
+  check_and_update_state_flag -> process_param_with_helper -> query_and_apply_param_state.
+- **Fix:** merge the split into ONE address-taken buffer the callees write/read whole
+  (`uint16_t auStack_10[4]`; zero [0] and *(uint32_t*)(auStack_10+2)), so nothing is dead-eliminated.
+- **Detector:** scripts/detect_split_buffer.py (write-only non-addr-taken local contiguous above an
+  address-taken buffer passed to a call). Debug lesson: QEMU helper e->pc is STALE — trust live
+  pc from the per-instruction hook (FRN_SPWATCH), not the BADPC FROM-pc.
