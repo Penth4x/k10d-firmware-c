@@ -641,3 +641,19 @@ Reliable measurement (prerequisite for all localization):
 ## trap-calling ones by threading the register as a C param + keeping the __trap_ call (NOT harvest);
 ## (b) it is off the menu-deadlock critical path. The deadlock remains the cpucom circular bootstrap
 ## (check_bit2/flag 0x37 <-> companion handshake <-> mbx-4 <-> process_mode_transition_sequence).
+
+## B-12s (d329): STRUCT-FIELD B-12 — byte value stored to a uint32_t/uint16_t struct field.
+- **Shape:** a struct field declared `uint32_t` (or `uint16_t`) is assigned from a BYTE source
+  (`field_0xNN = *(uint8_t*)(...)`). The compiler zero-extends and does a WIDE store; on the FR
+  (big-endian) the semantic byte lands at the field's LSB (+width-1), leaving the base byte
+  (obj+0xNN, what byte-reading consumers read) = 0. The original firmware did a BYTE store.
+- **MENU LAYER-4 instance:** cls_105a023c_new (126 unit) `field_0x1c = *(uint8_t*)(param_2+3)`,
+  field_0x1c declared uint32_t in cls_1059e2e0. field_0x1c is the gpio-flag MASK (reg 0x50000106
+  bit 0x02 = companion request line). Word-store zeroed the mask byte -> test_flag_clear always
+  true -> spi_wait_flag_clear always errored (spi_poll_complete ALWAYS returns 1 via
+  call_helper_and_return_one_1043c49e) -> cpucom_spi_xfer aborted after the cmd byte -> POST
+  transmitted out_size=0 (no data) -> companion CPUCOM ERROR -> menu never boots.
+- **Fix:** force a byte store: `*(uint8_t*)&obj->field_0xNN = <byte>;` (matches stock exactly;
+  leaves the struct layout intact — safer than re-typing the field, which would shift later offsets).
+- **Detector:** scripts/detect_struct_b12.py (byte source -> uint16/32 field via cast; + byte-local
+  sources). Found only this 1 instance tree-wide. Related: global B-12 = scripts/detect_b12.py.

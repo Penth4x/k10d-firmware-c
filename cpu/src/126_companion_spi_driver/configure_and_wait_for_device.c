@@ -24,7 +24,10 @@ configure_and_wait_for_device(uint32_t param_1,uint32_t param_2,uint32_t param_3
   int iVar1;
   uint32_t uVar2;
   
-  clear_struct_flags_and_fields(__frv_reg_unset(4));
+  /* B-3c FIX (d329): r4 (param slot 0) IS param_1; line 48 calls clear_struct_flags_and_fields(param_1)
+   * on the same object. The decompiler dropped the arg to __frv_reg_unset(4) (stub->0). Masked at
+   * runtime only because r4 still holds param_1 at this first statement; substitute the real param. */
+  clear_struct_flags_and_fields(param_1);
   set_low_nibble_of_word(param_1,0);
   set_bits_10_11_in_word(param_1,0x400);
   set_bits_4_to_6_in_word(param_1,0);

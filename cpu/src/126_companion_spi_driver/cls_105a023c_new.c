@@ -28,7 +28,12 @@ int cls_105a023c_new(cls_105a023c *param_1,uint32_t *param_2)
     ((cls_1059e2e0 *)param_1)->field4_0x14 = param_2[1];
     uVar1 = param_2[2];
     *(uint32_t *)&((cls_1059e2e0 *)param_1)->field5_0x18 = uVar1;
-    ((cls_1059e2e0 *)param_1)->field_0x1c = *(uint8_t *)(param_2 + 3);
+    /* B-12 FIX (d329): field_0x1c is a BYTE (the gpio-flag mask, read as *(byte*)(obj+0x1c) by
+     * test_flag_clear/set), but the struct declares it uint32_t. A plain `field_0x1c = <byte>`
+     * zero-extends to a WORD store -> big-endian puts the mask (0x02) at +0x1f, leaving +0x1c=0.
+     * That zeroed the companion handshake mask -> spi_wait_flag_clear always errored -> the POST
+     * transmitted only the cmd byte (out_size=0) -> MENU LAYER-4. Stock does a byte store; force it. */
+    *(uint8_t *)&((cls_1059e2e0 *)param_1)->field_0x1c = *(uint8_t *)(param_2 + 3);
     *(uint32_t *)&((cls_1059e2e0 *)param_1)->field_0x20 = param_2[5];
     *(uint32_t *)&((cls_1059e2e0 *)param_1)->field_0x24 = param_2[6];
     *(uint32_t *)&((cls_1059e2e0 *)param_1)->field_0x28 = param_2[7];
