@@ -22,7 +22,7 @@ uint16_t lookup_two_byte_table_entry_1045a6c0(uint32_t param_1,int param_2,int p
   else {
     iVar1 = param_2 * 2;
     if (param_4 == 0) {
-      return *(uint16_t *)(&DAT_105a4022/*ROM*/ + iVar1);
+      return *(uint16_t *)(DAT_105a4022/*ROM*/ + iVar1);
     }
     puVar2 = &DAT_105a3f80/*ROM*/;
   }

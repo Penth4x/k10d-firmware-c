@@ -36,7 +36,7 @@ uint compute_and_dispatch_metering_zone(int param_1,int param_2,int param_3,int 
   iVar2 = _DAT_105f976c/*ROM*/ * param_2 + _DAT_105f9770/*ROM*/ * iVar5 + _DAT_105f9774/*ROM*/ * param_5;
   iVar5 = _DAT_105f9778/*ROM*/ * param_2 + _DAT_105f977c/*ROM*/ * iVar5 + _DAT_105f9780/*ROM*/ * param_5;
   if (*(char *)(param_1 + 0x3114) == '\0') {
-    uVar3 = ((int)*(short *)(&DAT_105f97a8/*ROM*/ + (iVar1 >> 0x10) * 2) >> 8) + *(int *)(param_1 + 4);
+    uVar3 = ((int)*(short *)(DAT_105f97a8/*ROM*/ + (iVar1 >> 0x10) * 2) >> 8) + *(int *)(param_1 + 4);
   }
   else {
     uVar3 = 8;

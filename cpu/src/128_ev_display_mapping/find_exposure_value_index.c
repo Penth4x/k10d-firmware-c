@@ -45,7 +45,7 @@ uint find_exposure_value_index(uint32_t param_1,short param_2,int param_3,uint p
   }
   else {
     do {
-      if (sVar1 == *(short *)(&DAT_105a4692/*ROM*/ + uVar2 * 2 + (param_4 & 0xffff) * 0x102)) {
+      if (sVar1 == *(short *)(DAT_105a4692/*ROM*/ + uVar2 * 2 + (param_4 & 0xffff) * 0x102)) {
         return uVar2;
       }
       uVar2 = uVar2 + 4 & 0xff;

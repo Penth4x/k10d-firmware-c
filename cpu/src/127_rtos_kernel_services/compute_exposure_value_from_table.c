@@ -11,7 +11,7 @@ int compute_exposure_value_from_table(uint32_t param_1,int param_2,uint param_3,
 {
   int iVar1;
   
-  iVar1 = (uint)*(ushort *)(&DAT_105a33e4/*ROM*/ + (param_2 + -0x40) * 2) * 100;
+  iVar1 = (uint)*(ushort *)(DAT_105a33e4/*ROM*/ + (param_2 + -0x40) * 2) * 100;
   if (((param_4 == 5) && (param_5 == 0xd)) && (param_2 == 0x75)) {
     iVar1 = 7000;
   }

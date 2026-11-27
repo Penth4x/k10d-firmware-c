@@ -29,7 +29,7 @@ void sr_fl_menu_build_b(void)
   uint32_t uVar4;
   int caller_r14;
   
-  uVar1 = *(ushort *)(&DAT_10598388/*ROM*/ + (caller_r9 + 1) * 2);
+  uVar1 = *(ushort *)(DAT_10598388/*ROM*/ + (caller_r9 + 1) * 2);
   uVar4 = 3;
   *(ushort *)(caller_r14 + -2) = uVar1;
   if ((uVar1 < 100) && (9 < uVar1)) {

@@ -46,7 +46,7 @@ void copy_sensor_line_buffer(void *param_1)
   case 5:
   case 6:
   case 7:
-    uStack_c = (uint)(byte)(&DAT_105980b8/*ROM*/)[uVar2];
+    uStack_c = (uint)(byte)(DAT_105980b8/*ROM*/)[uVar2];
     if (uStack_c != (uStack_c & 0xfffffffe)) {
       uStack_c = uStack_c + 1;
     }
@@ -64,7 +64,7 @@ void copy_sensor_line_buffer(void *param_1)
     uStack_c = 0x30;
     break;
   case 0xd:
-    uStack_c = (uint)(byte)(&DAT_1059814c/*ROM*/)[uVar2];
+    uStack_c = (uint)(byte)(DAT_1059814c/*ROM*/)[uVar2];
     if (uStack_c != (uStack_c & 0xfffffffe)) {
       uStack_c = uStack_c + 1;
     }

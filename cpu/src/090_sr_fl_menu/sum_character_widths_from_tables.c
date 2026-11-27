@@ -45,7 +45,7 @@ short sum_character_widths_from_tables(void *param_1,byte *param_2)
           psVar5 = psVar5 + 2;
           sVar7 = *psVar5;
         }
-        uVar2 = (ushort)(byte)(&DAT_1059814c/*ROM*/)[uVar4];
+        uVar2 = (ushort)(byte)(DAT_1059814c/*ROM*/)[uVar4];
         if (uVar2 != (uVar2 & 0xfffe)) {
           uVar2 = uVar2 + 1;
         }
@@ -66,7 +66,7 @@ short sum_character_widths_from_tables(void *param_1,byte *param_2)
     }
     else {
       sVar7 = decode_character_code(param_1,param_2);
-      uVar2 = (ushort)(byte)(&DAT_105980b8/*ROM*/)[sVar7];
+      uVar2 = (ushort)(byte)(DAT_105980b8/*ROM*/)[sVar7];
       if (uVar2 != (uVar2 & 0xfffe)) {
         uVar2 = uVar2 + 1;
       }

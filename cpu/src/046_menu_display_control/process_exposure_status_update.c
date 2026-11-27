@@ -90,13 +90,13 @@ void process_exposure_status_update(int *param_1)
                 (param_1[0x26] + (int)*(short *)(iVar3 + 8),
                  (int)((uint)*(ushort *)(param_1 + 0x45) + iVar2) <=
                  (int)((*(ushort *)((int)param_1 + 0x11a) - 2) * 0x100));
-      pvVar7 = (void *)(*(ushort *)(&DAT_10564ff4/*ROM*/ + (uint)*(ushort *)((int)param_1 + 0x116) * 2) /
+      pvVar7 = (void *)(*(ushort *)(DAT_10564ff4/*ROM*/ + (uint)*(ushort *)((int)param_1 + 0x116) * 2) /
                        100);
       if ((void *)0x63 < pvVar7) {
         pvVar7 = (void *)0x63;
       }
       pvVar8 = (void *)(((uint)*(ushort *)
-                                (&DAT_10564ff4/*ROM*/ + (uint)*(ushort *)((int)param_1 + 0x116) * 2) % 100)
+                                (DAT_10564ff4/*ROM*/ + (uint)*(ushort *)((int)param_1 + 0x116) * 2) % 100)
                        / 10);
       if (pvVar8 == 0) {
         pcVar6 = &DAT_105650d8/*ROM*/;

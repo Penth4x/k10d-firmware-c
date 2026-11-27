@@ -27,7 +27,7 @@ int decode_length_prefixed_byte_stream(byte *param_1,byte *param_2)
   
   iStack_10 = 0;
   while (*param_1 != 0) {
-    uVar2 = (uint)(byte)(&DAT_10621ff0)[*param_1];
+    uVar2 = (uint)(byte)(DAT_10621ff0)[*param_1];
     uVar5 = (uint)*param_1;
     if (1 < uVar2) {
       uVar5 = (uint)CONCAT11(*param_1,param_1[1]);

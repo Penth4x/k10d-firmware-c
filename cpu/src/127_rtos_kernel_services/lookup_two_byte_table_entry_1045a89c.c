@@ -21,7 +21,7 @@ int lookup_two_byte_table_entry_1045a89c(uint32_t param_1,uint param_2,int param
   int iVar1;
   
   if ((int)param_2 < 2) {
-    iVar1 = (int)*(short *)(&DAT_105a4692/*ROM*/ + param_3 * 2 + (param_2 & 0xffff) * 0x102);
+    iVar1 = (int)*(short *)(DAT_105a4692/*ROM*/ + param_3 * 2 + (param_2 & 0xffff) * 0x102);
   }
   else {
     iVar1 = 0;

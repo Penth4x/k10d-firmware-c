@@ -29,7 +29,7 @@ void sr_fl_menu_build_a(void)
   uint caller_r9;
   int caller_r14;
   
-  *(uint16_t *)(caller_r14 + -2) = *(uint16_t *)(&DAT_10598388/*ROM*/ + (r0_in + -1) * 2);
+  *(uint16_t *)(caller_r14 + -2) = *(uint16_t *)(DAT_10598388/*ROM*/ + (r0_in + -1) * 2);
   uVar2 = menu_item_register(*caller_r8);
   uVar1 = *(ushort *)(caller_r14 + -2);
   uVar4 = 3;
@@ -50,7 +50,7 @@ void sr_fl_menu_build_a(void)
     (((vtbl_entry*)(*(int *)(iVar3 + 0xc)))[1].fn)(iVar3 + *(short *)(*(int *)(iVar3 + 0xc) + 8),0);
   }
   else {
-    uVar1 = *(ushort *)(&DAT_10598388/*ROM*/ + (caller_r9 + 1) * 2);
+    uVar1 = *(ushort *)(DAT_10598388/*ROM*/ + (caller_r9 + 1) * 2);
     uVar2 = 3;
     *(ushort *)(caller_r14 + -2) = uVar1;
     if ((uVar1 < 100) && (9 < uVar1)) {

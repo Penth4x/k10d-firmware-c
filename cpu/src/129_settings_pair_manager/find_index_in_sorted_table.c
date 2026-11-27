@@ -15,7 +15,7 @@ char find_index_in_sorted_table(uint32_t param_1,int param_2)
   cVar1 = '\0';
   iVar2 = 0;
   do {
-    if (param_2 <= (int)(uint)*(ushort *)(&DAT_105a48b8/*ROM*/ + iVar2)) {
+    if (param_2 <= (int)(uint)*(ushort *)(DAT_105a48b8/*ROM*/ + iVar2)) {
       return cVar1;
     }
     iVar2 = iVar2 + 2;

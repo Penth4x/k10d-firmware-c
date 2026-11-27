@@ -436,6 +436,18 @@ Reliable measurement (prerequisite for all localization):
   a wrong-width TABLE base corrupts array *stride*, not just one byte.** `global_width_check.py` MISSES it
   — it judges only the first DIRECT `@rR` load after `ldi:32`, so indexed loads (`ldub @(ri,rj)`) and
   address-taken table bases are never scored. TODO: add a table-stride check to the detector.
+- **Instance 5 (STRIDE+truncation — companion cmd=0x05 payload; d346):** the whole `read_byte_from_rodata_table`
+  / `read_byte_from_table_1045b3a0` family (`DAT_105a4676`, `DAT_105a4896`, + ~16 more) declared `uint32_t`
+  but are BYTE lookup tables. `(&DAT_105a4676)[param_2]` with the uint32 base reads the 32-bit word at
+  `param_2*4` and truncates to the low byte (BOTH stride AND truncation): for `param_2=0`, stock reads
+  `DAT[0]=0xff`, candidate reads `0xff181b1c & 0xff = 0x1c`. These feed `build_mode_settings_snapshot`
+  (the per-mode settings record) → companion cmd=0x05 → the 61-byte mode-settings payload diverged
+  (byte[4]/[9]/[18-19]). Traced via a copy chain: payload ← `copy_bytes_to_object_offset` ← `0x80532b38`
+  ← `copy_buffer_with_padding` ← record table `0x80532b88` ← `build_mode_settings_snapshot` ← these reads.
+  Fix: `uint8_t[]` + `(&DAT)[i]`→`DAT[i]`. **DETECTOR R13 BLIND SPOT (fixed in `table_stride_check.py`):**
+  these use FR `@(R13,Rj)` addressing with the base in R13 (`ldi #tbl,r13; ldub @(r13,r5)`, symmetric add);
+  the detector only matched base-in-Rj and missed the whole family. Fixed (`base_hit = rj==R or R==13`),
+  7→25 confirmed. When writing an FR asm scanner, handle BOTH operands of `@(R13,Rj)`.
 - **DETECTION (use this, generalized + corrected): `scripts/global_width_check.py`.** Covers ALL
   address-named globals (`uRam`/`bRam`/`pvRam`/`cRam`/`DAT_`/`_DAT_`) in every range, not just MMIO
   `DAT_`. It **fixes a latent bug in `mmio_width_check.py`**: the FR load/store base register is

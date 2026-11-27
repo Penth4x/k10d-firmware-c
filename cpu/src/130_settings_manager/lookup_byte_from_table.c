@@ -24,7 +24,7 @@ uint8_t lookup_byte_from_table(void *param_1,uint param_2,int param_3)
   if (param_3 < 0xd) {
     iVar1 = param_3;
   }
-  uVar2 = (&DAT_105a5c1c/*ROM*/)[iVar1];
+  uVar2 = (DAT_105a5c1c/*ROM*/)[iVar1];
   if ((param_3 == 2) && (iVar1 = check_size_alignment(param_1,param_2), iVar1 != 0)) {
     uVar2 = 0x1d;
   }

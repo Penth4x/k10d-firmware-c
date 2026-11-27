@@ -41,7 +41,7 @@ void update_two_values_with_digit_count(int *param_1)
     (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
   }
   else {
-    uStack_a = *(ushort *)(&DAT_10598388/*ROM*/ + (uVar3 - 1) * 2);
+    uStack_a = *(ushort *)(DAT_10598388/*ROM*/ + (uVar3 - 1) * 2);
     uVar4 = menu_item_register(*param_1);
     uVar2 = 3;
     if ((uStack_a < 100) && (9 < uStack_a)) {
@@ -62,7 +62,7 @@ void update_two_values_with_digit_count(int *param_1)
     (((vtbl_entry*)(*(int *)(iVar1 + 0xc)))[1].fn)(iVar1 + *(short *)(*(int *)(iVar1 + 0xc) + 8),0);
   }
   else {
-    uStack_a = *(ushort *)(&DAT_10598388/*ROM*/ + (uVar3 + 1) * 2);
+    uStack_a = *(ushort *)(DAT_10598388/*ROM*/ + (uVar3 + 1) * 2);
     uVar4 = 3;
     if ((uStack_a < 100) && (9 < uStack_a)) {
       uVar4 = 2;

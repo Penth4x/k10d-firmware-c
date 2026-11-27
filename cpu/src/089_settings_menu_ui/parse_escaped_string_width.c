@@ -35,7 +35,7 @@ void parse_escaped_string_width(uint32_t param_1,void *param_2,byte *param_3,uin
   uVar5 = 0;
   uVar6 = 0;
   if (*param_3 != 0) {
-    apuStack_1c[0] = &DAT_1059814c/*ROM*/;
+    apuStack_1c[0] = DAT_1059814c/*ROM*/;
     do {
       if (*param_3 == 0xd) {
         uStack_24 = uStack_24 + 0x30 & 0xffff;
@@ -50,7 +50,7 @@ LAB_103fe762:
         iVar3 = is_printable_ascii_byte(param_2,param_3);
         if (iVar3 != 0) {
           sVar4 = decode_character_code(param_2,param_3);
-          uVar1 = (uint)(byte)(&DAT_105980b8/*ROM*/)[sVar4];
+          uVar1 = (uint)(byte)(DAT_105980b8/*ROM*/)[sVar4];
           if (uVar1 != (uVar1 & 0xfffffffe)) {
             uVar1 = uVar1 + 1;
           }

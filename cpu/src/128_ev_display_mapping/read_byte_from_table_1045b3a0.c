@@ -9,5 +9,5 @@
 uint8_t read_byte_from_table_1045b3a0(uint32_t param_1,int param_2)
 
 {
-  return (&DAT_105a4896/*ROM*/)[param_2];
+  return (DAT_105a4896/*ROM*/)[param_2];
 }

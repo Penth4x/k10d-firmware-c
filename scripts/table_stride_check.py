@@ -79,9 +79,15 @@ while i < hi:
                     break
                 w2 = hw(j); op = w2 >> 8; ri = w2 & 0xF; rj = (w2 >> 4) & 0xF
                 isldi = (w2 & 0xFFF0) == 0x9F80
-                if rj == R and op in IDX_LOAD:
+                # FR @(R13,Rj) indexed loads add r13 + r[Rj], symmetric. The table base may be loaded
+                # into Rj (the explicit operand) OR into R13 (the fixed index reg). When the ldi target
+                # is r13 (R==13), r13 IS the base of any subsequent @(r13,Rj) load, whatever Rj is --
+                # e.g. `ldi #tbl,r13; ldub @(r13,r5),r4` (read_byte_from_rodata_table). Earlier versions
+                # only matched rj==R and MISSED this whole family (DAT_105a4676 etc.).
+                base_hit = (rj == R) or (R == 13)
+                if base_hit and op in IDX_LOAD:
                     idxw[imm] = min(idxw.get(imm, 99), IDX_LOAD[op]); break
-                if rj == R and op in IDX_STORE:
+                if base_hit and op in IDX_STORE:
                     idxw[imm] = min(idxw.get(imm, 99), IDX_STORE[op]); break
                 if rj == R and op in DIR_LOAD:
                     dirw[imm] = min(dirw.get(imm, 99), DIR_LOAD[op]); break
@@ -133,10 +139,11 @@ for a, nm, d, el, nt, dw, sw in patch:
     print("  0x%08x  %-22s decl uint%-2d  indexed as uint%-2d -> %s[]%s%s" % (a, nm, d, el, nt, extra, warn))
 print("\nASM-ONLY (matched the asm scan but NOT address-taken in C — likely register-reuse FP, verify):",
       len(asm_only))
-for a, nm, d, el, nt, dw in asm_only:
+for a, nm, d, el, nt, dw, sw in asm_only:
     extra = "  (also direct@%d)" % dw if dw else ""
     print("  0x%08x  %-22s decl uint%-2d  indexed as uint%-2d%s" % (a, nm, d, el, extra))
 
 outp = os.path.join(os.path.dirname(os.path.abspath(__file__)), "table_stride_patch.txt")
-open(outp, "w").write("\n".join("%08x %s[] %s" % (a, nt, nm) for a, nm, _, _, nt, _ in patch) + "\n")
+open(outp, "w").write("\n".join("%08x %s[] %s%s" % (a, nt, nm, "  # SCALAR-WRITE-UNSAFE" if sw else "")
+                                for a, nm, _, _, nt, _, sw in patch) + "\n")
 print("\npatch list -> %s   (retype each to a byte/half TABLE + fix (&x)[i] indexing; verify differentially)" % outp)

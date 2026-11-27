@@ -9,5 +9,5 @@
 uint16_t read_two_byte_table_entry(uint32_t param_1,int param_2)
 
 {
-  return *(uint16_t *)(&DAT_105a48b8/*ROM*/ + param_2 * 2);
+  return *(uint16_t *)(DAT_105a48b8/*ROM*/ + param_2 * 2);
 }

@@ -40,7 +40,7 @@ void compute_exposure_apex_values(uint *param_1,int param_2,ushort *param_3,uint
   uVar2 = 0x2000;
   uVar3 = (uint)param_6;
   if ((0x47 < uVar3) && (uVar3 < 0x54)) {
-    uVar2 = (uint)*(ushort *)(&DAT_105fa8cc/*ROM*/ + (uVar3 - 0x48) * 2);
+    uVar2 = (uint)*(ushort *)(DAT_105fa8cc/*ROM*/ + (uVar3 - 0x48) * 2);
   }
   *(ushort *)(param_1 + 0x13) = *param_3;
   *(ushort *)((int)param_1 + 0x4e) = param_3[1];
@@ -187,6 +187,6 @@ LAB_1052ef8c:
   if (uVar3 < 0x51) {
     uVar2 = uVar3;
   }
-  *(uint16_t *)(param_1 + 0x15) = *(uint16_t *)(&DAT_105fa828/*ROM*/ + uVar2 * 2);
+  *(uint16_t *)(param_1 + 0x15) = *(uint16_t *)(DAT_105fa828/*ROM*/ + uVar2 * 2);
   return;
 }
