@@ -185,10 +185,6 @@ almost nothing, you did not do the job.
   WORKED EXAMPLE (codegen-identical, do this):
     before:  void f(void *param_1, int i) { *(uint8_t *)((int)param_1 + i) = 0; }
     after:   void f(uint8_t *buf,   int i) { buf[i] = 0; }   // same byte store -> passes the gate
-  CRITICAL: retype the parameter/variable IN PLACE (change `void *x` to `uint8_t *x` in its
-  declaration and write `x[i]`). Do NOT introduce a NEW aliasing local like `uint8_t *p = (uint8_t*)x;`
-  -- an extra local adds a stack slot / register and CHANGES the codegen, so the gate will HOLD it and
-  you will end up reverting to soup. In-place retyping adds nothing and stays codegen-identical.
   Retype each `void*`/`int` BASE (params and locals) to the ELEMENT pointer type and index it: match
   the pointer type to the ACCESS WIDTH used (`ldub`/`stb` -> `uint8_t *`, `lduh`/`sth` -> `uint16_t *`,
   `ld`/`st` -> `uint32_t *` or the struct type). Keeping the same width is codegen-identical; changing
