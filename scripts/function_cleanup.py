@@ -177,6 +177,14 @@ almost nothing, you did not do the job.
   * `*(T *)((int)base + 0xNN)`  ->  a struct field access `base->field` when a struct type fits the offset.
   * drop the redundant `(int)ptr` / reinterpret casts the decompiler inserts just to do pointer math.
   These compile to the same instructions, so they pass the gate and read far better -- prefer them.
+  WORKED EXAMPLE (codegen-identical, do this):
+    before:  void f(void *param_1, int i) { *(uint8_t *)((int)param_1 + i) = 0; }
+    after:   void f(uint8_t *buf,   int i) { buf[i] = 0; }   // same byte store -> passes the gate
+  Retype each `void*`/`int` BASE (params and locals) to the ELEMENT pointer type and index it: match
+  the pointer type to the ACCESS WIDTH used (`ldub`/`stb` -> `uint8_t *`, `lduh`/`sth` -> `uint16_t *`,
+  `ld`/`st` -> `uint32_t *` or the struct type). Keeping the same width is codegen-identical; changing
+  the width is NOT (that would be a bug-fix, out of scope here). Apply this to EVERY soupy access in the
+  function, not just the signature -- leaving the body full of `*(T*)((int)base + i)` is a failed de-soup.
 - NAME/EXPLAIN the genuine bit idioms you cannot remove (a real mask+shift field extract, shift-as-
   multiply/divide, packing/`CONCAT`, sign-extension, a magic constant/offset): give it a clearly named
   local and/or a brief WHAT comment (e.g. `(x & 0x7fff0000) >> 16` is bits 16-30). Name what it
