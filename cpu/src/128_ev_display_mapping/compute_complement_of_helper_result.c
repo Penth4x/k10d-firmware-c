@@ -15,8 +15,8 @@
 
 uint compute_complement_of_helper_result(uint32_t arg1, short arg2, int arg3, uint arg4)
 {
-  uint ev_index;
+  uint raw_ev_index;
 
-  ev_index = find_exposure_value_index(arg1, arg2, arg3, arg4);
-  return 0x40 - ev_index & 0xff;
+  raw_ev_index = find_exposure_value_index(arg1, arg2, arg3, arg4);
+  return 0x40 - raw_ev_index & 0xff;
 }

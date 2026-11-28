@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint lookup_or_compute_index(uint32_t unused_first_param,uint expected_field_a,uint expected_field_b,uint table_stride_mode,byte max_index)
+uint lookup_or_compute_index(uint32_t first_param,uint expected_field_a,uint expected_field_b,uint table_stride_mode,byte max_index)
 
 {
   uint index;

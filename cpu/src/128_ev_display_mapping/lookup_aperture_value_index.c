@@ -8,7 +8,6 @@
 
 uint lookup_aperture_value_index(uint32_t aperture_code, uint numerator, int denominator,
                                  uint table_id, char direct_return_flag, byte direct_return_value)
-
 {
   uint quotient;
   uint table_index;

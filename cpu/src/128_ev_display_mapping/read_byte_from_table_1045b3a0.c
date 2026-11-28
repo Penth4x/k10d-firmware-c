@@ -6,8 +6,8 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint8_t read_byte_from_table_1045b3a0(uint32_t ignored_arg,int table_index)
+uint8_t read_byte_from_table_1045b3a0(uint32_t unused_arg,int byte_index)
 {
   /* Original: load base 0x105a4896 into r13, then ldub @(r13,r5),r4. */
-  return (DAT_105a4896/*ROM*/)[table_index];
+  return (DAT_105a4896/*ROM*/)[byte_index];
 }

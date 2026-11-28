@@ -6,53 +6,53 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t map_index_to_code_value(uint32_t param_1,uint32_t param_2)
+uint32_t map_index_to_code_value(uint32_t unused_ctx, uint32_t ev_index)
 
 {
-  uint32_t uVar1;
-  
-  switch(param_2) {
+  uint32_t code_value;
+
+  switch (ev_index) {
   case 0:
-    uVar1 = 0xf0;
+    code_value = 0xf0;
     break;
   case 1:
-    uVar1 = 0xf3;
+    code_value = 0xf3;
     break;
   case 2:
-    uVar1 = 0xf4;
+    code_value = 0xf4;
     break;
   case 3:
-    uVar1 = 0xf5;
+    code_value = 0xf5;
     break;
   case 4:
-    uVar1 = 0xf8;
+    code_value = 0xf8;
     break;
   case 5:
-    uVar1 = 0xfb;
+    code_value = 0xfb;
     break;
   case 6:
-    uVar1 = 0xfc;
+    code_value = 0xfc;
     break;
   case 7:
-    uVar1 = 0xfd;
+    code_value = 0xfd;
     break;
   case 8:
-    uVar1 = 0;
+    code_value = 0;
     break;
   case 9:
-    uVar1 = 3;
+    code_value = 3;
     break;
   case 10:
-    uVar1 = 4;
+    code_value = 4;
     break;
   case 0xb:
-    uVar1 = 5;
+    code_value = 5;
     break;
   case 0xc:
-    uVar1 = 8;
+    code_value = 8;
     break;
   default:
-    uVar1 = 0;
+    code_value = 0;
   }
-  return uVar1;
+  return code_value;
 }

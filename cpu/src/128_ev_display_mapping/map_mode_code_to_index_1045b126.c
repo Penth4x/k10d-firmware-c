@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t map_mode_code_to_index_1045b126(uint32_t current_index, uint32_t mode_code)
+uint32_t map_mode_code_to_index_1045b126(uint32_t ignored_current_index, uint32_t mode_code)
 {
   uint32_t mapped_index;
 

@@ -6,39 +6,39 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t map_mode_code_to_index_1045b3e8(uint32_t param_1,uint32_t param_2,uint32_t param_3)
+uint32_t map_mode_code_to_index_1045b3e8(uint32_t mode_code, uint32_t mode_code_lo, uint32_t sub_mode_code)
 
 {
-  uint32_t uVar1;
-  
-  switch(param_2) {
+  uint32_t mapped_index;
+
+  switch (mode_code_lo) {
   default:
 switchD_1045b3f6_caseD_0:
-    uVar1 = 0;
+    mapped_index = 0;
     break;
   case 1:
-    uVar1 = 1;
+    mapped_index = 1;
     break;
   case 2:
-    uVar1 = 5;
+    mapped_index = 5;
     break;
   case 3:
-    uVar1 = 6;
+    mapped_index = 6;
     break;
   case 5:
-    uVar1 = 8;
+    mapped_index = 8;
     break;
   case 6:
-    uVar1 = 8;
+    mapped_index = 8;
     break;
   case 8:
-    uVar1 = 2;
+    mapped_index = 2;
     break;
   case 9:
-    uVar1 = 3;
+    mapped_index = 3;
     break;
   case 10:
-    switch(param_3) {
+    switch (sub_mode_code) {
     case 0:
     case 1:
     case 2:
@@ -46,7 +46,7 @@ switchD_1045b3f6_caseD_0:
     case 7:
     case 10:
     case 0xf:
-      uVar1 = 4;
+      mapped_index = 4;
       break;
     default:
       goto switchD_1045b3f6_caseD_0;
@@ -58,8 +58,8 @@ switchD_1045b3f6_caseD_0:
     case 0xc:
     case 0xd:
     case 0xe:
-      uVar1 = 7;
+      mapped_index = 7;
     }
   }
-  return uVar1;
+  return mapped_index;
 }

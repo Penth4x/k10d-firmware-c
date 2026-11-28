@@ -9,41 +9,41 @@
 uint32_t map_index_to_offset_1045a954(uint32_t unused,int enabled,uint32_t index)
 
 {
-  uint32_t offset;
+  uint32_t result;
 
-  offset = 0;
+  result = 0;
   if (enabled != 0) {
     switch(index) {
     case 0:
-      offset = 0;
+      result = 0;
       break;
     default:
-      offset = 0;
+      result = 0;
       break;
     case 3:
-      offset = 3;
+      result = 3;
       break;
     case 4:
-      offset = 5;
+      result = 5;
       break;
     case 5:
-      offset = 7;
+      result = 7;
       break;
     case 8:
-      offset = 10;
+      result = 10;
       break;
     case 0xb:
-      offset = 0xd;
+      result = 0xd;
       break;
     case 0xc:
-      offset = 0xf;
+      result = 0xf;
       break;
     case 0xd:
-      offset = 0x11;
+      result = 0x11;
       break;
     case 0x10:
-      offset = 0x14;
+      result = 0x14;
     }
   }
-  return offset;
+  return result;
 }
