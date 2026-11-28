@@ -78,3 +78,41 @@ The original body is pure prologue/epilogue (`st sr1` / `enter #0x4` / `leave` /
 
 ## cls_105a6d8c_new  (`cpu/src/134_settings_struct_manager/cls_105a6d8c_new.c`)
 - [none] Second zeroing loop off-by-one: C `while (-1 < iVar3)` (counter ≥ 0) vs original `bp:d` (branch-if-positive, counter > 0) @ `do { *(uint8_t *)(...+iVar1) = 0; iVar3 = iVar3 + -1; ... } while (-1 < iVar3);` vs `0x1045feca: sub r12,r2 / 0x1045fecc: bp:d 0x1045fec2` → the C's `> -1` test permits one extra iteration when the counter reaches 0, zeroing object byte offset 0x1a (param_1+4+22) which the original leaves untouched; original zeros 22 bytes (offsets 4–25), C zeros 23 (offsets 4–26).
+
+## allocate_and_init_object_104962ea  (`cpu/src/199_settings_menu_manager/allocate_and_init_object_104962ea.c`)
+- [none] The decompiled C faithfully represents the original machine code. All call targets, argument values (0x34/52 for heap_alloc, param_3/param_4 for alloc_two_word_pair, 2 for free_heap_block, param_2/7 for write_two_fields), the null-check branch, and the return value (allocated pointer) match the disassembly. The `bra:d` / `mov r8,r9` delay-slot sequence in the original is a register-allocation artifact of the original compiler (r9 is a callee-saved temp that happens to hold the same pointer value); the fcc reassembly confirms the same semantics with different register choices. No B-NN class applies.
+
+## cls_105a6abc_new  (`cpu/src/131_settings_manager/cls_105a6abc_new.c`)
+- [none] Loop executes 4 iterations (zeroing 16 bytes at offsets 4–19) vs original's 3 iterations (zeroing 12 bytes at offsets 4–15) @ `while (-1 < iVar2)` with `iVar2 = 3` vs `bp:d 0x1045f240` after `sub r12,r3` (branch if r3 > 0, i.e. 3→2→1→0 stops) -> the decompiler translated the `bp` (branch-if-positive, > 0) condition as `> -1`, adding one extra iteration that writes 0 to offsets 16–19 which the original leaves uninitialized.
+
+## cls_105a6d44_new  (`cpu/src/134_settings_struct_manager/cls_105a6d44_new.c`)
+- [none] Loop count appears correct after re-examination. The original uses `bp:d` (branch if positive, i.e. sign-bit clear → result ≥ 0) after `sub r12,r3`. Tracing: r3=3→2 (≥0, loop), 2→1 (≥0, loop), 1→0 (≥0, loop), 0→−1 (<0, stop) = 4 iterations × 4 bytes = 16 bytes zeroed at offsets 4–19 of the 0x14-byte object. The C `do{…}while(-1<iVar2)` with iVar2=3,2,1,0 also yields 4 iterations. The fcc asm confirms with `CMP #-1,R5; BGT32:D` (R5≥0). No divergence.
+- [none] The first store in each loop iteration uses a different addressing form in the original (`stb r2,@(r13,r0)` with r13=r1) versus the last store (`stb r2,@(r13,r1)` with r13=r0), but both compute the same effective address r0+r1. The C and fcc use a uniform `base+offset` form. Benign register-allocation / addressing-mode difference.
+- [none] The original saves `sr1` (status register) on entry and restores it on exit; the fcc saves `RP` instead and uses `ENTER`/`LEAVE` for frame management. This is a compiler-idiom difference (fcc911s vs. original compiler) and does not change observable behaviour of the function's logic.
+
+## cls_105a6dd4_new  (`cpu/src/135_menu_context_manager/cls_105a6dd4_new.c`)
+- none
+
+The decompiled C faithfully represents the original machine code. Key verification points:
+
+1. **Delay-slot argument to `heap_alloc`**: The `ldi:8 #0x14,r4` at 0x1046000a is the delay slot of `call:d @r12` at 0x10460008, so `heap_alloc` receives `r4 = 0x14`. The C correctly passes `0x14`.
+
+2. **Delay-slot argument to `cls_105b5264_new`**: The `mov r8,r4` at 0x1046001a is the delay slot of `call:d @r12` at 0x10460018, so the callee receives `r4 = r8` (param_1). The C correctly passes `param_1`.
+
+3. **Loop count**: The original uses `sub r12,r3` followed by `bp:d` (branch if N=0, i.e. result ≥ 0). With r3 starting at 3, the loop executes 4 times (r3: 3→2→1→0→-1, branching at 2, 1, 0). The C `do { … } while (-1 < iVar2)` with iVar2 starting at 3 also executes 4 times. The fcc output confirms equivalence: `CMP #-1, R5 / BGT32:D` is the same condition.
+
+4. **Zeroed region**: Both the original and the C zero 16 bytes at `param_1 + 4` through `param_1 + 19` (the entire object after the 4-byte vtable slot in a 0x14-byte allocation). The C's `(int)&((cls_105b5264 *)(param_1 + 1))->field_0x0` resolves to `param_1 + 4` (sizeof of the struct tag is 4 in the type system), matching `addn4 #4, r0`.
+
+5. **Vtable store**: `st r12,@r8` with `r12 = 0x105a6dd4` matches `((cls_105b5264 *)param_1)->field_0x0 = (uintptr_t)(&DAT_105a6dd4)`.
+
+6. **Return value**: `mov r8,r4` before `ret` matches `return (cls_105b5264 *)param_1`.
+
+## return_r4_passthrough_10537080  (`cpu/src/294_runtime_lib_fatfs_lens_update/return_r4_passthrough_10537080.c`)
+- none
+
+The original machine code (`st sr1` / `enter #0x4` / `leave` / `ld @r15+,sr1` / `ret`) is a no-op: it saves and restores `sr1`, sets up and tears down a 4-byte frame, and returns. No general-purpose register (including `r4`) is read or written, and the net stack effect is zero. The decompiled C declares an uninitialized local and returns it; `fcc911s` compiles this to a bare `RET`, which is behaviour-equivalent to the original (both return whatever the caller had in `r4`, with no side effects). The `sr1` save/restore and `enter`/`leave` pair are compiler prologue/epilogue artefacts with zero observable effect.
+
+## lens_fw_update_stub_1053708a  (`cpu/src/294_runtime_lib_fatfs_lens_update/lens_fw_update_stub_1053708a.c`)
+- none
+
+The original disassembly (`st sr1,@-r15` / `enter #0x4` / `leave` / `ld @r15+,sr1` / `ret`) is the standard prologue/epilogue the original compiler emits for every function, even empty ones. Since the body performs no operations, `sr1` is unmodified (save/restore is a no-op) and the 4-byte frame is never accessed (enter/leave is a no-op). The fcc recompile (`RET` alone) is behaviour-equivalent. No semantic divergence.

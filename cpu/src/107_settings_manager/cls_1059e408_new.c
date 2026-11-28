@@ -11,14 +11,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-cls_1059e3e0 * cls_1059e408_new(cls_1059e408 *param_1)
+cls_1059e3e0 * cls_1059e408_new(cls_1059e408 *this_ptr)
 
 {
-  if ((param_1 != (cls_1059e408 *)0x0) ||
-     (param_1 = (cls_1059e408 *)heap_alloc((void *)8), (cls_1059e3e0 *)param_1 != (cls_1059e3e0 *)0x0)) {
-    cls_1059e3e0_new((cls_1059e3e0 *)param_1);
-    ((cls_1059e3e0 *)param_1)->field_0x0 = (uint32_t)&DAT_1059e408/*ROM*/;
-    ((cls_1059e3e0 *)param_1)->field1_0x4 = (uint32_t)(void *)0x0;
+  if ((this_ptr != (cls_1059e408 *)0x0) ||
+     (this_ptr = (cls_1059e408 *)heap_alloc((void *)8), (cls_1059e3e0 *)this_ptr != (cls_1059e3e0 *)0x0)) {
+    cls_1059e3e0_new((cls_1059e3e0 *)this_ptr);
+    ((cls_1059e3e0 *)this_ptr)->field_0x0 = (uint32_t)&DAT_1059e408/*ROM*/;
+    ((cls_1059e3e0 *)this_ptr)->field1_0x4 = (uint32_t)(void *)0x0;
   }
-  return (cls_1059e3e0 *)param_1;
+  return (cls_1059e3e0 *)this_ptr;
 }

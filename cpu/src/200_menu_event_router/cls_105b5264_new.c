@@ -11,12 +11,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_105b5264_new(cls_105b5264 *param_1)
+void cls_105b5264_new(cls_105b5264 *obj)
 
 {
-  if ((param_1 != (cls_105b5264 *)0x0) ||
-     (param_1 = (cls_105b5264 *)heap_alloc((void *)4), param_1 != (cls_105b5264 *)0x0)) {
-    param_1->field_0x0 = (uint32_t)&DAT_105b5264/*ROM*/;
+  /* If obj is already non-NULL, skip allocation; otherwise heap_alloc(4) in the
+     delay-slot arg, then re-check for NULL.  On success, stamp the vtable. */
+  if ((obj != (cls_105b5264 *)0x0) ||
+     (obj = (cls_105b5264 *)heap_alloc((void *)4), obj != (cls_105b5264 *)0x0)) {
+    obj->field_0x0 = (uint32_t)&DAT_105b5264/*ROM*/;
   }
   return;
 }

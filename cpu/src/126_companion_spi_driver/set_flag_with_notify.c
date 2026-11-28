@@ -15,20 +15,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_flag_with_notify(void *param_1)
+void set_flag_with_notify(void *obj)
 
 {
-                    /* Purpose: Set flag with notification. Sets bit in [obj+0x10] using mask
-                       [obj+0x1c], calls FUN_10459d74/d88 (notify) if [obj+0x20] non-null.
-                       Params: param_1 = object pointer.
-                       Returns: void. */
-  if (*(int *)((int)param_1 + 0x20) != 0) {
-    call_kernel_with_short_id(*(uint32_t **)((int)param_1 + 0x20));
+  if (*(int *)((int)obj + 0x20) != 0) {
+    call_kernel_with_short_id(*(uint32_t **)((int)obj + 0x20));
   }
-  **(byte **)((int)param_1 + 0x10) =
-       **(byte **)((int)param_1 + 0x10) | *(byte *)((int)param_1 + 0x1c);
-  if (*(int *)((int)param_1 + 0x20) != 0) {
-    check_kernel_call_success_10459d88(*(uint32_t **)((int)param_1 + 0x20));
+  **(byte **)((int)obj + 0x10) =
+       **(byte **)((int)obj + 0x10) | *(byte *)((int)obj + 0x1c);
+  if (*(int *)((int)obj + 0x20) != 0) {
+    check_kernel_call_success_10459d88(*(uint32_t **)((int)obj + 0x20));
   }
   return;
 }
