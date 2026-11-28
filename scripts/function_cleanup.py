@@ -132,7 +132,20 @@ parameter RENAMES. Hard rules:
   only be a PROPOSAL in RENAMES, never applied in this block. You MAY rename locals/parameters.
 - Do not touch or inline other functions. Keep the leading /* @k10d ... */ header block verbatim
   (especially its `@ 0x<va>` line).
-- Prefer clear locals and short comments that explain WHAT the original is doing."""
+- Prefer clear locals and short comments that explain WHAT the original is doing.
+
+COMMON MISTAKES seen in earlier runs -- DO NOT REPEAT:
+- Non-compiling output: every variable you use must be declared; match the original's types; balance
+  parentheses/braces; keep the exact cast syntax. (You will be asked to fix compile errors you cause.)
+- Declaring locals you never use -- declare exactly the locals the body uses, no extras.
+- Guessing a specific bug class when unsure: if a FINDING is not clearly one of the listed B-NN
+  classes, label it `[none]` or `[uncertain]` with the observation -- do NOT assert a B-NN you are
+  not confident in (you once mislabeled a data-flow issue as B-10).
+- Editorializing in the code: do NOT add `// BUG ...` or finding/opinion comments in CLEANED. Findings
+  go in ### FINDINGS only; the code stays a faithful rewrite. Comments may only describe WHAT the code
+  does.
+- Changing behaviour while "cleaning": no reordering of reads/writes, no folding/simplifying arithmetic
+  or branches, no "fixing" a suspected bug. Byte-for-byte equivalent, always."""
 
 def build_user(name, va, c_src, asm):
     return f"""KNOWN BUG CLASSES (bestiary):
@@ -153,13 +166,11 @@ Review per your three sections. Compare the C against the disassembly for the bu
 cleaned code behaviour-identical (bugs included)."""
 
 # ---------------------------------------------------------------- llm
-def call_llm(user, timeout=1800):
+def call_llm(messages, timeout=1800):
     # Never kneecap the model: thinking always ON, and NO max_tokens cap (reasoning + output run to
     # the server's context limit). A hard cap silently truncates reasoning/output mid-answer.
     payload = json.dumps({
-        "model": MODEL,
-        "messages": [{"role": "system", "content": SYSTEM},
-                     {"role": "user", "content": user}],
+        "model": MODEL, "messages": messages,
         "temperature": 0.1, "stream": False,
         "chat_template_kwargs": {"enable_thinking": True},
     }).encode()
@@ -168,6 +179,32 @@ def call_llm(user, timeout=1800):
     with urllib.request.urlopen(req, timeout=timeout) as r:
         content = json.loads(r.read().decode())["choices"][0]["message"]["content"]
     return re.sub(r'<think>.*?</think>', '', content, flags=re.S).strip()
+
+MAX_ROUNDS = 4   # 1 initial + up to 3 self-fixes of its own compile errors
+
+def cleanup_with_self_check(user, dry_run):
+    """Generate the cleanup, then let the model COMPILE-CHECK ITSELF and fix its own errors (feedback
+    loop, like fix_loop). Returns (findings, renames, cleaned, rounds, final_compile_err)."""
+    messages = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}]
+    findings = renames = cleaned = ""
+    err = ""
+    for rnd in range(1, MAX_ROUNDS + 1):
+        raw = call_llm(messages)
+        findings, renames, cleaned = split_sections(raw)
+        if cleaned is None or dry_run:
+            return findings, renames, cleaned, rnd, ""
+        err = compile_error(cleaned)
+        if not err:
+            return findings, renames, cleaned, rnd, ""      # compiles -> done
+        if rnd == MAX_ROUNDS:
+            break
+        # hand the compiler's complaint back and let it fix ITS OWN output
+        messages.append({"role": "assistant", "content": raw})
+        messages.append({"role": "user", "content":
+            "Your CLEANED code does not compile. Fix ONLY the compile errors -- keep the readability "
+            "cleanup, the renames, the behaviour, and the @k10d header. gcc reported:\n\n" + err +
+            "\n\nReturn all three sections (### FINDINGS / ### RENAMES / ### CLEANED) again, corrected."})
+    return findings, renames, cleaned, MAX_ROUNDS, err
 
 def split_sections(raw):
     sec = {"FINDINGS": "", "RENAMES": "", "CLEANED": ""}
@@ -217,44 +254,38 @@ def process(path, args):
         return
 
     try:
-        raw = call_llm(user)
+        findings, renames, cleaned, rounds, cc_err = cleanup_with_self_check(user, args.dry_run)
     except Exception as e:                       # noqa: BLE001 -- surface any transport error
         print(f"  LLM error on {name}: {e}", file=sys.stderr); return
-    findings, renames, cleaned = split_sections(raw)
 
     rel = os.path.relpath(path, ROOT)
     report = (f"# cleanup proposal: {name}\n\n"
               f"- source: `{rel}`  (origVA 0x{va:08x})\n"
-              f"- model: {MODEL}\n\n"
+              f"- model: {MODEL}  (self-check rounds: {rounds})\n\n"
               f"## FINDINGS (known bug classes)\n{findings or '- none'}\n\n"
               f"## RENAMES (speculative)\n{renames or '(none)'}\n\n"
               f"## CLEANED (behaviour-preserving; review + differential-build before applying)\n"
-              f"```c\n{cleaned or '(model produced no fenced block)'}\n```\n")
+              f"```c\n{cleaned or '(model produced no fenced block)'}\n```\n"
+              + (f"\n## STILL NOT COMPILING after {rounds} self-check rounds (original kept)\n```\n{cc_err[:1500]}\n```\n" if cc_err else ""))
     os.makedirs(args.out, exist_ok=True)
     unit = os.path.basename(os.path.dirname(path))
     rp = os.path.join(args.out, f"{unit}__{name}.md")
     open(rp, "w").write(report)
     nf = 0 if findings.strip() in ("", "- none") else findings.count("\n- ") + findings.strip().startswith("- ")
+
     applied = False
-    cc_err = ""
-    if not args.dry_run and cleaned:
-        # guards (git is the backup/review; these stop obviously-wrong applies):
-        #  - the @k10d va header must survive,
-        #  - the function must still define ITS OWN name (a function-rename stays a proposal), and
-        #  - the cleaned code must COMPILE (host gcc + the FR headers) -- never commit broken code.
+    if not args.dry_run and cleaned and not cc_err:
+        # compile already passed in the self-check loop; remaining guards: keep the va header + own name.
         if HDR_VA.search(cleaned) is None:
             print(f"    apply SKIPPED {name}: cleaned block dropped the @k10d va header", file=sys.stderr)
         elif not re.search(r'\b' + re.escape(name) + r'\s*\(', cleaned):
             print(f"    apply SKIPPED {name}: cleaned block renamed the function (proposal only)", file=sys.stderr)
-        elif (cc_err := compile_error(cleaned)):
-            print(f"    apply SKIPPED {name}: cleaned code does not compile (kept original)", file=sys.stderr)
-            report += f"\n## COMPILE ERROR (apply skipped -- original kept)\n```\n{cc_err[:1500]}\n```\n"
-            open(rp, "w").write(report)
         else:
             open(path, "w").write(cleaned if cleaned.endswith("\n") else cleaned + "\n")
             applied = True
+    tag = "APPLIED" if applied else ("dry-run" if args.dry_run else ("NOCOMPILE" if cc_err else "not-applied"))
     print(f"  {name}: findings~{nf}  rename={'y' if renames and renames!='(none)' else 'n'}"
-          f"  {'APPLIED' if applied else ('dry-run' if args.dry_run else 'not-applied')}  -> {rp}")
+          f"  rounds={rounds}  {tag}  -> {rp}")
     return {"path": rel, "report": os.path.relpath(rp, ROOT), "applied": applied}
 
 def main():
