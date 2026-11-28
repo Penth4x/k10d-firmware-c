@@ -16,9 +16,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void send_mailbox_message(int *param_1)
+void send_mailbox_message(int *mailbox)
 
 {
-  send_or_create_mailbox_message(param_1,0,2,3);
+  send_or_create_mailbox_message(mailbox,0,2,3);
   return;
 }

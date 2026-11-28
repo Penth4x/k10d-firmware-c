@@ -16,45 +16,40 @@
 #include "globals.h"
 #include "funcs.h"
 
-void copy_struct_via_stack(void *param_1,void *param_2)
+void copy_struct_via_stack(void *dest,void *src)
 
 {
-  int *piVar1;
-  int iVar2;
-  int iVar3;
-  uint8_t local_44 [8];
-  /* B-6b: this is a TWO-word (8-byte) stack buffer — copy_four_words_from_source and
-   * add_two_structs_into_param1 write/read offsets 0 AND 4 of it (matching stock, which uses
-   * r14-0x30..-0x2c). The decompiler typed it as a single int, so fcc allocated only 4 bytes at the
-   * frame top (r14-4); the +4 write then overran into the SAVED FRAME POINTER at r14 -> leave/ret
-   * loaded a bogus FP -> wild `ret` to garbage. Declared as int[2] so the 8-byte access stays in it. */
-  int iStack_3c [2];
-  int aiStack_38 [11];
+  int *alloc_dst;
+  int loop_off;
+  int loop_cnt;
+  uint8_t tmp_buf [8];
+  int pair_buf [2];
+  int work_buf [11];
 
-  piVar1 = aiStack_38 + 5;
-  alloc_two_word_pair_1045c3dc((uint32_t *)piVar1,1,1);
-  copy_four_words_from_source_1045bfe8(iStack_3c,param_2);
-  add_two_structs_into_param1(local_44,iStack_3c,piVar1);
-  iVar3 = 8;
+  alloc_dst = work_buf + 5;
+  alloc_two_word_pair_1045c3dc((uint32_t *)alloc_dst,1,1);
+  copy_four_words_from_source_1045bfe8(pair_buf,src);
+  add_two_structs_into_param1(tmp_buf,pair_buf,alloc_dst);
+  loop_cnt = 8;
   do {
-    iVar2 = iVar3 + -4;
-    *(uint32_t *)((int)aiStack_38 + iVar3) = *(uint32_t *)((int)aiStack_38 + iVar3 + -0x10);
-    iVar3 = iVar2;
-  } while (iVar2 != 0);
-  free_heap_if_flagged_1045c402(local_44,2);
-  free_heap_if_flagged_1045c402(iStack_3c,2);
-  iVar3 = 8;
+    loop_off = loop_cnt + -4;
+    *(uint32_t *)((int)work_buf + loop_cnt) = *(uint32_t *)((int)work_buf + loop_cnt + -0x10);
+    loop_cnt = loop_off;
+  } while (loop_off != 0);
+  free_heap_if_flagged_1045c402(tmp_buf,2);
+  free_heap_if_flagged_1045c402(pair_buf,2);
+  loop_cnt = 8;
   do {
-    iVar2 = iVar3 + -4;
-    *(uint32_t *)((int)aiStack_38 + iVar3 + 8) = *(uint32_t *)((int)aiStack_38 + iVar3);
-    iVar3 = iVar2;
-  } while (iVar2 != 0);
-  free_heap_if_flagged_1045c402(piVar1,2);
-  iVar3 = 8;
+    loop_off = loop_cnt + -4;
+    *(uint32_t *)((int)work_buf + loop_cnt + 8) = *(uint32_t *)((int)work_buf + loop_cnt);
+    loop_cnt = loop_off;
+  } while (loop_off != 0);
+  free_heap_if_flagged_1045c402(alloc_dst,2);
+  loop_cnt = 8;
   do {
-    iVar2 = iVar3 + -4;
-    *(uint32_t *)(iVar2 + (int)param_1) = *(uint32_t *)((int)aiStack_38 + iVar3 + 8);
-    iVar3 = iVar2;
-  } while (iVar2 != 0);
+    loop_off = loop_cnt + -4;
+    *(uint32_t *)(loop_off + (int)dest) = *(uint32_t *)((int)work_buf + loop_cnt + 8);
+    loop_cnt = loop_off;
+  } while (loop_off != 0);
   return;
 }

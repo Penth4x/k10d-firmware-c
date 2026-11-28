@@ -6,8 +6,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t read_first_word_1045bd4c(uint32_t *param_1)
+/* Return the 32-bit word stored at the given pointer (ld @r4,r4 in the
+ * ret:d delay slot; result returned in r4). */
+uint32_t read_first_word_1045bd4c(uint32_t *word_ptr)
 
 {
-  return *param_1;
+  return *word_ptr;
 }

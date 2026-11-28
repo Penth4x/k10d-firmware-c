@@ -18,49 +18,49 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-uint32_t initialize_0x80_byte_record(void *param_1,void *param_2,uint32_t param_3,int *param_4)
+uint32_t initialize_0x80_byte_record(void *dest_string,void *src_data,uint32_t param_word,int *out_record_ptr)
 
 {
-  uint32_t uVar1;
-  int iVar2;
-  char *pcVar3;
-  uint uVar4;
-  int iVar5;
-  uint uVar6;
-  
-  uVar6 = 2;
+  uint32_t ret_code;
+  int cmp_result;
+  char *record_ptr;
+  uint loop_idx;
+  int byte_offset;
+  uint first_non_one_idx;
+
+  first_non_one_idx = 2;
   if (_DAT_80014980/*SDRAM*/ == 0) {
-    uVar1 = 0xfffffda7;
+    ret_code = 0xfffffda7;
   }
   else {
-    uVar4 = 0;
-    iVar5 = 0;
+    loop_idx = 0;
+    byte_offset = 0;
     do {
-      pcVar3 = (char *)((char*)_DAT_80014980/*SDRAM*/ + iVar5);
-      *param_4 = (int)pcVar3;
-      if (*pcVar3 == '\x01') {
-        iVar2 = compare_null_terminated_strings(param_1,pcVar3 + 1);
-        if (iVar2 == 0) {
+      record_ptr = (char *)((char*)_DAT_80014980/*SDRAM*/ + byte_offset);
+      *out_record_ptr = (int)record_ptr;
+      if (*record_ptr == '\x01') {
+        cmp_result = compare_null_terminated_strings(dest_string,record_ptr + 1);
+        if (cmp_result == 0) {
           return 0xfffffd9d;
         }
       }
-      else if (uVar4 < uVar6) {
-        uVar6 = uVar4;
+      else if (loop_idx < first_non_one_idx) {
+        first_non_one_idx = loop_idx;
       }
-      uVar4 = uVar4 + 1;
-      iVar5 = iVar5 + 0x80;
-    } while (uVar4 < 2);
-    if (uVar6 == 2) {
-      uVar1 = 0xfffffd9e;
+      loop_idx = loop_idx + 1;
+      byte_offset = byte_offset + 0x80;
+    } while (loop_idx < 2);
+    if (first_non_one_idx == 2) {
+      ret_code = 0xfffffd9e;
     }
     else {
-      *param_4 = (uintptr_t)((char*)_DAT_80014980/*SDRAM*/ + uVar6 * 0x80);
-      copy_null_terminated_string((void *)(*param_4 + 1),param_1);
-      *(short *)(*param_4 + 10) = (short)uVar6;
-      memcpy_bytes((void *)(*param_4 + 0x58),param_2,8);
-      *(uint32_t *)(*param_4 + 0x60) = param_3;
-      uVar1 = run_sequential_update_steps((char *)(*param_4));
+      *out_record_ptr = (uintptr_t)((char*)_DAT_80014980/*SDRAM*/ + first_non_one_idx * 0x80);
+      copy_null_terminated_string((void *)(*out_record_ptr + 1),dest_string);
+      *(short *)(*out_record_ptr + 10) = (short)first_non_one_idx;
+      memcpy_bytes((void *)(*out_record_ptr + 0x58),src_data,8);
+      *(uint32_t *)(*out_record_ptr + 0x60) = param_word;
+      ret_code = run_sequential_update_steps((char *)(*out_record_ptr));
     }
   }
-  return uVar1;
+  return ret_code;
 }

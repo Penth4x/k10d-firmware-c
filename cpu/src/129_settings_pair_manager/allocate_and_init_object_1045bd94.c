@@ -15,20 +15,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-int allocate_and_init_object_1045bd94(uint32_t *param_1,int param_2,int param_3,int param_4,int param_5)
+int allocate_and_init_object_1045bd94(uint32_t *obj_ptr,int field_a,int field_b,int field_c,int field_d)
 
 {
-  uint32_t *puVar1;
-  
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x10), param_1 != (uint32_t *)0x0)) {
-    alloc_and_zero_two_words_1045bc0e(param_1);
-    puVar1 = param_1 + 2;
-    alloc_and_zero_two_words_1045c3bc(puVar1);
-    store_word_to_pointer_1045bd48(param_1,param_2);
-    write_field_at_offset_four_1045bd50(param_1,param_3);
-    store_value_to_pointer_1045c510(puVar1,param_4 - param_2);
-    write_field_at_offset_four_1045c518(puVar1,param_5 - param_3);
+  uint32_t *obj_ptr_plus_two;
+
+  if ((obj_ptr != (uint32_t *)0x0) ||
+     (obj_ptr = (uint32_t *)heap_alloc((void *)0x10), obj_ptr != (uint32_t *)0x0)) {
+    alloc_and_zero_two_words_1045bc0e(obj_ptr);
+    obj_ptr_plus_two = obj_ptr + 2;
+    alloc_and_zero_two_words_1045c3bc(obj_ptr_plus_two);
+    store_word_to_pointer_1045bd48(obj_ptr,field_a);
+    write_field_at_offset_four_1045bd50(obj_ptr,field_b);
+    store_value_to_pointer_1045c510(obj_ptr_plus_two,field_c - field_a);
+    write_field_at_offset_four_1045c518(obj_ptr_plus_two,field_d - field_b);
   }
-  return (int)param_1;
+  return (int)obj_ptr;
 }

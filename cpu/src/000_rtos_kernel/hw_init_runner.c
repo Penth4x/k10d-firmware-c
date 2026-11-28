@@ -18,18 +18,18 @@
 void hw_init_runner(void)
 
 {
-  void **ppuVar1;
-  code *pcVar2;
-  
+  void **init_table_ptr;
+  code *init_fn;
+
   DAT_00000448 = 0x10;
   DAT_00000048 = 0xe7;
   DAT_0000004e = 0x1b;
-  ppuVar1 = (void **)&PTR_FUN_10011f6c;
+  init_table_ptr = (void **)&PTR_FUN_10011f6c;
   do {
-    pcVar2 = (code *)*ppuVar1;
-    ppuVar1 = ppuVar1 + 1;
-    (*pcVar2)();
-  } while (ppuVar1 < (void **)0x10011fe4/*ROM*/);
+    init_fn = (code *)*init_table_ptr;
+    init_table_ptr = init_table_ptr + 1;
+    (*init_fn)();
+  } while (init_table_ptr < (void **)0x10011fe4/*ROM*/);
   noop_stub();
   return;
 }

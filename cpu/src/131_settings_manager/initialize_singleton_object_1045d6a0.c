@@ -18,6 +18,7 @@
 uint32_t initialize_singleton_object_1045d6a0(void)
 
 {
+  // Lazy-init guard: on first call, construct the singleton and register it in the list
   if (_DAT_8004830c/*SDRAM*/ == 0) {
     _DAT_8004830c/*SDRAM*/ = 1;
     cls_105a5da4_new((cls_105a5da4 *)0x800482e0/*SDRAM*/);

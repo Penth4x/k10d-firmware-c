@@ -6,20 +6,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-byte find_index_in_table(int param_1)
+byte find_index_in_table(int search_value)
 
 {
-  byte bVar1;
-  int *piVar2;
-  
-  piVar2 = (int *)&DAT_105b7324/*ROM*/;
-  bVar1 = 0;
+  byte index;
+  int *table_ptr;
+
+  table_ptr = (int *)&DAT_105b7324/*ROM*/;
+  index = 0;
   do {
-    if (param_1 == *piVar2) {
-      return bVar1;
+    if (search_value == *table_ptr) {
+      return index;
     }
-    bVar1 = bVar1 + 1;
-    piVar2 = piVar2 + 1;
-  } while (bVar1 < 0x20);
+    index = index + 1;
+    table_ptr = table_ptr + 1;
+  } while (index < 0x20);
   return 0;
 }

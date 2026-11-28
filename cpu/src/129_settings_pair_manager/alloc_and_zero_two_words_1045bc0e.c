@@ -6,13 +6,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-void alloc_and_zero_two_words_1045bc0e(uint32_t *param_1)
+void alloc_and_zero_two_words_1045bc0e(uint32_t *buffer)
 
 {
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)8), param_1 != (uint32_t *)0x0)) {
-    *param_1 = 0;
-    param_1[1] = 0;
+  /* If buffer is already non-null, use it; otherwise allocate 8 bytes.
+   * Then zero both 32-bit words of the pair. */
+  if ((buffer != (uint32_t *)0x0) ||
+     (buffer = (uint32_t *)heap_alloc((void *)8), buffer != (uint32_t *)0x0)) {
+    *buffer = 0;
+    buffer[1] = 0;
   }
   return;
 }

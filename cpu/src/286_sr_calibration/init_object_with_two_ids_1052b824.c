@@ -20,7 +20,7 @@
 
 /* WARNING: Type propagation algorithm not settling */
 
-void init_object_with_two_ids_1052b824(void *param_1,uint32_t *param_2)
+void init_object_with_two_ids_1052b824(void *dst_base, uint32_t *src_id_ptr)
 
 {
   uint32_t *puVar1;
@@ -31,9 +31,9 @@ void init_object_with_two_ids_1052b824(void *param_1,uint32_t *param_2)
   uint32_t auStack_50 [5];
   uint8_t local_3c [20];
   uint32_t auStack_28 [7];
-  
-  build_mode_config_block(auStack_5c,(void *)*param_2);
-  initialize_mode_dependent_context(auStack_28 + 1,(void *)*param_2);
+
+  build_mode_config_block(auStack_5c, (void *)*src_id_ptr);
+  initialize_mode_dependent_context(auStack_28 + 1, (void *)*src_id_ptr);
   iVar3 = 0x10;
   do {
     iVar2 = iVar3 + -4;
@@ -41,16 +41,16 @@ void init_object_with_two_ids_1052b824(void *param_1,uint32_t *param_2)
     iVar3 = iVar2;
   } while (iVar2 != 0);
   puVar1 = auStack_50 + 1;
-  check_call_result_is_zero_1045bf0e(auStack_5c,puVar1);
-  destroy_text_widget(puVar1,2);
-  destroy_text_widget(auStack_5c,2);
-  build_mode_config_block(auStack_50 + 1,(void *)*param_2);
-  copy_struct_via_stack(local_3c,puVar1);
-  destroy_text_widget(puVar1,2);
+  check_call_result_is_zero_1045bf0e(auStack_5c, puVar1);
+  destroy_text_widget(puVar1, 2);
+  destroy_text_widget(auStack_5c, 2);
+  build_mode_config_block(auStack_50 + 1, (void *)*src_id_ptr);
+  copy_struct_via_stack(local_3c, puVar1);
+  destroy_text_widget(puVar1, 2);
   iVar3 = 8;
   do {
     iVar2 = iVar3 + -4;
-    *(uint32_t *)(iVar2 + (int)param_1) = *(uint32_t *)((int)auStack_50 + iVar3 + 0x10U);
+    *(uint32_t *)(iVar2 + (int)dst_base) = *(uint32_t *)((int)auStack_50 + iVar3 + 0x10U);
     iVar3 = iVar2;
   } while (iVar2 != 0);
   return;
