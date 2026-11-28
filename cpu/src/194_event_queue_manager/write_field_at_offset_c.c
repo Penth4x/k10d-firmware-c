@@ -14,13 +14,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void write_field_at_offset_c(void *param_1,uint32_t param_2)
+void write_field_at_offset_c(void *obj, uint32_t entry)
 
 {
-  uintptr_t sp;
-  uint32_t uStack_c;
-  
-  uStack_c = param_2;
-  forward_struct_and_second_field((int *)((int)param_1 + 0xc),&uStack_c);
+  uint32_t entry_val;
+
+  entry_val = entry;
+  forward_struct_and_second_field((int *)((int)obj + 0xc), &entry_val);
   return;
 }

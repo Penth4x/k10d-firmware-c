@@ -249,3 +249,27 @@ The decompiled C faithfully represents the machine code. The original performs `
 
 ## write_masked_value_to_mmio_10452a24  (`cpu/src/127_rtos_kernel_services/write_masked_value_to_mmio_10452a24.c`)
 - [none] 32-bit word store where original performs a 16-bit halfword store @ `_DAT_4005000a = param_2 & 0x8800` (fcc emits `ST R5,@R12`) vs `sth r0,@r1` (original) → the C writes 4 bytes to 0x4005000a, corrupting the two bytes at 0x4005000c–0x4005000d that the original halfword store leaves untouched; the value itself (param_2 & 0x8800, at most 16 bits) is the same, but the store width diverges.
+
+## write_masked_value_to_400403f6  (`cpu/src/127_rtos_kernel_services/write_masked_value_to_400403f6.c`)
+- none
+
+The decompiled C faithfully matches the original machine code:
+- `ldi:20 #0xb802,r0` + `and r5,r0` → `param_2 & 0xb802` ✓
+- `ldi:32 #0x400403f6,r1` + `sth r0,@r1` (delay slot of `ret:d`) → `_DAT_400403f6 = …` (halfword store to the same address) ✓
+- `r4` (param_1) is never read in the original; the C declares it but never uses it ✓
+- No return value in the original; C is `void` ✓
+
+The fcc911s output (`ST R5, @R12` — word store of the unmasked arg) diverges from both the C and the original, but that is a fcc codegen artifact, not a decompilation error.
+
+## send_or_create_mailbox_message  (`cpu/src/127_rtos_kernel_services/send_or_create_mailbox_message.c`)
+- [none] The decompiled C faithfully represents the original machine code. The packed 32-bit value (CONCAT22 of param_3 and param_4) is stored in a local frame slot, `*param_1 = param_2` is written unconditionally (in the delay slot of the `bne:d`), the two `int #0x40` syscalls receive the correct arguments (FP−8 for the packed value pointer, sign-extended param_2 for the second call), and the −3 error return is correctly gated on a non-zero syscall result. No B-NN class hit.
+
+## store_word_to_pointer_1000d41a  (`cpu/src/000_rtos_kernel/store_word_to_pointer_1000d41a.c`)
+- [none] Original stores `r5` to `[r0]` (via `r14`), but decompiled C `*param_1 = param_2` compiles to `st r5,@r4` @ `st r5,@r14` (where `r14=r0`) vs fcc `ST R5,@R4` -> the original's store target is the address in r0, not the first-argument register r4; the C assumes the standard r4 ABI and therefore writes to a different memory location than the real firmware does.
+
+## cpucom_txn_table_setup  (`cpu/src/127_rtos_kernel_services/cpucom_txn_table_setup.c`)
+- [none] The C's `iStack_7c` (FP−124) and `aiStack_78[0]` (FP−120) are both dead stores — the asm's live values (7 at FP−120, −0x70 at FP−116) are accessed via `@(r14,−120)` and `@(r14,−116)` respectively, which the C correctly models through `aiStack_78[0]` and `aiStack_78[1]`. The fcc-compiled output confirms the dead stores are eliminated and the live accesses match the original. No semantic divergence.
+- [none] The C's loop-exit condition `bVar1 && iVar6 != 0` (where `bVar1 = 0 < iStack_7c` is evaluated *before* the decrement) faithfully reproduces the asm's `bgt` on the pre-decrement counter value. The `&& iVar6 != 0` clause is dead (the counter starts at 7 and decrements by 1 each iteration, so it is always > 0 when `bgt` is tested), but it is present in both the C and the fcc output and does not alter behaviour.
+
+## cls_105a2b50_new  (`cpu/src/127_rtos_kernel_services/cls_105a2b50_new.c`)
+- [none] The decompiled C passes `&param_1->field_0x14` (a pointer) to `cls_105a2b30_new` and `send_mailbox_message`, but the original asm passes the integer constant `0x14` (20) as the first argument (r4) to both calls. In the original, `ldi:8 #0x14,r9` / `addn r8,r9` advances r8 for the return value, and the delay-slot `mov r9,r4` sets r4=0x14 for the callee. The fcc asm confirms this: `LDI #20,R4` precedes each `CALL32:D`. The C's pointer argument would produce a different r4 value at call time. This is not a clean match to any listed B-NN class (it is a wrong-constant-vs-pointer argument mismatch in a constructor helper), so it is reported as `[none]`.

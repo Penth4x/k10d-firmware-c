@@ -13,10 +13,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void write_two_fields_to_struct(void *param_1,uint32_t param_2,uint16_t param_3)
+void write_two_fields_to_struct(void *obj,uint32_t word_val,uint16_t half_val)
 
 {
-  *(uint16_t *)((int)param_1 + 0x24) = param_3;
-  *(uint32_t *)((int)param_1 + 0x30) = param_2;
+  /* sth r6,@(r13,r4): store 16-bit half_val at byte offset 0x24 */
+  *(uint16_t *)((int)obj + 0x24) = half_val;
+  /* st r5,@(r13,r4) in ret:d delay slot: store 32-bit word_val at byte offset 0x30 */
+  *(uint32_t *)((int)obj + 0x30) = word_val;
   return;
 }

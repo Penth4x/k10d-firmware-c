@@ -11,15 +11,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-int cls_105a2b50_new(cls_105a2b50 *param_1)
+int cls_105a2b50_new(cls_105a2b50 *obj)
 
 {
-  if ((param_1 != (cls_105a2b50 *)0x0) ||
-     (param_1 = (cls_105a2b50 *)heap_alloc((void *)0x1c), param_1 != (cls_105a2b50 *)0x0)) {
-    cls_105a2c1c_new((cls_105a2c1c *)param_1);
-    param_1->field_0x10 = (uintptr_t)(&DAT_105a2b50/*ROM*/);
-    cls_105a2b30_new(&param_1->field_0x14);
-    send_mailbox_message((int *)&param_1->field_0x14);
+  if ((obj != (cls_105a2b50 *)0x0) ||
+     (obj = (cls_105a2b50 *)heap_alloc((void *)0x1c), obj != (cls_105a2b50 *)0x0)) {
+    cls_105a2c1c_new((cls_105a2c1c *)obj);
+    obj->field_0x10 = (uintptr_t)(&DAT_105a2b50/*ROM*/);
+    cls_105a2b30_new(&obj->field_0x14);
+    send_mailbox_message((int *)&obj->field_0x14);
   }
-  return (int)param_1;
+  return (int)obj;
 }

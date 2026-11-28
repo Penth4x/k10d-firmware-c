@@ -8,9 +8,11 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void write_masked_value_to_400403f6(uint32_t param_1,ushort param_2)
+void write_masked_value_to_400403f6(uint32_t unused,ushort value)
 
 {
-  _DAT_400403f6 = param_2 & 0xb802;
+  /* Mask the incoming value with 0xb802 and write the low halfword
+   * to hardware register 0x400403f6.  The first argument is unused. */
+  _DAT_400403f6 = value & 0xb802;
   return;
 }

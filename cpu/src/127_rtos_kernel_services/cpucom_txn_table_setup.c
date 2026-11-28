@@ -31,7 +31,7 @@ void cpucom_txn_table_setup(void *param_1)
   uintptr_t sp;
   int iStack_7c;
   int aiStack_78 [29];
-  
+
   puVar5 = &stack0xfffffffc;
   iVar4 = 0x70;
   do {

@@ -16,33 +16,33 @@
 #include "funcs.h"
 #include "syscall_traps.h"
 
-int send_or_create_mailbox_message(int *param_1,int param_2,uint16_t param_3,uint16_t param_4)
+int send_or_create_mailbox_message(int *mailbox_id_ptr,int mailbox_id,uint16_t code_hi,uint16_t code_lo)
 
 {
   struct {
     uint16_t uStack_c;
     uint16_t uStack_a;
     uint32_t uStack_8;
-  } _cfg_c;
-  int iVar1;
-  int iVar2;
+  } frame;
+  int syscall_ret;
+  int result;
   uintptr_t sp;
-  _cfg_c.uStack_8 = 0;
-  *(uint32_t *)&_cfg_c.uStack_c = CONCAT22(param_3,param_4);
-  *param_1 = param_2;
-  if (param_2 == 0) {
-    iVar1 = __trap_allocate_free_task_slot(&_cfg_c.uStack_c);
-    if (0 < iVar1) {
-      *param_1 = iVar1;
-      return iVar1;
+  frame.uStack_8 = 0;
+  *(uint32_t *)&frame.uStack_c = CONCAT22(code_hi,code_lo);
+  *mailbox_id_ptr = mailbox_id;
+  if (mailbox_id == 0) {
+    syscall_ret = __trap_allocate_free_task_slot(&frame.uStack_c);
+    if (0 < syscall_ret) {
+      *mailbox_id_ptr = syscall_ret;
+      return syscall_ret;
     }
   }
   else {
-    iVar1 = __trap_validate_and_store_task_param((int)(short)param_2,&_cfg_c.uStack_c);
+    syscall_ret = __trap_validate_and_store_task_param((int)(short)mailbox_id,&frame.uStack_c);
   }
-  iVar2 = 0;
-  if (iVar1 != 0) {
-    iVar2 = -3;
+  result = 0;
+  if (syscall_ret != 0) {
+    result = -3;
   }
-  return iVar2;
+  return result;
 }

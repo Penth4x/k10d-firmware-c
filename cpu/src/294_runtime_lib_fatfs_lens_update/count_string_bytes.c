@@ -13,16 +13,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-int count_string_bytes(char *param_1)
+int count_string_bytes(char *str)
 
 {
-  char *pcVar1;
-  char *pcVar2;
-  
-  pcVar1 = param_1;
+  char *p;
+  char *q;
+
+  p = str;
   do {
-    pcVar2 = pcVar1;
-    pcVar1 = pcVar2 + 1;
-  } while (*pcVar2 != '\0');
-  return (int)pcVar2 - (int)param_1;
+    q = p;
+    p = q + 1;
+  } while (*q != '\0');
+  return (int)q - (int)str;
 }

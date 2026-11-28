@@ -12,9 +12,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void store_word_to_pointer_1000d41a(uint32_t *param_1,uint32_t param_2)
+void store_word_to_pointer_1000d41a(uint32_t *dest,uint32_t val)
 
 {
-  *param_1 = param_2;
+  *dest = val;
   return;
 }
