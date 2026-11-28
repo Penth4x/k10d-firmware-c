@@ -411,6 +411,10 @@ def text_section(c_text):
 
 # ---------------------------------------------------------------- fcc (real target compiler)
 SOFTUNE = os.environ.get("SOFTUNE", "/home/memorai/k10d-re/softune")
+# Keep the gate's codegen IDENTICAL to the shipping build: same COPT/CPU as cpu/build.sh, same env
+# overrides, same default -- so the two can never drift (build.sh: COPT=${COPT:--O1 -KSIZE}, CPU=MB91F128).
+FCC_COPT = os.environ.get("COPT", "-O1 -KSIZE").split()
+FCC_CPU  = os.environ.get("CPU", "MB91F128")
 def _zpath(p): return "Z:" + os.path.abspath(p).replace("/", "\\")
 
 def fcc_asm(c_text):
@@ -423,7 +427,7 @@ def fcc_asm(c_text):
     cf = tempfile.NamedTemporaryFile("w", suffix=".c", delete=False, dir="/tmp"); cf.write(c_text); cf.close()
     asm = cf.name + ".asm"
     try:
-        subprocess.run(["wine", "BIN/fcc911s.exe", "-S", "-O1", "-KSIZE", "-cpu", "MB91F128", "-I", inc,
+        subprocess.run(["wine", "BIN/fcc911s.exe", "-S", *FCC_COPT, "-cpu", FCC_CPU, "-I", inc,
                         "-o", _zpath(asm), _zpath(cf.name)], cwd=SOFTUNE, capture_output=True, timeout=240)
         return open(asm, errors="ignore").read() if os.path.exists(asm) else None
     except (subprocess.SubprocessError, OSError):
