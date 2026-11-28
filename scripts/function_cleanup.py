@@ -247,13 +247,29 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # so type_recov
 try:
     from type_recovery import struct_defs as _struct_defs, evident_param_types as _evident_types
     _STRUCT_DEFS = _struct_defs()
+    try:
+        _RESOLVED = json.load(open(os.path.join(ROOT, "cleanup/resolved_types.json")))  # propagation cache
+    except Exception:
+        _RESOLVED = {}
 except Exception:
-    _STRUCT_DEFS, _evident_types = {}, None
+    _STRUCT_DEFS, _evident_types, _RESOLVED = {}, None, {}
 
 def known_types_block(c_src):
     if not _evident_types or not _STRUCT_DEFS:
         return ""
-    et = _evident_types(c_src, _STRUCT_DEFS)
+    # merge EVIDENT types (from this function's body) with PROPAGATED types (from the call-graph cache)
+    et = dict(_evident_types(c_src, _STRUCT_DEFS))                      # {param_name: cls}
+    hm = re.search(r"@k10d\s+(\S+)\s+@", c_src)
+    sm = re.search(re.escape(hm.group(1)) + r"\s*\(([^)]*)\)\s*\{", c_src, re.S) if hm else None
+    pnames = []
+    if sm:
+        for pp in sm.group(1).split(","):
+            mm = re.search(r"(\w+)\s*$", pp.strip())
+            pnames.append(mm.group(1) if mm else None)
+    for idx_s, cls in (_RESOLVED.get(hm.group(1), {}) if hm else {}).items():
+        idx = int(idx_s)
+        if idx < len(pnames) and pnames[idx] and pnames[idx] not in et and cls in _STRUCT_DEFS:
+            et[pnames[idx]] = cls
     if not et:
         return ""
     lines, seen = [], []
