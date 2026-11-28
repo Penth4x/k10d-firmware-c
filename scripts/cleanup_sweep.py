@@ -153,6 +153,7 @@ def main():
     ap.add_argument("--gcc-only", action="store_true")
     ap.add_argument("--status", action="store_true")
     ap.add_argument("--json", action="store_true", help="with --status: raw JSON tallies")
+    ap.add_argument("--priority-file", help="file of .c paths (one per line) to process FIRST, in order (e.g. boot-path functions)")
     a = ap.parse_args()
 
     state = load_state()
@@ -167,6 +168,16 @@ def main():
     files = sorted(glob.glob(pat))
     done = set(state["done"])
     todo = [f for f in files if f not in done]
+    if a.priority_file:
+        try:
+            pri = [ln.strip() for ln in open(a.priority_file) if ln.strip()]
+        except OSError:
+            pri = []
+        pset, tset = set(pri), set(todo)
+        head = [x for x in pri if x in tset]          # priority list, in order, not-yet-done
+        tail = [f for f in todo if f not in pset]      # everything else, after
+        todo = head + tail
+        print(f"priority: {len(head)} boot-path functions first, then {len(tail)} others", flush=True)
     print(f"sweep: {len(todo)} to do / {len(files)} total ({len(done)} already done). batch={a.batch} timeout={a.timeout}s "
           f"gate={'gcc' if a.gcc_only else 'fcc'}", flush=True)
 
