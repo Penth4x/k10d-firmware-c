@@ -153,6 +153,14 @@ Zero or more known-bug-class hits, found by comparing the C to the disassembly. 
 `- none`. Report bugs here ONLY; do NOT fix them in the cleaned code below. Apply the FR ARCHITECTURE
 PRIMER below when reasoning about the disasm -- especially delay slots, the r4-r7 argument mapping,
 addressing-mode scaling, and sign/zero extension; those are where false findings come from.
+Also flag UNRECOVERED TYPES (a code smell, not a bug class): if the function dereferences fields of a
+pointer whose struct type is NOT known -- a bare `void*`/`int` with `*(T*)((int)obj + 0xNN)` accesses
+and no identifiable class -- report `- [type] opaque object <obj>: fields at <offsets> dereferenced but
+no struct type; <how to recover it>`. The recovery hint matters: if the object carries a vtable
+(`((vtbl_entry*)obj)[n]` or a vtable-pointer field at some offset), the vtable ADDRESS identifies the
+class -- name it; otherwise cite the caller argument types. Do NOT just comment around the raw offsets
+as if they were fine -- the missing type is the real issue, and recovering it de-soups every function
+that uses the type.
 
 ### RENAMES
 Proposed names (all current names are speculative guesses; so are the callee names you were shown).
