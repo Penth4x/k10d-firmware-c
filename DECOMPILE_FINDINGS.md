@@ -366,3 +366,58 @@ The original is a two-instruction accessor: `ret:d` with `ld @r4,r4` in its dela
 - [none] The `else if (uVar4 < uVar6) { uVar6 = uVar4; }` in the C matches the asm `cmp r8,r10 / bls skip / mov r8,r10` (both implement "if r8 < r10 then r10 = r8", i.e. track the first non-0x01 index). The loop runs exactly 2 iterations (r8=0,1) with r10 initialized to 2, so the condition is always true and r10 ends up as the first non-0x01 index. No divergence.
 - [none] The fcc assembly uses `MOV R7,R11` unconditionally before the null-check branch, whereas the original places it in the delay slot of `bne:d`. Both set r11=r7 before either path proceeds; no behavioural difference.
 - [none] The fcc assembly stores error codes in R6 and moves to R4 at the epilogue (`MOV R6,R4`), while the original loads them directly into R4. Register-allocation difference only; the value in R4 at `ret` is identical.
+
+## cls_1062112c_new  (`cpu/src/293_system_parameter_manager/cls_1062112c_new.c`)
+- [B-9] loop body uses `iVar1` (0, then 0x14) as an extra byte offset on all five word stores, so the 2nd iteration writes to `this+0x58..0x68` @ `*(uint32_t *)((int)&param_1->field_0x44 + iVar1) = 0;` (×5, `iVar1 = iVar1 + 0x14`) vs `ldi:8 #0x44,r12 / addn r4,r12` re-executed at the loop head (0x10535b26) with fixed `r0` stride 0,4,8,12,16 → the original re-writes the same five words (0x44–0x54) on every pass; the C fabricates five extra stores to 0x58–0x68 that the machine code never performs.
+
+## cls_105a6bdc_new  (`cpu/src/133_settings_manager/cls_105a6bdc_new.c`)
+- none
+
+The decompiled C faithfully represents the original machine code. Key verification points:
+
+1. **heap_alloc argument**: The original uses `call:d @r12` / `ldi:8 #0x24,r4` (delay slot sets r4=0x24 for the call). The C passes `heap_alloc((void *)0x24)` — first arg in r4. ✓
+
+2. **cls_105b5264_new argument**: Original uses `call:d @r12` / `mov r8,r4` (delay slot sets r4=r8=param_1). C passes `cls_105b5264_new((cls_105b5264 *)param_1)`. ✓
+
+3. **Vtable store**: Original `ldi:32 #0x105a6bdc,r12; st r12,@r8` stores the vtable address at `*param_1`. C writes `((cls_105b5264 *)param_1)->field_0x0 = (uintptr_t)(&DAT_105a6bdc)`. ✓
+
+4. **Zeroing loop**: Original zeroes 32 bytes at `param_1+4` through `param_1+35` (8 iterations × 4 bytes, r3 counts 7→0 with `bp:d`). C uses `do { ... } while (-1 < iVar2)` with iVar2=7, iVar1 stepping by 4 — same 8 iterations, same 32 bytes. The `param_1 + 1` pointer arithmetic advances by `sizeof(cls_105a6bdc)` which the fcc assembly confirms is 4 bytes (`ADD #4, R0`), matching the original's `addn4 #4,r0`. ✓
+
+5. **NULL guard / return**: Both the original and C skip initialization when the pointer is NULL (either input or allocation failure) and return the pointer in r4. ✓
+
+6. **Prologue/epilogue**: Original saves sr1+r8, fcc saves RP+R8 — equivalent return-address handling, benign compiler difference. ✓
+
+## allocate_free_slot_in_table_1045e7f2  (`cpu/src/131_settings_manager/allocate_free_slot_in_table_1045e7f2.c`)
+- [none] The decompiled C faithfully represents the original machine code. The function reads 4 consecutive 32-bit slots at fixed address `0x1ac + (param_2 << 4)`, writes `param_3` to the first zero slot (at `0x1ac + (param_2 << 4) + i*4`), and returns 1 on success or 0 if `param_2 >= 0x19` or no zero slot is found. The `param_1` argument is loaded into r4 and incremented by 0x1ac in the asm but is never used in any load/store effective address (all memory accesses use `@(r13, rj)` with r13 = 0x1ac). The C's `(int)param_1 + ...` expressions are a decompiler artifact that happens to produce equivalent codegen because the compiler eliminates the unused base. The loop bound `iVar1 < iVar3 + 0x10` (always 4 iterations) matches the asm's `cmp r3,r0; blt` with r3 = 0x10 and r0 starting at `param_2 << 4` — for `param_2 > 0` the loop body never executes (r0 ≥ 0x10 immediately fails the `< 0x10` test), which is consistent with the asm.
+
+## cls_105d6d90_new  (`cpu/src/277_ae_settings_manager/cls_105d6d90_new.c`)
+- [none] Zero-fill loop stride is 8 in C but 4 in ASM: C `iVar2 = iVar2 + 8` @ `do { ... iVar2 = iVar2 + 8; } while (-1 < iVar1);` vs ASM `addn4 #4,r13` (single increment per iteration, stores at r13 and r13+4 within the body) → C zeroes 24 words (offsets 0x00–0x5C) while ASM zeroes only 13 unique words (offsets 0x00–0x48, with interior offsets double-stored); the 11 extra words (0x4C–0x5C) are spurious writes.
+- [none] Halfword store at 0x68 compiled as byte store: C `param_1->field_0x68 = 0xffff;` @ fcc output `LDI #255,R0 / LDI #104,R13 / STB R0,@(R13,R4)` vs original `ldi:20 #0xffff,r0 / ldi:8 #0x68,r13 / sth r0,@(r13,r4)` → struct field `field_0x68` is evidently 8-bit in the type definition, so the compiler truncates 0xFFFF to 0xFF and emits a 1-byte store; the original writes 2 bytes (0xFF 0xFF) at 0x68–0x69, the recompile writes only 1 byte at 0x68, leaving 0x69 untouched.
+
+## write_buffer_via_virtual_method  (`cpu/src/294_runtime_lib_fatfs_lens_update/write_buffer_via_virtual_method.c`)
+- [none] The decompiled C faithfully represents the original machine code. All offsets (0xc, 0x58, 0x60, 0x70, 100+0xe), widths (word loads for object fields, halfword for the status flag), the unsigned min-selection via `bnc`, the `mulu`/MDL stride multiply, the `-1000`/`-6`/`-5` error-code path with `extsb` sign-extension, and the loop-exit `bhi` (unsigned > 0) all match. No bug-class hit.
+
+## compute_modulo_10544c28  (`cpu/src/294_runtime_lib_fatfs_lens_update/compute_modulo_10544c28.c`)
+- none
+
+The original disassembly implements unsigned 32-bit modulo via the hardware `div0u`/`div1` sequence (32 iterations for a full 32-bit divide), returning the remainder in r4. The decompiled C `param_1 % param_2` with `uint` types is exactly this operation. The fcc output calls `__umodi` (the compiler's unsigned-modulo intrinsic), which is semantically identical. No offset, width, sign-extension, or control-flow divergence exists.
+
+## cls_105b5224_new  (`cpu/src/200_menu_event_router/cls_105b5224_new.c`)
+- [none] Function returns the object pointer in r4 (asm: r4 holds the original param or the heap_alloc result at `ret`) but the C declares `void`; both callers discard the return value so runtime behaviour is equivalent, but the signature is unfaithful to the FR ABI (r4 = return value).
+
+## dequeue_timeout_entry  (`cpu/src/000_rtos_kernel/dequeue_timeout_entry.c`)
+- [none] The decompiled C faithfully represents the original machine code. All data operations (offsets, widths, sign extensions, branch conditions, call arguments) match the disassembly. The `mulh` at 0x1000defa is a 16×16→32 multiply (low-16-bit operands, full 32-bit result), equivalent to the fcc `MUL` + `MOV MDL` sequence. The `mov sr5,r10` at 0x1000defe is the multiply-result move (MDL→r10), matching fcc's `MOV MDL,R10`. The `bra:d` delay slot at 0x1000df84/0x1000df86 correctly sets r13=-12 for the `sth` at 0x1000df94. The `beq:d` at 0x1000dfa8 with delay slot `stb r0,@(r13,r2)` (r0=8) correctly implements the else-branch store. No semantic divergences found.
+
+## terminate_task_by_id_100114c0  (`cpu/src/000_rtos_kernel/terminate_task_by_id_100114c0.c`)
+- [none] The C reads `_DAT_6a003758` as a 32-bit word (`LD @R12,R0` in fcc) while the original uses `lduh`+`extsh` (16-bit sign-extended load). In practice the value at that RAM address is a small positive task handle so the upper 16 bits are zero and both widths yield the same comparison result; no behavioural divergence observed.
+
+## remove_task_from_timeout_queue_100115c4  (`cpu/src/000_rtos_kernel/remove_task_from_timeout_queue_100115c4.c`)
+- [none] `mulh r12,r9` in the original (16×16→32 full product) vs fcc's `EXTUH R5; MUL R0,R5; MOV MDL,R0` (32×32→64, low 32) — for the valid `uint16_t` index range the results are identical; the decompiled C `((uint16_t)param_2) * 0xe` matches both. No divergence.
+- [none] The second call (`dequeue_timeout_entry`) receives r4 as clobbered by the preceding `update_timeout_queue_entry` call in the original; the decompiled C passes `param_2` explicitly. This is a benign compiler-optimization difference (the original relied on the callee not clobbering r4, or the value is irrelevant to the callee's logic). The fcc output reloads the correct value from the frame. Behaviour is equivalent for the intended use.
+
+## cls_105b4130_new  (`cpu/src/194_event_queue_manager/cls_105b4130_new.c`)
+- [none] Copy-loop source and `init_object_with_two_ids`/`free_heap_if_flagged` first-arg resolved to a stack slot instead of the SRAM block @ `init_object_with_two_ids_1052b824(local_18,puVar1)` and `*(uint32_t *)(&stack0xffffffe4 + iVar3)` vs `mov r14,r4` (r14=SRAM) / `addn2 #-16,r4` (r4=SRAM−16) / `ld @(r13,r1),r12` (r1=r14−16=SRAM−16) → the decompiler confused the data pointer parked in r14 with the frame-pointer role of r14, materialising (SRAM−16) as a fixed stack address; the original reads 8 bytes from (sram_block−16) and passes that pointer as the first argument to both `init_object_with_two_ids` and `free_heap_if_flagged`, but the C reads from `&stack0xffffffe4` and passes `local_18` instead.
+- [type] opaque object `puVar1` (sram_block): fields at 0x0, 0x4, 0x8, 0x10, 0x14 dereferenced (via `return_first_word_1045c514`, `read_struct_field_at_offset_4`, and the 8-byte copy into `param_1+0x10`) but no struct type; the object is the return of `get_or_init_sram_block_1052b6fc()` and is passed as the 2nd arg to `init_object_with_two_ids_1052b824(void*, uint32_t*)` — recover by inspecting `init_object_with_two_ids` to see which fields it writes, then define a struct with `field_0x0` (word, read by `return_first_word`), `field_0x4` (word, read by `read_struct_field_at_offset_4`), `field_0x8` (word, read by `read_struct_field_at_offset_4`), `field_0x10`/`field_0x14` (two words copied into the object).
+
+## set_event_flag_bits  (`cpu/src/000_rtos_kernel/set_event_flag_bits.c`)
+- [none] The decompiled C faithfully represents the original machine code. All data operations (offsets, widths, sign extensions, masks) and control flow match the disassembly. The delay-slot `ldi:8 #0x0,r4` at 0x100109f4 correctly sets r4=0 before the exit jump for the param_2==0 path. The loop convergence at 0x10010afc (where both no-overlap and overlap+bit-not-set paths meet before the task->next != -1 check) is correctly represented. No B-NN class hits.

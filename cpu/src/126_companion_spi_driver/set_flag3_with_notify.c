@@ -16,22 +16,22 @@
 #include "globals.h"
 #include "funcs.h"
 
-void set_flag3_with_notify(void *param_1)
+void set_flag3_with_notify(void *obj)
 
 {
-                    /* Purpose: Set flag3 with notification. Sets bit in [obj+0x28] using mask
-                       [obj+0x1c], copies to [obj+0x18], calls FUN_10459d74/d88 (notify) if
-                       [obj+0x20] non-null.
-                       Params: param_1 = object pointer.
-                       Returns: void. */
-  if (*(int *)((int)param_1 + 0x20) != 0) {
-    call_kernel_with_short_id(*(uint32_t **)((int)param_1 + 0x20));
+  uint32_t *notify_ptr = *(uint32_t **)((int)obj + 0x20);
+  uint8_t  *flag_byte  = *(uint8_t **)((int)obj + 0x28);
+  uint8_t   mask       = *(uint8_t  *)((int)obj + 0x1c);
+  uint8_t  *copy_dest  = *(uint8_t **)((int)obj + 0x18);
+
+  if (notify_ptr != 0) {
+    call_kernel_with_short_id(notify_ptr);
   }
-  **(byte **)((int)param_1 + 0x28) =
-       **(byte **)((int)param_1 + 0x28) | *(byte *)((int)param_1 + 0x1c);
-  **(uint8_t **)((int)param_1 + 0x18) = **(uint8_t **)((int)param_1 + 0x28);
-  if (*(int *)((int)param_1 + 0x20) != 0) {
-    check_kernel_call_success_10459d88(*(uint32_t **)((int)param_1 + 0x20));
+
+  *flag_byte |= mask;
+  *copy_dest  = *flag_byte;
+
+  if (notify_ptr != 0) {
+    check_kernel_call_success_10459d88(notify_ptr);
   }
-  return;
 }

@@ -13,16 +13,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-/* SR driver object singleton getter (obj @RAM 0x800488fc, 30-u32 array at +0x10). */
-
+/* Lazily constructs the SR driver object at 0x800488fc on first call,
+ * registers it in the linked list at 0x8001007c, and returns its address. */
 uint32_t sr_driver_singleton(void)
-
 {
-  if (_DAT_80048904/*SDRAM*/ == 0) {
-    _DAT_80048904/*SDRAM*/ = 1;
-    cls_105ab8d4_new((cls_105ab8d4 *)0x800488fc/*SDRAM*/);
-    prepend_to_singly_linked_list((void *)0x8001007c/*SDRAM*/);
-  }
-  return 0x800488fc/*SDRAM*/;
+    if (_DAT_80048904 == 0) {
+        _DAT_80048904 = 1;
+        cls_105ab8d4_new((cls_105ab8d4 *)0x800488fc);
+        prepend_to_singly_linked_list((void *)0x8001007c);
+    }
+    return 0x800488fc;
 }

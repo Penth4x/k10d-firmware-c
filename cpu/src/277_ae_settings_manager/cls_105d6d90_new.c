@@ -11,26 +11,26 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_105d6d90_new(cls_105d6d90 *param_1)
+void cls_105d6d90_new(cls_105d6d90 *obj)
 
 {
-  int iVar1;
-  int iVar2;
-  
-  if ((param_1 != (cls_105d6d90 *)0x0) ||
-     (param_1 = (cls_105d6d90 *)heap_alloc((void *)0x70), param_1 != (cls_105d6d90 *)0x0)) {
-    param_1->field_0x6c = (uintptr_t)(&DAT_105d6d90/*ROM*/);
-    param_1->field_0x68 = 0xffff;
-    param_1->field_0x6a = 0xff;
-    iVar1 = 0xc;
-    iVar2 = 0;
+  int zero_count;
+  int zero_off;
+
+  if ((obj != (cls_105d6d90 *)0x0) ||
+     (obj = (cls_105d6d90 *)heap_alloc((void *)0x70), obj != (cls_105d6d90 *)0x0)) {
+    obj->field_0x6c = (uintptr_t)(&DAT_105d6d90/*ROM*/);
+    obj->field_0x68 = 0xffff;
+    obj->field_0x6a = 0xff;
+    zero_count = 0xc;
+    zero_off = 0;
     do {
-      *(uint32_t *)((int)&param_1->field_0x0 + iVar2) = 0;
-      *(uint32_t *)((int)&param_1->field_0x4 + iVar2) = 0;
-      iVar1 = iVar1 + -1;
-      iVar2 = iVar2 + 8;
-    } while (-1 < iVar1);
-    param_1->field_0x64 = 0xfffffffe;
+      *(uint32_t *)((int)&obj->field_0x0 + zero_off) = 0;
+      *(uint32_t *)((int)&obj->field_0x4 + zero_off) = 0;
+      zero_count = zero_count + -1;
+      zero_off = zero_off + 8;
+    } while (-1 < zero_count);
+    obj->field_0x64 = 0xfffffffe;
   }
   return;
 }

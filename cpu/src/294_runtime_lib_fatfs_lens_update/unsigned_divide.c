@@ -6,8 +6,8 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint unsigned_divide(uint param_1,uint param_2)
+uint unsigned_divide(uint dividend, uint divisor)
 
 {
-  return param_1 / param_2;
+  return dividend / divisor;
 }

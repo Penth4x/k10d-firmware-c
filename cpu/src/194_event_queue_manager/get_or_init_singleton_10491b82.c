@@ -19,6 +19,7 @@
 uint32_t get_or_init_singleton_10491b82(void)
 
 {
+  /* One-shot init: on first call, build the event handler list and link it in */
   if (_DAT_80048f1c/*SDRAM*/ == 0) {
     _DAT_80048f1c/*SDRAM*/ = 1;
     construct_event_handler_list((void *)0x80048ef8/*SDRAM*/);

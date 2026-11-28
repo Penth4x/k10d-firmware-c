@@ -19,39 +19,36 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-uint32_t terminate_task_by_id_100114c0(int param_1)
-
+uint32_t terminate_task_by_id_100114c0(int task_id)
 {
-  uint32_t uVar1;
-  int iVar2;
-  
-  iVar2 = check_kernel_flag_bit5();
-  if (iVar2 == 0) {
-    if ((param_1 < 1) || (DAT_10011d40/*ROM*/ < param_1)) {
-      uVar1 = E_ID;
-    }
-    else {
-      iVar2 = DAT_10011d04/*ROM*/ + (short)param_1 * 0xe;
-      if (*(short *)(iVar2 + -0xe) == -2) {
-        uVar1 = E_NOEXS;
-      }
-      else {
-        iVar2 = (int)*(short *)(iVar2 + -2);
-        if (iVar2 == 0) {
-          uVar1 = E_ILUSE;
-        }
-        else if (iVar2 == _DAT_6a003758) {
-          remove_task_from_timeout_queue_100115c4(iVar2,param_1);
-          uVar1 = 0;
-        }
-        else {
-          uVar1 = E_ILUSE;
-        }
-      }
-    }
+  uint32_t result;
+  int task_base;
+
+  if (check_kernel_flag_bit5() != 0) {
+    result = E_CTX;
+  }
+  else if (task_id < 1 || DAT_10011d40/*ROM*/ < task_id) {
+    result = E_ID;
   }
   else {
-    uVar1 = E_CTX;
+    /* task array: base + 14*(task_id-1); state at offset -14, handle at offset -2 */
+    task_base = DAT_10011d04/*ROM*/ + task_id * 0xe;
+    if (*(short *)(task_base - 0xe) == -2) {
+      result = E_NOEXS;
+    }
+    else {
+      int handle = (int)*(short *)(task_base - 2);
+      if (handle == 0) {
+        result = E_ILUSE;
+      }
+      else if (handle == _DAT_6a003758) {
+        remove_task_from_timeout_queue_100115c4(handle, task_id);
+        result = 0;
+      }
+      else {
+        result = E_ILUSE;
+      }
+    }
   }
-  return uVar1;
+  return result;
 }

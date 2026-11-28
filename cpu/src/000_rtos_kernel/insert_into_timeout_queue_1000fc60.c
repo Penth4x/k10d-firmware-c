@@ -6,26 +6,25 @@
 #include "globals.h"
 #include "funcs.h"
 
-void insert_into_timeout_queue_1000fc60(short param_1,short param_2)
+void insert_into_timeout_queue_1000fc60(short entry_id, short slot_index)
 
 {
-  int iVar1;
-  int iVar2;
-  uint16_t uVar3;
-  
-  iVar1 = param_1 * 0x44;
-  if (*(short *)(iVar1 + 0x6a001bf0) == -1) {
-    *(short *)(iVar1 + 0x6a001bf0) = param_2;
-    uVar3 = 0xffff;
-    iVar2 = DAT_10011d04/*ROM*/ + param_2 * 0xe;
+  short *entry = (short *)(0x6a001be8 + entry_id * 0x44);
+  int slot_addr;
+  short prev_slot;
+
+  if (entry[4] == -1) {
+    entry[4] = slot_index;
+    prev_slot = -1;
+    slot_addr = DAT_10011d04/*ROM*/ + slot_index * 0xe;
   }
   else {
-    *(short *)(*(short *)(iVar1 + 0x6a001bf2) * 0xe + DAT_10011d04/*ROM*/ + -10) = param_2;
-    uVar3 = *(uint16_t *)(iVar1 + 0x6a001bf2);
-    iVar2 = param_2 * 0xe + DAT_10011d04/*ROM*/;
+    *(short *)(DAT_10011d04/*ROM*/ + entry[5] * 0xe - 10) = slot_index;
+    prev_slot = entry[5];
+    slot_addr = slot_index * 0xe + DAT_10011d04/*ROM*/;
   }
-  *(uint16_t *)(iVar2 + -8) = uVar3;
-  *(uint16_t *)(DAT_10011d04/*ROM*/ + param_2 * 0xe + -10) = 0xffff;
-  *(short *)(iVar1 + 0x6a001bf2) = param_2;
+  *(short *)(slot_addr - 8) = prev_slot;
+  *(short *)(DAT_10011d04/*ROM*/ + slot_index * 0xe - 10) = -1;
+  entry[5] = slot_index;
   return;
 }

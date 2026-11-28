@@ -14,25 +14,25 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t allocate_free_slot_in_table_1045e7f2(void *param_1,int param_2,uint32_t param_3)
+uint32_t allocate_free_slot_in_table_1045e7f2(void *unused_base, int slot_group, uint32_t slot_value)
 
 {
-  int iVar1;
-  int iVar2;
-  int iVar3;
-  
-  if (param_2 < 0x19) {
-    iVar2 = 0;
-    iVar3 = param_2 * 0x10;
-    iVar1 = iVar3;
+  int scan_offset;
+  int slot_index;
+  int group_base_offset;
+
+  if (slot_group < 0x19) {
+    slot_index = 0;
+    group_base_offset = slot_group * 0x10;
+    scan_offset = group_base_offset;
     do {
-      if (*(int *)((int)param_1 + iVar1 + 0x1ac) == 0) {
-        *(uint32_t *)((int)param_1 + iVar2 * 4 + iVar3 + 0x1ac) = param_3;
+      if (*(int *)((int)unused_base + scan_offset + 0x1ac) == 0) {
+        *(uint32_t *)((int)unused_base + slot_index * 4 + group_base_offset + 0x1ac) = slot_value;
         return 1;
       }
-      iVar1 = iVar1 + 4;
-      iVar2 = iVar2 + 1;
-    } while (iVar1 < iVar3 + 0x10);
+      scan_offset = scan_offset + 4;
+      slot_index = slot_index + 1;
+    } while (scan_offset < group_base_offset + 0x10);
   }
   return 0;
 }

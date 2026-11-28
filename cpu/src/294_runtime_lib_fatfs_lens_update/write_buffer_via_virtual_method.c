@@ -17,41 +17,49 @@
 #include "globals.h"
 #include "funcs.h"
 
-int write_buffer_via_virtual_method(void *param_1,int param_2,uint param_3,void *param_4,int *param_5)
-
+int write_buffer_via_virtual_method(void *obj, int dst_offset, uint remaining,
+                                    void *src_buf, int *bytes_written)
 {
-  int iVar1;
-  uint *puVar2;
-  char cVar3;
-  int iVar4;
-  uint uVar5;
-  
-  iVar1 = *(int *)((int)param_1 + 0xc);
-  *param_5 = 0;
-  puVar2 = *(uint **)((int)param_1 + 0x70);
-  while( true ) {
-    if (param_3 == 0) {
+  int    stride;
+  uint  *chunk_size_ptr;
+  char   ret_code;
+  int    call_result;
+  uint   chunk_len;
+
+  stride         = *(int  *)((int)obj + 0xc);
+  *bytes_written = 0;
+  chunk_size_ptr = *(uint **)((int)obj + 0x70);
+
+  while (1) {
+    if (remaining == 0)
       return 0;
-    }
-    uVar5 = *puVar2;
-    if (param_3 < *puVar2) {
-      uVar5 = param_3;
-    }
-    iVar4 = (((vtbl_entry*)((int)param_1))[11].fn)
-                      (*(uint32_t *)((int)param_1 + 0x60),param_2,uVar5,param_4);
-    if (iVar4 != 0) break;
-    param_2 = param_2 + uVar5;
-    param_4 = (void *)((int)param_4 + uVar5 * iVar1);
-    *param_5 = *param_5 + uVar5;
-    param_3 = param_3 - uVar5;
+
+    chunk_len = *chunk_size_ptr;
+    if (remaining < *chunk_size_ptr)
+      chunk_len = remaining;
+
+    /* vtable slot at offset 0x58; first arg is the object's own field at 0x60 */
+    call_result = ((vtbl_entry *)((int)obj))[11].fn(
+                      *(uint32_t *)((int)obj + 0x60),
+                      dst_offset, chunk_len, src_buf);
+
+    if (call_result != 0)
+      break;
+
+    dst_offset   += chunk_len;
+    src_buf       = (void *)((int)src_buf + (int)chunk_len * stride);
+    *bytes_written += chunk_len;
+    remaining    -= chunk_len;
   }
-  if (iVar4 == -1000) {
-    *(ushort *)(*(int *)((int)param_1 + 100) + 0xe) =
-         *(ushort *)(*(int *)((int)param_1 + 100) + 0xe) | 1;
-    cVar3 = -6;
+
+  if (call_result == -1000) {
+    /* set bit 0 of the 16-bit status word at *(obj+100)+14 */
+    uint16_t *status_word =
+        (uint16_t *)(*(int *)((int)obj + 100) + 0xe);
+    *status_word |= 1;
+    ret_code = -6;
+  } else {
+    ret_code = -5;
   }
-  else {
-    cVar3 = -5;
-  }
-  return (int)cVar3;
+  return (int)ret_code;
 }

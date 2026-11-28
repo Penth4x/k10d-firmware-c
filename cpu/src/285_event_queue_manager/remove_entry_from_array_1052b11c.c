@@ -6,49 +6,49 @@
 #include "globals.h"
 #include "funcs.h"
 
-void remove_entry_from_array_1052b11c(void *param_1,int param_2)
+void remove_entry_from_array_1052b11c(void *state_base,int match_value)
 
 {
-  bool bVar1;
-  int iVar2;
-  uint32_t *puVar3;
-  int iVar4;
-  int iVar5;
-  uint32_t *puVar6;
-  
-  iVar5 = 0;
-  bVar1 = false;
-  if (0 < *(int *)((int)param_1 + 0x16c)) {
-    iVar2 = 0;
+  bool found;
+  int byte_offset;
+  uint32_t *entry_ptr;
+  int src_byte_offset;
+  int entry_index;
+  uint32_t *src_entry_ptr;
+
+  entry_index = 0;
+  found = false;
+  if (0 < *(int *)((int)state_base + 0x16c)) {
+    byte_offset = 0;
     do {
-      if (*(int *)((int)param_1 + iVar2 + 0x170) == param_2) {
-        puVar3 = (uint32_t *)((int)param_1 + iVar5 * 0xc + 0x170);
-        *puVar3 = 0xffff;
-        puVar3[1] = 0;
-        puVar3[2] = 0;
-        bVar1 = true;
+      if (*(int *)((int)state_base + byte_offset + 0x170) == match_value) {
+        entry_ptr = (uint32_t *)((int)state_base + entry_index * 0xc + 0x170);
+        *entry_ptr = 0xffff;
+        entry_ptr[1] = 0;
+        entry_ptr[2] = 0;
+        found = true;
         break;
       }
-      iVar5 = iVar5 + 1;
-      iVar2 = iVar2 + 0xc;
-    } while (iVar5 < *(int *)((int)param_1 + 0x16c));
+      entry_index = entry_index + 1;
+      byte_offset = byte_offset + 0xc;
+    } while (entry_index < *(int *)((int)state_base + 0x16c));
   }
-  if (bVar1) {
-    if (iVar5 < *(int *)((int)param_1 + 0x16c) + -1) {
-      iVar2 = iVar5 * 0xc;
-      iVar4 = (iVar5 + 1) * 0xc;
+  if (found) {
+    if (entry_index < *(int *)((int)state_base + 0x16c) + -1) {
+      byte_offset = entry_index * 0xc;
+      src_byte_offset = (entry_index + 1) * 0xc;
       do {
-        puVar6 = (uint32_t *)((int)param_1 + iVar4 + 0x170);
-        puVar3 = (uint32_t *)((int)param_1 + iVar2 + 0x170);
-        *puVar3 = *puVar6;
-        iVar4 = iVar4 + 0xc;
-        puVar3[1] = puVar6[1];
-        iVar2 = iVar2 + 0xc;
-        puVar3[2] = puVar6[2];
-        iVar5 = iVar5 + 1;
-      } while (iVar5 < *(int *)((int)param_1 + 0x16c) + -1);
+        src_entry_ptr = (uint32_t *)((int)state_base + src_byte_offset + 0x170);
+        entry_ptr = (uint32_t *)((int)state_base + byte_offset + 0x170);
+        *entry_ptr = *src_entry_ptr;
+        src_byte_offset = src_byte_offset + 0xc;
+        entry_ptr[1] = src_entry_ptr[1];
+        byte_offset = byte_offset + 0xc;
+        entry_ptr[2] = src_entry_ptr[2];
+        entry_index = entry_index + 1;
+      } while (entry_index < *(int *)((int)state_base + 0x16c) + -1);
     }
-    *(int *)((int)param_1 + 0x16c) = *(int *)((int)param_1 + 0x16c) + -1;
+    *(int *)((int)state_base + 0x16c) = *(int *)((int)state_base + 0x16c) + -1;
   }
   return;
 }

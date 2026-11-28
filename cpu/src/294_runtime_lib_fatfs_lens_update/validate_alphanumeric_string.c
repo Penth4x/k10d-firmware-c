@@ -6,33 +6,32 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t validate_alphanumeric_string(char *param_1)
+uint32_t validate_alphanumeric_string(char *str)
 
 {
-  byte bVar1;
-  uint32_t uVar2;
-  uint uVar3;
-  uint uVar4;
-  
-  if (param_1 == (char *)0x0) {
-    uVar2 = 0xffffffea;
+  uint32_t result;
+  uint16_t str_len;
+  uint16_t idx;
+  char ch;
+
+  if (str == (char *)0x0) {
+    result = 0xffffffea;
   }
   else {
-    uVar3 = count_string_bytes(param_1);
-    uVar3 = uVar3 & 0xffff;
-    if ((uVar3 == 0) || (8 < uVar3)) {
-      uVar2 = 0xfffffdf8;
+    str_len = (uint16_t)count_string_bytes(str);
+    if ((str_len == 0) || (8 < str_len)) {
+      result = 0xfffffdf8;
     }
     else {
-      for (uVar4 = 0; uVar4 < uVar3; uVar4 = uVar4 + 1 & 0xffff) {
-        bVar1 = param_1[uVar4];
-        if ((((bVar1 < 0x30) || ((0x39 < bVar1 && (bVar1 < 0x41)))) ||
-            ((0x5a < bVar1 && (bVar1 < 0x61)))) || (0x7a < bVar1)) {
+      for (idx = 0; idx < str_len; idx = (uint16_t)(idx + 1)) {
+        ch = str[idx];
+        if ((((ch < 0x30) || ((0x39 < ch && (ch < 0x41)))) ||
+            ((0x5a < ch && (ch < 0x61)))) || (0x7a < ch)) {
           return 0xfffffdf8;
         }
       }
-      uVar2 = 0;
+      result = 0;
     }
   }
-  return uVar2;
+  return result;
 }

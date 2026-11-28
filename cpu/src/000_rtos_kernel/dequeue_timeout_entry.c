@@ -19,46 +19,46 @@
 #include "funcs.h"
 #include "uitron.h"
 
-void dequeue_timeout_entry(short param_1)
+void dequeue_timeout_entry(short slot_index)
 
 {
-  int iVar1;
-  short sVar2;
-  short sVar3;
-  int iVar4;
-  int iVar5;
-  int iVar6;
-  
-  iVar1 = param_1 * 0xe;
-  sVar3 = *(short *)(DAT_10011d04/*ROM*/ + iVar1 + -0xe);
-  iVar5 = (int)sVar3;
-  if (iVar5 != -1) {
-    *(short *)(DAT_10011d04/*ROM*/ + iVar1 + -2) = sVar3;
-    insert_into_timeout_queue_1000fc60(sVar3,param_1);
-    iVar4 = DAT_10011d04/*ROM*/ + iVar1;
-    if ((*(short *)(iVar4 + -6) == 3) &&
-       (*(short *)(iVar4 + -4) < *(short *)(iVar5 * 0x44 + 0x6a001c00))) {
-      *(uint16_t *)(iVar5 * 0x44 + 0x6a001c00) = *(uint16_t *)(iVar4 + -4);
+  int slot_offset;
+  short entry_id;
+  short next_entry_id;
+  int slot_base;
+  int entry_id_int;
+  int next_ptr_offset;
+
+  slot_offset = slot_index * 0xe;
+  entry_id = *(short *)(DAT_10011d04/*ROM*/ + slot_offset - 0xe);
+  entry_id_int = (int)entry_id;
+  if (entry_id_int != -1) {
+    *(short *)(DAT_10011d04/*ROM*/ + slot_offset - 2) = entry_id;
+    insert_into_timeout_queue_1000fc60(entry_id, slot_index);
+    slot_base = DAT_10011d04/*ROM*/ + slot_offset;
+    if ((*(short *)(slot_base - 6) == 3) &&
+       (*(short *)(slot_base - 4) < *(short *)(entry_id_int * 0x44 + 0x6a001c00))) {
+      *(uint16_t *)(entry_id_int * 0x44 + 0x6a001c00) = *(uint16_t *)(slot_base - 4);
     }
-    remove_task_from_timeout_queue_1001166c(sVar3);
-    iVar5 = iVar5 * 0x44;
-    sVar2 = *(short *)(iVar5 + 0x6a001be8);
-    if (sVar2 == -1) {
-      iVar4 = DAT_10011d04/*ROM*/ + iVar1;
-      iVar6 = -0xc;
-    }
-    else {
-      iVar4 = sVar2 * 0x44 + 0x6a001be8;
-      iVar6 = 2;
-    }
-    *(uint16_t *)(iVar6 + iVar4) = 0xffff;
-    *(short *)(DAT_10011d04/*ROM*/ + iVar1 + -0xe) = sVar2;
-    if ((*(byte *)(iVar5 + 0x6a001c06) & 8) == 0) {
-      *(uint8_t *)(iVar5 + 0x6a001c06) = 2;
-      ready_list_insert(sVar3);
+    remove_task_from_timeout_queue_1001166c(entry_id);
+    entry_id_int = entry_id_int * 0x44;
+    next_entry_id = *(short *)(entry_id_int + 0x6a001be8);
+    if (next_entry_id == -1) {
+      slot_base = DAT_10011d04/*ROM*/ + slot_offset;
+      next_ptr_offset = -0xc;
     }
     else {
-      *(uint8_t *)(iVar5 + 0x6a001c06) = 8;
+      slot_base = 0;
+      next_ptr_offset = next_entry_id * 0x44 + 0x6a001be8;
+    }
+    *(uint16_t *)(next_ptr_offset + slot_base) = 0xffff;
+    *(short *)(DAT_10011d04/*ROM*/ + slot_offset - 0xe) = next_entry_id;
+    if ((*(byte *)(entry_id_int + 0x6a001c06) & 8) == 0) {
+      *(uint8_t *)(entry_id_int + 0x6a001c06) = 2;
+      ready_list_insert(entry_id);
+    }
+    else {
+      *(uint8_t *)(entry_id_int + 0x6a001c06) = 8;
     }
   }
   return;

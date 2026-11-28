@@ -14,23 +14,24 @@
 cls_105b5264 * cls_105a6bdc_new(cls_105a6bdc *param_1)
 
 {
-  int iVar1;
-  int iVar2;
-  
+  int byte_offset;
+  int remaining_words;
+
   if ((param_1 != (cls_105a6bdc *)0x0) ||
      (param_1 = (cls_105a6bdc *)heap_alloc((void *)0x24), param_1 != (cls_105a6bdc *)0x0)) {
     cls_105b5264_new((cls_105b5264 *)param_1);
     ((cls_105b5264 *)param_1)->field_0x0 = (uintptr_t)(&DAT_105a6bdc/*ROM*/);
-    iVar1 = 0;
-    iVar2 = 7;
+    byte_offset = 0;
+    remaining_words = 7;
     do {
-      *(uint8_t *)((int)&((cls_105b5264 *)(param_1 + 1))->field_0x0 + iVar1) = 0;
-      *(uint8_t *)((int)&((cls_105b5264 *)(param_1 + 1))->field_0x0 + iVar1 + 1) = 0;
-      *(uint8_t *)((int)&((cls_105b5264 *)(param_1 + 1))->field_0x0 + iVar1 + 2) = 0;
-      *(uint8_t *)((int)&((cls_105b5264 *)(param_1 + 1))->field_0x0 + iVar1 + 3) = 0;
-      iVar2 = iVar2 + -1;
-      iVar1 = iVar1 + 4;
-    } while (-1 < iVar2);
+      /* zero 4 bytes at param_1+4+byte_offset (32 bytes total over 8 iterations) */
+      *(uint8_t *)((int)&((cls_105b5264 *)(param_1 + 1))->field_0x0 + byte_offset) = 0;
+      *(uint8_t *)((int)&((cls_105b5264 *)(param_1 + 1))->field_0x0 + byte_offset + 1) = 0;
+      *(uint8_t *)((int)&((cls_105b5264 *)(param_1 + 1))->field_0x0 + byte_offset + 2) = 0;
+      *(uint8_t *)((int)&((cls_105b5264 *)(param_1 + 1))->field_0x0 + byte_offset + 3) = 0;
+      remaining_words = remaining_words + -1;
+      byte_offset = byte_offset + 4;
+    } while (-1 < remaining_words);
   }
   return (cls_105b5264 *)param_1;
 }

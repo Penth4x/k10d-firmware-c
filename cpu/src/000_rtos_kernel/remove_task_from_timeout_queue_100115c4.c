@@ -17,20 +17,24 @@
 #include "globals.h"
 #include "funcs.h"
 
-void remove_task_from_timeout_queue_100115c4(uint32_t param_1,uint32_t param_2)
+void remove_task_from_timeout_queue_100115c4(uint32_t task_index, uint32_t queue_slot)
 
 {
-  int iVar1;
-  
-  *(uint16_t *)(DAT_10011d04/*ROM*/ + ((uint16_t)param_2) * 0xe + -2) = 0;
-  update_timeout_queue_entry(((uint16_t)param_1),((uint16_t)param_2));
-  dequeue_timeout_entry(((uint16_t)param_2));
-  iVar1 = ((uint16_t)param_1) * 0x44;
-  if ((*(short *)(iVar1 + 0x6a001bf0) == -1) &&
-     (*(short *)(iVar1 + 0x6a001c00) < *(short *)(iVar1 + 0x6a001c04))) {
-    ready_list_unlink(((uint16_t)param_1));
-    *(uint16_t *)(iVar1 + 0x6a001c00) = *(uint16_t *)(iVar1 + 0x6a001c04);
-    ready_list_insert(((uint16_t)param_1));
+  uint32_t task_base;
+
+  /* Clear the next-link field in the timeout-queue node (14-byte stride). */
+  *(uint16_t *)(DAT_10011d04/*ROM*/ + (uint16_t)queue_slot * 0xe - 2) = 0;
+
+  update_timeout_queue_entry((uint16_t)task_index, (uint16_t)queue_slot);
+  dequeue_timeout_entry((uint16_t)queue_slot);
+
+  /* Per-task control block lives at 0x6a001be8 + task_index * 0x44. */
+  task_base = (uint32_t)task_index * 0x44 + 0x6a001be8;
+
+  if (*(short *)(task_base + 0x8) == -1 &&
+      *(short *)(task_base + 0x18) < *(short *)(task_base + 0x1c)) {
+    ready_list_unlink((uint16_t)task_index);
+    *(uint16_t *)(task_base + 0x18) = *(uint16_t *)(task_base + 0x1c);
+    ready_list_insert((uint16_t)task_index);
   }
-  return;
 }

@@ -18,10 +18,12 @@
 uint32_t get_or_init_singleton_10491684(void)
 
 {
-  if (_DAT_80048ef4/*SDRAM*/ == 0) {
-    _DAT_80048ef4/*SDRAM*/ = 1;
-    allocate_two_object_pair((void *)0x80048eec/*SDRAM*/);
-    prepend_to_singly_linked_list((void *)0x80010478/*SDRAM*/);
+  /* Lazy singleton: first caller allocates the object pair and links it into
+   * the queue; subsequent callers skip straight to the return. */
+  if (_DAT_80048ef4 == 0) {
+    _DAT_80048ef4 = 1;
+    allocate_two_object_pair((void *)0x80048eec);
+    prepend_to_singly_linked_list((void *)0x80010478);
   }
-  return 0x80048eec/*SDRAM*/;
+  return 0x80048eec;
 }

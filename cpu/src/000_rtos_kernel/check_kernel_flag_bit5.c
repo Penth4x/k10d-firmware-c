@@ -15,9 +15,10 @@
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
 uint32_t check_kernel_flag_bit5(void)
-
 {
-  if ((*(uint *)(_DAT_6a003774 + 0x4c) & 0x20) != 0) {
+  /* _DAT_6a003774 holds a pointer; dereference it, then read word at offset 0x4C (word index 0x13) */
+  uint32_t *kernel_state = (uint32_t *)_DAT_6a003774;
+  if ((kernel_state[0x13] & 0x20) != 0) {
     return 0;
   }
   return 1;

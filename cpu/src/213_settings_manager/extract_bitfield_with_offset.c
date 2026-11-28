@@ -15,16 +15,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-int extract_bitfield_with_offset(uint param_1,int param_2,int param_3)
+int extract_bitfield_with_offset(uint value, int field_index, int carry_enable)
 
 {
-  byte bVar1;
-  int iVar2;
-  
-  iVar2 = 0;
-  if (((param_2 - 1U & param_1) != 0) && (param_3 != 0)) {
-    iVar2 = 1;
+  int carry;
+  int shift_amount;
+
+  carry = 0;
+  if (((field_index - 1U) & value) != 0 && carry_enable != 0) {
+    carry = 1;
   }
-  bVar1 = find_index_in_table(param_2);
-  return (param_1 >> (bVar1 & 0x1f)) + iVar2;
+  shift_amount = find_index_in_table(field_index);
+  return (value >> (shift_amount & 0x1f)) + carry;
 }
