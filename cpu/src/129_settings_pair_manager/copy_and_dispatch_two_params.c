@@ -20,23 +20,22 @@ void copy_and_dispatch_two_params(void *param_1,void *param_2)
 
 {
   int iVar1;
-  uintptr_t sp;
-  uint8_t local_20 [8];
-  uint uStack_18;
-  uint32_t uStack_14;
-  uint8_t local_10 [8];
+  uint8_t dst_words [8];
+  uint alloc_hi;
+  uint32_t alloc_lo;
+  uint8_t src_words [8];
   int iVar2;
-  
-  alloc_two_word_pair_1045c3dc(&uStack_18,1,1);
-  clamp_difference_to_two_words(local_10,param_2,&uStack_18);
+
+  alloc_two_word_pair_1045c3dc(&alloc_hi,1,1);
+  clamp_difference_to_two_words(src_words,param_2,&alloc_hi);
   iVar2 = 8;
   do {
     iVar1 = iVar2 + -4;
-    *(uint32_t *)(local_20 + iVar1) = *(uint32_t *)((int)&uStack_14 + iVar2);
+    *(uint32_t *)(dst_words + iVar1) = *(uint32_t *)((int)&alloc_lo + iVar2);
     iVar2 = iVar1;
   } while (iVar1 != 0);
-  copy_four_words(param_1,local_20);
-  free_heap_if_flagged_1045c402(local_20,2);
-  free_heap_if_flagged_1045c402(&uStack_18,2);
+  copy_four_words(param_1,dst_words);
+  free_heap_if_flagged_1045c402(dst_words,2);
+  free_heap_if_flagged_1045c402(&alloc_hi,2);
   return;
 }

@@ -6,8 +6,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t get_second_word_of_struct(void *param_1)
+uint32_t get_second_word_of_struct(void *struct_ptr)
 
 {
-  return *(uint32_t *)((int)param_1 + 4);
+  /* r13 = 4; ret:d with delay-slot ld @(r13,r4),r4 → return *(base + 4) */
+  return *(uint32_t *)((int)struct_ptr + 4);
 }

@@ -21,48 +21,48 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void remove_task_from_timeout_queue_1001166c(short param_1)
+void remove_task_from_timeout_queue_1001166c(short task_idx)
 
 {
-  int iVar1;
-  short sVar2;
-  short sVar3;
-  int iVar4;
-  int iVar5;
-  
-  iVar1 = param_1 * 0x44;
-  if (*(int *)(iVar1 + 0x6a001c1c) == -1) {
+  int node_off;
+  short prev_idx;
+  short next_idx;
+  int prev_off;
+  int next_off;
+
+  node_off = task_idx * 0x44;
+  if (*(int *)(node_off + 0x6a001c1c) == -1) {
     return;
   }
-  sVar2 = *(short *)(iVar1 + 0x6a001bec);
-  sVar3 = *(short *)(iVar1 + 0x6a001bee);
-  iVar5 = (int)sVar2;
-  iVar4 = (int)sVar3;
-  if (iVar5 == -1) {
-    if (iVar4 == -1) {
+  prev_idx = *(short *)(node_off + 0x6a001bec);
+  next_idx = *(short *)(node_off + 0x6a001bee);
+  prev_off = (int)prev_idx;
+  next_off = (int)next_idx;
+  if (prev_off == -1) {
+    if (next_off == -1) {
       _DAT_6a0036c4 = -1;
       _DAT_6a0036c6 = -1;
       goto LAB_1001170c;
     }
   }
-  else if (iVar4 == -1) {
-    iVar5 = iVar5 * 0x44;
-    _DAT_6a0036c4 = sVar2;
-    *(uint16_t *)(iVar5 + 0x6a001bee) = 0xffff;
-    *(int *)(iVar5 + 0x6a001c1c) = *(int *)(iVar5 + 0x6a001c1c) + *(int *)(iVar1 + 0x6a001c1c);
+  else if (next_off == -1) {
+    prev_off = prev_off * 0x44;
+    _DAT_6a0036c4 = prev_idx;
+    *(uint16_t *)(prev_off + 0x6a001bee) = 0xffff;
+    *(int *)(prev_off + 0x6a001c1c) = *(int *)(prev_off + 0x6a001c1c) + *(int *)(node_off + 0x6a001c1c);
     goto LAB_1001170c;
   }
-  if (iVar5 == -1) {
-    *(uint16_t *)(iVar4 * 0x44 + 0x6a001bec) = 0xffff;
-    _DAT_6a0036c6 = sVar3;
+  if (prev_off == -1) {
+    *(uint16_t *)(next_off * 0x44 + 0x6a001bec) = 0xffff;
+    _DAT_6a0036c6 = next_idx;
   }
   else {
-    iVar5 = iVar5 * 0x44;
-    *(short *)(iVar5 + 0x6a001bee) = sVar3;
-    *(short *)(iVar4 * 0x44 + 0x6a001bec) = sVar2;
-    *(int *)(iVar5 + 0x6a001c1c) = *(int *)(iVar5 + 0x6a001c1c) + *(int *)(iVar1 + 0x6a001c1c);
+    prev_off = prev_off * 0x44;
+    *(short *)(prev_off + 0x6a001bee) = next_idx;
+    *(short *)(next_off * 0x44 + 0x6a001bec) = prev_idx;
+    *(int *)(prev_off + 0x6a001c1c) = *(int *)(prev_off + 0x6a001c1c) + *(int *)(node_off + 0x6a001c1c);
   }
 LAB_1001170c:
-  *(uint32_t *)(iVar1 + 0x6a001c1c) = 0xffffffff;
+  *(uint32_t *)(node_off + 0x6a001c1c) = 0xffffffff;
   return;
 }

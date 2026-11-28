@@ -6,14 +6,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void heap_free_2(int param_1)
+void heap_free_2(int block_ptr)
 
 {
-  void *pvVar1;
-  
-  if (param_1 != 0) {
-    pvVar1 = (void *)get_system_heap();
-    mempool_release_block(pvVar1,(void *)param_1);
+  void *heap_base;
+
+  if (block_ptr != 0) {
+    heap_base = (void *)get_system_heap();
+    mempool_release_block(heap_base, (void *)block_ptr);
   }
   return;
 }

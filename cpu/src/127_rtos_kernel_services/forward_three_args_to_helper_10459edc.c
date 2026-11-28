@@ -14,9 +14,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void forward_three_args_to_helper_10459edc(void *param_1,uint32_t param_2,uint32_t param_3)
+void forward_three_args_to_helper_10459edc(void *field_ptr, uint32_t arg2, uint32_t arg3)
 
 {
-  settings_init(param_1,0,param_2,param_3);
+  settings_init(field_ptr, 0, arg2, arg3);
   return;
 }

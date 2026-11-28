@@ -14,23 +14,27 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint8_t * cpucom_request_clone(uint8_t *param_1,int param_2)
+uint8_t * cpucom_request_clone(uint8_t *ctx_ptr,int buf_size)
 
 {
-  uint32_t uVar1;
-  
-  if ((param_1 != (uint8_t *)0x0) ||
-     (param_1 = (uint8_t *)heap_alloc((void *)0x18), param_1 != (uint8_t *)0x0)) {
-    *param_1 = 0;
-    *(uint32_t *)(param_1 + 4) = 0;
-    *(uint32_t *)(param_1 + 8) = 0;
-    *(int *)(param_1 + 0xc) = param_2;
-    *(uint32_t *)(param_1 + 0x10) = 0;
-    *(uint32_t *)(param_1 + 0x14) = 0;
-    if (param_2 != 0) {
-      uVar1 = heap_alloc_2(param_2);
-      *(uint32_t *)(param_1 + 4) = uVar1;
+  uint32_t data_buf;
+
+  /* If ctx_ptr is already valid, use it; otherwise allocate a 0x18-byte context. */
+  if ((ctx_ptr != (uint8_t *)0x0) ||
+     (ctx_ptr = (uint8_t *)heap_alloc((void *)0x18), ctx_ptr != (uint8_t *)0x0)) {
+    /* Zero the context fields: byte at 0, words at 4, 8, 0x10, 0x14. */
+    *ctx_ptr = 0;
+    *(uint32_t *)(ctx_ptr + 4) = 0;
+    *(uint32_t *)(ctx_ptr + 8) = 0;
+    /* Store the requested buffer size at offset 0xc. */
+    *(int *)(ctx_ptr + 0xc) = buf_size;
+    *(uint32_t *)(ctx_ptr + 0x10) = 0;
+    *(uint32_t *)(ctx_ptr + 0x14) = 0;
+    /* If a data buffer was requested, allocate it and store the pointer at offset 4. */
+    if (buf_size != 0) {
+      data_buf = heap_alloc_2(buf_size);
+      *(uint32_t *)(ctx_ptr + 4) = data_buf;
     }
   }
-  return param_1;
+  return ctx_ptr;
 }

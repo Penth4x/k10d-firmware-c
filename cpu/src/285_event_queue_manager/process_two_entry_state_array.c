@@ -16,42 +16,42 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t process_two_entry_state_array(void *param_1)
+uint32_t process_two_entry_state_array(void *state_base)
 
 {
-  int iVar1;
-  int iVar2;
-  int iVar3;
-  
-  iVar3 = 2;
-  iVar2 = 0;
+  int field_val;
+  int entry_offset;
+  int entry_count;
+
+  entry_count = 2;
+  entry_offset = 0;
   do {
-    iVar1 = *(int *)((int)param_1 + iVar2 + 0x170);
-    if ((((iVar1 != 0xf) && (iVar1 != 0x10)) && (iVar1 != 0xe)) && (iVar1 != 0xd)) {
-      remove_entry_from_array_1052b11c(param_1,iVar1);
+    field_val = *(int *)((int)state_base + entry_offset + 0x170);
+    if ((((field_val != 0xf) && (field_val != 0x10)) && (field_val != 0xe)) && (field_val != 0xd)) {
+      remove_entry_from_array_1052b11c(state_base, field_val);
     }
-    iVar1 = *(int *)((int)param_1 + iVar2 + 0x17c);
-    if (((iVar1 != 0xf) && (iVar1 != 0x10)) && ((iVar1 != 0xe && (iVar1 != 0xd)))) {
-      remove_entry_from_array_1052b11c(param_1,iVar1);
+    field_val = *(int *)((int)state_base + entry_offset + 0x17c);
+    if (((field_val != 0xf) && (field_val != 0x10)) && ((field_val != 0xe && (field_val != 0xd)))) {
+      remove_entry_from_array_1052b11c(state_base, field_val);
     }
-    iVar1 = *(int *)((int)param_1 + iVar2 + 0x188);
-    if (((iVar1 != 0xf) && (iVar1 != 0x10)) && ((iVar1 != 0xe && (iVar1 != 0xd)))) {
-      remove_entry_from_array_1052b11c(param_1,iVar1);
+    field_val = *(int *)((int)state_base + entry_offset + 0x188);
+    if (((field_val != 0xf) && (field_val != 0x10)) && ((field_val != 0xe && (field_val != 0xd)))) {
+      remove_entry_from_array_1052b11c(state_base, field_val);
     }
-    iVar1 = *(int *)((int)param_1 + iVar2 + 0x194);
-    if ((((iVar1 != 0xf) && (iVar1 != 0x10)) && (iVar1 != 0xe)) && (iVar1 != 0xd)) {
-      remove_entry_from_array_1052b11c(param_1,iVar1);
+    field_val = *(int *)((int)state_base + entry_offset + 0x194);
+    if ((((field_val != 0xf) && (field_val != 0x10)) && (field_val != 0xe)) && (field_val != 0xd)) {
+      remove_entry_from_array_1052b11c(state_base, field_val);
     }
-    iVar1 = *(int *)((int)param_1 + iVar2 + 0x1a0);
-    if (((iVar1 != 0xf) && (iVar1 != 0x10)) && ((iVar1 != 0xe && (iVar1 != 0xd)))) {
-      remove_entry_from_array_1052b11c(param_1,iVar1);
+    field_val = *(int *)((int)state_base + entry_offset + 0x1a0);
+    if (((field_val != 0xf) && (field_val != 0x10)) && ((field_val != 0xe && (field_val != 0xd)))) {
+      remove_entry_from_array_1052b11c(state_base, field_val);
     }
-    iVar3 = iVar3 + -1;
-    iVar2 = iVar2 + 0x3c;
-  } while (-1 < iVar3);
-  update_or_add_entry_in_table(param_1,0xf,0x80);
-  update_or_add_entry_in_table(param_1,0x10,0x80);
-  update_or_add_entry_in_table(param_1,0xe,0x80);
-  update_or_add_entry_in_table(param_1,0xd,0x80);
+    entry_count = entry_count + -1;
+    entry_offset = entry_offset + 0x3c;
+  } while (-1 < entry_count);
+  update_or_add_entry_in_table(state_base, 0xf, 0x80);
+  update_or_add_entry_in_table(state_base, 0x10, 0x80);
+  update_or_add_entry_in_table(state_base, 0xe, 0x80);
+  update_or_add_entry_in_table(state_base, 0xd, 0x80);
   return 1;
 }

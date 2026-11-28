@@ -17,50 +17,50 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void subtract_timeout_from_queue(int param_1)
+void subtract_timeout_from_queue(int timeout_delta)
 
 {
-  int iVar1;
-  short sVar2;
-  int iVar3;
-  short sVar4;
-  int iVar5;
-  int iVar6;
-  
-  iVar5 = -1;
-  sVar2 = _DAT_6a0036c4;
+  int entry_offset;
+  short next_idx;
+  int entry_idx;
+  short new_entry_idx;
+  int removed_idx;
+  int head_timeout;
+
+  removed_idx = -1;
+  next_idx = _DAT_6a0036c4;
   do {
-    iVar3 = (int)sVar2;
-    if (iVar3 == -1) {
+    entry_idx = (int)next_idx;
+    if (entry_idx == -1) {
 LAB_1000fd6a:
-      if (iVar3 == -1) {
+      if (entry_idx == -1) {
         _DAT_6a0036c6 = _DAT_6a003758;
       }
       else {
-        *(short *)(iVar3 * 0x44 + 0x6a001bee) = _DAT_6a003758;
+        *(short *)(entry_idx * 0x44 + 0x6a001bee) = _DAT_6a003758;
       }
-      if (iVar5 == -1) {
+      if (removed_idx == -1) {
         _DAT_6a0036c4 = _DAT_6a003758;
       }
       else {
-        *(short *)(iVar5 * 0x44 + 0x6a001bec) = _DAT_6a003758;
+        *(short *)(removed_idx * 0x44 + 0x6a001bec) = _DAT_6a003758;
       }
-      sVar4 = _DAT_6a003758;
-      iVar3 = (int)_DAT_6a003758;
-      *(short *)(_DAT_6a003758 * 0x44 + 0x6a001bec) = sVar2;
-      *(short *)(iVar3 * 0x44 + 0x6a001bee) = (short)iVar5;
-      *(int *)(sVar4 * 0x44 + 0x6a001c1c) = param_1;
+      new_entry_idx = _DAT_6a003758;
+      entry_idx = (int)_DAT_6a003758;
+      *(short *)(_DAT_6a003758 * 0x44 + 0x6a001bec) = next_idx;
+      *(short *)(entry_idx * 0x44 + 0x6a001bee) = (short)removed_idx;
+      *(int *)(new_entry_idx * 0x44 + 0x6a001c1c) = timeout_delta;
       return;
     }
-    iVar1 = iVar3 * 0x44;
-    iVar6 = *(int *)(iVar1 + 0x6a001c1c);
-    if (param_1 < iVar6) {
-      iVar5 = (int)*(short *)(iVar1 + 0x6a001bee);
-      *(int *)(iVar1 + 0x6a001c1c) = iVar6 - param_1;
+    entry_offset = entry_idx * 0x44;
+    head_timeout = *(int *)(entry_offset + 0x6a001c1c);
+    if (timeout_delta < head_timeout) {
+      removed_idx = (int)*(short *)(entry_offset + 0x6a001bee);
+      *(int *)(entry_offset + 0x6a001c1c) = head_timeout - timeout_delta;
       goto LAB_1000fd6a;
     }
-    sVar2 = *(short *)(iVar1 + 0x6a001bec);
-    param_1 = param_1 - iVar6;
-    iVar5 = iVar3;
+    next_idx = *(short *)(entry_offset + 0x6a001bec);
+    timeout_delta = timeout_delta - head_timeout;
+    removed_idx = entry_idx;
   } while( true );
 }
