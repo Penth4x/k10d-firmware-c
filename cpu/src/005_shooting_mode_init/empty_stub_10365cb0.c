@@ -6,7 +6,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-void empty_stub_10365cb0(uint32_t param_x0)
+void empty_stub_10365cb0(uint32_t unused_arg)
 
 {
   return;
