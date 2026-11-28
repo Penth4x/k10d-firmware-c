@@ -27,7 +27,7 @@ Usage:
   function_cleanup.py --unit 222_sr_companion_dispatch     # a whole unit
   function_cleanup.py --list cpu/src/UNIT/func.c           # just print the asm+prompt, no LLM call
   function_cleanup.py --apply cpu/src/UNIT/func.c          # write cleaned body in place (reviewed only)
-  [--think]  enable Qwen reasoning for the bug scan (slower, usually sharper)  [--out DIR]
+  [--out DIR]  (thinking is always on; output is never token-capped)
 """
 import os, re, sys, json, sqlite3, subprocess, urllib.request, argparse, hashlib
 
@@ -153,13 +153,15 @@ Review per your three sections. Compare the C against the disassembly for the bu
 cleaned code behaviour-identical (bugs included)."""
 
 # ---------------------------------------------------------------- llm
-def call_llm(user, think, timeout=600):
+def call_llm(user, timeout=1800):
+    # Never kneecap the model: thinking always ON, and NO max_tokens cap (reasoning + output run to
+    # the server's context limit). A hard cap silently truncates reasoning/output mid-answer.
     payload = json.dumps({
         "model": MODEL,
         "messages": [{"role": "system", "content": SYSTEM},
                      {"role": "user", "content": user}],
-        "max_tokens": 12000, "temperature": 0.1, "stream": False,
-        "chat_template_kwargs": {"enable_thinking": bool(think)},
+        "temperature": 0.1, "stream": False,
+        "chat_template_kwargs": {"enable_thinking": True},
     }).encode()
     req = urllib.request.Request(LLM_URL, data=payload,
                                  headers={"Content-Type": "application/json"})
@@ -196,7 +198,7 @@ def process(path, args):
         return
 
     try:
-        raw = call_llm(user, args.think)
+        raw = call_llm(user)
     except Exception as e:                       # noqa: BLE001 -- surface any transport error
         print(f"  LLM error on {name}: {e}", file=sys.stderr); return
     findings, renames, cleaned = split_sections(raw)
@@ -204,7 +206,7 @@ def process(path, args):
     rel = os.path.relpath(path, ROOT)
     report = (f"# cleanup proposal: {name}\n\n"
               f"- source: `{rel}`  (origVA 0x{va:08x})\n"
-              f"- model: {MODEL}  (think={args.think})\n\n"
+              f"- model: {MODEL}\n\n"
               f"## FINDINGS (known bug classes)\n{findings or '- none'}\n\n"
               f"## RENAMES (speculative)\n{renames or '(none)'}\n\n"
               f"## CLEANED (behaviour-preserving; review + differential-build before applying)\n"
@@ -235,7 +237,6 @@ def main():
     ap.add_argument("files", nargs="*", help="C function files to review")
     ap.add_argument("--unit", help="process every .c in cpu/src/<unit>/")
     ap.add_argument("--out", default=os.path.join(ROOT, "cleanup"), help="report output dir")
-    ap.add_argument("--think", action="store_true", help="enable Qwen reasoning (slower, sharper bug scan)")
     ap.add_argument("--dry-run", action="store_true", help="write the report only; do NOT apply the cleaned body")
     ap.add_argument("--commit", action="store_true", help="git-commit the applied files + reports after the run (review via diff later)")
     ap.add_argument("--list", action="store_true", help="print asm + prompt only, no LLM call")
