@@ -184,7 +184,12 @@ COMMON MISTAKES seen in earlier runs -- DO NOT REPEAT:
 - Changing behaviour while "cleaning": no reordering of reads/writes, no folding/simplifying arithmetic
   or branches, no "fixing" a suspected bug. Byte-for-byte equivalent, always."""
 
-def build_user(name, va, c_src, asm):
+def build_user(name, va, c_src, asm, fcc_self=None):
+    fcc_block = ("" if not fcc_self else
+        f"\n\nFRESH fcc ASSEMBLY of the DECOMPILED C above (what the current C actually recompiles to, "
+        f"via the real target compiler). Compare it INSTRUCTION-BY-INSTRUCTION to the original disasm: "
+        f"wherever they differ, the DECOMPILE is wrong (the C does not reproduce the real machine code) "
+        f"-- call those out as FINDINGS.\n{fcc_self}")
     return f"""KNOWN BUG CLASSES (bestiary):
 {bestiary_classes()}
 
@@ -195,8 +200,8 @@ CALLERS -- who calls this function, and how (read-only; the best clue to its rol
 names speculative, do NOT modify them):
 {caller_context(name) or '(no C-level callers found; may be reached only via vtable/register)'}
 
-ORIGINAL FR DISASSEMBLY of {name} @ 0x{va:08x}:
-{asm}
+ORIGINAL FR DISASSEMBLY of {name} @ 0x{va:08x} (the ground truth -- the real camera's machine code):
+{asm}{fcc_block}
 
 DECOMPILED C (the function to review):
 ```c
@@ -304,6 +309,43 @@ def text_section(c_text):
             try: os.remove(p)
             except OSError: pass
 
+# ---------------------------------------------------------------- fcc (real target compiler)
+SOFTUNE = os.environ.get("SOFTUNE", "/home/memorai/k10d-re/softune")
+def _zpath(p): return "Z:" + os.path.abspath(p).replace("/", "\\")
+
+def fcc_asm(c_text):
+    """Fresh TARGET (Fujitsu FR) assembly of the function via the REAL compiler, fcc911s -S (through
+    wine), or None on failure. This is authoritative codegen -- unlike the host-gcc proxy it is the
+    exact instruction set the recompile emits. Its instruction sequence vs the ORIGINAL BINARY disasm
+    is a mechanical decompile-faithfulness check; vs the original C's fcc asm it proves a cleanup
+    changed no codegen. Slow (wine) -- used only in --fcc (high-assurance) mode."""
+    inc = _zpath(os.path.join(ROOT, "cpu/include"))
+    cf = tempfile.NamedTemporaryFile("w", suffix=".c", delete=False, dir="/tmp"); cf.write(c_text); cf.close()
+    asm = cf.name + ".asm"
+    try:
+        subprocess.run(["wine", "BIN/fcc911s.exe", "-S", "-O1", "-cpu", "MB91F128", "-I", inc,
+                        "-o", _zpath(asm), _zpath(cf.name)], cwd=SOFTUNE, capture_output=True, timeout=240)
+        return open(asm, errors="ignore").read() if os.path.exists(asm) else None
+    except (subprocess.SubprocessError, OSError):
+        return None
+    finally:
+        for p in (cf.name, asm):
+            try: os.remove(p)
+            except OSError: pass
+
+def asm_insns(asm):
+    """Normalized instruction lines of an fcc .asm (mnemonic+operands; drop labels, directives, comments,
+    blanks) -- for a codegen-equality compare that ignores symbol names and layout."""
+    if not asm:
+        return None
+    out = []
+    for ln in asm.splitlines():
+        s = ln.strip()
+        if not s or s.startswith(";") or s.startswith(".") or s.endswith(":"):
+            continue
+        out.append(re.sub(r'\s+', ' ', s).lower())
+    return out
+
 # ---------------------------------------------------------------- per-file driver
 def process(path, args):
     src = open(path, errors="ignore").read()
@@ -313,7 +355,8 @@ def process(path, args):
     va = int(m.group(1), 16)
     name = os.path.splitext(os.path.basename(path))[0]
     asm = disassemble(va)
-    user = build_user(name, va, src, asm)
+    fcc_self = fcc_asm(src) if getattr(args, "fcc", False) else None
+    user = build_user(name, va, src, asm, fcc_self)
 
     if args.list:
         print(f"===== {name} @ 0x{va:08x} =====\n{asm}\n----- prompt -----\n{user[:4000]}")
@@ -351,10 +394,15 @@ def process(path, args):
         elif not re.search(r'\b' + re.escape(name) + r'\s*\(', cleaned):
             print(f"    apply SKIPPED {name}: cleaned block renamed the function (proposal only)", file=sys.stderr)
         else:
-            orig_t, clean_t = text_section(src), text_section(cleaned)
-            if orig_t is not None and clean_t is not None and orig_t == clean_t:
+            if getattr(args, "fcc", False):          # real compiler: compare fcc instruction sequences
+                a = asm_insns(fcc_asm(src)); b = asm_insns(fcc_asm(cleaned))
+                same = a is not None and b is not None and a == b; gate = "fcc-asm"
+            else:                                      # host-gcc .text proxy (fast default)
+                a = text_section(src); b = text_section(cleaned)
+                same = a is not None and b is not None and a == b; gate = ".text"
+            if same:
                 open(path, "w").write(cleaned if cleaned.endswith("\n") else cleaned + "\n")
-                applied = True; tag = "APPLIED(.text=)"
+                applied = True; tag = f"APPLIED({gate}=)"
             elif args.allow_codegen:
                 open(path, "w").write(cleaned if cleaned.endswith("\n") else cleaned + "\n")
                 applied = True; tag = "APPLIED(codegen-changed)"
@@ -377,6 +425,8 @@ def main():
     ap.add_argument("--out", default=os.path.join(ROOT, "cleanup"), help="report output dir")
     ap.add_argument("--dry-run", action="store_true", help="write the report only; do NOT apply the cleaned body")
     ap.add_argument("--commit", action="store_true", help="git-commit the applied files + reports after the run (review via diff later)")
+    ap.add_argument("--allow-codegen", action="store_true", help="apply even if codegen changed (structural refactors); default HOLDs those for review")
+    ap.add_argument("--fcc", action="store_true", help="HIGH-ASSURANCE: use the real fcc compiler for the faithfulness gate, and give the model fresh fcc asm vs the original disasm (mechanical decompile-issue detection). Slow (wine).")
     ap.add_argument("--list", action="store_true", help="print asm + prompt only, no LLM call")
     args = ap.parse_args()
 
