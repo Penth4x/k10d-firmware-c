@@ -79,7 +79,16 @@ def append_catalog(name, path, report_path):
     txt = open(report_path, errors="ignore").read()
     m = re.search(r'## FINDINGS.*?\n(.*?)\n## ', txt, re.S)
     findings = (m.group(1).strip() if m else "")
-    if not findings or findings.lower() in ("- none", "none"):
+    has = bool(findings) and findings.lower() not in ("- none", "none")
+    # Idempotent on re-sweep: ALWAYS drop any existing section for this (now re-processed) function
+    # first, so a re-run REPLACES its findings in place -- and a function that USED to have findings
+    # but is now clean (the improved pipeline cleared a stale false positive) loses its old section.
+    if os.path.exists(CATALOG):
+        cur = open(CATALOG, errors="ignore").read()
+        new = re.sub(r'\n## ' + re.escape(name) + r'\s+\(`[^`]*`\)\n.*?(?=\n## |\Z)', '', cur, flags=re.S)
+        if new != cur:
+            open(CATALOG, "w").write(new)
+    if not has:
         return 0
     if not os.path.exists(CATALOG):
         open(CATALOG, "w").write("# Decompile-divergence catalog\n\n"
