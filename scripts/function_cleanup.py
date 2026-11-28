@@ -372,7 +372,10 @@ def codegen_check(src, cleaned, gcc_only, de_soup=False):
         if gcc_only:
             return None, None, "intent"                       # need fcc asm for the intent signature
         a, b = asm_insns(fcc_asm(src)), asm_insns(fcc_asm(cleaned))
-        if a is None or b is None:
+        if a is not None and b is None:                       # fcc compiles the ORIGINAL but REJECTS the cleaned
+            return False, ("the cleaned code does NOT compile under fcc (the real target compiler) though the "
+                           "original does -- it would break the build; fix the fcc-incompatible construct"), "intent"
+        if a is None or b is None:                            # fcc unavailable for the original too -> can't check
             return None, None, "intent"
         sa, sb = intent_sig(a), intent_sig(b)
         if sa == sb:
@@ -384,7 +387,10 @@ def codegen_check(src, cleaned, gcc_only, de_soup=False):
     a = b = None; label = "fcc-asm"
     if not gcc_only:
         a, b = asm_insns(fcc_asm(src)), asm_insns(fcc_asm(cleaned))
-    if a is None or b is None:
+        if a is not None and b is None:                   # fcc compiles the ORIGINAL but REJECTS the cleaned
+            return False, ("the cleaned code does NOT compile under fcc (the real target compiler) though the "
+                           "original does -- it would break the build; fix the fcc-incompatible construct"), label
+    if a is None or b is None:                            # fcc unavailable for both / --gcc-only -> GCC .text proxy
         a, b = text_section(src), text_section(cleaned); label = ".text"
         if a is None or b is None:
             return None, None, label
@@ -409,7 +415,7 @@ def cleanup_with_self_check(user, dry_run, src="", gcc_only=False, allow_codegen
     err = ""
     trail = []
     COMPILE_FB = ("Your CLEANED code does not compile. Fix ONLY the compile errors -- keep the readability "
-        "cleanup, the renames, the behaviour, and the @k10d header. gcc reported:\n\n{err}\n\n"
+        "cleanup, the renames, the behaviour, and the @k10d header. The compiler (fcc) reported:\n\n{err}\n\n"
         "Return all three sections (### FINDINGS / ### RENAMES / ### CLEANED) again, corrected.")
     CODEGEN_FB = ("Your CLEANED code COMPILES but produces DIFFERENT machine code than the original C, so "
         "some rewrite changed the codegen -- the cleanup must be byte-identical. {diff}\n\nReturn a version "
@@ -428,7 +434,7 @@ def cleanup_with_self_check(user, dry_run, src="", gcc_only=False, allow_codegen
         if cleaned is None or dry_run:
             trail.append(f"round {rnd}: " + ("dry-run (not gated)" if dry_run else "NO ### CLEANED fenced block produced"))
             return findings, renames, cleaned, rnd, "", trail
-        err = compile_error(cleaned)
+        err = compile_error(cleaned, gcc_only)
         if err:
             last = (rnd == MAX_ROUNDS)
             trail.append(f"round {rnd}: COMPILE ERROR" + (" (rounds exhausted -> NOCOMPILE)" if last else " -> fed back") + ":\n" + _indent(err[:400]))
@@ -542,23 +548,34 @@ def sync_real_funcs_proto(cleaned):
     if m.group(0).strip() != new_line:
         open(FUNCS_H_PATH, "w").write(funcs[:m.start()] + new_line + funcs[m.end():])
 
-def compile_error(c_text):
-    """gcc's error output if the cleaned function won't compile (host gcc + the FR headers), else ''.
-    Same flags that fix_loop.py uses and that I verified parse these files; -w silences the FR-on-host
-    warnings so only real errors (undeclared vars, type/paren mistakes the LLM introduced) remain."""
-    inc = os.path.join(ROOT, "cpu/include")
+def compile_error(c_text, gcc_only=False):
+    """The real compiler's error output if the cleaned function won't compile, else ''. DEFAULT = fcc,
+    the TARGET compiler the build uses -- GCC is too lenient (it accepts fcc-incompatible C like `//`
+    comments, which then breaks the build), so checking against fcc catches those in the self-heal loop.
+    --gcc-only hosts (no fcc/wine) fall back to the host-gcc proxy."""
     d = patched_funcs_dir(c_text)
-    tf = tempfile.NamedTemporaryFile("w", suffix=".c", delete=False, dir=d)
-    tf.write(c_text); tf.close()
+    cf = tempfile.NamedTemporaryFile("w", suffix=".c", delete=False, dir=(d or "/tmp"))
+    cf.write(c_text); cf.close()
     try:
-        r = subprocess.run(["gcc", "-c", "-w", "-fpermissive", "-std=gnu99", "-I", inc,
-                            "-fno-common", "-fmax-errors=10", "-o", "/dev/null", tf.name],
-                           capture_output=True, text=True, timeout=90)
-        return "" if r.returncode == 0 else (r.stderr.strip() or "gcc failed (no stderr)")
+        if gcc_only:
+            r = subprocess.run(["gcc", "-c", "-w", "-fpermissive", "-std=gnu99", "-I", os.path.join(ROOT, "cpu/include"),
+                                "-fno-common", "-fmax-errors=10", "-o", "/dev/null", cf.name],
+                               capture_output=True, text=True, timeout=90)
+            return "" if r.returncode == 0 else (r.stderr.strip() or "gcc failed (no stderr)")
+        asm = cf.name + ".asm"
+        r = subprocess.run(["wine", "BIN/fcc911s.exe", "-S", *FCC_COPT, "-cpu", FCC_CPU,
+                            "-I", _zpath(os.path.join(ROOT, "cpu/include")), "-o", _zpath(asm), _zpath(cf.name)],
+                           cwd=SOFTUNE, capture_output=True, text=True, timeout=120)
+        try: os.remove(asm)
+        except OSError: pass
+        if r.returncode == 0:
+            return ""
+        errs = [l.strip() for l in (r.stdout + r.stderr).splitlines() if "***" in l and "W1450B" not in l]
+        return "\n".join(errs[:10]) or f"fcc failed (rc={r.returncode})"
     except (subprocess.SubprocessError, OSError) as e:
         return f"(compile-check error: {e})"
     finally:
-        try: os.remove(tf.name)
+        try: os.remove(cf.name)
         except OSError: pass
         if d: shutil.rmtree(d, ignore_errors=True)
 
@@ -593,7 +610,7 @@ def text_section(c_text):
 SOFTUNE = os.environ.get("SOFTUNE", "/home/memorai/k10d-re/softune")
 # Keep the gate's codegen IDENTICAL to the shipping build: same COPT/CPU as cpu/build.sh, same env
 # overrides, same default -- so the two can never drift (build.sh: COPT=${COPT:--O1 -KSIZE}, CPU=MB91F128).
-FCC_COPT = os.environ.get("COPT", "-O1 -KSIZE").split()
+FCC_COPT = os.environ.get("COPT", "-O1 -KSIZE -B").split()
 FCC_CPU  = os.environ.get("CPU", "MB91F128")
 def _zpath(p): return "Z:" + os.path.abspath(p).replace("/", "\\")
 
