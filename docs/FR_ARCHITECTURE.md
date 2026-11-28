@@ -121,6 +121,30 @@ real finding. When it agrees, it is not.
 - **Bit ops on memory:** `bandl/bandh/borl/borh/beorl/beorh/btstl/btsth #n,@ri` operate on a
   nibble of the byte at `@ri`.
 
+## fcc vs the original compiler (why fcc asm is bigger than the disasm)
+
+`fcc911s` (Softune) is NOT the compiler that built the firmware, and it is a markedly WEAKER
+optimizer. Expect its assembly to differ from the original disasm in BENIGN, non-semantic ways --
+do not read these as bugs:
+- **Stack spills (the big one).** fcc parks locals and loop variables on the stack -- `ld`/`st`
+  to `@(fp,-N)` / `@(r15,...)` / `@(sp,...)` -- and reloads them each use or iteration, where the
+  original compiler kept them in registers. So fcc emits FAR more `ld`/`st` than the original.
+  These are frame spills, NOT data accesses, and NOT findings. (Measured: a byte-copy loop is 137
+  instructions in the firmware vs ~220 from fcc -- the whole difference is spills, same 12 `ldub`
+  + 12 `stb` of real data.)
+- **Extra branches**: fcc adds loop-guard / epilogue branches the original folded.
+- **Different register allocation, instruction scheduling, addressing idioms, and `enter #N`
+  frame size.** All benign.
+
+So when comparing fcc asm (or the decompiled C) to the original disasm, judge **EQUIVALENCE of the
+DATA operations and the control-flow LOGIC, not instruction count**:
+- COMPARE: the real memory operations to DATA addresses (`ldub/lduh/ld/stb/sth/st` with their
+  widths and effective offsets) and the branch/call logic.
+- IGNORE: `@(fp/sp/r15,...)` stack spills, register moves, extra loop guards, register names,
+  `enter` size, instruction ordering.
+Flag a FINDING only for a semantic divergence in the DATA operations (wrong width/offset/mask,
+missing/extra real memory access) or the control-flow logic -- never for fcc being more verbose.
+
 ## When to raise a FINDING vs stay silent
 We compile the decompiled C with `fcc911s`, which is **not** the original build compiler, so
 compare fcc-asm (and the original disasm) for **equivalence, not identity**. Benign and
