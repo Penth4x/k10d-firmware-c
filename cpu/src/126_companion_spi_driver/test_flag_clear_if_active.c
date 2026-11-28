@@ -14,16 +14,16 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool test_flag_clear_if_active(void *param_1)
+bool test_flag_clear_if_active(void *base_obj)
 
 {
   bool bVar1;
-  
-  if (*(void **)((int)param_1 + 0x10c) == 0) {
+
+  if (*(void **)((int)base_obj + 0x10c) == 0) {
     bVar1 = false;
   }
   else {
-    bVar1 = test_flag_clear(*(void **)((int)param_1 + 0x10c));
+    bVar1 = test_flag_clear(*(void **)((int)base_obj + 0x10c));
   }
   return bVar1;
 }

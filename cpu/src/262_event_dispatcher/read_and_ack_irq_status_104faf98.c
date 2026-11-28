@@ -6,22 +6,22 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t read_and_ack_irq_status_104faf98(void *param_1)
+uint32_t read_and_ack_irq_status_104faf98(void *irq_ctx)
 
 {
-  uint uVar1;
-  uint uVar2;
-  uint32_t uVar3;
-  
-  uVar1 = read_mmio_word_and_mask_bits_10452a12(*(uint32_t *)((int)param_1 + 0x108));
-  write_masked_value_to_mmio_10452a24(*(uint32_t *)((int)param_1 + 0x108),uVar1);
-  uVar2 = read_mmio_word_and_mask_bits_10452a00(*(uint32_t *)((int)param_1 + 0x108));
-  uVar1 = uVar1 & uVar2 & 0xffff;
-  if (uVar1 == 0) {
-    uVar3 = 0;
+  uint irq_status_raw;
+  uint irq_status_mask;
+  uint32_t dispatch_result;
+
+  irq_status_raw = read_mmio_word_and_mask_bits_10452a12(*(uint32_t *)((int)irq_ctx + 0x108));
+  write_masked_value_to_mmio_10452a24(*(uint32_t *)((int)irq_ctx + 0x108), irq_status_raw);
+  irq_status_mask = read_mmio_word_and_mask_bits_10452a00(*(uint32_t *)((int)irq_ctx + 0x108));
+  irq_status_raw = irq_status_raw & irq_status_mask & 0xffff;
+  if (irq_status_raw == 0) {
+    dispatch_result = 0;
   }
   else {
-    uVar3 = event_dispatcher(param_1,-0x7fffffe8,uVar1);
+    dispatch_result = event_dispatcher(irq_ctx, -0x7fffffe8, irq_status_raw);
   }
-  return uVar3;
+  return dispatch_result;
 }

@@ -11,20 +11,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-int cls_105b3ee0_new(cls_105b3ee0 *param_1)
+int cls_105b3ee0_new(cls_105b3ee0 *obj_ptr)
 
 {
-  if ((param_1 != (cls_105b3ee0 *)0x0) ||
-     (param_1 = (cls_105b3ee0 *)heap_alloc((void *)0x34), param_1 != (cls_105b3ee0 *)0x0)) {
-    cls_105b3cdc_new((cls_105b3cdc *)param_1);
-    param_1->field_0x20 = (uint32_t)&DAT_105b3ee0/*ROM*/;
-    param_1->field_0x24 = 7;
-    param_1->field_0x26 = 0;
-    param_1->field_0x28 = 0;
-    param_1->field_0x2a = 0;
-    param_1->field_0x2c = 0;
-    param_1->field_0x30 = 0;
-    param_1->field_0x32 = 0;
+  if ((obj_ptr != (cls_105b3ee0 *)0x0) ||
+     (obj_ptr = (cls_105b3ee0 *)heap_alloc((void *)0x34), obj_ptr != (cls_105b3ee0 *)0x0)) {
+    cls_105b3cdc_new((cls_105b3cdc *)obj_ptr);
+    obj_ptr->field_0x20 = (uint32_t)&DAT_105b3ee0/*ROM*/;
+    obj_ptr->field_0x24 = 7;
+    obj_ptr->field_0x26 = 0;
+    obj_ptr->field_0x28 = 0;
+    obj_ptr->field_0x2a = 0;
+    obj_ptr->field_0x2c = 0;
+    obj_ptr->field_0x30 = 0;
+    obj_ptr->field_0x32 = 0;
   }
-  return (int)param_1;
+  return (int)obj_ptr;
 }

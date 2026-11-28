@@ -11,23 +11,37 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_105b3cdc_new(cls_105b3cdc *param_1)
+void cls_105b3cdc_new(cls_105b3cdc *self)
 
 {
-  if ((param_1 != (cls_105b3cdc *)0x0) ||
-     (param_1 = (cls_105b3cdc *)heap_alloc((void *)0x24), param_1 != (cls_105b3cdc *)0x0)) {
-    param_1->field_0x20 = (uint32_t)&DAT_105b3cdc/*ROM*/;
-    param_1->field_0x0 = 0;
-    param_1->field_0x2 = 0;
-    param_1->field_0x18 = 1;
-    param_1->field_0x19 = 0;
-    param_1->field_0x1c = 0;
-    param_1->field_0x10 = 0;
-    param_1->field_0x8 = 0;
-    param_1->field_0xc = 0;
-    param_1->field_0x4 = 0;
-    param_1->field_0x14 = 0;
-    param_1->field_0x16 = 0;
+  /* If self is already non-NULL use it; otherwise heap-allocate 0x24 bytes.
+     Proceed with init only if the pointer is non-NULL after that. */
+  if ((self != (cls_105b3cdc *)0x0) ||
+     (self = (cls_105b3cdc *)heap_alloc((void *)0x24), self != (cls_105b3cdc *)0x0)) {
+    /* vtable pointer at offset 0x20 (word store) */
+    self->field_0x20 = (uint32_t)&DAT_105b3cdc/*ROM*/;
+    /* halfword zero at offset 0x0 */
+    self->field_0x0 = 0;
+    /* halfword zero at offset 0x2 */
+    self->field_0x2 = 0;
+    /* byte 1 at offset 0x18 */
+    self->field_0x18 = 1;
+    /* byte 0 at offset 0x19 */
+    self->field_0x19 = 0;
+    /* word zero at offset 0x1c */
+    self->field_0x1c = 0;
+    /* word zero at offset 0x10 */
+    self->field_0x10 = 0;
+    /* word zero at offset 0x8 */
+    self->field_0x8 = 0;
+    /* word zero at offset 0xc */
+    self->field_0xc = 0;
+    /* word zero at offset 0x4 */
+    self->field_0x4 = 0;
+    /* halfword zero at offset 0x14 */
+    self->field_0x14 = 0;
+    /* halfword zero at offset 0x16 */
+    self->field_0x16 = 0;
   }
   return;
 }

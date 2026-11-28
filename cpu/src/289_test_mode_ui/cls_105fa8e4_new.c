@@ -11,42 +11,42 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_105fa8e4_new(cls_105fa8e4 *param_1)
+void cls_105fa8e4_new(cls_105fa8e4 *self)
 
 {
-  if ((param_1 != (cls_105fa8e4 *)0x0) ||
-     (param_1 = (cls_105fa8e4 *)heap_alloc((void *)0x5c), param_1 != (cls_105fa8e4 *)0x0)) {
-    param_1->field_0x58 = (uintptr_t)(&DAT_105fa8e4/*ROM*/);
-    param_1->field_0x0 = 0x2000;
-    param_1->field_0x4 = 0x2000;
-    param_1->field_0x8 = 0x2000;
-    param_1->field_0xc = 0x2000;
-    param_1->field_0x10 = 0x2000;
-    param_1->field_0x12 = 0x2000;
-    param_1->field_0x14 = 0x2000;
-    param_1->field_0x16 = 0x2000;
-    param_1->field_0x18 = 0x2000;
-    param_1->field_0x1c = 0x2000;
-    param_1->field_0x20 = 0x2000;
-    param_1->field_0x24 = 0x2000;
-    param_1->field_0x28 = 0x2000;
-    param_1->field_0x2a = 0x2000;
-    param_1->field_0x2c = 0x2000;
-    param_1->field_0x2e = 0x2000;
-    param_1->field_0x30 = 0x2000;
-    param_1->field_0x34 = 0x2000;
-    param_1->field_0x38 = 0x2000;
-    param_1->field_0x3c = 0x2000;
-    param_1->field_0x40 = 0x2000;
-    param_1->field_0x44 = 0x2000;
-    param_1->field_0x46 = 0x2000;
-    param_1->field_0x48 = 0x2000;
-    param_1->field_0x4a = 0x2000;
-    param_1->field_0x4c = 0x2000;
-    param_1->field_0x4e = 0x2000;
-    param_1->field_0x50 = 0x2000;
-    param_1->field_0x52 = 0x2000;
-    param_1->field_0x54 = 0x2000;
+  if ((self != (cls_105fa8e4 *)0x0) ||
+     (self = (cls_105fa8e4 *)heap_alloc((void *)0x5c), self != (cls_105fa8e4 *)0x0)) {
+    self->field_0x58 = (uintptr_t)(&DAT_105fa8e4/*ROM*/);
+    self->field_0x0 = 0x2000;
+    self->field_0x4 = 0x2000;
+    self->field_0x8 = 0x2000;
+    self->field_0xc = 0x2000;
+    self->field_0x10 = 0x2000;
+    self->field_0x12 = 0x2000;
+    self->field_0x14 = 0x2000;
+    self->field_0x16 = 0x2000;
+    self->field_0x18 = 0x2000;
+    self->field_0x1c = 0x2000;
+    self->field_0x20 = 0x2000;
+    self->field_0x24 = 0x2000;
+    self->field_0x28 = 0x2000;
+    self->field_0x2a = 0x2000;
+    self->field_0x2c = 0x2000;
+    self->field_0x2e = 0x2000;
+    self->field_0x30 = 0x2000;
+    self->field_0x34 = 0x2000;
+    self->field_0x38 = 0x2000;
+    self->field_0x3c = 0x2000;
+    self->field_0x40 = 0x2000;
+    self->field_0x44 = 0x2000;
+    self->field_0x46 = 0x2000;
+    self->field_0x48 = 0x2000;
+    self->field_0x4a = 0x2000;
+    self->field_0x4c = 0x2000;
+    self->field_0x4e = 0x2000;
+    self->field_0x50 = 0x2000;
+    self->field_0x52 = 0x2000;
+    self->field_0x54 = 0x2000;
   }
   return;
 }

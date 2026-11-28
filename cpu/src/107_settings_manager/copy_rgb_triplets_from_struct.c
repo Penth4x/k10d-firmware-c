@@ -15,7 +15,7 @@ void copy_rgb_triplets_from_struct(void *param_1,void *param_2,int param_3,int p
   int iVar1;
   int iVar2;
   int iVar3;
-  
+
   if (param_4 == 0) {
     if (0 < param_3) {
       iVar2 = 0;

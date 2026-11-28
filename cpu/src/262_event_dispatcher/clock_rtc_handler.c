@@ -17,22 +17,22 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t clock_rtc_handler(void *param_1)
+uint32_t clock_rtc_handler(void *rtc_obj)
 
 {
-  uint uVar1;
-  uint uVar2;
-  uint32_t uVar3;
-  
-  uVar1 = rtc_read_reg_pair_0104(*(uint32_t *)((int)param_1 + 0x108));
-  store_two_bit_fields_to_globals(*(uint32_t *)((int)param_1 + 0x108),uVar1);
-  uVar2 = rtc_read_reg_pair_0106(*(uint32_t *)((int)param_1 + 0x108));
-  uVar1 = uVar1 & uVar2 & 0xffff;
-  if (uVar1 == 0) {
-    uVar3 = 0;
+  uint reg_pair_0104;
+  uint reg_pair_0106;
+  uint32_t dispatch_result;
+
+  reg_pair_0104 = rtc_read_reg_pair_0104(*(uint32_t *)((int)rtc_obj + 0x108));
+  store_two_bit_fields_to_globals(*(uint32_t *)((int)rtc_obj + 0x108),reg_pair_0104);
+  reg_pair_0106 = rtc_read_reg_pair_0106(*(uint32_t *)((int)rtc_obj + 0x108));
+  reg_pair_0104 = reg_pair_0104 & reg_pair_0106 & 0xffff;
+  if (reg_pair_0104 == 0) {
+    dispatch_result = 0;
   }
   else {
-    uVar3 = event_dispatcher(param_1,-0x7fffffeb,uVar1);
+    dispatch_result = event_dispatcher(rtc_obj,-0x7fffffeb,reg_pair_0104);
   }
-  return uVar3;
+  return dispatch_result;
 }

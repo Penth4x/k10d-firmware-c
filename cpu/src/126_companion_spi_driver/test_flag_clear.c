@@ -14,12 +14,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-bool test_flag_clear(void *param_1)
+bool test_flag_clear(void *flag_obj)
 
 {
-                    /* Purpose: Test flag clear. Returns true if bit in [obj+0x10] & mask [obj+0x1c]
-                       is CLEAR.
-                       Params: param_1 = object pointer.
-                       Returns: bool. */
-  return (**(byte **)((int)param_1 + 0x10) & *(byte *)((int)param_1 + 0x1c)) == 0;
+  /* Reads the 32-bit pointer at flag_obj+0x10, dereferences it to a byte,
+     ANDs with the mask byte at flag_obj+0x1c; returns 1 if the result is 0. */
+  return (**(byte **)((int)flag_obj + 0x10) & *(byte *)((int)flag_obj + 0x1c)) == 0;
 }

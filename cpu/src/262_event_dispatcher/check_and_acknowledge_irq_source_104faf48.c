@@ -17,20 +17,20 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t check_and_acknowledge_irq_source_104faf48(void *param_1)
+uint32_t check_and_acknowledge_irq_source_104faf48(void *irq_obj)
 
 {
-  int iVar1;
-  uint32_t uVar2;
-  
-  iVar1 = check_bit7_of_0x4007000c(*(uint32_t *)((int)param_1 + 0x108));
-  uVar2 = 0;
-  if (iVar1 != 0) {
-    set_bit7_of_dat_4007000c(*(uint32_t *)((int)param_1 + 0x108));
-    iVar1 = check_bit15_of_0x4007000c(*(uint32_t *)((int)param_1 + 0x108));
-    if (iVar1 != 0) {
-      uVar2 = event_dispatcher(param_1,-0x7fffffe9,1);
+  int status;
+  uint32_t result;
+
+  status = check_bit7_of_0x4007000c(*(uint32_t *)((int)irq_obj + 0x108));
+  result = 0;
+  if (status != 0) {
+    set_bit7_of_dat_4007000c(*(uint32_t *)((int)irq_obj + 0x108));
+    status = check_bit15_of_0x4007000c(*(uint32_t *)((int)irq_obj + 0x108));
+    if (status != 0) {
+      result = event_dispatcher(irq_obj, -0x7fffffe9, 1);
     }
   }
-  return uVar2;
+  return result;
 }
