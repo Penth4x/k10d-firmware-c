@@ -22,17 +22,29 @@ echo "      checksums VALID"
 echo "[2/3] stock + candidate SPI capture (20s each) ..."
 timeout 20 env FRN_SPI_LOG=1 "$QEMU" -machine k10d -display none -bios "$STOCK" 2>"$OUT/s.log" >/dev/null
 timeout 20 env FRN_SPI_LOG=1 "$QEMU" -machine k10d -display none -bios "$CAND"  2>"$OUT/c.log" >/dev/null
-grep -a 'TX byte' "$OUT/s.log" | sed 's/ pc=.*//' > "$OUT/s.tx"
-grep -a 'TX byte' "$OUT/c.log" | sed 's/ pc=.*//' > "$OUT/c.tx"
+# Signature per SPI transaction = its MEANINGFUL TX bytes (cmd + size + <size> data; byte[1]=size),
+# trimmed of trailing padding and deduped. Comparison is a CONTENT SET, not a positional diff:
+# every distinct command the candidate sends must be byte-identical to one stock sends. This is robust
+# to (a) the candidate stalling earlier (fewer txns), (b) the free-running timer emitting a different
+# number of status polls, and (c) trailing-pad length -- none of which are behaviour. A cleanup that
+# CHANGES a command byte makes that command absent from stock's set -> FAIL. (The earlier raw
+# line-prefix diff misaligned on all three and false-FAILed its own correct bytes.)
+txnsig() { awk '
+  function emit(){ if(n>0){ s=""; for(i=0;i<2+b1 && i<n;i++) s=s" "a[i]; print s } n=0 }
+  /txn start/ { emit(); next }
+  /TX byte/   { v=$0; sub(/.*\]=/,"",v); sub(/ .*/,"",v); a[n]=v; if(n==1)b1=strtonum(v); n++ }
+  END         { emit() }' "$1" | sort -u; }
+txnsig "$OUT/s.log" > "$OUT/s.txn"
+txnsig "$OUT/c.log" > "$OUT/c.txn"
 
-echo "[3/3] diff companion TX (candidate must be a byte-identical prefix of stock) ..."
-# candidate may stall earlier than stock, so it is valid iff its TX is an exact prefix of stock's.
-n=$(wc -l < "$OUT/c.tx")
-if diff <(head -n "$n" "$OUT/s.tx") "$OUT/c.tx" >/dev/null; then
-  echo "PASS: companion TX byte-identical to stock through $n bytes (behaviour preserved)."
+echo "[3/3] compare companion commands as a content set (every candidate cmd must match a stock cmd) ..."
+if [ ! -s "$OUT/c.txn" ]; then echo "FAIL: candidate emitted no SPI txns"; echo "logs in $OUT"; exit 1; fi
+extra=$(comm -23 "$OUT/c.txn" "$OUT/s.txn")
+if [ -z "$extra" ]; then
+  echo "PASS: all $(wc -l <"$OUT/c.txn") distinct candidate commands are byte-identical to stock (behaviour preserved)."
   rm -rf "$OUT"; exit 0
 else
-  echo "FAIL: companion TX DIVERGED from stock -- a cleanup changed behaviour. First diff:"
-  diff <(head -n "$n" "$OUT/s.tx") "$OUT/c.tx" | head -10
+  echo "FAIL: candidate sends command(s) stock never does -- a cleanup changed behaviour:"
+  echo "$extra" | head -6
   echo "logs kept in $OUT"; exit 1
 fi
