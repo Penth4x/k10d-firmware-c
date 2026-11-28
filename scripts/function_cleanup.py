@@ -36,6 +36,7 @@ CATALOG   = "/home/memorai/k10d-re/harness2/catalog.sqlite"
 FRDIS     = "/home/memorai/k10d-re/frdis.py"
 FUNCS_H   = os.path.join(ROOT, "cpu/include/funcs.h")
 BESTIARY  = os.path.join(ROOT, "BESTIARY.md")
+FR_PRIMER_MD = os.path.join(ROOT, "docs/FR_ARCHITECTURE.md")   # obscure-ISA reference, injected into the prompt
 LLM_URL   = "http://localhost:8841/v1/chat/completions"
 MODEL     = "qwen3.8-27b"
 
@@ -148,14 +149,9 @@ You will produce exactly three sections, in this order, and nothing else:
 ### FINDINGS
 Zero or more known-bug-class hits, found by comparing the C to the disassembly. One bullet each:
 `- [B-NN|none] <symptom> @ <C evidence> vs <asm evidence> -> <why it diverges>`. If none, write
-`- none`. Report bugs here ONLY; do NOT fix them in the cleaned code below.
-FR DELAY SLOTS -- read before reasoning about call arguments: the instruction immediately AFTER a
-delayed transfer (`call:d`, `bcc:d`/`bne:d`/`beq:d` etc., `bra:d`, `jmp:d`, `ret:d`) is its DELAY
-SLOT and EXECUTES BEFORE control transfers. So a register written in the delay slot of a `call:d`
-IS already set when the callee begins -- that value is an argument to THAT call, NOT to some later
-one. Do not conclude a delay-slot `ldi`/`mov` "belongs to the next call" because it is printed after
-the call line; that is backwards. FR passes arguments in r4,r5,r6,r7 (r4=1st, r5=2nd, ...), so map
-each arg register carefully (a value in r4 is the 1st arg, r5 the 2nd) before claiming a mismatch.
+`- none`. Report bugs here ONLY; do NOT fix them in the cleaned code below. Apply the FR ARCHITECTURE
+PRIMER below when reasoning about the disasm -- especially delay slots, the r4-r7 argument mapping,
+addressing-mode scaling, and sign/zero extension; those are where false findings come from.
 
 ### RENAMES
 Proposed names (all current names are speculative guesses; so are the callee names you were shown).
@@ -190,6 +186,15 @@ COMMON MISTAKES seen in earlier runs -- DO NOT REPEAT:
   does.
 - Changing behaviour while "cleaning": no reordering of reads/writes, no folding/simplifying arithmetic
   or branches, no "fixing" a suspected bug. Byte-for-byte equivalent, always."""
+
+def _fr_primer():
+    try:
+        return "\n\n==== FR ARCHITECTURE PRIMER (obscure ISA -- apply this when reading the disasm) ====\n" \
+               + open(FR_PRIMER_MD, errors="ignore").read().strip()
+    except OSError:
+        return ""   # primer is an aid, not a hard dependency -- never block a run on its absence
+
+SYSTEM += _fr_primer()
 
 def build_user(name, va, c_src, asm, fcc_self=None):
     fcc_block = ("" if not fcc_self else
