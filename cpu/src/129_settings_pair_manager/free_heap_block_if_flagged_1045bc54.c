@@ -6,11 +6,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void free_heap_block_if_flagged_1045bc54(void *param_1,uint param_2)
+void free_heap_block_if_flagged_1045bc54(void *block_ptr,uint flags)
 
 {
-  if ((param_1 != 0) && ((param_2 & 1) != 0)) {
-    heap_free((int)param_1);
+  // Free the heap block only when the pointer is non-null and bit 0 of flags is set.
+  if ((block_ptr != 0) && ((flags & 1) != 0)) {
+    heap_free((int)block_ptr);
   }
   return;
 }

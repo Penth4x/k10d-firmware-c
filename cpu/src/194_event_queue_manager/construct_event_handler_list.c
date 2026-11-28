@@ -16,39 +16,39 @@
 #include "globals.h"
 #include "funcs.h"
 
-cls_105b41d0 * construct_event_handler_list(cls_105b41d0 *param_1)
+cls_105b41d0 * construct_event_handler_list(cls_105b41d0 *existing_obj)
 
 {
-  int iVar1;
-  int iVar2;
-  int iVar3;
-  int iVar4;
-  cls_105b41d0 *pcStack_14;
-  int iStack_c;
-  
-  pcStack_14 = param_1;
-  if ((param_1 == (cls_105b41d0 *)0x0) &&
-     (pcStack_14 = (cls_105b41d0 *)heap_alloc((void *)0x24), pcStack_14 == (cls_105b41d0 *)0x0)) {
+  int handler_table;
+  int entry_ptr;
+  int table_offset;
+  int handler_index;
+  cls_105b41d0 *obj;
+  int remaining;
+
+  obj = existing_obj;
+  if ((existing_obj == (cls_105b41d0 *)0x0) &&
+     (obj = (cls_105b41d0 *)heap_alloc((void *)0x24), obj == (cls_105b41d0 *)0x0)) {
     return (cls_105b41d0 *)0x0;
   }
-  cls_105b41d0_new(pcStack_14);
-  pcStack_14->field_0x8 = (uintptr_t)(&DAT_105b4188/*ROM*/);
-  cls_105a5c2c_new((cls_105a5c2c *)(pcStack_14 + 1),0);
-  iVar1 = get_lens_fw_update_status(0, 0x2e, 0xc, (code *)cls_105b41d0_new);
-  iVar4 = 0;
-  iStack_c = 0x16;
-  iVar3 = 0;
+  cls_105b41d0_new(obj);
+  obj->field_0x8 = (uintptr_t)(&DAT_105b4188/*ROM*/);
+  cls_105a5c2c_new((cls_105a5c2c *)(obj + 1),0);
+  handler_table = get_lens_fw_update_status(0, 0x2e, 0xc, (code *)cls_105b41d0_new);
+  handler_index = 0;
+  remaining = 0x16;
+  table_offset = 0;
   do {
-    iVar2 = iVar1 + iVar3;
-    (((vtbl_entry*)(*(int *)(iVar2 + 8)))[2].fn)(((vtbl_entry*)(*(int *)(iVar2 + 8)))[2].adj + iVar2,iVar4);
-    write_field_at_offset_c(pcStack_14,iVar2);
-    iVar2 = iVar1 + iVar3 + 0xc;
-    (((vtbl_entry*)(*(int *)(iVar2 + 8)))[2].fn)
-              (((vtbl_entry*)(*(int *)(iVar2 + 8)))[2].adj + iVar2,iVar4 + 1);
-    write_field_at_offset_c(pcStack_14,iVar2);
-    iVar4 = iVar4 + 2;
-    iVar3 = iVar3 + 0x18;
-    iStack_c = iStack_c + -1;
-  } while (-1 < iStack_c);
-  return pcStack_14;
+    entry_ptr = handler_table + table_offset;
+    (((vtbl_entry*)(*(int *)(entry_ptr + 8)))[2].fn)(((vtbl_entry*)(*(int *)(entry_ptr + 8)))[2].adj + entry_ptr,handler_index);
+    write_field_at_offset_c(obj,entry_ptr);
+    entry_ptr = handler_table + table_offset + 0xc;
+    (((vtbl_entry*)(*(int *)(entry_ptr + 8)))[2].fn)
+              (((vtbl_entry*)(*(int *)(entry_ptr + 8)))[2].adj + entry_ptr,handler_index + 1);
+    write_field_at_offset_c(obj,entry_ptr);
+    handler_index = handler_index + 2;
+    table_offset = table_offset + 0x18;
+    remaining = remaining + -1;
+  } while (-1 < remaining);
+  return obj;
 }

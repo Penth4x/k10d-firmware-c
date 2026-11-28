@@ -15,11 +15,11 @@
 #include "funcs.h"
 #include "syscall_traps.h"
 
-bool check_kernel_call_success_10459d88(uint32_t *param_1)
+bool check_kernel_call_success_10459d88(uint32_t *task_id_ptr)
 
 {
-  int iVar1;
-  
-  iVar1 = __trap_terminate_task_by_id_100114c0((int)(short)*param_1);
-  return iVar1 == 0;
+  int kernel_ret;
+
+  kernel_ret = __trap_terminate_task_by_id_100114c0((int)(short)*task_id_ptr);
+  return kernel_ret == 0;
 }

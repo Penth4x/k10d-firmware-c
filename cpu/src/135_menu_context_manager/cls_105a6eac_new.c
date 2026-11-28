@@ -11,17 +11,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-cls_105a6eac * cls_105a6eac_new(cls_105a6eac *param_1)
+cls_105a6eac * cls_105a6eac_new(cls_105a6eac *obj)
 
 {
-  if ((param_1 != (cls_105a6eac *)0x0) ||
-     (param_1 = (cls_105a6eac *)heap_alloc((void *)8), param_1 != (cls_105a6eac *)0x0)) {
-    cls_105b5264_new((cls_105b5264 *)param_1);
-    param_1->field_0x0 = (uint32_t)&DAT_105a6eac/*ROM*/;
-    param_1->field_0x4 = 0;
-    param_1->field_0x5 = 0;
-    param_1->field_0x6 = 0;
-    param_1->field_0x7 = 0;
+  /* If obj is already non-NULL, skip allocation; otherwise heap_alloc 8 bytes.
+   * If the result is non-NULL, run the base-class ctor and zero the 4 data bytes. */
+  if ((obj != (cls_105a6eac *)0x0) ||
+     (obj = (cls_105a6eac *)heap_alloc((void *)8), obj != (cls_105a6eac *)0x0)) {
+    cls_105b5264_new((cls_105b5264 *)obj);
+    obj->field_0x0 = (uint32_t)&DAT_105a6eac/*ROM*/;
+    obj->field_0x4 = 0;
+    obj->field_0x5 = 0;
+    obj->field_0x6 = 0;
+    obj->field_0x7 = 0;
   }
-  return param_1;
+  return obj;
 }

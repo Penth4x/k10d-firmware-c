@@ -15,15 +15,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-int chain_two_helper_calls_10495db2(void *param_1)
+int chain_two_helper_calls_10495db2(void *ctx)
 
 {
-  int iVar1;
-  int r5_in;
-  uint32_t r6_in;
-  uint32_t r7_in;
-  
-  iVar1 = allocate_and_init_object_104962ea(param_1,r5_in,r6_in,r7_in);
-  iVar1 = allocate_and_init_object_104962b8(param_1,iVar1);
-  return iVar1;
+  int alloc_result;
+  int arg_r5;
+  uint32_t arg_r6;
+  uint32_t arg_r7;
+
+  alloc_result = allocate_and_init_object_104962ea(ctx, arg_r5, arg_r6, arg_r7);
+  alloc_result = allocate_and_init_object_104962b8(ctx, alloc_result);
+  return alloc_result;
 }

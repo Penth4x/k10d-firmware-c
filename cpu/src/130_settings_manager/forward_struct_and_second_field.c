@@ -13,11 +13,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t forward_struct_and_second_field(int *param_1,void *param_2)
+uint32_t forward_struct_and_second_field(int *entry, void *aux)
 
 {
-  uint32_t uVar1;
-  
-  uVar1 = grow_dynamic_buffer_1045cb38(param_1,(uint32_t *)param_1[1],param_2);
-  return uVar1;
+  uint32_t result;
+
+  /* Forward entry, its second word (offset +4), and aux to the helper. */
+  result = grow_dynamic_buffer_1045cb38(entry, (uint32_t *)entry[1], aux);
+  return result;
 }

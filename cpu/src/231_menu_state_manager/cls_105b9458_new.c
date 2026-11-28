@@ -11,21 +11,21 @@
 #include "globals.h"
 #include "funcs.h"
 
-cls_105b9458 * cls_105b9458_new(cls_105b9458 *param_1)
+cls_105b9458 * cls_105b9458_new(cls_105b9458 *self)
 
 {
-  if ((param_1 != (cls_105b9458 *)0x0) ||
-     (param_1 = (cls_105b9458 *)heap_alloc((void *)0x214), param_1 != (cls_105b9458 *)0x0)) {
-    cls_105b934c_new((cls_105b934c *)param_1);
-    param_1->field_0x14 = (uint32_t)&DAT_105b9458/*ROM*/;
-    param_1->field_0x18 = 0;
-    param_1->field_0x1c = 2;
-    param_1->field_0x20 = 0;
-    param_1->field_0x24 = 0;
-    param_1->field_0x28 = 0;
-    alloc_two_word_pair_1045c3dc(&param_1->field_0x2c,0,0);
-    cls_105b9400_new((cls_105b9400 *)&param_1->field_0x34);
-    param_1->field_0x210 = 0;
+  if ((self != (cls_105b9458 *)0x0) ||
+     (self = (cls_105b9458 *)heap_alloc((void *)0x214), self != (cls_105b9458 *)0x0)) {
+    cls_105b934c_new((cls_105b934c *)self);
+    self->field_0x14 = (uint32_t)&DAT_105b9458/*ROM*/;
+    self->field_0x18 = 0;
+    self->field_0x1c = 2;
+    self->field_0x20 = 0;
+    self->field_0x24 = 0;
+    self->field_0x28 = 0;
+    alloc_two_word_pair_1045c3dc(&self->field_0x2c,0,0);
+    cls_105b9400_new((cls_105b9400 *)&self->field_0x34);
+    self->field_0x210 = 0;
   }
-  return param_1;
+  return self;
 }

@@ -11,90 +11,90 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_105f9ab0_new(cls_105f9ab0 *param_1)
+void cls_105f9ab0_new(cls_105f9ab0 *obj)
 
 {
-  int iVar1;
-  uint32_t *puVar2;
-  int iVar3;
-  int iVar4;
-  
-  if ((param_1 != (cls_105f9ab0 *)0x0) ||
-     (param_1 = (cls_105f9ab0 *)heap_alloc((void *)0x418), param_1 != (cls_105f9ab0 *)0x0)) {
-    param_1->field_0x414 = (uintptr_t)(&DAT_105f9ab0/*ROM*/);
-    param_1->field_0x0 = 0;
-    param_1->field_0x16c = 0;
-    param_1->field_0x224 = 0;
-    param_1->field_0x410 = 0;
-    iVar3 = 0;
-    iVar1 = 0;
-    iVar4 = 0;
+  int loop_cnt;
+  uint32_t *entry_ptr;
+  int byte_off;
+  int word_off;
+
+  if ((obj != (cls_105f9ab0 *)0x0) ||
+     (obj = (cls_105f9ab0 *)heap_alloc((void *)0x418), obj != (cls_105f9ab0 *)0x0)) {
+    obj->field_0x414 = (uintptr_t)(&DAT_105f9ab0/*ROM*/);
+    obj->field_0x0 = 0;
+    obj->field_0x16c = 0;
+    obj->field_0x224 = 0;
+    obj->field_0x410 = 0;
+    loop_cnt = 0;
+    byte_off = 0;
+    word_off = 0;
     do {
-      puVar2 = (uint32_t *)(&param_1->field_0x4 + iVar1);
-      *(uint8_t *)(puVar2 + 1) = 0;
-      *puVar2 = 0xffff;
-      *(uint8_t *)((int)puVar2 + iVar3 + 0x14) = 0;
-      *(uint32_t *)((int)puVar2 + iVar4 + 8) = 0xffff;
-      *(uint8_t *)((int)puVar2 + iVar3 + 0x14) = 0;
-      *(uint32_t *)((int)puVar2 + iVar4 + 8) = 0xffff;
-      *(uint8_t *)((int)puVar2 + iVar3 + 0x14) = 0;
-      *(uint32_t *)((int)puVar2 + iVar4 + 8) = 0xffff;
-      iVar3 = iVar3 + 1;
-      iVar1 = iVar1 + 0x18;
-      iVar4 = iVar4 + 4;
-    } while (iVar3 < 0xf);
-    iVar3 = 2;
-    iVar1 = 0;
+      entry_ptr = (uint32_t *)(&obj->field_0x4 + byte_off);
+      *(uint8_t *)(entry_ptr + 1) = 0;
+      *entry_ptr = 0xffff;
+      *(uint8_t *)((int)entry_ptr + loop_cnt + 0x14) = 0;
+      *(uint32_t *)((int)entry_ptr + word_off + 8) = 0xffff;
+      *(uint8_t *)((int)entry_ptr + loop_cnt + 0x14) = 0;
+      *(uint32_t *)((int)entry_ptr + word_off + 8) = 0xffff;
+      *(uint8_t *)((int)entry_ptr + loop_cnt + 0x14) = 0;
+      *(uint32_t *)((int)entry_ptr + word_off + 8) = 0xffff;
+      loop_cnt = loop_cnt + 1;
+      byte_off = byte_off + 0x18;
+      word_off = word_off + 4;
+    } while (loop_cnt < 0xf);
+    loop_cnt = 2;
+    byte_off = 0;
     do {
-      puVar2 = (uint32_t *)(&param_1->field_0x170 + iVar1);
-      *puVar2 = 0xffff;
-      puVar2[1] = 0;
-      puVar2[2] = 0;
-      puVar2 = (uint32_t *)(&param_1->field_0x17c + iVar1);
-      *puVar2 = 0xffff;
-      puVar2[1] = 0;
-      puVar2[2] = 0;
-      puVar2 = (uint32_t *)(&param_1->field_0x188 + iVar1);
-      *puVar2 = 0xffff;
-      puVar2[1] = 0;
-      puVar2[2] = 0;
-      puVar2 = (uint32_t *)(&param_1->field_0x194 + iVar1);
-      *puVar2 = 0xffff;
-      puVar2[1] = 0;
-      puVar2[2] = 0;
-      puVar2 = (uint32_t *)(&param_1->field_0x1a0 + iVar1);
-      *puVar2 = 0xffff;
-      puVar2[1] = 0;
-      puVar2[2] = 0;
-      iVar3 = iVar3 + -1;
-      iVar1 = iVar1 + 0x3c;
-    } while (-1 < iVar3);
-    iVar3 = 2;
-    iVar1 = 0;
+      entry_ptr = (uint32_t *)(&obj->field_0x170 + byte_off);
+      *entry_ptr = 0xffff;
+      entry_ptr[1] = 0;
+      entry_ptr[2] = 0;
+      entry_ptr = (uint32_t *)(&obj->field_0x17c + byte_off);
+      *entry_ptr = 0xffff;
+      entry_ptr[1] = 0;
+      entry_ptr[2] = 0;
+      entry_ptr = (uint32_t *)(&obj->field_0x188 + byte_off);
+      *entry_ptr = 0xffff;
+      entry_ptr[1] = 0;
+      entry_ptr[2] = 0;
+      entry_ptr = (uint32_t *)(&obj->field_0x194 + byte_off);
+      *entry_ptr = 0xffff;
+      entry_ptr[1] = 0;
+      entry_ptr[2] = 0;
+      entry_ptr = (uint32_t *)(&obj->field_0x1a0 + byte_off);
+      *entry_ptr = 0xffff;
+      entry_ptr[1] = 0;
+      entry_ptr[2] = 0;
+      loop_cnt = loop_cnt + -1;
+      byte_off = byte_off + 0x3c;
+    } while (-1 < loop_cnt);
+    loop_cnt = 2;
+    byte_off = 0;
     do {
-      *(uint32_t *)((int)&param_1->field_0x228 + iVar1) = 0xffff;
-      *(uint32_t *)((int)(&param_1->field_0x228 + iVar1) + 4) = 0;
-      *(uint32_t *)((int)&param_1->field_0x230 + iVar1) = 0xffff;
-      *(uint32_t *)((int)(&param_1->field_0x230 + iVar1) + 4) = 0;
-      *(uint32_t *)((int)&param_1->field_0x238 + iVar1) = 0xffff;
-      *(uint32_t *)((int)(&param_1->field_0x238 + iVar1) + 4) = 0;
-      *(uint32_t *)((int)&param_1->field_0x240 + iVar1) = 0xffff;
-      *(uint32_t *)((int)(&param_1->field_0x240 + iVar1) + 4) = 0;
-      *(uint32_t *)((int)&param_1->field_0x248 + iVar1) = 0xffff;
-      *(uint32_t *)((int)(&param_1->field_0x248 + iVar1) + 4) = 0;
-      iVar3 = iVar3 + -1;
-      iVar1 = iVar1 + 0x28;
-    } while (-1 < iVar3);
-    iVar3 = 0x16;
-    iVar1 = 0;
+      *(uint32_t *)((int)&obj->field_0x228 + byte_off) = 0xffff;
+      *(uint32_t *)((int)(&obj->field_0x228 + byte_off) + 4) = 0;
+      *(uint32_t *)((int)&obj->field_0x230 + byte_off) = 0xffff;
+      *(uint32_t *)((int)(&obj->field_0x230 + byte_off) + 4) = 0;
+      *(uint32_t *)((int)&obj->field_0x238 + byte_off) = 0xffff;
+      *(uint32_t *)((int)(&obj->field_0x238 + byte_off) + 4) = 0;
+      *(uint32_t *)((int)&obj->field_0x240 + byte_off) = 0xffff;
+      *(uint32_t *)((int)(&obj->field_0x240 + byte_off) + 4) = 0;
+      *(uint32_t *)((int)&obj->field_0x248 + byte_off) = 0xffff;
+      *(uint32_t *)((int)(&obj->field_0x248 + byte_off) + 4) = 0;
+      loop_cnt = loop_cnt + -1;
+      byte_off = byte_off + 0x28;
+    } while (-1 < loop_cnt);
+    loop_cnt = 0x16;
+    byte_off = 0;
     do {
-      *(uint32_t *)((int)&param_1->field_0x2a0 + iVar1) = 0xffff;
-      *(uint32_t *)((int)(&param_1->field_0x2a0 + iVar1) + 4) = 0;
-      *(uint32_t *)((int)&param_1->field_0x2a8 + iVar1) = 0xffff;
-      *(uint32_t *)((int)(&param_1->field_0x2a8 + iVar1) + 4) = 0;
-      iVar3 = iVar3 + -1;
-      iVar1 = iVar1 + 0x10;
-    } while (-1 < iVar3);
+      *(uint32_t *)((int)&obj->field_0x2a0 + byte_off) = 0xffff;
+      *(uint32_t *)((int)(&obj->field_0x2a0 + byte_off) + 4) = 0;
+      *(uint32_t *)((int)&obj->field_0x2a8 + byte_off) = 0xffff;
+      *(uint32_t *)((int)(&obj->field_0x2a8 + byte_off) + 4) = 0;
+      loop_cnt = loop_cnt + -1;
+      byte_off = byte_off + 0x10;
+    } while (-1 < loop_cnt);
   }
   return;
 }

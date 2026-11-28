@@ -6,11 +6,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void zero_memory_range(void *param_1,uint32_t *param_2,uint32_t *param_3)
+void zero_memory_range(void *unused_ctx,uint32_t *start,uint32_t *end)
 
 {
-  for (; param_2 != param_3; param_2 = param_2 + 1) {
-    *param_2 = 0;
+  /* Zero 32-bit words from start up to (but not including) end. */
+  for (; start != end; start = start + 1) {
+    *start = 0;
   }
   return;
 }
