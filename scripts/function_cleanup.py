@@ -186,10 +186,13 @@ COMMON MISTAKES seen in earlier runs -- DO NOT REPEAT:
 
 def build_user(name, va, c_src, asm, fcc_self=None):
     fcc_block = ("" if not fcc_self else
-        f"\n\nFRESH fcc ASSEMBLY of the DECOMPILED C above (what the current C actually recompiles to, "
-        f"via the real target compiler). Compare it INSTRUCTION-BY-INSTRUCTION to the original disasm: "
-        f"wherever they differ, the DECOMPILE is wrong (the C does not reproduce the real machine code) "
-        f"-- call those out as FINDINGS.\n{fcc_self}")
+        f"\n\nFRESH fcc ASSEMBLY of the DECOMPILED C above -- what the current C recompiles to via OUR "
+        f"compiler, fcc911s, which is NOT the compiler the original firmware was built with. So compare it "
+        f"to the original disasm for EQUIVALENCE, not identity: benign differences (register allocation, "
+        f"instruction scheduling, idiom/peephole choices, equivalent addressing) are EXPECTED and are NOT "
+        f"bugs. Flag a FINDING only for a SEMANTIC divergence -- a different operation, a wrong "
+        f"offset/width/mask/immediate, a missing or extra memory access or side effect, or control flow "
+        f"that does not match. Those mean the decompiled C does not faithfully represent the original.\n{fcc_self}")
     return f"""KNOWN BUG CLASSES (bestiary):
 {bestiary_classes()}
 
@@ -355,7 +358,7 @@ def process(path, args):
     va = int(m.group(1), 16)
     name = os.path.splitext(os.path.basename(path))[0]
     asm = disassemble(va)
-    fcc_self = fcc_asm(src) if getattr(args, "fcc", False) else None
+    fcc_self = None if getattr(args, "gcc_only", False) else fcc_asm(src)  # default: real fcc asm (~1s)
     user = build_user(name, va, src, asm, fcc_self)
 
     if args.list:
@@ -394,12 +397,15 @@ def process(path, args):
         elif not re.search(r'\b' + re.escape(name) + r'\s*\(', cleaned):
             print(f"    apply SKIPPED {name}: cleaned block renamed the function (proposal only)", file=sys.stderr)
         else:
-            if getattr(args, "fcc", False):          # real compiler: compare fcc instruction sequences
-                a = asm_insns(fcc_asm(src)); b = asm_insns(fcc_asm(cleaned))
-                same = a is not None and b is not None and a == b; gate = "fcc-asm"
-            else:                                      # host-gcc .text proxy (fast default)
-                a = text_section(src); b = text_section(cleaned)
-                same = a is not None and b is not None and a == b; gate = ".text"
+            # Faithfulness gate: prefer the REAL compiler (fcc, ~1s/fn); fall back to the host-gcc .text
+            # proxy only if fcc/wine is unavailable. A pure rename/format change has identical codegen
+            # under either, so the fallback is still sound.
+            a = b = None; gate = "fcc-asm"
+            if not getattr(args, "gcc_only", False):
+                a, b = asm_insns(fcc_asm(src)), asm_insns(fcc_asm(cleaned))
+            if a is None or b is None:
+                a, b = text_section(src), text_section(cleaned); gate = ".text"
+            same = a is not None and b is not None and a == b
             if same:
                 open(path, "w").write(cleaned if cleaned.endswith("\n") else cleaned + "\n")
                 applied = True; tag = f"APPLIED({gate}=)"
@@ -426,7 +432,7 @@ def main():
     ap.add_argument("--dry-run", action="store_true", help="write the report only; do NOT apply the cleaned body")
     ap.add_argument("--commit", action="store_true", help="git-commit the applied files + reports after the run (review via diff later)")
     ap.add_argument("--allow-codegen", action="store_true", help="apply even if codegen changed (structural refactors); default HOLDs those for review")
-    ap.add_argument("--fcc", action="store_true", help="HIGH-ASSURANCE: use the real fcc compiler for the faithfulness gate, and give the model fresh fcc asm vs the original disasm (mechanical decompile-issue detection). Slow (wine).")
+    ap.add_argument("--gcc-only", action="store_true", help="skip fcc: use the host-gcc .text proxy for the gate and omit the fcc-asm-vs-disasm decompile check (for hosts without the fcc/wine toolchain). Default uses real fcc (~1s/fn).")
     ap.add_argument("--list", action="store_true", help="print asm + prompt only, no LLM call")
     args = ap.parse_args()
 
