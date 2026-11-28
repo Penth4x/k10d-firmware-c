@@ -5814,7 +5814,8 @@ typedef struct cls_105a5c2c {
   uint32_t field_0x4;
   uint32_t field_0x8;
   uint32_t field_0xc;
-  uint32_t field_0x10;
+  uint8_t field_0x10;
+  uint8_t _pad_0x11[0x3];
   uint32_t field_0x14;
 } cls_105a5c2c;
 
@@ -5929,7 +5930,8 @@ typedef struct cls_105a6ef4 {
 
 typedef struct cls_105a6f3c {
   uint32_t field_0x0;
-  uint32_t field_0x4;
+  uint8_t field_0x4;
+  uint8_t _pad_0x5[0x3];
 } cls_105a6f3c;
 
 typedef struct cls_105a6f84 {
@@ -6736,18 +6738,14 @@ typedef struct cls_105b3ae4 {
 } cls_105b3ae4;
 
 typedef struct cls_105b3cdc {
-  uint8_t field_0x0;
-  uint8_t _pad_0x1[0x1];
-  uint8_t field_0x2;
-  uint8_t _pad_0x3[0x1];
+  uint16_t field_0x0;
+  uint16_t field_0x2;
   uint32_t field_0x4;
   uint32_t field_0x8;
   uint32_t field_0xc;
   uint32_t field_0x10;
-  uint8_t field_0x14;
-  uint8_t _pad_0x15[0x1];
-  uint8_t field_0x16;
-  uint8_t _pad_0x17[0x1];
+  uint16_t field_0x14;
+  uint16_t field_0x16;
   uint8_t field_0x18;
   uint8_t field_0x19;
   uint8_t _pad_0x1a[0x2];
@@ -6861,15 +6859,12 @@ typedef struct cls_105b3ee0 {
   uint32_t field_0x4;
   uint8_t _pad_0x8[0x18];
   uint32_t field_0x20;
-  uint8_t field_0x24;
-  uint8_t _pad_0x25[0x1];
-  uint8_t field_0x26;
-  uint8_t _pad_0x27[0x1];
-  uint8_t field_0x28;
-  uint8_t _pad_0x29[0x1];
-  uint8_t field_0x2a;
-  uint8_t _pad_0x2b[0x1];
-  uint32_t field_0x2c;
+  uint16_t field_0x24;
+  uint16_t field_0x26;
+  uint16_t field_0x28;
+  uint16_t field_0x2a;
+  uint16_t field_0x2c;
+  uint8_t _pad_0x2e[0x2];
   uint8_t field_0x30;
   uint8_t _pad_0x31[0x1];
   uint8_t field_0x32;
@@ -10194,48 +10189,33 @@ typedef struct cls_105fa8e4 {
   uint32_t field_0x4;
   uint32_t field_0x8;
   uint32_t field_0xc;
-  uint8_t field_0x10;
-  uint8_t _pad_0x11[0x1];
-  uint8_t field_0x12;
-  uint8_t _pad_0x13[0x1];
-  uint8_t field_0x14;
-  uint8_t _pad_0x15[0x1];
-  uint8_t field_0x16;
-  uint8_t _pad_0x17[0x1];
+  uint16_t field_0x10;
+  uint16_t field_0x12;
+  uint16_t field_0x14;
+  uint16_t field_0x16;
   uint32_t field_0x18;
   uint32_t field_0x1c;
   uint32_t field_0x20;
   uint32_t field_0x24;
-  uint8_t field_0x28;
-  uint8_t _pad_0x29[0x1];
-  uint8_t field_0x2a;
-  uint8_t _pad_0x2b[0x1];
-  uint8_t field_0x2c;
-  uint8_t _pad_0x2d[0x1];
-  uint8_t field_0x2e;
-  uint8_t _pad_0x2f[0x1];
+  uint16_t field_0x28;
+  uint16_t field_0x2a;
+  uint16_t field_0x2c;
+  uint16_t field_0x2e;
   uint32_t field_0x30;
   uint32_t field_0x34;
   uint32_t field_0x38;
   uint32_t field_0x3c;
   uint32_t field_0x40;
-  uint8_t field_0x44;
-  uint8_t _pad_0x45[0x1];
-  uint8_t field_0x46;
-  uint8_t _pad_0x47[0x1];
-  uint8_t field_0x48;
-  uint8_t _pad_0x49[0x1];
-  uint8_t field_0x4a;
-  uint8_t _pad_0x4b[0x1];
-  uint8_t field_0x4c;
-  uint8_t _pad_0x4d[0x1];
-  uint8_t field_0x4e;
-  uint8_t _pad_0x4f[0x1];
-  uint8_t field_0x50;
-  uint8_t _pad_0x51[0x1];
-  uint8_t field_0x52;
-  uint8_t _pad_0x53[0x1];
-  uint32_t field_0x54;
+  uint16_t field_0x44;
+  uint16_t field_0x46;
+  uint16_t field_0x48;
+  uint16_t field_0x4a;
+  uint16_t field_0x4c;
+  uint16_t field_0x4e;
+  uint16_t field_0x50;
+  uint16_t field_0x52;
+  uint16_t field_0x54;
+  uint8_t _pad_0x56[0x2];
   uint32_t field_0x58;
 } cls_105fa8e4;
 
