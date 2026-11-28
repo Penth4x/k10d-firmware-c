@@ -240,6 +240,34 @@ def _fr_primer():
 
 SYSTEM += _fr_primer()
 
+# type recovery: inject known object struct types so the model can STRUCT-DE-SOUP reliably (not guess)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # so type_recovery imports however we're loaded
+try:
+    from type_recovery import struct_defs as _struct_defs, evident_param_types as _evident_types
+    _STRUCT_DEFS = _struct_defs()
+except Exception:
+    _STRUCT_DEFS, _evident_types = {}, None
+
+def known_types_block(c_src):
+    if not _evident_types or not _STRUCT_DEFS:
+        return ""
+    et = _evident_types(c_src, _STRUCT_DEFS)
+    if not et:
+        return ""
+    lines, seen = [], []
+    for param, cls in et.items():
+        lines.append(f"  `{param}` is a `{cls} *`")
+        if cls not in seen and cls in _STRUCT_DEFS:
+            seen.append(cls)
+    defs = "\n".join(_STRUCT_DEFS[c] for c in seen)
+    return ("\n\nKNOWN OBJECT TYPES (recovered -- USE for STRUCT DE-SOUP):\n" + "\n".join(lines) +
+            "\nThese parameters have a KNOWN struct type. In CLEANED, add ONE typed local per object at the "
+            "top -- `cls_XXXX *o = (cls_XXXX *)param;` -- then replace every fixed-offset access "
+            "`*(T*)((int)param + 0xNN)` with the struct field `o->field_0xNN` (the structs name fields by "
+            "offset -> direct mapping; match the field width to the access). Do NOT change the PARAMETER's "
+            "declared type (it must keep matching the funcs.h prototype -- retyping it is a compile error); "
+            "cast via the local instead. Structs:\n```c\n" + defs + "\n```")
+
 def build_user(name, va, c_src, asm, fcc_self=None):
     fcc_block = ("" if not fcc_self else
         f"\n\nFRESH fcc ASSEMBLY of the DECOMPILED C above -- what the current C recompiles to via OUR "
@@ -266,6 +294,7 @@ DECOMPILED C (the function to review):
 ```c
 {c_src}
 ```
+{known_types_block(c_src)}
 
 Review per your three sections. Compare the C against the disassembly for the bug classes; keep the
 cleaned code behaviour-identical (bugs included)."""
