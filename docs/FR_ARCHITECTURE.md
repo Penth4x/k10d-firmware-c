@@ -58,6 +58,24 @@ executes BEFORE control transfers.** Consequences you must apply:
 Example (verified): `call:d @r12` / `ldi:8 #0x64,r5` — r5 is set to 0x64 **for the function
 in r12**; the decompiler rendering that call's 2nd argument as `100` is correct.
 
+**To read a `call:d`'s arguments, look at the argument registers AS OF ITS OWN DELAY SLOT —
+not at an earlier instruction.** This matters most with two delayed calls close together,
+because each call's first-argument setup often lives in that call's delay slot. Worked example
+(verified against the real disasm):
+```
+call:d @r12        ; call A
+mov r9,r4          ; delay slot of A  -> A's 1st arg r4 = r9
+                   ; (after A returns, r4 = A's return value, call it V)
+mov r4,r5          ; r5 = V
+ldi:32 #...,r12    ; load B's address
+call:d @r12        ; call B
+mov r10,r4         ; delay slot of B  -> B's 1st arg r4 = r10   (NOT V!)
+```
+So B is called with `(r4 = r10, r5 = V)`. A common mistake is to carry r4 = V forward from
+`mov r4,r5` and report B's 1st arg as V — but B's delay slot `mov r10,r4` overwrites r4 with
+r10 before B runs. Always trace the arg register down to, and including, the delay slot of the
+exact call you are describing.
+
 ## Addressing modes
 | form | meaning | scaling |
 |------|---------|---------|
