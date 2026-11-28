@@ -87,6 +87,39 @@ def callee_context(body, self_name):
     names = {t for t in IDENT.findall(body) if t in protos and t != self_name}
     return "\n".join(protos[n] for n in sorted(names)[:40])
 
+def caller_context(self_name):
+    """Who CALLS this function + example call-sites -- the best signal for its real role and the
+    meaning of its args/return (and for spotting a dropped/mis-typed arg). Read-only; names are
+    speculative. Found by grepping the tree for calls to <self_name>( ."""
+    protos = load_protos()
+    try:
+        hits = subprocess.run(["grep", "-rhnE", "--include=*.c", r'\b' + re.escape(self_name) + r'\s*\(',
+                               os.path.join(ROOT, "cpu/src")], capture_output=True, text=True, timeout=90).stdout
+    except (subprocess.SubprocessError, OSError):
+        return ""
+    sites, protonames = [], set()
+    for line in hits.splitlines():
+        s = line.strip()
+        if s.startswith("*") or "@k10d" in s or re.match(r'\w[\w\s\*]*' + re.escape(self_name) + r'\s*\(', s):
+            continue   # skip comments and the definition itself
+        sites.append(s[:160])
+    # callers' prototypes: files that reference it, by basename
+    try:
+        files = subprocess.run(["grep", "-rlwE", "--include=*.c", re.escape(self_name),
+                                os.path.join(ROOT, "cpu/src")], capture_output=True, text=True, timeout=90).stdout.split()
+    except (subprocess.SubprocessError, OSError):
+        files = []
+    for f in files:
+        cn = os.path.splitext(os.path.basename(f))[0]
+        if cn != self_name and cn in protos:
+            protonames.add(protos[cn])
+    out = ""
+    if protonames:
+        out += "caller prototypes:\n" + "\n".join(sorted(protonames)[:20])
+    if sites:
+        out += "\nexample call-sites (how it is invoked -- the real arg meanings):\n" + "\n".join(sites[:12])
+    return out.strip()
+
 # ---------------------------------------------------------------- bestiary (condensed)
 _BEST = None
 def bestiary_classes():
@@ -151,8 +184,12 @@ def build_user(name, va, c_src, asm):
     return f"""KNOWN BUG CLASSES (bestiary):
 {bestiary_classes()}
 
-OTHER FUNCTIONS this one calls (prototypes only -- inspect, do NOT modify; names are speculative):
+CALLEES -- other functions this one calls (prototypes only; inspect, do NOT modify; names speculative):
 {callee_context(c_src, name) or '(none referenced)'}
+
+CALLERS -- who calls this function, and how (read-only; the best clue to its role + real arg meanings;
+names speculative, do NOT modify them):
+{caller_context(name) or '(no C-level callers found; may be reached only via vtable/register)'}
 
 ORIGINAL FR DISASSEMBLY of {name} @ 0x{va:08x}:
 {asm}
