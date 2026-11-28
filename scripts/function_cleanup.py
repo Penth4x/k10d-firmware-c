@@ -423,7 +423,7 @@ def fcc_asm(c_text):
     cf = tempfile.NamedTemporaryFile("w", suffix=".c", delete=False, dir="/tmp"); cf.write(c_text); cf.close()
     asm = cf.name + ".asm"
     try:
-        subprocess.run(["wine", "BIN/fcc911s.exe", "-S", "-O1", "-cpu", "MB91F128", "-I", inc,
+        subprocess.run(["wine", "BIN/fcc911s.exe", "-S", "-O1", "-KSIZE", "-cpu", "MB91F128", "-I", inc,
                         "-o", _zpath(asm), _zpath(cf.name)], cwd=SOFTUNE, capture_output=True, timeout=240)
         return open(asm, errors="ignore").read() if os.path.exists(asm) else None
     except (subprocess.SubprocessError, OSError):

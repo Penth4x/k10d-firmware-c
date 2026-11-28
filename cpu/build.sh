@@ -11,7 +11,7 @@ set -u
 HERE="$(cd "$(dirname "$0")" && pwd)"; ROOT="$(dirname "$HERE")"
 : "${SOFTUNE:?set SOFTUNE to the dir containing BIN/fcc911s.exe (FR toolchain)}"
 : "${FW131:?set FW131 to a copy of the original FWDC162B.BIN (1.31) to harvest non-code data}"
-CPU=MB91F128; COPT=${COPT:--O1}; J=${J:-$(nproc)}; CODEBASE=0x10622400
+CPU=MB91F128; COPT=${COPT:--O1 -KSIZE}; J=${J:-$(nproc)}; CODEBASE=0x10622400
 OUT="$HERE/out"; OBJ="$OUT/obj"; mkdir -p "$OBJ"; : > "$OUT/warnings.txt"
 INC="-I Z:${HERE//\//\\}\\include"
 w(){ echo "Z:${1//\//\\}"; }
