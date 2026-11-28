@@ -30,6 +30,7 @@ Usage:
   [--out DIR]  (thinking is always on; output is never token-capped)
 """
 import os, re, sys, json, sqlite3, subprocess, urllib.request, argparse, hashlib, tempfile, difflib
+from collections import Counter
 
 ROOT      = "/home/memorai/k10d-firmware-c"
 CATALOG   = "/home/memorai/k10d-re/harness2/catalog.sqlite"
@@ -179,7 +180,15 @@ almost nothing, you did not do the job.
   leave them intact here).
 - DE-SOUP -- this is the main job. Turn decompiler artifacts into clear C that compiles the same:
   * `*(T *)((int)base + i * sizeof(T))`  ->  retype `base` to `T *` and write `base[i]`.
-  * `*(T *)((int)base + 0xNN)`  ->  a struct field access `base->field` when a struct type fits the offset.
+  * `*(T *)((int)obj + 0xNN)` (a fixed-offset access on an object pointer) -> a STRUCT FIELD access.
+    The struct types in the headers name their members by offset (`field_0xNN`), so the mapping is
+    DIRECT: cast `obj` to its struct type once -- `((cls_XXXX *)obj)->field_0xNN`, or add a typed local
+    `cls_XXXX *o = (cls_XXXX *)obj;` then `o->field_0xNN`. Find the struct type from: the function's role
+    (a method of class cls_XXXX takes a `cls_XXXX *`), how the decompiled C already casts that pointer
+    elsewhere (e.g. `(cls_XXXX *)obj` in a call), or the caller argument types shown above. Use an
+    EXISTING type from the headers (globals.h/structs.h are included) -- never invent a struct or field.
+    Match the field width to the access width. If you cannot identify the struct type, keep the cast but
+    assign the value to a clearly-named local (do not leave bare `*(int*)((int)obj+0xNN)` unexplained).
   * drop the redundant `(int)ptr` / reinterpret casts the decompiler inserts just to do pointer math.
   These compile to the same instructions, so they pass the gate and read far better -- prefer them.
   WORKED EXAMPLE (codegen-identical, do this):
@@ -277,30 +286,65 @@ def call_llm(messages, timeout=1800):
 
 MAX_ROUNDS = 4   # 1 initial + up to 3 self-fixes of its own compile errors
 
-def codegen_check(src, cleaned, gcc_only):
-    """Compare the CLEANED function's codegen to the ORIGINAL decompiled C's codegen, under the SAME
-    compiler (fcc, or the host-gcc .text proxy as fallback) -- this isolates 'did the cleanup change
-    anything' from compiler-idiom noise, and is NOT a comparison against the firmware disasm.
-    Returns (matches, human_diff): matches True/False, or None when the gate cannot run (a compile
-    failure or fcc unavailable), in which case the caller does not feed anything back."""
-    a = b = None; label = "fcc instructions"
+def intent_sig(asm_lines):
+    """ASM INTENT signature: DATA memory ops by width + call/branch counts, EXCLUDING frame/stack
+    spills. Robust to the register allocation / spilling that de-soup (and fcc) legitimately change;
+    catches a changed load/store WIDTH, a dropped/added real memory access, or a control-flow change.
+    (It does NOT catch a wrong offset at the same width -- that is covered by the model reading the asm
+    and by the end-to-end boot test.)"""
+    c = Counter()
+    for ln in asm_lines or []:
+        low = ln.lower(); t = low.split()
+        if not t: continue
+        op = t[0]
+        spill = any(x in low for x in ("@(fp", "@(sp", "@(r15", "@(r14"))
+        if op in ("ldub", "lduh", "ld", "stb", "sth", "st", "dmov", "dmovb") and not spill:
+            c["data:" + op] += 1
+        elif op.startswith("call"):
+            c["call"] += 1
+        elif op.startswith(("bne","beq","bp","bn","blt","bge","ble","bgt","bls","bhi","bc","bnc","bra","bno","bv","bnv")):
+            c["branch"] += 1
+    return c
+
+def codegen_check(src, cleaned, gcc_only, de_soup=False):
+    """Compare the CLEANED function to the ORIGINAL decompiled C under the SAME compiler (fcc), isolating
+    the cleanup's effect from compiler noise (NOT a compare vs the firmware disasm). Two modes:
+      strict  -- exact fcc instructions (or .text) must match: a rename/reformat-only cleanup.
+      de_soup -- only the ASM INTENT must match (data memory-op widths + control flow, ignoring fcc
+                 spills/register allocation): lets a leaner de-soup through while still catching a changed
+                 width / dropped memory op / control-flow change.
+    Returns (matches, human_diff, label): matches True/False, or None when the gate cannot run."""
+    if de_soup:
+        if gcc_only:
+            return None, None, "intent"                       # need fcc asm for the intent signature
+        a, b = asm_insns(fcc_asm(src)), asm_insns(fcc_asm(cleaned))
+        if a is None or b is None:
+            return None, None, "intent"
+        sa, sb = intent_sig(a), intent_sig(b)
+        if sa == sb:
+            return True, "", "intent"
+        diff = "\n".join(f"    {k}: original={sa.get(k,0)} vs yours={sb.get(k,0)}"
+                          for k in sorted(set(sa) | set(sb)) if sa.get(k,0) != sb.get(k,0))
+        return False, ("asm INTENT differs -- a de-soup must preserve every data load/store WIDTH and the "
+                       "control flow; these changed:\n" + diff), "intent"
+    a = b = None; label = "fcc-asm"
     if not gcc_only:
         a, b = asm_insns(fcc_asm(src)), asm_insns(fcc_asm(cleaned))
     if a is None or b is None:
-        a, b = text_section(src), text_section(cleaned); label = ".text bytes"
+        a, b = text_section(src), text_section(cleaned); label = ".text"
         if a is None or b is None:
-            return None, None
-        return (a == b), ("" if a == b else f"The cleaned code compiles to different {label} than the original C.")
+            return None, None, label
+        return (a == b), ("" if a == b else f"The cleaned code compiles to different {label} than the original C."), label
     if a == b:
-        return True, ""
+        return True, "", label
     diff = "\n".join(list(difflib.unified_diff(a, b, "original_C_fcc", "your_cleaned_fcc", lineterm=""))[:44])
-    return False, (f"fcc assembly differs (original decompiled C vs your cleaned version):\n{diff}")
+    return False, (f"fcc assembly differs (original decompiled C vs your cleaned version):\n{diff}"), label
 
 def _indent(text, n=4):
     pad = " " * n
     return "\n".join(pad + ln for ln in (text or "").strip().splitlines())
 
-def cleanup_with_self_check(user, dry_run, src="", gcc_only=False, allow_codegen=False):
+def cleanup_with_self_check(user, dry_run, src="", gcc_only=False, allow_codegen=False, de_soup=False):
     """Generate the cleanup, then let the model fix, as feedback loops: (a) its own COMPILE errors, and
     (b) any CODEGEN divergence from the original C (same-compiler fcc compare). (b) matters for de-soup:
     a rewrite that moved the machine code gets the instruction diff back and a chance to make it
@@ -319,6 +363,11 @@ def cleanup_with_self_check(user, dry_run, src="", gcc_only=False, allow_codegen
         "typed `base[i]` / `base->field` indexing, dropped reinterpret casts, comments) but REVERT whatever "
         "rewrite moved the machine code (often a changed type width, an int/uint cast, or a reordered/merged "
         "expression). Return all three sections (### FINDINGS / ### RENAMES / ### CLEANED) again.")
+    INTENT_FB = ("Your CLEANED code COMPILES but changed a DATA OPERATION, not just codegen -- a de-soup must "
+        "preserve every load/store WIDTH and the control flow. {diff}\n\nThis usually means a wrong element/"
+        "field type width (e.g. a byte access typed as uint32_t), a dropped or added memory access, or a "
+        "changed branch. KEEP the de-soup, but fix the data accesses so the widths and control flow match the "
+        "original EXACTLY. Return all three sections (### FINDINGS / ### RENAMES / ### CLEANED) again.")
     for rnd in range(1, MAX_ROUNDS + 1):
         raw = call_llm(messages)
         findings, renames, cleaned = split_sections(raw)
@@ -335,18 +384,20 @@ def cleanup_with_self_check(user, dry_run, src="", gcc_only=False, allow_codegen
             messages.append({"role": "user", "content": COMPILE_FB.format(err=err)})
             continue
         if src and not allow_codegen:
-            matches, diff = codegen_check(src, cleaned, gcc_only)
+            matches, diff, _lbl = codegen_check(src, cleaned, gcc_only, de_soup)
+            what = "ASM INTENT" if de_soup else "CODEGEN"
+            fb = INTENT_FB if de_soup else CODEGEN_FB
             if matches is False:
                 if rnd < MAX_ROUNDS:
-                    trail.append(f"round {rnd}: compiled OK, but CODEGEN DIVERGED from the original C -> fed back the diff:\n" + _indent((diff or "")[:700]))
+                    trail.append(f"round {rnd}: compiled OK, but {what} DIVERGED from the original C -> fed back the diff:\n" + _indent((diff or "")[:700]))
                     messages.append({"role": "assistant", "content": raw})
-                    messages.append({"role": "user", "content": CODEGEN_FB.format(diff=diff or "")})
+                    messages.append({"role": "user", "content": fb.format(diff=diff or "")})
                     continue
-                trail.append(f"round {rnd}: compiled OK, but CODEGEN DIVERGED and rounds exhausted -> will HOLD:\n" + _indent((diff or "")[:700]))
+                trail.append(f"round {rnd}: compiled OK, but {what} DIVERGED and rounds exhausted -> will HOLD:\n" + _indent((diff or "")[:700]))
             elif matches is None:
-                trail.append(f"round {rnd}: compiled OK; codegen gate could not run (fcc/compile unavailable) -> fall back to .text gate")
+                trail.append(f"round {rnd}: compiled OK; {what} gate could not run (fcc unavailable)")
             else:
-                trail.append(f"round {rnd}: compiled OK and CODEGEN MATCHES the original C -> applied")
+                trail.append(f"round {rnd}: compiled OK and {what} MATCHES the original C -> applied")
         else:
             trail.append(f"round {rnd}: compiled OK (codegen gate off: " + ("allow_codegen" if allow_codegen else "no src") + ")")
         return findings, renames, cleaned, rnd, "", trail
@@ -468,7 +519,8 @@ def process(path, args):
 
     try:
         findings, renames, cleaned, rounds, cc_err, trail = cleanup_with_self_check(
-            user, args.dry_run, src, getattr(args, "gcc_only", False), getattr(args, "allow_codegen", False))
+            user, args.dry_run, src, getattr(args, "gcc_only", False),
+            getattr(args, "allow_codegen", False), getattr(args, "de_soup", False))
     except Exception as e:                       # noqa: BLE001 -- surface any transport error
         print(f"  LLM error on {name}: {e}", file=sys.stderr); return
 
@@ -503,20 +555,16 @@ def process(path, args):
             # Faithfulness gate: prefer the REAL compiler (fcc, ~1s/fn); fall back to the host-gcc .text
             # proxy only if fcc/wine is unavailable. A pure rename/format change has identical codegen
             # under either, so the fallback is still sound.
-            a = b = None; gate = "fcc-asm"
-            if not getattr(args, "gcc_only", False):
-                a, b = asm_insns(fcc_asm(src)), asm_insns(fcc_asm(cleaned))
-            if a is None or b is None:
-                a, b = text_section(src), text_section(cleaned); gate = ".text"
-            same = a is not None and b is not None and a == b
-            if same:
+            de_soup = getattr(args, "de_soup", False)
+            matches, _diff, gate = codegen_check(src, cleaned, getattr(args, "gcc_only", False), de_soup)
+            if matches:
                 open(path, "w").write(cleaned if cleaned.endswith("\n") else cleaned + "\n")
                 applied = True; tag = f"APPLIED({gate}=)"
             elif args.allow_codegen:
                 open(path, "w").write(cleaned if cleaned.endswith("\n") else cleaned + "\n")
                 applied = True; tag = "APPLIED(codegen-changed)"
             else:
-                tag = "HELD(codegen-changed)"
+                tag = f"HELD({'intent' if de_soup else 'codegen'}-diverged)"
                 report += ("\n## CODEGEN CHANGED -- held for review (original kept)\n"
                            "The cleaned .text differs from the original, so this is NOT a pure rename/format "
                            "cleanup -- the model restructured logic/control-flow. Review behaviour before "
@@ -535,6 +583,7 @@ def main():
     ap.add_argument("--dry-run", action="store_true", help="write the report only; do NOT apply the cleaned body")
     ap.add_argument("--commit", action="store_true", help="git-commit the applied files + reports after the run (review via diff later)")
     ap.add_argument("--allow-codegen", action="store_true", help="apply even if codegen changed (structural refactors); default HOLDs those for review")
+    ap.add_argument("--de-soup", dest="de_soup", action="store_true", help="de-soup mode: gate on ASM INTENT (data memory-op widths + control flow) not exact codegen -- lets leaner de-souped code through while catching width/op/control-flow changes")
     ap.add_argument("--gcc-only", action="store_true", help="skip fcc: use the host-gcc .text proxy for the gate and omit the fcc-asm-vs-disasm decompile check (for hosts without the fcc/wine toolchain). Default uses real fcc (~1s/fn).")
     ap.add_argument("--list", action="store_true", help="print asm + prompt only, no LLM call")
     args = ap.parse_args()

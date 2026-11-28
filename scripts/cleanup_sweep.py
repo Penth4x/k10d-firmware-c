@@ -51,10 +51,10 @@ def save_state(s):
     os.makedirs(CLEAN, exist_ok=True)
     tmp = STATE + ".tmp"; json.dump(s, open(tmp, "w")); os.replace(tmp, STATE)
 
-def run_one(path, timeout, gcc_only, allow_codegen=False):
+def run_one(path, timeout, gcc_only, allow_codegen=False, de_soup=False):
     """One function in an isolated subprocess. Retries transient LLM/server errors (e.g. the
     llama-server down during a reboot) with backoff; returns the tool's stdout+stderr or a marker."""
-    cmd = [sys.executable, TOOL, path] + (["--gcc-only"] if gcc_only else []) + (["--allow-codegen"] if allow_codegen else [])
+    cmd = [sys.executable, TOOL, path] + (["--gcc-only"] if gcc_only else []) + (["--allow-codegen"] if allow_codegen else []) + (["--de-soup"] if de_soup else [])
     for attempt in range(6):
         try:
             r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, timeout=timeout)
@@ -151,7 +151,8 @@ def main():
     ap.add_argument("--batch", type=int, default=10)
     ap.add_argument("--timeout", type=int, default=900)
     ap.add_argument("--gcc-only", action="store_true")
-    ap.add_argument("--allow-codegen", action="store_true", help="de-soup mode: apply even when codegen changes (behavior validated by the boot test, not per-fn identity)")
+    ap.add_argument("--allow-codegen", action="store_true", help="apply even when codegen changes (compile-only; boot test validates)")
+    ap.add_argument("--de-soup", dest="de_soup", action="store_true", help="de-soup mode: gate on ASM INTENT (data-op widths + control flow), not exact codegen")
     ap.add_argument("--status", action="store_true")
     ap.add_argument("--json", action="store_true", help="with --status: raw JSON tallies")
     ap.add_argument("--priority-file", help="file of .c paths (one per line) to process FIRST, in order (e.g. boot-path functions)")
@@ -180,14 +181,14 @@ def main():
         todo = head + tail
         print(f"priority: {len(head)} boot-path functions first, then {len(tail)} others", flush=True)
     print(f"sweep: {len(todo)} to do / {len(files)} total ({len(done)} already done). batch={a.batch} timeout={a.timeout}s "
-          f"gate={'gcc' if a.gcc_only else 'fcc'} mode={'DE-SOUP(allow-codegen)' if a.allow_codegen else 'strict-identity'}", flush=True)
+          f"gate={'gcc' if a.gcc_only else 'fcc'} mode={'DE-SOUP(intent-gate)' if a.de_soup else ('allow-codegen' if a.allow_codegen else 'strict-identity')}", flush=True)
 
     since_commit = 0
     for i, f in enumerate(todo, 1):
         if _stop:
             print("stop requested -- checkpointing and exiting", flush=True); break
         t0 = time.time()
-        out = run_one(f, a.timeout, a.gcc_only, a.allow_codegen)
+        out = run_one(f, a.timeout, a.gcc_only, a.allow_codegen, a.de_soup)
         while out == "SERVER_DOWN" and not _stop:   # llama-server down (reboot/crash): wait, retry SAME
             print(f"[{i}/{len(todo)}] llama-server down -- waiting 120s, will retry {os.path.basename(f)} "
                   f"(not skipping)", flush=True)
@@ -195,7 +196,7 @@ def main():
                 if _stop: break
                 time.sleep(5)
             if _stop: break
-            out = run_one(f, a.timeout, a.gcc_only, a.allow_codegen)
+            out = run_one(f, a.timeout, a.gcc_only, a.allow_codegen, a.de_soup)
         if _stop:
             print("stop requested -- checkpointing and exiting", flush=True); break
         name = os.path.splitext(os.path.basename(f))[0]
