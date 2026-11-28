@@ -15,27 +15,30 @@
 #include "funcs.h"
 #include "syscall_traps.h"
 
-bool eventflag_wai_flg(uint32_t *param_1,uint32_t param_2,uint32_t *param_3,int param_4)
+bool eventflag_wai_flg(uint32_t *flag_obj, uint32_t wait_pattern, uint32_t *result_ptr, int wait_mode)
 
 {
-  int iVar1;
-  uintptr_t sp;
-  uint32_t uStack_8;
-  
-  if (param_4 < 1) {
-    if (param_4 < 0) {
-      param_4 = -1;
+  int svc_result;
+  uint32_t local_result;
+
+  /* Clamp wait_mode: >0 keep, ==0 keep 0, <0 set to -1 */
+  if (wait_mode < 1) {
+    if (wait_mode < 0) {
+      wait_mode = -1;
     }
     else {
-      param_4 = 0;
+      wait_mode = 0;
     }
   }
-  uStack_8 = 0;
-  if (param_3 == (uint32_t *)0x0) {
-    iVar1 = __trap_kernel_wai_flg_svc((int)(short)*param_1,param_2,1,&uStack_8,param_4);
+
+  local_result = 0;
+
+  if (result_ptr == (uint32_t *)0x0) {
+    svc_result = __trap_kernel_wai_flg_svc((int)(short)*flag_obj, wait_pattern, 1, &local_result, wait_mode);
   }
   else {
-    iVar1 = __trap_kernel_wai_flg_svc((int)(short)*param_1,param_2,1,param_3,param_4);
+    svc_result = __trap_kernel_wai_flg_svc((int)(short)*flag_obj, wait_pattern, 1, result_ptr, wait_mode);
   }
-  return iVar1 == 0;
+
+  return svc_result == 0;
 }

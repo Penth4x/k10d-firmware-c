@@ -19,61 +19,60 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-bool screen_activate_ondemand(void *param_1,void *param_2)
+bool screen_activate_ondemand(void *container,void *screen_ctx)
 
 {
   bool bVar1;
-  void *pvVar2;
-  int iVar3;
-  int iVar4;
-  uint32_t uVar5;
-  void *pvVar6;
-  uintptr_t sp;
-  uint32_t uStack_1c;
-  uint8_t auStack_18 [8];
-  uint8_t auStack_10 [8];
-  
-  pvVar2 = (void *)get_system_heap();
-  pvVar2 = (void *)mempool_get_block(pvVar2,&DAT_00000200,2);
-  iVar3 = lookup_table_entry_by_index_10482026((void*)(_DAT_80010030/*SDRAM*/));
+  void *block;
+  int obj;
+  int vret;
+  uint32_t le_word;
+  void *heap;
+  uint32_t sub_obj;
+  uint8_t zero_buf [8];
+  uint8_t le_buf [8];
+
+  block = (void *)get_system_heap();
+  block = (void *)mempool_get_block(block,&DAT_00000200,2);
+  obj = lookup_table_entry_by_index_10482026((void*)(_DAT_80010030/*SDRAM*/));
   bVar1 = true;
-  iVar4 = (((vtbl_entry*)(*(int *)(iVar3 + 4)))[3].fn)
-                    (((vtbl_entry*)(*(int *)(iVar3 + 4)))[3].adj + iVar3,0);
-  if ((iVar4 != 0) &&
-     (iVar4 = (((vtbl_entry*)(*(int *)(iVar3 + 4)))[7].fn)
-                        (((vtbl_entry*)(*(int *)(iVar3 + 4)))[7].adj + iVar3,0,1,pvVar2), iVar4 != 0)) {
+  vret = (((vtbl_entry*)(*(int *)(obj + 4)))[3].fn)
+                 (((vtbl_entry*)(*(int *)(obj + 4)))[3].adj + obj,0);
+  if ((vret != 0) &&
+     (vret = (((vtbl_entry*)(*(int *)(obj + 4)))[7].fn)
+                    (((vtbl_entry*)(*(int *)(obj + 4)))[7].adj + obj,0,1,block), vret != 0)) {
     bVar1 = false;
-    alloc_and_store_pointer(&uStack_1c,pvVar2);
-    alloc_and_zero_16_bytes_1047f12a(auStack_18);
-    iVar4 = scan_buffer_for_termination(&uStack_1c,auStack_18);
-    if (iVar4 == 0) {
-      iVar4 = compute_byte_offset_from_index(param_1,param_2);
-      *(uint32_t *)(iVar4 + 4) = 0;
+    alloc_and_store_pointer(&sub_obj,block);
+    alloc_and_zero_16_bytes_1047f12a(zero_buf);
+    vret = scan_buffer_for_termination(&sub_obj,zero_buf);
+    if (vret == 0) {
+      vret = compute_byte_offset_from_index(container,screen_ctx);
+      *(uint32_t *)(vret + 4) = 0;
     }
     else {
-      iVar4 = compute_byte_offset_from_index(param_1,param_2);
-      uVar5 = read_little_endian_word_1047f216(auStack_18,auStack_10);
-      *(uint32_t *)(iVar4 + 4) = uVar5;
+      vret = compute_byte_offset_from_index(container,screen_ctx);
+      le_word = read_little_endian_word_1047f216(zero_buf,le_buf);
+      *(uint32_t *)(vret + 4) = le_word;
     }
-    iVar4 = process_buffer_state_transition_1053f676(param_2,(void *)((int)param_1 + 0xc),iVar4);
-    *(int *)((int)param_1 + 4) = iVar4;
-    free_heap_block_if_flagged_1047f182(auStack_18,2);
-    free_heap_if_flag_set_1047f3b6(&uStack_1c,2);
+    vret = process_buffer_state_transition_1053f676(screen_ctx,(void *)((int)container + 0xc),vret);
+    *(int *)((int)container + 4) = vret;
+    free_heap_block_if_flagged_1047f182(zero_buf,2);
+    free_heap_if_flag_set_1047f3b6(&sub_obj,2);
   }
   if (bVar1) {
-    iVar3 = (((vtbl_entry*)(*(int *)(iVar3 + 4)))[12].fn)(((vtbl_entry*)(*(int *)(iVar3 + 4)))[12].adj + iVar3)
+    obj = (((vtbl_entry*)(*(int *)(obj + 4)))[12].fn)(((vtbl_entry*)(*(int *)(obj + 4)))[12].adj + obj)
     ;
-    if (iVar3 == 5) {
-      *(uint32_t *)((int)param_1 + 4) = 0xfffffcae;
+    if (obj == 5) {
+      *(uint32_t *)((int)container + 4) = 0xfffffcae;
     }
     else {
-      *(uint32_t *)((int)param_1 + 4) = 0xfffffffb;
+      *(uint32_t *)((int)container + 4) = 0xfffffffb;
     }
   }
-  pvVar6 = (void *)get_system_heap();
-  mempool_release_block(pvVar6,pvVar2);
-  if (*(int *)((int)param_1 + 4) == 0) {
-    store_result_and_check_zero_1048044a((int)param_1,param_2,5000);
+  heap = (void *)get_system_heap();
+  mempool_release_block(heap,block);
+  if (*(int *)((int)container + 4) == 0) {
+    store_result_and_check_zero_1048044a((int)container,screen_ctx,5000);
   }
-  return *(int *)((int)param_1 + 4) == 0;
+  return *(int *)((int)container + 4) == 0;
 }

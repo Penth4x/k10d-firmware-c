@@ -332,3 +332,21 @@ The original disassembly is a 6-instruction trampoline: save `sr1`, `mov r5,r6` 
 
 ## process_two_entry_state_array  (`cpu/src/285_event_queue_manager/process_two_entry_state_array.c`)
 - [none] Loop executes 3 iterations in C vs 2 in original @ `while (-1 < iVar3)` vs `bp:d 0x1052b1ce` (branch-if-positive after `sub #1,r11`) -> `bp` branches when result > 0, so the original loops while counter > 0 (2 iterations from initial 2); the C condition `-1 < iVar3` is equivalent to `iVar3 >= 0`, which allows a third iteration when iVar3 reaches 0 before decrementing to -1. The correct condition to match `bp` is `0 < iVar3`.
+
+## cls_105a5c2c_new  (`cpu/src/130_settings_manager/cls_105a5c2c_new.c`)
+- [B-12s] field at offset 0x10 is a byte store in original but a word store in C @ `param_1->field_0x10 = 0;` (32-bit write) vs `stb r0,@(r13,r9)` with r13=0x10 (1-byte write) -> C clobbles bytes 0x11–0x13 (padding between the 1-byte field and the vtable pointer at 0x14) which the original leaves untouched; the struct field should be `uint8_t`, not `uint32_t`
+
+## cls_1059e458_new  (`cpu/src/107_settings_manager/cls_1059e458_new.c`)
+- [none] Return type is `void` but the original leaves the object pointer in r4 at `ret` @ `void cls_1059e458_new(cls_1059e458 *param_1)` vs `st r12,@r4` … `ld @r15+,sr1` / `ret` (r4 holds the allocated/existing pointer on every path) -> callers declare `cls_1059e458 * cls_1059e458_new(cls_1059e458 *param_1)` and use the return value; the C silently drops it.
+
+## screen_activate_ondemand  (`cpu/src/173_screen_activation/screen_activate_ondemand.c`)
+- [none] The decompiled C faithfully represents the original machine code. All vtable call offsets (0x18/24, 0x38/56, 0x60/96), argument registers (including delay-slot values r5=0, r6=1, r6=2), sign extensions (extsh on 16-bit adj fields, extsb on -36 and -5 constants), frame slot accesses, control flow (both beq/beq:d branches to the same target 0x1048065e), and the final return-value computation (`*(int*)(param_1+4) == 0`) match the disassembly. The `addn r0,r12` sequences that compute entry addresses (r12+24, r12+56, r12+96) are dead code in the original (the actual loads use `@r12` and `@(r13,r12)` from the vtable base), and the C correctly omits them. No B-NN class bug is present.
+
+## initialize_mode_dependent_context  (`cpu/src/193_sr_state_machine/initialize_mode_dependent_context.c`)
+- [none] First argument to `write_two_words_to_memory` is the (undefined) return value of the void `copy_eight_bytes_1045bf68` in the original (`r4` not reloaded between the two calls at 0x1048fa40→0x1048fa74), while the C/fcc explicitly passes the return value of `alloc_and_zero_two_words_1045c3bc` (via `r9` in fcc asm). Since the callee is `void`, the original's `r4` is architecturally undefined; the C's choice is a reasonable interpretation and not a divergent operation.
+- [none] The two 16-byte copy loops (stack→stack at 0x1048fa8e–0x1048fa96, stack→`param_1` at 0x1048fabc–0x1048fac8) are correctly rendered as `do/while` with `iVar5` counting down from `0x10` by 4, matching the `add2 #-4` / `bne` pattern. Offsets, widths, and iteration counts agree.
+- [none] Mode-byte dispatch (`ldub @(r13,r9)` with `r13=0x34`, `r9=param_2`) and the three-way size selection (0x280/0x1e0, 0x500/0x2f8, 0/0) match the C's `if/else if/else` exactly.
+- [none] All callee call sites, argument registers (as of each delay slot), and return-value captures are consistent between the original and the C. No dropped or extra arguments detected.
+
+## eventflag_wai_flg  (`cpu/src/127_rtos_kernel_services/eventflag_wai_flg.c`)
+- [none] The decompiled C faithfully represents the original machine code. The clamping logic (param_4 > 0: keep; param_4 == 0: 0; param_4 < 0: -1), the `extsh` sign-extension of `*param_1`, the two-way branch on `param_3 == NULL` selecting between the caller's result pointer and a zeroed local, the 5-argument kernel trap (`int #0x40` at 0x100112a4 with r4=sign-extended flag ID, r5=pattern, r6=1, r7=result pointer, stack=clamped mode), and the `iVar1 == 0` return all match the disassembly. The fcc recompile differs in register allocation and peephole choices (e.g., `EXTUB` before `LEAVE`, `ST R8,@-SP` prologue) but is semantically equivalent.
