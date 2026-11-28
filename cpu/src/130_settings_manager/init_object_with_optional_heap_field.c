@@ -6,26 +6,29 @@
 #include "globals.h"
 #include "funcs.h"
 
-void init_object_with_optional_heap_field(uint32_t *param_1)
+void init_object_with_optional_heap_field(uint32_t *obj)
 
 {
-  cls_105a5c3c *pcVar1;
-  
-  param_1[2] = 0;
-  param_1[1] = 0;
-  *param_1 = 0;
-  *(uint8_t *)(param_1 + 4) = 0;
-  if (param_1[3] == 0) {
-    pcVar1 = (cls_105a5c3c *)heap_alloc((void *)4);
-    if (pcVar1 == (cls_105a5c3c *)0x0) {
-      pcVar1 = (cls_105a5c3c *)0x0;
+  cls_105a5c3c *heap_obj;
+
+  /* zero the 4-word header (offsets 0,4,8) and the byte flag at offset 16 */
+  obj[2] = 0;
+  obj[1] = 0;
+  *obj = 0;
+  *(uint8_t *)(obj + 4) = 0;
+
+  /* if the heap-pointer slot (offset 12) is still empty, allocate and init */
+  if (obj[3] == 0) {
+    heap_obj = (cls_105a5c3c *)heap_alloc((void *)4);
+    if (heap_obj == (cls_105a5c3c *)0x0) {
+      heap_obj = (cls_105a5c3c *)0x0;
     }
     else {
-      cls_105a5c3c_new(pcVar1);
+      cls_105a5c3c_new(heap_obj);
     }
-    param_1[3] = (uint32_t)pcVar1;
-    if (pcVar1 != (cls_105a5c3c *)0x0) {
-      *(uint8_t *)(param_1 + 4) = 1;
+    obj[3] = (uint32_t)heap_obj;
+    if (heap_obj != (cls_105a5c3c *)0x0) {
+      *(uint8_t *)(obj + 4) = 1;
     }
   }
   return;

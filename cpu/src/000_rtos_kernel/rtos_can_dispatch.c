@@ -17,8 +17,8 @@
 bool rtos_can_dispatch(void)
 
 {
-  int iVar1;
-  
-  iVar1 = rtos_dispatch_allowed_chk();
-  return iVar1 != 0 || DAT_6a003aa8 != '\0';
+  int chk_ret;
+
+  chk_ret = rtos_dispatch_allowed_chk();
+  return chk_ret != 0 || DAT_6a003aa8 != '\0';
 }

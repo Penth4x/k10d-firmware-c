@@ -20,6 +20,7 @@
 uint32_t rtos_dispatch_allowed_chk(void)
 
 {
+  /* _DAT_6a003774 holds a pointer; dereference it, then check two status bytes */
   if ((*(char *)(_DAT_6a003774 + 0x4d) == '\x1f') &&
      ((*(byte *)(_DAT_6a003774 + 0x4f) & 0x30) == 0x30)) {
     return 0;

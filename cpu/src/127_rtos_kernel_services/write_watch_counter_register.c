@@ -8,9 +8,10 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void write_watch_counter_register(uint32_t param_x0)
+void write_watch_counter_register(uint32_t unused_value)
 
 {
+  /* Store 0x8000 as a halfword to the RTC watch-counter register (0x40090006). */
   _DAT_40090006/*RTC*/ = 0x8000;
   return;
 }

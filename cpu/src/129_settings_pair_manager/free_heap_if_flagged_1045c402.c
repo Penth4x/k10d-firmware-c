@@ -6,11 +6,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-void free_heap_if_flagged_1045c402(void *param_1,uint param_2)
+void free_heap_if_flagged_1045c402(void *heap_ptr, uint flags)
 
 {
-  if ((param_1 != 0) && ((param_2 & 1) != 0)) {
-    heap_free((int)param_1);
+  if ((heap_ptr != 0) && ((flags & 1) != 0)) {
+    heap_free((int)heap_ptr);
   }
   return;
 }

@@ -15,24 +15,24 @@
 #include "globals.h"
 #include "funcs.h"
 
-int screen_key_find(void *param_1,uint8_t *param_2)
+int screen_key_find(void *table, uint8_t *key_ptr)
 
 {
-  int iVar1;
-  int iVar2;
-  uint uVar3;
-  
-  uVar3 = normalize_ascii_letter(*param_2);
-  iVar1 = 0;
-  if (0 < *(int *)((int)param_1 + 0x14)) {
-    iVar2 = 0;
+  int index;
+  int byte_offset;
+  uint key_byte;
+
+  key_byte = normalize_ascii_letter(*key_ptr);
+  index = 0;
+  if (0 < *(int *)((int)table + 0x14)) {
+    byte_offset = 0;
     do {
-      if (uVar3 == *(byte *)(*(int *)((int)param_1 + 0xc) + iVar2 + 4)) {
-        return iVar1;
+      if (key_byte == *(byte *)(*(int *)((int)table + 0xc) + byte_offset + 4)) {
+        return index;
       }
-      iVar1 = iVar1 + 1;
-      iVar2 = iVar2 + 8;
-    } while (iVar1 < *(int *)((int)param_1 + 0x14));
+      index = index + 1;
+      byte_offset = byte_offset + 8;
+    } while (index < *(int *)((int)table + 0x14));
   }
   return -1;
 }

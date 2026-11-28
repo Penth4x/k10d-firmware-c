@@ -14,11 +14,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t forward_three_args_to_helper_10459d64(void *param_1,uint32_t param_2,uint32_t param_3)
+uint32_t forward_three_args_to_helper_10459d64(void *obj_ptr,uint32_t type_id,uint32_t entry_count)
 
 {
-  uint32_t uVar1;
-  
-  uVar1 = create_or_open_kernel_object(param_1,0,param_2,param_3);
-  return uVar1;
+  uint32_t ret;
+
+  ret = create_or_open_kernel_object(obj_ptr,0,type_id,entry_count);
+  return ret;
 }

@@ -11,17 +11,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-cls_105b934c * cls_105b934c_new(cls_105b934c *param_1)
+cls_105b934c * cls_105b934c_new(cls_105b934c *obj)
 
 {
-  if ((param_1 != (cls_105b934c *)0x0) ||
-     (param_1 = (cls_105b934c *)heap_alloc((void *)0x18), param_1 != (cls_105b934c *)0x0)) {
-    param_1->field_0x14 = (uint32_t)&DAT_105b934c/*ROM*/;
-    param_1->field_0x0 = 0;
-    param_1->field_0x4 = 0;
-    param_1->field_0x8 = 0;
-    param_1->field_0xc = 0;
-    param_1->field_0x10 = 0;
+  if ((obj != (cls_105b934c *)0x0) ||
+     (obj = (cls_105b934c *)heap_alloc((void *)0x18), obj != (cls_105b934c *)0x0)) {
+    obj->field_0x14 = (uint32_t)&DAT_105b934c/*ROM*/;
+    obj->field_0x0 = 0;
+    obj->field_0x4 = 0;
+    obj->field_0x8 = 0;
+    obj->field_0xc = 0;
+    obj->field_0x10 = 0;
   }
-  return param_1;
+  return obj;
 }
