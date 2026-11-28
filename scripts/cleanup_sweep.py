@@ -91,11 +91,11 @@ def append_catalog(name, path, report_path):
     return 1
 
 def git_commit(n, state):
-    mod = subprocess.run(["git", "-C", ROOT, "status", "--porcelain", "--", "cpu/src", "DECOMPILE_FINDINGS.md"],
+    mod = subprocess.run(["git", "-C", ROOT, "status", "--porcelain", "--", "cpu/src", "cpu/include/funcs.h", "DECOMPILE_FINDINGS.md"],
                          capture_output=True, text=True).stdout
     if not mod.strip():
         return
-    subprocess.run(["git", "-C", ROOT, "add", "--", "cpu/src", "DECOMPILE_FINDINGS.md"], check=False)
+    subprocess.run(["git", "-C", ROOT, "add", "--", "cpu/src", "cpu/include/funcs.h", "DECOMPILE_FINDINGS.md"], check=False)
     msg = (f"chore(cleanup sweep): {n} functions (provably codegen-identical)\n\n"
            f"Automated readability+rename pass (function_cleanup.py, fcc/.text-gated: every applied "
            f"function compiles to the same machine code). Running totals: {state['applied']} applied, "

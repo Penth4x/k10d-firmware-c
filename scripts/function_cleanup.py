@@ -31,6 +31,7 @@ Usage:
 """
 import os, re, sys, json, sqlite3, subprocess, urllib.request, argparse, hashlib, tempfile, difflib
 from collections import Counter
+import shutil
 
 ROOT      = "/home/memorai/k10d-firmware-c"
 CATALOG   = "/home/memorai/k10d-re/harness2/catalog.sqlite"
@@ -190,8 +191,9 @@ almost nothing, you did not do the job.
   * `*(T *)((int)base + i * sizeof(T))`  ->  retype `base` to `T *` and write `base[i]`.
   * `*(T *)((int)obj + 0xNN)` (a fixed-offset access on an object pointer) -> a STRUCT FIELD access.
     The struct types in the headers name their members by offset (`field_0xNN`), so the mapping is
-    DIRECT: cast `obj` to its struct type once -- `((cls_XXXX *)obj)->field_0xNN`, or add a typed local
-    `cls_XXXX *o = (cls_XXXX *)obj;` then `o->field_0xNN`. Find the struct type from: the function's role
+    DIRECT: RETYPE the parameter in the signature (`cls_XXXX *obj` instead of `void *obj`) and write
+    `obj->field_0xNN` -- no cast, no local. funcs.h is regenerated from the definition, so retyping the
+    parameter is correct (the header follows the C). Find the struct type from: the function's role
     (a method of class cls_XXXX takes a `cls_XXXX *`), how the decompiled C already casts that pointer
     elsewhere (e.g. `(cls_XXXX *)obj` in a call), or the caller argument types shown above. Use an
     EXISTING type from the headers (globals.h/structs.h are included) -- never invent a struct or field.
@@ -261,12 +263,11 @@ def known_types_block(c_src):
             seen.append(cls)
     defs = "\n".join(_STRUCT_DEFS[c] for c in seen)
     return ("\n\nKNOWN OBJECT TYPES (recovered -- USE for STRUCT DE-SOUP):\n" + "\n".join(lines) +
-            "\nThese parameters have a KNOWN struct type. In CLEANED, add ONE typed local per object at the "
-            "top -- `cls_XXXX *o = (cls_XXXX *)param;` -- then replace every fixed-offset access "
-            "`*(T*)((int)param + 0xNN)` with the struct field `o->field_0xNN` (the structs name fields by "
-            "offset -> direct mapping; match the field width to the access). Do NOT change the PARAMETER's "
-            "declared type (it must keep matching the funcs.h prototype -- retyping it is a compile error); "
-            "cast via the local instead. Structs:\n```c\n" + defs + "\n```")
+            "\nThese parameters have a KNOWN struct type. In CLEANED, RETYPE the parameter in the signature "
+            "to that type (`cls_XXXX *param` instead of `void *param`) and replace every fixed-offset access "
+            "`*(T*)((int)param + 0xNN)` with the struct field `param->field_0xNN` (the structs name fields by "
+            "offset -> direct mapping; match the field width to the access). funcs.h is regenerated from the "
+            "definition, so retyping the parameter is correct -- no cast, no local. Structs:\n```c\n" + defs + "\n```")
 
 def build_user(name, va, c_src, asm, fcc_self=None):
     fcc_block = ("" if not fcc_self else
@@ -454,12 +455,84 @@ def split_sections(raw):
     return sec["FINDINGS"].strip(), sec["RENAMES"].strip(), cleaned
 
 # ---------------------------------------------------------------- compile gate
+FUNCS_H_PATH = os.path.join(ROOT, "cpu/include", "funcs.h")
+
+def _sig_name(c_text):
+    """(function name, full signature string) from a C function's text, or (None, None)."""
+    t = re.sub(r"/\*.*?\*/", "", c_text, flags=re.S)
+    t = re.sub(r"//[^\n]*", "", t)
+    t = "\n".join(l for l in t.splitlines() if not l.lstrip().startswith("#"))
+    i = t.find("{")
+    if i < 0:
+        return None, None
+    sig = " ".join(t[:i].split())
+    mm = re.search(r"(\w+)\s*\([^(]*\)\s*$", sig)
+    return (mm.group(1) if mm else None), sig
+
+def _type_sig(sig):
+    """Normalized TYPE signature (drop param NAMES) so a rename compares equal but a retype differs."""
+    m = re.search(r"\(([^)]*)\)\s*;?\s*$", sig)
+    if not m:
+        return re.sub(r"\s+", "", sig)
+    ps = m.group(1).strip()
+    if ps in ("", "void"):
+        params = "()"
+    else:
+        out = []
+        for pp in ps.split(","):
+            pp = pp.strip()
+            stripped = re.sub(r"\b[A-Za-z_]\w*\s*$", "", pp).strip()   # drop trailing name if any
+            out.append(re.sub(r"\s+", "", stripped if stripped else pp))
+        params = "(" + ",".join(out) + ")"
+    return re.sub(r"\s+", "", sig[:m.start()]) + params
+
+def _proto_re(name):
+    return re.compile(r"(?m)^[^\n;{}]*\b" + re.escape(name) + r"\s*\([^;{}]*\)\s*;[^\n]*$")
+
+def patched_funcs_dir(c_text):
+    """If c_text's signature param TYPES differ from its funcs.h prototype (a de-soup param RETYPE, e.g.
+    void* -> cls_XXXX*), return a temp dir holding a funcs.h with that one prototype replaced by the
+    cleaned signature -- so the compile test accepts the retyped definition (inject the redeclaration,
+    funcs.h does not block the gate). Renames (same types) take the fast path and return None."""
+    name, sig = _sig_name(c_text)
+    if not name:
+        return None
+    try:
+        funcs = open(FUNCS_H_PATH, errors="ignore").read()
+    except OSError:
+        return None
+    m = _proto_re(name).search(funcs)
+    if not m or _type_sig(m.group(0)) == _type_sig(sig + ";"):
+        return None
+    patched = funcs[:m.start()] + sig.rstrip(";").strip() + ";" + funcs[m.end():]
+    d = tempfile.mkdtemp(prefix="fcinc_")
+    open(os.path.join(d, "funcs.h"), "w").write(patched)
+    return d
+
+def sync_real_funcs_proto(cleaned):
+    """After APPLYING a (possibly retyped/renamed) function, update its prototype in the real funcs.h to
+    match the definition -- funcs.h is derived from the C, so the signature flows into the header."""
+    name, sig = _sig_name(cleaned)
+    if not name:
+        return
+    try:
+        funcs = open(FUNCS_H_PATH, errors="ignore").read()
+    except OSError:
+        return
+    m = _proto_re(name).search(funcs)
+    if not m:
+        return
+    new_line = sig.rstrip(";").strip() + ";"
+    if m.group(0).strip() != new_line:
+        open(FUNCS_H_PATH, "w").write(funcs[:m.start()] + new_line + funcs[m.end():])
+
 def compile_error(c_text):
     """gcc's error output if the cleaned function won't compile (host gcc + the FR headers), else ''.
     Same flags that fix_loop.py uses and that I verified parse these files; -w silences the FR-on-host
     warnings so only real errors (undeclared vars, type/paren mistakes the LLM introduced) remain."""
     inc = os.path.join(ROOT, "cpu/include")
-    tf = tempfile.NamedTemporaryFile("w", suffix=".c", delete=False)
+    d = patched_funcs_dir(c_text)
+    tf = tempfile.NamedTemporaryFile("w", suffix=".c", delete=False, dir=d)
     tf.write(c_text); tf.close()
     try:
         r = subprocess.run(["gcc", "-c", "-w", "-fpermissive", "-std=gnu99", "-I", inc,
@@ -471,6 +544,7 @@ def compile_error(c_text):
     finally:
         try: os.remove(tf.name)
         except OSError: pass
+        if d: shutil.rmtree(d, ignore_errors=True)
 
 def text_section(c_text):
     """The compiled .text bytes of the function (host gcc, no debug), or None if it won't compile.
@@ -479,7 +553,8 @@ def text_section(c_text):
     change to logic or control flow moves it. This is the faithfulness gate -- general (every function,
     no emulation) and provable -- replacing the incidental SPI-txn check for the cleanup pass."""
     inc = os.path.join(ROOT, "cpu/include")
-    cf = tempfile.NamedTemporaryFile("w", suffix=".c", delete=False); cf.write(c_text); cf.close()
+    d = patched_funcs_dir(c_text)
+    cf = tempfile.NamedTemporaryFile("w", suffix=".c", delete=False, dir=d); cf.write(c_text); cf.close()
     of, tf = cf.name + ".o", cf.name + ".text"
     try:
         r = subprocess.run(["gcc", "-c", "-w", "-fpermissive", "-std=gnu99", "-I", inc, "-fno-common",
@@ -496,6 +571,7 @@ def text_section(c_text):
         for p in (cf.name, of, tf):
             try: os.remove(p)
             except OSError: pass
+        if d: shutil.rmtree(d, ignore_errors=True)
 
 # ---------------------------------------------------------------- fcc (real target compiler)
 SOFTUNE = os.environ.get("SOFTUNE", "/home/memorai/k10d-re/softune")
@@ -512,7 +588,8 @@ def fcc_asm(c_text):
     is a mechanical decompile-faithfulness check; vs the original C's fcc asm it proves a cleanup
     changed no codegen. Slow (wine) -- used only in --fcc (high-assurance) mode."""
     inc = _zpath(os.path.join(ROOT, "cpu/include"))
-    cf = tempfile.NamedTemporaryFile("w", suffix=".c", delete=False, dir="/tmp"); cf.write(c_text); cf.close()
+    d = patched_funcs_dir(c_text)
+    cf = tempfile.NamedTemporaryFile("w", suffix=".c", delete=False, dir=(d or "/tmp")); cf.write(c_text); cf.close()
     asm = cf.name + ".asm"
     try:
         subprocess.run(["wine", "BIN/fcc911s.exe", "-S", *FCC_COPT, "-cpu", FCC_CPU, "-I", inc,
@@ -524,6 +601,7 @@ def fcc_asm(c_text):
         for p in (cf.name, asm):
             try: os.remove(p)
             except OSError: pass
+        if d: shutil.rmtree(d, ignore_errors=True)
 
 def asm_insns(asm):
     """Normalized instruction lines of an fcc .asm (mnemonic+operands; drop labels, directives, comments,
@@ -596,9 +674,11 @@ def process(path, args):
             matches, _diff, gate = codegen_check(src, cleaned, getattr(args, "gcc_only", False), de_soup)
             if matches:
                 open(path, "w").write(cleaned if cleaned.endswith("\n") else cleaned + "\n")
+                sync_real_funcs_proto(cleaned)
                 applied = True; tag = f"APPLIED({gate}=)"
             elif args.allow_codegen:
                 open(path, "w").write(cleaned if cleaned.endswith("\n") else cleaned + "\n")
+                sync_real_funcs_proto(cleaned)
                 applied = True; tag = "APPLIED(codegen-changed)"
             else:
                 tag = f"HELD({'intent' if de_soup else 'codegen'}-diverged)"
