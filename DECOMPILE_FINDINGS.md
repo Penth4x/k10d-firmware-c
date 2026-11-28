@@ -232,3 +232,20 @@ The decompiled C faithfully matches the original machine code. The original hard
 - none
 
 The C `*DAT_10011c5c = 1` (where `DAT_10011c5c` is a pointer-typed global) faithfully represents the assembly: `ldi:32 #0x10011c5c,r1` / `ld @r1,r1` loads the pointer from 0x10011c5c, then `stb r0,@r1` (in the `ret:d` delay slot) stores byte 1 through that pointer. The fcc output (`LDI:32 #_DAT_10011c5c,R12` / `LD @R12,R0` / `STB R1,@R0`) matches the original instruction-for-instruction in semantics. No bug-class hit.
+
+## read_mmio_word_and_mask_bits_10452a12  (`cpu/src/127_rtos_kernel_services/read_mmio_word_and_mask_bits_10452a12.c`)
+- none
+
+The decompiled C faithfully represents the machine code. The original performs `lduh` (16-bit zero-extended load) from 0x4005000a, ANDs with 0x8800, then `extuh` in the `ret:d` delay slot. The fcc recompilation uses a 32-bit `LD` instead of `LDUH`, but since the result is immediately ANDed with 0x8800 (clearing bits 16–31) and then `extuh`'d, the final 16-bit return value is identical. The unused `param_x0` correctly reflects that r4 (the first-arg register) is overwritten before any use. No semantic divergence.
+
+## read_mmio_status_bits_10452a44  (`cpu/src/127_rtos_kernel_services/read_mmio_status_bits_10452a44.c`)
+- [none] MMIO read width mismatch @ `_DAT_400403f4 & 0xb802` (32-bit `ld` in fcc asm) vs `lduh @r12,r4` (16-bit halfword load in original) -> the C treats the MMIO address as a 32-bit data symbol, generating a word load; the original performs a 16-bit unsigned halfword load. The returned value is identical (AND 0xb802 + extuh zero the upper 16 bits either way), but the bus transaction width differs, which can matter for MMIO side-effects on a 16-bit register.
+
+## read_mmio_status_bits_10452a56  (`cpu/src/127_rtos_kernel_services/read_mmio_status_bits_10452a56.c`)
+- [none] 32-bit load where original uses 16-bit halfword load @ `return _DAT_400403f6 & 0xb802;` (fcc emits `LD @R12,R4`) vs `lduh @r12,r4` in original → In big-endian, the 32-bit `LD` places bytes at offset +2/+3 into the low 16 bits that the `AND #0xb802` inspects, whereas the original `lduh` reads bytes at offset +0/+1. The masked result therefore comes from a different 16-bit window of the MMIO register, producing a different value.
+
+## copy_structured_field_array  (`cpu/src/107_settings_manager/copy_structured_field_array.c`)
+- [none] 3-wide loop termination uses `while (-1 < iVar3)` (iVar3 >= 0) @ C `do { ... } while (-1 < iVar3);` vs asm `acc7` / `bp:d 0x1042875c` (branch if r7 > 0, strictly positive) -> when the post-decrement count hits exactly 0, the C executes one extra 3-wide iteration (3 extra halfword copies) that the original skips; e.g. param_4=6: C copies 6 elements, original copies 3. Same off-by-one in the 1-wide tail loop (`while (-1 < iVar3)` vs `bp:d 0x10428796`). Not a listed B-NN class; a decompiler misread of `bp` (positive) as `bpl`/`bge` (positive-or-zero).
+
+## write_masked_value_to_mmio_10452a24  (`cpu/src/127_rtos_kernel_services/write_masked_value_to_mmio_10452a24.c`)
+- [none] 32-bit word store where original performs a 16-bit halfword store @ `_DAT_4005000a = param_2 & 0x8800` (fcc emits `ST R5,@R12`) vs `sth r0,@r1` (original) → the C writes 4 bytes to 0x4005000a, corrupting the two bytes at 0x4005000c–0x4005000d that the original halfword store leaves untouched; the value itself (param_2 & 0x8800, at most 16 bits) is the same, but the store width diverges.

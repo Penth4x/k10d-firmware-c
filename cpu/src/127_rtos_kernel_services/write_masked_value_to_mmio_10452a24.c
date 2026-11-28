@@ -8,9 +8,10 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void write_masked_value_to_mmio_10452a24(uint32_t param_1,ushort param_2)
+void write_masked_value_to_mmio_10452a24(uint32_t irq_ctx_field,ushort irq_status_raw)
 
 {
-  _DAT_4005000a = param_2 & 0x8800;
+  /* Mask bits 11 and 15 of the IRQ status and write to MMIO reg 0x4005000a */
+  _DAT_4005000a = irq_status_raw & 0x8800;
   return;
 }

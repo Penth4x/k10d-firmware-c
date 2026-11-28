@@ -17,22 +17,24 @@
 #include "globals.h"
 #include "funcs.h"
 
-void clear_flag3_with_notify(void *param_1)
+void clear_flag3_with_notify(void *obj)
 
 {
-                    /* Purpose: Clear flag3 with notification. Clears bit in [obj+0x28] using mask
-                       [obj+0x1c], copies to [obj+0x18], calls FUN_10459d74/d88 (notify) if
-                       [obj+0x20] non-null.
-                       Params: param_1 = object pointer.
-                       Returns: void. */
-  if (*(int *)((int)param_1 + 0x20) != 0) {
-    call_kernel_with_short_id(*(uint32_t **)((int)param_1 + 0x20));
+  /* If the notify pointer at obj+0x20 is set, invoke the first notification. */
+  if (*(int *)((int)obj + 0x20) != 0) {
+    call_kernel_with_short_id(*(uint32_t **)((int)obj + 0x20));
   }
-  **(byte **)((int)param_1 + 0x28) =
-       **(byte **)((int)param_1 + 0x28) & (*(byte *)((int)param_1 + 0x1c) ^ 0xff);
-  **(uint8_t **)((int)param_1 + 0x18) = **(uint8_t **)((int)param_1 + 0x28);
-  if (*(int *)((int)param_1 + 0x20) != 0) {
-    check_kernel_call_success_10459d88(*(uint32_t **)((int)param_1 + 0x20));
+
+  /* Clear the bits selected by obj+0x1c in the byte at *(*(obj+0x28)). */
+  **(byte **)((int)obj + 0x28) =
+       **(byte **)((int)obj + 0x28) & (*(byte *)((int)obj + 0x1c) ^ 0xff);
+
+  /* Copy the updated byte to *(*(obj+0x18)). */
+  **(uint8_t **)((int)obj + 0x18) = **(uint8_t **)((int)obj + 0x28);
+
+  /* If the notify pointer is still set, invoke the second notification. */
+  if (*(int *)((int)obj + 0x20) != 0) {
+    check_kernel_call_success_10459d88(*(uint32_t **)((int)obj + 0x20));
   }
   return;
 }

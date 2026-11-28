@@ -15,7 +15,7 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-ushort read_mmio_word_and_mask_bits_10452a12(uint32_t param_x0)
+ushort read_mmio_word_and_mask_bits_10452a12(uint32_t unused)
 
 {
   return _DAT_4005000a & 0x8800;

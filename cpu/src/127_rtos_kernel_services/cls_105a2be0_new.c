@@ -11,13 +11,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_105a2be0_new(cls_105a2be0 *param_1)
+void cls_105a2be0_new(cls_105a2be0 *obj_ptr)
 
 {
-  if ((param_1 != (cls_105a2be0 *)0x0) ||
-     (param_1 = (cls_105a2be0 *)heap_alloc((void *)8), param_1 != (cls_105a2be0 *)0x0)) {
-    param_1->field_0x4 = (uint32_t)&DAT_105a2be0/*ROM*/;
-    param_1->field_0x0 = 0;
+  /* If obj_ptr is non-NULL, use it directly; otherwise heap-allocate 8 bytes.
+     Only initialise when we have a valid pointer. */
+  if ((obj_ptr != (cls_105a2be0 *)0x0) ||
+     (obj_ptr = (cls_105a2be0 *)heap_alloc((void *)8), obj_ptr != (cls_105a2be0 *)0x0)) {
+    obj_ptr->field_0x4 = (uint32_t)&DAT_105a2be0/*ROM*/;
+    obj_ptr->field_0x0 = 0;
   }
   return;
 }

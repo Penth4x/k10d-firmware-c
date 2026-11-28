@@ -9,94 +9,94 @@
 void copy_structured_field_array(void *param_1,int param_2,void *param_3,int param_4,int param_5)
 
 {
-  int iVar1;
-  int iVar2;
-  int iVar3;
-  
+  int dst_off;
+  int src_off;
+  int remaining;
+
   if (param_5 == 0) {
     if (0 < param_4) {
-      iVar2 = param_2 << 3;
-      iVar3 = param_4 + -3;
-      iVar1 = 0;
-      if (2 < iVar3) {
+      src_off = param_2 << 3;
+      remaining = param_4 + -3;
+      dst_off = 0;
+      if (2 < remaining) {
         do {
-          *(uint16_t *)((int)param_3 + iVar1) = *(uint16_t *)((int)param_1 + iVar2 + 0x50);
-          *(uint16_t *)((int)param_3 + iVar1 + 2) = *(uint16_t *)((int)param_1 + iVar2 + 0x52);
-          *(uint16_t *)((int)param_3 + iVar1 + 4) = *(uint16_t *)((int)param_1 + iVar2 + 0x54);
-          iVar1 = iVar1 + 6;
-          iVar3 = iVar3 + -3;
-          iVar2 = iVar2 + 6;
-        } while (-1 < iVar3);
+          *(uint16_t *)((int)param_3 + dst_off) = *(uint16_t *)((int)param_1 + src_off + 0x50);
+          *(uint16_t *)((int)param_3 + dst_off + 2) = *(uint16_t *)((int)param_1 + src_off + 0x52);
+          *(uint16_t *)((int)param_3 + dst_off + 4) = *(uint16_t *)((int)param_1 + src_off + 0x54);
+          dst_off = dst_off + 6;
+          remaining = remaining + -3;
+          src_off = src_off + 6;
+        } while (-1 < remaining);
       }
-      for (iVar3 = iVar3 + 2; -1 < iVar3; iVar3 = iVar3 + -1) {
-        *(uint16_t *)((int)param_3 + iVar1) = *(uint16_t *)((int)param_1 + iVar2 + 0x50);
-        iVar1 = iVar1 + 2;
-        iVar2 = iVar2 + 2;
+      for (remaining = remaining + 2; -1 < remaining; remaining = remaining + -1) {
+        *(uint16_t *)((int)param_3 + dst_off) = *(uint16_t *)((int)param_1 + src_off + 0x50);
+        dst_off = dst_off + 2;
+        src_off = src_off + 2;
       }
     }
   }
   else if (param_5 == 1) {
     if (0 < param_4) {
-      iVar2 = param_2 << 3;
-      iVar3 = param_4 + -3;
-      iVar1 = 0;
-      if (2 < iVar3) {
+      src_off = param_2 << 3;
+      remaining = param_4 + -3;
+      dst_off = 0;
+      if (2 < remaining) {
         do {
-          *(uint16_t *)((int)param_3 + iVar1) = *(uint16_t *)((int)param_1 + iVar2 + 0x68);
-          *(uint16_t *)((int)param_3 + iVar1 + 2) = *(uint16_t *)((int)param_1 + iVar2 + 0x6a);
-          *(uint16_t *)((int)param_3 + iVar1 + 4) = *(uint16_t *)((int)param_1 + iVar2 + 0x6c);
-          iVar1 = iVar1 + 6;
-          iVar3 = iVar3 + -3;
-          iVar2 = iVar2 + 6;
-        } while (-1 < iVar3);
+          *(uint16_t *)((int)param_3 + dst_off) = *(uint16_t *)((int)param_1 + src_off + 0x68);
+          *(uint16_t *)((int)param_3 + dst_off + 2) = *(uint16_t *)((int)param_1 + src_off + 0x6a);
+          *(uint16_t *)((int)param_3 + dst_off + 4) = *(uint16_t *)((int)param_1 + src_off + 0x6c);
+          dst_off = dst_off + 6;
+          remaining = remaining + -3;
+          src_off = src_off + 6;
+        } while (-1 < remaining);
       }
-      for (iVar3 = iVar3 + 2; -1 < iVar3; iVar3 = iVar3 + -1) {
-        *(uint16_t *)((int)param_3 + iVar1) = *(uint16_t *)((int)param_1 + iVar2 + 0x68);
-        iVar1 = iVar1 + 2;
-        iVar2 = iVar2 + 2;
+      for (remaining = remaining + 2; -1 < remaining; remaining = remaining + -1) {
+        *(uint16_t *)((int)param_3 + dst_off) = *(uint16_t *)((int)param_1 + src_off + 0x68);
+        dst_off = dst_off + 2;
+        src_off = src_off + 2;
       }
     }
   }
   else if (param_5 == 2) {
     if (0 < param_4) {
-      iVar2 = param_2 << 3;
-      iVar3 = param_4 + -3;
-      iVar1 = 0;
-      if (2 < iVar3) {
+      src_off = param_2 << 3;
+      remaining = param_4 + -3;
+      dst_off = 0;
+      if (2 < remaining) {
         do {
-          *(uint16_t *)((int)param_3 + iVar1) = *(uint16_t *)((int)param_1 + iVar2 + 0x80);
-          *(uint16_t *)((int)param_3 + iVar1 + 2) = *(uint16_t *)((int)param_1 + iVar2 + 0x82);
-          *(uint16_t *)((int)param_3 + iVar1 + 4) = *(uint16_t *)((int)param_1 + iVar2 + 0x84);
-          iVar1 = iVar1 + 6;
-          iVar3 = iVar3 + -3;
-          iVar2 = iVar2 + 6;
-        } while (-1 < iVar3);
+          *(uint16_t *)((int)param_3 + dst_off) = *(uint16_t *)((int)param_1 + src_off + 0x80);
+          *(uint16_t *)((int)param_3 + dst_off + 2) = *(uint16_t *)((int)param_1 + src_off + 0x82);
+          *(uint16_t *)((int)param_3 + dst_off + 4) = *(uint16_t *)((int)param_1 + src_off + 0x84);
+          dst_off = dst_off + 6;
+          remaining = remaining + -3;
+          src_off = src_off + 6;
+        } while (-1 < remaining);
       }
-      for (iVar3 = iVar3 + 2; -1 < iVar3; iVar3 = iVar3 + -1) {
-        *(uint16_t *)((int)param_3 + iVar1) = *(uint16_t *)((int)param_1 + iVar2 + 0x80);
-        iVar1 = iVar1 + 2;
-        iVar2 = iVar2 + 2;
+      for (remaining = remaining + 2; -1 < remaining; remaining = remaining + -1) {
+        *(uint16_t *)((int)param_3 + dst_off) = *(uint16_t *)((int)param_1 + src_off + 0x80);
+        dst_off = dst_off + 2;
+        src_off = src_off + 2;
       }
     }
   }
   else if (0 < param_4) {
-    iVar2 = param_2 << 3;
-    iVar3 = param_4 + -3;
-    iVar1 = 0;
-    if (2 < iVar3) {
+    src_off = param_2 << 3;
+    remaining = param_4 + -3;
+    dst_off = 0;
+    if (2 < remaining) {
       do {
-        *(uint16_t *)((int)param_3 + iVar1) = *(uint16_t *)((int)param_1 + iVar2 + 0x38);
-        *(uint16_t *)((int)param_3 + iVar1 + 2) = *(uint16_t *)((int)param_1 + iVar2 + 0x3a);
-        *(uint16_t *)((int)param_3 + iVar1 + 4) = *(uint16_t *)((int)param_1 + iVar2 + 0x3c);
-        iVar1 = iVar1 + 6;
-        iVar3 = iVar3 + -3;
-        iVar2 = iVar2 + 6;
-      } while (-1 < iVar3);
+        *(uint16_t *)((int)param_3 + dst_off) = *(uint16_t *)((int)param_1 + src_off + 0x38);
+        *(uint16_t *)((int)param_3 + dst_off + 2) = *(uint16_t *)((int)param_1 + src_off + 0x3a);
+        *(uint16_t *)((int)param_3 + dst_off + 4) = *(uint16_t *)((int)param_1 + src_off + 0x3c);
+        dst_off = dst_off + 6;
+        remaining = remaining + -3;
+        src_off = src_off + 6;
+      } while (-1 < remaining);
     }
-    for (iVar3 = iVar3 + 2; -1 < iVar3; iVar3 = iVar3 + -1) {
-      *(uint16_t *)((int)param_3 + iVar1) = *(uint16_t *)((int)param_1 + iVar2 + 0x38);
-      iVar1 = iVar1 + 2;
-      iVar2 = iVar2 + 2;
+    for (remaining = remaining + 2; -1 < remaining; remaining = remaining + -1) {
+      *(uint16_t *)((int)param_3 + dst_off) = *(uint16_t *)((int)param_1 + src_off + 0x38);
+      dst_off = dst_off + 2;
+      src_off = src_off + 2;
     }
   }
   return;
