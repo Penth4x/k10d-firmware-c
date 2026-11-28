@@ -103,6 +103,48 @@ def git_commit(n, state):
            f"findings (see DECOMPILE_FINDINGS.md), {state['nocompile']} uncompilable, {state['fail']} errored.")
     subprocess.run(["git", "-C", ROOT, "commit", "-q", "-m", msg], check=False)
 
+def _fmt_dur(sec):
+    sec = int(sec)
+    d, sec = divmod(sec, 86400); h, sec = divmod(sec, 3600); m, _ = divmod(sec, 60)
+    if d:  return f"{d}d {h}h"
+    if h:  return f"{h}h {m}m"
+    return f"{m}m"
+
+def print_status(state, unit=None):
+    files = glob.glob(os.path.join(ROOT, "cpu/src", unit or "*", "*.c"))
+    total = len(files)
+    done  = len(state["done"])
+    remaining = max(total - done, 0)
+    pct = (100.0 * done / total) if total else 0.0
+    # per-function wall times from the current run's log; recent samples only, so a one-off
+    # outage wait (a single huge duration) does not poison the rate.
+    durs = []
+    try:
+        for ln in open(os.path.join(ROOT, "cleanup_sweep.log"), errors="ignore"):
+            m = re.search(r"\((\d+)s\)\s*$", ln)
+            if m: durs.append(int(m.group(1)))
+    except OSError:
+        pass
+    recent = sorted(durs[-25:])
+    med = recent[len(recent)//2] if recent else None   # median = robust to outliers
+    running = bool(subprocess.run(["pgrep", "-f", "scripts/cleanup_sweep.py"],
+                                  capture_output=True).stdout.strip())
+    child = subprocess.run(["bash", "-c",
+             "ps -eo args | awk '/function_cleanup.py/ && !/awk/{print $NF; exit}'"],
+             capture_output=True, text=True).stdout.strip()
+
+    print(f"cleanup sweep  [{'RUNNING' if running else 'STOPPED'}]")
+    print(f"  progress : {done}/{total} functions ({pct:.1f}%)  -- {remaining} remaining")
+    print(f"  results  : applied={state['applied']} held={state['held']} skipped={state['skipped']} "
+          f"nocompile={state['nocompile']} fail={state['fail']}  (with_findings={state['with_findings']})")
+    if med:
+        print(f"  rate     : ~{med}s/fn median (last {len(recent)}), ~{3600/med:.0f} fn/hr")
+        print(f"  ETA      : ~{_fmt_dur(remaining * med)} at this rate (single slot; excludes server downtime)")
+    else:
+        print("  rate/ETA : n/a (no completed-function timings in the log yet)")
+    if child:
+        print(f"  now on   : {child}")
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--unit")
@@ -110,11 +152,16 @@ def main():
     ap.add_argument("--timeout", type=int, default=900)
     ap.add_argument("--gcc-only", action="store_true")
     ap.add_argument("--status", action="store_true")
+    ap.add_argument("--json", action="store_true", help="with --status: raw JSON tallies")
     a = ap.parse_args()
 
     state = load_state()
     if a.status:
-        print(json.dumps({k: (len(v) if isinstance(v, list) else v) for k, v in state.items()}, indent=2)); return
+        if a.json:
+            print(json.dumps({k: (len(v) if isinstance(v, list) else v) for k, v in state.items()}, indent=2))
+        else:
+            print_status(state, a.unit)
+        return
 
     pat = os.path.join(ROOT, "cpu/src", a.unit or "*", "*.c")
     files = sorted(glob.glob(pat))
