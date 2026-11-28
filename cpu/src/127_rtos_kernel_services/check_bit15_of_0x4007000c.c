@@ -8,8 +8,10 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-bool check_bit15_of_0x4007000c(uint32_t param_x0)
+bool check_bit15_of_0x4007000c(uint32_t unused_arg)
 
 {
+  /* Reads the 16-bit IRQ status register at 0x4007000c and tests bit 15.
+   * The caller-supplied argument is not used by the original machine code. */
   return (_DAT_4007000c & 0x8000) != 0;
 }

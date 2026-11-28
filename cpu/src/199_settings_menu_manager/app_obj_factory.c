@@ -20,247 +20,247 @@
     */
 /* WARNING: Type propagation algorithm not settling */
 
-void * app_obj_factory(int *param_1,void *param_2,void *param_3,void *param_4)
+void * app_obj_factory(int *desc_base,void *match_key,void *arg_c,void *arg_d)
 
 {
-  uint *puVar1;
-  int iVar2;
-  int iVar3;
-  uint32_t uVar4;
-  void *extraout_r5;
-  uint uVar5;
-  uint32_t uVar6;
-  void *pvVar7;
-  void *pvVar8;
-  void *pvVar9;
-  int *piVar10;
-  int iVar11;
-  uintptr_t sp;
-  int *piVar12;
-  uint64_t uVar13;
-  void *objResult;
-  uint8_t local_94 [8];
-  int aiStack_60 [7];
-  byte *pbStack_44;
-  int iStack_40;
-  ushort uStack_3c;
-  ushort uStack_3a;
-  uint8_t auStack_38 [8];
-  uint32_t auStack_30 [2];
-  uint32_t uStack_28;
-  uint32_t auStack_24 [5];
-  int iStack_10;
-  int iStack_c;
-  
-  piVar12 = (int *)local_94;
-  iStack_10 = param_1[2];
-  aiStack_60[0] = iStack_10;
-  iStack_c = param_1[1];
-  pvVar7 = param_2;
-  pvVar9 = param_3;
-  pvVar8 = param_4;
-  puVar1 = (uint *)0x0;
-  if (iStack_10 != iStack_c) {
-    piVar12 = (int *)local_94;
+  uint *entry_ptr;
+  int entry_offset;
+  int entry_count;
+  uint32_t ctor_result;
+  void *saved_r5;
+  uint type_id;
+  uint32_t free_flag;
+  void *tmp_ptr_a;
+  void *tmp_ptr_b;
+  void *tmp_ptr_c;
+  int *obj_field_ptr;
+  int copy_offset;
+  uintptr_t sp_unused;
+  int *local_base;
+  uint64_t sub_ret;
+  void *constructed_obj;
+  uint8_t local_buf [8];
+  int obj_fields [7];
+  byte *field_44;
+  int field_40;
+  ushort field_3c;
+  ushort field_3a;
+  uint8_t scratch_buf [8];
+  uint32_t pair_buf [2];
+  uint32_t pair_lo;
+  uint32_t copy_dst [5];
+  int desc_word2;
+  int desc_word1;
+
+  local_base = (int *)local_buf;
+  desc_word2 = desc_base[2];
+  obj_fields[0] = desc_word2;
+  desc_word1 = desc_base[1];
+  tmp_ptr_c = match_key;
+  tmp_ptr_b = arg_c;
+  tmp_ptr_a = arg_d;
+  entry_ptr = (uint *)0x0;
+  if (desc_word2 != desc_word1) {
+    local_base = (int *)local_buf;
     do {
-      uVar13 = subtract_four_from_pointer(aiStack_60);
-      pvVar7 = (void *)uVar13;
-      puVar1 = (uint *)*(int *)((ulonglong)uVar13 >> 0x20);
-      if ((*puVar1 & 0xffff0000) == ((uint)param_2 & 0xffff0000)) break;
-      pvVar9 = (void *)0x0;
-      swap_first_word_and_call(auStack_38,aiStack_60);
-      iStack_c = param_1[1];
-      pvVar7 = extraout_r5;
-      puVar1 = (uint *)0x0;
-    } while (aiStack_60[0] != iStack_c);
+      sub_ret = subtract_four_from_pointer(obj_fields);
+      tmp_ptr_c = (void *)sub_ret;
+      entry_ptr = (uint *)*(int *)((ulonglong)sub_ret >> 0x20);
+      if ((*entry_ptr & 0xffff0000) == ((uint)match_key & 0xffff0000)) break;
+      tmp_ptr_b = (void *)0x0;
+      swap_first_word_and_call(scratch_buf,obj_fields);
+      desc_word1 = desc_base[1];
+      tmp_ptr_c = saved_r5;
+      entry_ptr = (uint *)0x0;
+    } while (obj_fields[0] != desc_word1);
   }
-  iVar3 = 0;
-  if (*puVar1 != 0) {
-    iVar2 = 0;
+  entry_count = 0;
+  if (*entry_ptr != 0) {
+    entry_offset = 0;
     do {
-      if (param_2 == *(void **)((int)puVar1 + iVar2)) break;
-      iVar2 = iVar2 + 0x14;
-      iVar3 = iVar3 + 1;
-    } while (*(int *)((int)puVar1 + iVar2) != 0);
+      if (match_key == *(void **)((int)entry_ptr + entry_offset)) break;
+      entry_offset = entry_offset + 0x14;
+      entry_count = entry_count + 1;
+    } while (*(int *)((int)entry_ptr + entry_offset) != 0);
   }
-  if (puVar1[iVar3 * 5] == 0) {
-    console_printf(&DAT_105b511c/*ROM*/,pvVar7,pvVar9,pvVar8);
+  if (entry_ptr[entry_count * 5] == 0) {
+    console_printf(&DAT_105b511c/*ROM*/,tmp_ptr_c,tmp_ptr_b,tmp_ptr_a);
   }
-  piVar10 = aiStack_60 + 1;
-  *piVar12 = 0;
-  uVar5 = 0;
-  pvVar7 = (void *)0x0;
-  pvVar9 = (void *)0x0;
-  allocate_and_init_object_1045bd94(piVar10,0,0,0,*piVar12);
-  objResult = (void *)0;
-  iVar2 = 0x14;
+  obj_field_ptr = obj_fields + 1;
+  *local_base = 0;
+  type_id = 0;
+  tmp_ptr_c = (void *)0x0;
+  tmp_ptr_b = (void *)0x0;
+  allocate_and_init_object_1045bd94(obj_field_ptr,0,0,0,*local_base);
+  constructed_obj = (void *)0;
+  entry_offset = 0x14;
   do {
-    iVar11 = iVar2 + -4;
-    *(uint32_t *)((int)aiStack_60 + iVar2 + 0x10) =
-         *(uint32_t *)(iVar11 + (int)(puVar1 + iVar3 * 5));
-    iVar2 = iVar11;
-  } while (iVar11 != 0);
-  switch(aiStack_60[6]) {
+    copy_offset = entry_offset + -4;
+    *(uint32_t *)((int)obj_fields + entry_offset + 0x10) =
+         *(uint32_t *)(copy_offset + (int)(entry_ptr + entry_count * 5));
+    entry_offset = copy_offset;
+  } while (copy_offset != 0);
+  switch(obj_fields[6]) {
   case 1:
-    uVar5 = (uint)pbStack_44 & 0xffff;
-    uVar4 = chain_two_helper_calls_10495bd8(param_1);
-    objResult = (void *)uVar4;
+    type_id = (uint)field_44 & 0xffff;
+    ctor_result = chain_two_helper_calls_10495bd8(desc_base);
+    constructed_obj = (void *)ctor_result;
     break;
   case 2:
-    uVar5 = (uint)pbStack_44 & 0xffff;
-    uVar4 = chain_two_helper_calls_10495bc4(param_1);
-    objResult = (void *)uVar4;
+    type_id = (uint)field_44 & 0xffff;
+    ctor_result = chain_two_helper_calls_10495bc4(desc_base);
+    constructed_obj = (void *)ctor_result;
     break;
   case 3:
-    *(ushort *)((int)piVar12 + 2) = uStack_3c;
-    *(ushort *)((int)piVar12 + 6) = uStack_3a;
-    uVar5 = (uint)pbStack_44 & 0xffff;
-    uVar4 = chain_two_helper_calls_10495c06(param_1);
-    objResult = (void *)uVar4;
+    *(ushort *)((int)local_base + 2) = field_3c;
+    *(ushort *)((int)local_base + 6) = field_3a;
+    type_id = (uint)field_44 & 0xffff;
+    ctor_result = chain_two_helper_calls_10495c06(desc_base);
+    constructed_obj = (void *)ctor_result;
     break;
   case 4:
-    *(ushort *)((int)piVar12 + 2) = uStack_3c;
-    *(ushort *)((int)piVar12 + 6) = uStack_3a;
-    uVar5 = (uint)pbStack_44 & 0xffff;
-    uVar4 = chain_two_helper_calls_10495c2e(param_1);
-    objResult = (void *)uVar4;
+    *(ushort *)((int)local_base + 2) = field_3c;
+    *(ushort *)((int)local_base + 6) = field_3a;
+    type_id = (uint)field_44 & 0xffff;
+    ctor_result = chain_two_helper_calls_10495c2e(desc_base);
+    constructed_obj = (void *)ctor_result;
     break;
   case 5:
-    pvVar7 = (void *)(uint)uStack_3c;
-    *(ushort *)((int)piVar12 + 2) = uStack_3a;
-    iVar3 = allocate_and_initialize_object(param_1,param_3,param_4,pvVar7,*(ushort *)((int)piVar12 + 2));
-    objResult = (void *)iVar3;
-    param_3 = param_4;
-    param_4 = pvVar7;
+    tmp_ptr_c = (void *)(uint)field_3c;
+    *(ushort *)((int)local_base + 2) = field_3a;
+    entry_count = allocate_and_initialize_object(desc_base,arg_c,arg_d,tmp_ptr_c,*(ushort *)((int)local_base + 2));
+    constructed_obj = (void *)entry_count;
+    arg_c = arg_d;
+    arg_d = tmp_ptr_c;
     break;
   case 6:
-    uVar4 = chain_two_helper_calls_10495bb0(param_1);
-    objResult = (void *)uVar4;
+    ctor_result = chain_two_helper_calls_10495bb0(desc_base);
+    constructed_obj = (void *)ctor_result;
     break;
   case 7:
-    uVar4 = chain_two_helper_calls_10495b9c(param_1);
-    objResult = (void *)uVar4;
+    ctor_result = chain_two_helper_calls_10495b9c(desc_base);
+    constructed_obj = (void *)ctor_result;
     break;
   case 8:
-    *(ushort *)((int)piVar12 + 2) = uStack_3c;
-    *(ushort *)((int)piVar12 + 6) = uStack_3a;
-    uVar5 = (uint)pbStack_44 & 0xffff;
-    uVar4 = chain_two_helper_calls_10495d1a(param_1);
-    objResult = (void *)uVar4;
+    *(ushort *)((int)local_base + 2) = field_3c;
+    *(ushort *)((int)local_base + 6) = field_3a;
+    type_id = (uint)field_44 & 0xffff;
+    ctor_result = chain_two_helper_calls_10495d1a(desc_base);
+    constructed_obj = (void *)ctor_result;
     break;
   case 9:
-    *(uint8_t *)((int)piVar12 + 3) = 5;
-    *(uint8_t *)((int)piVar12 + 7) = 1;
-    uVar4 = chain_two_helper_calls_10495cf2(param_1);
-    objResult = (void *)uVar4;
+    *(uint8_t *)((int)local_base + 3) = 5;
+    *(uint8_t *)((int)local_base + 7) = 1;
+    ctor_result = chain_two_helper_calls_10495cf2(desc_base);
+    constructed_obj = (void *)ctor_result;
     break;
   case 10:
-    uVar4 = chain_two_helper_calls_10495d48(param_1);
-    objResult = (void *)uVar4;
-    param_3 = param_4;
-    param_4 = pvVar9;
+    ctor_result = chain_two_helper_calls_10495d48(desc_base);
+    constructed_obj = (void *)ctor_result;
+    arg_c = arg_d;
+    arg_d = tmp_ptr_b;
     break;
   case 0xb:
-    *(short *)((int)piVar12 + 2) = (short)param_4;
-    pvVar7 = (void *)0x7;
-    param_4 = param_3;
-    uVar4 = chain_two_helper_calls_10495d62(param_1);
-    objResult = (void *)uVar4;
-    param_3 = pvVar7;
+    *(short *)((int)local_base + 2) = (short)arg_d;
+    tmp_ptr_c = (void *)0x7;
+    arg_d = arg_c;
+    ctor_result = chain_two_helper_calls_10495d62(desc_base);
+    constructed_obj = (void *)ctor_result;
+    arg_c = tmp_ptr_c;
     break;
   case 0xc:
-    *(short *)((int)piVar12 + 2) = (short)param_4;
-    pvVar7 = (void *)0x7;
-    param_4 = param_3;
-    uVar4 = chain_two_helper_calls_10495d8a(param_1);
-    objResult = (void *)uVar4;
-    param_3 = pvVar7;
+    *(short *)((int)local_base + 2) = (short)arg_d;
+    tmp_ptr_c = (void *)0x7;
+    arg_d = arg_c;
+    ctor_result = chain_two_helper_calls_10495d8a(desc_base);
+    constructed_obj = (void *)ctor_result;
+    arg_c = tmp_ptr_c;
     break;
   case 0xd:
-    uVar4 = chain_two_helper_calls_10495bec(param_1);
-    objResult = (void *)uVar4;
+    ctor_result = chain_two_helper_calls_10495bec(desc_base);
+    constructed_obj = (void *)ctor_result;
     break;
   case 0xe:
-    pvVar7 = (void *)alloc_two_word_pair_1045bc2e((uint32_t *)(auStack_30),(uint32_t)(param_3),(uint32_t)(param_4));
-    copy_eight_bytes_1045bf68(piVar10,pvVar7);
-    free_heap_block_if_flagged_1045bc54(auStack_30,2);
-    param_3 = (void *)(uint)uStack_3a;
-    pvVar7 = (void *)alloc_two_word_pair_1045c3dc((uint32_t *)(&uStack_28),(uint32_t)((uint)uStack_3c),(uint32_t)(param_3));
-    copy_and_dispatch_two_params(piVar10,pvVar7);
-    free_heap_if_flagged_1045c402(&uStack_28,2);
-    iVar3 = 0x10;
+    tmp_ptr_c = (void *)alloc_two_word_pair_1045bc2e((uint32_t *)(pair_buf),(uint32_t)(arg_c),(uint32_t)(arg_d));
+    copy_eight_bytes_1045bf68(obj_field_ptr,tmp_ptr_c);
+    free_heap_block_if_flagged_1045bc54(pair_buf,2);
+    arg_c = (void *)(uint)field_3a;
+    tmp_ptr_c = (void *)alloc_two_word_pair_1045c3dc((uint32_t *)(&pair_lo),(uint32_t)((uint)field_3c),(uint32_t)(arg_c));
+    copy_and_dispatch_two_params(obj_field_ptr,tmp_ptr_c);
+    free_heap_if_flagged_1045c402(&pair_lo,2);
+    entry_count = 0x10;
     do {
-      iVar2 = iVar3 + -4;
-      *(uint32_t *)((int)auStack_24 + iVar3) = *(uint32_t *)((int)aiStack_60 + iVar3);
-      iVar3 = iVar2;
-    } while (iVar2 != 0);
-    uVar4 = copy_and_dispatch_buffer(param_1,auStack_24 + 1);
-    uVar6 = 2;
-    destroy_text_widget(auStack_24 + 1,2);
-    objResult = (void *)uVar4;
-    param_4 = pvVar9;
+      entry_offset = entry_count + -4;
+      *(uint32_t *)((int)copy_dst + entry_count) = *(uint32_t *)((int)obj_fields + entry_count);
+      entry_count = entry_offset;
+    } while (entry_offset != 0);
+    ctor_result = copy_and_dispatch_buffer(desc_base,copy_dst + 1);
+    free_flag = 2;
+    destroy_text_widget(copy_dst + 1,2);
+    constructed_obj = (void *)ctor_result;
+    arg_d = tmp_ptr_b;
     break;
   case 0xf:
-    iVar3 = create_object_with_init_call_10495f06(param_1,(int)pbStack_44,param_3,param_4);
-    objResult = (void *)iVar3;
+    entry_count = create_object_with_init_call_10495f06(desc_base,(int)field_44,arg_c,arg_d);
+    constructed_obj = (void *)entry_count;
     break;
   case 0x10:
-    uVar5 = (uint)pbStack_44 & 0xffff;
-    iVar3 = create_object_with_heap_alloc(param_1,uVar5,param_3,param_4);
-    objResult = (void *)iVar3;
+    type_id = (uint)field_44 & 0xffff;
+    entry_count = create_object_with_heap_alloc(desc_base,type_id,arg_c,arg_d);
+    constructed_obj = (void *)entry_count;
     break;
   case 0x11:
-    objResult = (void *)(alloc_and_construct_object((uint32_t)(param_1)));
-    param_3 = pvVar7;
-    param_4 = pvVar9;
+    constructed_obj = (void *)(alloc_and_construct_object((uint32_t)(desc_base)));
+    arg_c = tmp_ptr_c;
+    arg_d = tmp_ptr_b;
     break;
   case 0x12:
-    iVar3 = draw_string_at(param_1,pbStack_44,param_3,param_4);
-    objResult = (void *)iVar3;
+    entry_count = draw_string_at(desc_base,field_44,arg_c,arg_d);
+    constructed_obj = (void *)entry_count;
     break;
   case 0x13:
-    objResult = (void *)(allocate_and_construct_object((uint32_t)(param_1)));
-    param_3 = pvVar7;
-    param_4 = pvVar9;
+    constructed_obj = (void *)(allocate_and_construct_object((uint32_t)(desc_base)));
+    arg_c = tmp_ptr_c;
+    arg_d = tmp_ptr_b;
     break;
   case 0x14:
-    objResult = (void *)(alloc_and_init_object_1049609e((uint32_t)(param_1)));
-    param_3 = pvVar7;
-    param_4 = pvVar9;
+    constructed_obj = (void *)(alloc_and_init_object_1049609e((uint32_t)(desc_base)));
+    arg_c = tmp_ptr_c;
+    arg_d = tmp_ptr_b;
     break;
   case 0x15:
-    objResult = (void *)(alloc_and_init_0x14_object((uint32_t)(param_1)));
-    param_3 = pvVar7;
-    param_4 = pvVar9;
+    constructed_obj = (void *)(alloc_and_init_0x14_object((uint32_t)(desc_base)));
+    arg_c = tmp_ptr_c;
+    arg_d = tmp_ptr_b;
     break;
   case 0x16:
-    uVar4 = chain_two_helper_calls_10495db2(param_1);
-    objResult = (void *)uVar4;
+    ctor_result = chain_two_helper_calls_10495db2(desc_base);
+    constructed_obj = (void *)ctor_result;
     break;
   case 0x17:
-    uVar5 = (uint)pbStack_44 & 0xffff;
-    iVar3 = allocate_and_init_object_1049600e(param_1,uVar5,param_3,param_4);
-    objResult = (void *)iVar3;
+    type_id = (uint)field_44 & 0xffff;
+    entry_count = allocate_and_init_object_1049600e(desc_base,type_id,arg_c,arg_d);
+    constructed_obj = (void *)entry_count;
     break;
   default:
-    param_3 = pvVar7;
-    param_4 = pvVar9;
+    arg_c = tmp_ptr_c;
+    arg_d = tmp_ptr_b;
   }
-  pvVar7 = objResult;
-  if (pvVar7 == 0) {
-    console_printf(&DAT_105b5158/*ROM*/,objResult,param_3,param_4);
+  tmp_ptr_c = constructed_obj;
+  if (tmp_ptr_c == 0) {
+    console_printf(&DAT_105b5158/*ROM*/,constructed_obj,arg_c,arg_d);
   }
-  write_field_at_offset_four_10493da0(pvVar7,aiStack_60[5]);
-  if ((iStack_40 == 2) || (aiStack_60[6] == 5)) {
-    (((vtbl_entry*)(*(int *)((int)pvVar7 + 0xc)))[27].fn)
-              ((int)((vtbl_entry*)(*(int *)((int)pvVar7 + 0xc)))[27].adj + (int)pvVar7,
-               *(uint32_t *)(*param_1 + 4));
+  write_field_at_offset_four_10493da0(tmp_ptr_c,obj_fields[5]);
+  if ((field_40 == 2) || (obj_fields[6] == 5)) {
+    (((vtbl_entry*)(*(int *)((int)tmp_ptr_c + 0xc)))[27].fn)
+              ((int)((vtbl_entry*)(*(int *)((int)tmp_ptr_c + 0xc)))[27].adj + (int)tmp_ptr_c,
+               *(uint32_t *)(*desc_base + 4));
   }
   else {
-    (((vtbl_entry*)(*(int *)((int)pvVar7 + 0xc)))[27].fn)
-              ((int)((vtbl_entry*)(*(int *)((int)pvVar7 + 0xc)))[27].adj + (int)pvVar7,
-               *(uint32_t *)*param_1);
+    (((vtbl_entry*)(*(int *)((int)tmp_ptr_c + 0xc)))[27].fn)
+              ((int)((vtbl_entry*)(*(int *)((int)tmp_ptr_c + 0xc)))[27].adj + (int)tmp_ptr_c,
+               *(uint32_t *)*desc_base);
   }
-  destroy_text_widget(piVar10,2);
-  return pvVar7;
+  destroy_text_widget(obj_field_ptr,2);
+  return tmp_ptr_c;
 }

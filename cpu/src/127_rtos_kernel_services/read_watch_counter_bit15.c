@@ -15,8 +15,9 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-bool read_watch_counter_bit15(uint32_t param_x0)
+bool read_watch_counter_bit15(uint32_t unused_arg)
 
 {
+  /* lduh @0x40090006, and with 0x8000; return 1 if bit 15 set, else 0 */
   return (_DAT_40090006/*RTC*/ & 0x8000) != 0;
 }

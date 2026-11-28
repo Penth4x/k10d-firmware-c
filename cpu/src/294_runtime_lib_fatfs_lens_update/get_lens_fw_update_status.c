@@ -8,7 +8,7 @@
 #include "globals.h"
 #include "funcs.h"
 
-int get_lens_fw_update_status(int param_1,int param_2,int param_3,code *param_4)
+int get_lens_fw_update_status(int buffer_base,int count,int elem_size,code *init_fn)
 {
-  return alloc_and_init_lens_fw_buffer(param_1,param_2,param_3,param_4,(code *)0x0,0);
+  return alloc_and_init_lens_fw_buffer(buffer_base,count,elem_size,init_fn,(code *)0x0,0);
 }

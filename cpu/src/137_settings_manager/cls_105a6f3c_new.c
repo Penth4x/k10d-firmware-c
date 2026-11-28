@@ -11,14 +11,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-cls_105a6f3c * cls_105a6f3c_new(cls_105a6f3c *param_1)
+cls_105a6f3c * cls_105a6f3c_new(cls_105a6f3c *this_ptr)
 
 {
-  if ((param_1 != (cls_105a6f3c *)0x0) ||
-     (param_1 = (cls_105a6f3c *)heap_alloc((void *)8), param_1 != (cls_105a6f3c *)0x0)) {
-    cls_105b5264_new((cls_105b5264 *)param_1);
-    param_1->field_0x0 = (uint32_t)&DAT_105a6f3c/*ROM*/;
-    param_1->field_0x4 = 0;
+  /* If this_ptr is already valid, or heap_alloc(8) succeeds, run the init body. */
+  if ((this_ptr != (cls_105a6f3c *)0x0) ||
+     (this_ptr = (cls_105a6f3c *)heap_alloc((void *)8), this_ptr != (cls_105a6f3c *)0x0)) {
+    cls_105b5264_new((cls_105b5264 *)this_ptr);
+    this_ptr->field_0x0 = (uint32_t)&DAT_105a6f3c/*ROM*/;
+    this_ptr->field_0x4 = 0;
   }
-  return param_1;
+  return this_ptr;
 }

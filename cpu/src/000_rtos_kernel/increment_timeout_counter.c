@@ -15,13 +15,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void increment_timeout_counter(int *param_1)
+void increment_timeout_counter(int *timeout_node)
 
 {
-  uint uVar1;
-  
-  uVar1 = param_1[1];
-  param_1[1] = uVar1 + 1;
-  *param_1 = *param_1 + (uint)(0xfffffffe < uVar1);
+  uint old_tick;
+
+  old_tick = timeout_node[1];
+  timeout_node[1] = old_tick + 1;
+  *timeout_node = *timeout_node + (uint)(0xfffffffe < old_tick);
   return;
 }

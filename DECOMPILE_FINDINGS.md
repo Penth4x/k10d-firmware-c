@@ -216,3 +216,19 @@ The C faithfully represents the machine code. I verified:
 
 ## cls_105f9250_new  (`cpu/src/283_display_state_alloc/cls_105f9250_new.c`)
 - [none] The decompiled C faithfully represents the original machine code. The inner `heap_alloc(0x20c)` is dead code in both the C (guarded by `param_1 != 0` which is always true inside the outer block) and the asm (the `bne:d` at 0x10527b96 always branches since r8 is non-null at that point). The four-store zeroing loop at 0x10527c0c–0x10527c30 correctly tiles offsets 0x214–0x254 within the 0x254-byte object (r12 = base+0x214 fixed; r0 = running offset 0,4,8,12; four `st r1,@(r13,r12)` per iteration). The two `call:d` sites at 0x10527bd2 and 0x10527bea correctly pass (r4=pcVar3+8, r5=0x10, r6=0x10, r7=func_ptr) with r6 set in the delay slot. All offsets, immediates, and control flow match.
+
+## set_bit7_of_dat_4007000c  (`cpu/src/127_rtos_kernel_services/set_bit7_of_dat_4007000c.c`)
+- none
+
+The decompiled C faithfully matches the original machine code. The original hardcodes the target address (0x40070000 + 0xc = 0x4007000c) via `ldi:32`/`ldi:8` and never reads the r4 argument register, so the unused `param_x0` is correct. The `lduh`/`sth` pair confirms a 16-bit (halfword) read-modify-write, which the fcc recompile also emits as `LDUH`/`STH`. The `or r12,r1` (second operand is destination in FR) sets bit 7, matching `_DAT_4007000c | 0x80`. The `sth` in the `ret:d` delay slot executes before the return, matching the C assignment-before-return ordering.
+
+## cls_105a6f3c_new  (`cpu/src/137_settings_manager/cls_105a6f3c_new.c`)
+- [B-12s] byte store at offset 4 emitted as word store @ `param_1->field_0x4 = 0` (uint32_t field) vs `stb r0,@(r13,r8)` (1-byte store of 0 at r8+4) -> C writes 4 bytes (0x00000000) at offset 4, original writes only 1 byte (0x00), leaving offsets 5–7 untouched; the fcc asm confirms the divergence with `ST R0,@(R13,R8)` (word) vs original `stb` (byte)
+
+## app_obj_factory  (`cpu/src/199_settings_menu_manager/app_obj_factory.c`)
+- [B-10] 32-bit return value of `subtract_four_from_pointer` treated as 64-bit and shifted right by 32, zeroing the pointer before dereference @ `puVar1 = (uint *)*(int *)((ulonglong)uVar13 >> 0x20);` vs `0x10495832: ld @r4,r1` (simple word dereference of the 32-bit return) -> the shift produces 0, so the C dereferences address 0 instead of the actual pointer returned by the callee; fcc confirms with `LSR R0,R12` / `LD @R0,R11`
+
+## reschedule_raise_dicr  (`cpu/src/000_rtos_kernel/reschedule_raise_dicr.c`)
+- none
+
+The C `*DAT_10011c5c = 1` (where `DAT_10011c5c` is a pointer-typed global) faithfully represents the assembly: `ldi:32 #0x10011c5c,r1` / `ld @r1,r1` loads the pointer from 0x10011c5c, then `stb r0,@r1` (in the `ret:d` delay slot) stores byte 1 through that pointer. The fcc output (`LDI:32 #_DAT_10011c5c,R12` / `LD @R12,R0` / `STB R1,@R0`) matches the original instruction-for-instruction in semantics. No bug-class hit.

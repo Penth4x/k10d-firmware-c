@@ -8,9 +8,11 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void set_bit7_of_dat_4007000c(uint32_t param_x0)
+void set_bit7_of_dat_4007000c(uint32_t unused_arg)
 
 {
+  /* OR bit 7 (0x80) into the 16-bit register at 0x4007000c;
+   * the caller-supplied argument is never used (address is hardcoded). */
   _DAT_4007000c = _DAT_4007000c | 0x80;
   return;
 }

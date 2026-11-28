@@ -8,8 +8,10 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-bool check_bit7_of_0x4007000c(uint32_t param_x0)
+bool check_bit7_of_0x4007000c(uint32_t unused)
 
 {
+  /* Read the halfword at 0x4007000c and test bit 7 (0x80).
+   * The first argument is passed by the caller but never read here. */
   return (_DAT_4007000c & 0x80) != 0;
 }
