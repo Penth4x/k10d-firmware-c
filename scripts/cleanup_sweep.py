@@ -61,6 +61,8 @@ def run_one(path, timeout, gcc_only):
             out = r.stdout + r.stderr
             if "LLM error" in out and attempt < 5:            # server hiccup/down -> wait and retry
                 time.sleep(min(30 * (attempt + 1), 180)); continue
+            if "LLM error" in out:                            # exhausted retries: server is DOWN, not a
+                return "SERVER_DOWN"                           # per-function failure -> caller re-queues (never skips)
             return out
         except subprocess.TimeoutExpired:
             return "TIMEOUT"
@@ -127,6 +129,16 @@ def main():
             print("stop requested -- checkpointing and exiting", flush=True); break
         t0 = time.time()
         out = run_one(f, a.timeout, a.gcc_only)
+        while out == "SERVER_DOWN" and not _stop:   # llama-server down (reboot/crash): wait, retry SAME
+            print(f"[{i}/{len(todo)}] llama-server down -- waiting 120s, will retry {os.path.basename(f)} "
+                  f"(not skipping)", flush=True)
+            for _ in range(24):                     # 24*5s = 120s, but stay responsive to SIGTERM/SIGINT
+                if _stop: break
+                time.sleep(5)
+            if _stop: break
+            out = run_one(f, a.timeout, a.gcc_only)
+        if _stop:
+            print("stop requested -- checkpointing and exiting", flush=True); break
         name = os.path.splitext(os.path.basename(f))[0]
         unit = os.path.basename(os.path.dirname(f))
         rp = os.path.join(CLEAN, f"{unit}__{name}.md")
