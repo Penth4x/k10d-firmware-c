@@ -29,7 +29,7 @@ Usage:
   function_cleanup.py --apply cpu/src/UNIT/func.c          # write cleaned body in place (reviewed only)
   [--out DIR]  (thinking is always on; output is never token-capped)
 """
-import os, re, sys, json, sqlite3, subprocess, urllib.request, argparse, hashlib
+import os, re, sys, json, sqlite3, subprocess, urllib.request, argparse, hashlib, tempfile
 
 ROOT      = "/home/memorai/k10d-firmware-c"
 CATALOG   = "/home/memorai/k10d-re/harness2/catalog.sqlite"
@@ -182,6 +182,25 @@ def split_sections(raw):
     cleaned = max(cleaned, key=len) if cleaned else None
     return sec["FINDINGS"].strip(), sec["RENAMES"].strip(), cleaned
 
+# ---------------------------------------------------------------- compile gate
+def compile_error(c_text):
+    """gcc's error output if the cleaned function won't compile (host gcc + the FR headers), else ''.
+    Same flags that fix_loop.py uses and that I verified parse these files; -w silences the FR-on-host
+    warnings so only real errors (undeclared vars, type/paren mistakes the LLM introduced) remain."""
+    inc = os.path.join(ROOT, "cpu/include")
+    tf = tempfile.NamedTemporaryFile("w", suffix=".c", delete=False)
+    tf.write(c_text); tf.close()
+    try:
+        r = subprocess.run(["gcc", "-c", "-w", "-fpermissive", "-std=gnu99", "-I", inc,
+                            "-fno-common", "-fmax-errors=10", "-o", "/dev/null", tf.name],
+                           capture_output=True, text=True, timeout=90)
+        return "" if r.returncode == 0 else (r.stderr.strip() or "gcc failed (no stderr)")
+    except (subprocess.SubprocessError, OSError) as e:
+        return f"(compile-check error: {e})"
+    finally:
+        try: os.remove(tf.name)
+        except OSError: pass
+
 # ---------------------------------------------------------------- per-file driver
 def process(path, args):
     src = open(path, errors="ignore").read()
@@ -217,14 +236,20 @@ def process(path, args):
     open(rp, "w").write(report)
     nf = 0 if findings.strip() in ("", "- none") else findings.count("\n- ") + findings.strip().startswith("- ")
     applied = False
+    cc_err = ""
     if not args.dry_run and cleaned:
         # guards (git is the backup/review; these stop obviously-wrong applies):
-        #  - the @k10d va header must survive, and
-        #  - the function must still define ITS OWN name (a function-rename stays a proposal).
+        #  - the @k10d va header must survive,
+        #  - the function must still define ITS OWN name (a function-rename stays a proposal), and
+        #  - the cleaned code must COMPILE (host gcc + the FR headers) -- never commit broken code.
         if HDR_VA.search(cleaned) is None:
             print(f"    apply SKIPPED {name}: cleaned block dropped the @k10d va header", file=sys.stderr)
         elif not re.search(r'\b' + re.escape(name) + r'\s*\(', cleaned):
             print(f"    apply SKIPPED {name}: cleaned block renamed the function (proposal only)", file=sys.stderr)
+        elif (cc_err := compile_error(cleaned)):
+            print(f"    apply SKIPPED {name}: cleaned code does not compile (kept original)", file=sys.stderr)
+            report += f"\n## COMPILE ERROR (apply skipped -- original kept)\n```\n{cc_err[:1500]}\n```\n"
+            open(rp, "w").write(report)
         else:
             open(path, "w").write(cleaned if cleaned.endswith("\n") else cleaned + "\n")
             applied = True
