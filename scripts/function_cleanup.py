@@ -160,23 +160,28 @@ Proposed names (all current names are speculative guesses; so are the callee nam
 specific. Never rename anything in other functions.
 
 ### CLEANED
-A single ```c fenced block: the SAME function, rewritten ONLY for readability + your variable/
-parameter RENAMES. Hard rules:
-- Keep the GENERATED MACHINE CODE identical. The cleanup is checked by compiling original vs cleaned
-  and requiring a byte-identical .text section, so your change must be rename + reformat + comments
-  ONLY. Do NOT reorder statements, merge/split them, introduce ternaries or early returns, change a
-  loop/switch form, or rewrite an expression into an equivalent one -- those move .text and get HELD.
-  Keep the exact same statements in the exact same order; keep every cast, offset, mask, branch and
-  side effect; keep bugs intact (reported above, not fixed here).
-- Keep the function's OWN name EXACTLY as given -- callers reference it, so a function rename can
-  only be a PROPOSAL in RENAMES, never applied in this block. You MAY rename locals/parameters.
-- Do not touch or inline other functions. Keep the leading /* @k10d ... */ header block verbatim
-  (especially its `@ 0x<va>` line).
-- Prefer clear locals and short comments that explain WHAT the original is doing. In particular, add a
-  brief comment on any NON-OBVIOUS bit/number idiom so a reader need not decode it: a mask+shift field
-  extract (e.g. `(x & 0x7fff0000) >> 16` -> `/* bits 16-30: <field> */`), a shift used as multiply/divide
-  (`x >> 2` -> `/* x / 4 */`), packing/`CONCAT`, sign-extension, or a magic constant/offset. Keep it to a
-  few words naming WHAT it computes; never add opinion/BUG comments (findings go in ### FINDINGS only).
+A single ```c fenced block of the SAME function, rewritten so a human can READ it and see what it does
+WITHOUT wading through cast-and-pointer-arithmetic soup. That readability is the GOAL; a strict
+automatic gate keeps it honest.
+- HARD GATE (automatic, non-negotiable): the cleaned function must compile to BYTE-IDENTICAL machine
+  code (.text) as the original. Anything that changes codegen is HELD for review, never silently
+  applied -- so rewrite freely toward readability as long as it is PROVABLY EQUIVALENT; the gate
+  rejects what is not. Never change BEHAVIOR: do not change which bytes are read/written, reorder side
+  effects, or "fix" a suspected bug (report bugs in ### FINDINGS and leave them intact here).
+- DE-SOUP -- this is the main job. Turn decompiler artifacts into clear C that compiles the same:
+  * `*(T *)((int)base + i * sizeof(T))`  ->  retype `base` to `T *` and write `base[i]`.
+  * `*(T *)((int)base + 0xNN)`  ->  a struct field access `base->field` when a struct type fits the offset.
+  * drop the redundant `(int)ptr` / reinterpret casts the decompiler inserts just to do pointer math.
+  These compile to the same instructions, so they pass the gate and read far better -- prefer them.
+- NAME/EXPLAIN the genuine bit idioms you cannot remove (a real mask+shift field extract, shift-as-
+  multiply/divide, packing/`CONCAT`, sign-extension, a magic constant/offset): give it a clearly named
+  local and/or a brief WHAT comment (e.g. `(x & 0x7fff0000) >> 16` is bits 16-30). Name what it
+  computes; never add opinion/BUG comments (findings go in ### FINDINGS only).
+- Keep the function's OWN name EXACTLY as given (callers depend on it; a function rename is a PROPOSAL
+  in RENAMES only, never applied here) and keep the leading /* @k10d ... */ header verbatim (especially
+  its `@ 0x<va>` line). Do not touch or inline other functions.
+- If a cleaner form would change codegen (the gate would HOLD it), keep the original form and add a
+  comment instead -- a readable-but-faithful line beats a prettier one that moves the machine code.
 
 COMMON MISTAKES seen in earlier runs -- DO NOT REPEAT:
 - Non-compiling output: every variable you use must be declared; match the original's types; balance
