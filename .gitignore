@@ -13,3 +13,4 @@ cleanup/
 cleanup_run.log
 cleanup_validate*.log
 selfheal_test.log
+cleanup_sweep.log
