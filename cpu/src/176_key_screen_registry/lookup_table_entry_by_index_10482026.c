@@ -6,19 +6,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t lookup_table_entry_by_index_10482026(void *param_1)
-
+uint32_t lookup_table_entry_by_index_10482026(void *registry)
 {
-  int iVar1;
-  uint32_t uVar2;
-  uint8_t *r5_in;
-  
-  iVar1 = screen_key_find(param_1,r5_in);
-  if (iVar1 < 0) {
-    uVar2 = *(uint32_t *)((int)param_1 + 0x10);
+  int key_index;
+  uint32_t entry;
+  uint8_t *dummy;
+
+  key_index = screen_key_find(registry, dummy);
+  if (key_index < 0) {
+    entry = *(uint32_t *)((int)registry + 0x10);
   }
   else {
-    uVar2 = *(uint32_t *)(*(int *)((int)param_1 + 0xc) + iVar1 * 8);
+    int table_base = *(int *)((int)registry + 0xc);
+    entry = *(uint32_t *)(table_base + key_index * 8);
   }
-  return uVar2;
+  return entry;
 }
