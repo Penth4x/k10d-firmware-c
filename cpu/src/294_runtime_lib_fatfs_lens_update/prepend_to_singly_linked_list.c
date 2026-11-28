@@ -17,10 +17,12 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void prepend_to_singly_linked_list(uint32_t *param_1)
+void prepend_to_singly_linked_list(uint32_t *node)
 
 {
-  *param_1 = _DAT_8005b494/*SDRAM*/;
-  _DAT_8005b494/*SDRAM*/ = (uintptr_t)(param_1);
+  /* node->next = current head */
+  *node = _DAT_8005b494/*SDRAM*/;
+  /* head = node (delay-slot store, executes before ret) */
+  _DAT_8005b494/*SDRAM*/ = (uintptr_t)(node);
   return;
 }

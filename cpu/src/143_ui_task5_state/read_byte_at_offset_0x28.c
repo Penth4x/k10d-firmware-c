@@ -6,8 +6,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint8_t read_byte_at_offset_0x28(void *param_1)
+uint8_t read_byte_at_offset_0x28(void *base_ptr)
 
 {
-  return *(uint8_t *)((int)param_1 + 0x28);
+  /* Zero-extended byte load at base_ptr + 0x28 (delay-slot ldub @(r13,r4),r4) */
+  return *(uint8_t *)((int)base_ptr + 0x28);
 }

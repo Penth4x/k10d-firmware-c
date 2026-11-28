@@ -11,27 +11,27 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * cls_105b4254_new(uint32_t *param_1)
+uint32_t * cls_105b4254_new(uint32_t *self)
 
 {
-  uint32_t uVar1;
-  
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)0x20), param_1 != (uint32_t *)0x0)) {
-    cls_105b51ec_new((void *)param_1);
-    cls_1059e4e0_new(param_1 + 1);
-    cls_1059e458_new((void *)(param_1 + 2));
-    *param_1 = (uint32_t)&DAT_105b4254/*ROM*/;
-    param_1[1] = (uint32_t)&DAT_105b42b4/*ROM*/;
-    param_1[2] = (uint32_t)&DAT_105b42dc/*ROM*/;
-    param_1[3] = 0;
-    param_1[4] = 0;
-    param_1[5] = 0;
-    param_1[6] = 0;
-    *(uint8_t *)(param_1 + 7) = 1;
-    *(uint8_t *)((int)param_1 + 0x1d) = 0;
-    uVar1 = get_or_init_singleton_10491b82();
-    param_1[3] = uVar1;
+  uint32_t singleton_id;
+
+  if ((self != (uint32_t *)0x0) ||
+     (self = (uint32_t *)heap_alloc((void *)0x20), self != (uint32_t *)0x0)) {
+    cls_105b51ec_new((void *)self);
+    cls_1059e4e0_new(self + 1);
+    cls_1059e458_new((void *)(self + 2));
+    *self = (uint32_t)&DAT_105b4254/*ROM*/;
+    self[1] = (uint32_t)&DAT_105b42b4/*ROM*/;
+    self[2] = (uint32_t)&DAT_105b42dc/*ROM*/;
+    self[3] = 0;
+    self[4] = 0;
+    self[5] = 0;
+    self[6] = 0;
+    *(uint8_t *)(self + 7) = 1;
+    *(uint8_t *)((int)self + 0x1d) = 0;
+    singleton_id = get_or_init_singleton_10491b82();
+    self[3] = singleton_id;
   }
-  return param_1;
+  return self;
 }

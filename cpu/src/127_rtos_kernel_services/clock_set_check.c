@@ -15,8 +15,9 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-bool clock_set_check(uint32_t param_x0)
+bool clock_set_check(uint32_t unused)
 
 {
+  /* 16-bit MMIO read of the RTC/watch-counter status register; test bit 15 */
   return (_DAT_40090004/*RTC*/ & 0x8000) != 0;
 }

@@ -13,11 +13,14 @@
 #include "funcs.h"
 #include "syscall_traps.h"
 
-bool set_flg_obj(uint32_t *param_1, uint32_t param_2)
+bool set_flg_obj(uint32_t *pflg_id, uint32_t flg_bits)
 
 {
-  int iVar1;
-  
-  iVar1 = __trap_set_event_flag_bits((int)(short)*param_1, param_2);
-  return iVar1 == 0;
+  int trap_ret;
+
+  /* Load the 32-bit flag ID, sign-extend to 16 bits, and pass with the bit
+   * pattern to the kernel set_flg trap (int #0x40).  Returns true when the
+   * trap reports success (0). */
+  trap_ret = __trap_set_event_flag_bits((int)(short)*pflg_id, flg_bits);
+  return trap_ret == 0;
 }
