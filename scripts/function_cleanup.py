@@ -169,7 +169,12 @@ almost nothing, you did not do the job.
 - The GATE is a SAFETY NET, not a reason to be timid. Your cleaned function is auto-compiled and must
   produce BYTE-IDENTICAL machine code to the original; if a rewrite accidentally changed behavior it is
   HELD for review -- harmless, nothing is lost. So be BOLD: rename and de-soup aggressively. A HELD
-  function costs nothing; a no-op "cleanup" wastes the pass. The ONLY hard behavioral rule: do not change
+  function costs nothing; a no-op "cleanup" wastes the pass. BE DECISIVE: you do NOT need to prove to yourself that a rewrite is
+  codegen-identical -- the gate checks that mechanically and feeds back any divergence for you to fix.
+  So make the renames and de-soup confidently and let the tooling verify; do not spend reasoning
+  agonizing over whether each edit is safe. If you are unsure whether a cleaner form is equivalent, WRITE
+  IT ANYWAY -- the gate will tell you. A bold cleanup the gate corrects beats a timid one you talked
+  yourself out of. The ONLY hard behavioral rule: do not change
   which bytes are read/written, reorder side effects, or "fix" a suspected bug (report bugs in ### FINDINGS,
   leave them intact here).
 - DE-SOUP -- this is the main job. Turn decompiler artifacts into clear C that compiles the same:
@@ -261,6 +266,13 @@ def call_llm(messages, timeout=1800):
                                  headers={"Content-Type": "application/json"})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         content = json.loads(r.read().decode())["choices"][0]["message"]["content"]
+    trace = os.environ.get("FCLEAN_TRACE")            # diagnostic: dump raw output incl <think> when set
+    if trace:
+        try:
+            with open(trace, "a") as fh:
+                fh.write("\n\n========== LLM RESPONSE (raw, with thinking) ==========\n" + content + "\n")
+        except OSError:
+            pass
     return re.sub(r'<think>.*?</think>', '', content, flags=re.S).strip()
 
 MAX_ROUNDS = 4   # 1 initial + up to 3 self-fixes of its own compile errors
