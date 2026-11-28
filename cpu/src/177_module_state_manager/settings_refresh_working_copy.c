@@ -11,20 +11,22 @@
 #include "globals.h"
 #include "funcs.h"
 
-void settings_refresh_working_copy(void *param_1)
+void settings_refresh_working_copy(void *settings_ctx)
 
 {
-  int iVar1;
-  int iVar2;
-  int iVar3;
-  
-  iVar1 = *(int *)((int)param_1 + 0xc);
-  iVar3 = 0x344;
+  int src_block;
+  int idx;
+  int remaining;
+
+  /* master settings block pointer lives at settings_ctx+0xc */
+  src_block = *(int *)((int)settings_ctx + 0xc);
+  remaining = 0x344;
   do {
-    iVar2 = iVar3 + -1;
-    *(uint8_t *)((int)param_1 + iVar3 + 0x13) = *(uint8_t *)(iVar2 + iVar1);
-    iVar3 = iVar2;
-  } while (iVar2 != 0);
-  notify_settings_changed(param_1);
+    idx = remaining + -1;
+    /* dest = settings_ctx + remaining + 0x13  (== (settings_ctx+0x14) + idx) */
+    *(uint8_t *)((int)settings_ctx + remaining + 0x13) = *(uint8_t *)(idx + src_block);
+    remaining = idx;
+  } while (idx != 0);
+  notify_settings_changed(settings_ctx);
   return;
 }

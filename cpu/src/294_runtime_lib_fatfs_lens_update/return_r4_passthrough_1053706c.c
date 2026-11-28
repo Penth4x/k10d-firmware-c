@@ -9,7 +9,10 @@
 uint32_t return_r4_passthrough_1053706c(void)
 
 {
+  /* Original body is only prologue/epilogue (st sr1 / enter #0x4 / leave /
+     ld sr1) then ret; r4 is never written, so the return value is the
+     caller's r4 passed through unchanged. */
   uint32_t r4_in;
-  
+
   return r4_in;
 }

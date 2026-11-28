@@ -14,29 +14,28 @@
 #include "funcs.h"
 #include "syscall_traps.h"
 
-uint32_t mempool_get_block(void *param_1,void *param_2,int param_3)
+uint32_t mempool_get_block(void *pool_heap_base,void *alloc_size,int pool_index)
 
 {
-  char *pcVar1;
-  int iVar2;
-  uintptr_t sp;
-  uint32_t uStack_8;
-  
-  if ((param_3 < 0) || (6 < param_3)) {
-    uStack_8 = 0;
+  char *pool_entry;
+  int trap_ret;
+  uint32_t out_block;
+
+  if ((pool_index < 0) || (6 < pool_index)) {
+    out_block = 0;
   }
   else {
-    pcVar1 = (char *)(param_3 * 0x14 + (int)param_1);
-    if (*pcVar1 == '\0') {
-      uStack_8 = 0;
+    pool_entry = (char *)(pool_index * 0x14 + (int)pool_heap_base);
+    if (*pool_entry == '\0') {
+      out_block = 0;
     }
     else {
-      uStack_8 = 0;
-      iVar2 = __trap_kernel_alloc_pool_block((int)(short)*(uint32_t *)(pcVar1 + 0xc),param_2,&uStack_8);
-      if (iVar2 != 0) {
-        uStack_8 = 0;
+      out_block = 0;
+      trap_ret = __trap_kernel_alloc_pool_block((int)(short)*(uint32_t *)(pool_entry + 0xc),alloc_size,&out_block);
+      if (trap_ret != 0) {
+        out_block = 0;
       }
     }
   }
-  return uStack_8;
+  return out_block;
 }

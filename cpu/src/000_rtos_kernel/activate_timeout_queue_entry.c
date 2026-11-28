@@ -16,18 +16,18 @@
 #include "funcs.h"
 #include "uitron.h"
 
-uint32_t activate_timeout_queue_entry(int param_1)
+uint32_t activate_timeout_queue_entry(int entry_index)
 
 {
   int iVar1;
   int iVar2;
   uint32_t uVar3;
-  
-  if ((param_1 < 1) || (DAT_10011d38/*ROM*/ < param_1)) {
+
+  if ((entry_index < 1) || (DAT_10011d38/*ROM*/ < entry_index)) {
     uVar3 = E_ID;
   }
   else {
-    iVar1 = (short)param_1 * 0x1c;
+    iVar1 = (short)entry_index * 0x1c;
     iVar2 = DAT_10011cf4/*ROM*/ + iVar1;
     if (*(int *)(iVar2 + -0x1c) == 0) {
       uVar3 = E_NOEXS;

@@ -11,7 +11,7 @@
  *   counter is zero, it calls remove_task_from_timeout_queue_1001166c and act_tsk, likely
  *   to activate the associated task or signal an event. It also manipulates flags at offset
  *   0x06 and calls virtual-like functions via pointers in the event structure. The behavior
- *   is consistent with a kernel timeout or delay queue processor in a ÂµITRON-like RTOS.
+ *   is consistent with a kernel timeout or delay queue processor in a µITRON-like RTOS.
  * @end */
 #include "frv_intrinsics.h"
 #include "globals.h"
@@ -23,84 +23,84 @@
 uint32_t act_tsk_syscall_dispatcher(void)
 
 {
-  short sVar1;
-  int iVar2;
-  uint32_t uVar3;
-  code *pcVar4;
-  int iVar5;
+  short head_idx;
+  int entry_off;
+  uint32_t timeout_result;
+  code *task_func_ptr;
+  int cur_idx;
   
   increment_timeout_counter((int *)0x6a0036c8);
-  sVar1 = _DAT_6a0036c4;
+  head_idx = _DAT_6a0036c4;
   do {
-    iVar5 = (int)sVar1;
-    _DAT_6a0036c4 = sVar1;
-    if (iVar5 == -1) {
+    cur_idx = (int)head_idx;
+    _DAT_6a0036c4 = head_idx;
+    if (cur_idx == -1) {
 LAB_1000fb04:
       if (_DAT_6a0036bc != (uint32_t)(&DAT_6a0036bc)) {
         do {
-          iVar5 = (int)*(short *)(_DAT_6a0036bc + 0xc);
+          cur_idx = (int)*(short *)(_DAT_6a0036bc + 0xc);
           if (*(int *)(_DAT_6a0036bc + 8) != 0) {
             *(int *)(_DAT_6a0036bc + 8) = *(int *)(_DAT_6a0036bc + 8) + -1;
             return 0;
           }
           if ((*(ushort *)(_DAT_6a0036bc + 0xe) & 8) == 0) {
-            iVar2 = iVar5 * 0x1c;
-            insert_into_timeout_queue_10011644((int *)(DAT_10011cf4/*ROM*/ + iVar2 + -0x1c));
-            *(uint32_t *)(DAT_10011cf4/*ROM*/ + iVar2 + -0x14) =
-                 *(uint32_t *)(DAT_10011cf4/*ROM*/ + iVar2 + -0xc);
-            insert_into_timeout_queue_1000fcd4((uint32_t *)(DAT_10011cf4/*ROM*/ + iVar2 + -0x1c));
-            iVar2 = DAT_10011cf4/*ROM*/ + iVar2;
-            if ((*(ushort *)(iVar2 + -0xe) & 2) != 0) {
-              pcVar4 = *(code **)(iVar2 + -8);
-              uVar3 = *(uint32_t *)(iVar2 + -4);
-              (*(code *)0x105370b0/*ROM*/)(iVar5);
-              (*pcVar4)(uVar3);
-              (*(code *)0x105370be/*ROM*/)(iVar5);
+            entry_off = cur_idx * 0x1c;
+            insert_into_timeout_queue_10011644((int *)(DAT_10011cf4/*ROM*/ + entry_off + -0x1c));
+            *(uint32_t *)(DAT_10011cf4/*ROM*/ + entry_off + -0x14) =
+                 *(uint32_t *)(DAT_10011cf4/*ROM*/ + entry_off + -0xc);
+            insert_into_timeout_queue_1000fcd4((uint32_t *)(DAT_10011cf4/*ROM*/ + entry_off + -0x1c));
+            entry_off = DAT_10011cf4/*ROM*/ + entry_off;
+            if ((*(ushort *)(entry_off + -0xe) & 2) != 0) {
+              task_func_ptr = *(code **)(entry_off + -8);
+              timeout_result = *(uint32_t *)(entry_off + -4);
+              (*(code *)0x105370b0/*ROM*/)(cur_idx);
+              (*task_func_ptr)(timeout_result);
+              (*(code *)0x105370be/*ROM*/)(cur_idx);
             }
           }
           else {
-            iVar2 = iVar5 * 0x18;
-            insert_into_timeout_queue_10011644((int *)(DAT_10011cf0/*ROM*/ + iVar2 + -0x18));
-            *(int *)(DAT_10011cf0/*ROM*/ + iVar2 + -0x18) = DAT_10011cf0/*ROM*/ + iVar2 + -0x18;
-            pcVar4 = *(code **)(iVar2 + DAT_10011cf0/*ROM*/ + -8);
-            uVar3 = *(uint32_t *)(iVar2 + DAT_10011cf0/*ROM*/ + -4);
-            lens_fw_update_stub_105370cc(iVar5);
-            (*pcVar4)(uVar3);
-            lens_fw_update_stub_105370da(iVar5);
+            entry_off = cur_idx * 0x18;
+            insert_into_timeout_queue_10011644((int *)(DAT_10011cf0/*ROM*/ + entry_off + -0x18));
+            *(int *)(DAT_10011cf0/*ROM*/ + entry_off + -0x18) = DAT_10011cf0/*ROM*/ + entry_off + -0x18;
+            task_func_ptr = *(code **)(entry_off + DAT_10011cf0/*ROM*/ + -8);
+            timeout_result = *(uint32_t *)(entry_off + DAT_10011cf0/*ROM*/ + -4);
+            lens_fw_update_stub_105370cc(cur_idx);
+            (*task_func_ptr)(timeout_result);
+            lens_fw_update_stub_105370da(cur_idx);
           }
         } while (_DAT_6a0036bc != (uint32_t)(&DAT_6a0036bc));
       }
       return 0;
     }
-    iVar2 = iVar5 * 0x44;
-    if (*(int *)(iVar2 + 0x6a001c1c) != 0) {
-      *(int *)(iVar2 + 0x6a001c1c) = *(int *)(iVar2 + 0x6a001c1c) + -1;
+    entry_off = cur_idx * 0x44;
+    if (*(int *)(entry_off + 0x6a001c1c) != 0) {
+      *(int *)(entry_off + 0x6a001c1c) = *(int *)(entry_off + 0x6a001c1c) + -1;
       goto LAB_1000fb04;
     }
     lens_fw_update_stub_10537094();
-    remove_task_from_timeout_queue_1001166c(sVar1);
-    if ((*(byte *)(iVar2 + 0x6a001c06) & 8) == 0) {
-      *(uint8_t *)(iVar2 + 0x6a001c06) = 2;
-      if ((*(char *)(iVar2 + 0x6a001c07) == '\0') || (*(char *)(iVar2 + 0x6a001c07) == '\x01')) {
-        ready_list_insert(sVar1);
+    remove_task_from_timeout_queue_1001166c(head_idx);
+    if ((*(byte *)(entry_off + 0x6a001c06) & 8) == 0) {
+      *(uint8_t *)(entry_off + 0x6a001c06) = 2;
+      if ((*(char *)(entry_off + 0x6a001c07) == '\0') || (*(char *)(entry_off + 0x6a001c07) == '\x01')) {
+        ready_list_insert(head_idx);
       }
     }
     else {
-      *(uint8_t *)(iVar2 + 0x6a001c06) = 8;
+      *(uint8_t *)(entry_off + 0x6a001c06) = 8;
     }
-    if (*(char *)(iVar2 + 0x6a001c07) == '\0') {
-      *(uint16_t *)(iVar2 + 0x6a001c16) = 0;
-      uVar3 = E_TMOUT;
+    if (*(char *)(entry_off + 0x6a001c07) == '\0') {
+      *(uint16_t *)(entry_off + 0x6a001c16) = 0;
+      timeout_result = E_TMOUT;
     }
-    else if (*(char *)(iVar2 + 0x6a001c07) == '\x01') {
-      uVar3 = 0;
+    else if (*(char *)(entry_off + 0x6a001c07) == '\x01') {
+      timeout_result = 0;
     }
     else {
-      remove_node_from_queue((int)*(short *)(iVar2 + 0x6a001c08),iVar5,0);
-      uVar3 = E_TMOUT;
+      remove_node_from_queue((int)*(short *)(entry_off + 0x6a001c08),cur_idx,0);
+      timeout_result = E_TMOUT;
     }
-    act_tsk(iVar5,uVar3);
-    lens_fw_update_stub_105370a2(iVar5);
-    sVar1 = _DAT_6a0036c4;
+    act_tsk(cur_idx,timeout_result);
+    lens_fw_update_stub_105370a2(cur_idx);
+    head_idx = _DAT_6a0036c4;
   } while( true );
 }

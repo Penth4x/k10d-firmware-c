@@ -17,38 +17,38 @@
 #include "funcs.h"
 #include "uitron.h"
 
-int allocate_free_task_slot(ushort *param_1)
+int allocate_free_task_slot(ushort *tcb_flags)
 
 {
-  int iVar1;
-  int caller_r10;
-  
-  if ((*param_1 & 0xfffc) == 0) {
-    iVar1 = 0;
+  int scan_idx;
+  int ret_val;
+
+  if ((*tcb_flags & 0xfffc) == 0) {
+    scan_idx = 0;
     if (0 < DAT_10011d42/*ROM*/) {
       do {
-        if (*(short *)(iVar1 * 0x10 + DAT_10011d08/*ROM*/) == -2) {
-          caller_r10 = (int)(short)((short)iVar1 + 1);
+        if (*(short *)(scan_idx * 0x10 + DAT_10011d08/*ROM*/) == -2) {
+          ret_val = (int)(short)((short)scan_idx + 1);
           break;
         }
-        iVar1 = (int)(short)((short)iVar1 + 1);
-      } while (iVar1 < DAT_10011d42/*ROM*/);
+        scan_idx = (int)(short)((short)scan_idx + 1);
+      } while (scan_idx < DAT_10011d42/*ROM*/);
     }
-    if (iVar1 < DAT_10011d42/*ROM*/) {
-      if ((*param_1 & 2) != 0) {
-        if ((short)param_1[1] < 1) {
+    if (scan_idx < DAT_10011d42/*ROM*/) {
+      if ((*tcb_flags & 2) != 0) {
+        if ((short)tcb_flags[1] < 1) {
           return E_PAR;
         }
-        *(ushort *)(caller_r10 * 0x10 + DAT_10011d08/*ROM*/ + -10) = param_1[1];
+        *(ushort *)(ret_val * 0x10 + DAT_10011d08/*ROM*/ + -10) = tcb_flags[1];
       }
-      initialize_timeout_queue_node_1000f778(caller_r10,param_1);
+      initialize_timeout_queue_node_1000f778(ret_val,tcb_flags);
     }
     else {
-      caller_r10 = E_NOID;
+      ret_val = E_NOID;
     }
   }
   else {
-    caller_r10 = E_RSATR;
+    ret_val = E_RSATR;
   }
-  return caller_r10;
+  return ret_val;
 }

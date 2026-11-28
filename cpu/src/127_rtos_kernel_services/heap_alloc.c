@@ -15,13 +15,13 @@
 /* Settings store reader. Callers pass index in r4 via delay slot (ldi:8 idx,r4 in call's delay
    slot) */
 
-uint32_t heap_alloc(void *param_1)
+uint32_t heap_alloc(void *size)
 
 {
-  void *pvVar1;
-  uint32_t uVar2;
+  void *heap;
+  uint32_t block;
   
-  pvVar1 = (void *)get_system_heap();
-  uVar2 = mempool_get_block(pvVar1,param_1,3);
-  return uVar2;
+  heap = (void *)get_system_heap();
+  block = mempool_get_block(heap,size,3);
+  return block;
 }

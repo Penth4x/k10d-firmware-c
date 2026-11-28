@@ -16,7 +16,6 @@
 #include "funcs.h"
 
 void ready_list_insert_spin(void)
-
 {
   __halt();
 }

@@ -14,9 +14,9 @@
 #include "globals.h"
 #include "funcs.h"
 
-void act_tsk_framewrite(int param_1,uint32_t param_2)
+void act_tsk_framewrite(int tcb_ptr, uint32_t value)
 
 {
-  *(uint32_t *)(param_1 + 0x24) = param_2;
+  *(uint32_t *)(tcb_ptr + 0x24) = value;
   return;
 }

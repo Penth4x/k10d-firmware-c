@@ -12,12 +12,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void copy_word_array_1045cd46(void *param_1,uint32_t *param_2,int param_3,uint32_t *param_4)
+void copy_word_array_1045cd46(void *ctx,uint32_t *dest,int count,uint32_t *src)
 
 {
-  for (; param_3 != 0; param_3 = param_3 + -1) {
-    *param_2 = *param_4;
-    param_2 = param_2 + 1;
+  /* Fill 'count' consecutive 32-bit slots at dest with the word at *src.
+   * The source address is never advanced (asm: only r5 += 4, r7 unchanged). */
+  for (; count != 0; count = count + -1) {
+    *dest = *src;
+    dest = dest + 1;
   }
   return;
 }

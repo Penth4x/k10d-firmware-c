@@ -11,25 +11,25 @@
 #include "globals.h"
 #include "funcs.h"
 
-cls_105b5264 * cls_105a6cfc_new(cls_105a6cfc *param_1)
+cls_105b5264 * cls_105a6cfc_new(cls_105a6cfc *this_ptr)
 
 {
-  int iVar1;
-  int iVar2;
-  
-  if ((param_1 != (cls_105a6cfc *)0x0) ||
-     (param_1 = (cls_105a6cfc *)heap_alloc((void *)0x4c), param_1 != (cls_105a6cfc *)0x0)) {
-    cls_105b5264_new((cls_105b5264 *)param_1);
-    ((cls_105b5264 *)param_1)->field_0x0 = (uintptr_t)(&DAT_105a6cfc/*ROM*/);
-    iVar1 = 0;
-    iVar2 = 0x16;
+  int byte_off;
+  int triple_count;
+
+  if ((this_ptr != (cls_105a6cfc *)0x0) ||
+     (this_ptr = (cls_105a6cfc *)heap_alloc((void *)0x4c), this_ptr != (cls_105a6cfc *)0x0)) {
+    cls_105b5264_new((cls_105b5264 *)this_ptr);
+    ((cls_105b5264 *)this_ptr)->field_0x0 = (uintptr_t)(&DAT_105a6cfc/*ROM*/);
+    byte_off = 0;
+    triple_count = 0x16;
     do {
-      *(uint8_t *)((int)&((cls_105b5264 *)(param_1 + 1))->field_0x0 + iVar1) = 0;
-      *(uint8_t *)((int)&((cls_105b5264 *)(param_1 + 1))->field_0x0 + iVar1 + 1) = 0;
-      *(uint8_t *)((int)&((cls_105b5264 *)(param_1 + 1))->field_0x0 + iVar1 + 2) = 0;
-      iVar2 = iVar2 + -1;
-      iVar1 = iVar1 + 3;
-    } while (-1 < iVar2);
+      *(uint8_t *)((int)&((cls_105b5264 *)(this_ptr + 1))->field_0x0 + byte_off) = 0;
+      *(uint8_t *)((int)&((cls_105b5264 *)(this_ptr + 1))->field_0x0 + byte_off + 1) = 0;
+      *(uint8_t *)((int)&((cls_105b5264 *)(this_ptr + 1))->field_0x0 + byte_off + 2) = 0;
+      triple_count = triple_count + -1;
+      byte_off = byte_off + 3;
+    } while (-1 < triple_count);
   }
-  return (cls_105b5264 *)param_1;
+  return (cls_105b5264 *)this_ptr;
 }

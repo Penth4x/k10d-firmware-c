@@ -9,76 +9,86 @@
 uint32_t allocate_kernel_memory_block(uint param_1,uint32_t *param_2)
 
 {
-  bool bVar1;
-  int iVar2;
-  int iVar3;
-  uint32_t uVar4;
-  int *caller_r8;
-  uint *caller_r9;
-  uint caller_r10;
-  uint uVar5;
-  uint uVar6;
-  uint *puStack_10;
-  
+  bool block_found;
+  int size_class_idx;
+  int size_class_shift;
+  uint32_t alloc_result;
+  int *free_list_node;
+  uint *node_size_field;
+  uint node_byte_size;
+  uint remainder_bytes;
+  uint aligned_size;
+  uint *alloc_ptr;
+
+  /* Align the requested size up to a 4-byte boundary (minimum 12). */
   if (param_1 < 0xd) {
-    uVar6 = 0xc;
+    aligned_size = 0xc;
   }
   else {
-    uVar6 = param_1 + 3 & 0xfffffffc;
+    aligned_size = param_1 + 3 & 0xfffffffc;
   }
-  bVar1 = false;
-  iVar2 = 0;
-  iVar3 = 0;
+
+  block_found = false;
+  size_class_idx = 0;
+  size_class_shift = 0;
+
+  /* Find the smallest size class (32 << shift) that fits the request. */
   do {
-    if (uVar6 < (uint)(0x20 << ((byte)iVar3 & 0xf))) break;
-    iVar3 = iVar3 + 3;
-    iVar2 = iVar2 + 1;
-  } while (iVar3 < 0xf);
-  if (iVar2 < 6) {
-    iVar3 = iVar2 << 3;
+    if (aligned_size < (uint)(0x20 << ((byte)size_class_shift & 0xf))) break;
+    size_class_shift = size_class_shift + 3;
+    size_class_idx = size_class_idx + 1;
+  } while (size_class_shift < 0xf);
+
+  /* Search free lists for size classes 0..5 for a block large enough. */
+  if (size_class_idx < 6) {
+    size_class_shift = size_class_idx << 3;
     do {
-      caller_r8 = *(int **)(iVar3 + 0x6a000000);
-      if (caller_r8 != (int *)(iVar3 + 0x6a000000)) {
+      free_list_node = *(int **)(size_class_shift + 0x6a000000);
+      if (free_list_node != (int *)(size_class_shift + 0x6a000000)) {
         do {
-          caller_r9 = (uint *)(caller_r8 + -1);
-          caller_r10 = *caller_r9 * 4;
-          if (uVar6 <= caller_r10) {
-            bVar1 = true;
+          node_size_field = (uint *)(free_list_node + -1);
+          node_byte_size = *node_size_field * 4;
+          if (aligned_size <= node_byte_size) {
+            block_found = true;
             break;
           }
-          caller_r8 = (int *)*caller_r8;
-        } while (caller_r8 != (int *)(iVar3 + 0x6a000000));
+          free_list_node = (int *)*free_list_node;
+        } while (free_list_node != (int *)(size_class_shift + 0x6a000000));
       }
-      if (bVar1) break;
-      iVar2 = iVar2 + 1;
-      iVar3 = iVar3 + 8;
-    } while (iVar2 < 6);
+      if (block_found) break;
+      size_class_idx = size_class_idx + 1;
+      size_class_shift = size_class_shift + 8;
+    } while (size_class_idx < 6);
   }
-  if (bVar1) {
-    if (caller_r10 < uVar6 + 0x10) {
-      link_node_into_list(caller_r8);
-      *caller_r9 = *caller_r9 | 0x80000000/*SDRAM*/;
-      uVar6 = caller_r10;
-      puStack_10 = caller_r9;
+
+  if (block_found) {
+    if (node_byte_size < aligned_size + 0x10) {
+      /* Block too small to split: use the entire block. */
+      link_node_into_list(free_list_node);
+      *node_size_field = *node_size_field | 0x80000000/*SDRAM*/;
+      aligned_size = node_byte_size;
+      alloc_ptr = node_size_field;
     }
     else {
-      uVar5 = caller_r10 - (uVar6 + 4);
-      puStack_10 = (uint *)((int)caller_r8 + uVar5);
-      *puStack_10 = uVar6 >> 2 | 0x80000000/*SDRAM*/;
-      *caller_r9 = uVar5 >> 2 | 0x40000000;
-      puStack_10[-1] = (uint)caller_r8;
-      if ((0 < iVar2) && (uVar5 < (uint)(0x20 << (((char)iVar2 + -1) * '\x03' & 0xfU)))) {
-        link_node_into_list(caller_r8);
-        insert_into_timeout_queue_1000fc34(caller_r8,uVar5);
+      /* Split: carve off the requested portion, keep the remainder free. */
+      remainder_bytes = node_byte_size - (aligned_size + 4);
+      alloc_ptr = (uint *)((int)free_list_node + remainder_bytes);
+      *alloc_ptr = aligned_size >> 2 | 0x80000000/*SDRAM*/;
+      *node_size_field = remainder_bytes >> 2 | 0x40000000;
+      alloc_ptr[-1] = (uint)free_list_node;
+      if ((0 < size_class_idx) && (remainder_bytes < (uint)(0x20 << (((char)size_class_idx + -1) * '\x03' & 0xfU)))) {
+        link_node_into_list(free_list_node);
+        insert_into_timeout_queue_1000fc34(free_list_node,remainder_bytes);
       }
     }
-    puStack_10 = puStack_10 + 1;
-    *(uint *)(uVar6 + (int)puStack_10) = *(uint *)(uVar6 + (int)puStack_10) | 0x40000000;
-    uVar4 = 1;
-    *param_2 = (uintptr_t)(puStack_10);
+    /* Mark the block header as in-use (OR in 0x40000000). */
+    alloc_ptr = alloc_ptr + 1;
+    *(uint *)(aligned_size + (int)alloc_ptr) = *(uint *)(aligned_size + (int)alloc_ptr) | 0x40000000;
+    alloc_result = 1;
+    *param_2 = (uintptr_t)(alloc_ptr);
   }
   else {
-    uVar4 = 0;
+    alloc_result = 0;
   }
-  return uVar4;
+  return alloc_result;
 }

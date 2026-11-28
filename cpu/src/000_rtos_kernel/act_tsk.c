@@ -13,10 +13,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void act_tsk(int param_1,uint32_t param_2)
+void act_tsk(int task_index, uint32_t status)
 
 {
-  act_tsk_framewrite(*(int *)(&DAT_6a0018c0 + param_1 * 4),param_2);
-  store_word_to_pointer_1000d41a((uint32_t *)(param_1 * 4 + 0x6a003778),param_2);
+  act_tsk_framewrite(*(int *)(&DAT_6a0018c0 + task_index * 4), status);
+  store_word_to_pointer_1000d41a((uint32_t *)(task_index * 4 + 0x6a003778), status);
   return;
 }

@@ -22,7 +22,7 @@ uint32_t event_dispatcher(void *param_1,int param_2,uint32_t param_3)
   uint32_t uVar2;
   int iVar3;
   int iStack_10;
-  
+
   uVar2 = 0;
   iStack_10 = 7;
   iVar3 = 0;
