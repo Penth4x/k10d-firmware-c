@@ -17,40 +17,35 @@
 #include "funcs.h"
 #include "syscall_traps.h"
 
-int alloc_or_acquire_heap_block(int *param_1,int param_2,uint32_t param_3)
+int alloc_or_acquire_heap_block(int *out_handle, int task_id, uint32_t flgptn)
 
 {
-  int iVar1;
-  /* The kernel service reads a 2-word descriptor: attr at +0, iflgptn at +4 (write_timeout_queue_node
-   * copies *(uint32_t*)(param_2+2 halfwords = +4) into the CB's flgptn field). The decompiler split
-   * the descriptor into two NON-adjacent stack locals (uStack_c @ sp+0xc, uStack_8 @ sp+8), so
-   * &uStack_c + 4 landed on an uninitialized slot (the dropped `sp` local) instead of param_3 ->
-   * every created object got a GARBAGE flgptn. Flag 0x35 (waited on ORW/0xffffffff) then matched its
-   * garbage and the display task never blocked -> boot-blocking derail. Lay the two words out
-   * contiguously so iflgptn (+4) is param_3, as the original did. */
-  uint32_t desc[2];
+  int kernel_result;
+  /* Two-word kernel descriptor: attr (0x20000) at +0, flgptn at +4.
+   * The kernel service reads both words from the pointer passed as its argument. */
+  uint32_t obj_desc[2];
 
-  desc[0] = 0x20000;
-  *param_1 = param_2;
-  desc[1] = param_3;
-  if (param_2 == 0) {
-    iVar1 = __trap_find_free_tcb_slot_1000d770(desc);
-    if (0 < iVar1) {
-      *param_1 = iVar1;
-      return iVar1;
+  obj_desc[0] = 0x20000;
+  *out_handle = task_id;
+  obj_desc[1] = flgptn;
+  if (task_id == 0) {
+    kernel_result = __trap_find_free_tcb_slot_1000d770(obj_desc);
+    if (0 < kernel_result) {
+      *out_handle = kernel_result;
+      return kernel_result;
     }
   }
   else {
-    iVar1 = __trap_validate_task_id_and_flag((int)(short)param_2,desc);
+    kernel_result = __trap_validate_task_id_and_flag((int)(short)task_id, obj_desc);
   }
-  if (iVar1 == 0) {
-    iVar1 = 0;
+  if (kernel_result == 0) {
+    kernel_result = 0;
   }
-  else if (iVar1 == -0x21) {
-    iVar1 = -1;
+  else if (kernel_result == -0x21) {
+    kernel_result = -1;
   }
   else {
-    iVar1 = -3;
+    kernel_result = -3;
   }
-  return iVar1;
+  return kernel_result;
 }

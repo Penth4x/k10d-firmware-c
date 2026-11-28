@@ -6,13 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t * alloc_two_word_pair_1045bc2e(uint32_t *param_1,uint32_t param_2,uint32_t param_3)
+uint32_t * alloc_two_word_pair_1045bc2e(uint32_t *pair_buf,uint32_t word0,uint32_t word1)
 
 {
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)8), param_1 != (uint32_t *)0x0)) {
-    *param_1 = param_2;
-    param_1[1] = param_3;
+  if ((pair_buf != (uint32_t *)0x0) ||
+     (pair_buf = (uint32_t *)heap_alloc((void *)8), pair_buf != (uint32_t *)0x0)) {
+    *pair_buf = word0;
+    pair_buf[1] = word1;
   }
-  return param_1;
+  return pair_buf;
 }

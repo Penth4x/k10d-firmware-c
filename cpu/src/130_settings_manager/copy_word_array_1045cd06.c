@@ -6,12 +6,13 @@
 #include "globals.h"
 #include "funcs.h"
 
-void copy_word_array_1045cd06(void *param_1,uint32_t *param_2,uint32_t *param_3,uint32_t *param_4)
+void copy_word_array_1045cd06(void *ctx, uint32_t *src, uint32_t *src_end, uint32_t *dst)
 
 {
-  for (; param_2 != param_3; param_2 = param_2 + 1) {
-    *param_4 = *param_2;
-    param_4 = param_4 + 1;
+  /* Copy 32-bit words from [src, src_end) to dst; ctx (r4) is unused. */
+  for (; src != src_end; src = src + 1) {
+    *dst = *src;
+    dst = dst + 1;
   }
   return;
 }

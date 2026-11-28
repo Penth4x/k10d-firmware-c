@@ -17,7 +17,7 @@
 #include "funcs.h"
 #include "syscall_traps.h"
 
-int create_message_box_1045a190(int *param_1,int param_2,int param_3,uint32_t *param_4,int param_5)
+int create_message_box_1045a190(int *handle_out,int task_id,int priority,uint32_t *magic_out,int stack_size)
 
 {
   struct {
@@ -27,42 +27,42 @@ int create_message_box_1045a190(int *param_1,int param_2,int param_3,uint32_t *p
     int iStack_10;
     int iStack_c;
     uint32_t * puStack_8;
-  } _cfg_1c;
-  int iVar1;
-  uintptr_t sp;
-  param_1[1] = param_3;
-  param_1[2] = (int)param_4;
-  param_1[3] = param_5;
-  *param_4 = 0x5aa55aa5;
-  *param_1 = 0;
-  _cfg_1c.local_1c = 0;
-  _cfg_1c.iStack_10 = param_3 << 0x10;
-  _cfg_1c.iStack_c = param_5;
-  _cfg_1c.pcStack_14 = ui_task_body_common;
-  _cfg_1c.piStack_18 = param_1;
-  _cfg_1c.puStack_8 = param_4;
-  if (param_2 == 0) {
-    iVar1 = __trap_allocate_kernel_task_slot_1000dac0(&_cfg_1c.local_1c);
-    if (0 < iVar1) {
-      *param_1 = iVar1;
-      return iVar1;
+  } task_cfg;
+  int trap_ret;
+  uintptr_t unused_sp;
+  handle_out[1] = priority;
+  handle_out[2] = (int)magic_out;
+  handle_out[3] = stack_size;
+  *magic_out = 0x5aa55aa5;
+  *handle_out = 0;
+  task_cfg.local_1c = 0;
+  task_cfg.iStack_10 = priority << 0x10;
+  task_cfg.iStack_c = stack_size;
+  task_cfg.pcStack_14 = ui_task_body_common;
+  task_cfg.piStack_18 = handle_out;
+  task_cfg.puStack_8 = magic_out;
+  if (task_id == 0) {
+    trap_ret = __trap_allocate_kernel_task_slot_1000dac0(&task_cfg.local_1c);
+    if (0 < trap_ret) {
+      *handle_out = trap_ret;
+      return trap_ret;
     }
   }
   else {
-    *param_1 = param_2;
-    iVar1 = __trap_validate_and_store_task_params((int)(short)param_2,&_cfg_1c.local_1c);
+    *handle_out = task_id;
+    trap_ret = __trap_validate_and_store_task_params((int)(short)task_id,&task_cfg.local_1c);
   }
-  if (iVar1 == 0) {
-    iVar1 = 0;
+  if (trap_ret == 0) {
+    trap_ret = 0;
   }
-  else if (iVar1 == -0x21) {
-    iVar1 = -1;
+  else if (trap_ret == -0x21) {
+    trap_ret = -1;
   }
-  else if (iVar1 == -0x11) {
-    iVar1 = -2;
+  else if (trap_ret == -0x11) {
+    trap_ret = -2;
   }
   else {
-    iVar1 = -3;
+    trap_ret = -3;
   }
-  return iVar1;
+  return trap_ret;
 }

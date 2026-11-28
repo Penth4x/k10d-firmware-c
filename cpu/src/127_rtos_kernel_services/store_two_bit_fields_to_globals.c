@@ -8,10 +8,10 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void store_two_bit_fields_to_globals(uint32_t param_1,uint32_t param_2)
+void store_two_bit_fields_to_globals(uint32_t unused_rtc_obj_field,uint32_t rtc_status_word)
 
 {
-  _DAT_401c0104 = (ushort)((uint)param_2 >> 8) & 3;
-  _DAT_401c0124 = (ushort)param_2 & 3;
+  _DAT_401c0104 = (ushort)((uint)rtc_status_word >> 8) & 3;
+  _DAT_401c0124 = (ushort)rtc_status_word & 3;
   return;
 }

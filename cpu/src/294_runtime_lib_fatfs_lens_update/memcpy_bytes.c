@@ -13,19 +13,19 @@
 #include "globals.h"
 #include "funcs.h"
 
-void memcpy_bytes(void *param_1,void *param_2,int param_3)
+void memcpy_bytes(void *dest,void *src,int count)
 
 {
-  bool bVar1;
-  int iVar2;
-  
-  if (0 < param_3) {
+  bool still_positive;
+  int idx;
+
+  if (0 < count) {
     do {
-      iVar2 = param_3 + -1;
-      bVar1 = 0 < param_3;
-      *(uint8_t *)(iVar2 + (int)param_1) = *(uint8_t *)(iVar2 + (int)param_2);
-      param_3 = iVar2;
-    } while (bVar1 && iVar2 != 0);
+      idx = count + -1;
+      still_positive = 0 < count;
+      *(uint8_t *)(idx + (int)dest) = *(uint8_t *)(idx + (int)src);
+      count = idx;
+    } while (still_positive && idx != 0);
   }
   return;
 }

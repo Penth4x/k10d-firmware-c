@@ -15,47 +15,43 @@
 #include "funcs.h"
 #include "syscall_traps.h"
 
-int create_or_open_kernel_object(int *param_1,int param_2,int param_3,uint16_t param_4)
+int create_or_open_kernel_object(int *obj_ptr,int obj_id,int obj_type,uint16_t obj_flags)
 
 {
-  int iVar1;
-  int iVar2;
-  /* Descriptor-split bug (same class as create_kernel_object): the kernel reads a 2-halfword
-   * descriptor {attr@+0, param_4@+2} (find_free_queue_slot_1000d978 reads param_1[1] when attr==3),
-   * but the decompiler emitted uStack_8@sp+8 and uStack_6@sp+6 (DESCENDING, non-adjacent) and passed
-   * &uStack_8, so +2 landed on an uninitialized slot. Lay the two halfwords out contiguously. */
-  uint16_t desc[2];
+  int kret;
+  int retval;
+  uint16_t kdesc[2];
 
-  if (param_3 == 1) {
-    desc[0] = 0;
+  if (obj_type == 1) {
+    kdesc[0] = 0;
   }
-  else if (param_3 == 2) {
-    desc[0] = 1;
+  else if (obj_type == 2) {
+    kdesc[0] = 1;
   }
-  else if (param_3 == 3) {
-    desc[0] = 2;
+  else if (obj_type == 3) {
+    kdesc[0] = 2;
   }
   else {
-    if (param_3 != 4) {
+    if (obj_type != 4) {
       return -2;
     }
-    desc[0] = 3;
+    kdesc[0] = 3;
   }
-  *param_1 = param_2;
-  desc[1] = param_4;
-  if (param_2 == 0) {
-    iVar1 = __trap_find_free_queue_slot_1000d978(desc);
-    if (0 < iVar1) {
-      *param_1 = iVar1;
-      return iVar1;
+  *obj_ptr = obj_id;
+  kdesc[1] = obj_flags;
+  if (obj_id == 0) {
+    kret = __trap_find_free_queue_slot_1000d978(kdesc);
+    if (0 < kret) {
+      *obj_ptr = kret;
+      return kret;
     }
   }
   else {
-    iVar1 = __trap_validate_task_request((int)(short)param_2,desc);
+    kret = __trap_validate_task_request((int)(short)obj_id,kdesc);
   }
-  iVar2 = 0;
-  if (iVar1 != 0) {
-    iVar2 = -3;
+  retval = 0;
+  if (kret != 0) {
+    retval = -3;
   }
-  return iVar2;
+  return retval;
 }
