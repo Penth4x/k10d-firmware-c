@@ -159,8 +159,12 @@ specific. Never rename anything in other functions.
 ### CLEANED
 A single ```c fenced block: the SAME function, rewritten ONLY for readability + your variable/
 parameter RENAMES. Hard rules:
-- Behaviour must be byte-for-byte equivalent (same reads/writes/widths/order/branches); keep every
-  cast, offset, mask and side effect; keep bugs intact (reported above, not fixed here).
+- Keep the GENERATED MACHINE CODE identical. The cleanup is checked by compiling original vs cleaned
+  and requiring a byte-identical .text section, so your change must be rename + reformat + comments
+  ONLY. Do NOT reorder statements, merge/split them, introduce ternaries or early returns, change a
+  loop/switch form, or rewrite an expression into an equivalent one -- those move .text and get HELD.
+  Keep the exact same statements in the exact same order; keep every cast, offset, mask, branch and
+  side effect; keep bugs intact (reported above, not fixed here).
 - Keep the function's OWN name EXACTLY as given -- callers reference it, so a function rename can
   only be a PROPOSAL in RENAMES, never applied in this block. You MAY rename locals/parameters.
 - Do not touch or inline other functions. Keep the leading /* @k10d ... */ header block verbatim
@@ -275,6 +279,31 @@ def compile_error(c_text):
         try: os.remove(tf.name)
         except OSError: pass
 
+def text_section(c_text):
+    """The compiled .text bytes of the function (host gcc, no debug), or None if it won't compile.
+    Two versions with byte-identical .text are PROVABLY behaviour-identical: variable names, whitespace
+    and comments are not in .text, so a pure rename/reformat/comment cleanup leaves .text untouched; any
+    change to logic or control flow moves it. This is the faithfulness gate -- general (every function,
+    no emulation) and provable -- replacing the incidental SPI-txn check for the cleanup pass."""
+    inc = os.path.join(ROOT, "cpu/include")
+    cf = tempfile.NamedTemporaryFile("w", suffix=".c", delete=False); cf.write(c_text); cf.close()
+    of, tf = cf.name + ".o", cf.name + ".text"
+    try:
+        r = subprocess.run(["gcc", "-c", "-w", "-fpermissive", "-std=gnu99", "-I", inc, "-fno-common",
+                            "-o", of, cf.name], capture_output=True, text=True, timeout=90)
+        if r.returncode != 0:
+            return None
+        subprocess.run(["objcopy", "-O", "binary", "--only-section=.text", of, tf],
+                       capture_output=True, timeout=30)
+        with open(tf, "rb") as fh:
+            return fh.read()
+    except (subprocess.SubprocessError, OSError):
+        return None
+    finally:
+        for p in (cf.name, of, tf):
+            try: os.remove(p)
+            except OSError: pass
+
 # ---------------------------------------------------------------- per-file driver
 def process(path, args):
     src = open(path, errors="ignore").read()
@@ -311,16 +340,32 @@ def process(path, args):
     nf = 0 if findings.strip() in ("", "- none") else findings.count("\n- ") + findings.strip().startswith("- ")
 
     applied = False
+    tag = "dry-run" if args.dry_run else ("NOCOMPILE" if cc_err else "not-applied")
     if not args.dry_run and cleaned and not cc_err:
-        # compile already passed in the self-check loop; remaining guards: keep the va header + own name.
+        # compile already passed in the loop; remaining guards: keep va header + own name, then the
+        # FAITHFULNESS GATE -- the cleaned function must compile to byte-identical .text as the original
+        # (provably behaviour-preserving: a pure rename/reformat/comment leaves .text untouched). If the
+        # model restructured and .text moved, HOLD it for review instead of trusting it (unless --allow-codegen).
         if HDR_VA.search(cleaned) is None:
             print(f"    apply SKIPPED {name}: cleaned block dropped the @k10d va header", file=sys.stderr)
         elif not re.search(r'\b' + re.escape(name) + r'\s*\(', cleaned):
             print(f"    apply SKIPPED {name}: cleaned block renamed the function (proposal only)", file=sys.stderr)
         else:
-            open(path, "w").write(cleaned if cleaned.endswith("\n") else cleaned + "\n")
-            applied = True
-    tag = "APPLIED" if applied else ("dry-run" if args.dry_run else ("NOCOMPILE" if cc_err else "not-applied"))
+            orig_t, clean_t = text_section(src), text_section(cleaned)
+            if orig_t is not None and clean_t is not None and orig_t == clean_t:
+                open(path, "w").write(cleaned if cleaned.endswith("\n") else cleaned + "\n")
+                applied = True; tag = "APPLIED(.text=)"
+            elif args.allow_codegen:
+                open(path, "w").write(cleaned if cleaned.endswith("\n") else cleaned + "\n")
+                applied = True; tag = "APPLIED(codegen-changed)"
+            else:
+                tag = "HELD(codegen-changed)"
+                report += ("\n## CODEGEN CHANGED -- held for review (original kept)\n"
+                           "The cleaned .text differs from the original, so this is NOT a pure rename/format "
+                           "cleanup -- the model restructured logic/control-flow. Review behaviour before "
+                           "applying, or re-run with --allow-codegen.\n")
+                open(rp, "w").write(report)
+                print(f"    HELD {name}: .text changed (restructured) -- not applied", file=sys.stderr)
     print(f"  {name}: findings~{nf}  rename={'y' if renames and renames!='(none)' else 'n'}"
           f"  rounds={rounds}  {tag}  -> {rp}")
     return {"path": rel, "report": os.path.relpath(rp, ROOT), "applied": applied}
