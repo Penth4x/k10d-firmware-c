@@ -103,14 +103,109 @@ def method_self_class(defs=None):
     size = lambda addr: len(defs.get("cls_%x" % addr, ""))
     return {mva: ("cls_%x" % min(cs, key=size)) for mva, cs in method_cls.items()}
 
+
+# -------- caller propagation: flow known types through call sites to a fixpoint --------
+import json
+_SIG   = re.compile(r"(\b[\w ]*\b)\s*(\w+)\s*\(([^)]*)\)\s*\{", re.S)
+_HDRVA = re.compile(r"@k10d\s+\S+\s+@\s+0x([0-9a-fA-F]+)")
+_CLS   = re.compile(r"\b(cls_[0-9a-fA-F]+)\b")
+_KW    = {"if","while","for","switch","sizeof","return","CONCAT22","CONCAT44","do","else"}
+RESOLVED_CACHE = os.path.join(ROOT, "cleanup/resolved_types.json")
+
+def _strip_casts(a):
+    a = a.strip()
+    for _ in range(4):
+        a = re.sub(r"\([^()]*\)", "", a).strip()
+    return a.strip()
+
+def _call_args(src, funcs):
+    """yield (callee, [arg exprs]) for each call to a known function."""
+    for m in re.finditer(r"\b([a-zA-Z_]\w*)\s*\(", src):
+        name = m.group(1)
+        if name in _KW or name not in funcs:
+            continue
+        i = m.end(); depth = 1; args = [""]; j = i
+        while j < len(src) and depth > 0:
+            c = src[j]
+            if c == "(":
+                depth += 1; args[-1] += c
+            elif c == ")":
+                depth -= 1
+                if depth > 0: args[-1] += c
+            elif c == "," and depth == 1:
+                args.append("")
+            else:
+                args[-1] += c
+            j += 1
+        yield name, args
+
+def propagate_param_types(defs=None, max_iter=12):
+    """{func name: {param_index: cls}} after seeding from declared/evident types + vtable self-class and
+    propagating typed arguments through call sites (incl. constructor-return locals) to a fixpoint."""
+    defs = defs or struct_defs()
+    funcs = {}
+    for f in glob.glob(os.path.join(ROOT, "cpu/src", "*", "*.c")):
+        src = open(f, errors="ignore").read()
+        m = _SIG.search(src); mh = _HDRVA.search(src[:400])
+        if not m or not mh:
+            continue
+        nm = os.path.splitext(os.path.basename(f))[0]
+        pnames = [ (re.search(r"(\w+)\s*$", pp.strip()) or [None, None]) for pp in m.group(3).split(",") ]
+        pnames = [ (x.group(1) if hasattr(x, "group") else None) for x in pnames ]
+        rc = _CLS.search(m.group(1)); ret = rc.group(1) if (rc and "*" in m.group(1)) else None
+        funcs[nm] = dict(src=src, va=int(mh.group(1), 16), pnames=pnames, ret=ret)
+    msc = method_self_class(defs)
+    ptypes = {nm: {} for nm in funcs}
+    for nm, d in funcs.items():
+        et = evident_param_types(d["src"], defs)
+        for i, pnm in enumerate(d["pnames"]):
+            if pnm and pnm in et:
+                ptypes[nm][i] = et[pnm]
+        if d["pnames"] and d["pnames"][0] and 0 not in ptypes[nm] and d["va"] in msc:
+            ptypes[nm][0] = msc[d["va"]]
+    conflict = set()
+    for _ in range(max_iter):
+        changed = 0
+        for nm, d in funcs.items():
+            var_t = {}
+            for i, pnm in enumerate(d["pnames"]):
+                if pnm and i in ptypes[nm]:
+                    var_t[pnm] = ptypes[nm][i]
+            for am in re.finditer(r"\b(\w+)\s*=\s*([a-zA-Z_]\w*)\s*\(", d["src"]):
+                lhs, callee = am.group(1), am.group(2)
+                if callee in funcs and funcs[callee]["ret"]:
+                    var_t[lhs] = funcs[callee]["ret"]
+            for callee, args in _call_args(d["src"], funcs):
+                if callee in conflict:
+                    continue
+                for k, a in enumerate(args):
+                    v = _strip_casts(a)
+                    if v in var_t:
+                        if k not in ptypes[callee]:
+                            ptypes[callee][k] = var_t[v]; changed += 1
+                        elif ptypes[callee][k] != var_t[v] and k == 0:
+                            conflict.add(callee); ptypes[callee] = {}
+        if not changed:
+            break
+    return {nm: {str(k): v for k, v in t.items()} for nm, t in ptypes.items() if t}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--map", action="store_true")
     ap.add_argument("--evident", action="store_true")
     ap.add_argument("--unit")
     ap.add_argument("--struct")
+    ap.add_argument("--propagate", action="store_true", help="run caller propagation; write cleanup/resolved_types.json")
     a = ap.parse_args()
     defs = struct_defs()
+    if a.propagate:
+        res = propagate_param_types(defs)
+        os.makedirs(os.path.dirname(RESOLVED_CACHE), exist_ok=True)
+        json.dump(res, open(RESOLVED_CACHE, 'w'))
+        total = sum(len(v) for v in res.values())
+        print(f'resolved {total} param types across {len(res)} functions -> {RESOLVED_CACHE}')
+        return
 
     if a.struct:
         print(defs.get(a.struct, f"(no struct {a.struct} in structs.h)")); return
