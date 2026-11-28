@@ -29,7 +29,7 @@ Usage:
   function_cleanup.py --apply cpu/src/UNIT/func.c          # write cleaned body in place (reviewed only)
   [--out DIR]  (thinking is always on; output is never token-capped)
 """
-import os, re, sys, json, sqlite3, subprocess, urllib.request, argparse, hashlib, tempfile
+import os, re, sys, json, sqlite3, subprocess, urllib.request, argparse, hashlib, tempfile, difflib
 
 ROOT      = "/home/memorai/k10d-firmware-c"
 CATALOG   = "/home/memorai/k10d-re/harness2/catalog.sqlite"
@@ -252,9 +252,31 @@ def call_llm(messages, timeout=1800):
 
 MAX_ROUNDS = 4   # 1 initial + up to 3 self-fixes of its own compile errors
 
-def cleanup_with_self_check(user, dry_run):
-    """Generate the cleanup, then let the model COMPILE-CHECK ITSELF and fix its own errors (feedback
-    loop, like fix_loop). Returns (findings, renames, cleaned, rounds, final_compile_err)."""
+def codegen_check(src, cleaned, gcc_only):
+    """Compare the CLEANED function's codegen to the ORIGINAL decompiled C's codegen, under the SAME
+    compiler (fcc, or the host-gcc .text proxy as fallback) -- this isolates 'did the cleanup change
+    anything' from compiler-idiom noise, and is NOT a comparison against the firmware disasm.
+    Returns (matches, human_diff): matches True/False, or None when the gate cannot run (a compile
+    failure or fcc unavailable), in which case the caller does not feed anything back."""
+    a = b = None; label = "fcc instructions"
+    if not gcc_only:
+        a, b = asm_insns(fcc_asm(src)), asm_insns(fcc_asm(cleaned))
+    if a is None or b is None:
+        a, b = text_section(src), text_section(cleaned); label = ".text bytes"
+        if a is None or b is None:
+            return None, None
+        return (a == b), ("" if a == b else f"The cleaned code compiles to different {label} than the original C.")
+    if a == b:
+        return True, ""
+    diff = "\n".join(list(difflib.unified_diff(a, b, "original_C_fcc", "your_cleaned_fcc", lineterm=""))[:44])
+    return False, (f"fcc assembly differs (original decompiled C vs your cleaned version):\n{diff}")
+
+def cleanup_with_self_check(user, dry_run, src="", gcc_only=False, allow_codegen=False):
+    """Generate the cleanup, then let the model fix, as feedback loops: (a) its own COMPILE errors, and
+    (b) any CODEGEN divergence from the original C (same-compiler fcc compare). (b) matters for de-soup:
+    a rewrite that moved the machine code gets the instruction diff back and a chance to make it
+    byte-identical, instead of being lost to HELD with no feedback. Returns
+    (findings, renames, cleaned, rounds, final_compile_err)."""
     messages = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}]
     findings = renames = cleaned = ""
     err = ""
@@ -264,16 +286,30 @@ def cleanup_with_self_check(user, dry_run):
         if cleaned is None or dry_run:
             return findings, renames, cleaned, rnd, ""
         err = compile_error(cleaned)
-        if not err:
-            return findings, renames, cleaned, rnd, ""      # compiles -> done
-        if rnd == MAX_ROUNDS:
-            break
-        # hand the compiler's complaint back and let it fix ITS OWN output
-        messages.append({"role": "assistant", "content": raw})
-        messages.append({"role": "user", "content":
-            "Your CLEANED code does not compile. Fix ONLY the compile errors -- keep the readability "
-            "cleanup, the renames, the behaviour, and the @k10d header. gcc reported:\n\n" + err +
-            "\n\nReturn all three sections (### FINDINGS / ### RENAMES / ### CLEANED) again, corrected."})
+        if err:
+            if rnd == MAX_ROUNDS:
+                break
+            messages.append({"role": "assistant", "content": raw})
+            messages.append({"role": "user", "content":
+                "Your CLEANED code does not compile. Fix ONLY the compile errors -- keep the readability "
+                "cleanup, the renames, the behaviour, and the @k10d header. gcc reported:\n\n" + err +
+                "\n\nReturn all three sections (### FINDINGS / ### RENAMES / ### CLEANED) again, corrected."})
+            continue
+        # compiles. now the CODEGEN gate as a feedback loop (skipped if allow_codegen or no src given).
+        if src and not allow_codegen:
+            matches, diff = codegen_check(src, cleaned, gcc_only)
+            if matches is False and rnd < MAX_ROUNDS:
+                messages.append({"role": "assistant", "content": raw})
+                messages.append({"role": "user", "content":
+                    "Your CLEANED code COMPILES but produces DIFFERENT machine code than the original C, "
+                    "so some rewrite changed the codegen -- the cleanup must be byte-identical. " + diff +
+                    "\n\nReturn a version that compiles to the SAME instructions: KEEP the readability changes "
+                    "that lower identically (renames, typed `base[i]` / `base->field` indexing, dropped "
+                    "reinterpret casts, comments) but REVERT whatever rewrite moved the machine code (often a "
+                    "changed type width, an int/uint cast, or a reordered/merged expression). Return all three "
+                    "sections (### FINDINGS / ### RENAMES / ### CLEANED) again."})
+                continue
+        return findings, renames, cleaned, rnd, ""          # compiles + codegen matches (or gate off/exhausted)
     return findings, renames, cleaned, MAX_ROUNDS, err
 
 def split_sections(raw):
@@ -387,7 +423,8 @@ def process(path, args):
         return
 
     try:
-        findings, renames, cleaned, rounds, cc_err = cleanup_with_self_check(user, args.dry_run)
+        findings, renames, cleaned, rounds, cc_err = cleanup_with_self_check(
+            user, args.dry_run, src, getattr(args, "gcc_only", False), getattr(args, "allow_codegen", False))
     except Exception as e:                       # noqa: BLE001 -- surface any transport error
         print(f"  LLM error on {name}: {e}", file=sys.stderr); return
 
