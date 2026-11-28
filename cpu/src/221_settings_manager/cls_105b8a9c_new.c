@@ -11,13 +11,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-cls_105b49ec * cls_105b8a9c_new(cls_105b8a9c *param_1)
+cls_105b49ec * cls_105b8a9c_new(cls_105b8a9c *this_ptr)
 
 {
-  if ((param_1 != (cls_105b8a9c *)0x0) ||
-     (param_1 = (cls_105b8a9c *)heap_alloc((void *)0x10), (cls_105b49ec *)param_1 != (cls_105b49ec *)0x0)) {
-    cls_105b49ec_new((cls_105b49ec *)param_1);
-    ((cls_105b49ec *)param_1)->field_0xc = (uint32_t)&DAT_105b8a9c/*ROM*/;
+  /* If this_ptr is NULL, allocate 0x10 bytes; skip init if allocation fails */
+  if ((this_ptr != (cls_105b8a9c *)0x0) ||
+     (this_ptr = (cls_105b8a9c *)heap_alloc((void *)0x10), (cls_105b49ec *)this_ptr != (cls_105b49ec *)0x0)) {
+    /* Call base-class constructor, then stamp the vtable at offset 0xc */
+    cls_105b49ec_new((cls_105b49ec *)this_ptr);
+    ((cls_105b49ec *)this_ptr)->field_0xc = (uint32_t)&DAT_105b8a9c/*ROM*/;
   }
-  return (cls_105b49ec *)param_1;
+  return (cls_105b49ec *)this_ptr;
 }

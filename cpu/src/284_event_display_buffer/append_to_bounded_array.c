@@ -6,12 +6,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void append_to_bounded_array(void *param_1,int param_2)
+void append_to_bounded_array(void *buffer,int value)
 
 {
-  if ((*(int *)((int)param_1 + 0x20c) < 0x10) && (param_2 != 0)) {
-    *(int *)((int)param_1 + *(int *)((int)param_1 + 0x20c) * 4 + 0x214) = param_2;
-    *(int *)((int)param_1 + 0x20c) = *(int *)((int)param_1 + 0x20c) + 1;
+  if ((*(int *)((int)buffer + 0x20c) < 0x10) && (value != 0)) {
+    *(int *)((int)buffer + *(int *)((int)buffer + 0x20c) * 4 + 0x214) = value;
+    *(int *)((int)buffer + 0x20c) = *(int *)((int)buffer + 0x20c) + 1;
   }
   return;
 }

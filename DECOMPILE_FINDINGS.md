@@ -161,3 +161,22 @@ The original disassembly (`st sr1,@-r15` / `enter #0x4` / `leave` / `ld @r15+,sr
 
 ## cls_105a6f84_new  (`cpu/src/137_settings_manager/cls_105a6f84_new.c`)
 - [uncertain] Loop body executes 2× in C (zeroing 8 bytes at offsets 4–11) but only 1× in original (zeroing 4 bytes at offsets 4–7) @ `do { … } while (-1 < iVar2)` with `iVar2=1` vs `ldi:8 #0x1,r3` … `sub r12,r3` / `bp:d 0x10460712` (branch-if-positive: r3=1→0, zero is not positive, no re-branch) -> the decompiler rendered the `bp` (counter > 0) termination as `> -1` (counter >= 0), adding one spurious iteration that writes 0 to `param_1[8..11]`, corrupting 4 bytes beyond the 0xc-byte object.
+
+## clear_flag_with_notify  (`cpu/src/126_companion_spi_driver/clear_flag_with_notify.c`)
+- none
+
+The C faithfully represents the machine code. I verified:
+1. **First call**: The `beq:d` delay slot sets `r13=0x20`; the `call:d` delay slot loads `r4=*(r8+0x20)` as the 1st arg. C matches: `call_kernel_with_short_id(*(uint32_t**)(param_1+0x20))`.
+2. **Bit-clear**: `ldub @(r13,r8),r12` (mask byte, zero-ext), `ldi:8 #0xff,r1` + `extsb r1` (→0xFFFFFFFF), `eor r1,r12` (→~mask in r12), `ldub @r0,r1` (flag byte), `and r12,r1` (byte & ~mask), `stb r1,@r0`. C matches: `byte = byte & (mask ^ 0xff)`.
+3. **Second call**: Non-delayed `beq` (hi-nibble 0xE), then `call:d` with delay slot `ld @(r13,r8),r4` (r13=0x20). C matches: `check_kernel_call_success_10459d88(*(uint32_t**)(param_1+0x20))`.
+4. **Widths/offsets**: All `ld`/`ldub`/`stb` widths and offsets (0x10, 0x1c, 0x20) match between C and asm.
+5. **Sign extension**: `ldub` zero-extends; C's `byte ^ 0xff` promotes to int and produces the same 32-bit ~mask. No divergence.
+
+## cls_105a5d5c_new  (`cpu/src/130_settings_manager/cls_105a5d5c_new.c`)
+- [none] Loop runs one extra iteration, zeroing 6 bytes (offsets 4–9) instead of 3 (offsets 4–6) @ `do { ... } while (-1 < iVar2);` with `iVar2 = 1` vs `sub r12,r3` / `bp:d 0x1045d2ee` (branch if result > 0) → `bp` branches only when the decremented counter is strictly positive; with initial r3=1 the counter becomes 0 and the branch is NOT taken (1 iteration). The C condition `-1 < iVar2` (i.e. `iVar2 >= 0`) is true when iVar2=0, causing a second iteration that writes 0 to bytes at object offsets 7, 8, 9 which the original leaves untouched.
+
+## mempool_release_block  (`cpu/src/127_rtos_kernel_services/mempool_release_block.c`)
+- [none] The decompiled C faithfully represents the original machine code. The loop scans 7 entries (offsets 0x00–0x78, step 0x14, bound 0x8c=140) for a non-empty entry whose [start,end] range contains param_2. On match, it reads the 16-bit signed pool ID at entry+0xc (via `ld` + `extsh`), passes it as the first syscall argument (r4) along with param_2 (r5) to the `int #0x40` kernel trap at 0x10010660, and returns 1 if the kernel returned 0 (success) or 0 otherwise. The `beq:d` delay-slot `ldi:8 #1,r4` correctly produces the "return 1 on success" path. All offsets, widths, sign extensions, branch conditions, and the syscall argument mapping (r4=pool_id, r5=block_ptr) match between C and asm.
+
+## kernel_alloc_pool_block  (`cpu/src/000_rtos_kernel/kernel_alloc_pool_block.c`)
+- [none] All field offsets in the C (`iVar4 + -0x20`, `iVar4 + -0x10`, `iVar4 + -0x1c`, `iVar4 + -0xc`, `iVar4 + -0x14`) are applied to the computed pool-entry address (`DAT_10011cf8 + param_1 * 0x20`), whereas the original disassembly applies the same negative offsets to the raw table base (`r8` from `ld @r11`) without the `param_1 * 0x20` term (e.g. `lduh @(r13,r0),r1` at 0x10010184 where r0=table_base, r13=-32; `ld @(r13,r0),r12` at 0x10010198 where r0=table_base, r13=-16). The fcc recompile of the C reproduces the C's entry-relative addressing, so the decompiled C does not faithfully represent the machine code's table-base-relative addressing. This is not a clean match to any single B-NN class (closest: B-9 pointer-arithmetic scaling, but the offset is a constant, not an index).

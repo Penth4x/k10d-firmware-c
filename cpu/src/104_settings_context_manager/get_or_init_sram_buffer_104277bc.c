@@ -8,6 +8,8 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
+/* Lazy-init singleton: on first call, allocate the 3072-byte SRAM buffer
+   and register it in the free-list; always returns the buffer base address. */
 uint32_t get_or_init_sram_buffer_104277bc(void)
 
 {

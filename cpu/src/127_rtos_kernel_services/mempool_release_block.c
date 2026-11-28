@@ -20,19 +20,19 @@
 /* WARNING: Instruction at (ram,0x10459bd6) overlaps instruction at (ram,0x10459bd4)
     */
 
-uint32_t mempool_release_block(void *param_1,void *param_2)
+uint32_t mempool_release_block(void *pool_base, void *block_ptr)
 
 {
-  /* Single loop index with a freshly-computed entry pointer: the loop variables stay
-     caller-saved (no STM1 of R8-R11), matching the original's small frame. Equivalent to
-     the decompiled while-scan: find the first non-empty entry whose [start,end] contains
-     param_2, free it, and return 1 on success. */
-  int off;
+  /* Scan 7 pool entries (0x14 bytes each) for one whose [start,end] range
+     contains block_ptr.  On match, extract the signed 16-bit pool id at
+     entry+0xc and issue the kernel free syscall (int #0x40).  Returns 1
+     if the kernel reported success (rc==0), 0 otherwise. */
+  int entry_off;
 
-  for (off = 0; off <= 0x8b; off += 0x14) {
-    char *e = (char *)param_1 + off;
-    if ((*e != '\0' && *(void **)(e + 4) <= param_2) && (param_2 <= *(void **)(e + 8))) {
-      return __trap_heap_pool_free_block((int)(short)*(uint32_t *)(e + 0xc),(int *)param_2) == 0;
+  for (entry_off = 0; entry_off <= 0x8b; entry_off += 0x14) {
+    char *e = (char *)pool_base + entry_off;
+    if ((*e != '\0' && *(void **)(e + 4) <= block_ptr) && (block_ptr <= *(void **)(e + 8))) {
+      return __trap_heap_pool_free_block((int)(short)*(uint32_t *)(e + 0xc),(int *)block_ptr) == 0;
     }
   }
   return 0;

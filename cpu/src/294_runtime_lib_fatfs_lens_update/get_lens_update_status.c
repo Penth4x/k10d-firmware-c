@@ -18,8 +18,8 @@
 uint32_t get_lens_update_status(void)
 
 {
-  uint32_t uVar1;
-  
-  uVar1 = __trap_act_tsk_syscall_dispatcher();
-  return uVar1;
+  uint32_t status;
+
+  status = __trap_act_tsk_syscall_dispatcher();
+  return status;
 }

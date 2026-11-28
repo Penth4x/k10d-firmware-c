@@ -6,17 +6,17 @@
 #include "globals.h"
 #include "funcs.h"
 
-void copy_null_terminated_string(void *param_1,void *param_2)
+void copy_null_terminated_string(void *dest,void *src)
 
 {
-  char cVar1;
-  int iVar2;
-  
-  iVar2 = 0;
+  char ch;
+  int offset;
+
+  offset = 0;
   do {
-    cVar1 = *(char *)(iVar2 + (int)param_2);
-    *(char *)(iVar2 + (int)param_1) = cVar1;
-    iVar2 = iVar2 + 1;
-  } while (cVar1 != '\0');
+    ch = *(char *)(offset + (int)src);
+    *(char *)(offset + (int)dest) = ch;
+    offset = offset + 1;
+  } while (ch != '\0');
   return;
 }
