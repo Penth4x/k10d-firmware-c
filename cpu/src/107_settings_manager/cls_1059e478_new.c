@@ -11,12 +11,12 @@
 #include "globals.h"
 #include "funcs.h"
 
-void cls_1059e478_new(uint32_t *param_1)
+void cls_1059e478_new(uint32_t *obj_ptr)
 
 {
-  if ((param_1 != (uint32_t *)0x0) ||
-     (param_1 = (uint32_t *)heap_alloc((void *)4), param_1 != (uint32_t *)0x0)) {
-    *param_1 = (uint32_t)&DAT_1059e478/*ROM*/;
+  if ((obj_ptr != (uint32_t *)0x0) ||
+     (obj_ptr = (uint32_t *)heap_alloc((void *)4), obj_ptr != (uint32_t *)0x0)) {
+    *obj_ptr = (uint32_t)&DAT_1059e478/*ROM*/;
   }
   return;
 }

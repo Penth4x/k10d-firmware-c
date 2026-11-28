@@ -14,11 +14,11 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t wait_flg_obj(void *param_1,uint32_t param_2)
+uint32_t wait_flg_obj(void *flg_obj, uint32_t flg_mask)
 
 {
-  uint32_t uVar1;
-  
-  uVar1 = alloc_or_acquire_heap_block(param_1,0,param_2);
-  return uVar1;
+  uint32_t ret_val;
+
+  ret_val = alloc_or_acquire_heap_block(flg_obj, 0, flg_mask);
+  return ret_val;
 }

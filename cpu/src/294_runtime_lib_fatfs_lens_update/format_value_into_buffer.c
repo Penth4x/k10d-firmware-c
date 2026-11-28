@@ -50,7 +50,7 @@ int format_value_into_buffer(uint8_t *param_1,uint32_t *param_2,int *param_3,int
   byte *pbStack_30;
   byte *pbStack_2c;
   uint32_t local_28;
-  
+
   pbVar11 = (byte *)0x0;
   local_28 = 0;
   iStack_34 = 0;

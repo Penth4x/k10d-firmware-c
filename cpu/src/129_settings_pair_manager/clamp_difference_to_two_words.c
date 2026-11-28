@@ -19,39 +19,38 @@
 
 /* WARNING: Type propagation algorithm not settling */
 
-void clamp_difference_to_two_words(void *param_1,uint *param_2,uint *param_3)
+void clamp_difference_to_two_words(void *dest,uint *src_hi,uint *src_lo)
 
 {
-  int iVar1;
-  int iVar2;
-  uintptr_t sp;
-  int aiStack_18 [3];
-  
-  alloc_and_zero_two_words_1045c3bc(aiStack_18 + 1);
-  if (*param_3 < *param_2) {
-    aiStack_18[1] = *param_2 - *param_3;
+  int offset;
+  int counter;
+  int result_buf [3];
+
+  alloc_and_zero_two_words_1045c3bc(result_buf + 1);
+  if (*src_lo < *src_hi) {
+    result_buf[1] = *src_hi - *src_lo;
   }
   else {
-    aiStack_18[1] = 0;
+    result_buf[1] = 0;
   }
-  if (param_3[1] < param_2[1]) {
-    aiStack_18[2] = param_2[1] - param_3[1];
+  if (src_lo[1] < src_hi[1]) {
+    result_buf[2] = src_hi[1] - src_lo[1];
   }
   else {
-    aiStack_18[2] = 0;
+    result_buf[2] = 0;
   }
-  iVar2 = 8;
+  counter = 8;
   do {
-    iVar1 = iVar2 + -4;
-    *(uint32_t *)(&stack0xffffffe0 + iVar2) = *(uint32_t *)((int)aiStack_18 + iVar2);
-    iVar2 = iVar1;
-  } while (iVar1 != 0);
-  free_heap_if_flagged_1045c402(aiStack_18 + 1,2);
-  iVar2 = 8;
+    offset = counter + -4;
+    *(uint32_t *)(&stack0xffffffe0 + counter) = *(uint32_t *)((int)result_buf + counter);
+    counter = offset;
+  } while (offset != 0);
+  free_heap_if_flagged_1045c402(result_buf + 1,2);
+  counter = 8;
   do {
-    iVar1 = iVar2 + -4;
-    *(uint32_t *)(iVar1 + (int)param_1) = *(uint32_t *)(&stack0xffffffe0 + iVar2);
-    iVar2 = iVar1;
-  } while (iVar1 != 0);
+    offset = counter + -4;
+    *(uint32_t *)(offset + (int)dest) = *(uint32_t *)(&stack0xffffffe0 + counter);
+    counter = offset;
+  } while (offset != 0);
   return;
 }

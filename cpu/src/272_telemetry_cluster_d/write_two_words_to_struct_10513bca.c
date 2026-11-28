@@ -6,10 +6,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void write_two_words_to_struct_10513bca(void *param_1,int param_2,uint16_t param_3,uint16_t param_4)
+void write_two_words_to_struct_10513bca(void *base_off,int idx,uint16_t lo_half,uint16_t hi_half)
 
 {
-  *(uint16_t *)(param_2 * 2 + (int)param_1) = param_3;
-  *(uint16_t *)((int)param_1 + param_2 * 2 + 0xa0) = param_4;
+  *(uint16_t *)(idx * 2 + (int)base_off) = lo_half;
+  *(uint16_t *)((int)base_off + idx * 2 + 0xa0) = hi_half;
   return;
 }

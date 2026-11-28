@@ -19,39 +19,39 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void ready_list_unlink(short param_1)
+void ready_list_unlink(short task_idx)
 
 {
-  short sVar1;
-  short sVar2;
-  int iVar3;
-  uint uVar4;
-  uint uVar5;
-  int iVar6;
-  
-  iVar6 = param_1 * 0x44;
-  iVar3 = (int)*(short *)(iVar6 + 0x6a001c00);
-  sVar1 = *(short *)(iVar6 + 0x6a001be8);
-  sVar2 = *(short *)(iVar6 + 0x6a001bea);
-  if (sVar1 == -1) {
-    *(short *)((iVar3 + -1) * 4 + 0x6a0036d2) = sVar2;
+  short prev_idx;
+  short next_idx;
+  int priority;
+  uint pri_minus1;
+  uint bitmap_word;
+  int tcb_offset;
+
+  tcb_offset = task_idx * 0x44;
+  priority = (int)*(short *)(tcb_offset + 0x6a001c00);
+  prev_idx = *(short *)(tcb_offset + 0x6a001be8);
+  next_idx = *(short *)(tcb_offset + 0x6a001bea);
+  if (prev_idx == -1) {
+    *(short *)((priority + -1) * 4 + 0x6a0036d2) = next_idx;
   }
   else {
-    *(short *)(sVar1 * 0x44 + 0x6a001bea) = sVar2;
+    *(short *)(prev_idx * 0x44 + 0x6a001bea) = next_idx;
   }
-  if (sVar2 == -1) {
-    *(short *)((iVar3 + -1) * 4 + 0x6a0036d0) = sVar1;
+  if (next_idx == -1) {
+    *(short *)((priority + -1) * 4 + 0x6a0036d0) = prev_idx;
   }
   else {
-    *(short *)(sVar2 * 0x44 + 0x6a001be8) = sVar1;
+    *(short *)(next_idx * 0x44 + 0x6a001be8) = prev_idx;
   }
-  uVar4 = iVar3 - 1;
-  if (*(short *)(uVar4 * 4 + 0x6a0036d2) == -1) {
-    iVar6 = ((int)uVar4 >> 5) * 4;
-    uVar5 = *(uint *)(iVar6 + 0x6a003750) & (0x80000000U >> (uVar4 & 0x1f) ^ 0xffffffff);
-    *(uint *)(iVar6 + 0x6a003750) = uVar5;
-    if (uVar5 == 0) {
-      _DAT_6a003754 = _DAT_6a003754 & (0x80000000U >> ((int)uVar4 >> 5 & 0x1fU) ^ 0xffffffff);
+  pri_minus1 = priority - 1;
+  if (*(short *)(pri_minus1 * 4 + 0x6a0036d2) == -1) {
+    tcb_offset = ((int)pri_minus1 >> 5) * 4;
+    bitmap_word = *(uint *)(tcb_offset + 0x6a003750) & (0x80000000U >> (pri_minus1 & 0x1f) ^ 0xffffffff);
+    *(uint *)(tcb_offset + 0x6a003750) = bitmap_word;
+    if (bitmap_word == 0) {
+      _DAT_6a003754 = _DAT_6a003754 & (0x80000000U >> ((int)pri_minus1 >> 5 & 0x1fU) ^ 0xffffffff);
     }
   }
   reschedule_raise_dicr();

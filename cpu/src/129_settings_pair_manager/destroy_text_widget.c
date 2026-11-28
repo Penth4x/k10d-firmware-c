@@ -15,14 +15,14 @@
 #include "globals.h"
 #include "funcs.h"
 
-void destroy_text_widget(void *param_1,uint param_2)
+void destroy_text_widget(void *widget,uint flags)
 
 {
-  if (param_1 != 0) {
-    free_heap_if_flagged_1045c402((void *)((int)param_1 + 8),2);
-    free_heap_block_if_flagged_1045bc54(param_1,2);
-    if ((param_2 & 1) != 0) {
-      heap_free((int)param_1);
+  if (widget != 0) {
+    free_heap_if_flagged_1045c402((void *)((int)widget + 8),2);
+    free_heap_block_if_flagged_1045bc54(widget,2);
+    if ((flags & 1) != 0) {
+      heap_free((int)widget);
     }
   }
   return;
