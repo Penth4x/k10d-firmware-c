@@ -10,3 +10,6 @@ cpu/out/
 __pycache__/
 scripts/code_targets.txt
 cleanup/
+cleanup_run.log
+cleanup_validate*.log
+selfheal_test.log
