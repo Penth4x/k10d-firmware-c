@@ -18,74 +18,78 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint find_exposure_value_index(uint32_t param_1,short param_2,int param_3,uint param_4)
+uint find_exposure_value_index(uint32_t unused_arg, short ev_num, int ev_den, uint table_mode)
 
 {
-  short sVar1;
-  uint uVar2;
-  uint uVar3;
-  uint32_t uVar4;
-  uint extraout_r4;
-  uint extraout_r4_00;
-  void *extraout_r5;
-  uint extraout_r5_00;
-  
-  sVar1 = (short)((param_2 * 10) / param_3);
-  uVar2 = 0;
-  if (param_4 == 1) {
+  short target_ev;
+  uint scan_idx;
+  uint result;
+  uint32_t fp_value;
+  uint reg_r4;
+  uint reg_r4_after;
+  void *reg_r5;
+  uint reg_r5_after;
+
+  target_ev = (short)((ev_num * 10) / ev_den);
+  scan_idx = 0;
+
+  if (table_mode == 1) {
     do {
-      uVar3 = uVar2 & 0xf;
-      if (((((uVar3 == 0) || (uVar3 == 3)) || (uVar3 == 5)) ||
-          (((uVar3 == 8 || (uVar3 == 0xb)) || (uVar3 == 0xd)))) &&
-         (sVar1 == *(short *)(uVar2 * 2 + 0x105a4794/*ROM*/))) {
-        return uVar2;
+      result = scan_idx & 0xf;
+      if (((((result == 0) || (result == 3)) || (result == 5)) ||
+          (((result == 8 || (result == 0xb)) || (result == 0xd)))) &&
+         (target_ev == *(short *)(scan_idx * 2 + 0x105a4794/*ROM*/))) {
+        return scan_idx;
       }
-      uVar2 = uVar2 + 1 & 0xff;
-    } while (uVar2 < 0x81);
+      scan_idx = scan_idx + 1 & 0xff;
+    } while (scan_idx < 0x81);
   }
   else {
     do {
-      if (sVar1 == *(short *)(DAT_105a4692/*ROM*/ + uVar2 * 2 + (param_4 & 0xffff) * 0x102)) {
-        return uVar2;
+      if (target_ev == *(short *)(DAT_105a4692/*ROM*/ + scan_idx * 2 + (table_mode & 0xffff) * 0x102)) {
+        return scan_idx;
       }
-      uVar2 = uVar2 + 4 & 0xff;
-    } while (uVar2 < 0x81);
+      scan_idx = scan_idx + 4 & 0xff;
+    } while (scan_idx < 0x81);
   }
-  uVar2 = negate_signed_integer((int)param_2);
-  uVar3 = negate_signed_integer(param_3);
-  uVar4 = compare_version_fields(uVar2,uVar3);
-  uVar4 = compute_float_division(uVar4,0x41000000);
-  uVar2 = compare_signed_fixed_point(0x42800000,uVar4);
-  convert_signed_byte_to_unsigned(uVar2);
-  add_two_64_bit_integers(extraout_r4,extraout_r5,0x3fe00000,0);
-  uVar2 = normalize_fixed_point_value_105448ac(extraout_r4_00,extraout_r5_00);
-  if ((uVar2 & 0xff) < 0x81) {
-    uVar2 = (uVar2 & 0xff) + 1;
-    if (param_4 == 1) {
-      uVar3 = uVar2 & 7;
-      switch(uVar3) {
+
+  scan_idx = negate_signed_integer((int)ev_num);
+  result = negate_signed_integer(ev_den);
+  fp_value = compare_version_fields(scan_idx, result);
+  fp_value = compute_float_division(fp_value, 0x41000000);
+  scan_idx = compare_signed_fixed_point(0x42800000, fp_value);
+  convert_signed_byte_to_unsigned(scan_idx);
+  add_two_64_bit_integers(reg_r4, reg_r5, 0x3fe00000, 0);
+  scan_idx = normalize_fixed_point_value_105448ac(reg_r4_after, reg_r5_after);
+
+  if ((scan_idx & 0xff) < 0x81) {
+    scan_idx = (scan_idx & 0xff) + 1;
+    if (table_mode == 1) {
+      result = scan_idx & 7;
+      switch (result) {
       case 0:
       case 1:
       case 2:
-        uVar3 = 0;
+        result = 0;
         break;
       case 3:
       case 4:
-        uVar3 = 3;
+        result = 3;
         break;
       case 5:
       case 6:
       case 7:
-        uVar3 = 5;
+        result = 5;
       }
-      uVar3 = (uVar2 & 0xf8) + uVar3;
+      result = (scan_idx & 0xf8) + result;
     }
     else {
-      uVar3 = uVar2 & 0xfc;
+      result = scan_idx & 0xfc;
     }
   }
   else {
-    uVar3 = 0x80;
+    result = 0x80;
   }
-  return uVar3;
+
+  return result;
 }

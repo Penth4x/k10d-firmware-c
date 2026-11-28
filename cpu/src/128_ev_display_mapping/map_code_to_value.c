@@ -6,66 +6,66 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t map_code_to_value(uint32_t unused_param, uint32_t code)
+uint32_t map_code_to_value(uint32_t unused_first, uint32_t input_code)
 {
-  uint32_t value;
+  uint32_t mapped_value;
 
-  switch (code) {
+  switch (input_code) {
   case 0:
-    value = 0;
+    mapped_value = 0;
     break;
   default:
-    value = 0;
+    mapped_value = 0;
     break;
   case 3:
-    value = 0xfffffffd;
+    mapped_value = 0xfffffffd;
     break;
   case 4:
-    value = 0xfffffffb;
+    mapped_value = 0xfffffffb;
     break;
   case 5:
-    value = 0xfffffff9;
+    mapped_value = 0xfffffff9;
     break;
   case 8:
-    value = 0xfffffff6;
+    mapped_value = 0xfffffff6;
     break;
   case 0xb:
-    value = 0xfffffff3;
+    mapped_value = 0xfffffff3;
     break;
   case 0xc:
-    value = 0xfffffff1;
+    mapped_value = 0xfffffff1;
     break;
   case 0xd:
-    value = 0xffffffef;
+    mapped_value = 0xffffffef;
     break;
   case 0x10:
-    value = 0xffffffec;
+    mapped_value = 0xffffffec;
     break;
   case 0xf0:
-    value = 0x14;
+    mapped_value = 0x14;
     break;
   case 0xf3:
-    value = 0x11;
+    mapped_value = 0x11;
     break;
   case 0xf4:
-    value = 0xf;
+    mapped_value = 0xf;
     break;
   case 0xf5:
-    value = 0xd;
+    mapped_value = 0xd;
     break;
   case 0xf8:
-    value = 10;
+    mapped_value = 10;
     break;
   case 0xfb:
-    value = 7;
+    mapped_value = 7;
     break;
   case 0xfc:
-    value = 5;
+    mapped_value = 5;
     break;
   case 0xfd:
-    value = 3;
+    mapped_value = 3;
     break;
   }
 
-  return value;
+  return mapped_value;
 }
