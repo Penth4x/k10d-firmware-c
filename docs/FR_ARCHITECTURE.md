@@ -1,10 +1,11 @@
 # Fujitsu FR (FR60Lite / Milbeaut MB91683) — architecture primer
 
 Reference for reading this camera's machine code when comparing decompiled C against the
-original disassembly. FR is obscure; **the facts here are sourced from our own FR decoder
-(`/home/memorai/k10d-re/frdis.py`), which correctly decodes the real `FWDC162B.BIN`, and
-from the qemu-frn emulator semantics — not from recollection.** If something is not stated
-here, do not assume it.
+original disassembly. FR is obscure; **every fact here is triangulated across three
+independent FR implementations — our `frdis.py` decoder (which decodes the real
+`FWDC162B.BIN`), the Ghidra SLEIGH spec (`k10d-re/ghidra_fujitsu_fr/data/languages/`:
+`fr.sinc` semantics, `fr.cspec` ABI), and the qemu-frn emulator (the runtime oracle) —
+not from recollection.** If something is not stated here, do not assume it.
 
 ## Core
 - **Big-endian.** 32-bit registers `r0`–`r15`. Instructions are **16-bit** (2 bytes); a few
@@ -12,6 +13,9 @@ here, do not assume it.
 - ROM is mapped at VA **`0x10000000`** (file offset = VA − `0x10000000`).
 - Loads/stores come in three widths: **word (32-bit)** `ld`/`st`, **halfword (16-bit)**
   `lduh`/`sth`, **byte (8-bit)** `ldub`/`stb`.
+- C type sizes (from `fr.cspec`): `char`=1, `short`/`wchar`=2, `int`/`long`/pointer/`float`=4,
+  `long long`/`double`=8. Alignment: 1→1, 2→2, 4→4, 8→4. So an array of the wrong element
+  type strides by the wrong number of bytes — see B-12 below.
 
 ## Registers with special roles
 | reg | role | how you recognize it |
@@ -20,12 +24,23 @@ here, do not assume it.
 | `r14` | **frame pointer (FP)** | `@(r14,disp)` frame-local access — **disp is scaled by width** (see below) |
 | `r13` | **index base** for `@(r13,rj)` | `ld/lduh/ldub/st/sth/stb @(r13,rj)` — **unscaled** |
 | `r12` | **call-target register (idiom, not hardwired)** | `ldi:32 #addr,r12` then `call @r12` — any reg can be a target, but the compiler uses r12 |
+| `rp` | **return-address register (dedicated, not a general reg)** | `call`/`call:d` set `rp = address of the next instruction`; `ret` returns via `rp`. Linkage does not consume a general register. |
 | `ps` | program status (CCR/ILM/flags) | `mov ps,rN` / `mov rN,ps`, `ld @r15+,ps` |
 
-Calling convention (standard FR ABI, confirmed against call sites in this binary):
-**arguments in `r4,r5,r6,r7`** (r4 = 1st, r5 = 2nd, r6 = 3rd, r7 = 4th), **return value in `r4`**.
-Further args go on the stack. When you map a call's arguments, read the arg *register*, not
-the textual order: a value in `r4` is the 1st argument, `r5` the 2nd, and so on.
+Calling convention (from `fr.cspec` — authoritative, not inferred):
+**arguments in `r4,r5,r6,r7`** (r4 = 1st, r5 = 2nd, r6 = 3rd, r7 = 4th); further args on the
+stack. **Return value in `r4`** (a 5–8-byte / 64-bit return uses the pair `r4:r5`). When you
+map a call's arguments, read the arg *register*, not the textual order: a value in `r4` is the
+1st argument, `r5` the 2nd, and so on.
+
+**Register save conventions (from `fr.cspec`) — read this before claiming a "saved value":**
+- **Callee-saved (preserved across a call): `r8, r9, r10, r11, r14`.** A value sitting in one
+  of these across a `call` is *expected to survive* — that is the ABI, **not** evidence of a
+  special "save the return value" pattern. Do not invent a data-flow finding from it.
+- **Caller-saved / scratch: `r4,r5,r6,r7` (args/return) and the other low temporaries** — these
+  may be clobbered by a call, so the compiler reloads them afterward if still needed.
+(This is the exact trap behind the earlier `r10` false finding: `r10` was just a callee-saved
+temp, correctly preserved; it was not a hidden return-value save.)
 
 ## Delay slots — the thing most easily misread
 Delayed transfer instructions carry a **`:d`** suffix: `call:d`, `jmp:d`, `ret:d`, and the
