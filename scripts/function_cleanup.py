@@ -172,7 +172,11 @@ parameter RENAMES. Hard rules:
   only be a PROPOSAL in RENAMES, never applied in this block. You MAY rename locals/parameters.
 - Do not touch or inline other functions. Keep the leading /* @k10d ... */ header block verbatim
   (especially its `@ 0x<va>` line).
-- Prefer clear locals and short comments that explain WHAT the original is doing.
+- Prefer clear locals and short comments that explain WHAT the original is doing. In particular, add a
+  brief comment on any NON-OBVIOUS bit/number idiom so a reader need not decode it: a mask+shift field
+  extract (e.g. `(x & 0x7fff0000) >> 16` -> `/* bits 16-30: <field> */`), a shift used as multiply/divide
+  (`x >> 2` -> `/* x / 4 */`), packing/`CONCAT`, sign-extension, or a magic constant/offset. Keep it to a
+  few words naming WHAT it computes; never add opinion/BUG comments (findings go in ### FINDINGS only).
 
 COMMON MISTAKES seen in earlier runs -- DO NOT REPEAT:
 - Non-compiling output: every variable you use must be declared; match the original's types; balance

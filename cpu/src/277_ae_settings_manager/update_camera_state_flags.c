@@ -32,7 +32,7 @@ void update_camera_state_flags(void *state_array,int index,uint new_value)
   if ((index < 0x1a) && (*(uint *)((int)state_array + index * 4) != new_value)) {
     *(uint *)((int)state_array + index * 4) = new_value;
     if (index == 0x19) {
-      extracted_byte = (new_value & 0x7fff0000) >> 0x10;
+      extracted_byte = (new_value & 0x7fff0000) >> 0x10;  /* extract bits 16-30 (15-bit packed field) */
       if (extracted_byte < 0xc9) {
         extracted_byte = extracted_byte & 0xff;
       }
