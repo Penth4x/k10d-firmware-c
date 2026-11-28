@@ -15,8 +15,9 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-ushort rtc_read_reg_pair_0104(uint32_t param_x0)
+ushort rtc_read_reg_pair_0104(uint32_t unused_param)
 
 {
+  /* (reg_0104 & 0x3) in upper byte, (reg_0124 & 0x3) in lower byte */
   return (_DAT_401c0104 & 3) << 8 | _DAT_401c0124 & 3;
 }

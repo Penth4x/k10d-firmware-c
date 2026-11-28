@@ -11,26 +11,30 @@
 #include "globals.h"
 #include "funcs.h"
 
-cls_105a6f84 * cls_105a6f84_new(cls_105a6f84 *param_1)
+cls_105a6f84 * cls_105a6f84_new(cls_105a6f84 *this_ptr)
 
 {
-  int iVar1;
-  int iVar2;
-  
-  if ((param_1 != (cls_105a6f84 *)0x0) ||
-     (param_1 = (cls_105a6f84 *)heap_alloc((void *)0xc), param_1 != (cls_105a6f84 *)0x0)) {
-    cls_105b5264_new((cls_105b5264 *)param_1);
-    param_1->field_0x0 = (uintptr_t)(&DAT_105a6f84/*ROM*/);
-    iVar1 = 0;
-    iVar2 = 1;
+  int byte_off;
+  int remaining;
+
+  /* If this_ptr is NULL, allocate a 0xc-byte object; otherwise use the given buffer. */
+  if ((this_ptr != (cls_105a6f84 *)0x0) ||
+     (this_ptr = (cls_105a6f84 *)heap_alloc((void *)0xc), this_ptr != (cls_105a6f84 *)0x0)) {
+    /* Call the base-class constructor. */
+    cls_105b5264_new((cls_105b5264 *)this_ptr);
+    /* Install the vtable pointer. */
+    this_ptr->field_0x0 = (uintptr_t)(&DAT_105a6f84/*ROM*/);
+    /* Zero the 4 payload bytes (offsets 4..7). */
+    byte_off = 0;
+    remaining = 1;
     do {
-      (&param_1->field_0x4)[iVar1] = 0;
-      (&param_1->field_0x5)[iVar1] = 0;
-      (&param_1->field_0x6)[iVar1] = 0;
-      (&param_1->field_0x7)[iVar1] = 0;
-      iVar2 = iVar2 + -1;
-      iVar1 = iVar1 + 4;
-    } while (-1 < iVar2);
+      (&this_ptr->field_0x4)[byte_off] = 0;
+      (&this_ptr->field_0x5)[byte_off] = 0;
+      (&this_ptr->field_0x6)[byte_off] = 0;
+      (&this_ptr->field_0x7)[byte_off] = 0;
+      remaining = remaining + -1;
+      byte_off = byte_off + 4;
+    } while (-1 < remaining);
   }
-  return param_1;
+  return this_ptr;
 }

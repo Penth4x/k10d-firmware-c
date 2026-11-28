@@ -18,8 +18,8 @@
  * in the call's delay slot, `ldi #k,r4; call:d`). The decompiler dropped every caller's r4 setup AND
  * emitted (uint32_t)timeout here (stub -> 0, clobbers r4-r7), so every timed wait got timeout 0.
  * Give it a real `timeout` param and forward it; each caller now passes its recovered timeout. */
-bool check_kernel_call_success_10459fea(uint32_t timeout)
+bool check_kernel_call_success_10459fea(uint32_t timeout_val)
 
 {
-  return __trap_allocate_kernel_object_1000e4e0(timeout) == 0;
+  return __trap_allocate_kernel_object_1000e4e0(timeout_val) == 0;
 }

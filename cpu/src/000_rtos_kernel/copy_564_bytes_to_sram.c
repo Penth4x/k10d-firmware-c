@@ -9,14 +9,16 @@
 void copy_564_bytes_to_sram(void)
 
 {
-  int iVar1;
-  int iVar2;
-  
-  iVar2 = 0x234;
+  int next_idx;
+  int idx;
+
+  /* Copy 564 bytes from ROM 0x10008154 down to SDRAM 0x80000448,
+   * iterating from the top of the block toward the bottom. */
+  idx = 0x234;
   do {
-    iVar1 = iVar2 + -1;
-    (&DAT_80000447/*SDRAM*/)[iVar2] = *(uint8_t *)(iVar2 + 0x10008153/*ROM*/);
-    iVar2 = iVar1;
-  } while (iVar1 != 0);
+    next_idx = idx + -1;
+    (&DAT_80000447/*SDRAM*/)[idx] = *(uint8_t *)(idx + 0x10008153/*ROM*/);
+    idx = next_idx;
+  } while (next_idx != 0);
   return;
 }

@@ -14,15 +14,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t read_table_entry_field(void *param_1,int param_2)
+uint32_t read_table_entry_field(void *table_base,int entry_index)
 
 {
-  char *pcVar1;
-  uint32_t uVar2;
-  
-  uVar2 = 0;
-  if ((param_2 < 0x100) && (pcVar1 = (char *)(param_2 * 0xc + (int)param_1), *pcVar1 != '\0')) {
-    uVar2 = *(uint32_t *)(pcVar1 + 8);
+  char *entry_ptr;
+  uint32_t field_value;
+
+  field_value = 0;
+  if ((entry_index < 0x100) && (entry_ptr = (char *)(entry_index * 0xc + (int)table_base), *entry_ptr != '\0')) {
+    field_value = *(uint32_t *)(entry_ptr + 8);
   }
-  return uVar2;
+  return field_value;
 }

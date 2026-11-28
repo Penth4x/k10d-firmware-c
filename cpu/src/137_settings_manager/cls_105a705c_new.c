@@ -11,25 +11,25 @@
 #include "globals.h"
 #include "funcs.h"
 
-cls_105b5264 * cls_105a705c_new(cls_105a705c *param_1)
+cls_105b5264 * cls_105a705c_new(cls_105a705c *obj)
 
 {
-  int iVar1;
-  int iVar2;
-  
-  if ((param_1 != (cls_105a705c *)0x0) ||
-     (param_1 = (cls_105a705c *)heap_alloc((void *)0x10), param_1 != (cls_105a705c *)0x0)) {
-    cls_105b5264_new((cls_105b5264 *)param_1);
-    ((cls_105b5264 *)param_1)->field_0x0 = (uint32_t)(&DAT_105a705c/*ROM*/);
-    iVar1 = 0;
-    iVar2 = 2;
+  int off;
+  int count;
+
+  if ((obj != (cls_105a705c *)0x0) ||
+     (obj = (cls_105a705c *)heap_alloc((void *)0x10), obj != (cls_105a705c *)0x0)) {
+    cls_105b5264_new((cls_105b5264 *)obj);
+    ((cls_105b5264 *)obj)->field_0x0 = (uint32_t)(&DAT_105a705c/*ROM*/);
+    off = 0;
+    count = 2;
     do {
-      *(uint8_t *)((int)&((cls_105b5264 *)(param_1 + 1))->field_0x0 + iVar1) = 0;
-      *(uint8_t *)((int)&((cls_105b5264 *)(param_1 + 1))->field_0x0 + iVar1 + 1) = 0;
-      *(uint8_t *)((int)&((cls_105b5264 *)(param_1 + 1))->field_0x0 + iVar1 + 2) = 0;
-      iVar2 = iVar2 + -1;
-      iVar1 = iVar1 + 3;
-    } while (-1 < iVar2);
+      *(uint8_t *)((int)&((cls_105b5264 *)(obj + 1))->field_0x0 + off) = 0;
+      *(uint8_t *)((int)&((cls_105b5264 *)(obj + 1))->field_0x0 + off + 1) = 0;
+      *(uint8_t *)((int)&((cls_105b5264 *)(obj + 1))->field_0x0 + off + 2) = 0;
+      count = count + -1;
+      off = off + 3;
+    } while (-1 < count);
   }
-  return (cls_105b5264 *)param_1;
+  return (cls_105b5264 *)obj;
 }

@@ -14,9 +14,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-void initialize_lens_update_object(void *param_1,int param_2)
+void initialize_lens_update_object(void *buffer, int size)
 
 {
-  fill_byte_array(param_1,0,param_2);
+  /* Zero-fill `size` bytes at `buffer` via fill_byte_array (fill value = 0). */
+  fill_byte_array(buffer, 0, size);
   return;
 }
