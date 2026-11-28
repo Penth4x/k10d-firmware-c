@@ -76,6 +76,9 @@ So B is called with `(r4 = r10, r5 = V)`. A common mistake is to carry r4 = V fo
 r10 before B runs. Always trace the arg register down to, and including, the delay slot of the
 exact call you are describing.
 
+## Branch conditions — `bp`/`bn` and the signed/unsigned split
+`bp` branches when **NF==0**, i.e. the result is **non-negative (≥ 0, INCLUDING zero)** — it is NOT "strictly positive". `bn` branches when NF==1 (**< 0**). So a countdown `sub #1,rN; bp:d loop` runs while `rN ≥ 0`, which is exactly a C `while (-1 < i)` / `while (i >= 0)` — that is faithful, NOT an off-by-one. Do not read `bp` as `> 0`. Signed vs unsigned compares: `blt/bge/ble/bgt` are signed, `bls/bhi/bc/bnc` are unsigned; `beq/bne` test Z. Check the condition before claiming a loop-bound or off-by-one divergence.
+
 ## Addressing modes
 | form | meaning | scaling |
 |------|---------|---------|
