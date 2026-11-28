@@ -86,6 +86,8 @@ exact call you are describing.
 | `@(r14,disp)` | frame-local, signed 8-bit disp | **scaled by access width**: `ld` disp×4, `lduh` disp×2, `ldub` disp×1 |
 | `@(r15,N)` | stack slot, unsigned 4-bit N | ×4 (word) |
 
+**Arithmetic immediates do NOT scale — only addressing modes do.** `addn #N,Ri` and `add #N,Ri` compute `Ri = Ri + N` with the raw 4-bit immediate (0–15); there is no ×4/×width multiply. Scaling by the access width happens ONLY inside the `@(r14,disp)`/`@(r15,N)` addressing modes above. So a loop index advanced by `addn #4,r8` strides **4 bytes**, not 16 — if four per-iteration checks are at `base+0x88,+0x8c,+0x90,+0x94` with `addn #4` between them, that is a 4-byte stride and matches a C that reads `+0x88,+0x8c,+0x90,+0x94`. Do not read `addn #N` as `+N×4`.
+
 The `@(r13,rj)` **unscaled** index is the heart of the **B-12 stride** bug class: the C
 `(&DAT)[i]` strides by `sizeof(decl)`, but the asm index `rj` is a **raw byte offset** — if
 the table is byte/halfword data wrongly declared `uint32_t`, the strides disagree. Always
