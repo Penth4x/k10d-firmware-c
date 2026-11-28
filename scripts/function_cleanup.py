@@ -284,46 +284,61 @@ def codegen_check(src, cleaned, gcc_only):
     diff = "\n".join(list(difflib.unified_diff(a, b, "original_C_fcc", "your_cleaned_fcc", lineterm=""))[:44])
     return False, (f"fcc assembly differs (original decompiled C vs your cleaned version):\n{diff}")
 
+def _indent(text, n=4):
+    pad = " " * n
+    return "\n".join(pad + ln for ln in (text or "").strip().splitlines())
+
 def cleanup_with_self_check(user, dry_run, src="", gcc_only=False, allow_codegen=False):
     """Generate the cleanup, then let the model fix, as feedback loops: (a) its own COMPILE errors, and
     (b) any CODEGEN divergence from the original C (same-compiler fcc compare). (b) matters for de-soup:
     a rewrite that moved the machine code gets the instruction diff back and a chance to make it
     byte-identical, instead of being lost to HELD with no feedback. Returns
-    (findings, renames, cleaned, rounds, final_compile_err)."""
+    (findings, renames, cleaned, rounds, final_compile_err, trail) -- trail is a per-round outcome log."""
     messages = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}]
     findings = renames = cleaned = ""
     err = ""
+    trail = []
+    COMPILE_FB = ("Your CLEANED code does not compile. Fix ONLY the compile errors -- keep the readability "
+        "cleanup, the renames, the behaviour, and the @k10d header. gcc reported:\n\n{err}\n\n"
+        "Return all three sections (### FINDINGS / ### RENAMES / ### CLEANED) again, corrected.")
+    CODEGEN_FB = ("Your CLEANED code COMPILES but produces DIFFERENT machine code than the original C, so "
+        "some rewrite changed the codegen -- the cleanup must be byte-identical. {diff}\n\nReturn a version "
+        "that compiles to the SAME instructions: KEEP the readability changes that lower identically (renames, "
+        "typed `base[i]` / `base->field` indexing, dropped reinterpret casts, comments) but REVERT whatever "
+        "rewrite moved the machine code (often a changed type width, an int/uint cast, or a reordered/merged "
+        "expression). Return all three sections (### FINDINGS / ### RENAMES / ### CLEANED) again.")
     for rnd in range(1, MAX_ROUNDS + 1):
         raw = call_llm(messages)
         findings, renames, cleaned = split_sections(raw)
         if cleaned is None or dry_run:
-            return findings, renames, cleaned, rnd, ""
+            trail.append(f"round {rnd}: " + ("dry-run (not gated)" if dry_run else "NO ### CLEANED fenced block produced"))
+            return findings, renames, cleaned, rnd, "", trail
         err = compile_error(cleaned)
         if err:
-            if rnd == MAX_ROUNDS:
+            last = (rnd == MAX_ROUNDS)
+            trail.append(f"round {rnd}: COMPILE ERROR" + (" (rounds exhausted -> NOCOMPILE)" if last else " -> fed back") + ":\n" + _indent(err[:400]))
+            if last:
                 break
             messages.append({"role": "assistant", "content": raw})
-            messages.append({"role": "user", "content":
-                "Your CLEANED code does not compile. Fix ONLY the compile errors -- keep the readability "
-                "cleanup, the renames, the behaviour, and the @k10d header. gcc reported:\n\n" + err +
-                "\n\nReturn all three sections (### FINDINGS / ### RENAMES / ### CLEANED) again, corrected."})
+            messages.append({"role": "user", "content": COMPILE_FB.format(err=err)})
             continue
-        # compiles. now the CODEGEN gate as a feedback loop (skipped if allow_codegen or no src given).
         if src and not allow_codegen:
             matches, diff = codegen_check(src, cleaned, gcc_only)
-            if matches is False and rnd < MAX_ROUNDS:
-                messages.append({"role": "assistant", "content": raw})
-                messages.append({"role": "user", "content":
-                    "Your CLEANED code COMPILES but produces DIFFERENT machine code than the original C, "
-                    "so some rewrite changed the codegen -- the cleanup must be byte-identical. " + diff +
-                    "\n\nReturn a version that compiles to the SAME instructions: KEEP the readability changes "
-                    "that lower identically (renames, typed `base[i]` / `base->field` indexing, dropped "
-                    "reinterpret casts, comments) but REVERT whatever rewrite moved the machine code (often a "
-                    "changed type width, an int/uint cast, or a reordered/merged expression). Return all three "
-                    "sections (### FINDINGS / ### RENAMES / ### CLEANED) again."})
-                continue
-        return findings, renames, cleaned, rnd, ""          # compiles + codegen matches (or gate off/exhausted)
-    return findings, renames, cleaned, MAX_ROUNDS, err
+            if matches is False:
+                if rnd < MAX_ROUNDS:
+                    trail.append(f"round {rnd}: compiled OK, but CODEGEN DIVERGED from the original C -> fed back the diff:\n" + _indent((diff or "")[:700]))
+                    messages.append({"role": "assistant", "content": raw})
+                    messages.append({"role": "user", "content": CODEGEN_FB.format(diff=diff or "")})
+                    continue
+                trail.append(f"round {rnd}: compiled OK, but CODEGEN DIVERGED and rounds exhausted -> will HOLD:\n" + _indent((diff or "")[:700]))
+            elif matches is None:
+                trail.append(f"round {rnd}: compiled OK; codegen gate could not run (fcc/compile unavailable) -> fall back to .text gate")
+            else:
+                trail.append(f"round {rnd}: compiled OK and CODEGEN MATCHES the original C -> applied")
+        else:
+            trail.append(f"round {rnd}: compiled OK (codegen gate off: " + ("allow_codegen" if allow_codegen else "no src") + ")")
+        return findings, renames, cleaned, rnd, "", trail
+    return findings, renames, cleaned, MAX_ROUNDS, err, trail
 
 def split_sections(raw):
     sec = {"FINDINGS": "", "RENAMES": "", "CLEANED": ""}
@@ -436,7 +451,7 @@ def process(path, args):
         return
 
     try:
-        findings, renames, cleaned, rounds, cc_err = cleanup_with_self_check(
+        findings, renames, cleaned, rounds, cc_err, trail = cleanup_with_self_check(
             user, args.dry_run, src, getattr(args, "gcc_only", False), getattr(args, "allow_codegen", False))
     except Exception as e:                       # noqa: BLE001 -- surface any transport error
         print(f"  LLM error on {name}: {e}", file=sys.stderr); return
@@ -445,7 +460,8 @@ def process(path, args):
     report = (f"# cleanup proposal: {name}\n\n"
               f"- source: `{rel}`  (origVA 0x{va:08x})\n"
               f"- model: {MODEL}  (self-check rounds: {rounds})\n\n"
-              f"## FINDINGS (known bug classes)\n{findings or '- none'}\n\n"
+              + ("## SELF-CHECK ROUNDS\n" + "\n".join(trail) + "\n\n" if trail else "")
+              + f"## FINDINGS (known bug classes)\n{findings or '- none'}\n\n"
               f"## RENAMES (speculative)\n{renames or '(none)'}\n\n"
               f"## CLEANED (behaviour-preserving; review + differential-build before applying)\n"
               f"```c\n{cleaned or '(model produced no fenced block)'}\n```\n"
