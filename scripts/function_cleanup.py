@@ -160,14 +160,18 @@ Proposed names (all current names are speculative guesses; so are the callee nam
 specific. Never rename anything in other functions.
 
 ### CLEANED
-A single ```c fenced block of the SAME function, rewritten so a human can READ it and see what it does
-WITHOUT wading through cast-and-pointer-arithmetic soup. That readability is the GOAL; a strict
-automatic gate keeps it honest.
-- HARD GATE (automatic, non-negotiable): the cleaned function must compile to BYTE-IDENTICAL machine
-  code (.text) as the original. Anything that changes codegen is HELD for review, never silently
-  applied -- so rewrite freely toward readability as long as it is PROVABLY EQUIVALENT; the gate
-  rejects what is not. Never change BEHAVIOR: do not change which bytes are read/written, reorder side
-  effects, or "fix" a suspected bug (report bugs in ### FINDINGS and leave them intact here).
+A single ```c fenced block of the SAME function -- this block is the DELIVERABLE, not a proposal. A
+human must be able to READ it and see what it does WITHOUT wading through cast-and-pointer-arithmetic
+soup. You MUST: (a) APPLY every var/param rename you listed in ### RENAMES, throughout the body -- the
+RENAMES list alone is NOT enough, actually rename them here; and (b) DE-SOUP the pointer arithmetic.
+Returning the original code unchanged, or nearly unchanged, is a FAILURE of this task -- if you changed
+almost nothing, you did not do the job.
+- The GATE is a SAFETY NET, not a reason to be timid. Your cleaned function is auto-compiled and must
+  produce BYTE-IDENTICAL machine code to the original; if a rewrite accidentally changed behavior it is
+  HELD for review -- harmless, nothing is lost. So be BOLD: rename and de-soup aggressively. A HELD
+  function costs nothing; a no-op "cleanup" wastes the pass. The ONLY hard behavioral rule: do not change
+  which bytes are read/written, reorder side effects, or "fix" a suspected bug (report bugs in ### FINDINGS,
+  leave them intact here).
 - DE-SOUP -- this is the main job. Turn decompiler artifacts into clear C that compiles the same:
   * `*(T *)((int)base + i * sizeof(T))`  ->  retype `base` to `T *` and write `base[i]`.
   * `*(T *)((int)base + 0xNN)`  ->  a struct field access `base->field` when a struct type fits the offset.
@@ -180,8 +184,9 @@ automatic gate keeps it honest.
 - Keep the function's OWN name EXACTLY as given (callers depend on it; a function rename is a PROPOSAL
   in RENAMES only, never applied here) and keep the leading /* @k10d ... */ header verbatim (especially
   its `@ 0x<va>` line). Do not touch or inline other functions.
-- If a cleaner form would change codegen (the gate would HOLD it), keep the original form and add a
-  comment instead -- a readable-but-faithful line beats a prettier one that moves the machine code.
+- Only for a GENUINELY irreducible line (a real hardware bit idiom, an odd cast that lowers differently)
+  may you keep the original form if cleaning it would change codegen -- and then add a comment. That is a
+  rare per-LINE exception, NEVER an excuse to leave the function un-renamed or un-de-souped.
 
 COMMON MISTAKES seen in earlier runs -- DO NOT REPEAT:
 - Non-compiling output: every variable you use must be declared; match the original's types; balance
