@@ -88,6 +88,8 @@ exact call you are describing.
 
 **Arithmetic immediates do NOT scale — only addressing modes do.** The disassembler prints the immediate add/subtract opcodes as **`add4`/`addn4`** (positive 4-bit immediate 0–15) and `add2`/`addn2` (negative immediate −16…−1). **The `4`/`2` in that mnemonic is a disassembler label for the opcode variant — NOT a multiplier on the operand.** `addn4 #N,Ri` computes `Ri = Ri + N` (raw N), full stop; there is no ×4/×width multiply. Width scaling happens ONLY inside the `@(r14,disp)`/`@(r15,N)` addressing modes above. So `addn4 #4,r8` adds **4**, not 16: a loop whose index is advanced by `addn4 #4` between four per-iteration checks at `base+0x88,+0x8c,+0x90,+0x94` has a **4-byte** stride and matches a C that reads `+0x88,+0x8c,+0x90,+0x94`. Never read `addn4 #N`/`add4 #N` as `+N×4`.
 
+**Shifts are the exception — there the numeric suffix DOES change the count.** `lsl2 #N`, `lsr2 #N`, `asr2 #N` shift by **`N + 16`** (SLEIGH: `xp16 = tc_x + 16`), i.e. the `2`-variant covers shift counts 16–31. So `lsr2 #0` is `>> 16`, not `>> 0`; `lsl2 #4` is `<< 20`. The plain `lsl/lsr/asr #N` (no `2`) shift by N (0–15). Moral: FR mnemonic suffixes are inconsistent — the `4` in `addn4` is a bare label, the `2` in `add2`/`addn2` means a negative immediate, and the `2` in `lsl2/lsr2/asr2` adds 16 to the shift. Check the opcode against SLEIGH rather than guessing from the suffix.
+
 The `@(r13,rj)` **unscaled** index is the heart of the **B-12 stride** bug class: the C
 `(&DAT)[i]` strides by `sizeof(decl)`, but the asm index `rj` is a **raw byte offset** — if
 the table is byte/halfword data wrongly declared `uint32_t`, the strides disagree. Always
