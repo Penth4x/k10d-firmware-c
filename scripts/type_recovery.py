@@ -61,6 +61,48 @@ def evident_param_types(src, defs):
             out[var] = cls
     return out
 
+
+# -------- vtable membership: self (param_1) class = the class whose vtable lists the method --------
+import struct
+_FW_PATH = "/home/memorai/k10d-re/FWDC162B.BIN"
+
+def _firmware():
+    try: return open(_FW_PATH, "rb").read()
+    except OSError: return b""
+
+def va2name_map():
+    """{function VA -> name} from the cpu/src @k10d headers."""
+    out = {}
+    for f in glob.glob(os.path.join(ROOT, "cpu/src", "*", "*.c")):
+        m = re.search(r'@k10d\s+\S+\s+@\s+0x([0-9a-fA-F]+)', open(f, errors="ignore").read(400))
+        if m: out[int(m.group(1), 16)] = os.path.splitext(os.path.basename(f))[0]
+    return out
+
+def method_self_class(defs=None):
+    """{method VA -> cls name} by vtable membership: scan each class's vtable (bounded by the next class
+    address) in the firmware, collect entries that are known function VAs. For a method in multiple
+    vtables (inheritance) pick the smallest-struct class (the base, where it is declared)."""
+    defs = defs or struct_defs()
+    fw = _firmware()
+    if not fw: return {}
+    known = set(va2name_map())
+    def wd(va):
+        o = va - 0x10000000
+        return struct.unpack(">I", fw[o:o+4])[0] if 0 <= o <= len(fw) - 4 else 0
+    cls_addrs = sorted(int(n.split("_")[1], 16) for n in defs)
+    method_cls = {}
+    for i, C in enumerate(cls_addrs):
+        end = min(cls_addrs[i+1] if i+1 < len(cls_addrs) else C + 0x400, C + 0x400)
+        va = C
+        while va < end:
+            w = wd(va)
+            if w in known:
+                method_cls.setdefault(w, []).append(C)
+            va += 4
+    # resolve inheritance: smallest struct = base
+    size = lambda addr: len(defs.get("cls_%x" % addr, ""))
+    return {mva: ("cls_%x" % min(cs, key=size)) for mva, cs in method_cls.items()}
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--map", action="store_true")
