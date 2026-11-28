@@ -6,44 +6,44 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t map_index_to_offset_1045a954(uint32_t param_1,int param_2,uint32_t param_3)
+uint32_t map_index_to_offset_1045a954(uint32_t unused,int enabled,uint32_t index)
 
 {
-  uint32_t uVar1;
-  
-  uVar1 = 0;
-  if (param_2 != 0) {
-    switch(param_3) {
+  uint32_t offset;
+
+  offset = 0;
+  if (enabled != 0) {
+    switch(index) {
     case 0:
-      uVar1 = 0;
+      offset = 0;
       break;
     default:
-      uVar1 = 0;
+      offset = 0;
       break;
     case 3:
-      uVar1 = 3;
+      offset = 3;
       break;
     case 4:
-      uVar1 = 5;
+      offset = 5;
       break;
     case 5:
-      uVar1 = 7;
+      offset = 7;
       break;
     case 8:
-      uVar1 = 10;
+      offset = 10;
       break;
     case 0xb:
-      uVar1 = 0xd;
+      offset = 0xd;
       break;
     case 0xc:
-      uVar1 = 0xf;
+      offset = 0xf;
       break;
     case 0xd:
-      uVar1 = 0x11;
+      offset = 0x11;
       break;
     case 0x10:
-      uVar1 = 0x14;
+      offset = 0x14;
     }
   }
-  return uVar1;
+  return offset;
 }

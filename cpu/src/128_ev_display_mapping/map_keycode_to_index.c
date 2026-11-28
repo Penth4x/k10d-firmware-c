@@ -16,56 +16,56 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint map_keycode_to_index(uint32_t param_1,uint param_2)
+uint map_keycode_to_index(uint32_t unused_param_1,uint raw_keycode)
 
 {
-  uint uVar1;
-  uint extraout_r4;
-  uint uVar2;
-  uint32_t uVar3;
-  uint extraout_r4_00;
-  uint extraout_r4_01;
-  uint32_t extraout_r5;
-  uint32_t extraout_r5_00;
-  uint32_t extraout_r5_01;
-  void *extraout_r5_02;
-  uint extraout_r5_03;
-  uint64_t uVar4;
+  uint table_index;
+  uint ignored_r4;
+  uint computed_index;
+  uint32_t compare_result;
+  uint ignored_r4_0;
+  uint ignored_r4_1;
+  uint32_t ignored_r5;
+  uint32_t ignored_r5_0;
+  uint32_t ignored_r5_1;
+  void *ignored_r5_2;
+  uint ignored_r5_3;
+  uint64_t multiply_result;
   
-  uVar1 = 0x20;
+  table_index = 0x20;
   do {
-    if (param_2 == *(ushort *)(uVar1 * 2 + 0x105a3e3c/*ROM*/)) {
-      return uVar1;
+    if (raw_keycode == *(ushort *)(table_index * 2 + 0x105a3e3c/*ROM*/)) {
+      return table_index;
     }
-    uVar1 = uVar1 + 1 & 0xff;
-  } while (uVar1 < 0x41);
-  uVar1 = negate_signed_integer(param_2);
-  uVar1 = compute_float_division(uVar1,0x3ea3d70a);
-  convert_signed_byte_to_unsigned(uVar1);
-  uVar1 = build_lens_update_packet_10544cd0((uint)(extraout_r4),(void *)(extraout_r5));
-  uVar2 = build_lens_update_packet_10544cd0(0x40000000,0);
-  uVar4 = multiply_fixed_point_values_105445a2(uVar1,extraout_r5_00,uVar2,extraout_r5_01);
-  uVar1 = encode_float32_to_fixed_point((uint)((ulonglong)uVar4 >> 0x20),(uint)uVar4);
-  uVar3 = compare_signed_fixed_point(uVar1,0x3f800000);
-  uVar1 = compute_float_division(uVar3,0x41000000);
-  convert_signed_byte_to_unsigned(uVar1);
-  add_two_64_bit_integers(extraout_r4_00,extraout_r5_02,0x3fe00000,0);
-  uVar1 = normalize_fixed_point_value_105448ac(extraout_r4_01,extraout_r5_03);
-  uVar2 = uVar1 & 0xff;
-  if (uVar2 < 0x20) {
-    uVar2 = 0x20;
+    table_index = table_index + 1 & 0xff;
+  } while (table_index < 0x41);
+  table_index = negate_signed_integer(raw_keycode);
+  table_index = compute_float_division(table_index,0x3ea3d70a);
+  convert_signed_byte_to_unsigned(table_index);
+  table_index = build_lens_update_packet_10544cd0((uint)(ignored_r4),(void *)(ignored_r5));
+  computed_index = build_lens_update_packet_10544cd0(0x40000000,0);
+  multiply_result = multiply_fixed_point_values_105445a2(table_index,ignored_r5_0,computed_index,ignored_r5_1);
+  table_index = encode_float32_to_fixed_point((uint)((ulonglong)multiply_result >> 0x20),(uint)multiply_result);
+  compare_result = compare_signed_fixed_point(table_index,0x3f800000);
+  table_index = compute_float_division(compare_result,0x41000000);
+  convert_signed_byte_to_unsigned(table_index);
+  add_two_64_bit_integers(ignored_r4_0,ignored_r5_2,0x3fe00000,0);
+  table_index = normalize_fixed_point_value_105448ac(ignored_r4_1,ignored_r5_3);
+  computed_index = table_index & 0xff;
+  if (computed_index < 0x20) {
+    computed_index = 0x20;
   }
-  else if (uVar2 < 0x41) {
-    uVar1 = uVar1 & 0xf;
-    if ((((uVar1 == 1) || (uVar1 == 6)) || (uVar1 == 9)) || (uVar1 == 0xe)) {
-      uVar2 = uVar2 - 1 & 0xff;
+  else if (computed_index < 0x41) {
+    table_index = table_index & 0xf;
+    if ((((table_index == 1) || (table_index == 6)) || (table_index == 9)) || (table_index == 0xe)) {
+      computed_index = computed_index - 1 & 0xff;
     }
-    else if (((uVar1 == 2) || (uVar1 == 7)) || ((uVar1 == 10 || (uVar1 == 0xf)))) {
-      uVar2 = uVar2 + 1 & 0xff;
+    else if (((table_index == 2) || (table_index == 7)) || ((table_index == 10 || (table_index == 0xf)))) {
+      computed_index = computed_index + 1 & 0xff;
     }
   }
   else {
-    uVar2 = 0x40;
+    computed_index = 0x40;
   }
-  return uVar2;
+  return computed_index;
 }

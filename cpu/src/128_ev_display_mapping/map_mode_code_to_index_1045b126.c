@@ -6,51 +6,58 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t map_mode_code_to_index_1045b126(uint32_t param_1,uint32_t param_2)
-
+uint32_t map_mode_code_to_index_1045b126(uint32_t current_index, uint32_t mode_code)
 {
-  uint32_t uVar1;
-  
-  switch(param_2) {
+  uint32_t mapped_index;
+
+  /*
+   * Original: if mode_code == 0xfe, fall through to the 0x1045b160 path and
+   * return 8. Otherwise, index a 32-bit jump table at 0x105a564c by
+   * (mode_code << 2) and jump to the selected branch. Each selected branch
+   * loads r4 in its delay slot and branches to ret.
+   */
+  switch (mode_code) {
   case 0:
-    uVar1 = 8;
+    mapped_index = 8;
     break;
   default:
-    uVar1 = 8;
+    mapped_index = 8;
     break;
   case 3:
   case 4:
-    uVar1 = 9;
+    mapped_index = 9;
     break;
   case 5:
-    uVar1 = 0xb;
+    mapped_index = 0xb;
     break;
   case 8:
   case 0xb:
   case 0xc:
   case 0xd:
   case 0x10:
-    uVar1 = 0xc;
+    mapped_index = 0xc;
     break;
   case 0xf0:
-    uVar1 = 0;
+    mapped_index = 0;
     break;
   case 0xf3:
-    uVar1 = 1;
+    mapped_index = 1;
     break;
   case 0xf4:
   case 0xf5:
-    uVar1 = 3;
+    mapped_index = 3;
     break;
   case 0xf8:
-    uVar1 = 4;
+    mapped_index = 4;
     break;
   case 0xfb:
-    uVar1 = 5;
+    mapped_index = 5;
     break;
   case 0xfc:
   case 0xfd:
-    uVar1 = 7;
+    mapped_index = 7;
+    break;
   }
-  return uVar1;
+
+  return mapped_index;
 }

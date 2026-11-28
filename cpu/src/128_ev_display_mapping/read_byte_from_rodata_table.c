@@ -12,8 +12,8 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint8_t read_byte_from_rodata_table(uint32_t param_1,int param_2)
+uint8_t read_byte_from_rodata_table(uint32_t unused_param,int index)
 
 {
-  return (DAT_105a4676/*ROM*/)[param_2];
+  return (DAT_105a4676/*ROM*/)[index];
 }

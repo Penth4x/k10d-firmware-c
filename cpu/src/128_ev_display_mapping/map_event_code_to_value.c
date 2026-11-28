@@ -14,45 +14,46 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t map_event_code_to_value(uint32_t param_1,uint32_t param_2)
+uint32_t map_event_code_to_value(uint32_t unused_event_context, uint32_t event_code)
 
 {
-  uint32_t uVar1;
-  
-  switch(param_2) {
+  uint32_t mapped_value;
+
+  switch (event_code) {
   case 0:
-    uVar1 = 8;
+    mapped_value = 8;
     break;
   default:
-    uVar1 = 8;
+    mapped_value = 8;
     break;
   case 3:
   case 4:
   case 5:
-    uVar1 = 10;
+    mapped_value = 10;
     break;
   case 8:
   case 0xb:
   case 0xc:
   case 0xd:
   case 0x10:
-    uVar1 = 0xc;
+    mapped_value = 0xc;
     break;
   case 0xf0:
-    uVar1 = 0;
+    mapped_value = 0;
     break;
   case 0xf3:
   case 0xf4:
   case 0xf5:
-    uVar1 = 2;
+    mapped_value = 2;
     break;
   case 0xf8:
-    uVar1 = 4;
+    mapped_value = 4;
     break;
   case 0xfb:
   case 0xfc:
   case 0xfd:
-    uVar1 = 6;
+    mapped_value = 6;
   }
-  return uVar1;
+
+  return mapped_value;
 }

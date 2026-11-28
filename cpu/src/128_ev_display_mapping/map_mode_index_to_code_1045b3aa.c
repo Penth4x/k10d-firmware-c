@@ -6,42 +6,45 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t map_mode_index_to_code_1045b3aa(uint32_t param_1,uint32_t param_2,int param_3)
-
+uint32_t map_mode_index_to_code_1045b3aa(uint32_t unused_first_arg,
+                                         uint32_t mode_index,
+                                         int mode_subindex)
 {
-  uint32_t uVar1;
-  
-  switch(param_2) {
-  case 1:
-    uVar1 = 1;
-    break;
-  case 2:
-    uVar1 = 8;
-    break;
-  case 3:
-    uVar1 = 9;
-    break;
-  case 4:
-    uVar1 = 10;
-    break;
-  case 5:
-    uVar1 = 2;
-    break;
-  case 6:
-    uVar1 = 3;
-    break;
-  case 7:
-    uVar1 = 10;
-    break;
-  case 8:
-    if (param_3 == 0) {
-      return 5;
-    }
-    if (param_3 == 1) {
-      return 6;
-    }
-  default:
-    uVar1 = 0;
+  uint32_t mode_code;
+
+  switch (mode_index) {
+    case 1:
+      mode_code = 1;
+      break;
+    case 2:
+      mode_code = 8;
+      break;
+    case 3:
+      mode_code = 9;
+      break;
+    case 4:
+      mode_code = 10;
+      break;
+    case 5:
+      mode_code = 2;
+      break;
+    case 6:
+      mode_code = 3;
+      break;
+    case 7:
+      mode_code = 10;
+      break;
+    case 8:
+      if (mode_subindex == 0) {
+        return 5;
+      }
+      if (mode_subindex == 1) {
+        return 6;
+      }
+    default:
+      mode_code = 0;
+      break;
   }
-  return uVar1;
+
+  return mode_code;
 }

@@ -13,11 +13,10 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint compute_complement_of_helper_result(uint32_t param_1,short param_2,int param_3,uint param_4)
-
+uint compute_complement_of_helper_result(uint32_t arg1, short arg2, int arg3, uint arg4)
 {
-  uint uVar1;
-  
-  uVar1 = find_exposure_value_index(param_1,param_2,param_3,param_4);
-  return 0x40 - uVar1 & 0xff;
+  uint helper_result;
+
+  helper_result = find_exposure_value_index(arg1, arg2, arg3, arg4);
+  return 0x40 - helper_result & 0xff;
 }

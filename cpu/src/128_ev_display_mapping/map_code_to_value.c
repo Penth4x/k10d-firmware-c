@@ -6,65 +6,66 @@
 #include "globals.h"
 #include "funcs.h"
 
-uint32_t map_code_to_value(uint32_t param_1,uint32_t param_2)
-
+uint32_t map_code_to_value(uint32_t unused_param, uint32_t code)
 {
-  uint32_t uVar1;
-  
-  switch(param_2) {
+  uint32_t value;
+
+  switch (code) {
   case 0:
-    uVar1 = 0;
+    value = 0;
     break;
   default:
-    uVar1 = 0;
+    value = 0;
     break;
   case 3:
-    uVar1 = 0xfffffffd;
+    value = 0xfffffffd;
     break;
   case 4:
-    uVar1 = 0xfffffffb;
+    value = 0xfffffffb;
     break;
   case 5:
-    uVar1 = 0xfffffff9;
+    value = 0xfffffff9;
     break;
   case 8:
-    uVar1 = 0xfffffff6;
+    value = 0xfffffff6;
     break;
   case 0xb:
-    uVar1 = 0xfffffff3;
+    value = 0xfffffff3;
     break;
   case 0xc:
-    uVar1 = 0xfffffff1;
+    value = 0xfffffff1;
     break;
   case 0xd:
-    uVar1 = 0xffffffef;
+    value = 0xffffffef;
     break;
   case 0x10:
-    uVar1 = 0xffffffec;
+    value = 0xffffffec;
     break;
   case 0xf0:
-    uVar1 = 0x14;
+    value = 0x14;
     break;
   case 0xf3:
-    uVar1 = 0x11;
+    value = 0x11;
     break;
   case 0xf4:
-    uVar1 = 0xf;
+    value = 0xf;
     break;
   case 0xf5:
-    uVar1 = 0xd;
+    value = 0xd;
     break;
   case 0xf8:
-    uVar1 = 10;
+    value = 10;
     break;
   case 0xfb:
-    uVar1 = 7;
+    value = 7;
     break;
   case 0xfc:
-    uVar1 = 5;
+    value = 5;
     break;
   case 0xfd:
-    uVar1 = 3;
+    value = 3;
+    break;
   }
-  return uVar1;
+
+  return value;
 }
