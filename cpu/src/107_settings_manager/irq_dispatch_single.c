@@ -15,15 +15,15 @@
 #include "globals.h"
 #include "funcs.h"
 
-int irq_dispatch_single(int param_1)
+int irq_dispatch_single(int irq_index)
 
 {
-  int *piVar1;
-  
-  piVar1 = *(int **)(param_1 * 4 + -0x7ffe21d8);
-  if (piVar1 != (int *)0x0) {
-    param_1 = (((vtbl_entry*)(*piVar1))[2].fn)((int)((vtbl_entry*)(*piVar1))[2].adj + (int)piVar1,param_1,0)
+  int *handler_obj;
+
+  handler_obj = *(int **)(irq_index * 4 + -0x7ffe21d8);
+  if (handler_obj != (int *)0x0) {
+    irq_index = (((vtbl_entry*)(*handler_obj))[2].fn)((int)((vtbl_entry*)(*handler_obj))[2].adj + (int)handler_obj,irq_index,0)
     ;
   }
-  return param_1;
+  return irq_index;
 }

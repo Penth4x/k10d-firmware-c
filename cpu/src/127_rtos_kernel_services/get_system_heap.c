@@ -19,6 +19,7 @@
 uint32_t get_system_heap(void)
 
 {
+  /* One-time init: if the heap-ready flag is clear, set it and initialise the heap. */
   if (_DAT_8002f088/*SDRAM*/ == 0) {
     _DAT_8002f088/*SDRAM*/ = 1;
     alloc_and_init_0x90_block((void *)0x8002eff8/*SDRAM*/);

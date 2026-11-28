@@ -18,43 +18,43 @@
 uint32_t grow_dynamic_buffer_1045cb38(int *param_1,uint32_t *param_2,uint32_t *param_3)
 
 {
-  uint32_t *puVar1;
-  int iVar2;
-  int iVar3;
-  
-  puVar1 = (uint32_t *)param_1[1];
-  if ((int)(((uint)(param_1[2] - (int)puVar1 >> 1) >> 0x1e) + (param_1[2] - (int)puVar1)) >> 2 < 1)
+  uint32_t *new_base;
+  int grow_size;
+  int vtbl_ptr;
+
+  new_base = (uint32_t *)param_1[1];
+  if ((int)(((uint)(param_1[2] - (int)new_base >> 1) >> 0x1e) + (param_1[2] - (int)new_base)) >> 2 < 1)
   {
-    iVar2 = ((int)(((uint)((int)puVar1 - *param_1 >> 1) >> 0x1e) + ((int)puVar1 - *param_1)) >> 2)
-            << 1;
-    if (iVar2 == 0) {
-      iVar2 = 1;
+    grow_size = ((int)(((uint)((int)new_base - *param_1 >> 1) >> 0x1e) + ((int)new_base - *param_1)) >> 2)
+                << 1;
+    if (grow_size == 0) {
+      grow_size = 1;
     }
-    iVar3 = *(int *)param_1[3];
-    puVar1 = (uint32_t *)
-             (((vtbl_entry*)(iVar3))[2].fn)(param_1[3] + (int)((vtbl_entry*)(iVar3))[2].adj,iVar2);
-    if (puVar1 == (uint32_t *)0x0) {
+    vtbl_ptr = *(int *)param_1[3];
+    new_base = (uint32_t *)
+               (((vtbl_entry*)(vtbl_ptr))[2].fn)(param_1[3] + (int)((vtbl_entry*)(vtbl_ptr))[2].adj,grow_size);
+    if (new_base == (uint32_t *)0x0) {
       return 0;
     }
-    copy_word_array_1045cd06(param_1,(uint32_t *)*param_1,param_2,puVar1);
+    copy_word_array_1045cd06(param_1,(uint32_t *)*param_1,param_2,new_base);
     copy_word_array_1045cd46(param_1,(uint32_t *)
                          ((((uint)((int)param_2 - *param_1 >> 1) >> 0x1e) +
-                           ((int)param_2 - *param_1) & 0xfffffffc) + (int)puVar1),1,param_3);
+                           ((int)param_2 - *param_1) & 0xfffffffc) + (int)new_base),1,param_3);
     copy_word_array_1045cd06(param_1,param_2,(uint32_t *)param_1[1],
                  (uint32_t *)
-                 ((int)puVar1 +
+                 ((int)new_base +
                  (((uint)((int)param_2 - *param_1 >> 1) >> 0x1e) + ((int)param_2 - *param_1) &
                  0xfffffffc) + 4));
     zero_memory_range(param_1,(uint32_t *)*param_1,(uint32_t *)param_1[1]);
-    iVar3 = *(int *)param_1[3];
-    (((vtbl_entry*)(iVar3))[3].fn)(param_1[3] + (int)((vtbl_entry*)(iVar3))[3].adj,*param_1);
-    param_1[2] = (int)(puVar1 + iVar2);
-    param_1[1] = (int)(puVar1 + ((int)(((uint)(param_1[1] - *param_1 >> 1) >> 0x1e) +
+    vtbl_ptr = *(int *)param_1[3];
+    (((vtbl_entry*)(vtbl_ptr))[3].fn)(param_1[3] + (int)((vtbl_entry*)(vtbl_ptr))[3].adj,*param_1);
+    param_1[2] = (int)(new_base + grow_size);
+    param_1[1] = (int)(new_base + ((int)(((uint)(param_1[1] - *param_1 >> 1) >> 0x1e) +
                                       (param_1[1] - *param_1)) >> 2) + 1);
-    *param_1 = (int)puVar1;
+    *param_1 = (int)new_base;
   }
   else {
-    memmove_downward(param_1,(int)param_2,puVar1,(int)(param_2 + 1));
+    memmove_downward(param_1,(int)param_2,new_base,(int)(param_2 + 1));
     copy_word_array_1045cd46(param_1,param_2,1,param_3);
     param_1[1] = param_1[1] + 4;
   }

@@ -8,36 +8,36 @@
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-int alloc_and_init_lens_fw_buffer(int param_1,int param_2,int param_3,code *param_4,code *param_5,int param_6)
+int alloc_and_init_lens_fw_buffer(int buffer_ptr,int entry_count,int entry_stride,code *init_fn,code *alloc_fn,int use_custom_alloc)
 
 {
-  int iVar1;
-  int iVar2;
-  
-  if ((param_1 == 0) || (param_6 != 0)) {
-    if (param_1 == 0) {
-      iVar1 = param_2 * param_3 + _DAT_80014a74/*SDRAM*/;
-      if (param_5 == (code *)0x0) {
-        param_1 = heap_alloc_2(iVar1);
+  int cur_ptr;
+  int loop_idx;
+
+  if ((buffer_ptr == 0) || (use_custom_alloc != 0)) {
+    if (buffer_ptr == 0) {
+      cur_ptr = entry_count * entry_stride + _DAT_80014a74/*SDRAM*/;
+      if (alloc_fn == (code *)0x0) {
+        buffer_ptr = heap_alloc_2(cur_ptr);
       }
       else {
-        param_1 = (*param_5)(iVar1);
+        buffer_ptr = (*alloc_fn)(cur_ptr);
       }
-      if (param_1 != 0) {
-        param_1 = param_1 + _DAT_80014a74/*SDRAM*/;
+      if (buffer_ptr != 0) {
+        buffer_ptr = buffer_ptr + _DAT_80014a74/*SDRAM*/;
       }
-      if (param_1 == 0) {
+      if (buffer_ptr == 0) {
         return 0;
       }
     }
-    *(int *)(param_1 - _DAT_80014a74/*SDRAM*/) = param_2;
+    *(int *)(buffer_ptr - _DAT_80014a74/*SDRAM*/) = entry_count;
   }
-  if ((param_4 != (code *)0x0) && (iVar2 = 0, iVar1 = param_1, 0 < param_2)) {
+  if ((init_fn != (code *)0x0) && (loop_idx = 0, cur_ptr = buffer_ptr, 0 < entry_count)) {
     do {
-      (*param_4)(iVar1);
-      iVar2 = iVar2 + 1;
-      iVar1 = iVar1 + param_3;
-    } while (iVar2 < param_2);
+      (*init_fn)(cur_ptr);
+      loop_idx = loop_idx + 1;
+      cur_ptr = cur_ptr + entry_stride;
+    } while (loop_idx < entry_count);
   }
-  return param_1;
+  return buffer_ptr;
 }

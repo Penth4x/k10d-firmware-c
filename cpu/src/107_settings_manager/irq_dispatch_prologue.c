@@ -18,6 +18,7 @@
 uint32_t irq_dispatch_prologue(void)
 
 {
+  /* Lazy-init guard: word at 0x8001ded8 is the "already initialized" flag */
   if (_DAT_8001ded8/*SDRAM*/ == 0) {
     _DAT_8001ded8/*SDRAM*/ = 1;
     zero_initialize_twelve_words(0x8001ded4/*SDRAM*/);
